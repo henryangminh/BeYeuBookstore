@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
-namespace ERPWebApp.Infrastructure.SharedKernel
+namespace BeYeuBookstore.Infrastructure.SharedKernel
 {
     public abstract class DomainEntity<T>
     {

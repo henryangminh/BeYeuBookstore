@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace ERPWebApp.Authorization
+namespace BeYeuBookstore.Authorization
 {
     public static class Operations
     {

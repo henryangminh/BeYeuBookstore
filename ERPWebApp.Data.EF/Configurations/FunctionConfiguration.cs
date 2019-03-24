@@ -1,12 +1,12 @@
-﻿using ERPWebApp.Data.EF.Extensions;
-using ERPWebApp.Data.Entities;
+﻿using BeYeuBookstore.Data.EF.Extensions;
+using BeYeuBookstore.Data.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace ERPWebApp.Data.EF.Configurations
+namespace BeYeuBookstore.Data.EF.Configurations
 {
     public class FunctionConfiguration : DbEntityConfiguration<Function>
     {

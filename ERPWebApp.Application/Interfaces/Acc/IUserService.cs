@@ -1,12 +1,12 @@
-﻿using ERPWebApp.Application.ViewModels.System;
-using ERPWebApp.Data.Entities;
-using ERPWebApp.Utilities.DTOs;
+﻿using BeYeuBookstore.Application.ViewModels.System;
+using BeYeuBookstore.Data.Entities;
+using BeYeuBookstore.Utilities.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ERPWebApp.Application.Interfaces.Acc
+namespace BeYeuBookstore.Application.Interfaces.Acc
 { 
     public interface IUserService: IDisposable
     {

@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27703.2035
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ERPWebApp", "ERPWebApp\ERPWebApp.csproj", "{4A5C223D-2AE6-4ABF-84A5-427BED4B0762}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BeYeuBookstore", "ERPWebApp\BeYeuBookstore.csproj", "{4A5C223D-2AE6-4ABF-84A5-427BED4B0762}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Presentation", "1 - Presentation", "{4A03E9F8-1D4F-4451-AC69-2E616480D797}"
 EndProject
@@ -13,15 +13,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infrastructure", "4 - Infrastructure", "{6F34C7DE-AD28-4BFE-8597-6CBFC842074A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ERPWebApp.Application", "ERPWebApp.Application\ERPWebApp.Application.csproj", "{99386F6E-4558-4555-BF56-C0767403859D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BeYeuBookstore.Application", "ERPWebApp.Application\BeYeuBookstore.Application.csproj", "{99386F6E-4558-4555-BF56-C0767403859D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ERPWebApp.Data", "ERPWebApp.Data\ERPWebApp.Data.csproj", "{4D21984A-7E1B-4EEE-BC9F-19DEB37107E8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BeYeuBookstore.Data", "ERPWebApp.Data\BeYeuBookstore.Data.csproj", "{4D21984A-7E1B-4EEE-BC9F-19DEB37107E8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ERPWebApp.Data.EF", "ERPWebApp.Data.EF\ERPWebApp.Data.EF.csproj", "{67D74B88-F938-4711-A550-B2CBBBF4845C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BeYeuBookstore.Data.EF", "ERPWebApp.Data.EF\BeYeuBookstore.Data.EF.csproj", "{67D74B88-F938-4711-A550-B2CBBBF4845C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ERPWebApp.Infrastructure", "ERPWebApp.Infrastructure\ERPWebApp.Infrastructure.csproj", "{A32D8453-D74D-45A0-A4FE-AE2B0DDA6414}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BeYeuBookstore.Infrastructure", "ERPWebApp.Infrastructure\BeYeuBookstore.Infrastructure.csproj", "{A32D8453-D74D-45A0-A4FE-AE2B0DDA6414}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ERPWebApp.Utilities", "ERPWebApp.Utilities\ERPWebApp.Utilities.csproj", "{25661F31-7CF2-44B7-9CD0-9B128593C992}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BeYeuBookstore.Utilities", "ERPWebApp.Utilities\BeYeuBookstore.Utilities.csproj", "{25661F31-7CF2-44B7-9CD0-9B128593C992}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,7 +1,7 @@
-﻿using ERPWebApp.Data.EF.Configurations;
-using ERPWebApp.Data.EF.Extensions;
-using ERPWebApp.Data.Entities;
-using ERPWebApp.Data.Interfaces;
+﻿using BeYeuBookstore.Data.EF.Configurations;
+using BeYeuBookstore.Data.EF.Extensions;
+using BeYeuBookstore.Data.Entities;
+using BeYeuBookstore.Data.Interfaces;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
@@ -15,7 +15,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 
-namespace ERPWebApp.Data.EF
+namespace BeYeuBookstore.Data.EF
 {
     public class ERPDbContext : IdentityDbContext<User, Role, Guid>
     {

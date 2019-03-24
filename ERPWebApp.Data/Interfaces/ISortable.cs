@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ERPWebApp.Data.Interfaces
+namespace BeYeuBookstore.Data.Interfaces
 {
     public interface ISortable
     {

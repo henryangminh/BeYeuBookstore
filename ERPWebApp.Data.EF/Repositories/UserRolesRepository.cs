@@ -1,10 +1,10 @@
-﻿using ERPWebApp.Data.IRepositories;
+﻿using BeYeuBookstore.Data.IRepositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace ERPWebApp.Data.EF.Repositories
+namespace BeYeuBookstore.Data.EF.Repositories
 
 {
     public class UserRolesRepository : IUserRolesRepository

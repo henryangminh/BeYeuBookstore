@@ -1,15 +1,15 @@
 ﻿using AutoMapper;
 using AutoMapper.QueryableExtensions;
-using ERPWebApp.Application.Interfaces;
-using ERPWebApp.Application.Interfaces.Acc;
-using ERPWebApp.Application.ViewModels.System;
-using ERPWebApp.Data.eEnum;
-using ERPWebApp.Data.Entities;
-using ERPWebApp.Data.IRepositories;
-using ERPWebApp.Infrastructure.Interfaces;
-using ERPWebApp.Utilities.Constants;
-using ERPWebApp.Utilities.DTOs;
-using ERPWebApp.Utilities.GeneralFunction;
+using BeYeuBookstore.Application.Interfaces;
+using BeYeuBookstore.Application.Interfaces.Acc;
+using BeYeuBookstore.Application.ViewModels.System;
+using BeYeuBookstore.Data.eEnum;
+using BeYeuBookstore.Data.Entities;
+using BeYeuBookstore.Data.IRepositories;
+using BeYeuBookstore.Infrastructure.Interfaces;
+using BeYeuBookstore.Utilities.Constants;
+using BeYeuBookstore.Utilities.DTOs;
+using BeYeuBookstore.Utilities.GeneralFunction;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -18,7 +18,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ERPWebApp.Application.Implementation.Acc
+namespace BeYeuBookstore.Application.Implementation.Acc
 {
     public class UserService : IUserService
     {

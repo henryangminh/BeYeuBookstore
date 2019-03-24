@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ERPWebApp.Data.Entities
+namespace BeYeuBookstore.Data.Entities
 {
-    public class Contract
+    public class AdvertiseContract
     {
     }
 }

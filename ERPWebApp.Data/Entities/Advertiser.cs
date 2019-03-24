@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ERPWebApp.Data.Entities
+namespace BeYeuBookstore.Data.Entities
 {
     public class Advertiser
     {
+        public string BrandName { get; set; }
     }
 }

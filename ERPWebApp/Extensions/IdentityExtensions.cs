@@ -4,7 +4,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 
-namespace ERPWebApp.Extensions
+namespace BeYeuBookstore.Extensions
 {
     public static class IdentityExtensions
     {

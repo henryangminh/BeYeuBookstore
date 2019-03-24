@@ -1,9 +1,9 @@
-﻿using ERPWebApp.Infrastructure.SharedKernel;
+﻿using BeYeuBookstore.Infrastructure.SharedKernel;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace ERPWebApp.Data.Entities
+namespace BeYeuBookstore.Data.Entities
 {
     public class TransferLog : DomainEntity<int>
     {

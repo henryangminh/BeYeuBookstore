@@ -1,4 +1,4 @@
-﻿using ERPWebApp.Data.Entities;
+﻿using BeYeuBookstore.Data.Entities;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Options;
 using System;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 
-namespace ERPWebApp.Helpers
+namespace BeYeuBookstore.Helpers
 {
     public class CustomClaimsPrincipalFactory: UserClaimsPrincipalFactory<User,Role>
     {

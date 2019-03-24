@@ -31,11 +31,11 @@
 
  
   <ItemGroup>
-    <ProjectReference Include="..\ERPWebApp.Application\ERPWebApp.Application.csproj" />
-    <ProjectReference Include="..\ERPWebApp.Data.EF\ERPWebApp.Data.EF.csproj" />
-    <ProjectReference Include="..\ERPWebApp.Data\ERPWebApp.Data.csproj" />
-    <ProjectReference Include="..\ERPWebApp.Infrastructure\ERPWebApp.Infrastructure.csproj" />
-    <ProjectReference Include="..\ERPWebApp.Utilities\ERPWebApp.Utilities.csproj" />
+    <ProjectReference Include="..\ERPWebApp.Application\BeYeuBookstore.Application.csproj" />
+    <ProjectReference Include="..\ERPWebApp.Data.EF\BeYeuBookstore.Data.EF.csproj" />
+    <ProjectReference Include="..\ERPWebApp.Data\BeYeuBookstore.Data.csproj" />
+    <ProjectReference Include="..\ERPWebApp.Infrastructure\BeYeuBookstore.Infrastructure.csproj" />
+    <ProjectReference Include="..\ERPWebApp.Utilities\BeYeuBookstore.Utilities.csproj" />
   </ItemGroup>
 
   <ItemGroup>

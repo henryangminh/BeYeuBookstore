@@ -1,9 +1,9 @@
 <!-- kiem tra neu dang nhap roi thi hien thi thong tin dang nhap, khong thi hien thi phan login-->
 @using Microsoft.AspNetCore.Identity
-@using ERPWebApp.Data.Entities
+@using BeYeuBookstore.Data.Entities
 
-@inject SignInManager<ERPWebApp.Data.Entities.User> SignInManager
-@inject UserManager<ERPWebApp.Data.Entities.User> UserManager
+@inject SignInManager<BeYeuBookstore.Data.Entities.User> SignInManager
+@inject UserManager<BeYeuBookstore.Data.Entities.User> UserManager
 
 @if (SignInManager.IsSignedIn(User))
 {

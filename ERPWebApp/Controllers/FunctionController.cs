@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using ERPWebApp.Application.Interfaces.Acc;
-using ERPWebApp.Application.ViewModels.Acc;
+using BeYeuBookstore.Application.Interfaces.Acc;
+using BeYeuBookstore.Application.ViewModels.Acc;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 
-namespace ERPWebApp.Controllers
+namespace BeYeuBookstore.Controllers
 {
     public class FunctionController : BaseController
     {

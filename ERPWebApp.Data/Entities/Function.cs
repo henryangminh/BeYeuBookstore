@@ -1,13 +1,13 @@
-﻿using ERPWebApp.Data.Interfaces;
-using ERPWebApp.Infrastructure.SharedKernel;
+﻿using BeYeuBookstore.Data.Interfaces;
+using BeYeuBookstore.Infrastructure.SharedKernel;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
-using ERPWebApp.Data.eEnum;
+using BeYeuBookstore.Data.eEnum;
 
-namespace ERPWebApp.Data.Entities
+namespace BeYeuBookstore.Data.Entities
 {
     [Table("Functions")]
     public class Function : DomainEntity<string>, ISwitchable, ISortable

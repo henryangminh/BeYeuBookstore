@@ -6,7 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 
-namespace ERPWebApp.Models.ManageViewModels
+namespace BeYeuBookstore.Models.ManageViewModels
 {
     public class EnableAuthenticatorViewModel
     {

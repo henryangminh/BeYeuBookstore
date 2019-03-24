@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ERPWebApp.Infrastructure.Interfaces
+namespace BeYeuBookstore.Infrastructure.Interfaces
 {
     public interface IUnitOfWork : IDisposable
     {

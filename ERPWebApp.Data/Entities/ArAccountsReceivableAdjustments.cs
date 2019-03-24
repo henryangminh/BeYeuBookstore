@@ -1,8 +1,8 @@
-﻿using ERPWebApp.Infrastructure.SharedKernel;
+﻿using BeYeuBookstore.Infrastructure.SharedKernel;
 using System;
 using System.Collections.Generic;
 
-namespace ERPWebApp.Data.Entities
+namespace BeYeuBookstore.Data.Entities
 {
     public partial class ArAccountsReceivableAdjustments : DomainEntity<int>
     {

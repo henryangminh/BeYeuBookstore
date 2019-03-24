@@ -6,23 +6,23 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using ERPWebApp.Services;
-using ERPWebApp.Data.Entities;
-using ERPWebApp.Data.EF;
-using ERPWebApp.Data.IRepositories;
-using ERPWebApp.Data.EF.Repositories;
-using ERPWebApp.Infrastructure.Interfaces;
+using BeYeuBookstore.Services;
+using BeYeuBookstore.Data.Entities;
+using BeYeuBookstore.Data.EF;
+using BeYeuBookstore.Data.IRepositories;
+using BeYeuBookstore.Data.EF.Repositories;
+using BeYeuBookstore.Infrastructure.Interfaces;
 using AutoMapper;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json.Serialization;
-using ERPWebApp.Helpers;
-using User = ERPWebApp.Data.Entities.User;
-using ERPWebApp.Application.Interfaces.Acc;
-using ERPWebApp.Application.Implementation.Acc;
+using BeYeuBookstore.Helpers;
+using User = BeYeuBookstore.Data.Entities.User;
+using BeYeuBookstore.Application.Interfaces.Acc;
+using BeYeuBookstore.Application.Implementation.Acc;
 using Microsoft.AspNetCore.Authorization;
-using ERPWebApp.Authorization;
+using BeYeuBookstore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using ERPWebApp.Extensions;
+using BeYeuBookstore.Extensions;
 using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
 using Microsoft.AspNetCore.Mvc.Razor;
 using System.Globalization;
@@ -30,7 +30,7 @@ using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.DataProtection;
 using System.IO;
 
-namespace ERPWebApp
+namespace BeYeuBookstore
 {
     public class Startup
     {
@@ -72,7 +72,7 @@ namespace ERPWebApp
                 .AddDefaultTokenProviders()
                 .AddEntityFrameworkStores<ERPDbContext>();
               
-            //add ERPWebApp.Extensions (Nén response trả về)
+            //add BeYeuBookstore.Extensions (Nén response trả về)
             services.AddMinResponse();
 
             services.AddMemoryCache();

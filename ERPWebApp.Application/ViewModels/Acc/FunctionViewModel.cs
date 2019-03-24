@@ -1,10 +1,10 @@
-﻿using ERPWebApp.Data.eEnum;
+﻿using BeYeuBookstore.Data.eEnum;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
 
-namespace ERPWebApp.Application.ViewModels.Acc
+namespace BeYeuBookstore.Application.ViewModels.Acc
 {
     public class FunctionViewModel
     {

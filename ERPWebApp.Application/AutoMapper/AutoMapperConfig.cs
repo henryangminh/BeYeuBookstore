@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace ERPWebApp.Application.AutoMapper
+namespace BeYeuBookstore.Application.AutoMapper
 {
     public class AutoMapperConfig
     {

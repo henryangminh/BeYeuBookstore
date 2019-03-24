@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ERPWebApp.Utilities.GeneralFunction
+namespace BeYeuBookstore.Utilities.GeneralFunction
 {
     public class _convertFunction
     {

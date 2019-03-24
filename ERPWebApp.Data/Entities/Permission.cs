@@ -1,11 +1,11 @@
-﻿using ERPWebApp.Infrastructure.SharedKernel;
+﻿using BeYeuBookstore.Infrastructure.SharedKernel;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
-namespace ERPWebApp.Data.Entities
+namespace BeYeuBookstore.Data.Entities
 {
     [Table("Permissions")]
     public class Permission : DomainEntity<int>

@@ -18,7 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ERPWebApp.Infrastructure\ERPWebApp.Infrastructure.csproj" />
+    <ProjectReference Include="..\ERPWebApp.Infrastructure\BeYeuBookstore.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

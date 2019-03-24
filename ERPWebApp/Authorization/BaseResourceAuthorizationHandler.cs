@@ -1,5 +1,5 @@
-﻿using ERPWebApp.Application.Interfaces.Acc;
-using ERPWebApp.Utilities.Constants;
+﻿using BeYeuBookstore.Application.Interfaces.Acc;
+using BeYeuBookstore.Utilities.Constants;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Authorization.Infrastructure;
 using System;
@@ -8,7 +8,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 
-namespace ERPWebApp.Authorization
+namespace BeYeuBookstore.Authorization
 {
     public class BaseResourceAuthorizationHandler : AuthorizationHandler<OperationAuthorizationRequirement, string>
     {

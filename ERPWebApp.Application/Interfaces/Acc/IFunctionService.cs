@@ -1,10 +1,10 @@
-﻿using ERPWebApp.Application.ViewModels.Acc;
+﻿using BeYeuBookstore.Application.ViewModels.Acc;
 using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ERPWebApp.Application.Interfaces.Acc
+namespace BeYeuBookstore.Application.Interfaces.Acc
 {
     public interface IFunctionService : IDisposable
     {

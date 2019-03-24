@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ERPWebApp.Utilities.DTOs
+namespace BeYeuBookstore.Utilities.DTOs
 {
    public class General3col
     {

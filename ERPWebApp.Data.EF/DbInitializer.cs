@@ -1,6 +1,6 @@
-﻿using ERPWebApp.Data.eEnum;
-using ERPWebApp.Data.Entities;
-using ERPWebApp.Utilities.Constants;
+﻿using BeYeuBookstore.Data.eEnum;
+using BeYeuBookstore.Data.Entities;
+using BeYeuBookstore.Utilities.Constants;
 using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;
@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ERPWebApp.Data.EF
+namespace BeYeuBookstore.Data.EF
 {
     public class DbInitializer
     {

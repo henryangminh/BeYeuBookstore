@@ -1,9 +1,9 @@
-﻿using ERPWebApp.Application.ViewModels.System;
+﻿using BeYeuBookstore.Application.ViewModels.System;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace ERPWebApp.Application.ViewModels.Acc
+namespace BeYeuBookstore.Application.ViewModels.Acc
 {
     public class PermissionViewModel
     {

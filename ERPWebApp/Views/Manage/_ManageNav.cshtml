@@ -1,4 +1,4 @@
-﻿@using ERPWebApp.Views.Manage
+﻿@using BeYeuBookstore.Views.Manage
 @inject SignInManager<User> SignInManager
 @{
     var hasExternalLogins = (await SignInManager.GetExternalAuthenticationSchemesAsync()).Any();

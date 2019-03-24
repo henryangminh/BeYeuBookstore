@@ -1,12 +1,12 @@
-﻿using ERPWebApp.Data.eEnum;
-using ERPWebApp.Data.Interfaces;
+﻿using BeYeuBookstore.Data.eEnum;
+using BeYeuBookstore.Data.Interfaces;
 using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace ERPWebApp.Data.Entities
+namespace BeYeuBookstore.Data.Entities
 {
     [Table("User")]
     public partial class User:IdentityUser<Guid>,IDateTracking,ISwitchable

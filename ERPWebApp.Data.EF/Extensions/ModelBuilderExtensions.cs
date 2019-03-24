@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace ERPWebApp.Data.EF.Extensions
+namespace BeYeuBookstore.Data.EF.Extensions
 {
     public static class ModelBuilderExtensions
     {

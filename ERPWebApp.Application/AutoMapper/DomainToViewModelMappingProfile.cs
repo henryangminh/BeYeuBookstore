@@ -1,13 +1,13 @@
 ﻿using AutoMapper;
-using ERPWebApp.Application.ViewModels.Acc;
+using BeYeuBookstore.Application.ViewModels.Acc;
 
-using ERPWebApp.Application.ViewModels.System;
-using ERPWebApp.Data.Entities;
+using BeYeuBookstore.Application.ViewModels.System;
+using BeYeuBookstore.Data.Entities;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace ERPWebApp.Application.AutoMapper
+namespace BeYeuBookstore.Application.AutoMapper
 {
     public class DomainToViewModelMappingProfile : Profile
     {

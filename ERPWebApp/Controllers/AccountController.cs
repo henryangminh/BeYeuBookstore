@@ -10,12 +10,12 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using ERPWebApp.Models;
-using ERPWebApp.Models.AccountViewModels;
-using ERPWebApp.Services;
-using ERPWebApp.Data.Entities;
+using BeYeuBookstore.Models;
+using BeYeuBookstore.Models.AccountViewModels;
+using BeYeuBookstore.Services;
+using BeYeuBookstore.Data.Entities;
 
-namespace ERPWebApp.Controllers
+namespace BeYeuBookstore.Controllers
 {
    // [Route("[controller]/[action]")]
     public class AccountController : BaseController

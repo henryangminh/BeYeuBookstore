@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using ERPWebApp.Extensions;
+using BeYeuBookstore.Extensions;
 using Microsoft.AspNetCore.Mvc;
 
-namespace ERPWebApp.Areas.Admin.Controllers
+namespace BeYeuBookstore.Areas.Admin.Controllers
 {
     [Area("Admin")]
     public class HomeController : Controller

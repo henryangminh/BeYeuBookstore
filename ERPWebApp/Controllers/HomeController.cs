@@ -4,11 +4,11 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using ERPWebApp.Models;
+using BeYeuBookstore.Models;
 using Microsoft.AspNetCore.Authorization;
-using ERPWebApp.Extensions;
+using BeYeuBookstore.Extensions;
 
-namespace ERPWebApp.Controllers
+namespace BeYeuBookstore.Controllers
 {
     [Authorize] // kiểm tra đã đăng nhập với id chưa
    // [Route("[controller]/[action]")]

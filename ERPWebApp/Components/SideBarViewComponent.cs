@@ -1,7 +1,7 @@
-﻿using ERPWebApp.Application.Interfaces.Acc;
-using ERPWebApp.Application.ViewModels.Acc;
-using ERPWebApp.Extensions;
-using ERPWebApp.Utilities.Constants;
+﻿using BeYeuBookstore.Application.Interfaces.Acc;
+using BeYeuBookstore.Application.ViewModels.Acc;
+using BeYeuBookstore.Extensions;
+using BeYeuBookstore.Utilities.Constants;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -9,7 +9,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 
-namespace ERPWebApp.Components
+namespace BeYeuBookstore.Components
 {
     public class SideBarViewComponent:ViewComponent
     {

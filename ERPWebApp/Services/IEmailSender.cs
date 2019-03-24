@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace ERPWebApp.Services
+namespace BeYeuBookstore.Services
 {
     public interface IEmailSender
     {

@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace ERPWebApp.Controllers
+namespace BeYeuBookstore.Controllers
 {
     [Authorize]
     public class BaseController : Controller

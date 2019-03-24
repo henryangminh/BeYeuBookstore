@@ -9,7 +9,7 @@ using WebMarkupMin.AspNet.Common.Compressors;
 using WebMarkupMin.AspNetCore2;
 using WebMarkupMin.NUglify;
 
-namespace ERPWebApp.Extensions
+namespace BeYeuBookstore.Extensions
 {
     // Nén response trả về 
     public static class MinResponseExtensions

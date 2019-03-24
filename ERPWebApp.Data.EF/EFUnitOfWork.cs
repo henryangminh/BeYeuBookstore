@@ -1,11 +1,11 @@
-﻿using ERPWebApp.Infrastructure.Interfaces;
+﻿using BeYeuBookstore.Infrastructure.Interfaces;
 using Microsoft.AspNetCore.Hosting;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
 
-namespace ERPWebApp.Data.EF
+namespace BeYeuBookstore.Data.EF
 {
     public class EFUnitOfWork : IUnitOfWork
     {
@@ -24,7 +24,7 @@ namespace ERPWebApp.Data.EF
                 _context.SaveChanges();
                 return true;
             }
-            catch(Exception ex)
+            catch (Exception)
             {
                 //try
                 //{

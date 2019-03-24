@@ -1,6 +1,6 @@
 using System;
 
-namespace ERPWebApp.Models
+namespace BeYeuBookstore.Models
 {
     public class ErrorViewModel
     {

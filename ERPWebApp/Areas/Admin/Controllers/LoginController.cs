@@ -2,15 +2,15 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using ERPWebApp.Data.Entities;
-using ERPWebApp.Models.AccountViewModels;
-using ERPWebApp.Utilities.DTOs;
+using BeYeuBookstore.Data.Entities;
+using BeYeuBookstore.Models.AccountViewModels;
+using BeYeuBookstore.Utilities.DTOs;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
-namespace ERPWebApp.Areas.Admin.Controllers
+namespace BeYeuBookstore.Areas.Admin.Controllers
 {
     [Area("Admin")]
     public class LoginController : Controller

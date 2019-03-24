@@ -1,19 +1,19 @@
 ﻿using AutoMapper.QueryableExtensions;
-using ERPWebApp.Application.Interfaces.Acc;
-using ERPWebApp.Application.ViewModels.Acc;
-using ERPWebApp.Data.IRepositories;
+using BeYeuBookstore.Application.Interfaces.Acc;
+using BeYeuBookstore.Application.ViewModels.Acc;
+using BeYeuBookstore.Data.IRepositories;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 using System.Linq;
-using ERPWebApp.Data.Entities;
+using BeYeuBookstore.Data.Entities;
 using AutoMapper;
-using ERPWebApp.Infrastructure.Interfaces;
-using ERPWebApp.Data.eEnum;
+using BeYeuBookstore.Infrastructure.Interfaces;
+using BeYeuBookstore.Data.eEnum;
 
-namespace ERPWebApp.Application.Implementation.Acc
+namespace BeYeuBookstore.Application.Implementation.Acc
 {
     public class FunctionService : IFunctionService
     {

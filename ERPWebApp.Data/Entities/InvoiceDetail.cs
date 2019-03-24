@@ -1,10 +1,10 @@
-﻿using ERPWebApp.Data.Interfaces;
-using ERPWebApp.Infrastructure.SharedKernel;
+﻿using BeYeuBookstore.Data.Interfaces;
+using BeYeuBookstore.Infrastructure.SharedKernel;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace ERPWebApp.Data.Entities
+namespace BeYeuBookstore.Data.Entities
 {
     public class InvoiceDetail : DomainEntity<int>, IDateTracking
     {
@@ -16,6 +16,7 @@ namespace ERPWebApp.Data.Entities
         public DateTime? DateCreated { get ; set ; }
         public DateTime? DateModified { get; set; }
 
-        
+        public virtual Book BookFKNavigation { get; set; }
+        public virtual Invoice InvoiceFKNavigation { get; set; }
     }
 }

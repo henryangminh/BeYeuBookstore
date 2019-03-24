@@ -4,7 +4,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 
-namespace ERPWebApp.Controllers
+namespace BeYeuBookstore.Controllers
 {
     public class _generalFunctionController
     {

@@ -1,10 +1,10 @@
-﻿using ERPWebApp.Data.Interfaces;
-using ERPWebApp.Infrastructure.SharedKernel;
+﻿using BeYeuBookstore.Data.Interfaces;
+using BeYeuBookstore.Infrastructure.SharedKernel;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace ERPWebApp.Data.Entities
+namespace BeYeuBookstore.Data.Entities
 {
     public partial class ArAccountsReceivable:DomainEntity<int>,IDateTracking
     {

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ERPWebApp.Utilities.Constants
+namespace BeYeuBookstore.Utilities.Constants
 {
    public class Const_FunctionId
     {

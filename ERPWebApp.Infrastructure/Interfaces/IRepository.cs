@@ -4,7 +4,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 
-namespace ERPWebApp.Infrastructure.Interfaces
+namespace BeYeuBookstore.Infrastructure.Interfaces
 {
     public interface IRepository<T, K> where T : class
     {

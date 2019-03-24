@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text.Encodings.Web;
 using System.Threading.Tasks;
-using ERPWebApp.Services;
+using BeYeuBookstore.Services;
 
-namespace ERPWebApp.Services
+namespace BeYeuBookstore.Services
 {
     public static class EmailSenderExtensions
     {

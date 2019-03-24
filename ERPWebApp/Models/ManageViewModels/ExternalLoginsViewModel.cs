@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Identity;
 
-namespace ERPWebApp.Models.ManageViewModels
+namespace BeYeuBookstore.Models.ManageViewModels
 {
     public class ExternalLoginsViewModel
     {

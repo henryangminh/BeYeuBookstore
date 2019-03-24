@@ -1,5 +1,5 @@
-﻿using ERPWebApp.Infrastructure.Interfaces;
-using ERPWebApp.Infrastructure.SharedKernel;
+﻿using BeYeuBookstore.Infrastructure.Interfaces;
+using BeYeuBookstore.Infrastructure.SharedKernel;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 
-namespace ERPWebApp.Data.EF
+namespace BeYeuBookstore.Data.EF
 {
     public class EFRepository<T, K> : IRepository<T, K>, IDisposable where T : DomainEntity<K>
     {
