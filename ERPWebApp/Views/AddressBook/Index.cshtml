@@ -1,0 +1,96 @@
+﻿@{
+    ViewData["Title"] = "Nhập danh bạ";
+}
+@section Styles{
+    <link href="~/lib/jQuery-EasyUI/themes/bootstrap/easyui.css" rel="stylesheet" />
+    <link href="~/lib/jQuery-EasyUI/themes/icon.css" rel="stylesheet" />
+}
+@section Scripts{
+    <script src="~/lib/jQuery-EasyUI/jquery.easyui.min.js"></script>
+    <script src="~/app/controllers/addressbook/index.js" asp-append-version="true"></script>
+    <script>var addressBook = new addressBookController();
+        addressBook.initialize();</script>
+}
+<div class="page-title">
+    <div class="title_left">
+        <h3>Danh bạ chung</h3>
+    </div>
+    <div class="title_right">
+        <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right">
+            <div class="input-group">
+                <input type="text" id="txtKeyword" class="form-control" placeholder="Gõ từ khóa...">
+                <span class="input-group-btn">
+                    <button class="btn btn-primary" id="btnSearch" type="button">Tìm!</button>
+                </span>
+            </div>
+        </div>
+        @*<div class="col-md-4 col-sm-12  form-group pull-right">
+            <select class="form-control" id="ddlCategorySearch">
+                <option>--Select category--</option>
+            </select>
+        </div>*@
+        <div class="col-md-2 col-sm-12  form-group pull-right">
+            <button id="btnCreate" class="btn btn-success">Thêm mới</button>
+        </div>
+    </div>
+</div>
+<div class="clearfix"></div>
+<div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="x_panel">
+            <div class="x_content">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th width="5%">STT</th>
+                            <th>Họ và tên</th>
+                            <th>Ngày sinh</th>
+                            <th>Giới tính</th>
+                            <th>Email</th>
+                            <th>SĐT</th>
+                            <th>Số CMND</th>
+                            <th width="5%">#</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbl-content"></tbody>
+                </table>
+                <!--Pagination-->
+                <div class="row">
+                    <div class="col-sm-5">
+                        <div class="dataTables_info" id="datatable-checkbox_info" role="status" aria-live="polite">
+                            <select id="ddlShowPage">
+                                <option value="10" selected="selected">10</option>
+                                <option value="20">20</option>
+                                <option value="30">30</option>
+                                <option value="50">50</option>
+                            </select>
+                            <span class="item-per-page">
+                                bản ghi/trang.
+                            </span>
+                            Tổng số bản ghi: <strong id="lblTotalRecords"></strong>
+                        </div>
+                    </div><div class="col-sm-7">
+                        <div class="dataTables_paginate paging_simple_numbers" id="datatable-checkbox_paginate">
+                            <ul id="paginationUL"></ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script id="table-template" type="x-tmpl-mustache">
+    <tr>
+        <td>{{stt}}</td>
+        <td>{{FullName}}</td>
+        <td>{{DOB}}</td>
+        <td>{{Gender}}</td>
+        <td>{{{Email}}}</td>
+        <td>{{MobilePhone}}</td>
+        <td>{{{IDNumber}}}</td>
+        <th scope="row">
+            <button class="btn btn-xs btn-default btn-sm btn-edit" data-id="{{KeyId}}" type="button" data-toggle="tooltip" data-placement="top" title="Sửa"><i class="fa fa-pencil"></i></button>
+        </th>
+    </tr>
+</script>
+@await Html.PartialAsync("_AddEditModal.cshtml")

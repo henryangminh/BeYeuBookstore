@@ -1,0 +1,138 @@
+﻿@using ERPWebApp.Utilities.Constants
+@using Microsoft.AspNetCore.Authorization
+@using ERPWebApp.Authorization
+@inject IAuthorizationService AuthorizationService
+@{
+    //kiểm tra quyền tạo đối với nut create cho hiểu thị nut
+    var result_edit = await AuthorizationService.AuthorizeAsync(User, Const_FunctionId.AllowedVacation, Operations.Create);
+    //kiểm tra quyền tạo đối với nut delete cho hiểu thị nut
+    var result_delete = await AuthorizationService.AuthorizeAsync(User, Const_FunctionId.AllowedVacation, Operations.Delete);
+    //kiểm tra quyền tạo đối với nut update cho hiểu thị nut
+    var result_create = await AuthorizationService.AuthorizeAsync(User, Const_FunctionId.AllowedVacation, Operations.Update);
+    //kiểm tra quyền tạo đối với nut delete cho hiểu thị nut
+    var result_confirm = await AuthorizationService.AuthorizeAsync(User, Const_FunctionId.AllowedVacation, Operations.Confirm);
+}
+
+@{
+    ViewData["Title"] = "Index";
+}
+@section Scripts{
+    <script src="~/app/controllers/allowedvacation/AllowedVacationTheme.js" asp-append-version="true"></script>
+    <script src="~/app/shared/auto/autoAddressbook.js"></script>
+    <script src="~/app/controllers/allowedvacation/index.js" asp-append-version="true"></script>
+    <script>
+        var allowedvacation = new allowedvacationController();
+        allowedvacation.initialize();</script>
+}
+<div class="title_left">
+    <h3>Quản lý nghỉ phép</h3>
+</div>
+<div class="form-group row">
+
+    <div class="col-lg-2 pull-left">
+        <input id="dtBegin" type="text" placeholder="Từ ngày" class="form-control" />
+
+    </div>
+    <div class="col-lg-2 pull-left">
+        <input id="dtEnd" type="text" placeholder="Đến ngày" class="form-control" />
+    </div>
+    <div class="col-lg-2"></div>
+    <div class="col-lg-1">
+        <label>Loại nghỉ:</label>
+    </div>
+    <div class="col-lg-2">
+        <select class="form-control" id="selTimeKeepingType">
+            <option>Chọn loại nghỉ</option>
+        </select>
+    </div>
+    <div class="col-lg-1">
+        <label>Trạng thái:</label>
+    </div>
+    <div class="col-lg-2">
+        <select class="form-control pull-right" id="selAllowedVacationStatus">
+            <option>Chọn trạng thái</option>
+        </select>
+    </div>
+
+</div>
+
+
+<div class="form-group row">
+    <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-left">
+        <div class="input-group">
+            <input type="text" id="txtKeyword" class="form-control" placeholder="Gõ từ khóa...">
+            <span class="input-group-btn">
+                <button class="btn btn-primary" id="btnSearch" type="button">Tìm!</button>
+            </span>
+        </div>
+    </div>
+    <div class="col-md-2 col-sm-12  form-group pull-right">
+        <button id="btnCreate" class="btn btn-success">Thêm mới</button>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="x_panel">
+            <div class="x_content">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th width="5%">STT</th>
+                            <th width="10%">Họ và tên</th>
+                            <th>Phòng ban</th>
+                            <th>Loại nghỉ</th>
+                            <th width="3%">Số ngày</th>
+                            <th>Lý do</th>
+                            <th>Ngày nghỉ</th>
+                            <th>Trạng thái</th>
+                            <th width="11%">#</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbl-content"></tbody>
+                </table>
+                <!--Pagination-->
+                <div class="row">
+                    <div class="col-sm-5">
+                        <div class="dataTables_info" id="datatable-checkbox_info" role="status" aria-live="polite">
+                            <select id="ddlShowPage">
+                                <option value="10" selected="selected">10</option>
+                                <option value="20">20</option>
+                                <option value="30">30</option>
+                                <option value="50">50</option>
+                            </select>
+                            <span class="item-per-page">
+                                bản ghi/trang.
+                            </span>
+                            Tổng số bản ghi: <strong id="lblTotalRecords"></strong>
+                        </div>
+                    </div><div class="col-sm-7">
+                        <div class="dataTables_paginate paging_simple_numbers" id="datatable-checkbox_paginate">
+                            <ul id="paginationUL"></ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script id="table-template" type="x-tmpl-mustache">
+    <tr>
+        <td>{{KeyId}}</td>
+        <td>{{FullName}}</td>
+        <td>{{Department}}</td>
+        <td>{{TimeKeepingType}}</td>
+        <td>{{NODate}}</td>
+        <td>{{Reason}}</td>
+        <td>{{{FromDateToDate}}}</td>
+        <td>{{{Status}}}</td>
+        <th scope="row">
+            <a class="btn btn-xs btn-default btn-edit {{{Prop}}}" data-id="{{KeyId}}" ><i class="fa fa-pencil"></i></a>
+            <a class="btn btn-xs btn-primary btn-editmaster" data-id="{{KeyId}}" ><i class="fa fa-eye"></i></a>
+            @if (result_delete.Succeeded)
+            {
+                <a class="btn btn-xs btn-danger btn-delete {{{Prop}}}" data-id="{{KeyId}}"  ><i class="fa fa-trash"></i></a>
+            }
+            </th>
+    </tr>
+</script>
+@await Html.PartialAsync("_AddEditAllowedVacation.cshtml")

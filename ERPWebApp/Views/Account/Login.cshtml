@@ -1,0 +1,116 @@
+﻿@using System.Linq
+@model LoginViewModel
+@inject SignInManager<User> SignInManager
+
+
+
+@{
+    Layout = null;
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<!--header start here-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Đăng nhập hệ thống</title>
+
+    <!-- Bootstrap -->
+    <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+
+    <!-- Font Awesome -->
+    <link href="~/lib/font-awesome/css/font-awesome.css" rel="stylesheet" />
+
+    <!-- NProgress -->
+    <link href="~/lib/nprogress/nprogress.css" rel="stylesheet" />
+
+    <!-- Animate.css -->
+    <link href="~/lib/animate.css/animate.css" rel="stylesheet" />
+    <!--Notify-->
+    <link href="~/lib/notifyjs/dist/styles/metro/notify-metro.css" rel="stylesheet" />
+    <!-- Custom Theme Style -->
+    <link href="~/admin-side/css/custom.css" rel="stylesheet" />
+    <link href="~/admin-side/css/style.css" rel="stylesheet" />
+</head>
+
+<body class="login">
+    <div>
+        <div class="login_wrapper">
+            <div class="animate form login_form">
+                <section class="login_content">
+                    <form asp-route-returnurl="@ViewData["ReturnUrl"]" method="post">
+                        <h1>Đăng nhập</h1>
+                        <div asp-validation-summary="All" class="text-danger"></div>
+                        <input type="text" class="form-control" value="Email" asp-for="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Nhập email';}" />
+                        <input type="password" class="form-control" value="Mật khẩu" asp-for="Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Mật khẩu';}" style="margin-top:10px" />
+                        <div class="remember">
+                            <span class="checkbox1">
+                                <label class="checkbox" asp-for="RememberMe"><input type="checkbox" asp-for="RememberMe" checked=""><i> </i>@Html.DisplayNameFor(x=>x.RememberMe)</label>
+                            </span>
+                            <div class="forgot">
+                                <h6><a asp-action="ForgotPassword">Quên mật khẩu ?</a></h6>
+                            </div>
+                            <div class="clear"> </div>
+                            @*<p>
+                                <a asp-action="Register" asp-route-returnurl="@ViewData["ReturnUrl"]">Register as a new user?</a>
+                            </p>*@
+                        </div>
+                        <input type="submit" class="btn btn-default submit btn_login" value="Đăng nhập">
+
+                    </form>
+                </section>
+
+                <!-- sau này dùng để login với fb or google-->
+                @*<section>
+                    <h4>Use another service to log in.</h4>
+                    <hr />
+                    @{
+                        var loginProviders = (await SignInManager.GetExternalAuthenticationSchemesAsync()).ToList();
+                        if (loginProviders.Count == 0)
+                        {
+                            <div>
+                                <p>
+                                    There are no external authentication services configured. See <a href="https://go.microsoft.com/fwlink/?LinkID=532715">this article</a>
+                                    for details on setting up this ASP.NET application to support logging in via external services.
+                                </p>
+                            </div>
+                        }
+                        else
+                        {
+                            <form asp-action="ExternalLogin" asp-route-returnurl="@ViewData["ReturnUrl"]" method="post" class="form-horizontal">
+                                <div>
+                                    <p>
+                                        @foreach (var provider in loginProviders)
+                                        {
+                                            <button type="submit" class="btn btn-default" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account">@provider.Name</button>
+                                        }
+                                    </p>
+                                </div>
+                            </form>
+                        }
+                    }
+                </section>*@
+            </div>
+        </div>
+    </div>
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/lib/notifyjs/dist/notify.js"></script>
+    <script src="~/lib/notifyjs/dist/styles/metro/notify-metro.js"></script>
+
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation/dist/additional-methods.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+    <script src="~/lib/jquery-validation/dist/Localization/messages_vi.js"></script>
+</body>
+</html>
+
+@section Scripts {
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+}

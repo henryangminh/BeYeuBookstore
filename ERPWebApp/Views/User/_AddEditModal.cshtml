@@ -1,0 +1,86 @@
+﻿<div id="modal-add-edit" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title">Thêm/Chỉnh sửa user</h4>
+            </div>
+            <div class="modal-body">
+                <div id="horizontal-form">
+                    <form class="form-horizontal" role="form" id="frmMaintainance">
+                        <div class="form-group">
+                            <label for="txtFullName" class="col-sm-2 control-label">Họ và Tên:</label>
+                            <div class="col-sm-10">
+                                <input type="text" name="txtFullName" class="form-control" id="txtFullName">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="txtUserName" class="col-sm-2 control-label">Tên đăng nhập:</label>
+                            <div class="col-sm-10">
+                                <input type="text" name="txtUserName" class="form-control" id="txtUserName" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="txtPassword" class="col-sm-2 control-label">Mật khẩu:</label>
+                            <div class="col-sm-10">
+                                <input type="password" name="txtPassword" class="form-control" id="txtPassword" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="txtConfirmPassword" class="col-sm-2 control-label">Nhập lại mật khẩu:</label>
+                            <div class="col-sm-10">
+                                <input type="password" name="txtConfirmPassword" class="form-control" id="txtConfirmPassword">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="txtEmail" class="col-sm-2 control-label ">Email</label>
+                            <div class="col-sm-10">
+                                <input type="email" name="txtEmail" class="form-control" id="txtEmail" maxlength="50">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="txtPhoneNumber" class="col-sm-2 control-label">Điện thoại:</label>
+                            <div class="col-sm-10">
+                                <input type="text" name="txtPhoneNumber" class="form-control" id="txtPhoneNumber" maxlength="25">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="txtImage" class="col-sm-2 control-label">Avatar</label>
+                            <div class="col-sm-10">
+                                <div class="input-group">
+                                    <input type="file" id="fileInputAvatar" style="display:none" accept="image/*" />
+                                    <span class="input-group-btn">
+                                        <input type="button" id="btnSelectAvatar" class="btn btn-default" value="Chọn ảnh" />
+                                    </span>
+                                    <label class="col-sm-offset-1" style="color:blue;padding-top:10px" id="lblAvatar"></label>
+                                </div>
+                               
+                            </div>
+                        </div>
+                        <div class="form-group tabs-scroller-left" style="max-height:400px">
+                            <label class="col-sm-2 control-label">Nhóm quyền:</label>
+                            <div class="col-sm-10 pre-scrollable" style="max-height:200px" id="list-roles">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" checked="checked" id="ckStatus">
+                                        <span class="text">Còn dùng ?</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button type="button" id="btnSave" class="btn btn-success">Lưu</button>
+                                <button type="button" id="btnCancel" data-dismiss="modal" class="btn btn-default">Đóng</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

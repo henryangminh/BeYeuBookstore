@@ -1,0 +1,323 @@
+﻿
+
+@{
+    ViewData["Title"] = "Đơn hàng";
+}
+@section Styles{
+    <link href="~/lib/jQuery-EasyUI/themes/bootstrap/easyui.css" rel="stylesheet" />
+    <link href="~/lib/jQuery-EasyUI/themes/icon.css" rel="stylesheet" />
+}
+@section Scripts{
+    <script src="~/app/controllers/woodsalesorder/index.js" asp-append-version="true"></script>
+    <script src="~/app/controllers/woodsalesorder/addcustomer.js" asp-append-version="true"></script>
+    <script>
+        var salesorder = new salesorderController();
+        salesorder.initialize();
+        var addressBook = new addressBookController();
+        addressBook.initialize();
+    </script>
+
+}
+
+<div id="Page-searchSO">
+    <div class="page-title">
+        <div class="title_left">
+            <h3>Danh sách đơn hàng</h3>
+        </div>
+        <div class="title_right">
+            <div class="col-md-8 col-sm-8 col-xs-12 form-group pull-right">
+                <div class="input-group">
+                    <input type="text" id="txtKeyword_search" class="form-control" placeholder="Gõ từ khóa...">
+                    <span class="input-group-btn">
+                        <button class="btn btn-primary" id="btnSearch_search" type="button">Tìm kiếm</button>
+                    </span>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-12  form-group pull-right">
+                <button id="btnRefresh-search" class="btn btn-primary" type="button"><i class="glyphicon glyphicon-refresh"></i></button>
+                @*@if (result_create.Succeeded)*@
+                @*  *@
+                <a href="#" id="btnCreate" class="btn btn-success">Thêm mới</a>
+                <script></script>
+                @*  *@
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_content">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th width="5%">STT</th>
+                                <th width="10%">Mã đơn hàng</th>
+                                <th width="30%">Ngày đơn hàng</th>
+                                <th width="20%">Tên khách hàng</th>
+                                <th width="10%">Tổng tiền</th>
+                                <th width="10%">Trạng thái</th>
+                                <th width="15%">#</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbl-content_search"></tbody>
+                    </table>
+                    <!--Pagination-->
+                    <div class="row">
+                        <div class="col-sm-5">
+                            <div class="dataTables_info" id="datatable-checkbox_info" role="status" aria-live="polite">
+                                <select id="ddlShowPage">
+                                    <option value="10" selected="selected">10</option>
+                                    <option value="20">20</option>
+                                    <option value="30">30</option>
+                                    <option value="50">50</option>
+                                </select>
+                                <span class="item-per-page">
+                                    bản ghi/trang.
+                                </span>
+                                Tổng số bản ghi: <strong id="lblTotalRecords"></strong>
+                            </div>
+                        </div><div class="col-sm-7">
+                            <div class="dataTables_paginate paging_simple_numbers" id="datatable-checkbox_paginate">
+                                <ul id="paginationUL"></ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script id="table-template-search" type="x-tmpl-mustache">
+        <tr>
+            <td>{{stt}}</td>
+            <td>{{KeyId}}</td>
+            <td>{{DateCreated}}</td>
+            <td>{{CustomerName}}</td>
+            <td style="text-align:right">{{Total}}</td>
+            <td>{{StatusName}}</td>
+            <td id="list-btn">
+
+                <a href="/SalesOrderBOQ1" data-id="{{KeyId}}" class="btn  btn-xs btn-primary btn-view"><i class="fa fa-eye-slash"></i></a>
+
+                @*@if (result_edit.Succeeded)
+                    {*@
+                <a href="#" data-id="{{KeyId}}" class="btn  btn-xs btn-info btn-edit" id="btn-edit-boq1"><i class="fa fa-pencil-square-o"></i></a>
+                @*}
+                    @if (result_delete.Succeeded)
+                    {*@
+                <a href="#" data-id="{{KeyId}}" class="btn btn-xs  btn-danger btn-delete"><i class="fa fa-trash-o"></i></a>
+                @*}*@
+
+            </td>
+        </tr>
+    </script>
+</div>
+<div id="Page-mainSO" style="display:none;">
+    <div class="page-title">
+
+        <div class="title_left col-lg-12">
+            <div class="col-md-12 col-sm-12  form-group pull-left">
+
+                @*@if (result_confirm.Succeeded)
+                    {*@
+                <button id="btnConfirm" class="btn btn-success">Xác nhận</button>
+                @*<button id="btnUnConfirm" class="btn btn-danger">Không xác nhận</button>*@
+                @*<button id="btnConfirmTT" class="btn btn-success">Xác nhận trúng thầu</button>
+                    }
+                    else
+                    {
+                        <button id="btnRequiteConfirm" class="btn btn-success">Yêu cầu XN</button>
+                      }*@
+
+            </div>
+        </div>
+        <div class="title_right col-lg-4">
+            <div class="col-md-12 col-sm-12  form-group" style="text-align:right">
+                <button class="btn btn-primary" type="button" id="btn-info">...</button>
+                @*@if (result_create.Succeeded || result_edit.Succeeded)
+                    {*@
+                <button class="btn btn-primary" id="btn-export" type="button">Xuất <i class="fa fa-file-excel-o"></i></button>
+                <button class="btn btn-primary" id="btn-print" type="button">In ra <i class="fa fa-print"></i></button>
+                @*  *@
+                <button id="btnClose" class="btn btn-danger"><i class="fa fa-close"></i></button>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_content">
+                    <div id="horizontal-form">
+                        <form class="form-horizontal" role="form" id="frmMaintainance">
+                            <div class="form-group row">
+
+                                <label for="dtDateCreated" class="col-sm-2 col-form-label">Ngày đơn hàng</label>
+                                <div class="col-sm-4">
+                                    <input type="text" id="dtDateCreated" class="form-control" />
+                                </div>
+                                <label for="txtSOId" class="col-sm-offset-1 col-sm-1 col-form-label">Mã đơn hàng</label>
+                                <div class="col-sm-2">
+                                    <input type="text" class="form-control" id="txtSOId" name="txtSOId">
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="txtEmployee" class="col-sm-2 col-form-label">Nhân viên kinh doanh</label>
+                                <div class="col-sm-4">
+                                    <input type="text" class="form-control" id="txtEmployee" name="txtEmployee" />
+                                </div>
+
+                            </div>
+                            <div class="form-group row">
+                                <label for="txtCustomerName" class="col-sm-2 col-form-label">Khách hàng <span class="star">*</span></label>
+                                <div class="col-sm-4">
+                                    <div class="input-group">
+                                        <input type="text" id="txtCustomerName" class="form-control" name="txtCustomerName" placeholder="Nhập tên khách hàng" data-keyidcus />
+                                        <span class="input-group-btn btn-add" id="btn-add-customer"><img src="~/images/plusIcon.png" style="width:20px; height:auto" /></span>
+                                    </div>
+                                    <div class="autocomplete-items" id="contain-listcustomer">
+
+                                    </div>
+                                </div>
+                                <label for="txtPhoneNumber" class="col-sm-offset-1 col-sm-1 col-form-label">Điện thoại </label>
+                                <div class="col-sm-3">
+                                    <input type="text" class="form-control" id="txtPhoneNumber" name="txtPhoneNumber">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="txtDiscription" class="col-sm-2 col-form-label">Địa chỉ giao hàng:</label>
+                            </div>
+                            <div class="form-group row">
+                                <label for="txtAddressNumber" class="col-sm-2 col-form-label">Số nhà</label>
+                                <div class="col-sm-1">
+                                    <input type="text" class="form-control" id="txtAddressNumber" name="txtAddressNumber">
+                                </div>
+                                <label for="txtStreet" class="col-sm-1 col-form-label" id="lbFullName">Đường</label>
+                                <div class="col-sm-3">
+                                    <input type="text" class="form-control" id="txtStreet" name="txtStreet">
+                                </div>
+                                <label for="txtWard" class="col-sm-1 col-form-label">Phường/Xã</label>
+                                <div class="col-sm-4">
+                                    <input type="text" class="form-control" id="txtWard" name="txtWard">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="txtDistrict" class="col-sm-2 col-form-label">Quận/Huyện</label>
+                                <div class="col-sm-5">
+                                    <input type="text" class="form-control" id="txtDistrict" name="txtDistrict">
+                                </div>
+                                <label for="selCity" class="col-sm-1 col-form-label">Tỉnh/TP</label>
+                                <div class="col-sm-4">
+                                    <select id="selCity" class="form-control" name="selCity"></select>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="txtSubTotal" class="col-sm-2 col-form-label">Tổng giá trị trước thuế</label>
+                                <div class="col-sm-4" id="txtSubTotal">
+                                </div>
+
+                            </div>
+                            <div class="form-group row">
+                                <label for="txtTaxAmount" class="col-sm-2 col-form-label">Tổng thuế</label>
+                                <div class="col-sm-4" id="txtTaxAmount">
+
+                                </div>
+
+                            </div>
+                            <div class="form-group row">
+                                <label for="txtTotalOrder" class="col-sm-2 col-form-label">Tổng giá trị sau thuế</label>
+                                <div class="col-sm-4" id="txtTotalOrder">
+
+                                </div>
+                                <label for="lblSoStatus" id="lblSoStatus" class="col-sm-offset-1 col-sm-5 col-form-label" style="color:red;">Tạo mới test</label>
+                            </div>
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>STT</th>
+                                        <th>Mã hàng hóa</th>
+                                        <th>Tên hàng hóa</th>
+                                        <th>ĐVT</th>
+                                        <th>Số lượng</th>
+                                        <th>Đơn giá</th>
+                                        <th>Thành tiền trước thuế</th>
+                                        <th>Thuế?</th>
+                                        <th>% Thuế</th>
+                                        <th>Thuế</th>
+                                        <th>Thành tiền sau thuế</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody id="table-quantity-content" style="text-align:center"></tbody>
+                                <tfoot>
+                                    <tr>
+                                        <td colspan="12">
+                                            <button class="btn btn-xs btn-success" type="button" id="btn-add-product">Thêm</button>
+                                        </td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                            <script type="x-tmpl-mustache" id="template-table-detail">
+                                <tr>
+                                    <td id="stt">{{stt}}</td>
+                                    <td class="col-sm-2 col-productCode">
+                                        <div class="col-sm-12 autocomplete">
+                                            <input type="text" class="code" value="{{ProductCode}}" id="txtProductCode" data-keyid="{{InventoryFk}}" />
+                                            <div class="autocomplete-items contain-productCode" style="width:350px;">
+
+                                            </div>
+                                        </div>
+
+                                    </td>
+                                    <td style="text-align:left" class="col-sm-3 productName">{{ProductName}}</td>
+                                    <td id="productunit" data-unitfk="{{UnitFk}}">{{UnitName}}</td>
+                                    <td id="productqty" class="col-sm-1">
+                                        <input type="text" value="{{ProductQty}}" class="qty position-number" id="txtProductQty" name="txtProductQty" data-qty="{{ProductQty}}" />
+                                    </td>
+                                    <td id="unitprice" class="col-sm-2">
+                                        <input type="text" value="{{UnitPrice}}" id="txtUnitPrice" name="txtUnitPrice" class="position-number" readonly />
+                                    </td>
+                                    <td id="subtotal" class="position-number">{{SubTotal}}</td>
+                                    <td id="tax">
+                                        <input type="checkbox" id="chkTax" data-taxrate="{{Tax}}" />
+                                    </td>
+                                    <td id="taxrate">
+                                        <input type="text" value="{{TaxRate}}" id="txtTaxRate" name="txtTaxRate" class="position-number" />
+                                    </td>
+                                    <td id="taxAmount" class="position-number">{{TaxAmount}}</td>
+                                    <td id="subtotalAfterTax" class="position-number">{{SubTotalAfterTax}}</td>
+                                    <td id="btn"><button class="btn btn-xs btn-danger btn-delete-product" data-id="{{KeyId}}" type="button"><i class="fa fa-trash"></i></button></td>
+                                </tr>
+                            </script>
+                            <div class="form-group">
+                                <div class="col-sm-offset-8 col-sm-4">
+                                    <button type="button" id="btnSave" class="btn btn-success">Ghi</button>
+                                    <button type="button" id="btnCancel" data-dismiss="modal" class="btn btn-danger">Hủy</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script id="customer-template" type="x-tmpl-mustache">
+    <div data-idcustomer="{{KeyId}}" id="ddlcustomer">
+        <span id="fullname">{{FullName}}</span>
+        <span>{{Id}}</span>
+    </div>
+</script>
+<script id="productCode-template" type="x-tmpl-mustache">
+    <div data-idproduct="{{KeyId}}" class="ddlproduct">
+        <span id="productcode">{{ProductCode}}</span>
+        <span id="productName">{{ProductName}}</span>
+        <span> | Kho:{{WarehouseName}}</span>
+        <span> | Tồn:{{Qty_In_Stock}}</span>
+        <span> | Đặt:{{Qty_Allocated}}</span>
+    </div>
+</script>
+@await Html.PartialAsync("_AddCustomer.cshtml")
+
+

@@ -1,0 +1,93 @@
+﻿<div id="modal-add-edit" class="bootbox modal fade modal-darkorange in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog  modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="bootbox-close-button close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title">Thêm nhà cung cấp</h4>
+            </div>
+            <div class="modal-body">
+                <div id="horizontal-form">
+                    <form class="form-horizontal" role="form" id="frmMaintainance">
+                        <div class="form-group row">
+                            <label for="txtVender" class="col-sm-2 col-form-label">Tên nhà cung cấp <span class="star">*</span></label>
+                            <div class="col-sm-6 autocomplete">
+                                <input id="txtVender" data-addressbookid type="text" name="txtVender" placeholder="Chọn nhà cung cấp" style="width:100%" />
+                            </div>
+                            <label for="txtId" class="col-sm-1 col-sm-offset-1 col-form-label">Mã</label>
+                            <div class="col-sm-2">
+                                <input type="text" class="form-control" id="txtId" name="txtId">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group row">
+
+                            <label for="selPerformanceRating" class="col-sm-2 col-form-label">Đánh giá thành tích</label>
+                            <div class="col-sm-2">
+                                <select id="selPerformanceRating" class="form-control" name="selCustomerType">
+                                    <option value="0">Xuất sắc</option>
+                                    <option value="1">Rất tốt</option>
+                                    <option value="2">Tốt</option>
+                                    <option value="3">Khá</option>
+                                    <option value="4">Trung bình</option>
+                                    <option value="1">Kém</option>
+                                </select>
+                            </div>
+                            <label for="txtAP_Balance" class="col-sm-offset-2 col-sm-2 col-form-label" >Kết số</label>
+                            <div class="col-sm-2">
+                                <input type="text" class="form-control" id="txtAP_Balance" name="txtAP_Balance">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="txtOutstand_Inv_Amt" class="col-sm-2 col-form-label">Số tiền hóa đơn đáo hạn</label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" id="txtOutstand_Inv_Amt" name="txtOutstand_Inv_Amt">
+                            </div>
+                            <label for="txtOutstand_Credit" class="col-sm-2 col-form-label" id="lbDOB">Tín dụng đáo hạn</label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" id="txtOutstand_Credit" name="txtOutstand_Credit" />
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="dtpLast_Purchase_Date" class="col-sm-2 col-form-label">Ngày đặt mua hàng cuối cùng</label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" id="dtpLast_Purchase_Date">
+                            </div>
+                            <label for="dtpLast_Payment_Date" class="col-sm-2 col-form-label">Ngày thanh toán cuối</label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" id="dtpLast_Payment_Date">
+                            </div>
+                        </div>  
+                        <div class="form-group row">
+                            <label for="txtNotes" class="col-sm-2 col-form-label">Ghi chú</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="txtNotes">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="txtLastUpdatedByFK" class="col-sm-2 col-form-label">Người cập nhật gần nhất</label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" id="txtLastUpdatedByFK">
+                            </div>
+                            <label for="dtDateModified" class="col-sm-2 col-form-label">Ngày cập nhật gần nhất</label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" id="dtDateMotified" />
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-offset-8 checkbox">
+                                <label><input type="checkbox" value="" id="chkStatus">Còn dùng?</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button type="button" id="btnSave" class="btn btn-success">Ghi</button>
+                                <button type="button" id="btnCancel" data-dismiss="modal" class="btn btn-danger">Hủy</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,122 @@
+﻿<div id="modal-add-edit-orderdetail" class="bootbox modal fade modal-darkorange in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog  modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="bootbox-close-button close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title">Tạo/Chỉnh sửa</h4>
+            </div>
+            <div class="modal-body">
+                <div id="horizontal-form">
+                    <form class="form-horizontal" role="form" id="frmMaintainance">
+                        <!-- add tabs-->
+                        <div class="container">
+                            <ul class="nav nav-tabs">
+                                <li class="active"><a data-toggle="tab" href="#tabSource">Chọn nguồn</a></li>
+                                <li><a data-toggle="tab" href="#tabdestination">Chọn đích</a></li>
+                            </ul>
+                            <div class="tab-content panel-body">
+                                <div id="tabSource" class="tab-pane fade in active" style="padding:10px;">
+                                    <div class="col-sm-12 pre-scrollable" style="min-height:400px">
+                                        <table class="table table-bordered table-sm" id="table-PoDetail" cellspacing="0" width:100%>
+                                            <thead>
+                                                <tr>
+                                                    <th></th>
+                                                    <th>Mã vật tư</th>
+                                                    <th>Tên vật tư</th>
+                                                    <th>Mô tả</th>
+                                                    <th>ĐVT</th>
+                                                    <th>Khối lượng</th>
+                                                    <th>Khối lượng còn lại theo BOQ2</th>
+                                                    <th>Đơn giá BOQ2</th>
+                                                    <th>Thành tiền</th>
+                                                    <th>Chú thích</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="table-PurchaseOrderDetail-content" class="table-body"></tbody>
+                                            <tfoot>
+                                                <tr>
+                                                    <td colspan="16">
+                                                        <button class="btn btn-xs btn-success" type="button" id="btn-add-detail">Thêm</button>
+                                                    </td>
+                                                </tr>
+                                            </tfoot>
+                                        </table>
+                                    </div>
+                                </div>
+                                <script type="x-tmpl-mustache" id="template-table-purchaseorder">
+                                    <tr>
+                                        <td><button class="btn btn-xs btn-danger btn-delete-podetail" type="button"><i class="fa fa-trash"></i></button></td>
+                                        <td>{{ProductCode}}</td>
+                                        <td>{{ProductName}}</td>
+                                        <td>{{Description}}</td>
+                                        <td data-value={{unitfk}}>{{unitName}}</td>
+                                        <td data-value={{qtyvalue}}>{{qty}}</td>
+                                        <td data-value={{qtyvalueb2}}>{{qtyb2}}</td>
+                                        <td data-value={{pricevalueb2}}>{{priceb2}}</td>
+                                        <td data-value={{subtotalvalue}}>{{subtotal}}</td>
+                                        <td >
+                                            <input id="notepodetail" value={{Note}}/>
+                                        </td>
+                                    </tr>
+                                </script>
+                                <div id="tabdestination" class="tab-pane fade" style="padding:10px;">
+                                    <div class="form-group row">
+                                        <label for="txtCode" class="col-sm-2 col-form-label" id="lbDOB">Mã mặt hàng <span class="star">*</span></label>
+                                        <div class="col-sm-2">
+                                            <input type="text" class="form-control" id="txtCode" name="txtCode" />
+                                        </div>
+
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="txtName" class="col-sm-2 col-form-label">Tên mặt hàng <span class="star">*</span></label>
+                                        <div class="col-sm-10 autocomplete">
+                                            <input type="text" class="code" id="txtName" style="width:100%;" />
+                                            <div class="autocomplete-items contain-productCode" style="width:400px">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="txtDes" class="col-sm-2 col-form-label">Quy cách</label>
+                                        <div class="col-sm-10">
+                                            <textarea rows="3" class="form-control" placeholder="Quy cách ?" id="txtDes" name="txtDes" required></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="txtUnit" class="col-sm-2 col-form-label">Đơn vị tính <span class="star">*</span></label>
+                                        <div class="col-sm-4 autocomplete">
+                                            <input id="txtUnit" type="text" name="txtUnit" placeholder="Chọn đơn vị tính ?" style="width:100%" />
+                                        </div>                                     
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="txtQty" class="col-sm-2 col-form-label">Khối lượng <span class="star">*</span></label>
+                                        <div class="col-sm-4">
+                                            <input type="text" class="form-control" id="txtQty" name="txtQty">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="txtPrice" class="col-sm-2 col-form-label">Đơn giá <span class="star">*</span></label>
+                                        <div class="col-sm-4">
+                                            <input type="text" class="form-control" id="txtPrice" name="txtPrice">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="txtSubTotalOrder" class="col-sm-2 col-form-label">Thành tiền</label>
+                                        <div class="col-sm-4">
+                                            <input type="text" class="form-control" id="txtSubTotalOrder" name="txtSubTotalOrder">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button type="button" id="btnSave" class="btn btn-success">Ghi</button>
+                                <button type="button" id="btnCancel" data-dismiss="modal" class="btn btn-danger">Hủy</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

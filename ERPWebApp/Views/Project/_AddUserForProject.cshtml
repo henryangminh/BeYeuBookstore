@@ -1,0 +1,44 @@
+﻿<div id="modal-user-project" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title">Phân nhân viên vào công trình</h4>
+            </div>
+            <div class="modal-body">
+                <div id="horizontal-form">
+                    <form class="form-horizontal" role="form" id="frmMaintainance">
+                        <div class="form-group">
+                            <input type="hidden" id="hidProjectId" value="" />
+                            <label for="lblConstructionName" class="col-sm-2 control-label">Công trình:</label>
+                            <label class="control-label" style="color:blue;" name="lblConstructionName" id="lblConstructionName">Tên công trình ở đây</label>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Nhân viên:</label>
+                            <div class="col-sm-10 pre-scrollable  " style="max-height:400px">
+                                <div class="col-sm-5" id="list-user"> </div>
+                                <div class="col-sm-5" id="list-user1"> </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button type="button" id="btnSaveUserProject" class="btn btn-success">Lưu</button>
+                                <button type="button" id="btnCancel" data-dismiss="modal" class="btn btn-default">Đóng</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script id="user-template" type="x-tmpl-mustache">
+    <div class="checkbox">
+        <label>
+            <input type="checkbox" {{Checked}} value="{{id}}" name="ckUsers">
+            <span class="text">{{Name}}</span>
+        </label>
+    </div>
+</script>

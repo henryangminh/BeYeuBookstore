@@ -1,0 +1,105 @@
+﻿@{
+    ViewData["Title"] = "Thông tin dự án";
+}
+@section Styles{
+    <link href="~/lib/jQuery-EasyUI/themes/bootstrap/easyui.css" rel="stylesheet" />
+    <link href="~/lib/jQuery-EasyUI/themes/icon.css" rel="stylesheet" />
+    <link href="~/css/autocomplete.css" rel="stylesheet" />
+}
+@section Scripts{
+    <script src="~/lib/jQuery-EasyUI/jquery.easyui.min.js"></script>
+    <script src="~/app/controllers/project/project.js"></script>
+    <script src="~/app/shared/autocomplete.js"></script>
+
+    <script>
+        var project = new ProjectController();
+        project.initialize();
+    </script>
+}
+
+
+<div class="container">
+
+    <div class="page-title">
+        <div class="title_left">
+            <h3>Thông tin các công trình</h3>
+        </div>
+        <div class="title_right">
+            <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right">
+                <div class="input-group">
+                    <input type="text" id="txt-search-keyword" class="form-control" placeholder="">
+                    <span class="input-group-btn">
+                        <button class="btn btn-primary" id="btn-search" type="button">Tìm</button>
+                    </span>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-12  form-group pull-right">
+                <button id="btn-create" class="btn btn-success">Thêm mới</button>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_content">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th width="5%">STT</th>
+                                <th width="15%">Mã công trình</th>
+                                <th width="30%">Tên công trình</th>
+                                <th width="15%">Tên dự án</th>
+                                <th width="10%">Chủ đầu tư</th>
+                                <th width="10%">Trạng thái</th>
+                                <th width="15%">#</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbl-content"></tbody>
+                    </table>
+                    <!--Pagination-->
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="dataTables_info" id="datatable-checkbox_info" role="status" aria-live="polite">
+                                <select id="ddl-show-page">
+                                    <option value="10" selected="selected">10</option>
+                                    <option value="20">20</option>
+                                    <option value="30">30</option>
+                                    <option value="50">50</option>
+                                </select>
+                                <span class="item-per-page">
+                                    bản ghi/trang.
+                                </span>
+                                Tổng số bản ghi: <strong id="lbl-total-records"></strong>
+                            </div>
+                        </div><div class="col-sm-7">
+                            <div class="dataTables_paginate paging_simple_numbers" id="datatable-checkbox_paginate">
+                                <ul id="paginationUL"></ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script id="table-template" type="x-tmpl-mustache">
+    <tr>
+        <td>{{stt}}</td>
+        <td id="constructionid">{{ConstructionId}}</td>
+        <td id="constructionname">{{ConstructionName}}</td>
+        <td>{{ProjectName}}</td>
+        <td>{{CustomerName}}</td>
+        <td>{{{Status}}}</td>
+        <td id="list-btn">
+            <a href="#" data-id="{{KeyId}}" class="btn  btn-xs btn-primary btn-view"><i class="fa fa-eye-slash"></i></a>
+            <a href="#" data-id="{{KeyId}}" class="btn  btn-xs btn-info btn-edit"><i class="fa fa-pencil-square-o"></i></a>
+            <a href="#" data-id="{{KeyId}}" class="btn btn-xs  btn-danger btn-delete"><i class="fa fa-trash-o"></i></a>
+            <a href="#" data-id="{{KeyId}}" class="btn  btn-xs btn-success btn-userproject"><i class="fa fa-user-plus"></i></a>
+        </td>
+    </tr>
+</script>
+
+@await Html.PartialAsync("_AddEditProject.cshtml")
+@await Html.PartialAsync("_AddUserForProject.cshtml")

@@ -1,0 +1,118 @@
+﻿@{
+    ViewData["Title"] = "Chấm công nhân viên";
+}
+@section Styles{
+    <link href="~/css/autocomplete.css" rel="stylesheet" />
+    <link href="~/css/ScoreEmployee/scoreEmployee.css" rel="stylesheet" />
+}
+@section Scripts{
+
+    <script src="~/app/controllers/scoreEmployee/index.js" asp-append-version="true"></script>
+    <script>
+        var scoreemployee = new scoreEmployeeController();
+        scoreemployee.initialize();</script>
+}
+@*<div class="page-title">
+    </div>
+    <div class="clearfix"></div>*@
+<div class="row" style="margin-top:10px">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="x_panel">
+            <div class="x_content">
+                <div class="form-group row">
+                    <div class="col-sm-9">
+                        <button id="btnSave" class="btn btn-success"><i class="fa fa-save"></i> Ghi</button>
+                        <button id="btnUndo" class="btn btn-danger"><i class="fa fa-undo"></i> Hoàn tác</button>
+                        <button id="btnAuto" class="btn btn-primary"><i class="fa fa-automobile"></i> Tự động</button>
+                        <button id="btnSwitchNewMonth" class="btn btn-primary"><i class="fa fa-caret-right"></i> Chuyển tháng mới</button>
+                        <button id="btnSalary" class="btn btn-primary"> <i class="fa fa-money"></i> Tính lương</button>
+                        <button id="btnImport" class="btn btn-primary"><i class="fa fa-download"></i> Nhập Excel</button>
+
+                    </div>
+                    <div class="col-sm-3 input-group">
+                        <input type="text" id="txtKeyword" class="form-control" placeholder="Gõ từ khóa...">
+                        <span class="input-group-btn">
+                            <button class="btn btn-primary" id="btnSearch" type="button"><i class="fa fa-search"></i></button>
+                        </span>
+                    </div>
+
+
+                </div>
+                <div class="form-group row ">
+                    <div class="col-sm-2">
+                        <input type="text" id="dtFromDate" class="form-control datepicker" placeholder="Từ ngày" />
+                    </div>
+                    <div class="col-sm-2">
+                        <input type="text" id="dtToDate" class="form-control datepicker" placeholder="Đến ngày" />
+                    </div>
+                    <div class="col-sm-3">
+                        <select id="selDepartmentFK" class="form-control" name="selDepartmentFK"></select>
+                    </div>
+
+                    <div class="col-sm-2">
+                        <select id="selEmployeeTypeFK" class="form-control" name="selEmployeeTypeFK"></select>
+                    </div>
+                    <div class="col-sm-3">
+                        <select id="selEmployeeFK" class="form-control" name="selEmployeeFK"></select>
+                    </div>
+                </div>
+
+                <div class="pre-scrollable" style="max-height:500px!important">
+                    <table class="table table-bordered" id="scoreEmployee">
+                        <thead>
+                            <tr class="info">
+                                <th>Mã NV</th>
+                                <th>Họ và tên</th>
+                                <th>Ngày</th>
+                                <th>Thứ</th>
+                                <th>Giờ vào</th>
+                                <th>Giờ ra</th>
+                                <th>Giờ làm</th>
+                                <th>Công</th>
+                                <th>Giờ tăng ca</th>
+                                <th>Công tăng ca</th>
+                                <th>Loại chấm công</th>
+                                <th>Chú thích</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbl-content"></tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<script id="table-template" type="x-tmpl-mustache">
+    <tr data-keyid="{{KeyId}}">
+        <td id="keyid">{{Id}}</td>
+        <td id="fullname" style="min-width:140px">{{FullName}}</td>
+        <td id="date">{{Date}}</td>
+        <td id="dayOfWeeks">{{DayOfWeek}}</td>
+        <td id="hoursin">
+            <input type="time" class="border-none" id="txtHoursIn" value="{{HoursIn}}" />
+        </td>
+        <td id="hoursout">
+            <input type="time" class="border-none" id="txtHoursOut" value="{{HoursOut}}" />
+        </td>
+        <td id="noWorkHours">
+            <input type="text" class="border-none" id="txtNOWorkHours" value="{{NOWorkHours}}" />
+        </td>
+        <td id="work">
+            <input type="text" class="border-none" id="txtWork" value="{{Work}}" />
+        </td>
+        <td id="overtime">
+            <input type="text" class="border-none" id="txtOverTime" value="{{Overtime}}" />
+        </td>
+        <td id="workOT">
+            <input type="text" class="border-none" id="txtWorkOT" value="{{WorkOT}}" />
+        </td>
+        <td id="timeKeepingType">
+            {{{TimeKeepingType}}}
+        </td>
+        <td id="note">
+            <input type="text" class="border-none" id="txtNote" value="{{Note}}" style="min-width:130px"/>
+        </td>
+    </tr>
+</script>
+@await Html.PartialAsync("_ImportExcelModal.cshtml")

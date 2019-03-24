@@ -1,0 +1,117 @@
+﻿
+@{
+    ViewData["Title"] = "PermitDay";
+}
+@section Styles{
+    <link href="~/css/PermitDay/PermitDay.css" rel="stylesheet" />
+}
+
+@section Scripts{
+    <script src="~/app/controllers/PermitDay/PermitDayTheme.js"></script>
+}
+<div class="pg-header container" id="pgHeader">
+    <div class="pg-title pull-left"><h2>Bảng phép năm 2019</h2></div>
+    <div class="form-inline pull-right">
+        <div class="input-group date">
+            <input type="text" id="dtYear" class="form-control" placeholder="2019" />
+            <span class="glyphicon glyphicon-calendar form-control-feedback"></span>
+        </div>
+        <div class="input-group">
+            <input type="text" placeholder="Tìm" class="form-control" />
+            <span class="glyphicon glyphicon-search form-control-feedback"></span>
+        </div>
+        <button class="btn btn-success form-control">Ghi</button>
+        <button class="btn btn-danger form-control">Không ghi</button>
+    </div>
+</div>
+<div class="pg-content panel panel-default">
+    <table class="table text-center table-bordered">
+        <thead>
+            <tr class="info">
+                <th class="col-xs-1">STT</th>
+                <th class="col-xs-3">Họ và tên</th>
+                <th class="col-xs-2">Chức vụ</th>
+                <th class="col-xs-2">Tổng số ngày phép</th>
+                <th class="col-xs-2">Tổng số ngày phép đã sử dụng</th>
+                <th class="col-xs-2">Tổng số ngày phép còn lại</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>Nguyễn Văn A</td>
+                <td>Giám đốc</td>
+                <td><input type="number" value="12" class="text-center" /></td>
+                <td>0</td>
+                <td>12</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>Nguyễn Văn A</td>
+                <td>Giám đốc</td>
+                <td><input type="number" value="12" class="text-center" /></td>
+                <td>0</td>
+                <td>12</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>Nguyễn Văn A</td>
+                <td>Giám đốc</td>
+                <td><input type="number" value="12" class="text-center" /></td>
+                <td>0</td>
+                <td>12</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>Nguyễn Văn A</td>
+                <td>Giám đốc</td>
+                <td><input type="number" value="12" class="text-center" /></td>
+                <td>0</td>
+                <td>12</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>Nguyễn Văn A</td>
+                <td>Giám đốc</td>
+                <td><input type="number" value="12" class="text-center" /></td>
+                <td>0</td>
+                <td>12</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>Nguyễn Văn A</td>
+                <td>Giám đốc</td>
+                <td><input type="number" value="12" class="text-center" /></td>
+                <td>0</td>
+                <td>12</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="pg-footer container">
+    <!--Pagination-->
+    <nav aria-label="Page navigation">
+        <div class="pagination-status pull-left" id="datatable-checkbox_info" role="status" aria-live="polite">
+            <select id="ddlShowPage">
+                <option selected>10</option>
+                <option>20</option>
+                <option>30</option>
+                <option>50</option>
+            </select>
+            <label> bản ghi / trang.</label>
+            <label>Tổng số bản ghi: <strong id="lblTotalRecords">9</strong></label>
+        </div>
+        <div class="pull-right">
+            <ul id="paginationUL" class="pagination">
+                <li class="page-item first disabled"><a href="#" class="page-link">Đầu</a></li>
+                <li class="page-item prev disabled"><a href="#" class="page-link">Trước</a></li>
+                <li class="page-item active"><a href="#" class="page-link">1</a></li>
+                <li class="page-item"><a href="#" class="page-link">2</a></li>
+                <li class="page-item next"><a href="#" class="page-link">Tiếp</a></li>
+                <li class="page-item last"><a href="#" class="page-link">Cuối</a></li>
+            </ul>
+        </div>
+    </nav>
+</div>
+
+

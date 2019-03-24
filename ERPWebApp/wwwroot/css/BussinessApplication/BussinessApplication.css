@@ -1,0 +1,54 @@
+﻿
+
+.pagination {
+    margin-top:0;
+}
+.pagination-status{
+    margin-bottom:20px;
+    padding-top:5px;
+}
+.pg-content thead tr{
+    height:50px;
+}
+.pg-content thead tr th,
+.pg-content tbody tr td
+{
+    vertical-align:middle;
+}
+
+button,
+.buttons,
+.btn{
+    margin:0;
+}
+
+.pg-header{
+    margin-bottom:20px;
+    margin-top:20px;
+}
+
+#dtBegin,
+#dtEnd{
+       width:100px;
+}
+
+#addModal .panel-default{
+       padding:15px;
+}
+
+#addModal .checkbox label{
+    padding-top:5px;
+}
+.input-group .input-group-addon{
+    border-radius:0;
+}
+/*responsive for device has screen width less than 768px*/
+@media only screen and (max-width: 768px) {
+    #frmSearch *{
+        margin-bottom:20px;
+    }
+    #dtBegin,
+    #dtEnd {
+        width: 100%;
+    }
+}

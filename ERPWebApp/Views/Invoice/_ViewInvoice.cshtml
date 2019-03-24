@@ -1,0 +1,148 @@
+﻿<div id="modal-add-edit" class="bootbox modal fade modal-darkorange in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog  modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="bootbox-close-button close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title">Hóa đơn</h4>
+            </div>
+            <div class="modal-body">
+
+                <ul class="nav nav-tabs">
+                    <li class="active"><a data-toggle="tab" href="#Invoice">Thông tin</a></li>
+                    <li><a data-toggle="tab" href="#CashReceipt">Lịch sử thanh toán</a></li>
+                </ul>
+                <div>
+                    <div class="tab-content">
+                        <div id="Invoice" class="tab-pane fade in active">
+                            <div id="horizontal-form">
+                                <form class="form-horizontal" role="form" id="frmMaintainance">
+                                    <div class="form-group row">
+
+                                        <label for="txtId" class="col-sm-2 col-form-label">Mã hóa đơn</label>
+                                        <div class="col-sm-2">
+                                            <input type="text" class="form-control" id="txtId" name="txtId">
+                                        </div>
+                                        <label for="dtDateCreated" class="col-sm-2 col-form-label">Ngày hóa đơn</label>
+                                        <div class="col-sm-4">
+                                            <input type="date" class="form-control" id="dtDateCreated" name="dtDateCreated" />
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label for="txtFullName" class="col-sm-2 col-form-label">Tên khách hàng </label>
+                                        <div class="col-sm-4">
+                                            <input type="text" class="form-control" id="txtFullName" />
+                                        </div>
+
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="txtSalesPerson" class="col-sm-2 col-form-label" id="lbIDNumber">Người bán</label>
+                                        <div class="col-sm-4">
+                                            <input type="text" class="form-control" id="txtSalesPerson" name="txtSalesPerson">
+                                        </div>
+                                        <label for="txtCreatedBy" class="col-sm-2 col-form-label" id="lbDOB">Người tạo</label>
+                                        <div class="col-sm-4">
+                                            <input type="text" class="form-control" id="txtCreatedBy" name="txtCreatedBy" />
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label for="txtNotes" class="col-sm-2 col-form-label">Ghi chú</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control" id="txtNotes">
+                                        </div>
+                                    </div>
+
+                                    <table class="table table-bordered table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>Mã sản phẩm</th>
+                                                <th>Tên sản phẩm</th>
+                                                <th>Số lượng</th>
+                                                <th>Đơn giá</th>
+                                                <th>Giảm giá</th>
+                                                <th>Giá bán</th>
+                                                <th>Thành tiền</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="tbl-detail"></tbody>
+                                    </table>
+                                    <div class="form-group row" style="text-align:right">
+                                        <label for="txtNotes" class="col-sm-10 col-form-label">Tổng tiền hàng</label>
+                                        <div class="col-sm-2" id="Total">
+
+                                        </div>
+                                    </div>
+                                    <div class="form-group row" style="text-align:right">
+                                        <label for="txtNotes" class="col-sm-10 col-form-label">Giảm giá</label>
+                                        <div class="col-sm-2" id="DiscountAmt">
+
+                                        </div>
+                                    </div>
+                                    <div class="form-group row" style="text-align:right">
+                                        <label for="txtNotes" class="col-sm-10 col-form-label">Khách cần trả</label>
+                                        <div class="col-sm-2" id="TotalInvoice">
+
+                                        </div>
+                                    </div>
+                                    <div class="form-group row" style="text-align:right">
+                                        <label for="txtNotes" class="col-sm-10 col-form-label">Khách đã trả</label>
+                                        <div class="col-sm-2" id="PaidAmount">
+
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <div class="col-sm-offset-8 col-sm-10">
+                                            <button type="button" id="btnSave" class="btn btn-success">Ghi</button>
+                                            <button type="button" id="btnCancel" data-dismiss="modal" class="btn btn-danger">Hủy</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div id="CashReceipt" class="tab-pane fade">
+                            <table class="table table-bordered table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Mã phiếu</th>
+                                        <th>Thời gian</th>
+                                        <th>Người tạo</th>
+                                        <th>Phương thức</th>
+                                        <th>Trạng thái</th>
+                                        <th>Tiền thu</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="tbl-cashReceipt"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+         </div>
+     </div>
+</div>
+<script id="detail-template" type="x-tmpl-mustache">
+    <tr>
+        <td>{{ProductCode}}</td>
+        <td>{{ProductName}}</td>
+        <td>{{Qty}}</td>
+        <td style="text-align:right">{{UnitPrice}}</td>
+        <td style="text-align:right">{{Discount}}</td>
+        <td style="text-align:right">{{PriceSale}}</td>
+        <td>{{SubTotal}}</td>
+        
+    </tr>
+</script>
+<script id="cashReceipt-template" type="x-tmpl-mustache">
+    <tr>
+        <td>{{KeyId}}</td>
+        <td>{{DateCreated}}</td>
+        <td>{{FullName}}</td>
+        <td>{{ReceiptType}}</td>
+        <td>{{Status}}</td>
+        <td style="text-align:right">{{Amount}}</td>
+
+    </tr>
+</script>

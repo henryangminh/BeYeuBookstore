@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.2.0-preview1-35029" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="2.2.0-preview1-35029" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.2.0-preview1-35029" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="2.2.0-preview1-35029" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.FileExtensions" Version="2.2.0-preview1-35029" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="2.2.0-preview1-35029" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ERPWebApp.Data\ERPWebApp.Data.csproj" />
+    <ProjectReference Include="..\ERPWebApp.Infrastructure\ERPWebApp.Infrastructure.csproj" />
+    <ProjectReference Include="..\ERPWebApp.Utilities\ERPWebApp.Utilities.csproj" />
+  </ItemGroup>
+
+</Project>

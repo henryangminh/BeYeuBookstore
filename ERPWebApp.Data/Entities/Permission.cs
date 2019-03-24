@@ -1,0 +1,46 @@
+﻿using ERPWebApp.Infrastructure.SharedKernel;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Text;
+
+namespace ERPWebApp.Data.Entities
+{
+    [Table("Permissions")]
+    public class Permission : DomainEntity<int>
+    {
+        public Permission() { }
+        public Permission(int keyid,Guid roleId, string functionId, bool canCreate,
+            bool canRead, bool canUpdate, bool canDelete, bool canConfirm)
+        {
+            KeyId = keyid;
+            RoleId = roleId;
+            FunctionId = functionId;
+            CanCreate = canCreate;
+            CanRead = canRead;
+            CanUpdate = canUpdate;
+            CanDelete = canDelete;
+            CanConfirm = CanConfirm;
+        }
+        [Required]
+        public Guid RoleId { get; set; }
+
+        [StringLength(128)]
+        [Required]
+        public string FunctionId { get; set; }
+
+        public bool CanCreate { set; get; }
+        public bool CanRead { set; get; }
+        public bool CanConfirm { set; get; }
+        public bool CanUpdate { set; get; }
+        public bool CanDelete { set; get; }
+
+
+        [ForeignKey("RoleId")]
+        public virtual Role AppRole { get; set; }
+
+        [ForeignKey("FunctionId")]
+        public virtual Function Function { get; set; }
+    }
+}

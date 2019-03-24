@@ -1,0 +1,253 @@
+﻿<div id="modal-add-edit" class="bootbox modal fade modal-darkorange in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog  modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="bootbox-close-button close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title">Quản lý kho hàng</h4>
+            </div>
+            <div class="modal-body">
+                <div id="horizontal-form">
+                    <form class="form-horizontal" role="form" id="frmMaintainance">
+                        <div class="form-group row">
+                            <label for="selWarehouse" class="col-sm-2 col-form-label">Kho chứa <span class="star">*</span></label>
+                            <div class="col-sm-4">
+                                <select id="selWarehouse" class="form-control" name="selWarehouse"></select>
+                            </div>
+                            <label for="txtId" class="col-sm-offset-2 col-sm-1 col-form-label">Mã</label>
+                            <div class="col-sm-2">
+                                <input type="text" class="form-control" id="txtId" name="txtId">
+                            </div>
+
+                        </div>
+                        <div class="form-group row">
+                            <label for="txtProduct" class="col-sm-2 col-form-label">Mặt hàng<span class="star">*</span></label>
+                            <div class="col-sm-8 autocomplete">
+                                <input type="text" class="form-control code" id="txtProduct" data-keyid="{{ProductFk}}" autocomplete="off" />
+                                <div class="autocomplete-items contain-product">
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group row">
+
+                            <label for="txtVendor" class="col-sm-2 col-form-label">Nhà cung cấp <span class="star">*</span></label>
+                            <div class="col-sm-8 autocomplete">
+                                <input id="txtVendor" type="text" name="txtVendor" placeholder="Chọn nhà cung cấp" style="width:100%" autocomplete="off" />
+                            </div>
+
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="txtLength" class="col-sm-2 col-form-label">Chiều dài <span class="star">*</span></label>
+                            <div class="col-sm-2">
+                                <input type="text" class="form-control position-number" id="txtLength" name="txtLength">
+                            </div>
+                            <label for="txtWidth" class="col-sm-offset-0 col-sm-2 col-form-label">Chiều rộng <span class="star">*</span></label>
+                            <div class="col-sm-2">
+                                <input type="text" class="form-control position-number" id="txtWidth" name="txtWidth">
+                            </div>
+                            <label for="txtHeight" class="col-sm-offset-0 col-sm-2 col-form-label">Chiều cao <span class="star">*</span></label>
+                            <div class="col-sm-2">
+                                <input type="text" class="form-control position-number" id="txtHeight" name="txtHeight">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="selUnit" class="col-sm-2 col-form-label">Đơn vị tính</label>
+                            <div class="col-sm-3">
+                                <select id="selUnit" class="form-control" name="selUnit"></select>
+                            </div>
+                            <div class="checkbox col-sm-offset-1 col-sm-4">
+                                <label><input type="checkbox" value="" id="chkFixedAsset">Là tài sản cố định?</label>
+                            </div>
+                        </div>
+
+                        <!-- add tabs-->
+                        <div class="container">
+                            <ul class="nav nav-tabs">
+                                <li class="active"><a data-toggle="tab" href="#tabGeneral">Thông tin chung</a></li>
+                                <li><a data-toggle="tab" href="#tabQty">Quản lý số lượng</a></li>
+                                <li><a data-toggle="tab" href="#tabAmount">Quản lý giá</a></li>
+                                <li><a data-toggle="tab" href="#tabAcounting">Quản lý tài khoản</a></li>
+                            </ul>
+                            <div class="tab-content panel-body">
+
+                                <div id="tabGeneral" class="tab-pane fade in active" style="padding:10px;">
+                                    <div class="form-group row">
+                                        <label for="txtTaxRate" class="col-sm-2 col-form-label">Thuế</label>
+                                        <div class="col-sm-4">
+                                            <input type="text" class="form-control position-number" id="txtTaxRate" name="txtTaxRate">
+                                        </div>
+                                        <label for="txtLocation" class="col-sm-2 col-form-label">Vị trí trong kho</label>
+                                        <div class="col-sm-4">
+                                            <input type="text" class="form-control" id="txtLocation" name="txtLocation" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="dtpLastSaleDate" class="col-sm-2 col-form-label">Ngày cuối hàng được bán</label>
+                                        <div class="col-sm-4">
+                                            <input type="text" class="form-control" id="dtpLastSaleDate">
+                                        </div>
+                                        <label for="dtpLastPODate" class="col-sm-2 col-form-label">Ngày cuối hàng được mua</label>
+                                        <div class="col-sm-4">
+                                            <input type="text" class="form-control" id="dtpLastPODate">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="dtpLastReceiptDate" class="col-sm-2 col-form-label">Ngày cuối hàng được nhập</label>
+                                        <div class="col-sm-4">
+                                            <input type="text" class="form-control" id="dtpLastReceiptDate">
+                                        </div>
+                                        <label for="txtLeadTime" class="col-sm-2 col-form-label">Thời gian chờ nhập hàng (ngày)</label>
+                                        <div class="col-sm-4">
+                                            <input type="text" class="form-control position-number" id="txtLeadTime" name="txtLeadTime">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="tabQty" class="tab-pane fade" style="padding:10px;">
+                                    <div class="form-group row">
+                                        <label for="txtROP" class="col-sm-2 col-form-label" id="lbDOB">SL tối thiểu<span class="star">*</span></label>
+                                        <div class="col-sm-4">
+                                            <input type="text" class="form-control position-number" id="txtROP" name="txtROP" />
+                                        </div>
+                                        <label for="txtEOQ" class="col-sm-2 col-form-label" id="lbDOB">SL đặt hàng tối ưu<span class="star">*</span></label>
+                                        <div class="col-sm-4">
+                                            <input type="text" class="form-control position-number" id="txtEOQ" name="txtEOQ" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="txtQty_On_Order" class="col-sm-2 col-form-label">SL hàng chờ nhập kho</label>
+                                        <div class="col-sm-4">
+                                            <input type="text" class="form-control position-number" id="txtQty_On_Order" name="txtQty_On_Order">
+                                        </div>
+                                        <label for="txtQty_On_Hand" class="col-sm-2 col-form-label">SL hàng có sẵn</label>
+                                        <div class="col-sm-4">
+                                            <input type="text" class="form-control position-number" id="txtQty_On_Hand" name="txtQty_On_Hand">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="txtQty_In_Stock" class="col-sm-2 col-form-label">SL hàng tồn kho</label>
+                                        <div class="col-sm-4">
+                                            <input type="text" class="form-control position-number" id="txtQty_In_Stock" name="txtQty_In_Stock">
+                                        </div>
+                                        <label for="txtQty_Allocated" class="col-sm-2 col-form-label">SL hàng hứa bán</label>
+                                        <div class="col-sm-4">
+                                            <input type="text" class="form-control position-number" id="txtQty_Allocated" name="txtQty_Allocated">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="tabAmount" class="tab-pane fade" style="padding:10px;">
+                                    <div class="form-group row">
+                                        <table class="table table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <th>Mã khách hàng</th>
+                                                    <th>Tên khách hàng</th>
+                                                    <th>Giá bán</th>
+                                                    <th></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="table-price-content" style="text-align:center"></tbody>
+                                            <tfoot>
+                                                <tr>
+                                                    <td colspan="6">
+                                                        <button class="btn btn-xs btn-success" type="button" id="btn-add-price">Thêm</button>
+                                                    </td>
+                                                </tr>
+                                            </tfoot>
+                                        </table>
+                                        <script type="x-tmpl-mustache" id="template-table-price">
+                                            <tr>
+                                                <td class="col-sm-3 col-customerId">
+                                                    <div class="col-sm-12 autocomplete">
+                                                        <input type="text" class="form-control code" value="{{CustomerId}}" id="txtCustomerId" data-keyid="{{CustomerFk}}" />
+                                                        <div class="autocomplete-items contain-customer">
+
+                                                        </div>
+                                                    </div>
+
+                                                </td>
+                                                <td style="text-align:left" class="col-sm-4 customerName">{{CustomerName}}</td>
+                                                <td id="unitPrice" class="col-sm-3">
+                                                    <input type="text" value="{{SalePrice}}" class="form-control position-number" id="txtSalePrice" name="txtSalePrice" />
+                                                </td>
+                                                <td id="btn"><button class="btn btn-xs btn-danger btn-delete-price" data-id="{{KeyId}}" type="button"><i class="fa fa-trash"></i></button></td>
+                                            </tr>
+                                        </script>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="txtLastCost" class="col-sm-2 col-form-label">Giá vốn nhập cuối</label>
+                                        <div class="col-sm-4">
+                                            <input type="text" class="form-control" id="txtLastCost" name="txtLastCost" />
+                                        </div>
+                                        <label for="txtTotalInventoryValue" class="col-sm-2 col-form-label">Giá trị tồn kho</label>
+                                        <div class="col-sm-4">
+                                            <input type="text" class="form-control" id="txtTotalInventoryValue" name="txtTotalInventoryValue">
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div id="tabAcounting" class="tab-pane fade" style="padding:10px;">
+                                    <div class="form-group row">
+
+                                        <label for="selGL_Asset" class="col-sm-2 col-form-label">TK sổ cái tồn kho</label>
+                                        <div class="col-sm-4">
+                                            <select id="selGL_Asset" class="form-control" name="selGL_Asset"></select>
+                                        </div>
+                                        <label for="selGL_COGS" class="col-sm-2 col-form-label">TK sổ cái giá vốn</label>
+                                        <div class="col-sm-4">
+                                            <select id="selGL_COGS" class="form-control" name="selGL_COGS"></select>
+                                        </div>
+
+                                    </div>
+                                    <div class="form-group row">
+
+                                        <label for="selGL_Sales" class="col-sm-2 col-form-label">TK sổ cái doanh thu</label>
+                                        <div class="col-sm-4">
+                                            <select id="selGL_Sales" class="form-control" name="selGL_Sales"></select>
+                                        </div>
+                                        <label for="selGL_NonTaxSales" class="col-sm-2 col-form-label">TK sổ cái doanh thu không thuế</label>
+                                        <div class="col-sm-4">
+                                            <select id="selGL_NonTaxSales" class="form-control" name="selGL_NonTaxSales"></select>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="form-group row" style="padding:10px;">
+                            <label for="txtLastUpdatedByFK" class="col-sm-2 col-form-label">Người cập nhật gần nhất</label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" id="txtLastUpdatedByFK">
+                            </div>
+                            <label for="dtDateModified" class="col-sm-2 col-form-label">Ngày cập nhật gần nhất</label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" id="dtDateMotified" />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button type="button" id="btnSave" class="btn btn-success">Ghi</button>
+                                <button type="button" id="btnCancel" data-dismiss="modal" class="btn btn-danger">Hủy</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script id="customer-template" type="x-tmpl-mustache">
+    <div data-idcustomer="{{KeyId}}" id="ddlcustomer">
+        <span id="fullname">{{FullName}}</span>
+        <span id="id">{{Id}}</span>
+    </div>
+</script>
+<script id="product-template" type="x-tmpl-mustache">
+    <div data-id="{{KeyId}}" id="ddlproduct">
+        <span id="ProductName">{{ProductName}}</span>
+        <span id="ProductCode">{{ProductCode}}</span>
+    </div>
+</script>

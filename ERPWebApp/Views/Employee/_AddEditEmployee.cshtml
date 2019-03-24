@@ -1,0 +1,683 @@
+﻿<div id="modal-add-edit" class="bootbox modal fade modal-darkorange in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog  modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="bootbox-close-button close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title">Thêm nhân viên</h4>
+            </div>
+            <div class="modal-body">
+                <div id="horizontal-form">
+                    <form class="form-horizontal" role="form" id="frmMaintainance">
+                        <div class="form-group row">
+                            <label for="txtEmployee" class="col-sm-2 col-form-label">Họ tên <span class="star">*</span></label>
+                            <div class="col-sm-6 autocomplete">
+                                <input id="txtEmployee" data-addressbookid="" type="text" name="txtEmployee" placeholder="Chọn nhân viên" style="width:100%" />
+                            </div>
+                            <label for="txtId" class="col-sm-1 col-form-label">Mã</label>
+                            <div class="col-sm-2">
+                                <input type="text" class="form-control" id="txtId" name="txtId">
+                            </div>
+                        </div>
+                        <div class="container">
+                            <ul class="nav nav-tabs">
+                                <li class="active"><a data-toggle="tab" href="#Profile">Lý lịch</a></li>
+                                <li><a data-toggle="tab" href="#FamilyCircumstances">Gia cảnh</a></li>
+                                <li><a data-toggle="tab" href="#WorkingProcess">Quá trình công tác</a></li>
+                                <li><a data-toggle="tab" href="#ProfessionalExpertise">Chuyên môn nghiệp vụ</a></li>
+                                <li><a data-toggle="tab" href="#Salary">Lương, thu nhập</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <div id="Profile" class="tab-pane fade in active">
+                                    <div class="x_panel" style="margin-top:10px">
+
+                                        <div class="form-group row">
+                                            <label for="txtIdCard" class="col-sm-2 col-form-label">Mã thẻ chấm công<span class="star">*</span></label>
+                                            <div class="col-sm-3 autocomplete">
+                                                <input id="txtIdCard" data-addressbookid="" type="text" name="txtIdCard" style="width:100%" />
+                                            </div>
+
+
+                                            <label for="txtGender" class="col-sm-1 col-form-label">Giới tính</label>
+                                            <div class="col-sm-2">
+                                                <input type="text" class="form-control" id="txtGender" name="txtGender">
+                                            </div>
+                                            <label for="txtDOB" class="col-sm-2 col-form-label">Ngày sinh</label>
+                                            <div class="col-sm-2">
+                                                <input type="text" class="form-control" id="txtDOB" name="txtDOB">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+
+                                            <label for="selBirthplace" class="col-sm-2 col-form-label">Nơi sinh</label>
+                                            <div class="col-sm-4">
+                                                <select id="selBirthplace" class="form-control" name="selBirthplace"></select>
+                                            </div>
+                                            <label for="selOriginFK" class="col-sm-2 col-form-label">Quê quán<span class="star">*</span></label>
+                                            <div class="col-sm-4">
+                                                <select id="selOriginFK" class="form-control" name="selOriginFK"></select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+
+                                            <label for="selNationFK" class="col-sm-2 col-form-label">Dân tộc</label>
+                                            <div class="col-sm-4">
+                                                <select id="selNationFK" class="form-control" name="selNationFK"></select>
+                                            </div>
+                                            <label for="selReligionFK" class="col-sm-2 col-form-label">Tôn giáo</label>
+                                            <div class="col-sm-4">
+                                                <select id="selReligionFK" class="form-control" name="selReligionFK"></select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="selNationality" class="col-sm-2 col-form-label">Quốc tịch</label>
+                                            <div class="col-sm-4">
+                                                <select id="selNationality" class="form-control" name="selNationality"></select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="txtIDNumber" class="col-sm-2 col-form-label">Số CMND</label>
+                                            <div class="col-sm-3">
+                                                <input type="text" class="form-control" id="txtIDNumber" name="txtIDNumber">
+                                            </div>
+                                            <label for="dtIDDate" class="col-sm-1 col-form-label">Ngày cấp</label>
+                                            <div class="input-group date form_date col-md-3" id="dtIDDate" data-date="" data-date-format="dd MM yyyy" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
+                                                <input class="form-control" size="16" type="text" value="" readonly>
+                                                <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+                                                <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                                            </div>
+                                            <input type="hidden" id="dtp_input2" value="" /><br />
+                                            <label for="selIDPlace" class="col-sm-2 col-form-label">Nơi cấp</label>
+                                            <div class="col-sm-3">
+                                                <select id="selIDPlace" class="form-control" name="selIDPlace"></select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="txtPermanentResidence" class="col-sm-2 col-form-label">Hộ khẩu thường trú</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" class="form-control" id="txtPermanentResidence" name="txtPermanentResidence">
+                                            </div>
+
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="selDistrictPR" class="col-sm-2 col-form-label">Quận/Huyện</label>
+                                            <div class="col-sm-4">
+                                                <select id="selDistrictPR" class="form-control" name="selDistrictPR"></select>
+                                            </div>
+                                            <label for="selProvincePR" class="col-sm-2 col-form-label">Tỉnh/TP</label>
+                                            <div class="col-sm-4">
+                                                <select id="selProvincePR" class="form-control" name="selProvincePR"></select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="txtAccommodationCurrent" class="col-sm-2 col-form-label">Chỗ ở hiện nay</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" class="form-control" id="txtAccommodationCurrent" name="txtAccommodationCurrent">
+                                            </div>
+
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="selDistrictAC" class="col-sm-2 col-form-label">Quận/Huyện</label>
+                                            <div class="col-sm-4">
+                                                <select id="selDistrictAC" class="form-control" name="selDistrictAC"></select>
+                                            </div>
+                                            <label for="selProvinceAC" class="col-sm-2 col-form-label">Tỉnh/TP</label>
+                                            <div class="col-sm-4">
+                                                <select id="selProvinceAC" class="form-control" name="selProvinceAC"></select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="txtPhoneNumber" class="col-sm-2 col-form-label">Điện thoại liên lạc</label>
+                                            <div class="col-sm-4">
+                                                <input type="text" class="form-control" id="txtPhoneNumber" name="txtPhoneNumber">
+                                            </div>
+
+                                            <label for="txtId" class="col-sm-2 col-form-label">Email</label>
+                                            <div class="col-sm-4">
+                                                <input type="text" class="form-control" id="txtEmail" name="txtEmail">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="txtPhoneNumber" class="col-sm-2 col-form-label">Thông tin người liên hệ khi cần</label>
+                                            <div class="col-sm-4">
+                                                <input type="text" class="form-control" id="txtPhoneNumber" name="txtPhoneNumber">
+                                            </div>
+
+                                            <label for="txtId" class="col-sm-2 col-form-label">Số ĐT người liên hệ</label>
+                                            <div class="col-sm-4">
+                                                <input type="text" class="form-control" id="txtId" name="txtId">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="txtTaxIDNumber" class="col-sm-2 col-form-label">Mã số thuế cá nhân</label>
+                                            <div class="col-sm-4">
+                                                <input type="text" class="form-control" id="txtTaxIDNumber" name="txtTaxIDNumber" maxlength="15">
+                                            </div>
+                                            <label for="txtBankAccountNumber" class="col-sm-2 col-form-label" id="lbDOB">Tài khoản ngân hàng</label>
+                                            <div class="col-sm-4">
+                                                <input type="text" class="form-control" id="txtBankAccountNumber" name="txtBankAccountNumber" maxlength="20" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="txtATMAccountName" class="col-sm-2 col-form-label">Họ tên thanh toán ATM</label>
+                                            <div class="col-sm-4">
+                                                <input type="text" class="form-control" id="txtATMAccountName" name="txtATMAccountName" maxlength="15">
+                                            </div>
+                                            <label for="txtIDAccount" class="col-sm-2 col-form-label" id="lbDOB">Mã kế toán</label>
+                                            <div class="col-sm-4">
+                                                <input type="text" class="form-control" id="txtIDAccount" name="txtBankAccountNumber" maxlength="20" />
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                                <div id="FamilyCircumstances" class="tab-pane fade">
+                                    <div class="x_panel" style="margin-top:10px">
+                                        <div class="form-check-inline col-sm-2">
+                                            <label class="form-check-label">
+                                                <input type="radio" class="form-check-input" name="optradio" id="rdoSingle" value="1">Độc thân
+                                            </label>
+                                        </div>
+                                        <div class="form-check-inline col-sm-2">
+                                            <label class="form-check-label">
+                                                <input type="radio" class="form-check-input" name="optradio" id="rdoMarried" value="2">Có gia đình
+                                            </label>
+                                        </div>
+                                        <div class="form-check-inline col-sm-2">
+                                            <label class="form-check-label">
+                                                <input type="radio" class="form-check-input" name="optradio" id="rdoDivorced" value="3">Đã ly dị
+                                            </label>
+                                        </div>
+
+                                        <div class="form-check-inline col-sm-2">
+                                            <label class="form-check-label">
+                                                <input type="radio" class="form-check-input" name="optradio" id="rdoRemarried" value="4">Đã tái hôn
+                                            </label>
+                                        </div>
+
+                                        <label for="txtNOChildren" class="col-sm-1 col-form-label">Số con</label>
+                                        <div class="col-sm-2">
+                                            <input type="text" class="form-control" id="txtNOChildren" name="txtNOChildren">
+                                        </div>
+                                        <label>Quan hệ gia đình</label>
+                                        <table class="table table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <th width="5%">STT</th>
+                                                    <th width="30%">Họ và tên</th>
+                                                    <th width="10%">Năm sinh</th>
+                                                    <th width="10%">Giới tính</th>
+                                                    <th width="10%">Mối quan hệ</th>
+                                                    <th width="20%">Nghề nghiệp</th>
+                                                    <th width="10%">Đã chết</th>
+                                                    <th width="5%">#</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="tbl-FamilyRelationship"></tbody>
+                                            <tfoot>
+                                                <tr>
+                                                    <td colspan="8">
+                                                        <button class="btn btn-xs btn-success" type="button" id="btn-add-relationship">Thêm</button>
+                                                    </td>
+                                                </tr>
+                                            </tfoot>
+                                        </table>
+                                        <script id="FamilyRelationship-template" type="x-tmpl-mustache">
+                                            <tr>
+                                                <td>{{stt}}</td>
+                                                <td>
+                                                    <input type="text" class="form-control" id="txtFullName" value="{{FullName}}" />
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control" id="txtYearOfBirth" value="{{YearOfBirth}}" />
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control" id="txtGender" value="{{Gender}}" />
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control" id="txtRelationship" value="{{Relationship}}" />
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control" id="txtJob" value="{{Job}}" />
+                                                </td>
+                                                <td>
+                                                    <input type="checkbox" id="chkDied" {{Died}} />
+                                                </td>
+                                                @*Nút sửa????*@
+                                                <th scope="row">
+                                                    <button class="btn btn-xs btn-default btn-edit" data-id="{{KeyId}}" type="button" data-toggle="tooltip" data-placement="top" title="Sửa"><i class="fa fa-close"></i></button>
+                                                </th>
+                                            </tr>
+                                        </script>
+                                    </div>
+
+                                </div>
+                                <div id="WorkingProcess" class="tab-pane fade">
+                                    <div class="x_panel" style="margin-top:10px">
+                                        <div class="form-group row">
+                                            <label for="txtNumberOfProfile" class="col-sm-2 col-form-label">Số hồ sơ</label>
+                                            <div class="col-sm-2">
+                                                <input type="text" id="txtNumberOfProfile" class="form-control" name="NumberOfProfile">
+                                            </div>
+
+                                            <label for="txtNumberOfContract" class="col-sm-2 col-form-label">Số hợp đồng lao động</label>
+                                            <div class="col-sm-2">
+                                                <input type="text" id="txtNumberOfContract" class="form-control" name="NumberOfContract">
+                                            </div>
+
+                                            <label for="selLaborContractType" class="col-sm-2 col-form-label">Loại hợp đồng</label>
+                                            <div class="col-sm-2">
+                                                <select id="selLaborContractType" class="form-control" name="selLaborContractType">
+                                                </select>
+                                            </div>
+
+
+                                        </div>
+                                        <div class="form-group row">
+                                            <div class="col-sm-6">
+                                                <label for="dtSignDate" class="col-sm-4 col-form-label">Ngày ký</label>
+                                                <div class="input-group date form_date col-md-8" id="dtSignDate" data-date="" data-date-format="dd MM yyyy" data-link-field="dtp_input21" data-link-format="yyyy-mm-dd">
+                                                    <input class="form-control" size="16" type="text" value="" readonly>
+                                                    <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+                                                    <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                                                </div>
+                                                <input type="hidden" id="dtp_input21" value="" />
+                                            </div>
+                                            
+                                            <div class="col-sm-6">
+                                                <label for="dtTimeExpireContract" class="col-sm-4 col-form-label">Hạn HĐLĐ</label>
+                                                <div class="input-group date form_date col-sm-8" id="dtTimeExpireContract" data-date="" data-date-format="dd MM yyyy" data-link-field="dtp_input22" data-link-format="yyyy-mm-dd">
+                                                    <input class="form-control" size="16" type="text" value="" readonly>
+                                                    <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+                                                    <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                                                </div>
+                                                <input type="hidden" id="dtp_input22" value="" />
+                                            </div>
+                                            
+
+                                            
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <div class="col-sm-6">
+                                                <label for="dtTimeExpireProbation" class="col-sm-4 col-form-label">Thử việc đến</label>
+                                                <div class="input-group date form_date col-sm-8" id="dtTimeExpireProbation" data-date="" data-date-format="dd MM yyyy" data-link-field="dtp_input23" data-link-format="yyyy-mm-dd">
+                                                    <input class="form-control" size="16" type="text" value="" readonly>
+                                                    <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+                                                    <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                                                </div>
+                                                <input type="hidden" id="dtp_input23" value="" />
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <label for="dtStartDate" class="col-sm-4 col-form-label">Ngày bắt đầu công việc</label>
+                                                <div class="input-group date form_date col-sm-8" id="dtStartDate" data-date="" data-date-format="dd MM yyyy" data-link-field="dtp_input24" data-link-format="yyyy-mm-dd">
+                                                    <input class="form-control" size="16" type="text" value="" readonly>
+                                                    <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+                                                    <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                                                </div>
+                                                <input type="hidden" id="dtp_input24" value="" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+
+                                            <label for="selDepartmentFK" class="col-sm-2 col-form-label">Phòng ban<span class="star">*</span></label>
+                                             <div class="col-sm-4">
+                                                 <select id="selDepartmentFK" class="form-control" name="selDepartmentFK"></select>
+                                             </div>
+                                             <label for="selPositionFK" class="col-sm-2 col-form-label">Chức vụ<span class="star">*</span></label>
+                                             <div class="col-sm-4">
+                                                 <select id="selPositionFK" class="form-control" name="selPositionFK"></select>
+                                             </div>
+                                        </div>
+                                       
+                                        <div class="form-group row">
+                                            <label for="txtInfoSaveFile" class="col-sm-2 col-form-label">Thông tin về nơi lưu trữ hồ sơ</label>
+                                            <div class="col-sm-4">
+                                                <textarea type="text" class="form-control" id="txtInfoSaveFile" name="txtInfoSaveFile"></textarea>
+                                            </div>
+
+                                            <label for="dtLayOffDate" class="col-sm-2 col-form-label">Ngày nghỉ việc</label>
+                                            <div class="input-group date form_date col-sm-4" id="dtLayOffDate" data-date="" data-date-format="dd MM yyyy" data-link-field="dtp_input25" data-link-format="yyyy-mm-dd">
+                                                <input class="form-control" size="16" type="text" value="" readonly>
+                                                <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+                                                <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                                            </div>
+                                            <input type="hidden" id="dtp_input25" value="" />
+                                        </div>
+
+                                        <label class="col-sm-12 col-form-label">Tiến trình công tác</label>
+                                        <table class="table table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <th>Ngày biến động</th>
+                                                    <th>Quyết định số mấy</th>
+                                                    <th>Đơn vị cũ</th>
+                                                    <th>Chức vụ cũ</th>
+                                                    <th width="5%">#</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="tbl-WorkingProcess"></tbody>
+                                            <tfoot>
+                                                <tr>
+                                                    <td colspan="8">
+                                                        <button class="btn btn-xs btn-success" type="button" id="btn-add-working-process">Thêm</button>
+                                                    </td>
+                                                </tr>
+                                            </tfoot>
+                                        </table>
+                                        <script id="WorkingProcess-template" type="x-tmpl-mustache">
+                                            <tr>
+                                                <td>
+                                                    <input type="date" class="form-control" id="dtMobilizeDate" value="{{MobilizeDate}}" />
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control" id="txtYearOfBirth" value="{{NumberDesignation}}" />
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control" id="txtOldWorkPlace" value="{{OldWorkPlace}}" />
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control" id="txtOldPosition" value="{{OldPosition}}" />
+                                                </td>
+                                                <th scope="row">
+                                                    <button class="btn btn-xs btn-default btn-edit" data-id="{{KeyId}}" type="button" data-toggle="tooltip" data-placement="top" title="Sửa"><i class="fa fa-close"></i></button>
+                                                </th>
+                                            </tr>
+                                        </script>
+                                    </div>
+
+                                </div>
+                                <div id="ProfessionalExpertise" class="tab-pane fade">
+                                    <div class="x_panel" style="margin-top:10px">
+                                        <div class="form-group row">
+                                            <label for="selLiteracy" class="col-sm-2 col-form-label">Trình độ học vấn</label>
+                                            <div class="col-sm-4">
+                                                <select id="selLiteracy" class="form-control" name="selLiteracy"></select>
+                                            </div>
+                                        </div>
+                                        <label>Chuyên môn</label>
+                                        <table class="table table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <th width="5%">STT</th>
+                                                    <th>Bằng cấp</th>
+                                                    <th>Ngành đào tạo</th>
+                                                    <th>Hệ đào tạo</th>
+                                                    <th width="5%">#</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="tbl-Expertise"></tbody>
+                                            <tfoot>
+                                                <tr>
+                                                    <td colspan="8">
+                                                        <button class="btn btn-xs btn-success" type="button" id="btn-add-expertise">Thêm</button>
+                                                    </td>
+                                                </tr>
+                                            </tfoot>
+                                        </table>
+                                        <script id="Expertise-template" type="x-tmpl-mustache">
+                                            <tr>
+                                                <td>{{stt}}</td>
+                                                <td>
+                                                    {{{Degree}}}
+                                                </td>
+                                                <td>
+                                                    {{{Major}}}
+                                                </td>
+                                                <td>
+                                                    {{{TrainingSystem}}}
+                                                </td>
+                                                <th scope="row">
+                                                    <button class="btn btn-xs btn-default btn-edit" data-id="{{KeyId}}" type="button" data-toggle="tooltip" data-placement="top" title="Sửa"><i class="fa fa-close"></i></button>
+                                                </th>
+                                            </tr>
+                                        </script>
+
+                                        <label>Ngoại ngữ</label>
+                                        <table class="table table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <th width="5%">STT</th>
+                                                    <th>Tên ngoại ngữ</th>
+                                                    <th>Trình độ ngoại ngữ</th>
+                                                    <th>Tên văn bằng</th>
+                                                    <th width="5%">#</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="tbl-Languages"></tbody>
+                                            <tfoot>
+                                                <tr>
+                                                    <td colspan="8">
+                                                        <button class="btn btn-xs btn-success" type="button" id="btn-add-language">Thêm</button>
+                                                    </td>
+                                                </tr>
+                                            </tfoot>
+                                        </table>
+                                        <script id="Languages-template" type="x-tmpl-mustache">
+                                            <tr>
+                                                <td>{{stt}}</td>
+                                                <td>
+                                                    {{{Language}}}
+                                                </td>
+                                                <td>
+                                                    {{{Level}}}
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control" id="txtOldPosition" value="{{Certificate}}" />
+                                                </td>
+                                                <th scope="row">
+                                                    <button class="btn btn-xs btn-default btn-edit" data-id="{{KeyId}}" type="button" data-toggle="tooltip" data-placement="top" title="Sửa"><i class="fa fa-close"></i></button>
+                                                </th>
+                                            </tr>
+                                        </script>
+                                    </div>
+
+                                </div>
+                                <div id="Salary" class="tab-pane fade">
+                                    <div class="x_panel" style="margin-top:10px">
+                                        @*<div class="form-group row">
+            <label for="selQuota" class="col-sm-1 col-form-label">Ngạch</label>
+            <div class="col-sm-3">
+                <select id="selQuota" class="form-control" name="selQuota"></select>
+            </div>
+            <label for="txtCoefficientSalary" class="col-sm-2 col-form-label">Hệ số lương</label>
+            <div class="col-sm-2">
+                <input type="text" class="form-control" id="txtCoefficientSalary" name="txtCoefficientSalary">
+            </div>
+            <label for="txtBasicSalary" class="col-sm-2 col-form-label">Lương cơ bản</label>
+            <div class="col-sm-2">
+                <input type="text" class="form-control" id="txtBasicSalary" name="txtBasicSalary">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="selRank" class="col-sm-1 col-form-label">Bậc</label>
+            <div class="col-sm-3">
+                <select id="selRank" class="form-control" name="selRank"></select>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="txtPosAllowanceCoefficient" class="col-sm-2 col-form-label">Hệ số phụ cấp chức vụ</label>
+            <div class="col-sm-2">
+                <input type="text" class="form-control" id="txtPosAllowanceCoefficient" name="txtPosAllowanceCoefficient">
+            </div>
+            <label for="txtHarmfulAllowanceCoefficient" class="col-sm-2 col-form-label">Hệ số phụ cấp độc hại</label>
+            <div class="col-sm-2">
+                <input type="text" class="form-control" id="txtHarmfulAllowanceCoefficient" name="txtHarmfulAllowanceCoefficient">
+            </div>
+            <label for="txtComplexScoreCoefficient" class="col-sm-2 col-form-label">Hệ số điểm phức tạp</label>
+            <div class="col-sm-2">
+                <input type="text" class="form-control" id="txtComplexScoreCoefficient" name="txtComplexScoreCoefficient">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="txtSeniorityCoefficients" class="col-sm-2 col-form-label">Hệ số phụ cấp thâm niên</label>
+            <div class="col-sm-2">
+                <input type="text" class="form-control" id="txtSeniorityCoefficients" name="txtSeniorityCoefficients">
+            </div>
+            <label for="txtNumberOfDependents" class="col-sm-2 col-form-label">Số người phụ thuộc</label>
+            <div class="col-sm-2">
+                <input type="text" class="form-control" id="txtNumberOfDependents" name="txtNumberOfDependents">
+            </div>
+
+        </div>*@
+                                        <div class="form-group row">
+                                            <label for="txtIDSocialInsurance" class="col-sm-2 col-form-label">Số sổ BHXH</label>
+                                            <div class="col-sm-4">
+                                                <input type="text" class="form-control" id="txtIDSocialInsurance" name="txtIDSocialInsurance">
+                                            </div>
+
+                                            <label for="txtSalarySocialInsurance" class="col-sm-2 col-form-label">Mức lương BHXH</label>
+                                            <div class="col-sm-4">
+                                                <input type="text" class="form-control" id="txtSalarySocialInsurance" name="txtSalarySocialInsurance">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="txtSocialInsuranceDate" class="col-sm-2 col-form-label">Tham gia BHXH</label>
+                                            <div class="col-sm-4">
+                                                <input type="text" class="form-control" id="txtSocialInsuranceDate" name="txtSocialInsuranceDate">
+                                            </div>
+
+                                            <label for="txtSalary" class="col-sm-2 col-form-label">Lương tháng</label>
+                                            <div class="col-sm-4">
+                                                <input type="text" class="form-control" id="txtSalary" name="txtSalary">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="txtNumberOfDependents" class="col-sm-2 col-form-label">Số người phụ thuộc</label>
+                                            <div class="col-sm-4">
+                                                <input type="text" class="form-control" id="txtNumberOfDependents" name="txtNumberOfDependents">
+                                            </div>
+                                            <div class="checkbox">
+                                                <label><input type="checkbox" value="" id="chkStatus">Là thành viên công đoàn</label>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="txtSocialInsuranceDate" class="col-sm-2 col-form-label">Phụ cấp đi lại</label>
+                                            <div class="col-sm-4">
+                                                <input type="text" class="form-control" id="txtSocialInsuranceDate" name="txtSocialInsuranceDate">
+                                            </div>
+
+                                            <label for="txtSalary" class="col-sm-2 col-form-label">Phụ cấp chức vụ</label>
+                                            <div class="col-sm-4">
+                                                <input type="text" class="form-control" id="txtSalary" name="txtSalary">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="txtSocialInsuranceDate" class="col-sm-2 col-form-label">Phụ cấp thâm niên</label>
+                                            <div class="col-sm-4">
+                                                <input type="text" class="form-control" id="txtSocialInsuranceDate" name="txtSocialInsuranceDate">
+                                            </div>
+
+                                           
+                                        </div>
+                                        <label>Tiến trình lương</label>
+                                        <table class="table table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <th width="5%">STT</th>
+                                                    <th>Ngày biến động</th>
+                                                    <th>Lương trước khi tăng</th>
+                                                    <th>% tăng</th>
+                                                    <th>Số tiền tăng</th>
+                                                    <th>Lương sau khi tăng</th>
+                                                    @*<th>Quyết định số mấy</th>
+                    <th>Ngày ký</th>
+                    <th>Cơ quan ký</th>
+                    <th>Ngạch</th>
+                    <th>Hệ số lương</th>
+                    <th>Bậc</th>
+                    <th>Hệ số phụ cấp chức vụ</th>
+                    <th>Hệ số phụ cấp độc hại</th>*@
+                                                    <th>Diễn giải</th>
+                                                    <th width="5%">#</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="tbl-SalaryProcess"></tbody>
+                                            <tfoot>
+                                                <tr>
+                                                    <td colspan="12">
+                                                        <button class="btn btn-xs btn-success" type="button" id="btn-add-salary-process">Thêm</button>
+                                                    </td>
+                                                </tr>
+                                            </tfoot>
+                                        </table>
+                                        <script id="SalaryProcess-template" type="x-tmpl-mustache">
+                                            <tr>
+                                                <td>{{stt}}</td>
+                                                <td>
+                                                    <input type="date" class="form-control" />
+                                                </td>
+                                                <td>
+
+                                                    <input type="text" class="form-control" id="txtNumberDesignation" value="{{NumberDesignation}}" />
+                                                </td>
+                                                <td>
+                                                    <input type="date" class="form-control" />
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control" id="txtSignOrganization" value="{{SignOrganization}}" />
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control" id="txtQuota" value="{{Quota}}" />
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control" id="txtCoefficientSalary" value="{{CoefficientSalary}}" />
+                                                </td>
+                                                @*<td>
+                    <input type="text" class="form-control" id="txtRank" value="{{Rank}}" />
+                </td>
+                <td>
+                    <input type="text" class="form-control" id="txtPosAllowanceCoefficient" value="{{PosAllowanceCoefficient}}" />
+                </td>
+                <td>
+                    <input type="text" class="form-control" id="txtHarmfulAllowanceCoefficient" value="{{HarmfulAllowanceCoefficient}}" />
+                </td>*@
+                                                <td>
+                                                    <input type="text" class="form-control" id="txtNote" value="{{Note}}" />
+                                                </td>
+                                                <th scope="row">
+                                                    <button class="btn btn-xs btn-default btn-edit" data-id="{{KeyId}}" type="button" data-toggle="tooltip" data-placement="top" title="Sửa"><i class="fa fa-close"></i></button>
+                                                </th>
+                                            </tr>
+                                        </script>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="txtNotes" class="col-sm-2 col-form-label">Ghi chú</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="txtNotes">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="txtLastUpdatedByFK" class="col-sm-2 col-form-label">Người cập nhật gần nhất</label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" id="txtLastUpdatedByFK">
+                            </div>
+                            <label for="dtDateModified" class="col-sm-2 col-form-label">Ngày cập nhật gần nhất</label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" id="dtDateMotified" />
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="checkbox">
+                                <label><input type="checkbox" value="" id="chkStatus">Còn dùng?</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button type="button" id="btnSave" class="btn btn-success">Ghi</button>
+                                <button type="button" id="btnCancel" data-dismiss="modal" class="btn btn-danger">Hủy</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

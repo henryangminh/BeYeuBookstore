@@ -1,0 +1,56 @@
+﻿<div id="modal-edit-material" class="bootbox modal fade modal-darkorange in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog  modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="bootbox-close-button close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title">Tổng hợp vật tư</h4>
+            </div>
+            <div class="modal-body">
+                <div id="horizontal-form">
+                    <form class="form-horizontal" role="form" id="frmMaintainance-Material">
+                        <table class="table table-bordered" id="material">
+                            <thead>
+                                <tr>
+                                    <th>STT</th>
+                                    <th>Mã vật liệu</th>
+                                    <th>Tên vật liệu</th>
+                                    <th>ĐVT</th>
+                                    <th>Đơn giá</th>
+                                    <th>Phân loại</th>
+                                    <th>Chú thích</th>
+                                    <th>ProductType</th>
+                                </tr>
+                            </thead>
+                            <tbody id="table-material-content" style="text-align:center"></tbody>
+
+                        </table>
+                        <script type="x-tmpl-mustache" id="template-material">
+                            <tr data-id="{{KeyId}}">
+                                <td>{{KeyId}}</td>
+                                <td class="col-productCode">{{ProductCode}}</td>
+                                <td style="text-align:left" class="col-sm-3 productName">
+                                    <input type="text" class="form-control border-none" value="{{ProductName}}" id="txtProductNameMS" />
+                                </td>
+                                <td id="unit" data-unitid="{{ProductUnit}}">{{UnitName}}</td>
+                                <td id="price" class="col-sm-2">
+                                    <input type="text" value="{{UnitPrice}}" class="form-control qty border-none" id="txtUnitPrice" name="txtUnitPrice" />
+                                </td>
+                                <td id="labor" class="col-sm-2">{{ProductTypeName}}</td>
+                                <td id="note" class="col-sm-2">
+                                    <input type="text" value="{{Note}}" class="form-control qty border-none" id="txtNoteMS" name="txtNoteMS" />
+                                </td>
+                                <td id="type">{{ProductType}}</td>
+                            </tr>
+                        </script>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button type="button" id="btn-apply-material" class="btn btn-success">Áp dụng</button>
+                                <button type="button" id="btnCancel" data-dismiss="modal" class="btn btn-danger">Không áp dụng</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

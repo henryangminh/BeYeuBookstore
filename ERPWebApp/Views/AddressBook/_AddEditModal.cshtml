@@ -1,0 +1,123 @@
+﻿<div id="modal-add-edit" class="bootbox modal fade modal-darkorange in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog  modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="bootbox-close-button close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title">Thông tin chung</h4>
+            </div>
+            <div class="modal-body">
+                <div id="horizontal-form">
+                    <form class="form-horizontal" role="form" id="frmMaintainance">
+                        <div class="form-group row">
+                            <label for="selType" class="col-sm-2 col-form-label">Phân loại <span class="star">*</span></label>
+                            <div class="col-sm-4">
+                                <select id="selType" class="form-control" name="selType">
+                                    <option value="0" selected="selected">Khách hàng cá nhân</option>
+                                    <option value="1">Khách hàng công ty</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="txtFullName" class="col-sm-2 col-form-label" id="lbFullName">Họ và tên<span class="star">*</span></label>
+                            <div class="col-sm-5">
+                                <input type="text" class="form-control" id="txtFullName" name="txtFullName" maxlength="200">
+                            </div>
+
+                            <label for="inputState" class="col-sm-2 col-form-label" id="lbGender">Giới tính</label>
+                            <div class="col-sm-3">
+                                <select id="selGender" class="form-control" name="selGender">
+                                    <option value="">Chọn giới tính</option>
+                                    <option value="0">Nam</option>
+                                    <option value="1">Nữ</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="txtIDNumber" class="col-sm-2 col-form-label" id="lbIDNumber" >Số CMND<span class="star">*</span></label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" id="txtIDNumber" name="txtIDNumber" maxlength="20">
+                            </div>
+                            <label for="dtDOB" class="col-sm-offset-1 col-sm-1 col-form-label" id="lbDOB">Ngày sinh</label>
+                            <div class="input-group date form_date col-md-3" id="dtDOB" data-date="" data-date-format="dd MM yyyy" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
+                                <input class="form-control" size="16" type="text" value="" readonly>
+                                <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+                                <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                            </div>
+                            <input type="hidden" id="dtp_input2" value="" /><br />
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="txtMobilePhone" class="col-sm-2 col-form-label">Số điện thoại<span class="star">*</span></label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" id="txtMobilePhone" name="txtMobilePhone" maxlength="25">
+                            </div>
+                            <label for="txtFax" class="col-sm-offset-1 col-sm-1 col-form-label">Fax</label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" id="txtFax" name="txtFax" maxlength="25">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            
+                            <label for="txtEmail" class="col-sm-2 col-form-label">Email<span class="star">*</span></label>
+                            <div class="col-sm-5">
+                                <input type="email" class="form-control" id="txtEmail" name="txtEmail" maxlength="50">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="txtStreet" class="col-sm-2 col-form-label">Địa chỉ</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="txtStreet" maxlength="200">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="txtWard" class="col-sm-2 col-form-label">Xã/Phường</label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" id="txtWard" maxlength="100">
+                            </div>
+                            <label for="txtDistrict" class="col-sm-2 col-form-label">Quận/Huyện</label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" id="txtDistrict" maxlength="100">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="txtCity" class="col-sm-2 col-form-label">Tỉnh/TP</label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" id="txtCity" maxlength="100">
+                            </div>
+                            <label for="txtCountry" class="col-sm-2 col-form-label">Quốc gia</label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" id="txtCountry" maxlength="100">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="txtNotes" class="col-sm-2 col-form-label">Ghi chú</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="txtNotes" maxlength="255">
+                            </div>
+
+                        </div>
+                        <div class="form-group row">
+                            <label for="txtLastUpdatedByFK" class="col-sm-2 col-form-label">Người cập nhật gần nhất</label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" id="txtLastUpdatedByFK">
+                            </div>
+                            <label for="dtDateModified" class="col-sm-2 col-form-label">Ngày cập nhật gần nhất</label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" id="dtDateMotified" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button type="button" id="btnSave" class="btn btn-success">Ghi</button>
+                                <button type="button" id="btnCancel" data-dismiss="modal" class="btn btn-danger">Hủy</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

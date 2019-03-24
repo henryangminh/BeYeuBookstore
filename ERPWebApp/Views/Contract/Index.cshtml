@@ -1,0 +1,407 @@
+﻿@using ERPWebApp.Utilities.Constants
+@using Microsoft.AspNetCore.Authorization
+@using ERPWebApp.Authorization
+@inject IAuthorizationService AuthorizationService
+@{
+    //kiểm tra quyền tạo đối với nut create cho hiểu thị nut
+    var result_edit = await AuthorizationService.AuthorizeAsync(User, Const_FunctionId.Contract, Operations.Update);
+    //kiểm tra quyền tạo đối với nut delete cho hiểu thị nut
+    var result_confirm = await AuthorizationService.AuthorizeAsync(User, Const_FunctionId.Contract, Operations.Confirm);
+}
+@{
+    ViewData["Title"] = "Hợp đồng";
+}
+
+@section Scripts{
+
+    <script src="~/app/controllers/contract/ContractSearch.js" asp-append-version="true"></script>
+    <script src="~/app/controllers/contract/index.js" asp-append-version="true"></script>
+    <script src="~/app/shared/gupdatestatus.js"></script>a
+
+    <script>
+        var contractSearch = new contractSearchController();
+        contractSearch.initialize();
+
+        var contract = new contractController();
+        contract.initialize();</script>
+}
+<div id="Page-searchContract">
+    <div class="page-title">
+        <div class="title_left">
+            <h3>Danh sách hợp đồng</h3>
+        </div>
+        <div class="title_right">
+            <div class="col-md-8 col-sm-8 col-xs-12 form-group pull-right">
+                <div class="input-group">
+                    <input type="text" id="txtKeyword_search" class="form-control" placeholder="Gõ từ khóa...">
+                    <span class="input-group-btn">
+                        <button class="btn btn-primary" id="btnSearch_search" type="button">Tìm kiếm</button>
+                    </span>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-12  form-group pull-right">
+                <button id="btnRefresh-search" class="btn btn-primary" type="button"><i class="glyphicon glyphicon-refresh"></i></button>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_content">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th width="5%">STT</th>
+                                <th width="10%">Mã công trình</th>
+                                <th width="25%">Tên công trình</th>
+                                <th width="15%">Chủ đầu tư</th>
+                                <th width="10%">Số hợp đồng</th>
+                                <th width="10%">Ngày hợp đồng</th>
+                                <th width="10%">Trạng thái</th>
+                                <th width="15%">#</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbl-content_search"></tbody>
+                    </table>
+                    <!--Pagination-->
+                    <div class="row">
+                        <div class="col-sm-5">
+                            <div class="dataTables_info" id="datatable-checkbox_info" role="status" aria-live="polite">
+                                <select id="ddlShowPage">
+                                    <option value="10" selected="selected">10</option>
+                                    <option value="20">20</option>
+                                    <option value="30">30</option>
+                                    <option value="50">50</option>
+                                </select>
+                                <span class="item-per-page">
+                                    bản ghi/trang.
+                                </span>
+                                Tổng số bản ghi: <strong id="lblTotalRecords"></strong>
+                            </div>
+                        </div><div class="col-sm-7">
+                            <div class="dataTables_paginate paging_simple_numbers" id="datatable-checkbox_paginate">
+                                <ul id="paginationUL"></ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script id="table-template-search" type="x-tmpl-mustache">
+        <tr>
+            <td>{{stt}}</td>
+            <td>{{ConstructionId}}</td>
+            <td>{{ConstructionName}}</td>
+            <td>{{CustomerName}}</td>
+            <td>{{CustomerPONumber}}</td>
+            <td>{{CustomerPODate}}</td>
+            <td>{{StatusName}}</td>
+            <td id="list-btn">
+
+                <a href="/SalesOrderContract" data-id="{{KeyId}}" class="btn  btn-xs btn-primary btn-view"><i class="fa fa-eye-slash"></i></a>
+
+                @if (result_edit.Succeeded)
+                {
+                    <a href="#" data-id="{{KeyId}}" class="btn  btn-xs btn-info btn-edit" id="btn-edit-Contract"><i class="fa fa-pencil-square-o"></i></a>
+                }
+
+            </td>
+        </tr>
+    </script>
+</div>
+<div id="Page-mainContract" style="display:none;">
+    <div class="page-title">
+
+        <div class="title_left col-lg-12">
+            <div class="col-md-12 col-sm-12  form-group pull-left">
+                @if (result_edit.Succeeded)
+                {
+                    <button id="btnCreate" class="btn btn-success">Tạo phụ lục hợp đồng</button>
+                    <button id="btn-Save-Contract" class="btn btn-success">Ghi</button>
+                    <button id="btn-cancel-Contract" class="btn btn-danger">Không ghi</button>
+                }
+                @if (result_confirm.Succeeded)
+                {
+                    <button id="btnConfirm" class="btn btn-success">Đưa vào nội bộ</button>
+                    <button id="btnUnConfirm" class="btn btn-danger">Không xác nhận</button>
+                }
+            </div>
+        </div>
+        <div class="title_right col-lg-4">
+            <div class="col-md-12 col-sm-12  form-group" style="text-align:right">
+                <button class="btn btn-primary" type="button" id="btn-info">...</button>
+                <input type="file" id="fileimportexcel-od" style="display:none" accept="application/vnd.ms-excel, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" />
+                <button class="btn btn-primary" id="btn-export" type="button">Xuất <i class="fa fa-file-excel-o"></i></button>
+                <button class="btn btn-primary" id="btn-print" type="button">In ra <i class="fa fa-print"></i></button>
+                <button id="btnClose" class="btn btn-danger"><i class="fa fa-close"></i></button>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_content">
+                    <div id="horizontal-form">
+                        <form class="form-horizontal" role="form" id="frmMaintainance">
+
+                            <div class="contain-info x_panel">
+                                <div class="form-group row">
+
+                                    <label for="txtProjectid" class="col-sm-2 col-form-label">Công trình<span class="star"> *</span></label>
+                                    <div class="col-sm-6" id="txtProjectid">
+                                    </div>
+                                    <label for="txtId" class="col-sm-2 col-form-label" id="lbIDNumber">Số tham chiếu<span class="star">*</span></label>
+                                    <div class="col-sm-2" id="txtId">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="txtCustomerName" class="col-sm-2 col-form-label">Chủ đầu tư <span class="star">*</span></label>
+                                    <div class="col-sm-4" id="txtCustomerName">
+                                    </div>
+
+                                    <label for="dtDateCreated" class="col-sm-2 col-form-label">Ngày tạo</label>
+                                    <div class="col-sm-4">
+                                        <label id="dtDateCreated"></label>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="txtVersionName" class="col-sm-2 col-form-label">Phiên bản</label>
+                                    <div class="col-sm-4">
+                                        <label id="txtVersionName"></label>
+                                    </div>
+                                    <label for="lblSO_ref" class="col-sm-2 col-form-label">Là phụ lục của:</label>
+                                    <div class="col-sm-2">
+                                        <label style="color:orangered;" id="lblSO_ref"></label>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="txtCustomerPONumber" class="col-sm-2 col-form-label">Số hợp đồng <span class="star">*</span></label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" id="txtCustomerPONumber">
+                                    </div>
+
+                                    <label for="dtCustomerPODate" class="col-sm-2 col-form-label">Ngày hợp đồng<span class="star">*</span></label>
+                                    <div class="input-group date form_date col-md-3" id="dtCustomerPODate" data-date="" data-date-format="dd MM yyyy" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
+                                        <input class="form-control" size="16" type="text" value="" readonly>
+                                        <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+                                        <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                                    </div>
+                                    <input type="hidden" id="dtp_input2" value="" /><br />
+                                </div>
+                                <div class="form-group row">
+                                    <label for="txtDescription" class="col-sm-2 col-form-label">Ghi chú</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="txtDescription" name="txtDiscription">
+                                    </div>
+
+                                </div>
+                                <div class="form-group row">
+                                    <label for="txtSubTotal" class="col-sm-3 col-sm-offset-6 col-form-label">Chi phí xây dựng trực tiếp</label>
+                                    <div class="col-sm-2 total" id="txtSubTotal">
+
+                                    </div>
+                                </div>
+                                <div class="form-group row ">
+                                    <label for="txtGeneralExpensesRate" class="col-sm-3 col-form-label">% chi phí chung</label>
+                                    <div class="col-sm-1" id="txtGeneralExpensesRate">
+
+                                    </div>
+
+
+                                    <label for="txtGeneralExpensesAmount" class="col-sm-3 col-sm-offset-2 col-form-label">Chi phí chung</label>
+                                    <div class="col-sm-2 total" id="txtGeneralExpensesAmount">
+
+                                    </div>
+
+
+                                </div>
+                                <div class="form-group row ">
+                                    <label for="txtprofitRate" class="col-sm-3 col-form-label">% thu nhập chịu thuế tính trước</label>
+                                    <div class="col-sm-1" id="txtprofitRate">
+
+                                    </div>
+
+                                    <label for="txtProfitAmount" class="col-sm-3 col-sm-offset-2 col-form-label">Lợi nhuận</label>
+                                    <div class="col-sm-2 total" id="txtProfitAmount">
+
+                                    </div>
+                                </div>
+                                <div class="form-group row ">
+                                    <label for="txtVATRate" class="col-sm-3 col-form-label">% VAT</label>
+                                    <div class="col-sm-1" id="txtVATRate">
+                                    </div>
+
+                                    <label for="txtTax_Amount" class="col-sm-3 col-sm-offset-2 col-form-label">VAT </label>
+                                    <div class="col-sm-2 total" id="txtTax_Amount">
+
+                                    </div>
+
+
+                                </div>
+                                <div class="form-group row">
+                                    <label for="txtTotal_Order" class="col-sm-3 col-sm-offset-6 col-form-label">Giá dự thầu</label>
+                                    <div class="col-sm-2 total total-color" id="txtTotal_Order">
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group row ">
+                                <label for="txtK1" class="col-sm-1 col-form-label">Giá trị K1</label>
+                                <div class="col-sm-1" id="txtK1">
+
+                                </div>
+                                <label for="lblSoStatus" id="lblSoStatus" class="col-sm-offset-1 col-sm-5 col-form-label" style="color:red;">Tạo mới test</label>
+                            </div>
+
+                            <div class="form-group row">
+                                <div class="title_right col-sm-8">
+
+                                    <!-- Example single danger button -->
+                                    @*<div class="dropdown col-sm-offset-1 col-sm-2">
+                                            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+                                                <i class="fa fa-list"></i>
+                                                <span class="caret"></span>
+                                            </button>
+                                            <ul class="dropdown-menu">
+                                                <li>
+                                                    <div class="checkbox col-sm-12">
+                                                        <label><input type="checkbox" value="" id="chkItem">Cấp của tiêu đề</label>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="checkbox col-sm-12">
+                                                        <label><input type="checkbox" value="" id="chkItem">Tiêu đề</label>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="checkbox col-sm-12">
+                                                        <label><input type="checkbox" value="" id="chkItem">Mã công tác</label>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="checkbox col-sm-12">
+                                                        <label><input type="checkbox" value="" id="chkItem">Tên công tác</label>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="checkbox col-sm-12">
+                                                        <label><input type="checkbox" value="" id="chkItem">Mô tả</label>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="checkbox col-sm-12">
+                                                        <label><input type="checkbox" value="" id="chkItem">Đơn vị tính</label>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="checkbox col-sm-12">
+                                                        <label><input type="checkbox" value="" id="chkItem">Khối lượng</label>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="checkbox col-sm-12">
+                                                        <label><input type="checkbox" value="" id="chkItem">Đơn giá vật tư</label>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="checkbox col-sm-12">
+                                                        <label><input type="checkbox" value="" id="chkItem">Đơn giá nhân công</label>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="checkbox col-sm-12">
+                                                        <label><input type="checkbox" value="" id="chkItem">Đơn giá máy</label>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="checkbox col-sm-12">
+                                                        <label><input type="checkbox" value="" id="chkItem">Đơn tổng</label>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="checkbox col-sm-12">
+                                                        <label><input type="checkbox" value="" id="chkItem">Thành tiền</label>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="checkbox col-sm-12">
+                                                        <label><input type="checkbox" value="" id="chkItem">Chú thích</label>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>*@
+
+
+                                </div>
+
+                            </div>
+                            <div class="col-sm-12 pre-scrollable" style="min-height:600px">
+                                <table class="table table-bordered table-sm" id="table-orderDetail" cellspacing="0" width:100%>
+                                    <thead>
+                                        <tr>
+                                            <th id="levelHeader-th" style="display:none">Cấp của tiêu đề</th>
+                                            <th style="display:none">STT</th>
+                                            <th id="nameHeader-th">Tiêu đề</th>
+                                            <th>Mã công tác</th>
+                                            <th>Tên công tác</th>
+                                            <th>Mô tả</th>
+                                            <th>ĐVT</th>
+                                            <th>Khối lượng</th>
+                                            <th id="materialPrice-th">Đơn giá vật tư</th>
+                                            <th id="laborPrice-th">Đơn giá nhân công</th>
+                                            <th id="equipmentPrice-th">Đơn giá máy</th>
+                                            <th>Đơn giá tổng</th>
+                                            <th>Thành tiền</th>
+                                            <th>Chú thích</th>
+                                            <th>idRow</th>
+                                            <th style="display:none">IsOrderdetailOld</th>
+                                            <th style="display:none">Đvt thật</th>
+                                            <th style="display:none">ParentId</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody id="table-quantity-content" class="table-body"></tbody>
+                                </table>
+                            </div>
+                            <script type="x-tmpl-mustache" id="template-table-detail">
+                                <tr data-id="{{KeyId}}">
+                                    <td id="levelHeader" class="col-sm-1" style="display:none">{{LevelHeader}}</td>
+                                    <td style="display:none">{{stt}}</td>
+                                    <td id="levelName" class="col-sm-1">{{LevelName}}</td>
+                                    <td class="col-sm-2 col-productCode" style="min-width:140px">{{ProductCode}}</td>
+                                    <td style="text-align:left;min-width:200px" class="col-sm-4 productName">{{ProductName}}</td>
+                                    <td id="description" class="col-sm-4">{{Description}}</td>
+                                    <td id="productunit">{{ProductUnit}}</td>
+                                    <td id="productqty" class="col-sm-2" style="min-width:100px">{{ProductQty}}</td>
+                                    <td id="materialPrice" class="position-number">{{MaterialPrice}}</td>
+                                    <td id="laborPrice" class="position-number">{{LaborPrice}}</td>
+                                    <td id="equipmentPrice" class="position-number">{{EquipmentPrice}}</td>
+                                    <td id="totalPrice" class="position-number">{{TotalPrice}}</td>
+                                    <td id="subTotal" class="position-number">{{SubTotal}}</td>
+                                    <td id="note">{{Note}}</td>
+                                    <td id="idrow">{{IdRow}}</td>
+                                    <td id="orderDetailOld" style="display:none">{{OrderDetailOld}}</td>
+                                    <td id="unitReal">{{UnitReal}}</td>
+                                    <td id="parentId">{{ParentId}}</td>
+
+                                </tr>
+                            </script>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="preloader">
+        <div id="loader"></div>
+    </div>
+    @*@Html.Partial("_BomDetail.cshtml")
+        @Html.Partial("_MaterialSysntheticSO.cshtml")
+        @Html.Partial("_PrintReport.cshtml")*@
+</div>

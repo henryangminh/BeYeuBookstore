@@ -1,0 +1,62 @@
+﻿<div id="modal-edit-bomdetail" class="bootbox modal fade modal-darkorange in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog  modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="bootbox-close-button close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title">Định mức</h4>
+            </div>
+            <div class="modal-body">
+                <div id="horizontal-form">
+                    <form class="form-horizontal" role="form" id="frmMaintainance-BomDetail">
+                        <table class="table table-bordered" id="bomdetail">
+                            <thead>
+                                <tr>
+                                    <th>STT</th>
+                                    <th>Mã vật liệu</th>
+                                    <th>Tên vật liệu</th>
+                                    <th>ĐVT</th>
+                                    <th>Định mức</th>
+                                    <th>Phân loại</th>
+                                    <th>Đơn giá</th>
+                                    <th style="display:none">Đơn giá gốc</th>
+                                    <th>Chú thích</th>
+                                    <th>ProductType</th>
+                                </tr>
+                            </thead>
+                            <tbody id="table-bomdetail-content" style="text-align:center"></tbody>
+                            
+                        </table>
+                        <script type="x-tmpl-mustache" id="template-bom-detail">
+                            <tr data-id="{{KeyId}}">
+                                <td>{{KeyId}}</td>
+                                <td class="col-productCode">{{ProductCode}}</td>
+                                <td style="text-align:left" class="col-sm-3 productName">
+                                    <input type="text" class="form-control border-none" value="{{ProductName}}" id="txtProductNameDetail" />
+                                </td>
+                                <td id="productunit" data-unitid="{{ProductUnit}}">{{UnitName}}</td>
+                                <td id="productqty" class="col-sm-2">{{ProductQty}}</td>
+                                <td id="productTypeName" class="col-sm-2">{{ProductTypeName}}</td>
+                                <td id="priceB2" class="col-sm-2">
+                                    <input type="text" value="{{PriceB2}}" class="form-control position-number border-none" id="txtPriceB2" name="txtPriceB2" />
+                                </td>
+                                <td id="priceB1" class="col-sm-2" style="display:none">
+                                    <input type="text" value="{{PriceB1}}" class="form-control position-number border-none" id="txtPriceB1" name="txtPriceB1" />
+                                </td>
+                                <td id="note" class="col-sm-2">
+                                    <input type="text" value="{{Note}}" class="form-control qty border-none" id="txtNoteDetail" name="txtNoteDetail" />
+                                </td>
+                                <td id="type">{{ProductType}}</td>
+                            </tr>
+                        </script>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button type="button" id="btnSaveDetail" class="btn btn-success">Ghi</button>
+                                <button type="button" id="btnCancel" data-dismiss="modal" class="btn btn-danger">Hủy</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

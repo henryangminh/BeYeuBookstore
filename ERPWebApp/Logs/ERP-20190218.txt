@@ -1,0 +1,353 @@
+2019-02-18T08:58:32.4361850+07:00 0HLKL8IAQK9UB:00000001 [INF] Request starting HTTP/1.1 DEBUG http://localhost:50873/  0 (ca22a1cb)
+2019-02-18T08:58:32.5174767+07:00 0HLKL8IAQK9UA:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44379/   (ca22a1cb)
+2019-02-18T08:58:32.5650785+07:00 0HLKL8IAQK9UB:00000001 [INF] Request finished in 201.094ms 200  (791a596a)
+2019-02-18T08:58:33.7470924+07:00 0HLKL8IAQK9UA:00000001 [INF] Route matched with "{action = \"Login\", controller = \"Account\", area = \"\"}". Executing action "ERPWebApp.Controllers.AccountController.Login (ERPWebApp)" (a44c0341)
+2019-02-18T08:58:33.8215373+07:00 0HLKL8IAQK9UA:00000001 [INF] Executing action method "ERPWebApp.Controllers.AccountController.Login (ERPWebApp)" with arguments ([""]) - Validation state: Valid (4e3479ed)
+2019-02-18T08:58:33.8905026+07:00 0HLKL8IAQK9UA:00000001 [INF] AuthenticationScheme: "Identity.External" signed out. (d3f50c8d)
+2019-02-18T08:58:33.9048538+07:00 0HLKL8IAQK9UA:00000001 [INF] Executed action method "ERPWebApp.Controllers.AccountController.Login (ERPWebApp)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 71.9518ms. (50a9e262)
+2019-02-18T08:58:33.9521225+07:00 0HLKL8IAQK9UA:00000001 [INF] Executing ViewResult, running view "Login". (c83d0e25)
+2019-02-18T08:58:34.2743200+07:00 0HLKL8IAQK9UA:00000001 [INF] Executed ViewResult - view "Login" executed in 347.3307ms. (f66409e9)
+2019-02-18T08:58:34.2880957+07:00 0HLKL8IAQK9UA:00000001 [INF] Executed action "ERPWebApp.Controllers.AccountController.Login (ERPWebApp)" in 532.1158ms (afa2e885)
+2019-02-18T08:58:35.4056318+07:00 0HLKL8IAQK9UA:00000001 [INF] Request finished in 2940.195ms 200 text/html; charset=utf-8 (791a596a)
+2019-02-18T08:58:35.4139483+07:00 0HLKL8IAQK9UD:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44379/lib/jquery-validation/dist/additional-methods.js   (ca22a1cb)
+2019-02-18T08:58:35.4349819+07:00 0HLKL8IAQK9UC:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44379/lib/jquery/dist/jquery.js   (ca22a1cb)
+2019-02-18T08:58:35.5678117+07:00 0HLKL8IAQK9UA:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44379/lib/notifyjs/dist/notify.js   (ca22a1cb)
+2019-02-18T08:58:35.6017099+07:00 0HLKL8IAQK9UE:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44379/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js   (ca22a1cb)
+2019-02-18T08:58:35.6232083+07:00 0HLKL8IAQK9UB:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44379/lib/notifyjs/dist/styles/metro/notify-metro.js   (ca22a1cb)
+2019-02-18T08:58:35.6290948+07:00 0HLKL8IAQK9UH:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44379/admin-side/css/style.css   (ca22a1cb)
+2019-02-18T08:58:35.6379776+07:00 0HLKL8IAQK9UE:00000001 [INF] Sending file. Request path: '"/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"'. Physical path: '"D:\ERPWebApp\ERPWebApp\wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.js"' (27b0a520)
+2019-02-18T08:58:35.6473314+07:00 0HLKL8IAQK9UB:00000002 [INF] Sending file. Request path: '"/lib/notifyjs/dist/styles/metro/notify-metro.js"'. Physical path: '"D:\ERPWebApp\ERPWebApp\wwwroot\lib\notifyjs\dist\styles\metro\notify-metro.js"' (27b0a520)
+2019-02-18T08:58:35.6631541+07:00 0HLKL8IAQK9UE:00000001 [INF] Request finished in 109.3084ms 200 application/javascript (791a596a)
+2019-02-18T08:58:35.6723655+07:00 0HLKL8IAQK9UH:00000001 [INF] The file "/admin-side/css/style.css" was not modified (f1f8d725)
+2019-02-18T08:58:35.6766646+07:00 0HLKL8IAQK9UB:00000002 [INF] Request finished in 112.0649ms 200 application/javascript (791a596a)
+2019-02-18T08:58:35.6874818+07:00 0HLKL8IAQK9UI:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44379/admin-side/css/custom.css   (ca22a1cb)
+2019-02-18T08:58:35.6906015+07:00 0HLKL8IAQK9UH:00000001 [INF] Request finished in 84.3678ms 304 text/css (791a596a)
+2019-02-18T08:58:35.7301764+07:00 0HLKL8IAQK9UI:00000001 [INF] The file "/admin-side/css/custom.css" was not modified (f1f8d725)
+2019-02-18T08:58:35.7491144+07:00 0HLKL8IAQK9UI:00000001 [INF] Request finished in 57.8926ms 304 text/css (791a596a)
+2019-02-18T08:58:35.7545546+07:00 0HLKL8IAQK9UD:00000001 [INF] Sending file. Request path: '"/lib/jquery-validation/dist/additional-methods.js"'. Physical path: '"D:\ERPWebApp\ERPWebApp\wwwroot\lib\jquery-validation\dist\additional-methods.js"' (27b0a520)
+2019-02-18T08:58:35.7887137+07:00 0HLKL8IAQK9UD:00000001 [INF] Request finished in 363.1836ms 200 application/javascript (791a596a)
+2019-02-18T08:58:35.7922535+07:00 0HLKL8IAQK9UF:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44379/lib/jquery-validation/dist/Localization/messages_vi.js   (ca22a1cb)
+2019-02-18T08:58:35.8085526+07:00 0HLKL8IAQK9UA:00000002 [INF] Sending file. Request path: '"/lib/notifyjs/dist/notify.js"'. Physical path: '"D:\ERPWebApp\ERPWebApp\wwwroot\lib\notifyjs\dist\notify.js"' (27b0a520)
+2019-02-18T08:58:35.8925918+07:00 0HLKL8IAQK9UG:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44379/lib/jquery-validation/dist/jquery.validate.js   (ca22a1cb)
+2019-02-18T08:58:35.9261920+07:00 0HLKL8IAQK9UA:00000002 [INF] Request finished in 385.5424ms 200 application/javascript (791a596a)
+2019-02-18T08:58:35.9858883+07:00 0HLKL8IAQK9UF:00000001 [INF] Sending file. Request path: '"/lib/jquery-validation/dist/Localization/messages_vi.js"'. Physical path: '"D:\ERPWebApp\ERPWebApp\wwwroot\lib\jquery-validation\dist\Localization\messages_vi.js"' (27b0a520)
+2019-02-18T08:58:36.0146563+07:00 0HLKL8IAQK9UG:00000001 [INF] Sending file. Request path: '"/lib/jquery-validation/dist/jquery.validate.js"'. Physical path: '"D:\ERPWebApp\ERPWebApp\wwwroot\lib\jquery-validation\dist\jquery.validate.js"' (27b0a520)
+2019-02-18T08:58:36.1962682+07:00 0HLKL8IAQK9UF:00000001 [INF] Request finished in 205.714ms 200 application/javascript (791a596a)
+2019-02-18T08:58:36.1983208+07:00 0HLKL8IAQK9UG:00000001 [INF] Request finished in 218.0503ms 200 application/javascript (791a596a)
+2019-02-18T08:58:36.2753486+07:00 0HLKL8IAQK9UC:00000001 [INF] Sending file. Request path: '"/lib/jquery/dist/jquery.js"'. Physical path: '"D:\ERPWebApp\ERPWebApp\wwwroot\lib\jquery\dist\jquery.js"' (27b0a520)
+2019-02-18T08:58:36.2904590+07:00 0HLKL8IAQK9UC:00000001 [INF] Request finished in 904.8155ms 200 application/javascript (791a596a)
+2019-02-18T08:58:43.9847593+07:00 0HLKL8IAQK9UI:00000002 [INF] Request starting HTTP/1.1 POST http://localhost:44379/ application/x-www-form-urlencoded 257 (ca22a1cb)
+2019-02-18T08:58:44.0039423+07:00 0HLKL8IAQK9UI:00000002 [INF] Route matched with "{action = \"Login\", controller = \"Account\", area = \"\"}". Executing action "ERPWebApp.Controllers.AccountController.Login (ERPWebApp)" (a44c0341)
+2019-02-18T08:58:44.1035940+07:00 0HLKL8IAQK9UI:00000002 [INF] Executing action method "ERPWebApp.Controllers.AccountController.Login (ERPWebApp)" with arguments (["ERPWebApp.Models.AccountViewModels.LoginViewModel", ""]) - Validation state: Valid (4e3479ed)
+2019-02-18T08:58:44.1312519+07:00 0HLKL8IAQK9UI:00000002 [INF] Entity Framework Core "2.2.0-preview1-35029" initialized '"ERPDbContext"' using provider '"Pomelo.EntityFrameworkCore.MySql"' with options: "ServerVersion 8.0.13 MySql " (9958f5bb)
+2019-02-18T08:58:44.4149067+07:00 0HLKL8IAQK9UI:00000002 [INF] Executed DbCommand ("24"ms) [Parameters=["@__normalizedUserName_0='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SELECT `u`.`Id`, `u`.`AccessFailedCount`, `u`.`Avatar`, `u`.`City`, `u`.`ConcurrencyStamp`, `u`.`Country`, `u`.`DateCreated`, `u`.`DateModified`, `u`.`District`, `u`.`Dob`, `u`.`Email`, `u`.`EmailConfirmed`, `u`.`Fax`, `u`.`FullName`, `u`.`Gender`, `u`.`GnCityKeyId`, `u`.`IdDate`, `u`.`IdNumber`, `u`.`IsCustomer`, `u`.`IsEmployee`, `u`.`IsPersonal`, `u`.`IsVendor`, `u`.`LastLogIn`, `u`.`LastupdatedFk`, `u`.`LastupdatedName`, `u`.`LockoutEnabled`, `u`.`LockoutEnd`, `u`.`NormalizedEmail`, `u`.`NormalizedUserName`, `u`.`Notes`, `u`.`Origin_FK`, `u`.`PasswordHash`, `u`.`PhoneNumber`, `u`.`PhoneNumberConfirmed`, `u`.`SecurityStamp`, `u`.`Status`, `u`.`Street`, `u`.`TaxIDNumber`, `u`.`TwoFactorEnabled`, `u`.`UserName`, `u`.`Ward`
+FROM `User` AS `u`
+WHERE `u`.`NormalizedUserName` = @__normalizedUserName_0
+LIMIT 1" (0723d8ff)
+2019-02-18T08:58:44.9979337+07:00 0HLKL8IAQK9UI:00000002 [INF] Executed DbCommand ("20"ms) [Parameters=["@__user_Id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT `uc`.`Id`, `uc`.`ClaimType`, `uc`.`ClaimValue`, `uc`.`UserId`
+FROM `AppUserClaims` AS `uc`
+WHERE `uc`.`UserId` = @__user_Id_0" (0723d8ff)
+2019-02-18T08:58:45.1557775+07:00 0HLKL8IAQK9UI:00000002 [INF] Executed DbCommand ("3"ms) [Parameters=["@__userId_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT `role`.`Name`
+FROM `AppUserRoles` AS `userRole`
+INNER JOIN `Roles` AS `role` ON `userRole`.`RoleId` = `role`.`Id`
+WHERE `userRole`.`UserId` = @__userId_0" (0723d8ff)
+2019-02-18T08:58:45.1841389+07:00 0HLKL8IAQK9UI:00000002 [INF] Executed DbCommand ("0"ms) [Parameters=["@__normalizedName_0='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SELECT `r`.`Id`, `r`.`ConcurrencyStamp`, `r`.`Description`, `r`.`Name`, `r`.`NormalizedName`
+FROM `Roles` AS `r`
+WHERE `r`.`NormalizedName` = @__normalizedName_0
+LIMIT 1" (0723d8ff)
+2019-02-18T08:58:45.2337229+07:00 0HLKL8IAQK9UI:00000002 [INF] Executed DbCommand ("1"ms) [Parameters=["@__role_Id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT `rc`.`ClaimType`, `rc`.`ClaimValue`
+FROM `AppRoleClaims` AS `rc`
+WHERE `rc`.`RoleId` = @__role_Id_0" (0723d8ff)
+2019-02-18T08:58:45.2517684+07:00 0HLKL8IAQK9UI:00000002 [INF] Executed DbCommand ("1"ms) [Parameters=["@__userId_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT `role`.`Name`
+FROM `AppUserRoles` AS `userRole`
+INNER JOIN `Roles` AS `role` ON `userRole`.`RoleId` = `role`.`Id`
+WHERE `userRole`.`UserId` = @__userId_0" (0723d8ff)
+2019-02-18T08:58:45.2902184+07:00 0HLKL8IAQK9UI:00000002 [INF] AuthenticationScheme: "Identity.Application" signed in. (c66dd7e7)
+2019-02-18T08:58:45.3023573+07:00 0HLKL8IAQK9UI:00000002 [INF] User đăng nhập thành công . (a79f9d02)
+2019-02-18T08:58:45.3109950+07:00 0HLKL8IAQK9UI:00000002 [INF] Executed action method "ERPWebApp.Controllers.AccountController.Login (ERPWebApp)", returned result "Microsoft.AspNetCore.Mvc.RedirectToActionResult" in 1202.2181ms. (50a9e262)
+2019-02-18T08:58:45.3225806+07:00 0HLKL8IAQK9UI:00000002 [INF] Executing RedirectResult, redirecting to "/Home/Index". (d98d540e)
+2019-02-18T08:58:45.3318999+07:00 0HLKL8IAQK9UI:00000002 [INF] Executed action "ERPWebApp.Controllers.AccountController.Login (ERPWebApp)" in 1322.2832ms (afa2e885)
+2019-02-18T08:58:45.3499113+07:00 0HLKL8IAQK9UI:00000002 [INF] Request finished in 1357.2864ms 302  (791a596a)
+2019-02-18T08:58:45.3602189+07:00 0HLKL8IAQK9UE:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44379/Home/Index   (ca22a1cb)
+2019-02-18T08:58:45.4150799+07:00 0HLKL8IAQK9UE:00000002 [INF] Route matched with "{action = \"Index\", controller = \"Home\", area = \"\"}". Executing action "ERPWebApp.Controllers.HomeController.Index (ERPWebApp)" (a44c0341)
+2019-02-18T08:58:45.4342519+07:00 0HLKL8IAQK9UE:00000002 [INF] Authorization was successful. (0d575a54)
+2019-02-18T08:58:45.4446785+07:00 0HLKL8IAQK9UE:00000002 [INF] Executing action method "ERPWebApp.Controllers.HomeController.Index (ERPWebApp)" - Validation state: Valid (dad538d7)
+2019-02-18T08:58:45.4509878+07:00 0HLKL8IAQK9UE:00000002 [INF] Executed action method "ERPWebApp.Controllers.HomeController.Index (ERPWebApp)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 1.3734ms. (50a9e262)
+2019-02-18T08:58:45.4666906+07:00 0HLKL8IAQK9UE:00000002 [INF] Executing ViewResult, running view "Index". (c83d0e25)
+2019-02-18T08:58:45.5399662+07:00 0HLKL8IAQK9UE:00000002 [INF] Entity Framework Core "2.2.0-preview1-35029" initialized '"ERPDbContext"' using provider '"Pomelo.EntityFrameworkCore.MySql"' with options: "ServerVersion 8.0.13 MySql " (9958f5bb)
+2019-02-18T08:58:45.6305772+07:00 0HLKL8IAQK9UE:00000002 [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT `x`.`KeyId`, `x`.`Name`, `x`.`URL`, `x`.`ParentId`, `x`.`IconCss`, `x`.`SortOrder`, `x`.`Status`
+FROM `Functions` AS `x`
+WHERE `x`.`Status` = 1
+ORDER BY `x`.`SortOrder`, `x`.`ParentId`" (0723d8ff)
+2019-02-18T08:58:45.7270899+07:00 0HLKL8IAQK9UE:00000002 [INF] Executed ViewResult - view "Index" executed in 267.9036ms. (f66409e9)
+2019-02-18T08:58:45.7363909+07:00 0HLKL8IAQK9UE:00000002 [INF] Executed action "ERPWebApp.Controllers.HomeController.Index (ERPWebApp)" in 316.7485ms (afa2e885)
+2019-02-18T08:58:45.8601832+07:00 0HLKL8IAQK9UE:00000002 [INF] Request finished in 443.1307ms 200 text/html; charset=utf-8 (791a596a)
+2019-02-18T08:58:45.8863459+07:00 0HLKL8IAQK9UB:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:44379/lib/bootstrap/dist/js/bootstrap.js   (ca22a1cb)
+2019-02-18T08:58:45.8956991+07:00 0HLKL8IAQK9UH:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44379/lib/jquery-ui/jquery-ui.js   (ca22a1cb)
+2019-02-18T08:58:45.9177896+07:00 0HLKL8IAQK9UJ:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44379/lib/jquery-sparkline/dist/jquery.sparkline.js   (ca22a1cb)
+2019-02-18T08:58:45.9218736+07:00 0HLKL8IAQK9UK:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44379/lib/bootstrap-datetimepicker-master/js/bootstrap-datetimepicker.js   (ca22a1cb)
+2019-02-18T08:58:45.9347208+07:00 0HLKL8IAQK9UA:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:44379/admin-side/images/user.png   (ca22a1cb)
+2019-02-18T08:58:45.9415129+07:00 0HLKL8IAQK9UE:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:44379/lib/twbs-pagination/jquery.twbsPagination.js   (ca22a1cb)
+2019-02-18T08:58:45.9466752+07:00 0HLKL8IAQK9UI:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:44379/lib/chart.js/dist/Chart.js   (ca22a1cb)
+2019-02-18T08:58:45.9531507+07:00 0HLKL8IAQK9UD:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44379/lib/nprogress/nprogress.js   (ca22a1cb)
+2019-02-18T08:58:45.9587104+07:00 0HLKL8IAQK9UF:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44379/lib/bootstrap-daterangepicker/daterangepicker.css   (ca22a1cb)
+2019-02-18T08:58:45.9657631+07:00 0HLKL8IAQK9UD:00000002 [INF] Sending file. Request path: '"/lib/nprogress/nprogress.js"'. Physical path: '"D:\ERPWebApp\ERPWebApp\wwwroot\lib\nprogress\nprogress.js"' (27b0a520)
+2019-02-18T08:58:45.9749671+07:00 0HLKL8IAQK9UF:00000002 [INF] The file "/lib/bootstrap-daterangepicker/daterangepicker.css" was not modified (f1f8d725)
+2019-02-18T08:58:45.9770747+07:00 0HLKL8IAQK9UD:00000002 [INF] Request finished in 19.104ms 200 application/javascript (791a596a)
+2019-02-18T08:58:45.9836993+07:00 0HLKL8IAQK9UF:00000002 [INF] Request finished in 25.7985ms 304 text/css (791a596a)
+2019-02-18T08:58:45.9949256+07:00 0HLKL8IAQK9UG:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44379/lib/mustache/mustache.js   (ca22a1cb)
+2019-02-18T08:58:46.0213056+07:00 0HLKL8IAQK9UC:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44379/lib/fastclick/lib/fastclick.js   (ca22a1cb)
+2019-02-18T08:58:46.0272718+07:00 0HLKL8IAQK9UL:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44379/lib/bootstrap-datetimepicker-master/js/locales/bootstrap-datetimepicker.vi.js   (ca22a1cb)
+2019-02-18T08:58:46.0420398+07:00 0HLKL8IAQK9UM:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44379/lib/bootstrap-daterangepicker/daterangepicker.js   (ca22a1cb)
+2019-02-18T08:58:46.0437610+07:00 0HLKL8IAQK9UL:00000001 [INF] Sending file. Request path: '"/lib/bootstrap-datetimepicker-master/js/locales/bootstrap-datetimepicker.vi.js"'. Physical path: '"D:\ERPWebApp\ERPWebApp\wwwroot\lib\bootstrap-datetimepicker-master\js\locales\bootstrap-datetimepicker.vi.js"' (27b0a520)
+2019-02-18T08:58:46.0505658+07:00 0HLKL8IAQK9UL:00000001 [INF] Request finished in 22.5682ms 200 application/javascript (791a596a)
+2019-02-18T08:58:46.0574915+07:00 0HLKL8IAQK9UN:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44379/lib/bootbox/bootbox.js   (ca22a1cb)
+2019-02-18T08:58:46.0791506+07:00 0HLKL8IAQK9UO:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44379/lib/ckeditor/ckeditor.js   (ca22a1cb)
+2019-02-18T08:58:46.0907288+07:00 0HLKL8IAQK9UP:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44379/app/shared/notificationgeneral.js   (ca22a1cb)
+2019-02-18T08:58:46.1092314+07:00 0HLKL8IAQK9UQ:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44379/app/shared/general.js   (ca22a1cb)
+2019-02-18T08:58:46.1110773+07:00 0HLKL8IAQK9UP:00000001 [INF] Sending file. Request path: '"/app/shared/notificationgeneral.js"'. Physical path: '"D:\ERPWebApp\ERPWebApp\wwwroot\app\shared\notificationgeneral.js"' (27b0a520)
+2019-02-18T08:58:46.1196572+07:00 0HLKL8IAQK9UP:00000001 [INF] Request finished in 38.2413ms 200 application/javascript (791a596a)
+2019-02-18T08:58:46.1239327+07:00 0HLKL8IAQK9UQ:00000001 [INF] Sending file. Request path: '"/app/shared/general.js"'. Physical path: '"D:\ERPWebApp\ERPWebApp\wwwroot\app\shared\general.js"' (27b0a520)
+2019-02-18T08:58:46.1382232+07:00 0HLKL8IAQK9UQ:00000001 [INF] Request finished in 40.4867ms 200 application/javascript (791a596a)
+2019-02-18T08:58:46.1425752+07:00 0HLKL8IAQK9UR:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44379/admin-side/js/custom.js   (ca22a1cb)
+2019-02-18T08:58:46.1524241+07:00 0HLKL8IAQK9UA:00000003 [INF] Sending file. Request path: '"/admin-side/images/user.png"'. Physical path: '"D:\ERPWebApp\ERPWebApp\wwwroot\admin-side\images\user.png"' (27b0a520)
+2019-02-18T08:58:46.1669893+07:00 0HLKL8IAQK9US:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44379/lib/moment/moment.js   (ca22a1cb)
+2019-02-18T08:58:46.1692545+07:00 0HLKL8IAQK9UA:00000003 [INF] Request finished in 231.8172ms 200 image/png (791a596a)
+2019-02-18T08:58:46.1835377+07:00 0HLKL8IAQK9UE:00000003 [INF] Sending file. Request path: '"/lib/twbs-pagination/jquery.twbsPagination.js"'. Physical path: '"D:\ERPWebApp\ERPWebApp\wwwroot\lib\twbs-pagination\jquery.twbsPagination.js"' (27b0a520)
+2019-02-18T08:58:46.1858279+07:00 0HLKL8IAQK9UG:00000002 [INF] Sending file. Request path: '"/lib/mustache/mustache.js"'. Physical path: '"D:\ERPWebApp\ERPWebApp\wwwroot\lib\mustache\mustache.js"' (27b0a520)
+2019-02-18T08:58:46.1973394+07:00 0HLKL8IAQK9UE:00000003 [INF] Request finished in 256.4231ms 200 application/javascript (791a596a)
+2019-02-18T08:58:46.1991173+07:00 0HLKL8IAQK9UG:00000002 [INF] Request finished in 202.1363ms 200 application/javascript (791a596a)
+2019-02-18T08:58:46.2451688+07:00 0HLKL8IAQK9UC:00000002 [INF] Sending file. Request path: '"/lib/fastclick/lib/fastclick.js"'. Physical path: '"D:\ERPWebApp\ERPWebApp\wwwroot\lib\fastclick\lib\fastclick.js"' (27b0a520)
+2019-02-18T08:58:46.2528439+07:00 0HLKL8IAQK9UN:00000001 [INF] Sending file. Request path: '"/lib/bootbox/bootbox.js"'. Physical path: '"D:\ERPWebApp\ERPWebApp\wwwroot\lib\bootbox\bootbox.js"' (27b0a520)
+2019-02-18T08:58:46.3325199+07:00 0HLKL8IAQK9UC:00000002 [INF] Request finished in 250.3444ms 200 application/javascript (791a596a)
+2019-02-18T08:58:46.3829493+07:00 0HLKL8IAQK9UD:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:44379/lib/font-awesome/fonts/fontawesome-webfont.woff2?v=4.7.0   (ca22a1cb)
+2019-02-18T08:58:46.3987826+07:00 0HLKL8IAQK9UN:00000001 [INF] Request finished in 205.7457ms 200 application/javascript (791a596a)
+2019-02-18T08:58:46.4644769+07:00 0HLKL8IAQK9US:00000001 [INF] Sending file. Request path: '"/lib/moment/moment.js"'. Physical path: '"D:\ERPWebApp\ERPWebApp\wwwroot\lib\moment\moment.js"' (27b0a520)
+2019-02-18T08:58:46.4752913+07:00 0HLKL8IAQK9UJ:00000001 [INF] Sending file. Request path: '"/lib/jquery-sparkline/dist/jquery.sparkline.js"'. Physical path: '"D:\ERPWebApp\ERPWebApp\wwwroot\lib\jquery-sparkline\dist\jquery.sparkline.js"' (27b0a520)
+2019-02-18T08:58:46.5015553+07:00 0HLKL8IAQK9UI:00000003 [INF] Sending file. Request path: '"/lib/chart.js/dist/Chart.js"'. Physical path: '"D:\ERPWebApp\ERPWebApp\wwwroot\lib\chart.js\dist\Chart.js"' (27b0a520)
+2019-02-18T08:58:46.5081425+07:00 0HLKL8IAQK9US:00000001 [INF] Request finished in 316.5373ms 200 application/javascript (791a596a)
+2019-02-18T08:58:46.5521498+07:00 0HLKL8IAQK9UI:00000003 [INF] Request finished in 563.3869ms 200 application/javascript (791a596a)
+2019-02-18T08:58:46.5551556+07:00 0HLKL8IAQK9UJ:00000001 [INF] Request finished in 578.2773ms 200 application/javascript (791a596a)
+2019-02-18T08:58:46.5821300+07:00 0HLKL8IAQK9UB:00000003 [INF] Sending file. Request path: '"/lib/bootstrap/dist/js/bootstrap.js"'. Physical path: '"D:\ERPWebApp\ERPWebApp\wwwroot\lib\bootstrap\dist\js\bootstrap.js"' (27b0a520)
+2019-02-18T08:58:46.5946674+07:00 0HLKL8IAQK9UK:00000001 [INF] Sending file. Request path: '"/lib/bootstrap-datetimepicker-master/js/bootstrap-datetimepicker.js"'. Physical path: '"D:\ERPWebApp\ERPWebApp\wwwroot\lib\bootstrap-datetimepicker-master\js\bootstrap-datetimepicker.js"' (27b0a520)
+2019-02-18T08:58:46.5972358+07:00 0HLKL8IAQK9UB:00000003 [INF] Request finished in 727.7781ms 200 application/javascript (791a596a)
+2019-02-18T08:58:46.6060428+07:00 0HLKL8IAQK9UK:00000001 [INF] Request finished in 682.5677ms 200 application/javascript (791a596a)
+2019-02-18T08:58:46.6179415+07:00 0HLKL8IAQK9UM:00000001 [INF] Sending file. Request path: '"/lib/bootstrap-daterangepicker/daterangepicker.js"'. Physical path: '"D:\ERPWebApp\ERPWebApp\wwwroot\lib\bootstrap-daterangepicker\daterangepicker.js"' (27b0a520)
+2019-02-18T08:58:46.6263113+07:00 0HLKL8IAQK9UR:00000001 [INF] Sending file. Request path: '"/admin-side/js/custom.js"'. Physical path: '"D:\ERPWebApp\ERPWebApp\wwwroot\admin-side\js\custom.js"' (27b0a520)
+2019-02-18T08:58:46.6288505+07:00 0HLKL8IAQK9UM:00000001 [INF] Request finished in 590.0868ms 200 application/javascript (791a596a)
+2019-02-18T08:58:46.6397978+07:00 0HLKL8IAQK9UR:00000001 [INF] Request finished in 497.2328ms 200 application/javascript (791a596a)
+2019-02-18T08:58:46.6492398+07:00 0HLKL8IAQK9UH:00000002 [INF] Sending file. Request path: '"/lib/jquery-ui/jquery-ui.js"'. Physical path: '"D:\ERPWebApp\ERPWebApp\wwwroot\lib\jquery-ui\jquery-ui.js"' (27b0a520)
+2019-02-18T08:58:46.6615888+07:00 0HLKL8IAQK9UD:00000003 [INF] Sending file. Request path: '"/lib/font-awesome/fonts/fontawesome-webfont.woff2"'. Physical path: '"D:\ERPWebApp\ERPWebApp\wwwroot\lib\font-awesome\fonts\fontawesome-webfont.woff2"' (27b0a520)
+2019-02-18T08:58:46.6656316+07:00 0HLKL8IAQK9UH:00000002 [INF] Request finished in 790.1942ms 200 application/javascript (791a596a)
+2019-02-18T08:58:46.6852114+07:00 0HLKL8IAQK9UD:00000003 [INF] Request finished in 381.4012ms 200 font/woff2 (791a596a)
+2019-02-18T08:58:46.6932616+07:00 0HLKL8IAQK9UO:00000001 [INF] Sending file. Request path: '"/lib/ckeditor/ckeditor.js"'. Physical path: '"D:\ERPWebApp\ERPWebApp\wwwroot\lib\ckeditor\ckeditor.js"' (27b0a520)
+2019-02-18T08:58:46.7041480+07:00 0HLKL8IAQK9UO:00000001 [INF] Request finished in 638.0783ms 200 application/javascript (791a596a)
+2019-02-18T08:58:46.7511571+07:00 0HLKL8IAQK9UF:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:44379/Notification/GetByUserId   (ca22a1cb)
+2019-02-18T08:58:46.7795424+07:00 0HLKL8IAQK9UF:00000003 [INF] Route matched with "{action = \"GetByUserId\", controller = \"Notification\", area = \"\"}". Executing action "ERPWebApp.Controllers.Construction.NotificationController.GetByUserId (ERPWebApp)" (a44c0341)
+2019-02-18T08:58:46.7905176+07:00 0HLKL8IAQK9UF:00000003 [INF] Executing action method "ERPWebApp.Controllers.Construction.NotificationController.GetByUserId (ERPWebApp)" - Validation state: Valid (dad538d7)
+2019-02-18T08:58:46.8225892+07:00 0HLKL8IAQK9UF:00000003 [INF] Entity Framework Core "2.2.0-preview1-35029" initialized '"ERPDbContext"' using provider '"Pomelo.EntityFrameworkCore.MySql"' with options: "ServerVersion 8.0.13 MySql " (9958f5bb)
+2019-02-18T08:58:46.9690791+07:00 0HLKL8IAQK9UF:00000003 [INF] Executed DbCommand ("2"ms) [Parameters=["@__userId_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT `p`.`Notification_FK` AS `KeyId`, `p.NotificationFkNavigation`.`NotificationContent`, `p.NotificationFkNavigation`.`DateCreated` AS `NotificationTime`, `p`.`Status`
+FROM `SO_NotificationGeneralDetail` AS `p`
+LEFT JOIN `SO_NotificationGeneral` AS `p.NotificationFkNavigation` ON `p`.`Notification_FK` = `p.NotificationFkNavigation`.`KeyId`
+WHERE `p`.`User_FK` = @__userId_0" (0723d8ff)
+2019-02-18T08:58:46.9786216+07:00 0HLKL8IAQK9UF:00000003 [INF] Executed action method "ERPWebApp.Controllers.Construction.NotificationController.GetByUserId (ERPWebApp)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult" in 180.5054ms. (50a9e262)
+2019-02-18T08:58:46.9946224+07:00 0HLKL8IAQK9UF:00000003 [INF] Executing ObjectResult, writing value of type '"System.Collections.Generic.List`1[[ERPWebApp.Utilities.DTOs.Boq.SO_NotificationGeneralDTO, ERPWebApp.Utilities, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'. (8a1b66c8)
+2019-02-18T08:58:47.1721520+07:00 0HLKL8IAQK9UF:00000003 [INF] Executed action "ERPWebApp.Controllers.Construction.NotificationController.GetByUserId (ERPWebApp)" in 387.7229ms (afa2e885)
+2019-02-18T08:58:47.1813708+07:00 0HLKL8IAQK9UF:00000003 [INF] Request finished in 427.8885ms 200 application/json; charset=utf-8 (791a596a)
+2019-02-18T09:13:05.9885951+07:00 0HLKL8IAQK9UT:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44379/Employee   (ca22a1cb)
+2019-02-18T09:13:06.0006552+07:00 0HLKL8IAQK9UT:00000001 [INF] Entity Framework Core "2.2.0-preview1-35029" initialized '"ERPDbContext"' using provider '"Pomelo.EntityFrameworkCore.MySql"' with options: "ServerVersion 8.0.13 MySql " (9958f5bb)
+2019-02-18T09:13:06.0867213+07:00 0HLKL8IAQK9UT:00000001 [INF] Executed DbCommand ("2"ms) [Parameters=["@__get_Item_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT `e`.`Id`, `e`.`AccessFailedCount`, `e`.`Avatar`, `e`.`City`, `e`.`ConcurrencyStamp`, `e`.`Country`, `e`.`DateCreated`, `e`.`DateModified`, `e`.`District`, `e`.`Dob`, `e`.`Email`, `e`.`EmailConfirmed`, `e`.`Fax`, `e`.`FullName`, `e`.`Gender`, `e`.`GnCityKeyId`, `e`.`IdDate`, `e`.`IdNumber`, `e`.`IsCustomer`, `e`.`IsEmployee`, `e`.`IsPersonal`, `e`.`IsVendor`, `e`.`LastLogIn`, `e`.`LastupdatedFk`, `e`.`LastupdatedName`, `e`.`LockoutEnabled`, `e`.`LockoutEnd`, `e`.`NormalizedEmail`, `e`.`NormalizedUserName`, `e`.`Notes`, `e`.`Origin_FK`, `e`.`PasswordHash`, `e`.`PhoneNumber`, `e`.`PhoneNumberConfirmed`, `e`.`SecurityStamp`, `e`.`Status`, `e`.`Street`, `e`.`TaxIDNumber`, `e`.`TwoFactorEnabled`, `e`.`UserName`, `e`.`Ward`
+FROM `User` AS `e`
+WHERE `e`.`Id` = @__get_Item_0
+LIMIT 1" (0723d8ff)
+2019-02-18T09:13:06.1030207+07:00 0HLKL8IAQK9UT:00000001 [INF] Executed DbCommand ("1"ms) [Parameters=["@__user_Id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT `uc`.`Id`, `uc`.`ClaimType`, `uc`.`ClaimValue`, `uc`.`UserId`
+FROM `AppUserClaims` AS `uc`
+WHERE `uc`.`UserId` = @__user_Id_0" (0723d8ff)
+2019-02-18T09:13:06.1106944+07:00 0HLKL8IAQK9UT:00000001 [INF] Executed DbCommand ("1"ms) [Parameters=["@__userId_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT `role`.`Name`
+FROM `AppUserRoles` AS `userRole`
+INNER JOIN `Roles` AS `role` ON `userRole`.`RoleId` = `role`.`Id`
+WHERE `userRole`.`UserId` = @__userId_0" (0723d8ff)
+2019-02-18T09:13:06.1186501+07:00 0HLKL8IAQK9UT:00000001 [INF] Executed DbCommand ("1"ms) [Parameters=["@__normalizedName_0='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SELECT `r`.`Id`, `r`.`ConcurrencyStamp`, `r`.`Description`, `r`.`Name`, `r`.`NormalizedName`
+FROM `Roles` AS `r`
+WHERE `r`.`NormalizedName` = @__normalizedName_0
+LIMIT 1" (0723d8ff)
+2019-02-18T09:13:06.1290787+07:00 0HLKL8IAQK9UT:00000001 [INF] Executed DbCommand ("4"ms) [Parameters=["@__role_Id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT `rc`.`ClaimType`, `rc`.`ClaimValue`
+FROM `AppRoleClaims` AS `rc`
+WHERE `rc`.`RoleId` = @__role_Id_0" (0723d8ff)
+2019-02-18T09:13:06.1367821+07:00 0HLKL8IAQK9UT:00000001 [INF] Executed DbCommand ("1"ms) [Parameters=["@__userId_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT `role`.`Name`
+FROM `AppUserRoles` AS `userRole`
+INNER JOIN `Roles` AS `role` ON `userRole`.`RoleId` = `role`.`Id`
+WHERE `userRole`.`UserId` = @__userId_0" (0723d8ff)
+2019-02-18T09:13:06.1482149+07:00 0HLKL8IAQK9UT:00000001 [INF] Route matched with "{action = \"Index\", controller = \"Employee\", area = \"\"}". Executing action "ERPWebApp.Controllers.EmployeeController.Index (ERPWebApp)" (a44c0341)
+2019-02-18T09:13:06.1529978+07:00 0HLKL8IAQK9UT:00000001 [INF] Authorization was successful. (0d575a54)
+2019-02-18T09:13:06.1587110+07:00 0HLKL8IAQK9UT:00000001 [INF] Executing action method "ERPWebApp.Controllers.EmployeeController.Index (ERPWebApp)" - Validation state: Valid (dad538d7)
+2019-02-18T09:13:06.2414441+07:00 0HLKL8IAQK9UT:00000001 [INF] Executed DbCommand ("4"ms) [Parameters=["@__functionId_1='?' (Size = 128) (DbType = AnsiString)"], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM `Functions` AS `f`
+        INNER JOIN `Permissions` AS `p` ON `f`.`KeyId` = `p`.`FunctionId`
+        INNER JOIN `Roles` AS `r` ON `p`.`RoleId` = `r`.`Id`
+        WHERE (`r`.`Name` IN ('test') AND (`f`.`KeyId` = @__functionId_1)) AND (`p`.`CanRead` = TRUE))
+    THEN TRUE ELSE FALSE
+END" (0723d8ff)
+2019-02-18T09:13:06.2656424+07:00 0HLKL8IAQK9UT:00000001 [INF] Authorization was successful. (0d575a54)
+2019-02-18T09:13:06.2706327+07:00 0HLKL8IAQK9UT:00000001 [INF] Executed action method "ERPWebApp.Controllers.EmployeeController.Index (ERPWebApp)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 107.1183ms. (50a9e262)
+2019-02-18T09:13:06.2772872+07:00 0HLKL8IAQK9UT:00000001 [INF] Executing ViewResult, running view "Index". (c83d0e25)
+2019-02-18T09:13:06.3092227+07:00 0HLKL8IAQK9UT:00000001 [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT `x`.`KeyId`, `x`.`Name`, `x`.`URL`, `x`.`ParentId`, `x`.`IconCss`, `x`.`SortOrder`, `x`.`Status`
+FROM `Functions` AS `x`
+WHERE `x`.`Status` = 1
+ORDER BY `x`.`SortOrder`, `x`.`ParentId`" (0723d8ff)
+2019-02-18T09:13:06.3254851+07:00 0HLKL8IAQK9UT:00000001 [INF] Executed ViewResult - view "Index" executed in 50.5258ms. (f66409e9)
+2019-02-18T09:13:06.3293935+07:00 0HLKL8IAQK9UT:00000001 [INF] Executed action "ERPWebApp.Controllers.EmployeeController.Index (ERPWebApp)" in 177.4552ms (afa2e885)
+2019-02-18T09:13:06.3574918+07:00 0HLKL8IAQK9UT:00000001 [INF] Request finished in 361.3031ms 200 text/html; charset=utf-8 (791a596a)
+2019-02-18T09:13:06.3943978+07:00 0HLKL8IAQK9UT:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44379/css/autocomplete.css   (ca22a1cb)
+2019-02-18T09:13:06.3967959+07:00 0HLKL8IAQK9UU:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44379/app/shared/auto/autoAddressbook.js   (ca22a1cb)
+2019-02-18T09:13:06.4151514+07:00 0HLKL8IAQK9UT:00000002 [INF] The file "/css/autocomplete.css" was not modified (f1f8d725)
+2019-02-18T09:13:06.4196540+07:00 0HLKL8IAQK9UU:00000001 [INF] Sending file. Request path: '"/app/shared/auto/autoAddressbook.js"'. Physical path: '"D:\ERPWebApp\ERPWebApp\wwwroot\app\shared\auto\autoAddressbook.js"' (27b0a520)
+2019-02-18T09:13:06.4336398+07:00 0HLKL8IAQK9UV:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44379/app/controllers/employee/index.js?v=9PcUyJpGh5EijdnZZ8Bx0DGi4DIfSPir3z0v3Ey4UwA   (ca22a1cb)
+2019-02-18T09:13:06.4363638+07:00 0HLKL8IAQK9UT:00000002 [INF] Request finished in 31.4996ms 304 text/css (791a596a)
+2019-02-18T09:13:06.4395719+07:00 0HLKL8IAQK9UU:00000001 [INF] Request finished in 31.7951ms 200 application/javascript (791a596a)
+2019-02-18T09:13:06.4495615+07:00 0HLKL8IAQK9UV:00000001 [INF] Sending file. Request path: '"/app/controllers/employee/index.js"'. Physical path: '"D:\ERPWebApp\ERPWebApp\wwwroot\app\controllers\employee\index.js"' (27b0a520)
+2019-02-18T09:13:06.4547919+07:00 0HLKL8IAQK9UV:00000001 [INF] Request finished in 58.1708ms 200 application/javascript (791a596a)
+2019-02-18T09:13:06.5982003+07:00 0HLKL8IAQK9UU:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44379/Notification/GetByUserId   (ca22a1cb)
+2019-02-18T09:13:06.6038721+07:00 0HLKL8IAQK9UU:00000002 [INF] Route matched with "{action = \"GetByUserId\", controller = \"Notification\", area = \"\"}". Executing action "ERPWebApp.Controllers.Construction.NotificationController.GetByUserId (ERPWebApp)" (a44c0341)
+2019-02-18T09:13:06.6105542+07:00 0HLKL8IAQK9UU:00000002 [INF] Executing action method "ERPWebApp.Controllers.Construction.NotificationController.GetByUserId (ERPWebApp)" - Validation state: Valid (dad538d7)
+2019-02-18T09:13:06.6156879+07:00 0HLKL8IAQK9UU:00000002 [INF] Entity Framework Core "2.2.0-preview1-35029" initialized '"ERPDbContext"' using provider '"Pomelo.EntityFrameworkCore.MySql"' with options: "ServerVersion 8.0.13 MySql " (9958f5bb)
+2019-02-18T09:13:06.6276180+07:00 0HLKL8IAQK9UU:00000002 [INF] Executed DbCommand ("0"ms) [Parameters=["@__userId_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT `p`.`Notification_FK` AS `KeyId`, `p.NotificationFkNavigation`.`NotificationContent`, `p.NotificationFkNavigation`.`DateCreated` AS `NotificationTime`, `p`.`Status`
+FROM `SO_NotificationGeneralDetail` AS `p`
+LEFT JOIN `SO_NotificationGeneral` AS `p.NotificationFkNavigation` ON `p`.`Notification_FK` = `p.NotificationFkNavigation`.`KeyId`
+WHERE `p`.`User_FK` = @__userId_0" (0723d8ff)
+2019-02-18T09:13:06.6374169+07:00 0HLKL8IAQK9UU:00000002 [INF] Executed action method "ERPWebApp.Controllers.Construction.NotificationController.GetByUserId (ERPWebApp)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult" in 17.3043ms. (50a9e262)
+2019-02-18T09:13:06.6562862+07:00 0HLKL8IAQK9UU:00000002 [INF] Executing ObjectResult, writing value of type '"System.Collections.Generic.List`1[[ERPWebApp.Utilities.DTOs.Boq.SO_NotificationGeneralDTO, ERPWebApp.Utilities, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'. (8a1b66c8)
+2019-02-18T09:13:06.7287112+07:00 0HLKL8IAQK9UU:00000002 [INF] Executed action "ERPWebApp.Controllers.Construction.NotificationController.GetByUserId (ERPWebApp)" in 53.5653ms (afa2e885)
+2019-02-18T09:13:06.7465713+07:00 0HLKL8IAQK9V2:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44379/employee/GetAllReligion   (ca22a1cb)
+2019-02-18T09:13:06.7487713+07:00 0HLKL8IAQK9UU:00000002 [INF] Request finished in 136.3492ms 200 application/json; charset=utf-8 (791a596a)
+2019-02-18T09:13:06.7572398+07:00 0HLKL8IAQK9V3:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44379/employee/GetAllPosition   (ca22a1cb)
+2019-02-18T09:13:06.7681501+07:00 0HLKL8IAQK9UT:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:44379/employee/GetAllDepartment   (ca22a1cb)
+2019-02-18T09:13:06.7705559+07:00 0HLKL8IAQK9UV:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44379/employee/GetAllCity   (ca22a1cb)
+2019-02-18T09:13:06.7752320+07:00 0HLKL8IAQK9V2:00000001 [INF] Route matched with "{action = \"GetAllReligion\", controller = \"Employee\", area = \"\"}". Executing action "ERPWebApp.Controllers.EmployeeController.GetAllReligion (ERPWebApp)" (a44c0341)
+2019-02-18T09:13:06.7800170+07:00 0HLKL8IAQK9V3:00000001 [INF] Route matched with "{action = \"GetAllPosition\", controller = \"Employee\", area = \"\"}". Executing action "ERPWebApp.Controllers.EmployeeController.GetAllPosition (ERPWebApp)" (a44c0341)
+2019-02-18T09:13:06.7888974+07:00 0HLKL8IAQK9V2:00000001 [INF] Authorization was successful. (0d575a54)
+2019-02-18T09:13:06.8005888+07:00 0HLKL8IAQK9UT:00000003 [INF] Route matched with "{action = \"GetAllDepartment\", controller = \"Employee\", area = \"\"}". Executing action "ERPWebApp.Controllers.EmployeeController.GetAllDepartment (ERPWebApp)" (a44c0341)
+2019-02-18T09:13:06.8241083+07:00 0HLKL8IAQK9V3:00000001 [INF] Authorization was successful. (0d575a54)
+2019-02-18T09:13:06.8260734+07:00 0HLKL8IAQK9V2:00000001 [INF] Executing action method "ERPWebApp.Controllers.EmployeeController.GetAllReligion (ERPWebApp)" - Validation state: Valid (dad538d7)
+2019-02-18T09:13:06.8320940+07:00 0HLKL8IAQK9V3:00000001 [INF] Executing action method "ERPWebApp.Controllers.EmployeeController.GetAllPosition (ERPWebApp)" - Validation state: Valid (dad538d7)
+2019-02-18T09:13:06.8360729+07:00 0HLKL8IAQK9UT:00000003 [INF] Authorization was successful. (0d575a54)
+2019-02-18T09:13:06.8432709+07:00 0HLKL8IAQK9V2:00000001 [INF] Entity Framework Core "2.2.0-preview1-35029" initialized '"ERPDbContext"' using provider '"Pomelo.EntityFrameworkCore.MySql"' with options: "ServerVersion 8.0.13 MySql " (9958f5bb)
+2019-02-18T09:13:06.8464762+07:00 0HLKL8IAQK9V3:00000001 [INF] Entity Framework Core "2.2.0-preview1-35029" initialized '"ERPDbContext"' using provider '"Pomelo.EntityFrameworkCore.MySql"' with options: "ServerVersion 8.0.13 MySql " (9958f5bb)
+2019-02-18T09:13:06.8655782+07:00 0HLKL8IAQK9UT:00000003 [INF] Executing action method "ERPWebApp.Controllers.EmployeeController.GetAllDepartment (ERPWebApp)" - Validation state: Valid (dad538d7)
+2019-02-18T09:13:06.8964033+07:00 0HLKL8IAQK9V2:00000001 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT `g`.`KeyId`, `g`.`ReligionName`
+FROM `GN_Religion` AS `g`" (0723d8ff)
+2019-02-18T09:13:06.8988229+07:00 0HLKL8IAQK9V3:00000001 [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT `h`.`KeyId`, `h`.`Description`, `h`.`PositionName`
+FROM `HP_Position` AS `h`" (0723d8ff)
+2019-02-18T09:13:06.9073700+07:00 0HLKL8IAQK9UV:00000002 [INF] Route matched with "{action = \"GetAllCity\", controller = \"Employee\", area = \"\"}". Executing action "ERPWebApp.Controllers.EmployeeController.GetAllCity (ERPWebApp)" (a44c0341)
+2019-02-18T09:13:06.9097192+07:00 0HLKL8IAQK9UT:00000003 [INF] Entity Framework Core "2.2.0-preview1-35029" initialized '"ERPDbContext"' using provider '"Pomelo.EntityFrameworkCore.MySql"' with options: "ServerVersion 8.0.13 MySql " (9958f5bb)
+2019-02-18T09:13:06.9301494+07:00 0HLKL8IAQK9UV:00000002 [INF] Authorization was successful. (0d575a54)
+2019-02-18T09:13:06.9346665+07:00 0HLKL8IAQK9V1:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44379/employee/GetAllNation   (ca22a1cb)
+2019-02-18T09:13:06.9508784+07:00 0HLKL8IAQK9UT:00000003 [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT `h`.`KeyId`, `h`.`Department_Name`, `h`.`Description`
+FROM `HP_Department` AS `h`" (0723d8ff)
+2019-02-18T09:13:06.9640680+07:00 0HLKL8IAQK9UV:00000002 [INF] Executing action method "ERPWebApp.Controllers.EmployeeController.GetAllCity (ERPWebApp)" - Validation state: Valid (dad538d7)
+2019-02-18T09:13:06.9675657+07:00 0HLKL8IAQK9V1:00000001 [INF] Route matched with "{action = \"GetAllNation\", controller = \"Employee\", area = \"\"}". Executing action "ERPWebApp.Controllers.EmployeeController.GetAllNation (ERPWebApp)" (a44c0341)
+2019-02-18T09:13:06.9714325+07:00 0HLKL8IAQK9V0:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44379/employee/GetAllPaging?keyword=&page=1&pageSize=10   (ca22a1cb)
+2019-02-18T09:13:06.9783321+07:00 0HLKL8IAQK9V1:00000001 [INF] Authorization was successful. (0d575a54)
+2019-02-18T09:13:06.9811460+07:00 0HLKL8IAQK9UV:00000002 [INF] Entity Framework Core "2.2.0-preview1-35029" initialized '"ERPDbContext"' using provider '"Pomelo.EntityFrameworkCore.MySql"' with options: "ServerVersion 8.0.13 MySql " (9958f5bb)
+2019-02-18T09:13:06.9911060+07:00 0HLKL8IAQK9V1:00000001 [INF] Executing action method "ERPWebApp.Controllers.EmployeeController.GetAllNation (ERPWebApp)" - Validation state: Valid (dad538d7)
+2019-02-18T09:13:06.9923092+07:00 0HLKL8IAQK9V0:00000001 [INF] Route matched with "{action = \"GetAllPaging\", controller = \"Employee\", area = \"\"}". Executing action "ERPWebApp.Controllers.EmployeeController.GetAllPaging (ERPWebApp)" (a44c0341)
+2019-02-18T09:13:07.0322709+07:00 0HLKL8IAQK9V0:00000001 [INF] Authorization was successful. (0d575a54)
+2019-02-18T09:13:07.0419443+07:00 0HLKL8IAQK9V3:00000001 [INF] Executed action method "ERPWebApp.Controllers.EmployeeController.GetAllPosition (ERPWebApp)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult" in 200.0118ms. (50a9e262)
+2019-02-18T09:13:07.0475583+07:00 0HLKL8IAQK9V2:00000001 [INF] Executed action method "ERPWebApp.Controllers.EmployeeController.GetAllReligion (ERPWebApp)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult" in 208.1008ms. (50a9e262)
+2019-02-18T09:13:07.0542661+07:00 0HLKL8IAQK9UT:00000003 [INF] Executed action method "ERPWebApp.Controllers.EmployeeController.GetAllDepartment (ERPWebApp)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult" in 166.6352ms. (50a9e262)
+2019-02-18T09:13:07.0591015+07:00 0HLKL8IAQK9V3:00000001 [INF] Executing ObjectResult, writing value of type '"System.Collections.Generic.List`1[[ERPWebApp.Application.ViewModels.ERP5.HP_PositionViewModel, ERPWebApp.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'. (8a1b66c8)
+2019-02-18T09:13:07.0625106+07:00 0HLKL8IAQK9V2:00000001 [INF] Executing ObjectResult, writing value of type '"System.Collections.Generic.List`1[[ERPWebApp.Application.ViewModels.ERP5.GN_ReligionViewModel, ERPWebApp.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'. (8a1b66c8)
+2019-02-18T09:13:07.0643855+07:00 0HLKL8IAQK9UT:00000003 [INF] Executing ObjectResult, writing value of type '"System.Collections.Generic.List`1[[ERPWebApp.Application.ViewModels.ERP5.HP_DepartmentViewModel, ERPWebApp.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'. (8a1b66c8)
+2019-02-18T09:13:07.0711437+07:00 0HLKL8IAQK9UV:00000002 [INF] Executed DbCommand ("5"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT `p`.`KeyId`, `p`.`CityName`
+FROM `GN_City` AS `p`
+ORDER BY `p`.`CityName`" (0723d8ff)
+2019-02-18T09:13:07.0731794+07:00 0HLKL8IAQK9V1:00000001 [INF] Entity Framework Core "2.2.0-preview1-35029" initialized '"ERPDbContext"' using provider '"Pomelo.EntityFrameworkCore.MySql"' with options: "ServerVersion 8.0.13 MySql " (9958f5bb)
+2019-02-18T09:13:07.0920419+07:00 0HLKL8IAQK9V0:00000001 [INF] Executing action method "ERPWebApp.Controllers.EmployeeController.GetAllPaging (ERPWebApp)" with arguments (["", "1", "10"]) - Validation state: Valid (4e3479ed)
+2019-02-18T09:13:07.1051050+07:00 0HLKL8IAQK9V2:00000001 [INF] Executed action "ERPWebApp.Controllers.EmployeeController.GetAllReligion (ERPWebApp)" in 310.9529ms (afa2e885)
+2019-02-18T09:13:07.1070913+07:00 0HLKL8IAQK9V3:00000001 [INF] Executed action "ERPWebApp.Controllers.EmployeeController.GetAllPosition (ERPWebApp)" in 309.8679ms (afa2e885)
+2019-02-18T09:13:07.1222052+07:00 0HLKL8IAQK9V2:00000001 [INF] Request finished in 423.8814ms 200 application/json; charset=utf-8 (791a596a)
+2019-02-18T09:13:07.1240497+07:00 0HLKL8IAQK9V3:00000001 [INF] Request finished in 425.7252ms 200 application/json; charset=utf-8 (791a596a)
+2019-02-18T09:13:07.1259736+07:00 0HLKL8IAQK9UT:00000003 [INF] Executed action "ERPWebApp.Controllers.EmployeeController.GetAllDepartment (ERPWebApp)" in 286.355ms (afa2e885)
+2019-02-18T09:13:07.1452131+07:00 0HLKL8IAQK9UT:00000003 [INF] Request finished in 444.8046ms 200 application/json; charset=utf-8 (791a596a)
+2019-02-18T09:13:07.1463771+07:00 0HLKL8IAQK9UV:00000002 [INF] Executed action method "ERPWebApp.Controllers.EmployeeController.GetAllCity (ERPWebApp)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult" in 122.6691ms. (50a9e262)
+2019-02-18T09:13:07.1495253+07:00 0HLKL8IAQK9V1:00000001 [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT `g`.`KeyId`, `g`.`NationName`
+FROM `GN_Nation` AS `g`" (0723d8ff)
+2019-02-18T09:13:07.1590040+07:00 0HLKL8IAQK9UV:00000002 [INF] Executing ObjectResult, writing value of type '"System.Collections.Generic.List`1[[ERPWebApp.Application.ViewModels.ERP2.GN_CityViewModel, ERPWebApp.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'. (8a1b66c8)
+2019-02-18T09:13:07.1600626+07:00 0HLKL8IAQK9V0:00000001 [INF] Entity Framework Core "2.2.0-preview1-35029" initialized '"ERPDbContext"' using provider '"Pomelo.EntityFrameworkCore.MySql"' with options: "ServerVersion 8.0.13 MySql " (9958f5bb)
+2019-02-18T09:13:07.1705793+07:00 0HLKL8IAQK9UV:00000002 [INF] Executed action "ERPWebApp.Controllers.EmployeeController.GetAllCity (ERPWebApp)" in 256.4415ms (afa2e885)
+2019-02-18T09:13:07.1809671+07:00 0HLKL8IAQK9UV:00000002 [INF] Request finished in 489.6762ms 200 application/json; charset=utf-8 (791a596a)
+2019-02-18T09:13:07.1908474+07:00 0HLKL8IAQK9V1:00000001 [INF] Executed action method "ERPWebApp.Controllers.EmployeeController.GetAllNation (ERPWebApp)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult" in 193.2151ms. (50a9e262)
+2019-02-18T09:13:07.1952964+07:00 0HLKL8IAQK9V1:00000001 [INF] Executing ObjectResult, writing value of type '"System.Collections.Generic.List`1[[ERPWebApp.Application.ViewModels.ERP5.GN_NationViewModel, ERPWebApp.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'. (8a1b66c8)
+2019-02-18T09:13:07.1853578+07:00 0HLKL8IAQK9V0:00000001 [WRN] The Include operation for navigation '"[p].UserBy"' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information. (10efaee6)
+2019-02-18T09:13:07.2059126+07:00 0HLKL8IAQK9V0:00000001 [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM `HP_Employee` AS `p`" (0723d8ff)
+2019-02-18T09:13:07.2090883+07:00 0HLKL8IAQK9V1:00000001 [INF] Executed action "ERPWebApp.Controllers.EmployeeController.GetAllNation (ERPWebApp)" in 234.6451ms (afa2e885)
+2019-02-18T09:13:07.2189866+07:00 0HLKL8IAQK9V1:00000001 [INF] Request finished in 529.0671ms 200 application/json; charset=utf-8 (791a596a)
+2019-02-18T09:13:07.2305814+07:00 0HLKL8IAQK9V0:00000001 [WRN] Query: '"(from HpEmployee p in DbSet<HpEmployee> select [p]).Skip(__p_0).Take(__p_1)"' uses a row limiting operation (Skip/Take) without OrderBy which may lead to unpredictable results. (32148ccc)
+2019-02-18T09:13:07.2940492+07:00 0HLKL8IAQK9V0:00000001 [INF] Executed DbCommand ("3"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT `p`.`KeyId`, `p`.`BankAccountName`, `p`.`BankAccountNumber`, `p`.`BankName`, `p`.`Birthplace`, `p`.`DateCreated`, `p`.`DateModified`, `p`.`Department_FK`, `p`.`Id`, `p`.`LastupdatedBy_FK`, `p`.`Nation_FK`, `p`.`Note`, `p`.`Origin_FK`, `p`.`Position_FK`, `p`.`Religion_FK`, `p`.`Status`, `p`.`TaxIDNumber`, `p`.`User_FK`, `p.UserBy`.`Id`, `p.UserBy`.`AccessFailedCount`, `p.UserBy`.`Avatar`, `p.UserBy`.`City`, `p.UserBy`.`ConcurrencyStamp`, `p.UserBy`.`Country`, `p.UserBy`.`DateCreated`, `p.UserBy`.`DateModified`, `p.UserBy`.`District`, `p.UserBy`.`Dob`, `p.UserBy`.`Email`, `p.UserBy`.`EmailConfirmed`, `p.UserBy`.`Fax`, `p.UserBy`.`FullName`, `p.UserBy`.`Gender`, `p.UserBy`.`GnCityKeyId`, `p.UserBy`.`IdDate`, `p.UserBy`.`IdNumber`, `p.UserBy`.`IsCustomer`, `p.UserBy`.`IsEmployee`, `p.UserBy`.`IsPersonal`, `p.UserBy`.`IsVendor`, `p.UserBy`.`LastLogIn`, `p.UserBy`.`LastupdatedFk`, `p.UserBy`.`LastupdatedName`, `p.UserBy`.`LockoutEnabled`, `p.UserBy`.`LockoutEnd`, `p.UserBy`.`NormalizedEmail`, `p.UserBy`.`NormalizedUserName`, `p.UserBy`.`Notes`, `p.UserBy`.`Origin_FK`, `p.UserBy`.`PasswordHash`, `p.UserBy`.`PhoneNumber`, `p.UserBy`.`PhoneNumberConfirmed`, `p.UserBy`.`SecurityStamp`, `p.UserBy`.`Status`, `p.UserBy`.`Street`, `p.UserBy`.`TaxIDNumber`, `p.UserBy`.`TwoFactorEnabled`, `p.UserBy`.`UserName`, `p.UserBy`.`Ward`
+FROM `HP_Employee` AS `p`
+LEFT JOIN `User` AS `p.UserBy` ON `p`.`User_FK` = `p.UserBy`.`Id`
+LIMIT @__p_1 OFFSET @__p_0" (0723d8ff)
+2019-02-18T09:13:07.4597723+07:00 0HLKL8IAQK9V0:00000001 [INF] Executed action method "ERPWebApp.Controllers.EmployeeController.GetAllPaging (ERPWebApp)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult" in 356.7706ms. (50a9e262)
+2019-02-18T09:13:07.4692633+07:00 0HLKL8IAQK9V0:00000001 [INF] Executing ObjectResult, writing value of type '"ERPWebApp.Utilities.DTOs.PagedResult`1[[ERPWebApp.Application.ViewModels.ERP5.HP_EmployeeViewModel, ERPWebApp.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'. (8a1b66c8)
+2019-02-18T09:13:07.5168317+07:00 0HLKL8IAQK9V0:00000001 [INF] Executed action "ERPWebApp.Controllers.EmployeeController.GetAllPaging (ERPWebApp)" in 518.3454ms (afa2e885)
+2019-02-18T09:13:07.5229228+07:00 0HLKL8IAQK9V0:00000001 [INF] Request finished in 837.6762ms 200 application/json; charset=utf-8 (791a596a)
+2019-02-18T09:13:07.5378392+07:00 0HLKL8IAQK9UU:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:44379/employee/GetAllPaging?keyword=&page=1&pageSize=10   (ca22a1cb)
+2019-02-18T09:13:07.5429519+07:00 0HLKL8IAQK9UU:00000003 [INF] Route matched with "{action = \"GetAllPaging\", controller = \"Employee\", area = \"\"}". Executing action "ERPWebApp.Controllers.EmployeeController.GetAllPaging (ERPWebApp)" (a44c0341)
+2019-02-18T09:13:07.5473709+07:00 0HLKL8IAQK9UU:00000003 [INF] Authorization was successful. (0d575a54)
+2019-02-18T09:13:07.5537444+07:00 0HLKL8IAQK9UU:00000003 [INF] Executing action method "ERPWebApp.Controllers.EmployeeController.GetAllPaging (ERPWebApp)" with arguments (["", "1", "10"]) - Validation state: Valid (4e3479ed)
+2019-02-18T09:13:07.5596638+07:00 0HLKL8IAQK9UU:00000003 [INF] Entity Framework Core "2.2.0-preview1-35029" initialized '"ERPDbContext"' using provider '"Pomelo.EntityFrameworkCore.MySql"' with options: "ServerVersion 8.0.13 MySql " (9958f5bb)
+2019-02-18T09:13:07.5747717+07:00 0HLKL8IAQK9UU:00000003 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM `HP_Employee` AS `p`" (0723d8ff)
+2019-02-18T09:13:07.5845420+07:00 0HLKL8IAQK9UU:00000003 [INF] Executed DbCommand ("1"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT `p`.`KeyId`, `p`.`BankAccountName`, `p`.`BankAccountNumber`, `p`.`BankName`, `p`.`Birthplace`, `p`.`DateCreated`, `p`.`DateModified`, `p`.`Department_FK`, `p`.`Id`, `p`.`LastupdatedBy_FK`, `p`.`Nation_FK`, `p`.`Note`, `p`.`Origin_FK`, `p`.`Position_FK`, `p`.`Religion_FK`, `p`.`Status`, `p`.`TaxIDNumber`, `p`.`User_FK`, `p.UserBy`.`Id`, `p.UserBy`.`AccessFailedCount`, `p.UserBy`.`Avatar`, `p.UserBy`.`City`, `p.UserBy`.`ConcurrencyStamp`, `p.UserBy`.`Country`, `p.UserBy`.`DateCreated`, `p.UserBy`.`DateModified`, `p.UserBy`.`District`, `p.UserBy`.`Dob`, `p.UserBy`.`Email`, `p.UserBy`.`EmailConfirmed`, `p.UserBy`.`Fax`, `p.UserBy`.`FullName`, `p.UserBy`.`Gender`, `p.UserBy`.`GnCityKeyId`, `p.UserBy`.`IdDate`, `p.UserBy`.`IdNumber`, `p.UserBy`.`IsCustomer`, `p.UserBy`.`IsEmployee`, `p.UserBy`.`IsPersonal`, `p.UserBy`.`IsVendor`, `p.UserBy`.`LastLogIn`, `p.UserBy`.`LastupdatedFk`, `p.UserBy`.`LastupdatedName`, `p.UserBy`.`LockoutEnabled`, `p.UserBy`.`LockoutEnd`, `p.UserBy`.`NormalizedEmail`, `p.UserBy`.`NormalizedUserName`, `p.UserBy`.`Notes`, `p.UserBy`.`Origin_FK`, `p.UserBy`.`PasswordHash`, `p.UserBy`.`PhoneNumber`, `p.UserBy`.`PhoneNumberConfirmed`, `p.UserBy`.`SecurityStamp`, `p.UserBy`.`Status`, `p.UserBy`.`Street`, `p.UserBy`.`TaxIDNumber`, `p.UserBy`.`TwoFactorEnabled`, `p.UserBy`.`UserName`, `p.UserBy`.`Ward`
+FROM `HP_Employee` AS `p`
+LEFT JOIN `User` AS `p.UserBy` ON `p`.`User_FK` = `p.UserBy`.`Id`
+LIMIT @__p_1 OFFSET @__p_0" (0723d8ff)
+2019-02-18T09:13:07.5901147+07:00 0HLKL8IAQK9UU:00000003 [INF] Executed action method "ERPWebApp.Controllers.EmployeeController.GetAllPaging (ERPWebApp)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult" in 32.239ms. (50a9e262)
+2019-02-18T09:13:07.5955203+07:00 0HLKL8IAQK9UU:00000003 [INF] Executing ObjectResult, writing value of type '"ERPWebApp.Utilities.DTOs.PagedResult`1[[ERPWebApp.Application.ViewModels.ERP5.HP_EmployeeViewModel, ERPWebApp.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'. (8a1b66c8)
+2019-02-18T09:13:07.5999725+07:00 0HLKL8IAQK9UU:00000003 [INF] Executed action "ERPWebApp.Controllers.EmployeeController.GetAllPaging (ERPWebApp)" in 52.8893ms (afa2e885)
+2019-02-18T09:13:07.6058633+07:00 0HLKL8IAQK9UU:00000003 [INF] Request finished in 66.7257ms 200 application/json; charset=utf-8 (791a596a)
+2019-02-18T09:13:09.1742881+07:00 0HLKL8IAQK9V2:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44379/employee/GetById?id=1   (ca22a1cb)
+2019-02-18T09:13:09.1811205+07:00 0HLKL8IAQK9V2:00000002 [INF] Route matched with "{action = \"GetById\", controller = \"Employee\", area = \"\"}". Executing action "ERPWebApp.Controllers.EmployeeController.GetById (ERPWebApp)" (a44c0341)
+2019-02-18T09:13:09.1860659+07:00 0HLKL8IAQK9V2:00000002 [INF] Authorization was successful. (0d575a54)
+2019-02-18T09:13:09.1907254+07:00 0HLKL8IAQK9V2:00000002 [INF] Executing action method "ERPWebApp.Controllers.EmployeeController.GetById (ERPWebApp)" with arguments (["1"]) - Validation state: Valid (4e3479ed)
+2019-02-18T09:13:09.1968426+07:00 0HLKL8IAQK9V2:00000002 [INF] Entity Framework Core "2.2.0-preview1-35029" initialized '"ERPDbContext"' using provider '"Pomelo.EntityFrameworkCore.MySql"' with options: "ServerVersion 8.0.13 MySql " (9958f5bb)
+2019-02-18T09:13:09.2420411+07:00 0HLKL8IAQK9V2:00000002 [INF] Executed DbCommand ("1"ms) [Parameters=["@__id_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT `p`.`KeyId`, `p`.`BankAccountName`, `p`.`BankAccountNumber`, `p`.`BankName`, `p`.`Birthplace`, `p`.`DateCreated`, `p`.`DateModified`, `p`.`Department_FK`, `p`.`Id`, `p`.`LastupdatedBy_FK`, `p`.`Nation_FK`, `p`.`Note`, `p`.`Origin_FK`, `p`.`Position_FK`, `p`.`Religion_FK`, `p`.`Status`, `p`.`TaxIDNumber`, `p`.`User_FK`, `p.UserBy`.`Id`, `p.UserBy`.`AccessFailedCount`, `p.UserBy`.`Avatar`, `p.UserBy`.`City`, `p.UserBy`.`ConcurrencyStamp`, `p.UserBy`.`Country`, `p.UserBy`.`DateCreated`, `p.UserBy`.`DateModified`, `p.UserBy`.`District`, `p.UserBy`.`Dob`, `p.UserBy`.`Email`, `p.UserBy`.`EmailConfirmed`, `p.UserBy`.`Fax`, `p.UserBy`.`FullName`, `p.UserBy`.`Gender`, `p.UserBy`.`GnCityKeyId`, `p.UserBy`.`IdDate`, `p.UserBy`.`IdNumber`, `p.UserBy`.`IsCustomer`, `p.UserBy`.`IsEmployee`, `p.UserBy`.`IsPersonal`, `p.UserBy`.`IsVendor`, `p.UserBy`.`LastLogIn`, `p.UserBy`.`LastupdatedFk`, `p.UserBy`.`LastupdatedName`, `p.UserBy`.`LockoutEnabled`, `p.UserBy`.`LockoutEnd`, `p.UserBy`.`NormalizedEmail`, `p.UserBy`.`NormalizedUserName`, `p.UserBy`.`Notes`, `p.UserBy`.`Origin_FK`, `p.UserBy`.`PasswordHash`, `p.UserBy`.`PhoneNumber`, `p.UserBy`.`PhoneNumberConfirmed`, `p.UserBy`.`SecurityStamp`, `p.UserBy`.`Status`, `p.UserBy`.`Street`, `p.UserBy`.`TaxIDNumber`, `p.UserBy`.`TwoFactorEnabled`, `p.UserBy`.`UserName`, `p.UserBy`.`Ward`, `p.LastupdatedBy`.`Id`, `p.LastupdatedBy`.`AccessFailedCount`, `p.LastupdatedBy`.`Avatar`, `p.LastupdatedBy`.`City`, `p.LastupdatedBy`.`ConcurrencyStamp`, `p.LastupdatedBy`.`Country`, `p.LastupdatedBy`.`DateCreated`, `p.LastupdatedBy`.`DateModified`, `p.LastupdatedBy`.`District`, `p.LastupdatedBy`.`Dob`, `p.LastupdatedBy`.`Email`, `p.LastupdatedBy`.`EmailConfirmed`, `p.LastupdatedBy`.`Fax`, `p.LastupdatedBy`.`FullName`, `p.LastupdatedBy`.`Gender`, `p.LastupdatedBy`.`GnCityKeyId`, `p.LastupdatedBy`.`IdDate`, `p.LastupdatedBy`.`IdNumber`, `p.LastupdatedBy`.`IsCustomer`, `p.LastupdatedBy`.`IsEmployee`, `p.LastupdatedBy`.`IsPersonal`, `p.LastupdatedBy`.`IsVendor`, `p.LastupdatedBy`.`LastLogIn`, `p.LastupdatedBy`.`LastupdatedFk`, `p.LastupdatedBy`.`LastupdatedName`, `p.LastupdatedBy`.`LockoutEnabled`, `p.LastupdatedBy`.`LockoutEnd`, `p.LastupdatedBy`.`NormalizedEmail`, `p.LastupdatedBy`.`NormalizedUserName`, `p.LastupdatedBy`.`Notes`, `p.LastupdatedBy`.`Origin_FK`, `p.LastupdatedBy`.`PasswordHash`, `p.LastupdatedBy`.`PhoneNumber`, `p.LastupdatedBy`.`PhoneNumberConfirmed`, `p.LastupdatedBy`.`SecurityStamp`, `p.LastupdatedBy`.`Status`, `p.LastupdatedBy`.`Street`, `p.LastupdatedBy`.`TaxIDNumber`, `p.LastupdatedBy`.`TwoFactorEnabled`, `p.LastupdatedBy`.`UserName`, `p.LastupdatedBy`.`Ward`
+FROM `HP_Employee` AS `p`
+LEFT JOIN `User` AS `p.UserBy` ON `p`.`User_FK` = `p.UserBy`.`Id`
+LEFT JOIN `User` AS `p.LastupdatedBy` ON `p`.`LastupdatedBy_FK` = `p.LastupdatedBy`.`Id`
+WHERE `p`.`KeyId` = @__id_0
+LIMIT 2" (0723d8ff)
+2019-02-18T09:13:09.2630729+07:00 0HLKL8IAQK9V2:00000002 [INF] Executed action method "ERPWebApp.Controllers.EmployeeController.GetById (ERPWebApp)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult" in 67.8809ms. (50a9e262)
+2019-02-18T09:13:09.2673622+07:00 0HLKL8IAQK9V2:00000002 [INF] Executing ObjectResult, writing value of type '"ERPWebApp.Application.ViewModels.ERP5.HP_EmployeeViewModel"'. (8a1b66c8)
+2019-02-18T09:13:09.2719899+07:00 0HLKL8IAQK9V2:00000002 [INF] Executed action "ERPWebApp.Controllers.EmployeeController.GetById (ERPWebApp)" in 86.4761ms (afa2e885)
+2019-02-18T09:13:09.2778825+07:00 0HLKL8IAQK9V2:00000002 [INF] Request finished in 103.809ms 200 application/json; charset=utf-8 (791a596a)

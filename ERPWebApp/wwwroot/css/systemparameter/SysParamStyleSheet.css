@@ -1,0 +1,70 @@
+﻿body {
+}
+.pg-title{
+
+}
+.pg-title-left{
+    height:45px;
+}
+.pg-title-right{
+    height:45px;
+    padding:10px;
+    text-align:right;
+}
+#dtLastMod {
+    max-width:294px;
+}
+
+.btn-control{
+    float:right;
+    border:none;
+}
+
+.tab-theme{
+    padding:15px;
+}
+
+.tab-theme .tab-content {
+    border: 1px solid #ddd;
+    border-top-color: transparent;
+    background-color: #fff;
+    border-radius: 0px 0px 4px 4px;
+}
+
+#tab2 .table td {
+    text-align:center;
+}
+
+#tab3 .panel {
+    padding:15px;
+}
+
+.form-control{
+    border-radius:4px;
+}
+
+/* make addon has the same width*/
+#tab3 .input-group-addon{
+    min-width:120px;
+}
+
+/*set title tabs*/
+.nav-tabs > li > a{
+    font-weight:bold;
+}
+
+/*   Change Color for Active Tabs     */
+.nav-tabs > li.active > a,
+.nav-tabs > li.active > a:focus,
+.nav-tabs > li.active > a:hover,
+.nav-tabs > li > a:hover,
+.nav > li > a:hover {
+    background-color: #fff;
+    color: #73879C;
+}
+    
+/*   Change Color for Inactive Tabs     */
+.nav-tabs > li > a {
+    background-color: #ededed;
+    color: #999;
+}

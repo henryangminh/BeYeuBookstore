@@ -1,0 +1,163 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <UserSecretsId>aspnet-ERPWebApp-5B838775-0084-402B-8279-2E83C37D0491</UserSecretsId>
+    <ApplicationIcon />
+    <StartupObject />
+    <TypeScriptToolsVersion>3.0</TypeScriptToolsVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="NewFolder\**" />
+    <Content Remove="NewFolder\**" />
+    <EmbeddedResource Remove="NewFolder\**" />
+    <None Remove="NewFolder\**" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="6.2.2" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="3.2.0" />
+    <PackageReference Include="EPPlus.Core" Version="1.5.4" />
+    <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.5.1" />
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.2.0-preview1-35029" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.0-preview3-35497" />
+    <PackageReference Include="Serilog.Extensions.Logging.File" Version="1.1.0" />
+    <PackageReference Include="WebMarkupMin.AspNetCore2" Version="2.5.0" />
+    <PackageReference Include="WebMarkupMin.NUglify" Version="2.5.2" />
+  </ItemGroup>
+
+ 
+  <ItemGroup>
+    <ProjectReference Include="..\ERPWebApp.Application\ERPWebApp.Application.csproj" />
+    <ProjectReference Include="..\ERPWebApp.Data.EF\ERPWebApp.Data.EF.csproj" />
+    <ProjectReference Include="..\ERPWebApp.Data\ERPWebApp.Data.csproj" />
+    <ProjectReference Include="..\ERPWebApp.Infrastructure\ERPWebApp.Infrastructure.csproj" />
+    <ProjectReference Include="..\ERPWebApp.Utilities\ERPWebApp.Utilities.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="Areas\Admin\Views\Shared\Error.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Areas\Admin\Views\Shared\_Layout.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Areas\Admin\Views\Shared\_LoginPartial.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Areas\Admin\Views\Shared\_ValidationScriptsPartial.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Areas\Admin\Views\_ViewStart.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Areas\Admin\Views\_ViewImports.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Views\ProductCons\_AddEditProduct.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Views\ProductCons\_ImportExcelModal.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Views\SalesOrderBOQ2\_BomDetail.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Views\SalesOrderBOQ2\_MaterialSysntheticSO.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Views\ScoreEmployee\_ImportExcelModal.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Views\WoodInventory\_AddEditInventory.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Views\WoodProduct\_AddEditProduct.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Views\WoodProduct\_CreateAttributes.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Views\WoodProduct\_ImportExcelModal.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Views\WoodSalesOrder\_AddCustomer.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="report\" />
+    <Folder Include="wwwroot\app\controllers\profile\" />
+    <Folder Include="wwwroot\export-files\" />
+    <Folder Include="wwwroot\images\user\" />
+  </ItemGroup>
+
+  <ProjectExtensions><VisualStudio><UserProperties /></VisualStudio></ProjectExtensions>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\uploaded\canDelete\excels\" />
+    <Folder Include="wwwroot\uploaded\images\20180926\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\lib\bootstrap-datetimepicker-master\.jshintrc" />
+    <None Include="wwwroot\lib\bootstrap-datetimepicker-master\.npmignore" />
+    <None Include="wwwroot\lib\bootstrap-datetimepicker-master\Gruntfile.js" />
+    <None Include="wwwroot\lib\bootstrap-datetimepicker-master\js\bootstrap-datetimepicker.js" />
+    <None Include="wwwroot\lib\bootstrap-datetimepicker-master\js\bootstrap-datetimepicker.min.js" />
+    <None Include="wwwroot\lib\bootstrap-datetimepicker-master\js\locales\bootstrap-datetimepicker.ar.js" />
+    <None Include="wwwroot\lib\bootstrap-datetimepicker-master\js\locales\bootstrap-datetimepicker.az.js" />
+    <None Include="wwwroot\lib\bootstrap-datetimepicker-master\js\locales\bootstrap-datetimepicker.bg.js" />
+    <None Include="wwwroot\lib\bootstrap-datetimepicker-master\js\locales\bootstrap-datetimepicker.bn.js" />
+    <None Include="wwwroot\lib\bootstrap-datetimepicker-master\js\locales\bootstrap-datetimepicker.ca.js" />
+    <None Include="wwwroot\lib\bootstrap-datetimepicker-master\js\locales\bootstrap-datetimepicker.cs.js" />
+    <None Include="wwwroot\lib\bootstrap-datetimepicker-master\js\locales\bootstrap-datetimepicker.da.js" />
+    <None Include="wwwroot\lib\bootstrap-datetimepicker-master\js\locales\bootstrap-datetimepicker.de.js" />
+    <None Include="wwwroot\lib\bootstrap-datetimepicker-master\js\locales\bootstrap-datetimepicker.ee.js" />
+    <None Include="wwwroot\lib\bootstrap-datetimepicker-master\js\locales\bootstrap-datetimepicker.el.js" />
+    <None Include="wwwroot\lib\bootstrap-datetimepicker-master\js\locales\bootstrap-datetimepicker.es.js" />
+    <None Include="wwwroot\lib\bootstrap-datetimepicker-master\js\locales\bootstrap-datetimepicker.fi.js" />
+    <None Include="wwwroot\lib\bootstrap-datetimepicker-master\js\locales\bootstrap-datetimepicker.fr.js" />
+    <None Include="wwwroot\lib\bootstrap-datetimepicker-master\js\locales\bootstrap-datetimepicker.he.js" />
+    <None Include="wwwroot\lib\bootstrap-datetimepicker-master\js\locales\bootstrap-datetimepicker.hr.js" />
+    <None Include="wwwroot\lib\bootstrap-datetimepicker-master\js\locales\bootstrap-datetimepicker.hu.js" />
+    <None Include="wwwroot\lib\bootstrap-datetimepicker-master\js\locales\bootstrap-datetimepicker.hy.js" />
+    <None Include="wwwroot\lib\bootstrap-datetimepicker-master\js\locales\bootstrap-datetimepicker.id.js" />
+    <None Include="wwwroot\lib\bootstrap-datetimepicker-master\js\locales\bootstrap-datetimepicker.is.js" />
+    <None Include="wwwroot\lib\bootstrap-datetimepicker-master\js\locales\bootstrap-datetimepicker.it.js" />
+    <None Include="wwwroot\lib\bootstrap-datetimepicker-master\js\locales\bootstrap-datetimepicker.ja.js" />
+    <None Include="wwwroot\lib\bootstrap-datetimepicker-master\js\locales\bootstrap-datetimepicker.ka.js" />
+    <None Include="wwwroot\lib\bootstrap-datetimepicker-master\js\locales\bootstrap-datetimepicker.ko.js" />
+    <None Include="wwwroot\lib\bootstrap-datetimepicker-master\js\locales\bootstrap-datetimepicker.lt.js" />
+    <None Include="wwwroot\lib\bootstrap-datetimepicker-master\js\locales\bootstrap-datetimepicker.lv.js" />
+    <None Include="wwwroot\lib\bootstrap-datetimepicker-master\js\locales\bootstrap-datetimepicker.ms.js" />
+    <None Include="wwwroot\lib\bootstrap-datetimepicker-master\js\locales\bootstrap-datetimepicker.nb.js" />
+    <None Include="wwwroot\lib\bootstrap-datetimepicker-master\js\locales\bootstrap-datetimepicker.nl.js" />
+    <None Include="wwwroot\lib\bootstrap-datetimepicker-master\js\locales\bootstrap-datetimepicker.no.js" />
+    <None Include="wwwroot\lib\bootstrap-datetimepicker-master\js\locales\bootstrap-datetimepicker.pl.js" />
+    <None Include="wwwroot\lib\bootstrap-datetimepicker-master\js\locales\bootstrap-datetimepicker.pt-BR.js" />
+    <None Include="wwwroot\lib\bootstrap-datetimepicker-master\js\locales\bootstrap-datetimepicker.pt.js" />
+    <None Include="wwwroot\lib\bootstrap-datetimepicker-master\js\locales\bootstrap-datetimepicker.ro.js" />
+    <None Include="wwwroot\lib\bootstrap-datetimepicker-master\js\locales\bootstrap-datetimepicker.rs-latin.js" />
+    <None Include="wwwroot\lib\bootstrap-datetimepicker-master\js\locales\bootstrap-datetimepicker.rs.js" />
+    <None Include="wwwroot\lib\bootstrap-datetimepicker-master\js\locales\bootstrap-datetimepicker.ru.js" />
+    <None Include="wwwroot\lib\bootstrap-datetimepicker-master\js\locales\bootstrap-datetimepicker.sk.js" />
+    <None Include="wwwroot\lib\bootstrap-datetimepicker-master\js\locales\bootstrap-datetimepicker.sl.js" />
+    <None Include="wwwroot\lib\bootstrap-datetimepicker-master\js\locales\bootstrap-datetimepicker.sv.js" />
+    <None Include="wwwroot\lib\bootstrap-datetimepicker-master\js\locales\bootstrap-datetimepicker.sw.js" />
+    <None Include="wwwroot\lib\bootstrap-datetimepicker-master\js\locales\bootstrap-datetimepicker.th.js" />
+    <None Include="wwwroot\lib\bootstrap-datetimepicker-master\js\locales\bootstrap-datetimepicker.tr.js" />
+    <None Include="wwwroot\lib\bootstrap-datetimepicker-master\js\locales\bootstrap-datetimepicker.ua.js" />
+    <None Include="wwwroot\lib\bootstrap-datetimepicker-master\js\locales\bootstrap-datetimepicker.uk.js" />
+    <None Include="wwwroot\lib\bootstrap-datetimepicker-master\js\locales\bootstrap-datetimepicker.zh-CN.js" />
+    <None Include="wwwroot\lib\bootstrap-datetimepicker-master\js\locales\bootstrap-datetimepicker.zh-TW.js" />
+    <None Include="wwwroot\lib\bootstrap-datetimepicker-master\less\datetimepicker.less" />
+    <None Include="wwwroot\lib\bootstrap-datetimepicker-master\LICENSE" />
+    <None Include="wwwroot\lib\bootstrap-datetimepicker-master\README.md" />
+  </ItemGroup>
+
+</Project>

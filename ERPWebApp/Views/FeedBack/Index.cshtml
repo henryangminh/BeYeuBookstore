@@ -1,0 +1,72 @@
+﻿@{
+    ViewData["Title"] = "Gửi phản hồi";
+}
+
+@section Scripts{
+    <script src="~/app/controllers/feedback/index.js" asp-append-version="true"></script>
+    <script>
+        var feedback = new feedbackController();
+        feedback.initialize();</script>
+}
+<div class="page-title">
+    <div class="title_left">
+        <h3>Phản hồi</h3>
+    </div>
+</div>
+<div class="clearfix"></div>
+<div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="x_panel">
+            <div class="x_content">
+                <form class="form-horizontal" role="form" id="frmMaintainance">
+                    <div class="form-group row">
+                        <label for="selType" class="col-sm-2 col-form-label">Loại phản hồi <span class="star">*</span></label>
+                        <div class="col-sm-4">
+                            <select id="selType" class="form-control" name="selType">
+                                <option value="" selected="selected">Chọn loại phản hồi</option>
+                                <option value="1">Lỗi</option>
+                                <option value="2">Thiết kế giao diện</option>
+                                <option value="3">Góp ý về tính năng hiện tại</option>
+                                <option value="4">Đề xuất các tính năng mới</option>
+                                <option value="5">Khác</option>
+                            </select>
+                        </div>
+
+                    </div>
+                    <div class="form-group row">
+                        <label for="txtContent" class="col-sm-2 col-form-label">Nội dung <span class="star">*</span></label>
+                        <div class="col-sm-10">
+                            <textarea id="txtContent" rows="6" class="form-control"></textarea>
+                        </div>
+
+                    </div>
+                    <div class="form-group row">
+                        <label for="txtformName" class="col-sm-2 col-form-label">Dành cho màn hình <span class="star">*</span></label>
+                        <div class="col-sm-6">
+                            <input id="txtformName" class="form-control" type="text" name="txtformName" style="width:100%" />
+                        </div>
+
+                    </div>
+                    <div class="form-group row">
+                        <label for="selLevel" class="col-sm-2 col-form-label">Mức độ <span class="star">*</span></label>
+                        <div class="col-sm-4">
+                            <select id="selLevel" class="form-control" name="selLevel">
+                                <option value="" selected="selected">Chọn mức độ</option>
+                                <option value="1">Bình thường</option>
+                                <option value="2">Quan trọng</option>
+                                <option value="3">Rất quan trọng</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="button" id="btnSave" class="btn btn-success">Gửi phản hồi</button>
+                            <button type="button" id="btnCancel" data-dismiss="modal" class="btn btn-danger">Hủy</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+

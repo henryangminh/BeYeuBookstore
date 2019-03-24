@@ -1,0 +1,116 @@
+﻿@using ERPWebApp.Utilities.Constants
+@using Microsoft.AspNetCore.Authorization
+@using ERPWebApp.Authorization
+@inject IAuthorizationService AuthorizationService
+@{
+    ViewData["Title"] = "User List";
+}
+@section Scripts{
+    <script src="~/app/controllers/user/user.js" asp-append-version="true"></script>
+    <script>var userObj = new UserController();
+        userObj.initialize();</script>
+}
+@section Styles{
+}
+<input type="hidden" id="hid-category-id" value="0" />
+<div class="">
+    <div class="page-title">
+        <div class="title_left">
+            <h3>Danh sách các User</h3>
+        </div>
+        <div class="title_right">
+            <div class="col-md-2 col-sm-2 col-xs-12 form-group pull-right top_search">
+                @{
+                    //kiểm tra quyền tạo đối với user mới cho hiểu thị nut
+                    var result = await AuthorizationService.AuthorizeAsync(User, Const_FunctionId.User, Operations.Create);
+                }
+                @if (result.Succeeded)
+                {
+                    <button class="btn btn-success" id="btn-create" type="button">Tạo mới</button>
+                }
+            </div>
+            <div class="col-md-8 col-sm-6 col-xs-12 form-group pull-right top_search">
+                <div class="input-group">
+                    <input type="text" id="txt-search-keyword" class="form-control" placeholder="Tìm kiếm...">
+                    <span class="input-group-btn">
+                        <button class="btn btn-docs" style="color:blue" id="btn-search" type="button">Tìm kiếm !</button>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_content">
+                    <table id="tbl-product" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>Email</th>
+                                <th>Tên</th>
+                                <th>Avatar</th>
+                                <th>Ngày sửa cuối</th>
+                                <th>Trạng thái</th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbl-content"></tbody>
+                    </table>
+                    <div class="row">
+                        <div class="col-sm-5">
+                            <div class="dataTables_info" id="datatable-checkbox_info" role="status" aria-live="polite">
+                                <select id="ddl-show-page">
+                                    <option value="10" selected="selected">10</option>
+                                    <option value="20">20</option>
+                                    <option value="30">30</option>
+                                    <option value="50">50</option>
+                                </select>
+                                <span class="item-per-page">
+                                    Bản ghi/Trang.
+                                </span>
+                                Tổng số bản ghi: <strong id="lbl-total-records"></strong>
+                            </div>
+                        </div><div class="col-sm-7">
+                            <div class="dataTables_paginate" id="datatable-checkbox_paginate">
+                                <ul id="paginationUL"></ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script id="table-template" type="x-tmpl-mustache">
+        <tr>
+            <td>{{Email}}</td>
+            <td>{{FullName}}</td>
+            <td>{{{Avatar}}}</td>
+            <td>{{{DateModify}}}</td>
+            <td>{{{Status}}}</td>
+            <td>
+                @if ((await AuthorizationService.AuthorizeAsync(User, Const_FunctionId.User, Operations.Update)).Succeeded)
+                {
+                    <a href="#" data-id="{{Id}}" class="btn btn-xs btn-default btn-edit"data-toggle="tooltip" data-placement="top" title="Sửa"><i class="fa fa-pencil-square-o"></i></a>
+                }
+            </td>
+            <td>
+                @if ((await AuthorizationService.AuthorizeAsync(User, Const_FunctionId.User, Operations.Delete)).Succeeded)
+                {
+                    <a href="#" data-id="{{Id}}" class="btn btn-xs btn-default btn-delete" data-toggle="tooltip" data-placement="top" title="Xóa"><i class="fa fa-trash-o"></i></a>
+                }
+            </td>
+        </tr>
+    </script>
+</div>
+<script id="role-template" type="x-tmpl-mustache">
+    <div class="checkbox">
+        <label>
+            <input type="checkbox" {{Checked}} value="{{Name}}" name="ckRoles">
+            <span class="text">{{Description}}</span>
+        </label>
+    </div>
+</script>
+@await Html.PartialAsync("_AddEditModal.cshtml")

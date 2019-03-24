@@ -1,0 +1,231 @@
+﻿using System;
+using System.Collections.Generic;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using ERPWebApp.Services;
+using ERPWebApp.Data.Entities;
+using ERPWebApp.Data.EF;
+using ERPWebApp.Data.IRepositories;
+using ERPWebApp.Data.EF.Repositories;
+using ERPWebApp.Infrastructure.Interfaces;
+using AutoMapper;
+using Microsoft.Extensions.Logging;
+using Newtonsoft.Json.Serialization;
+using ERPWebApp.Helpers;
+using User = ERPWebApp.Data.Entities.User;
+using ERPWebApp.Application.Interfaces.Acc;
+using ERPWebApp.Application.Implementation.Acc;
+using Microsoft.AspNetCore.Authorization;
+using ERPWebApp.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using ERPWebApp.Extensions;
+using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
+using Microsoft.AspNetCore.Mvc.Razor;
+using System.Globalization;
+using Microsoft.AspNetCore.Localization;
+using Microsoft.AspNetCore.DataProtection;
+using System.IO;
+
+namespace ERPWebApp
+{
+    public class Startup
+    {
+        public Startup(IConfiguration configuration)
+        {
+            Configuration = configuration;
+        }
+
+        public IConfiguration Configuration { get; }
+
+        // This method gets called by the runtime. Use this method to add services to the container.
+        public void ConfigureServices(IServiceCollection services)
+        {
+            //add
+            //services.Configure<CookiePolicyOptions>(options =>
+            //{
+            //    // This lambda determines whether user consent for non-essential cookies is needed for a given request.
+            //    options.CheckConsentNeeded = context => true;
+            //    options.MinimumSameSitePolicy = SameSiteMode.None;
+            //});          
+
+            // add migrations assembly khi chạy
+            // lấy kết nối tới csdl the đường dẩn trong appsettings.json
+            var connection =
+            services.AddDbContext<ERPDbContext>(options =>
+                options.UseMySql(Configuration.GetConnectionString("DefaultConnection"),mysqlOptions =>
+                {
+                    mysqlOptions
+                        .ServerVersion(new Version(8, 0, 13), ServerType.MySql)
+                        .CharSetBehavior(CharSetBehavior.AppendToAllColumns)
+                        .AnsiCharSet(CharSet.Latin1)
+                        .UnicodeCharSet(CharSet.Utf8mb4);
+                }));
+
+            
+            services.AddIdentity<User, Role>()
+                .AddRoles<Role>()
+                .AddRoleManager<RoleManager<Role>>()
+                .AddDefaultTokenProviders()
+                .AddEntityFrameworkStores<ERPDbContext>();
+              
+            //add ERPWebApp.Extensions (Nén response trả về)
+            services.AddMinResponse();
+
+            services.AddMemoryCache();
+
+            //add path save dataProtection (fix eror Microsoft.AspNetCore.Antiforgery.AntiforgeryValidationException: The antiforgery token could not be decrypted.)
+            services.AddDataProtection()
+                .PersistKeysToFileSystem(new DirectoryInfo(@"A_server\share\directory\"));
+
+            // Configure Identity
+            services.Configure<IdentityOptions>(options =>
+            {
+                // Password settings
+                options.Password.RequireDigit = true;
+                options.Password.RequiredLength = 6;
+                options.Password.RequireNonAlphanumeric = false;
+                options.Password.RequireUppercase = false;
+                options.Password.RequireLowercase = false;
+
+                // Lockout settings
+                options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromHours(5);
+                options.Lockout.MaxFailedAccessAttempts = 10;
+
+                // User settings
+                options.User.RequireUniqueEmail = true;
+            });
+
+            services.AddSession(options =>
+            {
+                options.IdleTimeout = TimeSpan.FromHours(6);
+                options.Cookie.HttpOnly = true;
+            });
+
+            //Set time out
+            // https://stackoverflow.com/questions/45825684/asp-net-core2-0-user-auto-logoff-after-20-30-min?rq=1
+            services.Configure<SecurityStampValidatorOptions>(options => options.ValidationInterval = TimeSpan.FromSeconds(10));
+            services.AddAuthentication()
+                .Services.ConfigureApplicationCookie(options =>
+                {
+                    options.SlidingExpiration = true;
+                    options.ExpireTimeSpan = TimeSpan.FromHours(3);
+                });
+            //automapper
+            services.AddAutoMapper();
+            
+            // Add application services.
+            services.AddScoped<UserManager<User>, UserManager<User>>();
+            services.AddScoped<RoleManager<Role>, RoleManager<Role>>();
+            services.AddScoped<IUserClaimsPrincipalFactory<User>, CustomClaimsPrincipalFactory>();
+
+            // Cau hinh automapper cho dot.net core
+            services.AddSingleton(Mapper.Configuration);
+            services.AddScoped<IMapper>(sp => new Mapper(sp.GetRequiredService<AutoMapper.IConfigurationProvider>(), sp.GetService));
+
+            services.AddTransient<IEmailSender, EmailSender>();
+
+            services.AddTransient<DbInitializer>();
+
+            services.AddTransient(typeof(IUnitOfWork), typeof(EFUnitOfWork));
+            //Repositories
+            // khai bao cac service viet them ( voi interface <--> class)
+            services.AddTransient(typeof(IRepository<,>), typeof(EFRepository<,>));
+            
+           // services.AddTransient<IAR_InvoiceDetailRepository, AR_InvoiceDetailRepository>();
+
+           
+            services.AddTransient<IUserRolesRepository, UserRolesRepository>();
+            
+            //Services
+            
+            
+            services.AddTransient<IFunctionService, FunctionService>();
+           // services.AddTransient<IPermissionService, PermissionService>();
+            services.AddTransient<IUserService,UserService>();
+            services.AddTransient<IRoleService, RoleService>();
+
+          
+
+            services.AddTransient<IAuthorizationHandler, BaseResourceAuthorizationHandler>();
+            
+            //add          
+            services.AddMvc(options =>
+            {
+                options.CacheProfiles.Add("Default",
+                    new CacheProfile()
+                    {
+                        Duration = 60
+                    });
+                options.CacheProfiles.Add("Never",
+                    new CacheProfile()
+                    {
+                        Location = ResponseCacheLocation.None,
+                        NoStore = true
+                    });
+            }).AddViewLocalization(
+                   LanguageViewLocationExpanderFormat.Suffix,
+                   opts => { opts.ResourcesPath = "Resources"; })
+               .SetCompatibilityVersion(CompatibilityVersion.Version_2_1)
+               .AddDataAnnotationsLocalization()
+               .AddJsonOptions(options => options.SerializerSettings.ContractResolver = new DefaultContractResolver());
+            services.AddLocalization(opts => { opts.ResourcesPath = "Resources"; });
+
+            services.Configure<RequestLocalizationOptions>(
+              opts =>
+              {
+                  var supportedCultures = new List<CultureInfo>
+                  {
+                        new CultureInfo("en-US"),
+                        new CultureInfo("vi-VN")
+                  };
+
+                  opts.DefaultRequestCulture = new RequestCulture("en-US");
+                  // Formatting numbers, dates, etc.
+                  opts.SupportedCultures = supportedCultures;
+                  // UI strings that we have localized.
+                  opts.SupportedUICultures = supportedCultures;
+              });
+        }
+
+        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
+        {
+            loggerFactory.AddFile("Logs/ERP-{Date}.txt"); // ghi log
+            if (env.IsDevelopment())
+            {
+                //app.UseBrowserLink();
+                app.UseDeveloperExceptionPage();
+              
+            }
+            else
+            {
+                app.UseExceptionHandler("/Home/Error");
+            }
+            app.UseDatabaseErrorPage();
+            app.UseStaticFiles();
+            app.UseMinResponse();
+
+            app.UseAuthentication();
+          
+            app.UseMvc(routes =>
+            {
+                routes.MapRoute(
+                   name: "default",
+                   template: "{controller=Account}/{action=Login}");
+
+                routes.MapRoute(
+                name: "Home",
+                 template: "{controller=Home}/{action=Index}/{id?}");
+
+                //routes.MapRoute(
+                //    name: "RouteAdmin",
+                //   // template: "{area:exists}/{ controller = Home}/{ action = Index}/{ id ?}");
+                //    template: "{area:exists}/{controller=login}/{action=Index}/{id?}");
+            });
+        }
+    }
+}
