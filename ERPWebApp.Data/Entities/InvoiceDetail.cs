@@ -6,13 +6,26 @@ using System.Text;
 
 namespace BeYeuBookstore.Data.Entities
 {
-    public class InvoiceDetail : DomainEntity<int>, IDateTracking
+    public class InvoiceDetail : IDateTracking
     {
-        int InvoiceFK { get; set; }
-        int BookFK { get; set; }
-        int Qty { get; set; }
-        double UnitPrice { get; set; }
-        double SubTotal { get; set; }
+        public InvoiceDetail() { }
+
+        public InvoiceDetail(int invoiceFK, int bookFK, int qty, decimal unitPrice, decimal subTotal, DateTime? dateCreated, DateTime? dateModified)
+        {
+            InvoiceFK = invoiceFK;
+            BookFK = bookFK;
+            Qty = qty;
+            UnitPrice = unitPrice;
+            SubTotal = subTotal;
+            DateCreated = dateCreated;
+            DateModified = dateModified;
+        }
+
+        public int InvoiceFK { get; set; }
+        public int BookFK { get; set; }
+        public int Qty { get; set; }
+        public decimal UnitPrice { get; set; }
+        public decimal SubTotal { get; set; }
         public DateTime? DateCreated { get ; set ; }
         public DateTime? DateModified { get; set; }
 

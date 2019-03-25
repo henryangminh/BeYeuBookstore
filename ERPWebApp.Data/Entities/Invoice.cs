@@ -8,9 +8,19 @@ namespace BeYeuBookstore.Data.Entities
 {
     public class Invoice : DomainEntity<int>, IDateTracking
     {
-        int CustomerFK { get; set; }
-        double TotalPrice { get; set; }
-        bool IsBYXu { get; set; }
+        public Invoice() { }
+
+        public Invoice(int keyId, int customerFK, decimal totalPrice, DateTime? dateCreated, DateTime? dateModified)
+        {
+            KeyId = keyId;
+            CustomerFK = customerFK;
+            TotalPrice = totalPrice;
+            DateCreated = dateCreated;
+            DateModified = dateModified;
+        }
+
+        public int CustomerFK { get; set; }
+        public decimal TotalPrice { get; set; }
         public DateTime? DateCreated { get; set; }
         public DateTime? DateModified { get; set; }
 

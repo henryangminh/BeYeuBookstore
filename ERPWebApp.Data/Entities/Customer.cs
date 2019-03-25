@@ -11,7 +11,8 @@ namespace BeYeuBookstore.Data.Entities
     public class Customer:DomainEntity<int>,IDateTracking
     {
         public Guid UserFK { get; set; }
-        public int BeYeuXu { get; set; }
+        public DateTime? Dob { get; set; }
+        public Gender Gender { get; set; }
         public DateTime? DateCreated { get; set; }
         public DateTime? DateModified { get; set; }
 
