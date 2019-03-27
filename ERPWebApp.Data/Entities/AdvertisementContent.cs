@@ -1,4 +1,4 @@
-﻿using BeYeuBookstore.Data.eEnum;
+﻿using BeYeuBookstore.Data.Enums;
 using BeYeuBookstore.Data.Interfaces;
 using BeYeuBookstore.Infrastructure.SharedKernel;
 using System;
@@ -11,7 +11,7 @@ namespace BeYeuBookstore.Data.Entities
     {
         public AdvertisementContent() { }
 
-        public AdvertisementContent(int keyId, int advertiserFK, string imageLink, string title, string description, string urlToAdvertisement, decimal deposite, Status? depositeStatus, Status? censorStatus, int webMasterFK, DateTime? dateCreated, DateTime? dateModified)
+        public AdvertisementContent(int keyId, int advertiserFK, string imageLink, string title, string description, string urlToAdvertisement, decimal deposite, bool? paidDeposite, Status? censorStatus, int webMasterFK, DateTime? dateCreated, DateTime? dateModified)
         {
             KeyId = keyId;
             AdvertiserFK = advertiserFK;
@@ -20,7 +20,7 @@ namespace BeYeuBookstore.Data.Entities
             Description = description;
             UrlToAdvertisement = urlToAdvertisement;
             Deposite = deposite;
-            DepositeStatus = depositeStatus;
+            PaidDeposite = paidDeposite;
             CensorStatus = censorStatus;
             WebMasterFK = webMasterFK;
             DateCreated = dateCreated;
@@ -33,7 +33,7 @@ namespace BeYeuBookstore.Data.Entities
         public string Description { get; set; }
         public string UrlToAdvertisement { get; set; }
         public decimal Deposite { get; set; }
-        public Status? DepositeStatus { get; set; }
+        public bool? PaidDeposite { get; set; }
         public Status? CensorStatus { get; set; }
         /// <summary>
         /// Người duyệt bài

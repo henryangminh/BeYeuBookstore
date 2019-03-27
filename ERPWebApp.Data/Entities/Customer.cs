@@ -1,4 +1,4 @@
-﻿using BeYeuBookstore.Data.eEnum;
+﻿using BeYeuBookstore.Data.Enums;
 using BeYeuBookstore.Data.Interfaces;
 using BeYeuBookstore.Infrastructure.SharedKernel;
 using System;

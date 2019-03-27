@@ -1,4 +1,5 @@
-﻿using BeYeuBookstore.Data.Interfaces;
+﻿using BeYeuBookstore.Data.Enums;
+using BeYeuBookstore.Data.Interfaces;
 using BeYeuBookstore.Infrastructure.SharedKernel;
 using System;
 using System.Collections.Generic;
@@ -11,7 +12,7 @@ namespace BeYeuBookstore.Data.Entities
     {
         public AdvertiseContract() { }
 
-        public AdvertiseContract(int keyId, int advertisementContentFK, DateTime dateStart, DateTime dateFinish, decimal contractValue, bool paid, DateTime? dateCreated, DateTime? dateModified)
+        public AdvertiseContract(int keyId, int advertisementContentFK, DateTime dateStart, DateTime dateFinish, decimal contractValue, bool paid, Status status, DateTime? dateCreated, DateTime? dateModified)
         {
             keyId = KeyId;
             AdvertisementContentFK = advertisementContentFK;
@@ -19,6 +20,7 @@ namespace BeYeuBookstore.Data.Entities
             DateFinish = dateFinish;
             ContractValue = contractValue;
             Paid = paid;
+            Status = status;
             DateCreated = dateCreated;
             DateModified = dateModified;
         }
@@ -29,6 +31,7 @@ namespace BeYeuBookstore.Data.Entities
         public decimal ContractValue { get; set; }
         [DefaultValue(false)]
         public bool Paid { get; set; }
+        public Status Status { get; set; }
         public DateTime? DateCreated { get; set; }
         public DateTime? DateModified { get; set; }
 

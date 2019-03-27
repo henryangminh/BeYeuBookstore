@@ -1,4 +1,5 @@
-﻿using BeYeuBookstore.Data.Interfaces;
+﻿using BeYeuBookstore.Data.Enums;
+using BeYeuBookstore.Data.Interfaces;
 using BeYeuBookstore.Infrastructure.SharedKernel;
 using System;
 using System.Collections.Generic;
@@ -23,6 +24,7 @@ namespace BeYeuBookstore.Data.Entities
         public Guid UserFK { get; set; }
         public string BrandName { get; set; }
         public string UrlToBrand { get; set; }
+        public Status Status { get; set; }
         public DateTime? DateCreated { get; set; }
         public DateTime? DateModified { get; set; }
 

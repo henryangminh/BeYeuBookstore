@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BeYeuBookstore.Data.eEnum
+namespace BeYeuBookstore.Data.Enums
 {
     //Tạo class sau đó sửa lại thành Enum
     public enum Status

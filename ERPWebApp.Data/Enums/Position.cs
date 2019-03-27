@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BeYeuBookstore.Data.eEnum
+namespace BeYeuBookstore.Data.Enums
 {
    public enum Position
     {

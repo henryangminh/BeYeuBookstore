@@ -10,7 +10,7 @@ namespace BeYeuBookstore.Data.Entities
     {
         public Book() { }
 
-        public Book(int keyId, string bookTitle, string author, int bookCategoryFK, int merchantFK, bool isPaperback, decimal unitPrice, int length, int? height, int width, int pageNumber, string description, DateTime? dateCreated, DateTime? dateModified)
+        public Book(int keyId, string bookTitle, string author, int bookCategoryFK, int merchantFK, bool isPaperback, decimal unitPrice, int length, int? height, int width, int pageNumber, string description, int quantity, DateTime? dateCreated, DateTime? dateModified)
         {
             KeyId = keyId;
             BookTitle = bookTitle;
@@ -25,6 +25,7 @@ namespace BeYeuBookstore.Data.Entities
             PageNumber = pageNumber;
             Description = description;
             DateCreated = dateCreated;
+            Quantity = quantity;
             DateModified = dateModified;
         }
 
@@ -45,6 +46,7 @@ namespace BeYeuBookstore.Data.Entities
         public int Width { get; set; }
         public int PageNumber { get; set; }
         public string Description { get; set; }
+        public int Quantity { get; set; }
         public DateTime? DateCreated { get; set; }
         public DateTime? DateModified { get; set; }
 
