@@ -3,7 +3,7 @@ using AutoMapper.QueryableExtensions;
 using BeYeuBookstore.Application.Interfaces;
 using BeYeuBookstore.Application.Interfaces.Acc;
 using BeYeuBookstore.Application.ViewModels.System;
-using BeYeuBookstore.Data.eEnum;
+using BeYeuBookstore.Data.Enums;
 using BeYeuBookstore.Data.Entities;
 using BeYeuBookstore.Data.IRepositories;
 using BeYeuBookstore.Infrastructure.Interfaces;
@@ -99,6 +99,7 @@ namespace BeYeuBookstore.Application.Implementation.Acc
 
             var data = query.Select(x => new UserViewModel()
             {
+                /*
                 UserName = x.UserName,
                 Avatar = x.Avatar,
                 Email = x.Email,
@@ -110,6 +111,7 @@ namespace BeYeuBookstore.Application.Implementation.Acc
                 PhoneNumber = x.PhoneNumber,
                 Status = x.Status,
                 DateModified = x.DateModified
+                */
 
             }).ToList();
             var paginationSet = new PagedResult<UserViewModel>()
@@ -187,6 +189,7 @@ namespace BeYeuBookstore.Application.Implementation.Acc
         public async Task<bool> UpdateAddressBookAsync(UserViewModel userVm)
         {
             var user = await _userManager.FindByIdAsync(userVm.Id.ToString());
+            /*
             if (user!=null)
             {
                 //Update user 
@@ -224,40 +227,14 @@ namespace BeYeuBookstore.Application.Implementation.Acc
                var kt= await _userManager.UpdateAsync(user);
                 return kt.Succeeded;
             }
+            */
             return false;
-        }
-        public async Task UpdateIsCustomer(string id)
-        {
-            var user = await _userManager.FindByIdAsync(id.ToString());
-            if(user!=null)
-            {
-                user.IsCustomer = true;
-                await _userManager.UpdateAsync(user);
-            }
-        }
-
-        public async Task UpdateIsVendor(string id)
-        {
-            var user = await _userManager.FindByIdAsync(id.ToString());
-            if (user != null)
-            {
-                user.IsVendor = true;
-                await _userManager.UpdateAsync(user);
-            }
-        }
-
-        public async Task UpdateIsEmployee(string id)
-        {
-            var user = await _userManager.FindByIdAsync(id.ToString());
-            if (user != null)
-            {
-                user.IsEmployee = true;
-                await _userManager.UpdateAsync(user);
-            }
         }
 
         public async Task<List<IdAndName>> GetListIdAndFullName(bool status, string type)
         {
+            throw new Exception();
+            /*
             var query = _userManager.Users.AsNoTracking();
             if(type == const_AddressbookType.Customer)
                 query= query.Where(x => x.IsCustomer == status);
@@ -274,6 +251,7 @@ namespace BeYeuBookstore.Application.Implementation.Acc
                 Name = p.FullName
             }
              ).ToListAsync();
+             */
         }
 
         private string createUserName(string FullName)

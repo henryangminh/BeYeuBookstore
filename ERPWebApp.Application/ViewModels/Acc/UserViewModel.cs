@@ -1,4 +1,4 @@
-﻿using BeYeuBookstore.Data.eEnum;
+﻿using BeYeuBookstore.Data.Enums;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;

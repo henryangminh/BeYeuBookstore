@@ -1,5 +1,5 @@
-﻿using BeYeuBookstore.Data.eEnum;
-using BeYeuBookstore.Data.Entities;
+﻿using BeYeuBookstore.Data.Entities;
+using BeYeuBookstore.Data.Enums;
 using BeYeuBookstore.Utilities.Constants;
 using Microsoft.AspNetCore.Identity;
 using System;

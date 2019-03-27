@@ -11,7 +11,7 @@ using System.Linq;
 using BeYeuBookstore.Data.Entities;
 using AutoMapper;
 using BeYeuBookstore.Infrastructure.Interfaces;
-using BeYeuBookstore.Data.eEnum;
+using BeYeuBookstore.Data.Enums;
 
 namespace BeYeuBookstore.Application.Implementation.Acc
 {

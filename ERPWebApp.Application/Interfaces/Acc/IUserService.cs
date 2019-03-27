@@ -26,9 +26,6 @@ namespace BeYeuBookstore.Application.Interfaces.Acc
         Task<List<IdAndName>> GetListIdAndFullName(bool status, string type);
         Task<bool> UpdateAsync(UserViewModel userVm);
         Task<bool> UpdateAddressBookAsync(UserViewModel userVm);
-        Task UpdateIsCustomer(string id);
-        Task UpdateIsVendor(string id);
-        Task UpdateIsEmployee(string id);
         Task<List<Guid>> getListUserId(string roleName);
         bool checkUserInRole(string userid, string roleName);
         bool checkExistEmail(string email);
