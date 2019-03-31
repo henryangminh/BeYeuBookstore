@@ -49,8 +49,9 @@ namespace BeYeuBookstore.Data.Entities
         public int Quantity { get; set; }
         public DateTime? DateCreated { get; set; }
         public DateTime? DateModified { get; set; }
-
+        //
         public virtual Merchant MerchantFKNavigation { get; set; }
+        //
         public virtual BookCategory BookCategoryFKNavigation { get; set; }
 
         public virtual ICollection<InvoiceDetail> InvoiceDetails { get; set; }

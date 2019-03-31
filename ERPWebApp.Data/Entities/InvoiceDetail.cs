@@ -28,7 +28,7 @@ namespace BeYeuBookstore.Data.Entities
         public decimal SubTotal { get; set; }
         public DateTime? DateCreated { get ; set ; }
         public DateTime? DateModified { get; set; }
-
+        //
         public virtual Book BookFKNavigation { get; set; }
         public virtual Invoice InvoiceFKNavigation { get; set; }
     }

@@ -117,6 +117,16 @@ namespace BeYeuBookstore.Data.EF
             {
                 entity.HasKey(e => e.KeyId);
 
+                entity.HasOne(d => d.BookCategoryFKNavigation)
+              .WithMany(p => p.Books)
+              .HasForeignKey(d => d.BookCategoryFK)
+              .HasConstraintName("FK_dbo.Book.BookCategory_FK");
+
+                entity.HasOne(d => d.MerchantFKNavigation)
+              .WithMany(p => p.Books)
+              .HasForeignKey(d => d.MerchantFK)
+              .HasConstraintName("FK_dbo.Book.MerchantFK");
+
             });
 
             modelBuilder.Entity<BookCategory>(entity =>
@@ -128,6 +138,8 @@ namespace BeYeuBookstore.Data.EF
             modelBuilder.Entity<Customer>(entity =>
             {
                 entity.HasKey(e => e.KeyId);
+
+                
 
             });
 
@@ -142,12 +154,31 @@ namespace BeYeuBookstore.Data.EF
             {
                 entity.HasKey(e => e.KeyId);
 
+                entity.HasOne(d => d.CustomerFKNavigation)
+              .WithMany(p => p.Invoices)
+              .HasForeignKey(d => d.CustomerFK)
+              .HasConstraintName("FK_dbo.Invoices.CustomerFK");
+
+                entity.HasOne(d => d.DeliveryFKNavigation)
+                .WithOne(p => p.InvoiceFKNavigation)
+                .HasForeignKey<Delivery>(d => d.InvoiceFK);
+
             });
 
 
             modelBuilder.Entity<InvoiceDetail>(entity =>
             {
                 entity.HasKey(e => e.KeyId);
+
+                entity.HasOne(d => d.BookFKNavigation)
+              .WithMany(p => p.InvoiceDetails)
+              .HasForeignKey(d => d.BookFK)
+              .HasConstraintName("FK_dbo.InvoiceDetails.BookFK");
+
+                entity.HasOne(d => d.InvoiceFKNavigation)
+              .WithMany(p => p.InvoiceDetails)
+              .HasForeignKey(d => d.InvoiceFK)
+              .HasConstraintName("FK_dbo.InvoiceDetails.InvoiceFK");
 
             });
 
@@ -163,6 +194,11 @@ namespace BeYeuBookstore.Data.EF
             {
                 entity.HasKey(e => e.KeyId);
 
+                entity.HasOne(d => d.MerchantFKNavigation)
+              .WithMany(p => p.MerchantContracts)
+              .HasForeignKey(d => d.MerchantFK)
+              .HasConstraintName("FK_dbo.MerchantContract.MerchantFK");
+
             });
 
 
@@ -170,6 +206,10 @@ namespace BeYeuBookstore.Data.EF
             {
                 entity.HasKey(e => e.KeyId);
 
+                entity.HasOne(d => d.WebMasterTypeFKNavigation)
+              .WithMany(p => p.WebMasters)
+              .HasForeignKey(d => d.WebMasterTypeFK)
+              .HasConstraintName("FK_dbo.WebMasters.WebMasterTypeFK");
             });
 
 

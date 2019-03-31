@@ -23,10 +23,10 @@ namespace BeYeuBookstore.Data.Entities
         public decimal TotalPrice { get; set; }
         public DateTime? DateCreated { get; set; }
         public DateTime? DateModified { get; set; }
-
+        //
         public virtual Customer CustomerFKNavigation { get; set; }
         public virtual Delivery DeliveryFKNavigation { get; set; }
-
+        //
         public virtual ICollection<InvoiceDetail> InvoiceDetails { get; set; }
 
     }

@@ -20,7 +20,7 @@ namespace BeYeuBookstore.Data.Entities
         public string WebMasterTypeName { get; set; }
         public DateTime? DateCreated { get; set; }
         public DateTime? DateModified { get; set; }
-
+        //
         public ICollection<WebMaster> WebMasters { get; set; }
     }
 }

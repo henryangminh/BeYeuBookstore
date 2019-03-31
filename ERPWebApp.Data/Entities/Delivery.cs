@@ -24,7 +24,7 @@ namespace BeYeuBookstore.Data.Entities
         public DeliveryStatus DeliveryStatus { get; set; }
         public DateTime? DateCreated { get; set; }
         public DateTime? DateModified { get; set; }
-
+        //
         public virtual Invoice InvoiceFKNavigation { get; set; }
     }
 }

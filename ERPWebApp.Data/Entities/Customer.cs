@@ -18,7 +18,7 @@ namespace BeYeuBookstore.Data.Entities
 
         [ForeignKey("UserFK")]
         public virtual User UserBy { get; set; }
-
+        //
         public virtual ICollection<Invoice> Invoices { get; set; }
     }
 }
