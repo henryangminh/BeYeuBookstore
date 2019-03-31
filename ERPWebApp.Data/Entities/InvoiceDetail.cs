@@ -6,7 +6,7 @@ using System.Text;
 
 namespace BeYeuBookstore.Data.Entities
 {
-    public class InvoiceDetail : IDateTracking
+    public class InvoiceDetail :DomainEntity<int>, IDateTracking
     {
         public InvoiceDetail() { }
 

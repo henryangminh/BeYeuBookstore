@@ -31,10 +31,26 @@ namespace BeYeuBookstore.Data.EF
         public virtual DbSet<Role> Role { get; set; }
         public virtual DbSet<Function> Functions { get; set; }
         public virtual DbSet<Permission> Permissions { get; set; }
-      
+
+        public virtual DbSet<AdvertiseContract> AdvertiseContracts { get; set; }
+        public virtual DbSet<AdvertisementContent> AdvertisementContents { get; set; }
+        public virtual DbSet<AdvertisementPosition> AdvertisementPositions { get; set; }
+        public virtual DbSet<Advertiser> Advertisers { get; set; }
+        public virtual DbSet<Book> Books { get; set; }
+        public virtual DbSet<BookCategory> BookCategorys { get; set; }
+        public virtual DbSet<Customer> Customer { get; set; }
+        public virtual DbSet<Delivery> Deliverys { get; set; }
+        public virtual DbSet<Invoice> Invoices { get; set; }
+        public virtual DbSet<InvoiceDetail> InvoiceDetails { get; set; }
+        public virtual DbSet<Merchant> Merchants { get; set; }
+        public virtual DbSet<MerchantContract> MerchantContracts { get; set; }
+        public virtual DbSet<UserType> UserTypes { get; set; }
+        public virtual DbSet<WebMaster> WebMasters { get; set; }
+        public virtual DbSet<WebMasterType> WebMasterTypes { get; set; }
+
 
         //boq
-        
+
         #endregion
 
 
@@ -55,11 +71,114 @@ namespace BeYeuBookstore.Data.EF
 
             #endregion Identity Config
 
-            
 
-          
+            modelBuilder.Entity<AdvertiseContract>(entity =>
+            {
+                entity.HasKey(e => e.KeyId);
+
+            });
+
+            modelBuilder.Entity<AdvertisementContent>(entity =>
+            {
+                entity.HasKey(e => e.KeyId);
+
+                entity.HasOne(d => d.AdvertiseContract)
+                .WithOne(p => p.AdvertisementContentFKNavigation)
+                .HasForeignKey<AdvertiseContract>(d => d.AdvertisementContentFK);
+
+                entity.HasOne(d => d.AdvertiserFKNavigation)
+              .WithMany(p => p.AdvertisementContents)
+              .HasForeignKey(d => d.AdvertiserFK)
+              .HasConstraintName("FK_dbo.AdvertisementContent.Advertiser_AdvertiserFK_FK");
+
+                entity.HasOne(d => d.AdvertisementPositionFKNavigation)
+              .WithMany(p => p.AdvertisementContents)
+              .HasForeignKey(d => d.AdvertisementPositionFK)
+              .HasConstraintName("FK_dbo.AdvertisementContent.AdvertisementPosition");
+
+            });
+
+            modelBuilder.Entity<AdvertisementPosition>(entity =>
+            {
+                entity.HasKey(e => e.KeyId);
+
+               
 
 
+            });
+
+            modelBuilder.Entity<Advertiser>(entity =>
+            {
+                entity.HasKey(e => e.KeyId);
+
+            });
+
+            modelBuilder.Entity<Book>(entity =>
+            {
+                entity.HasKey(e => e.KeyId);
+
+            });
+
+            modelBuilder.Entity<BookCategory>(entity =>
+            {
+                entity.HasKey(e => e.KeyId);
+
+            });
+
+            modelBuilder.Entity<Customer>(entity =>
+            {
+                entity.HasKey(e => e.KeyId);
+
+            });
+
+            modelBuilder.Entity<Delivery>(entity =>
+            {
+                entity.HasKey(e => e.KeyId);
+
+            });
+
+
+            modelBuilder.Entity<Invoice>(entity =>
+            {
+                entity.HasKey(e => e.KeyId);
+
+            });
+
+
+            modelBuilder.Entity<InvoiceDetail>(entity =>
+            {
+                entity.HasKey(e => e.KeyId);
+
+            });
+
+
+            modelBuilder.Entity<Merchant>(entity =>
+            {
+                entity.HasKey(e => e.KeyId);
+
+            });
+
+
+            modelBuilder.Entity<MerchantContract>(entity =>
+            {
+                entity.HasKey(e => e.KeyId);
+
+            });
+
+
+            modelBuilder.Entity<WebMaster>(entity =>
+            {
+                entity.HasKey(e => e.KeyId);
+
+            });
+
+
+            modelBuilder.Entity<WebMasterType>(entity =>
+            {
+                entity.HasKey(e => e.KeyId);
+
+            });
+            /*
             modelBuilder.Entity<User>(entity =>
             {
                 entity.HasKey(e => e.Id);
@@ -110,7 +229,7 @@ namespace BeYeuBookstore.Data.EF
                 
 
             });
-
+            */
 
         }
         /// <summary>

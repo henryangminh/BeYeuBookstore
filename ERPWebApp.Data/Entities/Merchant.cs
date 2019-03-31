@@ -80,6 +80,7 @@ namespace BeYeuBookstore.Data.Entities
         public DateTime? DateCreated { get; set; }
         public DateTime? DateModified { get; set; }
 
+        public virtual User UserBy { get; set; }
         public virtual ICollection<Book> Books { get; set; }
     }
 }

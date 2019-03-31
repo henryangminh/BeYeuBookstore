@@ -29,5 +29,7 @@ namespace BeYeuBookstore.Data.Entities
         public DateTime? DateModified { get; set; }
 
         public virtual User UserBy { get; set; }
+        //
+        public virtual ICollection<AdvertisementContent> AdvertisementContents { get; set; }
     }
 }

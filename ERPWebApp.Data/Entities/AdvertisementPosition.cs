@@ -27,5 +27,7 @@ namespace BeYeuBookstore.Data.Entities
         public int Height { get; set; }
         public int Width { get; set; }
         public Status Status { get; set; }
+        //
+        public virtual ICollection<AdvertisementContent> AdvertisementContents { get; set; }
     }
 }

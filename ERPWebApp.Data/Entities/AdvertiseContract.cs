@@ -35,6 +35,7 @@ namespace BeYeuBookstore.Data.Entities
         public DateTime? DateCreated { get; set; }
         public DateTime? DateModified { get; set; }
 
+        //
         public virtual AdvertisementContent AdvertisementContentFKNavigation { get; set; }
     }
 }

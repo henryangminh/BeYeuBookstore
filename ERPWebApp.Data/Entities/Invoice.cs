@@ -25,7 +25,9 @@ namespace BeYeuBookstore.Data.Entities
         public DateTime? DateModified { get; set; }
 
         public virtual Customer CustomerFKNavigation { get; set; }
+        public virtual Delivery DeliveryFKNavigation { get; set; }
 
         public virtual ICollection<InvoiceDetail> InvoiceDetails { get; set; }
+
     }
 }

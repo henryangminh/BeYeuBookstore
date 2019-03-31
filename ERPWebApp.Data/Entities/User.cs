@@ -9,12 +9,12 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace BeYeuBookstore.Data.Entities
 {
     [Table("User")]
-    public partial class User:IdentityUser<Guid>,IDateTracking,ISwitchable
+    public partial class User : IdentityUser<Guid>, IDateTracking, ISwitchable
     {
         public User()
         {
             ArAccountsReceivableAdjustments = new HashSet<ArAccountsReceivableAdjustments>();
-            
+
         }
         public User(Guid id, string fullName, string userName,
             string email, string phoneNumber, string avatar, Status status)
@@ -44,7 +44,7 @@ namespace BeYeuBookstore.Data.Entities
 
         public string Address { get; set; }
 
-      
+
         public DateTime? DateCreated { get; set; }
         public DateTime? DateModified { get; set; }
 
@@ -52,8 +52,12 @@ namespace BeYeuBookstore.Data.Entities
         public Status Status { get; set; }
 
         public Guid? LastupdatedFk { get; set; }
-        
+
         public virtual ICollection<ArAccountsReceivableAdjustments> ArAccountsReceivableAdjustments { get; set; }
         public virtual UserType UserTypeFKNavigation { get; set; }
+        public virtual Customer CustomerFKNavigation { get; set; }
+        public virtual Advertiser AdvertiserFKNavigation { get; set; }
+        public virtual Merchant MerchantFKNavigation { get; set; }
+        public virtual WebMaster WebMasterFKNavigation { get; set; }
     }
 }

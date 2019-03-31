@@ -7,11 +7,11 @@ using System.Text;
 
 namespace BeYeuBookstore.Data.Entities
 {
-    public class AdvertisementContent:DomainEntity<int>,IDateTracking
+    public class AdvertisementContent : DomainEntity<int>, IDateTracking
     {
         public AdvertisementContent() { }
 
-        public AdvertisementContent(int keyId, int advertiserFK, string imageLink, string title, string description, string urlToAdvertisement, decimal deposite, bool? paidDeposite, Status? censorStatus, int webMasterFK, DateTime? dateCreated, DateTime? dateModified)
+        public AdvertisementContent(int keyId, int advertiserFK, string imageLink, string title, string description, string urlToAdvertisement, decimal deposite, bool? paidDeposite, Status? censorStatus,  DateTime? dateCreated, DateTime? dateModified)
         {
             KeyId = keyId;
             AdvertiserFK = advertiserFK;
@@ -22,11 +22,11 @@ namespace BeYeuBookstore.Data.Entities
             Deposite = deposite;
             PaidDeposite = paidDeposite;
             CensorStatus = censorStatus;
-            WebMasterFK = webMasterFK;
             DateCreated = dateCreated;
             DateModified = dateModified;
         }
 
+        public int AdvertisementPositionFK { get; set; }
         public int AdvertiserFK { get; set; }
         public string ImageLink { get; set; }
         public string Title { get; set; }
@@ -38,11 +38,14 @@ namespace BeYeuBookstore.Data.Entities
         /// <summary>
         /// Người duyệt bài
         /// </summary>
-        public int WebMasterFK { get; set; }
+        
         public DateTime? DateCreated { get; set; }
         public DateTime? DateModified { get; set; }
-
-        public virtual WebMaster WebMasterFKNavigation { get; set; }
+        //
         public virtual Advertiser AdvertiserFKNavigation { get; set; }
+        //
+        public virtual AdvertisementPosition AdvertisementPositionFKNavigation { get; set; }
+        //
+        public virtual AdvertiseContract AdvertiseContract { get; set; }
     }
 }
