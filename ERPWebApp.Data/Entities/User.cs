@@ -16,20 +16,21 @@ namespace BeYeuBookstore.Data.Entities
             ArAccountsReceivableAdjustments = new HashSet<ArAccountsReceivableAdjustments>();
 
         }
-        public User(Guid id, string fullName, string userName,
-            string email, string phoneNumber, string avatar, Status status)
+        //public User(Guid id, string fullName, string userName,
+        //    string email, string phoneNumber, string avatar, Status status)
+        //{
+        //    Id = id;
+        //    FullName = fullName;
+        //    UserName = userName;
+        //    Email = email;
+        //    PhoneNumber = phoneNumber;
+        //    Avatar = avatar;
+        //    Status = status;
+        //}
+
+        public User(Guid id, string fullName, string avatar, string address, DateTime? dateCreated, DateTime? dateModified, Status status, Guid? lastupdatedFk, string email)
         {
             Id = id;
-            FullName = fullName;
-            UserName = userName;
-            Email = email;
-            PhoneNumber = phoneNumber;
-            Avatar = avatar;
-            Status = status;
-        }
-
-        public User(string fullName, string avatar, string address, DateTime? dateCreated, DateTime? dateModified, Status status, Guid? lastupdatedFk)
-        {
             FullName = fullName;
             Avatar = avatar;
             Address = address;
@@ -37,13 +38,14 @@ namespace BeYeuBookstore.Data.Entities
             DateModified = dateModified;
             Status = status;
             LastupdatedFk = lastupdatedFk;
+            Email = email;
         }
 
         public string FullName { get; set; }
         public string Avatar { get; set; }
 
         public string Address { get; set; }
-
+        
 
         public DateTime? DateCreated { get; set; }
         public DateTime? DateModified { get; set; }

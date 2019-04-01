@@ -92,36 +92,36 @@ namespace BeYeuBookstore.Controllers
             }
         }
 
-        [HttpPost]
-        public IActionResult UpdateIsCustomer(string id)
-        {
-            if (id !="")
-            {
-                _userService.UpdateIsCustomer(id);
-            }
-            return new OkResult();
-        }
+        //[HttpPost]
+        //public IActionResult UpdateIsCustomer(string id)
+        //{
+        //    if (id !="")
+        //    {
+        //        _userService.UpdateIsCustomer(id);
+        //    }
+        //    return new OkResult();
+        //}
 
-        [HttpPost]
-        public IActionResult UpdateIsVendor(string id)
-        {
-            if (id != "")
-            {
-                _userService.UpdateIsVendor(id);
-            }
+        //[HttpPost]
+        //public IActionResult UpdateIsVendor(string id)
+        //{
+        //    if (id != "")
+        //    {
+        //        _userService.UpdateIsVendor(id);
+        //    }
           
-            return new OkResult();
-        }
+        //    return new OkResult();
+        //}
 
-        [HttpPost]
-        public IActionResult UpdateIsEmployee(string id)
-        {
-            if (id != "")
-            {
-                _userService.UpdateIsEmployee(id);
-            }
-            return new OkResult();
-        }
+        //[HttpPost]
+        //public IActionResult UpdateIsEmployee(string id)
+        //{
+        //    if (id != "")
+        //    {
+        //        _userService.UpdateIsEmployee(id);
+        //    }
+        //    return new OkResult();
+        //}
 
         [HttpGet]
         public IActionResult GetListFullName(bool status, string type)

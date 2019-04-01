@@ -35,7 +35,7 @@ namespace BeYeuBookstore.Data.Entities
             DateCreated = dateCreated;
             DateModified = dateModified;
         }
-
+        public Guid UserFK { get; set; }
         /// <summary>
         /// Người liên hệ trực tiếp
         /// </summary>

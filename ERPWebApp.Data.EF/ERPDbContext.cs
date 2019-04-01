@@ -38,7 +38,7 @@ namespace BeYeuBookstore.Data.EF
         public virtual DbSet<Advertiser> Advertisers { get; set; }
         public virtual DbSet<Book> Books { get; set; }
         public virtual DbSet<BookCategory> BookCategorys { get; set; }
-        public virtual DbSet<Customer> Customer { get; set; }
+        public virtual DbSet<Customer> Customers { get; set; }
         public virtual DbSet<Delivery> Deliverys { get; set; }
         public virtual DbSet<Invoice> Invoices { get; set; }
         public virtual DbSet<InvoiceDetail> InvoiceDetails { get; set; }
@@ -218,58 +218,48 @@ namespace BeYeuBookstore.Data.EF
                 entity.HasKey(e => e.KeyId);
 
             });
-            /*
+
             modelBuilder.Entity<User>(entity =>
             {
                 entity.HasKey(e => e.Id);
 
                 entity.Property(e => e.DateCreated).HasColumnType("datetime");
 
-                entity.Property(e => e.LastLogIn).HasColumnType("datetime");
-
                 entity.Property(e => e.DateModified).HasColumnType("datetime");
 
                 entity.Property(e => e.Email)
                     .HasMaxLength(50)
                     .IsUnicode(false);
-                entity.Property(e => e.Street).HasMaxLength(200);
-                entity.Property(e => e.Ward).HasMaxLength(100);
-                entity.Property(e => e.District).HasMaxLength(100);
-                entity.Property(e => e.City).HasMaxLength(100);
-                entity.Property(e => e.Country).HasMaxLength(100);
-
-                entity.Property(e => e.Fax)
-                    .HasMaxLength(25)
-                    .IsUnicode(false);
+                entity.Property(e => e.Address).HasMaxLength(200);
+            
                 entity.Property(e => e.FullName).HasMaxLength(200);
-                entity.Property(e => e.LastupdatedName).HasMaxLength(200);
-
-                entity.Property(e => e.IdNumber)
-                    .HasColumnName("IdNumber")
-                    .HasMaxLength(20)
-                    .IsUnicode(false);
+                
 
                 entity.Property(e => e.PhoneNumber)
                     .HasMaxLength(25)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.Notes).HasMaxLength(255);
-
-                entity.Property(e => e.Origin_FK).HasColumnName("Origin_FK");
-
-                entity.Property(e => e.TaxIdnumber)
-                    .HasColumnName("TaxIDNumber")
-                    .HasMaxLength(15)
                     .IsUnicode(false);
 
                 entity.Property(e => e.UserName)
                     .IsRequired()
                     .HasMaxLength(50);
 
-                
+                entity.HasOne(d => d.CustomerFKNavigation)
+                .WithOne(p => p.UserBy)
+                .HasForeignKey<Customer>(d => d.UserFK);
 
+                entity.HasOne(d => d.AdvertiserFKNavigation)
+                 .WithOne(p => p.UserBy)
+                 .HasForeignKey<Advertiser>(d => d.UserFK);
+
+                entity.HasOne(d => d.MerchantFKNavigation)
+                 .WithOne(p => p.UserBy)
+                 .HasForeignKey<Merchant>(d => d.UserFK);
+
+                entity.HasOne(d => d.WebMasterFKNavigation)
+                 .WithOne(p => p.UserBy)
+                 .HasForeignKey<WebMaster>(d => d.UserFK);
             });
-            */
+
 
         }
         /// <summary>

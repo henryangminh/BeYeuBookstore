@@ -18,6 +18,7 @@ namespace BeYeuBookstore.Application.ViewModels.System
         [DataType(DataType.EmailAddress)]
         public string Email { set; get; }
         public string UserName { set; get; }
+        public string Address { set; get; }
         [DataType(DataType.Password)]
         public string Password { get; set; }
         public string Avatar { get; set; }
