@@ -222,6 +222,26 @@ namespace BeYeuBookstore.Data.EF
                 });
             }
 
+            if (_context.BookCategorys.Count() == 0)
+            {
+                _context.BookCategorys.AddRange(new List<BookCategory>()
+                {
+                    new BookCategory(){BookCategoryName="Kinh dị"},
+                    new BookCategory(){BookCategoryName="Học thuật"},
+                    new BookCategory(){BookCategoryName="Truyện"},
+                    new BookCategory(){BookCategoryName="Loại khác"},
+
+                });
+
+            }
+            try
+            {
+                _context.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                string a = ex.ToString();
+            };
             ////tao user admin (pass word phai lon hon 6 ktu
             //if (_userManager.Users.Count() == 0)
             //{
@@ -488,7 +508,7 @@ namespace BeYeuBookstore.Data.EF
             //    }
             //}
 
-            
+
         }
     }
 }

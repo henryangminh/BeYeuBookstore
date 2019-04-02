@@ -38,12 +38,12 @@ namespace BeYeuBookstore.Data.Entities
         /// </summary>
         public bool isPaperback { get; set; }
         public decimal UnitPrice { get; set; }
-        public int Length { get; set; }
+        public int? Length { get; set; }
         /// <summary>
         /// Chiều cao, có thể để trống
         /// </summary>
         public int? Height { get; set; }
-        public int Width { get; set; }
+        public int? Width { get; set; }
         public int PageNumber { get; set; }
         public string Description { get; set; }
         public int Quantity { get; set; }

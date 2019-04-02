@@ -11,7 +11,7 @@ namespace BeYeuBookstore.Data.Entities
     {
         public AdvertisementContent() { }
 
-        public AdvertisementContent(int keyId, int advertiserFK, string imageLink, string title, string description, string urlToAdvertisement, decimal deposite, bool? paidDeposite, Status? censorStatus,  DateTime? dateCreated, DateTime? dateModified)
+        public AdvertisementContent(int keyId, int advertiserFK, string imageLink, string title, string description, string urlToAdvertisement, decimal deposite, bool? paidDeposite, bool? censorStatus,  DateTime? dateCreated, DateTime? dateModified)
         {
             KeyId = keyId;
             AdvertiserFK = advertiserFK;
@@ -34,18 +34,18 @@ namespace BeYeuBookstore.Data.Entities
         public string UrlToAdvertisement { get; set; }
         public decimal Deposite { get; set; }
         public bool? PaidDeposite { get; set; }
-        public Status? CensorStatus { get; set; }
+        public bool? CensorStatus { get; set; }
         /// <summary>
         /// Người duyệt bài
         /// </summary>
         
         public DateTime? DateCreated { get; set; }
         public DateTime? DateModified { get; set; }
-        //
+    
         public virtual Advertiser AdvertiserFKNavigation { get; set; }
-        //
+
         public virtual AdvertisementPosition AdvertisementPositionFKNavigation { get; set; }
-        //
+
         public virtual AdvertiseContract AdvertiseContract { get; set; }
     }
 }
