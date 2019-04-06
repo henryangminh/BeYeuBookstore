@@ -1,7 +1,7 @@
 ﻿using AutoMapper.QueryableExtensions;
 using BeYeuBookstore.Application.Interfaces.Acc;
 using BeYeuBookstore.Application.ViewModels.Acc;
-using BeYeuBookstore.Data.IRepositories;
+using BeYeuBookstore.Application.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;

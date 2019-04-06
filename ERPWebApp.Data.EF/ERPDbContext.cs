@@ -24,9 +24,7 @@ namespace BeYeuBookstore.Data.EF
 
         }
         #region creare DbSet
-        public virtual DbSet<ArAccountsReceivable> ArAccountsReceivable { get; set; }
-        public virtual DbSet<ArAccountsReceivableAdjustments> ArAccountsReceivableAdjustments { get; set; }
-        
+         
         public virtual DbSet<User> User { get; set; }
         public virtual DbSet<Role> Role { get; set; }
         public virtual DbSet<Function> Functions { get; set; }

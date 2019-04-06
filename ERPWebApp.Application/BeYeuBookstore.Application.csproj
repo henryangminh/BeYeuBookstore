@@ -15,8 +15,4 @@
     <ProjectReference Include="..\ERPWebApp.Utilities\BeYeuBookstore.Utilities.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="ViewModels\" />
-  </ItemGroup>
-
 </Project>

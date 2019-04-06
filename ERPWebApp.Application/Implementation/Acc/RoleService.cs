@@ -5,7 +5,7 @@ using BeYeuBookstore.Application.Interfaces.Acc;
 using BeYeuBookstore.Application.ViewModels.Acc;
 using BeYeuBookstore.Application.ViewModels.System;
 using BeYeuBookstore.Data.Entities;
-using BeYeuBookstore.Data.IRepositories;
+using BeYeuBookstore.Application.Interfaces;
 using BeYeuBookstore.Infrastructure.Interfaces;
 using BeYeuBookstore.Utilities.DTOs;
 using Microsoft.AspNetCore.Identity;

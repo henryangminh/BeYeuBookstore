@@ -1,41 +1,14 @@
-﻿using BeYeuBookstore.Data.Enums;
-using BeYeuBookstore.Data.Interfaces;
-using BeYeuBookstore.Infrastructure.SharedKernel;
+﻿using BeYeuBookstore.Application.ViewModels.System;
+using BeYeuBookstore.Data.Enums;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace BeYeuBookstore.Data.Entities
+namespace BeYeuBookstore.Application.ViewModels
 {
-    public class Merchant : DomainEntity<int>, IDateTracking
+    public class MerchantViewModel
     {
-        public Merchant() { }
-        public Merchant(int keyId, string directContactName, string hotline, string merchantName, string merchantCompanyName, string address, string contactAddress, string bussinessRegisterId, string taxId, string website, string legalRepresentative, string merchantBankingName, string accountNumber, string bank, string bankBranch, string bussinessRegisterLinkImg, string bankAccountNotificationLinkImg, string taxRegisterLinkImg, Status status, Scale scales, DateTime establishDate, DateTime? dateCreated, DateTime? dateModified)
-        {
-            KeyId = keyId;
-            DirectContactName = directContactName;
-            Hotline = hotline;
-            MerchantName = merchantName;
-            MerchantCompanyName = merchantCompanyName;
-            Address = address;
-            ContactAddress = contactAddress;
-            BussinessRegisterId = bussinessRegisterId;
-            TaxId = taxId;
-            Website = website;
-            LegalRepresentative = legalRepresentative;
-            MerchantBankingName = merchantBankingName;
-            AccountNumber = accountNumber;
-            Bank = bank;
-            BankBranch = bankBranch;
-            BussinessRegisterLinkImg = bussinessRegisterLinkImg;
-            BankAccountNotificationLinkImg = bankAccountNotificationLinkImg;
-            TaxRegisterLinkImg = taxRegisterLinkImg;
-            Status = status;
-            Scales = scales;
-            EstablishDate = establishDate;
-            DateCreated = dateCreated;
-            DateModified = dateModified;
-        }
+        public int KeyId { get; set; }
         public Guid UserFK { get; set; }
         /// <summary>
         /// Người liên hệ trực tiếp
@@ -86,9 +59,6 @@ namespace BeYeuBookstore.Data.Entities
         public DateTime? DateCreated { get; set; }
         public DateTime? DateModified { get; set; }
 
-        public virtual User UserBy { get; set; }
-        //
-        public virtual ICollection<Book> Books { get; set; }
-        public virtual ICollection<MerchantContract> MerchantContracts { get; set; }
+        public virtual UserViewModel UserBy { get; set; }
     }
 }

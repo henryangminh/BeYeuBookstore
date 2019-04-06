@@ -10,15 +10,15 @@ namespace BeYeuBookstore.Data.Entities
     {
         public UserType() { }
 
-        public UserType(int keyid, string userTypeTableName, DateTime? dateCreated, DateTime? dateModified)
+        public UserType(int keyid, string userTypeName, DateTime? dateCreated, DateTime? dateModified)
         {
             KeyId = keyid;
-            UserTypeTableName = userTypeTableName;
+            UserTypeName = userTypeName;
             DateCreated = dateCreated;
             DateModified = dateModified;
         }
 
-        public string UserTypeTableName { get; set; }
+        public string UserTypeName { get; set; }
         public DateTime? DateCreated { get; set; }
         public DateTime? DateModified { get; set; }
 

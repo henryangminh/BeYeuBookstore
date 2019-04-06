@@ -13,7 +13,7 @@ namespace BeYeuBookstore.Data.Entities
     {
         public User()
         {
-            ArAccountsReceivableAdjustments = new HashSet<ArAccountsReceivableAdjustments>();
+           
 
         }
         //public User(Guid id, string fullName, string userName,
@@ -56,7 +56,6 @@ namespace BeYeuBookstore.Data.Entities
 
         public Guid? LastupdatedFk { get; set; }
 
-        public virtual ICollection<ArAccountsReceivableAdjustments> ArAccountsReceivableAdjustments { get; set; }
         public virtual UserType UserTypeFKNavigation { get; set; }
         public virtual Customer CustomerFKNavigation { get; set; }
         public virtual Advertiser AdvertiserFKNavigation { get; set; }

@@ -18,8 +18,9 @@ namespace BeYeuBookstore.Data.Entities
             DateCreated = dateCreated;
             DateModified = dateModified;
         }
-
+        //Khóa ngoại Customer
         public int CustomerFK { get; set; }
+        //Tổng tiền
         public decimal TotalPrice { get; set; }
         public DateTime? DateCreated { get; set; }
         public DateTime? DateModified { get; set; }
