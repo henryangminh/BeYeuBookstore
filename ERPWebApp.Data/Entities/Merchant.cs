@@ -9,6 +9,7 @@ namespace BeYeuBookstore.Data.Entities
 {
     public class Merchant : DomainEntity<int>, IDateTracking
     {
+        public Merchant() { }
         public Merchant(int keyId, string directContactName, string hotline, string merchantName, string merchantCompanyName, string address, string contactAddress, string bussinessRegisterId, string taxId, string website, string legalRepresentative, string merchantBankingName, string accountNumber, string bank, string bankBranch, string bussinessRegisterLinkImg, string bankAccountNotificationLinkImg, string taxRegisterLinkImg, Status status, Scale scales, DateTime establishDate, DateTime? dateCreated, DateTime? dateModified)
         {
             KeyId = keyId;
@@ -63,7 +64,9 @@ namespace BeYeuBookstore.Data.Entities
         public string LegalRepresentative { get; set; }
         public string MerchantBankingName { get; set; }
         public string AccountNumber { get; set; }
+        //Tên ngân hàng
         public string Bank { get; set; }
+        //Chi nhánh
         public string BankBranch { get; set; }
 
         public string BussinessRegisterLinkImg { get; set; }
@@ -73,7 +76,9 @@ namespace BeYeuBookstore.Data.Entities
         public string BankAccountNotificationLinkImg { get; set; }
         public string TaxRegisterLinkImg { get; set; }
 
+        //Kiểm duyệt lần 1 được duyệt bán
         public Status Status { get; set; }
+        //Quy mô của Merchant
         public Scale Scales { get; set; }
         public DateTime EstablishDate { get; set; }
 

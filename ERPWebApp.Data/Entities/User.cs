@@ -51,6 +51,7 @@ namespace BeYeuBookstore.Data.Entities
         public DateTime? DateModified { get; set; }
 
         public int UserTypeFK { get; set; }
+        //Kiểm duyệt theo nhiều trường hợp
         public Status Status { get; set; }
 
         public Guid? LastupdatedFk { get; set; }
