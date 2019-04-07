@@ -9,18 +9,16 @@ using System.Text;
 
 namespace BeYeuBookstore.Application.Implementation
 {
-    public class AdvertiserService : IAdvertiserService
+    public class DeliveryService : IDeliveryService
     {
-        private IRepository<Advertiser, int> _advertiserRepository;
+        private IRepository<Delivery, int> _deliveryRepository;
         private IUnitOfWork _unitOfWork;
-        public AdvertiserService(IRepository<Advertiser, int> advertiserRepository, IUnitOfWork unitOfWork)
+        public DeliveryService(IRepository<Delivery, int> deliveryRepository, IUnitOfWork unitOfWork)
         {
-            _advertiserRepository = advertiserRepository;
+            _deliveryRepository = deliveryRepository;
             _unitOfWork = unitOfWork;
-
         }
-
-        public AdvertiserViewModel Add(AdvertiserViewModel AdvertiserViewModel)
+        public DeliveryViewModel Add(DeliveryViewModel DeliveryViewModel)
         {
             throw new NotImplementedException();
         }
@@ -35,22 +33,22 @@ namespace BeYeuBookstore.Application.Implementation
             throw new NotImplementedException();
         }
 
-        public List<AdvertiserViewModel> GetAll()
+        public List<DeliveryViewModel> GetAll()
         {
             throw new NotImplementedException();
         }
 
-        public List<AdvertiserViewModel> GetAll(int id)
+        public List<DeliveryViewModel> GetAll(int id)
         {
             throw new NotImplementedException();
         }
 
-        public PagedResult<AdvertiserViewModel> GetAllPaging(string keyword, int page, int pageSize)
+        public PagedResult<DeliveryViewModel> GetAllPaging(string keyword, int page, int pageSize)
         {
             throw new NotImplementedException();
         }
 
-        public AdvertiserViewModel GetById(int id)
+        public DeliveryViewModel GetById(int id)
         {
             throw new NotImplementedException();
         }
@@ -60,7 +58,7 @@ namespace BeYeuBookstore.Application.Implementation
             throw new NotImplementedException();
         }
 
-        public void Update(AdvertiserViewModel AdvertiserViewModel)
+        public void Update(DeliveryViewModel DeliveryViewModel)
         {
             throw new NotImplementedException();
         }

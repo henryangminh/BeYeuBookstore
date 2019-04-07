@@ -9,18 +9,16 @@ using System.Text;
 
 namespace BeYeuBookstore.Application.Implementation
 {
-    public class AdvertiserService : IAdvertiserService
+    public class WebMasterTypeService : IWebMasterTypeService
     {
-        private IRepository<Advertiser, int> _advertiserRepository;
+        private IRepository<WebMasterType, int> _webMasterTypeRepository;
         private IUnitOfWork _unitOfWork;
-        public AdvertiserService(IRepository<Advertiser, int> advertiserRepository, IUnitOfWork unitOfWork)
+        public WebMasterTypeService(IRepository<WebMasterType, int> webMasterTypeRepository, IUnitOfWork unitOfWork)
         {
-            _advertiserRepository = advertiserRepository;
+            _webMasterTypeRepository = webMasterTypeRepository;
             _unitOfWork = unitOfWork;
-
         }
-
-        public AdvertiserViewModel Add(AdvertiserViewModel AdvertiserViewModel)
+        public WebMasterTypeViewModel Add(WebMasterTypeViewModel WebMasterTypeViewModel)
         {
             throw new NotImplementedException();
         }
@@ -35,22 +33,22 @@ namespace BeYeuBookstore.Application.Implementation
             throw new NotImplementedException();
         }
 
-        public List<AdvertiserViewModel> GetAll()
+        public List<WebMasterTypeViewModel> GetAll()
         {
             throw new NotImplementedException();
         }
 
-        public List<AdvertiserViewModel> GetAll(int id)
+        public List<WebMasterTypeViewModel> GetAll(int id)
         {
             throw new NotImplementedException();
         }
 
-        public PagedResult<AdvertiserViewModel> GetAllPaging(string keyword, int page, int pageSize)
+        public PagedResult<WebMasterTypeViewModel> GetAllPaging(string keyword, int page, int pageSize)
         {
             throw new NotImplementedException();
         }
 
-        public AdvertiserViewModel GetById(int id)
+        public WebMasterTypeViewModel GetById(int id)
         {
             throw new NotImplementedException();
         }
@@ -60,7 +58,7 @@ namespace BeYeuBookstore.Application.Implementation
             throw new NotImplementedException();
         }
 
-        public void Update(AdvertiserViewModel AdvertiserViewModel)
+        public void Update(WebMasterTypeViewModel WebMasterTypeViewModel)
         {
             throw new NotImplementedException();
         }

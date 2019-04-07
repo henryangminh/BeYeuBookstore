@@ -9,18 +9,16 @@ using System.Text;
 
 namespace BeYeuBookstore.Application.Implementation
 {
-    public class AdvertiserService : IAdvertiserService
+    public class WebMasterService : IWebMasterService
     {
-        private IRepository<Advertiser, int> _advertiserRepository;
+        private IRepository<WebMaster, int> _webMasterRepository;
         private IUnitOfWork _unitOfWork;
-        public AdvertiserService(IRepository<Advertiser, int> advertiserRepository, IUnitOfWork unitOfWork)
+        public WebMasterService(IRepository<WebMaster, int> webMasterRepository, IUnitOfWork unitOfWork)
         {
-            _advertiserRepository = advertiserRepository;
+            _webMasterRepository = webMasterRepository;
             _unitOfWork = unitOfWork;
-
         }
-
-        public AdvertiserViewModel Add(AdvertiserViewModel AdvertiserViewModel)
+        public WebMasterViewModel Add(WebMasterViewModel WebMasterViewModel)
         {
             throw new NotImplementedException();
         }
@@ -35,22 +33,22 @@ namespace BeYeuBookstore.Application.Implementation
             throw new NotImplementedException();
         }
 
-        public List<AdvertiserViewModel> GetAll()
+        public List<WebMasterViewModel> GetAll()
         {
             throw new NotImplementedException();
         }
 
-        public List<AdvertiserViewModel> GetAll(int id)
+        public List<WebMasterViewModel> GetAll(int id)
         {
             throw new NotImplementedException();
         }
 
-        public PagedResult<AdvertiserViewModel> GetAllPaging(string keyword, int page, int pageSize)
+        public PagedResult<WebMasterViewModel> GetAllPaging(string keyword, int page, int pageSize)
         {
             throw new NotImplementedException();
         }
 
-        public AdvertiserViewModel GetById(int id)
+        public WebMasterViewModel GetById(int id)
         {
             throw new NotImplementedException();
         }
@@ -60,7 +58,7 @@ namespace BeYeuBookstore.Application.Implementation
             throw new NotImplementedException();
         }
 
-        public void Update(AdvertiserViewModel AdvertiserViewModel)
+        public void Update(WebMasterViewModel WebMasterViewModel)
         {
             throw new NotImplementedException();
         }

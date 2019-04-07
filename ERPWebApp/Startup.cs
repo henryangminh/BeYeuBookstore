@@ -29,6 +29,8 @@ using System.Globalization;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.DataProtection;
 using System.IO;
+using BeYeuBookstore.Application.Interfaces;
+using BeYeuBookstore.Application.Implementation;
 
 namespace BeYeuBookstore
 {
@@ -132,17 +134,43 @@ namespace BeYeuBookstore
 
             services.AddTransient(typeof(IUnitOfWork), typeof(EFUnitOfWork));
             //Repositories
+         
+
             // khai bao cac service viet them ( voi interface <--> class)
             services.AddTransient(typeof(IRepository<,>), typeof(EFRepository<,>));
-            
-           // services.AddTransient<IAR_InvoiceDetailRepository, AR_InvoiceDetailRepository>();
+            services.AddTransient<ICustomerRepository, CustomerRepository>();
+            services.AddTransient<IAdvertiseContractRepository, AdvertiseContractRepository>();
+            services.AddTransient<IAdvertiserRepository, AdvertiserRepository>();
+            services.AddTransient<IAdvertisementContentRepository, AdvertisementContentRepository>();
+            services.AddTransient<IAdvertisementPositionRepository, AdvertisementPositionRepository>();
+            services.AddTransient<IBookCategoryRepository, BookCategoryRepository>();
+            services.AddTransient<IBookRepository, BookRepository>();
+            services.AddTransient<IDeliveryRepository, DeliveryRepository>();
+            services.AddTransient<IInvoiceDetailRepository, InvoiceDetailRepository>();
+            services.AddTransient<IInvoiceRepository, InvoiceRepository>();
+            services.AddTransient<IMerchantContractRepository, MerchantContractRepository>();
+            services.AddTransient<IMerchantRepository, MerchantRepository>();
+            services.AddTransient<IWebMasterRepository, WebMasterRepository>();
+            services.AddTransient<IWebMasterTypeRepository, WebMasterTypeRepository>();
 
-           
             services.AddTransient<IUserRolesRepository, UserRolesRepository>();
-            
+
             //Services
-            
-            
+
+            services.AddTransient<ICustomerService, CustomerService>();
+            services.AddTransient<IAdvertiseContractService, AdvertiseContractService>();
+            services.AddTransient<IAdvertiserService, AdvertiserService>();
+            services.AddTransient<IAdvertisementContentService, AdvertisementContentService>();
+            services.AddTransient<IAdvertisementPositionService, AdvertisementPositionService>();
+            services.AddTransient<IBookCategoryService, BookCategoryService>();
+            services.AddTransient<IBookService, BookService>();
+            services.AddTransient<IDeliveryService, DeliveryService>();
+            services.AddTransient<IInvoiceDetailService, InvoiceDetailService>();
+            services.AddTransient<IInvoiceService, InvoiceService>();
+            services.AddTransient<IMerchantContractService, MerchantContractService>();
+            services.AddTransient<IMerchantService, MerchantService>();
+            services.AddTransient<IWebMasterService, WebMasterService>();
+            services.AddTransient<IWebMasterTypeService, WebMasterTypeService>();
             services.AddTransient<IFunctionService, FunctionService>();
            // services.AddTransient<IPermissionService, PermissionService>();
             services.AddTransient<IUserService,UserService>();

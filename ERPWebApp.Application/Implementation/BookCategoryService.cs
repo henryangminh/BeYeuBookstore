@@ -9,18 +9,17 @@ using System.Text;
 
 namespace BeYeuBookstore.Application.Implementation
 {
-    public class AdvertiserService : IAdvertiserService
+    public class BookCategoryService : IBookCategoryService
     {
-        private IRepository<Advertiser, int> _advertiserRepository;
+        private IRepository<BookCategory, int> _bookCategoryRepository;
         private IUnitOfWork _unitOfWork;
-        public AdvertiserService(IRepository<Advertiser, int> advertiserRepository, IUnitOfWork unitOfWork)
+        public BookCategoryService(IRepository<BookCategory, int> bookCategoryRepository, IUnitOfWork unitOfWork)
         {
-            _advertiserRepository = advertiserRepository;
+            _bookCategoryRepository = bookCategoryRepository;
             _unitOfWork = unitOfWork;
 
         }
-
-        public AdvertiserViewModel Add(AdvertiserViewModel AdvertiserViewModel)
+        public BookCategoryViewModel Add(BookCategoryViewModel BookCategoryViewModel)
         {
             throw new NotImplementedException();
         }
@@ -35,22 +34,22 @@ namespace BeYeuBookstore.Application.Implementation
             throw new NotImplementedException();
         }
 
-        public List<AdvertiserViewModel> GetAll()
+        public List<BookCategoryViewModel> GetAll()
         {
             throw new NotImplementedException();
         }
 
-        public List<AdvertiserViewModel> GetAll(int id)
+        public List<BookCategoryViewModel> GetAll(int id)
         {
             throw new NotImplementedException();
         }
 
-        public PagedResult<AdvertiserViewModel> GetAllPaging(string keyword, int page, int pageSize)
+        public PagedResult<BookCategoryViewModel> GetAllPaging(string keyword, int page, int pageSize)
         {
             throw new NotImplementedException();
         }
 
-        public AdvertiserViewModel GetById(int id)
+        public BookCategoryViewModel GetById(int id)
         {
             throw new NotImplementedException();
         }
@@ -60,7 +59,7 @@ namespace BeYeuBookstore.Application.Implementation
             throw new NotImplementedException();
         }
 
-        public void Update(AdvertiserViewModel AdvertiserViewModel)
+        public void Update(BookCategoryViewModel BookCategoryViewModel)
         {
             throw new NotImplementedException();
         }

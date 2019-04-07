@@ -14,5 +14,7 @@ namespace BeYeuBookstore.Application.ViewModels
         public DateTime? DateModified { get; set; }
 
         public virtual UserViewModel UserBy { get; set; }
+        public virtual AdvertisementContentViewModel AdvertisementContentFKNavigation { get; set; }
+
     }
 }

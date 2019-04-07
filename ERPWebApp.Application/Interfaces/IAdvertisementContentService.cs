@@ -1,4 +1,5 @@
-﻿using BeYeuBookstore.Application.ViewModels.System;
+﻿using BeYeuBookstore.Application.ViewModels;
+using BeYeuBookstore.Application.ViewModels.System;
 using BeYeuBookstore.Data.Entities;
 using BeYeuBookstore.Utilities.DTOs;
 using System;
@@ -10,5 +11,20 @@ namespace BeYeuBookstore.Application.Interfaces
 {
    public interface IAdvertisementContentService : IDisposable
     {
+        AdvertisementContentViewModel Add(AdvertisementContentViewModel AdvertisementContentViewModel);
+
+        void Update(AdvertisementContentViewModel AdvertisementContentViewModel);
+
+        void Delete(int id);
+
+        List<AdvertisementContentViewModel> GetAll();
+
+        PagedResult<AdvertisementContentViewModel> GetAllPaging(string keyword, int page, int pageSize);
+
+        List<AdvertisementContentViewModel> GetAll(int id);
+
+        AdvertisementContentViewModel GetById(int id);
+
+        bool Save();
     }
 }

@@ -37,5 +37,7 @@ namespace BeYeuBookstore.Application.ViewModels
         public virtual AdvertisementPositionViewModel AdvertisementPositionFKNavigation { get; set; }
 
         public virtual AdvertiseContractViewModel AdvertiseContract { get; set; }
+
+        public virtual WebMasterViewModel WebMasterCensorFKNavigation { get; set; }
     }
 }

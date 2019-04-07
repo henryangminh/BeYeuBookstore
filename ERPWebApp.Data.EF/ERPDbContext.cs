@@ -84,6 +84,8 @@ namespace BeYeuBookstore.Data.EF
                 .WithOne(p => p.AdvertisementContentFKNavigation)
                 .HasForeignKey<AdvertiseContract>(d => d.AdvertisementContentFK);
 
+                
+
                 entity.HasOne(d => d.AdvertiserFKNavigation)
               .WithMany(p => p.AdvertisementContents)
               .HasForeignKey(d => d.AdvertiserFK)
@@ -101,8 +103,6 @@ namespace BeYeuBookstore.Data.EF
                 entity.HasKey(e => e.KeyId);
 
                
-
-
             });
 
             modelBuilder.Entity<Advertiser>(entity =>
@@ -203,6 +203,10 @@ namespace BeYeuBookstore.Data.EF
             modelBuilder.Entity<WebMaster>(entity =>
             {
                 entity.HasKey(e => e.KeyId);
+                
+                entity.HasOne(d => d.AdvertisementContentFKNavigation)
+                .WithOne(p => p.WebMasterCensorFKNavigation)
+                .HasForeignKey<AdvertisementContent>(d => d.CensorFK);
 
                 entity.HasOne(d => d.WebMasterTypeFKNavigation)
               .WithMany(p => p.WebMasters)

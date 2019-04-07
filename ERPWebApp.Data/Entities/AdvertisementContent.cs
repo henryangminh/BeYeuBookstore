@@ -46,7 +46,7 @@ namespace BeYeuBookstore.Data.Entities
         /// <summary>
         /// Người duyệt bài
         /// </summary>
-        
+        public int CensorFK { get; set; }
         public DateTime? DateCreated { get; set; }
         public DateTime? DateModified { get; set; }
     
@@ -55,5 +55,7 @@ namespace BeYeuBookstore.Data.Entities
         public virtual AdvertisementPosition AdvertisementPositionFKNavigation { get; set; }
 
         public virtual AdvertiseContract AdvertiseContract { get; set; }
+
+        public virtual WebMaster WebMasterCensorFKNavigation { get; set; }
     }
 }

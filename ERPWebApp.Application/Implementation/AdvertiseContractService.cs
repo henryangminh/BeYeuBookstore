@@ -9,18 +9,17 @@ using System.Text;
 
 namespace BeYeuBookstore.Application.Implementation
 {
-    public class AdvertiserService : IAdvertiserService
+    public class AdvertiseContractService : IAdvertiseContractService
     {
-        private IRepository<Advertiser, int> _advertiserRepository;
+        private IRepository<AdvertiseContract, int> _advertiseContractRepository;
         private IUnitOfWork _unitOfWork;
-        public AdvertiserService(IRepository<Advertiser, int> advertiserRepository, IUnitOfWork unitOfWork)
+        public AdvertiseContractService(IRepository<AdvertiseContract, int> advertiseContractRepository, IUnitOfWork unitOfWork)
         {
-            _advertiserRepository = advertiserRepository;
+            _advertiseContractRepository = advertiseContractRepository;
             _unitOfWork = unitOfWork;
 
         }
-
-        public AdvertiserViewModel Add(AdvertiserViewModel AdvertiserViewModel)
+        public AdvertiseContractViewModel Add(AdvertiseContractViewModel advertiseContractViewModel)
         {
             throw new NotImplementedException();
         }
@@ -35,22 +34,22 @@ namespace BeYeuBookstore.Application.Implementation
             throw new NotImplementedException();
         }
 
-        public List<AdvertiserViewModel> GetAll()
+        public List<AdvertiseContractViewModel> GetAll()
         {
             throw new NotImplementedException();
         }
 
-        public List<AdvertiserViewModel> GetAll(int id)
+        public List<AdvertiseContractViewModel> GetAll(int id)
         {
             throw new NotImplementedException();
         }
 
-        public PagedResult<AdvertiserViewModel> GetAllPaging(string keyword, int page, int pageSize)
+        public PagedResult<AdvertiseContractViewModel> GetAllPaging(string keyword, int page, int pageSize)
         {
             throw new NotImplementedException();
         }
 
-        public AdvertiserViewModel GetById(int id)
+        public AdvertiseContractViewModel GetById(int id)
         {
             throw new NotImplementedException();
         }
@@ -60,7 +59,7 @@ namespace BeYeuBookstore.Application.Implementation
             throw new NotImplementedException();
         }
 
-        public void Update(AdvertiserViewModel AdvertiserViewModel)
+        public void Update(AdvertiseContractViewModel advertiseContractViewModel)
         {
             throw new NotImplementedException();
         }
