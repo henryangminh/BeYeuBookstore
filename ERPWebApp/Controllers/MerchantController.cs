@@ -8,14 +8,14 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace BeYeuBookstore.Controllers
 {
-    public class BookController : Controller
+    public class MerchantController : Controller
     {
-        IBookService _bookService;
+        IMerchantService _merchantService;
         IUnitOfWork _unitOfWork;
-        public BookController(IBookService bookService, IUnitOfWork unitOfWork)
+        public MerchantController(IMerchantService merchantService, IUnitOfWork unitOfWork)
         {
-            _bookService = bookService;
-            _unitOfWork=unitOfWork;
+            _merchantService = merchantService;
+            _unitOfWork = unitOfWork;
         }
         public IActionResult Index()
         {

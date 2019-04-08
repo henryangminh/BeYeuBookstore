@@ -65,7 +65,6 @@
     <Folder Include="Views\Advertiser\" />
     <Folder Include="Views\AdvertisementPosition\" />
     <Folder Include="Views\AdvertisementContent\" />
-    <Folder Include="Views\Customer\" />
     <Folder Include="Views\Delivery\" />
     <Folder Include="Views\Invoice\" />
     <Folder Include="Views\Merchant\" />

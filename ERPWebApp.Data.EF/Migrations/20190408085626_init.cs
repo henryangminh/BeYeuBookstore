@@ -97,32 +97,6 @@ namespace BeYeuBookstore.Data.EF.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "ArAccountsReceivable",
-                columns: table => new
-                {
-                    KeyId = table.Column<int>(nullable: false)
-                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    TransactNo = table.Column<int>(nullable: true),
-                    Transaction_Date = table.Column<DateTime>(nullable: true),
-                    DateCreated = table.Column<DateTime>(nullable: true),
-                    DateModified = table.Column<DateTime>(nullable: true),
-                    ArNo = table.Column<string>(nullable: true),
-                    CustomerFk = table.Column<int>(nullable: true),
-                    ProjectId = table.Column<int>(nullable: true),
-                    RecordCode = table.Column<string>(nullable: true),
-                    PoNo = table.Column<int>(nullable: true),
-                    Description = table.Column<string>(nullable: true),
-                    Amount = table.Column<decimal>(nullable: false),
-                    WarehouseFk = table.Column<string>(nullable: true),
-                    Department = table.Column<string>(nullable: true),
-                    Type = table.Column<string>(maxLength: 2, nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_ArAccountsReceivable", x => x.KeyId);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "BookCategorys",
                 columns: table => new
                 {
@@ -173,7 +147,7 @@ namespace BeYeuBookstore.Data.EF.Migrations
                 {
                     KeyId = table.Column<int>(nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    UserTypeTableName = table.Column<string>(nullable: true),
+                    UserTypeName = table.Column<string>(nullable: true),
                     DateCreated = table.Column<DateTime>(nullable: true),
                     DateModified = table.Column<DateTime>(nullable: true)
                 },
@@ -293,36 +267,7 @@ namespace BeYeuBookstore.Data.EF.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "ArAccountsReceivableAdjustments",
-                columns: table => new
-                {
-                    KeyId = table.Column<int>(nullable: false)
-                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    VoucherNo = table.Column<string>(nullable: true),
-                    VoucherDate = table.Column<DateTime>(nullable: true),
-                    CustomerNo = table.Column<string>(nullable: true),
-                    TranType = table.Column<int>(nullable: true),
-                    InvoiceNo = table.Column<string>(nullable: true),
-                    InvoiceDate = table.Column<DateTime>(nullable: true),
-                    DebitAccount = table.Column<string>(nullable: true),
-                    CreditAccount = table.Column<string>(nullable: true),
-                    Amount = table.Column<decimal>(nullable: false),
-                    AuthorizedBy = table.Column<Guid>(nullable: true),
-                    AuthorizedByNavigationId = table.Column<Guid>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_ArAccountsReceivableAdjustments", x => x.KeyId);
-                    table.ForeignKey(
-                        name: "FK_ArAccountsReceivableAdjustments_User_AuthorizedByNavigationId",
-                        column: x => x.AuthorizedByNavigationId,
-                        principalTable: "User",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Customer",
+                name: "Customers",
                 columns: table => new
                 {
                     KeyId = table.Column<int>(nullable: false)
@@ -335,9 +280,9 @@ namespace BeYeuBookstore.Data.EF.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Customer", x => x.KeyId);
+                    table.PrimaryKey("PK_Customers", x => x.KeyId);
                     table.ForeignKey(
-                        name: "FK_Customer_User_UserFK",
+                        name: "FK_Customers_User_UserFK",
                         column: x => x.UserFK,
                         principalTable: "User",
                         principalColumn: "Id",
@@ -414,41 +359,6 @@ namespace BeYeuBookstore.Data.EF.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "AdvertisementContents",
-                columns: table => new
-                {
-                    KeyId = table.Column<int>(nullable: false)
-                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    AdvertisementPositionFK = table.Column<int>(nullable: false),
-                    AdvertiserFK = table.Column<int>(nullable: false),
-                    ImageLink = table.Column<string>(nullable: true),
-                    Title = table.Column<string>(nullable: true),
-                    Description = table.Column<string>(nullable: true),
-                    UrlToAdvertisement = table.Column<string>(nullable: true),
-                    Deposite = table.Column<decimal>(nullable: false),
-                    PaidDeposite = table.Column<bool>(nullable: true),
-                    CensorStatus = table.Column<int>(nullable: true),
-                    DateCreated = table.Column<DateTime>(nullable: true),
-                    DateModified = table.Column<DateTime>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_AdvertisementContents", x => x.KeyId);
-                    table.ForeignKey(
-                        name: "FK_dbo.AdvertisementContent.AdvertisementPosition",
-                        column: x => x.AdvertisementPositionFK,
-                        principalTable: "AdvertisementPositions",
-                        principalColumn: "KeyId",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_dbo.AdvertisementContent.Advertiser_AdvertiserFK_FK",
-                        column: x => x.AdvertiserFK,
-                        principalTable: "Advertisers",
-                        principalColumn: "KeyId",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Invoices",
                 columns: table => new
                 {
@@ -465,7 +375,7 @@ namespace BeYeuBookstore.Data.EF.Migrations
                     table.ForeignKey(
                         name: "FK_dbo.Invoices.CustomerFK",
                         column: x => x.CustomerFK,
-                        principalTable: "Customer",
+                        principalTable: "Customers",
                         principalColumn: "KeyId",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -482,9 +392,9 @@ namespace BeYeuBookstore.Data.EF.Migrations
                     MerchantFK = table.Column<int>(nullable: false),
                     isPaperback = table.Column<bool>(nullable: false),
                     UnitPrice = table.Column<decimal>(nullable: false),
-                    Length = table.Column<int>(nullable: false),
+                    Length = table.Column<int>(nullable: true),
                     Height = table.Column<int>(nullable: true),
-                    Width = table.Column<int>(nullable: false),
+                    Width = table.Column<int>(nullable: true),
                     PageNumber = table.Column<int>(nullable: false),
                     Description = table.Column<string>(nullable: true),
                     Quantity = table.Column<int>(nullable: false),
@@ -531,27 +441,43 @@ namespace BeYeuBookstore.Data.EF.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "AdvertiseContracts",
+                name: "AdvertisementContents",
                 columns: table => new
                 {
                     KeyId = table.Column<int>(nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    AdvertisementContentFK = table.Column<int>(nullable: false),
-                    DateStart = table.Column<DateTime>(nullable: false),
-                    DateFinish = table.Column<DateTime>(nullable: false),
-                    ContractValue = table.Column<decimal>(nullable: false),
-                    Paid = table.Column<bool>(nullable: false),
-                    Status = table.Column<int>(nullable: false),
+                    AdvertisementPositionFK = table.Column<int>(nullable: false),
+                    AdvertiserFK = table.Column<int>(nullable: false),
+                    ImageLink = table.Column<string>(nullable: true),
+                    Title = table.Column<string>(nullable: true),
+                    Description = table.Column<string>(nullable: true),
+                    UrlToAdvertisement = table.Column<string>(nullable: true),
+                    Deposite = table.Column<decimal>(nullable: false),
+                    PaidDeposite = table.Column<bool>(nullable: true),
+                    CensorStatus = table.Column<bool>(nullable: true),
+                    CensorFK = table.Column<int>(nullable: false),
                     DateCreated = table.Column<DateTime>(nullable: true),
                     DateModified = table.Column<DateTime>(nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_AdvertiseContracts", x => x.KeyId);
+                    table.PrimaryKey("PK_AdvertisementContents", x => x.KeyId);
                     table.ForeignKey(
-                        name: "FK_AdvertiseContracts_AdvertisementContents_AdvertisementConten~",
-                        column: x => x.AdvertisementContentFK,
-                        principalTable: "AdvertisementContents",
+                        name: "FK_dbo.AdvertisementContent.AdvertisementPosition",
+                        column: x => x.AdvertisementPositionFK,
+                        principalTable: "AdvertisementPositions",
+                        principalColumn: "KeyId",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_dbo.AdvertisementContent.Advertiser_AdvertiserFK_FK",
+                        column: x => x.AdvertiserFK,
+                        principalTable: "Advertisers",
+                        principalColumn: "KeyId",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_AdvertisementContents_WebMasters_CensorFK",
+                        column: x => x.CensorFK,
+                        principalTable: "WebMasters",
                         principalColumn: "KeyId",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -609,6 +535,32 @@ namespace BeYeuBookstore.Data.EF.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "AdvertiseContracts",
+                columns: table => new
+                {
+                    KeyId = table.Column<int>(nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    AdvertisementContentFK = table.Column<int>(nullable: false),
+                    DateStart = table.Column<DateTime>(nullable: false),
+                    DateFinish = table.Column<DateTime>(nullable: false),
+                    ContractValue = table.Column<decimal>(nullable: false),
+                    Paid = table.Column<bool>(nullable: false),
+                    Status = table.Column<int>(nullable: false),
+                    DateCreated = table.Column<DateTime>(nullable: true),
+                    DateModified = table.Column<DateTime>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_AdvertiseContracts", x => x.KeyId);
+                    table.ForeignKey(
+                        name: "FK_AdvertiseContracts_AdvertisementContents_AdvertisementConten~",
+                        column: x => x.AdvertisementContentFK,
+                        principalTable: "AdvertisementContents",
+                        principalColumn: "KeyId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_AdvertiseContracts_AdvertisementContentFK",
                 table: "AdvertiseContracts",
@@ -626,15 +578,16 @@ namespace BeYeuBookstore.Data.EF.Migrations
                 column: "AdvertiserFK");
 
             migrationBuilder.CreateIndex(
+                name: "IX_AdvertisementContents_CensorFK",
+                table: "AdvertisementContents",
+                column: "CensorFK",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Advertisers_UserFK",
                 table: "Advertisers",
                 column: "UserFK",
                 unique: true);
-
-            migrationBuilder.CreateIndex(
-                name: "IX_ArAccountsReceivableAdjustments_AuthorizedByNavigationId",
-                table: "ArAccountsReceivableAdjustments",
-                column: "AuthorizedByNavigationId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Books_BookCategoryFK",
@@ -647,8 +600,8 @@ namespace BeYeuBookstore.Data.EF.Migrations
                 column: "MerchantFK");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Customer_UserFK",
-                table: "Customer",
+                name: "IX_Customers_UserFK",
+                table: "Customers",
                 column: "UserFK",
                 unique: true);
 
@@ -732,12 +685,6 @@ namespace BeYeuBookstore.Data.EF.Migrations
                 name: "AppUserTokens");
 
             migrationBuilder.DropTable(
-                name: "ArAccountsReceivable");
-
-            migrationBuilder.DropTable(
-                name: "ArAccountsReceivableAdjustments");
-
-            migrationBuilder.DropTable(
                 name: "Deliverys");
 
             migrationBuilder.DropTable(
@@ -748,9 +695,6 @@ namespace BeYeuBookstore.Data.EF.Migrations
 
             migrationBuilder.DropTable(
                 name: "Permissions");
-
-            migrationBuilder.DropTable(
-                name: "WebMasters");
 
             migrationBuilder.DropTable(
                 name: "AdvertisementContents");
@@ -768,13 +712,13 @@ namespace BeYeuBookstore.Data.EF.Migrations
                 name: "Roles");
 
             migrationBuilder.DropTable(
-                name: "WebMasterTypes");
-
-            migrationBuilder.DropTable(
                 name: "AdvertisementPositions");
 
             migrationBuilder.DropTable(
                 name: "Advertisers");
+
+            migrationBuilder.DropTable(
+                name: "WebMasters");
 
             migrationBuilder.DropTable(
                 name: "BookCategorys");
@@ -783,7 +727,10 @@ namespace BeYeuBookstore.Data.EF.Migrations
                 name: "Merchants");
 
             migrationBuilder.DropTable(
-                name: "Customer");
+                name: "Customers");
+
+            migrationBuilder.DropTable(
+                name: "WebMasterTypes");
 
             migrationBuilder.DropTable(
                 name: "User");

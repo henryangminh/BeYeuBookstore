@@ -55,7 +55,9 @@ namespace BeYeuBookstore.Data.EF.Migrations
 
                     b.Property<int>("AdvertiserFK");
 
-                    b.Property<int?>("CensorStatus");
+                    b.Property<int>("CensorFK");
+
+                    b.Property<bool?>("CensorStatus");
 
                     b.Property<DateTime?>("DateCreated");
 
@@ -78,6 +80,9 @@ namespace BeYeuBookstore.Data.EF.Migrations
                     b.HasIndex("AdvertisementPositionFK");
 
                     b.HasIndex("AdvertiserFK");
+
+                    b.HasIndex("CensorFK")
+                        .IsUnique();
 
                     b.ToTable("AdvertisementContents");
                 });
@@ -129,79 +134,6 @@ namespace BeYeuBookstore.Data.EF.Migrations
                     b.ToTable("Advertisers");
                 });
 
-            modelBuilder.Entity("BeYeuBookstore.Data.Entities.ArAccountsReceivable", b =>
-                {
-                    b.Property<int>("KeyId")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<decimal>("Amount");
-
-                    b.Property<string>("ArNo");
-
-                    b.Property<int?>("CustomerFk");
-
-                    b.Property<DateTime?>("DateCreated");
-
-                    b.Property<DateTime?>("DateModified");
-
-                    b.Property<string>("Department");
-
-                    b.Property<string>("Description");
-
-                    b.Property<int?>("PoNo");
-
-                    b.Property<int?>("ProjectId");
-
-                    b.Property<string>("RecordCode");
-
-                    b.Property<int?>("TransactNo");
-
-                    b.Property<DateTime?>("Transaction_Date");
-
-                    b.Property<string>("Type")
-                        .HasMaxLength(2);
-
-                    b.Property<string>("WarehouseFk");
-
-                    b.HasKey("KeyId");
-
-                    b.ToTable("ArAccountsReceivable");
-                });
-
-            modelBuilder.Entity("BeYeuBookstore.Data.Entities.ArAccountsReceivableAdjustments", b =>
-                {
-                    b.Property<int>("KeyId")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<decimal>("Amount");
-
-                    b.Property<Guid?>("AuthorizedBy");
-
-                    b.Property<Guid?>("AuthorizedByNavigationId");
-
-                    b.Property<string>("CreditAccount");
-
-                    b.Property<string>("CustomerNo");
-
-                    b.Property<string>("DebitAccount");
-
-                    b.Property<DateTime?>("InvoiceDate");
-
-                    b.Property<string>("InvoiceNo");
-
-                    b.Property<int?>("TranType");
-
-                    b.Property<DateTime?>("VoucherDate");
-
-                    b.Property<string>("VoucherNo");
-
-                    b.HasKey("KeyId");
-
-                    b.HasIndex("AuthorizedByNavigationId");
-
-                    b.ToTable("ArAccountsReceivableAdjustments");
-                });
-
             modelBuilder.Entity("BeYeuBookstore.Data.Entities.Book", b =>
                 {
                     b.Property<int>("KeyId")
@@ -221,7 +153,7 @@ namespace BeYeuBookstore.Data.EF.Migrations
 
                     b.Property<int?>("Height");
 
-                    b.Property<int>("Length");
+                    b.Property<int?>("Length");
 
                     b.Property<int>("MerchantFK");
 
@@ -231,7 +163,7 @@ namespace BeYeuBookstore.Data.EF.Migrations
 
                     b.Property<decimal>("UnitPrice");
 
-                    b.Property<int>("Width");
+                    b.Property<int?>("Width");
 
                     b.Property<bool>("isPaperback");
 
@@ -276,7 +208,7 @@ namespace BeYeuBookstore.Data.EF.Migrations
                     b.HasIndex("UserFK")
                         .IsUnique();
 
-                    b.ToTable("Customer");
+                    b.ToTable("Customers");
                 });
 
             modelBuilder.Entity("BeYeuBookstore.Data.Entities.Delivery", b =>
@@ -581,7 +513,7 @@ namespace BeYeuBookstore.Data.EF.Migrations
 
                     b.Property<DateTime?>("DateModified");
 
-                    b.Property<string>("UserTypeTableName");
+                    b.Property<string>("UserTypeName");
 
                     b.HasKey("KeyId");
 
@@ -723,6 +655,11 @@ namespace BeYeuBookstore.Data.EF.Migrations
                         .HasForeignKey("AdvertiserFK")
                         .HasConstraintName("FK_dbo.AdvertisementContent.Advertiser_AdvertiserFK_FK")
                         .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("BeYeuBookstore.Data.Entities.WebMaster", "WebMasterCensorFKNavigation")
+                        .WithOne("AdvertisementContentFKNavigation")
+                        .HasForeignKey("BeYeuBookstore.Data.Entities.AdvertisementContent", "CensorFK")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("BeYeuBookstore.Data.Entities.Advertiser", b =>
@@ -731,13 +668,6 @@ namespace BeYeuBookstore.Data.EF.Migrations
                         .WithOne("AdvertiserFKNavigation")
                         .HasForeignKey("BeYeuBookstore.Data.Entities.Advertiser", "UserFK")
                         .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("BeYeuBookstore.Data.Entities.ArAccountsReceivableAdjustments", b =>
-                {
-                    b.HasOne("BeYeuBookstore.Data.Entities.User", "AuthorizedByNavigation")
-                        .WithMany("ArAccountsReceivableAdjustments")
-                        .HasForeignKey("AuthorizedByNavigationId");
                 });
 
             modelBuilder.Entity("BeYeuBookstore.Data.Entities.Book", b =>

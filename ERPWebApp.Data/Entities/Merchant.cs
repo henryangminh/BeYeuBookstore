@@ -63,6 +63,7 @@ namespace BeYeuBookstore.Data.Entities
         /// </summary>
         public string LegalRepresentative { get; set; }
         public string MerchantBankingName { get; set; }
+        //Saiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii
         public string AccountNumber { get; set; }
         //Tên ngân hàng
         public string Bank { get; set; }
