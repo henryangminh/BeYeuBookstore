@@ -1,4 +1,5 @@
-﻿using BeYeuBookstore.Application.Interfaces;
+﻿using AutoMapper;
+using BeYeuBookstore.Application.Interfaces;
 using BeYeuBookstore.Application.ViewModels;
 using BeYeuBookstore.Data.Entities;
 using BeYeuBookstore.Infrastructure.Interfaces;
@@ -20,22 +21,32 @@ namespace BeYeuBookstore.Application.Implementation
         }
         public BookViewModel Add(BookViewModel BookViewModel)
         {
-            throw new NotImplementedException();
+            var book = Mapper.Map<BookViewModel, Book>(BookViewModel);
+            _bookRepository.Add(book);
+            _unitOfWork.Commit();
+            return BookViewModel;
         }
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            _bookRepository.Remove(id);
         }
 
         public void Dispose()
         {
-            throw new NotImplementedException();
+            GC.SuppressFinalize(this);
         }
 
         public List<BookViewModel> GetAll()
         {
-            throw new NotImplementedException();
+            var query = _bookRepository.FindAll();
+            var data = new List<BookViewModel>();
+            foreach (var item in query)
+            {
+                var _data = Mapper.Map<Book, BookViewModel>(item);
+                data.Add(_data);
+            }
+            return data;
         }
 
         public List<BookViewModel> GetAll(int id)
@@ -50,17 +61,31 @@ namespace BeYeuBookstore.Application.Implementation
 
         public BookViewModel GetById(int id)
         {
-            throw new NotImplementedException();
+            return Mapper.Map<Book, BookViewModel>(_bookRepository.FindById(id));
         }
 
         public bool Save()
         {
-            throw new NotImplementedException();
+            return _unitOfWork.Commit();
         }
 
         public void Update(BookViewModel BookViewModel)
         {
-            throw new NotImplementedException();
+            var temp = _bookRepository.FindById(BookViewModel.KeyId);
+            if (temp != null)
+            {
+                temp.Author = BookViewModel.Author;
+                temp.BookCategoryFK = BookViewModel.BookCategoryFK;
+                temp.BookTitle = BookViewModel.BookTitle;
+                temp.Description = BookViewModel.Description;
+                temp.Height = BookViewModel.Height;
+                temp.Length = BookViewModel.Length;
+                temp.Width = BookViewModel.Width;
+                temp.PageNumber = BookViewModel.PageNumber;
+                temp.isPaperback = BookViewModel.isPaperback;
+                temp.UnitPrice = BookViewModel.UnitPrice;
+                temp.Quantity = BookViewModel.Quantity;
+            }
         }
     }
 }

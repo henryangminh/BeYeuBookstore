@@ -1,4 +1,5 @@
-﻿using BeYeuBookstore.Application.Interfaces;
+﻿using AutoMapper;
+using BeYeuBookstore.Application.Interfaces;
 using BeYeuBookstore.Application.ViewModels;
 using BeYeuBookstore.Data.Entities;
 using BeYeuBookstore.Infrastructure.Interfaces;
@@ -20,22 +21,32 @@ namespace BeYeuBookstore.Application.Implementation
         }
         public MerchantViewModel Add(MerchantViewModel MerchantViewModel)
         {
-            throw new NotImplementedException();
+            var Merchant = Mapper.Map<MerchantViewModel, Merchant>(MerchantViewModel);
+            _merchantRepository.Add(Merchant);
+            _unitOfWork.Commit();
+            return MerchantViewModel;
         }
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            _merchantRepository.Remove(id);
         }
 
         public void Dispose()
         {
-            throw new NotImplementedException();
+            GC.SuppressFinalize(this);
         }
 
         public List<MerchantViewModel> GetAll()
         {
-            throw new NotImplementedException();
+            var query = _merchantRepository.FindAll();
+            var data = new List<MerchantViewModel>();
+            foreach (var item in query)
+            {
+                var _data = Mapper.Map<Merchant, MerchantViewModel>(item);
+                data.Add(_data);
+            }
+            return data;
         }
 
         public List<MerchantViewModel> GetAll(int id)
@@ -50,17 +61,22 @@ namespace BeYeuBookstore.Application.Implementation
 
         public MerchantViewModel GetById(int id)
         {
-            throw new NotImplementedException();
+            return Mapper.Map<Merchant, MerchantViewModel>(_merchantRepository.FindById(id));
         }
 
         public bool Save()
         {
-            throw new NotImplementedException();
+            return _unitOfWork.Commit();
         }
 
         public void Update(MerchantViewModel MerchantViewModel)
         {
-            throw new NotImplementedException();
+            var temp = _merchantRepository.FindById(MerchantViewModel.KeyId);
+            if (temp != null)
+            {
+                temp.MerchantName = MerchantViewModel.MerchantName;
+            }
         }
     }
 }
+

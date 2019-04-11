@@ -1,4 +1,5 @@
-﻿using BeYeuBookstore.Application.Interfaces;
+﻿using AutoMapper;
+using BeYeuBookstore.Application.Interfaces;
 using BeYeuBookstore.Application.ViewModels;
 using BeYeuBookstore.Data.Entities;
 using BeYeuBookstore.Infrastructure.Interfaces;
@@ -21,22 +22,32 @@ namespace BeYeuBookstore.Application.Implementation
         }
         public AdvertisementPositionViewModel Add(AdvertisementPositionViewModel AdvertisementPositionViewModel)
         {
-            throw new NotImplementedException();
+            var AdvertisementPosition = Mapper.Map<AdvertisementPositionViewModel, AdvertisementPosition>(AdvertisementPositionViewModel);
+            _advertisementPositionRepository.Add(AdvertisementPosition);
+            _unitOfWork.Commit();
+            return AdvertisementPositionViewModel;
         }
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            _advertisementPositionRepository.Remove(id);
         }
 
         public void Dispose()
         {
-            throw new NotImplementedException();
+            GC.SuppressFinalize(this);
         }
 
         public List<AdvertisementPositionViewModel> GetAll()
         {
-            throw new NotImplementedException();
+            var query = _advertisementPositionRepository.FindAll();
+            var data = new List<AdvertisementPositionViewModel>();
+            foreach (var item in query)
+            {
+                var _data = Mapper.Map<AdvertisementPosition, AdvertisementPositionViewModel>(item);
+                data.Add(_data);
+            }
+            return data;
         }
 
         public List<AdvertisementPositionViewModel> GetAll(int id)
@@ -51,17 +62,25 @@ namespace BeYeuBookstore.Application.Implementation
 
         public AdvertisementPositionViewModel GetById(int id)
         {
-            throw new NotImplementedException();
+            return Mapper.Map<AdvertisementPosition, AdvertisementPositionViewModel>(_advertisementPositionRepository.FindById(id));
         }
 
         public bool Save()
         {
-            throw new NotImplementedException();
+            return _unitOfWork.Commit();
         }
 
         public void Update(AdvertisementPositionViewModel AdvertisementPositionViewModel)
         {
-            throw new NotImplementedException();
+            var temp = _advertisementPositionRepository.FindById(AdvertisementPositionViewModel.KeyId);
+            if (temp != null)
+            {
+                temp.AdvertisePrice = AdvertisementPositionViewModel.AdvertisePrice;
+                temp.Height = AdvertisementPositionViewModel.Height;
+                temp.Width = AdvertisementPositionViewModel.Width;
+                temp.PageUrl = AdvertisementPositionViewModel.PageUrl;
+                temp.IdOfPosition = AdvertisementPositionViewModel.IdOfPosition;
+            }
         }
     }
 }

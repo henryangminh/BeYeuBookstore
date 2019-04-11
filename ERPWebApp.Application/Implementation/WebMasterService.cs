@@ -1,4 +1,5 @@
-﻿using BeYeuBookstore.Application.Interfaces;
+﻿using AutoMapper;
+using BeYeuBookstore.Application.Interfaces;
 using BeYeuBookstore.Application.ViewModels;
 using BeYeuBookstore.Data.Entities;
 using BeYeuBookstore.Infrastructure.Interfaces;
@@ -20,22 +21,32 @@ namespace BeYeuBookstore.Application.Implementation
         }
         public WebMasterViewModel Add(WebMasterViewModel WebMasterViewModel)
         {
-            throw new NotImplementedException();
+            var webMaster = Mapper.Map<WebMasterViewModel, WebMaster>(WebMasterViewModel);
+            _webMasterRepository.Add(webMaster);
+            _unitOfWork.Commit();
+            return WebMasterViewModel;
         }
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            _webMasterRepository.Remove(id);
         }
 
         public void Dispose()
         {
-            throw new NotImplementedException();
+            GC.SuppressFinalize(this);
         }
 
         public List<WebMasterViewModel> GetAll()
         {
-            throw new NotImplementedException();
+            var query = _webMasterRepository.FindAll();
+            var data = new List<WebMasterViewModel>();
+            foreach (var item in query)
+            {
+                var _data = Mapper.Map<WebMaster, WebMasterViewModel>(item);
+                data.Add(_data);
+            }
+            return data;
         }
 
         public List<WebMasterViewModel> GetAll(int id)
@@ -50,17 +61,21 @@ namespace BeYeuBookstore.Application.Implementation
 
         public WebMasterViewModel GetById(int id)
         {
-            throw new NotImplementedException();
+            return Mapper.Map<WebMaster, WebMasterViewModel>(_webMasterRepository.FindById(id));
         }
 
         public bool Save()
         {
-            throw new NotImplementedException();
+            return _unitOfWork.Commit();
         }
 
         public void Update(WebMasterViewModel WebMasterViewModel)
         {
-            throw new NotImplementedException();
+            var temp = _webMasterRepository.FindById(WebMasterViewModel.KeyId);
+            if (temp != null)
+            {
+                temp.WebMasterTypeFK = WebMasterViewModel.WebMasterTypeFK;
+            }
         }
     }
 }

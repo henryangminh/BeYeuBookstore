@@ -1,4 +1,5 @@
-﻿using BeYeuBookstore.Application.Interfaces;
+﻿using AutoMapper;
+using BeYeuBookstore.Application.Interfaces;
 using BeYeuBookstore.Application.ViewModels;
 using BeYeuBookstore.Data.Entities;
 using BeYeuBookstore.Infrastructure.Interfaces;
@@ -20,22 +21,33 @@ namespace BeYeuBookstore.Application.Implementation
         }
         public DeliveryViewModel Add(DeliveryViewModel DeliveryViewModel)
         {
-            throw new NotImplementedException();
+            var delivery = Mapper.Map<DeliveryViewModel, Delivery>(DeliveryViewModel);
+            _deliveryRepository.Add(delivery);
+            _unitOfWork.Commit();
+            return DeliveryViewModel;
         }
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            _deliveryRepository.Remove(id);
         }
 
         public void Dispose()
         {
-            throw new NotImplementedException();
+            GC.SuppressFinalize(this);
         }
 
         public List<DeliveryViewModel> GetAll()
         {
-            throw new NotImplementedException();
+
+            var query = _deliveryRepository.FindAll();
+            var data = new List<DeliveryViewModel>();
+            foreach (var item in query)
+            {
+                var _data = Mapper.Map<Delivery, DeliveryViewModel>(item);
+                data.Add(_data);
+            }
+            return data;
         }
 
         public List<DeliveryViewModel> GetAll(int id)
@@ -50,17 +62,21 @@ namespace BeYeuBookstore.Application.Implementation
 
         public DeliveryViewModel GetById(int id)
         {
-            throw new NotImplementedException();
+            return Mapper.Map<Delivery, DeliveryViewModel>(_deliveryRepository.FindById(id));
         }
 
         public bool Save()
         {
-            throw new NotImplementedException();
+            return _unitOfWork.Commit();
         }
 
         public void Update(DeliveryViewModel DeliveryViewModel)
         {
-            throw new NotImplementedException();
+            var temp = _deliveryRepository.FindById(DeliveryViewModel.KeyId);
+            if (temp != null)
+            {
+                temp.DeliveryStatus = DeliveryViewModel.DeliveryStatus;
+            }
         }
     }
 }

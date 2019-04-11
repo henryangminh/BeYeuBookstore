@@ -1,4 +1,5 @@
-﻿using BeYeuBookstore.Application.Interfaces;
+﻿using AutoMapper;
+using BeYeuBookstore.Application.Interfaces;
 using BeYeuBookstore.Application.ViewModels;
 using BeYeuBookstore.Data.Entities;
 using BeYeuBookstore.Infrastructure.Interfaces;
@@ -22,22 +23,32 @@ namespace BeYeuBookstore.Application.Implementation
 
         public AdvertiserViewModel Add(AdvertiserViewModel AdvertiserViewModel)
         {
-            throw new NotImplementedException();
+            var advertiser = Mapper.Map<AdvertiserViewModel, Advertiser>(AdvertiserViewModel);
+            _advertiserRepository.Add(advertiser);
+            _unitOfWork.Commit();
+            return AdvertiserViewModel;
         }
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            _advertiserRepository.Remove(id);
         }
 
         public void Dispose()
         {
-            throw new NotImplementedException();
+            GC.SuppressFinalize(this);
         }
 
         public List<AdvertiserViewModel> GetAll()
         {
-            throw new NotImplementedException();
+            var query = _advertiserRepository.FindAll();
+            var data = new List<AdvertiserViewModel>();
+            foreach (var item in query)
+            {
+                var _data = Mapper.Map<Advertiser, AdvertiserViewModel>(item);
+                data.Add(_data);
+            }
+            return data;
         }
 
         public List<AdvertiserViewModel> GetAll(int id)
@@ -52,17 +63,23 @@ namespace BeYeuBookstore.Application.Implementation
 
         public AdvertiserViewModel GetById(int id)
         {
-            throw new NotImplementedException();
+            return Mapper.Map<Advertiser, AdvertiserViewModel>(_advertiserRepository.FindById(id));
         }
 
         public bool Save()
         {
-            throw new NotImplementedException();
+            return _unitOfWork.Commit();
         }
 
         public void Update(AdvertiserViewModel AdvertiserViewModel)
         {
-            throw new NotImplementedException();
+            var temp = _advertiserRepository.FindById(AdvertiserViewModel.KeyId);
+            if (temp != null)
+            {
+                temp.BrandName = AdvertiserViewModel.BrandName;
+                temp.Status = AdvertiserViewModel.Status;
+                temp.UrlToBrand = AdvertiserViewModel.UrlToBrand;
+            }
         }
     }
 }

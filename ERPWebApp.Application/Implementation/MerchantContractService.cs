@@ -1,4 +1,5 @@
-﻿using BeYeuBookstore.Application.Interfaces;
+﻿using AutoMapper;
+using BeYeuBookstore.Application.Interfaces;
 using BeYeuBookstore.Application.ViewModels;
 using BeYeuBookstore.Data.Entities;
 using BeYeuBookstore.Infrastructure.Interfaces;
@@ -20,22 +21,32 @@ namespace BeYeuBookstore.Application.Implementation
         }
         public MerchantContractViewModel Add(MerchantContractViewModel MerchantContractViewModel)
         {
-            throw new NotImplementedException();
+            var merchantContract = Mapper.Map<MerchantContractViewModel, MerchantContract>(MerchantContractViewModel);
+            _merchantContractRepository.Add(merchantContract);
+            _unitOfWork.Commit();
+            return MerchantContractViewModel;
         }
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            _merchantContractRepository.Remove(id);
         }
 
         public void Dispose()
         {
-            throw new NotImplementedException();
+            GC.SuppressFinalize(this);
         }
 
         public List<MerchantContractViewModel> GetAll()
         {
-            throw new NotImplementedException();
+            var query = _merchantContractRepository.FindAll();
+            var data = new List<MerchantContractViewModel>();
+            foreach (var item in query)
+            {
+                var _data = Mapper.Map<MerchantContract, MerchantContractViewModel>(item);
+                data.Add(_data);
+            }
+            return data;
         }
 
         public List<MerchantContractViewModel> GetAll(int id)
@@ -50,17 +61,23 @@ namespace BeYeuBookstore.Application.Implementation
 
         public MerchantContractViewModel GetById(int id)
         {
-            throw new NotImplementedException();
+            return Mapper.Map<MerchantContract, MerchantContractViewModel>(_merchantContractRepository.FindById(id));
         }
+    
 
         public bool Save()
         {
-            throw new NotImplementedException();
+            return _unitOfWork.Commit();
         }
 
-        public void Update(MerchantContractViewModel MerchantContractViewModel)
+    public void Update(MerchantContractViewModel MerchantContractViewModel)
         {
-            throw new NotImplementedException();
+            var temp = _merchantContractRepository.FindById(MerchantContractViewModel.KeyId);
+            if (temp != null)
+            {
+                temp.MerchantFK = MerchantContractViewModel.MerchantFK;
+                temp.ContractLink = MerchantContractViewModel.ContractLink;
+            }
         }
     }
 }

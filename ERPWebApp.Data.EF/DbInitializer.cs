@@ -103,6 +103,12 @@ namespace BeYeuBookstore.Data.EF
                 });
                 await _roleManager.CreateAsync(new Role()
                 {
+                    Name = "test",
+                    NormalizedName = "nhóm test ",
+                    Description = "full chức năng tiện cho qua trình test. sẽ bị xóa trước khi chạy thực tế."
+                });
+                await _roleManager.CreateAsync(new Role()
+                {
                     Name = "WebMaster_AdvertiserCensor",
                     NormalizedName = "Kiểm duyệt Advertiser_WebMaster",
                     Description = "Thằng kiểm duyệt quảng cáo trong WM"
@@ -164,7 +170,7 @@ namespace BeYeuBookstore.Data.EF
                 if (result.Succeeded)
                 {
                     var user = await _userManager.FindByNameAsync("hippore114@gmail.com"); // tim user admin
-                    _userManager.AddToRoleAsync(user, "WebMaster").Wait(); // add admin vao role admin
+                    _userManager.AddToRoleAsync(user, "test").Wait(); // add vao role test :">
                     _context.WebMasters.Add(new WebMaster() { WebMasterTypeFK = Const_WebmasterType.Webmaster, UserFK = user.Id });
                 }
 
@@ -182,7 +188,7 @@ namespace BeYeuBookstore.Data.EF
                 if (result.Succeeded)
                 {
                     var user = await _userManager.FindByNameAsync("hippore115@gmail.com"); // tim user 
-                    _userManager.AddToRoleAsync(user, "WebMaster_Accountant").Wait(); // add vao role accountant
+                    await _userManager.AddToRoleAsync(user, "WebMaster_Accountant"); // add vao role accountant
                     _context.WebMasters.Add(new WebMaster() { WebMasterTypeFK = Const_WebmasterType.Accountant, UserFK = user.Id });
                 }
 
@@ -200,7 +206,7 @@ namespace BeYeuBookstore.Data.EF
                 if (result.Succeeded)
                 {
                     var user = await _userManager.FindByNameAsync("hippore116@gmail.com"); // tim user 
-                    _userManager.AddToRoleAsync(user, "WebMaster_AdvertiserCensor").Wait(); // add vao role 
+                    await _userManager.AddToRoleAsync(user, "WebMaster_AdvertiserCensor"); // add vao role 
                     _context.WebMasters.Add(new WebMaster() { WebMasterTypeFK = Const_WebmasterType.AdCensor, UserFK = user.Id });
                 }
 
@@ -218,7 +224,7 @@ namespace BeYeuBookstore.Data.EF
                 if (result.Succeeded)
                 {
                     var user = await _userManager.FindByNameAsync("hippore117@gmail.com"); // tim user 
-                    _userManager.AddToRoleAsync(user, "WebMaster_Admin").Wait(); // add vao role 
+                    await _userManager.AddToRoleAsync(user, "WebMaster_Admin"); // add vao role 
                     _context.WebMasters.Add(new WebMaster() { WebMasterTypeFK = Const_WebmasterType.Admin, UserFK = user.Id });
                 }
 
@@ -236,7 +242,7 @@ namespace BeYeuBookstore.Data.EF
                 if (result.Succeeded)
                 {
                     var user = await _userManager.FindByNameAsync("hippore118@gmail.com"); // tim user 
-                    _userManager.AddToRoleAsync(user, "WebMaster_MerchantCensor").Wait(); // add vao role 
+                    await _userManager.AddToRoleAsync(user, "WebMaster_MerchantCensor"); // add vao role 
                     _context.WebMasters.Add(new WebMaster() { WebMasterTypeFK = Const_WebmasterType.MerchantCensor, UserFK = user.Id });
                 }
 
@@ -255,7 +261,7 @@ namespace BeYeuBookstore.Data.EF
                 if (result.Succeeded)
                 {
                     var user = await _userManager.FindByNameAsync("hippore119@gmail.com"); // tim user 
-                    _userManager.AddToRoleAsync(user, "Customer").Wait(); // add vao role 
+                    await _userManager.AddToRoleAsync(user, "Customer"); // add vao role 
                     _context.Customers.Add(new Customer() {  UserFK = user.Id });
                 }
 
@@ -273,7 +279,7 @@ namespace BeYeuBookstore.Data.EF
                 if (result.Succeeded)
                 {
                     var user = await _userManager.FindByNameAsync("hippore120@gmail.com"); // tim user 
-                    _userManager.AddToRoleAsync(user, "Merchant").Wait(); // add vao role 
+                    await _userManager.AddToRoleAsync(user, "Merchant"); // add vao role 
                     _context.Merchants.Add(new Merchant(){ UserFK = user.Id });
                 }
 
@@ -291,7 +297,7 @@ namespace BeYeuBookstore.Data.EF
                 if (result.Succeeded)
                 {
                     var user = await _userManager.FindByNameAsync("hippore121@gmail.com"); // tim user 
-                    _userManager.AddToRoleAsync(user, "Advertiser").Wait(); // add vao role 
+                    await _userManager.AddToRoleAsync(user, "Advertiser"); // add vao role 
                     _context.Advertisers.Add(new Advertiser() { UserFK = user.Id });
                 }
                 #endregion

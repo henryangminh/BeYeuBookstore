@@ -1,4 +1,5 @@
-﻿using BeYeuBookstore.Application.Interfaces;
+﻿using AutoMapper;
+using BeYeuBookstore.Application.Interfaces;
 using BeYeuBookstore.Application.ViewModels;
 using BeYeuBookstore.Data.Entities;
 using BeYeuBookstore.Infrastructure.Interfaces;
@@ -20,22 +21,32 @@ namespace BeYeuBookstore.Application.Implementation
         }
         public InvoiceDetailViewModel Add(InvoiceDetailViewModel InvoiceDetailViewModel)
         {
-            throw new NotImplementedException();
+            var invoiceDetail = Mapper.Map<InvoiceDetailViewModel, InvoiceDetail>(InvoiceDetailViewModel);
+            _invoiceDetailRepository.Add(invoiceDetail);
+            _unitOfWork.Commit();
+            return InvoiceDetailViewModel;
         }
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            _invoiceDetailRepository.Remove(id);
         }
 
         public void Dispose()
         {
-            throw new NotImplementedException();
+            GC.SuppressFinalize(this);
         }
 
         public List<InvoiceDetailViewModel> GetAll()
         {
-            throw new NotImplementedException();
+            var query = _invoiceDetailRepository.FindAll();
+            var data = new List<InvoiceDetailViewModel>();
+            foreach (var item in query)
+            {
+                var _data = Mapper.Map<InvoiceDetail, InvoiceDetailViewModel>(item);
+                data.Add(_data);
+            }
+            return data;
         }
 
         public List<InvoiceDetailViewModel> GetAll(int id)
@@ -50,17 +61,23 @@ namespace BeYeuBookstore.Application.Implementation
 
         public InvoiceDetailViewModel GetById(int id)
         {
-            throw new NotImplementedException();
+            return Mapper.Map<InvoiceDetail, InvoiceDetailViewModel>(_invoiceDetailRepository.FindById(id));
         }
 
         public bool Save()
         {
-            throw new NotImplementedException();
+            return _unitOfWork.Commit();
         }
 
         public void Update(InvoiceDetailViewModel InvoiceDetailViewModel)
         {
-            throw new NotImplementedException();
+            var temp = _invoiceDetailRepository.FindById(InvoiceDetailViewModel.KeyId);
+            if (temp != null)
+            {
+                temp.BookFK = InvoiceDetailViewModel.BookFK;
+                temp.SubTotal = InvoiceDetailViewModel.SubTotal;
+                temp.InvoiceFK = InvoiceDetailViewModel.InvoiceFK;
+            }
         }
     }
 }

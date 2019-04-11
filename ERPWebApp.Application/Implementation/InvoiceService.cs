@@ -1,4 +1,5 @@
-﻿using BeYeuBookstore.Application.Interfaces;
+﻿using AutoMapper;
+using BeYeuBookstore.Application.Interfaces;
 using BeYeuBookstore.Application.ViewModels;
 using BeYeuBookstore.Data.Entities;
 using BeYeuBookstore.Infrastructure.Interfaces;
@@ -20,22 +21,32 @@ namespace BeYeuBookstore.Application.Implementation
         }
         public InvoiceViewModel Add(InvoiceViewModel InvoiceViewModel)
         {
-            throw new NotImplementedException();
+            var invoice = Mapper.Map<InvoiceViewModel, Invoice>(InvoiceViewModel);
+            _invoiceRepository.Add(invoice);
+            _unitOfWork.Commit();
+            return InvoiceViewModel;
         }
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            _invoiceRepository.Remove(id);
         }
 
         public void Dispose()
         {
-            throw new NotImplementedException();
+            GC.SuppressFinalize(this);
         }
 
         public List<InvoiceViewModel> GetAll()
         {
-            throw new NotImplementedException();
+            var query = _invoiceRepository.FindAll();
+            var data = new List<InvoiceViewModel>();
+            foreach (var item in query)
+            {
+                var _data = Mapper.Map<Invoice, InvoiceViewModel>(item);
+                data.Add(_data);
+            }
+            return data;
         }
 
         public List<InvoiceViewModel> GetAll(int id)
@@ -50,17 +61,21 @@ namespace BeYeuBookstore.Application.Implementation
 
         public InvoiceViewModel GetById(int id)
         {
-            throw new NotImplementedException();
+            return Mapper.Map<Invoice, InvoiceViewModel>(_invoiceRepository.FindById(id));
         }
 
         public bool Save()
         {
-            throw new NotImplementedException();
+            return _unitOfWork.Commit();
         }
 
         public void Update(InvoiceViewModel InvoiceViewModel)
         {
-            throw new NotImplementedException();
+            var temp = _invoiceRepository.FindById(InvoiceViewModel.KeyId);
+            if (temp != null)
+            {
+                temp.TotalPrice = InvoiceViewModel.TotalPrice;
+            }
         }
     }
 }

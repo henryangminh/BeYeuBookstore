@@ -1,4 +1,5 @@
-﻿using BeYeuBookstore.Application.Interfaces;
+﻿using AutoMapper;
+using BeYeuBookstore.Application.Interfaces;
 using BeYeuBookstore.Application.ViewModels;
 using BeYeuBookstore.Data.Entities;
 using BeYeuBookstore.Infrastructure.Interfaces;
@@ -21,22 +22,32 @@ namespace BeYeuBookstore.Application.Implementation
         }
         public AdvertisementContentViewModel Add(AdvertisementContentViewModel AdvertisementContentViewModel)
         {
-            throw new NotImplementedException();
+            var advertisementContent = Mapper.Map<AdvertisementContentViewModel, AdvertisementContent>(AdvertisementContentViewModel);
+            _advertisementContentRepository.Add(advertisementContent);
+            _unitOfWork.Commit();
+            return AdvertisementContentViewModel;
         }
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            _advertisementContentRepository.Remove(id);
         }
 
         public void Dispose()
         {
-            throw new NotImplementedException();
+            GC.SuppressFinalize(this);
         }
 
         public List<AdvertisementContentViewModel> GetAll()
         {
-            throw new NotImplementedException();
+            var query = _advertisementContentRepository.FindAll();
+            var data = new List<AdvertisementContentViewModel>();
+            foreach (var item in query)
+            {
+                var _data = Mapper.Map<AdvertisementContent, AdvertisementContentViewModel>(item);
+                data.Add(_data);
+            }
+            return data;
         }
 
         public List<AdvertisementContentViewModel> GetAll(int id)
@@ -51,17 +62,28 @@ namespace BeYeuBookstore.Application.Implementation
 
         public AdvertisementContentViewModel GetById(int id)
         {
-            throw new NotImplementedException();
+            return Mapper.Map<AdvertisementContent, AdvertisementContentViewModel>(_advertisementContentRepository.FindById(id));
         }
 
         public bool Save()
         {
-            throw new NotImplementedException();
+            return _unitOfWork.Commit();
         }
 
         public void Update(AdvertisementContentViewModel AdvertisementContentViewModel)
         {
-            throw new NotImplementedException();
+            var temp = _advertisementContentRepository.FindById(AdvertisementContentViewModel.KeyId);
+            if (temp != null)
+            {
+
+                temp.UrlToAdvertisement = AdvertisementContentViewModel.UrlToAdvertisement;
+                temp.Title = AdvertisementContentViewModel.Title;
+                temp.ImageLink = AdvertisementContentViewModel.ImageLink;
+                temp.PaidDeposite = AdvertisementContentViewModel.PaidDeposite;
+                temp.Description = AdvertisementContentViewModel.Description;
+                temp.Deposite = AdvertisementContentViewModel.Deposite;
+                temp.CensorStatus = AdvertisementContentViewModel.CensorStatus;
+            }
         }
     }
 }

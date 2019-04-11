@@ -1,4 +1,5 @@
-﻿using BeYeuBookstore.Application.Interfaces;
+﻿using AutoMapper;
+using BeYeuBookstore.Application.Interfaces;
 using BeYeuBookstore.Application.ViewModels;
 using BeYeuBookstore.Data.Entities;
 using BeYeuBookstore.Infrastructure.Interfaces;
@@ -20,17 +21,20 @@ namespace BeYeuBookstore.Application.Implementation
         }
         public WebMasterTypeViewModel Add(WebMasterTypeViewModel WebMasterTypeViewModel)
         {
-            throw new NotImplementedException();
+            var webMasterType = Mapper.Map<WebMasterTypeViewModel, WebMasterType>(WebMasterTypeViewModel);
+            _webMasterTypeRepository.Add(webMasterType);
+            _unitOfWork.Commit();
+            return WebMasterTypeViewModel;
         }
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            _webMasterTypeRepository.Remove(id);
         }
 
         public void Dispose()
         {
-            throw new NotImplementedException();
+            GC.SuppressFinalize(this);
         }
 
         public List<WebMasterTypeViewModel> GetAll()
@@ -40,7 +44,14 @@ namespace BeYeuBookstore.Application.Implementation
 
         public List<WebMasterTypeViewModel> GetAll(int id)
         {
-            throw new NotImplementedException();
+            var query = _webMasterTypeRepository.FindAll();
+            var data = new List<WebMasterTypeViewModel>();
+            foreach (var item in query)
+            {
+                var _data = Mapper.Map<WebMasterType, WebMasterTypeViewModel>(item);
+                data.Add(_data);
+            }
+            return data;
         }
 
         public PagedResult<WebMasterTypeViewModel> GetAllPaging(string keyword, int page, int pageSize)
@@ -50,17 +61,21 @@ namespace BeYeuBookstore.Application.Implementation
 
         public WebMasterTypeViewModel GetById(int id)
         {
-            throw new NotImplementedException();
+            return Mapper.Map<WebMasterType, WebMasterTypeViewModel>(_webMasterTypeRepository.FindById(id));
         }
 
         public bool Save()
         {
-            throw new NotImplementedException();
+            return _unitOfWork.Commit();
         }
 
         public void Update(WebMasterTypeViewModel WebMasterTypeViewModel)
         {
-            throw new NotImplementedException();
+            var temp = _webMasterTypeRepository.FindById(WebMasterTypeViewModel.KeyId);
+            if (temp != null)
+            {
+                temp.WebMasterTypeName = WebMasterTypeViewModel.WebMasterTypeName;
+            }
         }
     }
 }

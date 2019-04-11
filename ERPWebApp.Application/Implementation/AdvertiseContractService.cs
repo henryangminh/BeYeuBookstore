@@ -1,4 +1,5 @@
-﻿using BeYeuBookstore.Application.Interfaces;
+﻿using AutoMapper;
+using BeYeuBookstore.Application.Interfaces;
 using BeYeuBookstore.Application.ViewModels;
 using BeYeuBookstore.Data.Entities;
 using BeYeuBookstore.Infrastructure.Interfaces;
@@ -21,22 +22,32 @@ namespace BeYeuBookstore.Application.Implementation
         }
         public AdvertiseContractViewModel Add(AdvertiseContractViewModel advertiseContractViewModel)
         {
-            throw new NotImplementedException();
+            var AdvertiseContract = Mapper.Map<AdvertiseContractViewModel, AdvertiseContract>(advertiseContractViewModel);
+            _advertiseContractRepository.Add(AdvertiseContract);
+            _unitOfWork.Commit();
+            return advertiseContractViewModel;
         }
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            _advertiseContractRepository.Remove(id);
         }
 
         public void Dispose()
         {
-            throw new NotImplementedException();
+            GC.SuppressFinalize(this);
         }
 
         public List<AdvertiseContractViewModel> GetAll()
         {
-            throw new NotImplementedException();
+            var query = _advertiseContractRepository.FindAll();
+            var data = new List<AdvertiseContractViewModel>();
+            foreach (var item in query)
+            {
+                var _data = Mapper.Map<AdvertiseContract, AdvertiseContractViewModel>(item);
+                data.Add(_data);
+            }
+            return data;
         }
 
         public List<AdvertiseContractViewModel> GetAll(int id)
@@ -51,17 +62,25 @@ namespace BeYeuBookstore.Application.Implementation
 
         public AdvertiseContractViewModel GetById(int id)
         {
-            throw new NotImplementedException();
+            return Mapper.Map<AdvertiseContract, AdvertiseContractViewModel>(_advertiseContractRepository.FindById(id));
         }
 
         public bool Save()
         {
-            throw new NotImplementedException();
+            return _unitOfWork.Commit();
         }
 
         public void Update(AdvertiseContractViewModel advertiseContractViewModel)
         {
-            throw new NotImplementedException();
+            var temp = _advertiseContractRepository.FindById(advertiseContractViewModel.KeyId);
+            if (temp != null)
+            {
+                temp.ContractValue = advertiseContractViewModel.ContractValue;
+                temp.DateStart = advertiseContractViewModel.DateStart;
+                temp.DateFinish = advertiseContractViewModel.DateFinish;
+                temp.Paid = advertiseContractViewModel.Paid;
+                temp.Status = advertiseContractViewModel.Status;
+            }
         }
     }
 }

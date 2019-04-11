@@ -1,4 +1,5 @@
-﻿using BeYeuBookstore.Application.Interfaces;
+﻿using AutoMapper;
+using BeYeuBookstore.Application.Interfaces;
 using BeYeuBookstore.Application.ViewModels;
 using BeYeuBookstore.Data.Entities;
 using BeYeuBookstore.Infrastructure.Interfaces;
@@ -21,22 +22,32 @@ namespace BeYeuBookstore.Application.Implementation
         }
         public BookCategoryViewModel Add(BookCategoryViewModel BookCategoryViewModel)
         {
-            throw new NotImplementedException();
+            var bookCategory = Mapper.Map<BookCategoryViewModel, BookCategory>(BookCategoryViewModel);
+            _bookCategoryRepository.Add(bookCategory);
+            _unitOfWork.Commit();
+            return BookCategoryViewModel;
         }
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            _bookCategoryRepository.Remove(id);
         }
 
         public void Dispose()
         {
-            throw new NotImplementedException();
+            GC.SuppressFinalize(this);
         }
 
         public List<BookCategoryViewModel> GetAll()
         {
-            throw new NotImplementedException();
+            var query = _bookCategoryRepository.FindAll();
+            var data = new List<BookCategoryViewModel>();
+            foreach (var item in query)
+            {
+                var _data = Mapper.Map<BookCategory, BookCategoryViewModel>(item);
+                data.Add(_data);
+            }
+            return data;
         }
 
         public List<BookCategoryViewModel> GetAll(int id)
@@ -51,17 +62,21 @@ namespace BeYeuBookstore.Application.Implementation
 
         public BookCategoryViewModel GetById(int id)
         {
-            throw new NotImplementedException();
+            return Mapper.Map<BookCategory, BookCategoryViewModel>(_bookCategoryRepository.FindById(id));
         }
 
         public bool Save()
         {
-            throw new NotImplementedException();
+            return _unitOfWork.Commit();
         }
 
         public void Update(BookCategoryViewModel BookCategoryViewModel)
         {
-            throw new NotImplementedException();
+            var temp = _bookCategoryRepository.FindById(BookCategoryViewModel.KeyId);
+            if (temp != null)
+            {
+                temp.BookCategoryName = BookCategoryViewModel.BookCategoryName;
+            }
         }
     }
 }
