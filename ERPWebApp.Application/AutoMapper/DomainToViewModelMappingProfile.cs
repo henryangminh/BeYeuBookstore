@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using BeYeuBookstore.Application.ViewModels;
 using BeYeuBookstore.Application.ViewModels.Acc;
 
 using BeYeuBookstore.Application.ViewModels.System;
@@ -19,7 +20,22 @@ namespace BeYeuBookstore.Application.AutoMapper
            
             CreateMap<Function, FunctionViewModel>();
             CreateMap<Permission, PermissionViewModel>();
-           
+
+            CreateMap<Book, BookViewModel>();
+            CreateMap<BookCategory, BookCategoryViewModel>();
+            CreateMap<AdvertiseContract, AdvertiseContractViewModel>();
+            CreateMap<AdvertisementContent, AdvertisementContentViewModel>();
+            CreateMap<AdvertisementPosition, AdvertisementPositionViewModel>();
+            CreateMap<Advertiser, AdvertiserViewModel>();
+            CreateMap<Customer, CustomerViewModel>();
+            CreateMap<Merchant, MerchantViewModel>();
+            CreateMap<MerchantContract, MerchantContractViewModel>();
+            CreateMap<WebMaster, WebMasterViewModel>();
+            CreateMap<WebMasterType, WebMasterTypeViewModel>();
+            CreateMap<Invoice, InvoiceViewModel>();
+            CreateMap<InvoiceDetail, InvoiceDetailViewModel>();
+            CreateMap<Delivery, DeliveryViewModel>();
+
 
         }
     }

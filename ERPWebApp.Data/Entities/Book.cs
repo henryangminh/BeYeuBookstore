@@ -10,7 +10,7 @@ namespace BeYeuBookstore.Data.Entities
     {
         public Book() { }
 
-        public Book(int keyId, string bookTitle, string author, int bookCategoryFK, int merchantFK, bool isPaperback, decimal unitPrice, int length, int? height, int width, int pageNumber, string description, int quantity, DateTime? dateCreated, DateTime? dateModified)
+        public Book(int keyId, string bookTitle, string author, int bookCategoryFK, int merchantFK, bool isPaperback, decimal unitPrice, int? length, int? height, int? width, int pageNumber, string description, int quantity, DateTime? dateCreated, DateTime? dateModified)
         {
             KeyId = keyId;
             BookTitle = bookTitle;
