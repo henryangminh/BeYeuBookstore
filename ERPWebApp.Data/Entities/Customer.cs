@@ -10,6 +10,7 @@ namespace BeYeuBookstore.Data.Entities
 {
     public class Customer:DomainEntity<int>,IDateTracking
     {
+        public Customer() { }
         public Customer(int keyId, Guid userFK, DateTime? dob, Gender gender, DateTime? dateCreated, DateTime? dateModified)
         {
             KeyId = keyId;

@@ -152,6 +152,27 @@ namespace BeYeuBookstore.Data.EF
                 string a = ex.ToString();
             };
 
+            if (_context.WebMasterTypes.Count() == 0)
+            {
+                _context.WebMasterTypes.AddRange(new List<WebMasterType>()
+                {
+                    new WebMasterType(){WebMasterTypeName="WebMaster"},
+                    new WebMasterType(){WebMasterTypeName="Accountant"},
+                    new WebMasterType(){WebMasterTypeName="Adcensor"},
+                    new WebMasterType(){WebMasterTypeName="Merchantcensor"},
+                    new WebMasterType(){WebMasterTypeName="Admin"},
+
+                });
+
+            }
+            try
+            {
+                _context.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                string a = ex.ToString();
+            };
             #region AddUser
             //tao user Webmaster full quyền (pass word phai lon hon 6 ktu
             if (_userManager.Users.Count() == 0)
@@ -171,9 +192,8 @@ namespace BeYeuBookstore.Data.EF
                 {
                     var user = await _userManager.FindByNameAsync("hippore114@gmail.com"); // tim user admin
                     _userManager.AddToRoleAsync(user, "test").Wait(); // add vao role test :">
-                    _context.WebMasters.Add(new WebMaster() { WebMasterTypeFK = Const_WebmasterType.Webmaster, UserFK = user.Id });
+                    _context.WebMasters.Add(new WebMaster(){ UserFK = user.Id, WebMasterTypeFK = Const_WebmasterType.Webmaster });
                 }
-
                 //tạo user kế toán bên webmaster
                 result = _userManager.CreateAsync(new User()
                 {
@@ -189,7 +209,7 @@ namespace BeYeuBookstore.Data.EF
                 {
                     var user = await _userManager.FindByNameAsync("hippore115@gmail.com"); // tim user 
                     await _userManager.AddToRoleAsync(user, "WebMaster_Accountant"); // add vao role accountant
-                    _context.WebMasters.Add(new WebMaster() { WebMasterTypeFK = Const_WebmasterType.Accountant, UserFK = user.Id });
+                    _context.WebMasters.Add(new WebMaster(){ UserFK = user.Id, WebMasterTypeFK = Const_WebmasterType.Accountant });
                 }
 
                 //tạo user kiểm duyệt quảng cáo
@@ -255,7 +275,7 @@ namespace BeYeuBookstore.Data.EF
                     Email = "hippore119@gmail.com",
                     DateCreated = DateTime.Now,
                     DateModified = DateTime.Now,
-                    UserTypeFK = Const_UserType.Customer, //Webmaster
+                    UserTypeFK = Const_UserType.Customer,
                     Status = Status.Active
                 }, CommonConstants.DefaultPW).Result;
                 if (result.Succeeded)
@@ -268,19 +288,77 @@ namespace BeYeuBookstore.Data.EF
                 //tạo user merchant
                 result = _userManager.CreateAsync(new User()
                 {
-                    UserName = "hippore120@gmail.com",
-                    FullName = "Bé Yêu Merchant",
-                    Email = "hippore120@gmail.com",
+                    UserName = "khang_merchant@gmail.com",
+                    FullName = "Khang Merchant",
+                    Email = "khang_merchant@gmail.com",
                     DateCreated = DateTime.Now,
                     DateModified = DateTime.Now,
-                    UserTypeFK = Const_UserType.Customer, //Webmaster
+                    UserTypeFK = Const_UserType.Customer, 
                     Status = Status.Active
                 }, CommonConstants.DefaultPW).Result;
                 if (result.Succeeded)
                 {
-                    var user = await _userManager.FindByNameAsync("hippore120@gmail.com"); // tim user 
+                    var user = await _userManager.FindByNameAsync("khang_merchant@gmail.com"); // tim user 
                     await _userManager.AddToRoleAsync(user, "Merchant"); // add vao role 
-                    _context.Merchants.Add(new Merchant(){ UserFK = user.Id });
+                    _context.Merchants.Add(new Merchant()
+                    {
+                        UserFK = user.Id,
+                        DirectContactName = "Đào Bảo Khang",
+                        Hotline = "19001112",
+                        MerchantName = "Khang",
+                        MerchantCompanyName = "Khang Book",
+                        Address = "01 Nguyễn Khang Dương, P.5, Q.5",
+                        ContactAddress = "01 Nguyễn Khang Dương, P.5, Q.5",
+                        BussinessRegisterId = "45342",
+                        TaxId = "1",
+                        Website = "khang.sgu.edu.vn",
+                        LegalRepresentative = "Đào Bảo Khang",
+                        MerchantBankingName = "Đào Bảo Khang",
+                        AccountNumber = "123123123",
+                        Bank = "ACB",
+                        BankBranch = "An Đông",
+                        Status = 0,
+                        Scales = 0,
+                        EstablishDate = DateTime.Parse("2018-05-03")
+                    });
+                }
+
+                //tạo user merchant
+                result = _userManager.CreateAsync(new User()
+                {
+                    UserName = "tram_merchant@gmail.com",
+                    FullName = "Trâm Merchant",
+                    Email = "tram_merchant@gmail.com",
+                    DateCreated = DateTime.Now,
+                    DateModified = DateTime.Now,
+                    UserTypeFK = Const_UserType.Customer,
+                    Status = Status.Active
+                }, CommonConstants.DefaultPW).Result;
+                if (result.Succeeded)
+                {
+                    var user = await _userManager.FindByNameAsync("tram_merchant@gmail.com"); // tim user 
+                    await _userManager.AddToRoleAsync(user, "Merchant"); // add vao role 
+                    _context.Merchants.Add(new Merchant()
+                    {
+                        UserFK = user.Id,
+                        DirectContactName = "Hà Thị Bích Trâm",
+                        Hotline = "12234332",
+                        MerchantName = "Trâm",
+                        MerchantCompanyName = "Trâm Store",
+                        Address = "3 Trần Quang Diệu, P.4, Q.3",
+                        ContactAddress = "3 Trần Quang Diệu, P.4, Q.3",
+                        BussinessRegisterId = "896895",
+                        TaxId = "2",
+                        Website = "tram.vn",
+                        LegalRepresentative = "Hà Thị Bích Trâm",
+                        MerchantBankingName = "Hà Thị Bích Trâm",
+                        AccountNumber = "456432456",
+                        Bank = "Agribank",
+                        BankBranch = "An Lộc",
+                        Status = 0,
+                        Scales = (Scale)1,
+                        EstablishDate = DateTime.Parse("2016-04-01")
+                    });
                 }
 
                 //tạo user advertiser
@@ -302,6 +380,33 @@ namespace BeYeuBookstore.Data.EF
                 }
                 #endregion
 
+                if (_context.Books.Count() == 0)
+                {
+                    _context.Books.AddRange(new List<Book>()
+                {
+                    new Book(){BookTitle="Đắc Nhân Tâm",Author="Dale Carnegie",BookCategoryFK=4,MerchantFK=1,isPaperback=false,UnitPrice=45000, Length=21, Height=200, Width=12,PageNumber=320,Description="Đắc Nhân Tâm nằm trong top bán chạy nhất thế giới",Quantity=50},
+                    new Book(){BookTitle="Đời ngắn đừng ngủ dài",Author="Robins Sharma",BookCategoryFK=4,MerchantFK=2,isPaperback=true,UnitPrice=46000, Length=21, Height=150, Width=13,PageNumber=239,Description="Bằng những lời chia sẻ thật ngắn gọn, dễ hiểu về những trải nghiệm và suy ngẫm trong đời, Robin Sharma tiếp tục phong cách viết của ông từ cuốn sách Điều vĩ đại đời thường để mang đến cho độc giả những bài viết như lời tâm sự, vừa chân thành vừa sâu sắc.",Quantity=50},
+                    new Book(){BookTitle="Nếu tôi biết khi còn 20",Author="Tina Seelig",BookCategoryFK=4,MerchantFK=1,isPaperback=true,UnitPrice=44000, Length=21, Height=270, Width=14,PageNumber=252,Description="Thông qua quyển sách, tác giả còn muốn các độc giả, đặc biệt là độc giả trẻ, sẽ được  bị đủ sự tự tin để biến căng thẳng thành sự hào hứng, biến thử thách thành các cơ hội, và cứ sau mỗi lần vấp ngã lại đứng lên trưởng thành hơn.",Quantity=50},
+                    new Book(){BookTitle="Café sáng cùng Tony",Author="Tony",BookCategoryFK=4,MerchantFK=1,isPaperback=false,UnitPrice=55000, Length=21, Height=340, Width=15,PageNumber=323,Description="Chúng tôi tin rằng những người trẻ tuổi luôn mang trong mình khát khao vươn lên và tấm lòng hướng thiện, và có nhiều cách để động viên họ biến điều đó thành hành động. Nếu như tập sách nhỏ này có thể khơi gợi trong lòng bạn đọc trẻ một cảm hứng tốt đẹp, như tách cà phê thơm vào đầu ngày nắng mới, thì đó là niềm vui lớn của tác giả Tony Buổi Sáng.",Quantity=46},
+                    new Book(){BookTitle="Tuổi trẻ đáng giá bao nhiêu ?",Author="Chi",BookCategoryFK=4,MerchantFK=2,isPaperback=true,UnitPrice=65000, Length=21, Height=155, Width=16,PageNumber=234,Description="Hãy đọc sách, nếu bạn đọc sách một cách bền bỉ, sẽ đến lúc bạn bị thôi thúc không ngừng bởi ý muốn viết nên cuốn sách của riêng mình. Nếu tôi còn ở tuổi đôi mươi, hẳn là tôi sẽ đọc Tuổi trẻ đáng giá bao nhiêu? nhiều hơn một lần.",Quantity=45},
+                    new Book(){BookTitle="Tokyo Hoàng Đạo Án",Author="Soji Shimada",BookCategoryFK=1,MerchantFK=1,isPaperback=false,UnitPrice=45000, Length=21, Height=157, Width=17,PageNumber=332,Description="Tiểu thuyết trinh thám kinh dị",Quantity=47},
+                    new Book(){BookTitle="Athoner",Author="Yukito Ayatsuji",BookCategoryFK=1,MerchantFK=2,isPaperback=true,UnitPrice=40000, Length=21, Height=247, Width=18,PageNumber=231,Description="Hai mươi sáu năm về trước có một học sinh hoàn thiện hoàn mĩ. Rất đẹp, rất giỏi, rất hòa đồng, ai cũng yêu quý, những lời tán tụng người ấy được truyền mãi qua các thế hệ học sinh của trường. Nhưng tên đầy đủ là gì, chết đi thế nào, thậm chí giới tính ra sao lại không một ai hay biết. Người ta chỉ rỉ tai nhau, bỗng nhiên giữa năm bạn ấy chết, trường lớp không sao thoát được nỗi buồn nhớ thương, họ bèn cư xử như thể học sinh này còn tồn tại. Bàn ghế để nguyên, bạn cùng lớp vẫn giả vờ nói chuyện với người đã khuất.",Quantity=34},
+                    new Book(){BookTitle="Kỹ Thuật Làm Bánh Ngọt - Cuốn Sách Cho Người Bắt Đầu Học Làm Bánh",Author="Thảo",BookCategoryFK=2,MerchantFK=1,isPaperback=true,UnitPrice=20000, Length=32, Height=450, Width=19,PageNumber=332,Description="Cuốn Sách Cho Người Bắt Đầu Học Làm Bánh là những kiến thức cơ bản nhất mà một người bắt đầu làm quen với bột, lò nướng cần có: Gồm các kiến thức chung về nguyên liệu, dụng cụ làm bánh, các kỹ năng làm bánh cơ bản. Cuốn sách còn cung cấp các công thức làm bánh Cookies. Muffin, Cream Cake, Tart đơn giản, dễ làm nhưng cũng rất hấp dẫn, ngon miệng.",Quantity=43},
+                    new Book(){BookTitle="150 Thuật Ngữ Văn Học",Author="Lại Nguyên Ân",BookCategoryFK=2,MerchantFK=2,isPaperback=false,UnitPrice=10000, Length=7, Height=643, Width=20,PageNumber=588,Description="150 Thuật Ngữ Văn Học - Với khoảng trên 150 mục từ THUẬT NGỮ VĂN HỌC, cuốnsách nhỏ này chưa thể bao quát toàn bộ các bình diện, cấp độ, sắc thái của một loại hiện tượng văn hoá nhân bản đặc sắc và vô cùng phong phú là văn học và các chuyên ngành nghiên cứu nó…",Quantity=42},
+                    new Book(){BookTitle="Truyện ngụ ngôn Êdốp",Author="êdop",BookCategoryFK=3,MerchantFK=1,isPaperback=true,UnitPrice=36000, Length=13, Height=342, Width=21,PageNumber=46,Description="Truyện tranh thiếu nhi",Quantity=46},
+                    new Book(){BookTitle="Alixơ ở xứ sở diệu kỳ",Author="Hàn Thuyên",BookCategoryFK=3,MerchantFK=2,isPaperback=false,UnitPrice=120000, Length=21, Height=222, Width=22,PageNumber=132,Description="Truyện tranh thiếu nhi",Quantity=46},
+
+                    });
+
+                }
+                try
+                {
+                    _context.SaveChanges();
+                }
+                catch (Exception ex)
+                {
+                    string a = ex.ToString();
+                };
             }
         }
     }

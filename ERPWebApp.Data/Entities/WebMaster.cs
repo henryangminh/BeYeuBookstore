@@ -8,7 +8,10 @@ namespace BeYeuBookstore.Data.Entities
 {
     public class WebMaster: DomainEntity<int>, IDateTracking
     {
-        public WebMaster() { }
+        public WebMaster()
+        {
+
+        }
 
         public WebMaster(int keyId, Guid userFK, int webMasterTypeFK, DateTime? dateCreated, DateTime? dateModified)
         {

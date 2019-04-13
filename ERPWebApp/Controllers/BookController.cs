@@ -11,15 +11,31 @@ namespace BeYeuBookstore.Controllers
     public class BookController : Controller
     {
         IBookService _bookService;
+        IBookCategoryService _bookCategoryService;
         IUnitOfWork _unitOfWork;
-        public BookController(IBookService bookService, IUnitOfWork unitOfWork)
+        public BookController(IBookCategoryService bookCategoryService, IBookService bookService, IUnitOfWork unitOfWork)
         {
             _bookService = bookService;
-            _unitOfWork=unitOfWork;
+            _bookCategoryService = bookCategoryService;
+            _unitOfWork =unitOfWork;
         }
         public IActionResult Index()
         {
             return View();
+        }
+
+        [HttpGet]
+        public IActionResult GetAllPaging(string fromdate, string todate, string keyword, int bookcategoryid, int page, int pageSize)
+        {
+            var model = _bookService.GetAllPaging(fromdate, todate, keyword, bookcategoryid, page, pageSize);
+            return new OkObjectResult(model);
+        }
+
+        [HttpGet]
+        public IActionResult GetAllBookCategory()
+        {
+            var model = _bookCategoryService.GetAll();
+            return new OkObjectResult(model);
         }
     }
 }
