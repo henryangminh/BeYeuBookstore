@@ -1,5 +1,6 @@
 ﻿
 using BeYeuBookstore.Application.ViewModels;
+using BeYeuBookstore.Data.Enums;
 using BeYeuBookstore.Utilities.DTOs;
 using System;
 using System.Collections.Generic;
@@ -17,7 +18,7 @@ namespace BeYeuBookstore.Application.Interfaces
 
         List<MerchantViewModel> GetAll();
 
-        PagedResult<MerchantViewModel> GetAllPaging(string keyword, int page, int pageSize);
+        PagedResult<MerchantViewModel> GetAllPaging(Status status, Scale scale, string fromdate, string todate, string keyword, int page, int pageSize);
 
         List<MerchantViewModel> GetAll(int id);
 

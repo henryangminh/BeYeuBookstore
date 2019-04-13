@@ -1050,6 +1050,7 @@ h2 {
     background: #F2F5F7
 }
 .x_panel {
+    border-radius:4px;
     position: relative;
     width: 100%;
     margin-bottom: 10px;
@@ -1094,6 +1095,18 @@ h2 {
     clear: both;
     margin-top: 5px
 }
+    .x_content .panel {
+        margin-bottom: 20px;
+        border-radius: 4px !important;
+        -webkit-border-radius: 4px !important;
+        border: 1px solid #E6E9ED !important;
+    }
+    .x_content .table thead th {
+        background: #d9edf7;
+        padding:15px 8px;
+        color:#068cff;
+        vertical-align:middle;
+    }
 .x_content h4 {
     font-size: 16px;
     font-weight: 500

@@ -1,16 +1,22 @@
-﻿var bookController = function () {
+﻿var merchantController = function () {
     this.initialize = function () {
         loadData();
         registerEvents();
     }
     function registerEvents() {
+        loadScale();
+        loadStatus();
         $('#ddlShowPage').on('change', function () {
             general.configs.pageSize = $(this).val();
             general.configs.pageIndex = 1;
             loadData(true);
         });
 
-        $('#selBookCategory').on('change', function () {
+        $('#selStatus').on('change', function () {
+            loadData();
+        });
+
+        $('#selScale').on('change', function () {
             loadData();
         });
 
@@ -29,7 +35,7 @@
         $('#btnCreate').on('click', function () {
             resetForm();
             $('#frmMaintainance').trigger('reset');
-            
+
         });
 
         $('#txtKeyword').on('keyup', function (e) {
@@ -51,11 +57,7 @@
             var that = $(this).data('id');
             loadDetail(that);
 
-            formEdittitle.style.display = "block";
-            formEditMastertitle.style.display = "none";
-            $('#formEditMaster').addClass('hidden');
-            $('#formEdit').removeClass('hidden');
-            //document.getElementById("btnSave").style.display = "block";
+            
         });
 
 
@@ -64,7 +66,7 @@
             var that = $(this).data('id');
             $.ajax({
                 type: 'POST',
-                url: '/Book/Delete',
+                url: '/Merchant/Delete',
                 data: { id: that },
                 dataType: 'json',
                 beforeSend: function () {
@@ -229,13 +231,13 @@
         $('#dtDateModified').val('');
         $('#chkCommitBackToWork').prop('checked', false);
         $('#txtStatus').empty();
-        $('#selRequestTo')
-            .find('option')
-            .remove()
-            .end()
-            .append('<option value="">Chọn người yêu cầu xác nhận</option>')
-            ;
-        loadRequestTo();
+        //$('#selRequestTo')
+        //    .find('option')
+        //    .remove()
+        //    .end()
+        //    .append('<option value="">Chọn người yêu cầu xác nhận</option>')
+        //    ;
+        //loadRequestTo();
 
 
     }
@@ -246,7 +248,7 @@
         var Year = _Year.getFullYear();
         $.ajax({
             type: "GET",
-            url: "/AllowedVacation/GetById",
+            url: "/Merchant/GetById",
             data: { id: that },
             dataType: "json",
             beforeSend: function () {
@@ -358,28 +360,38 @@ function loadData(isPageChanged) {
             fromdate: $('#dtBegin').val(),
             todate: $('#dtEnd').val(),
             keyword: $('#txtKeyword').val(),
-            bookcategoryid: $('#selBookCategory').val(),
+            status: $('#selStatus').val(),
+            scale: $('#selScale').val(),
             page: general.configs.pageIndex,
             pageSize: general.configs.pageSize,
         },
-        url: '/Book/GetAllPaging',
+        url: '/Merchant/GetAllPaging',
         dataType: 'json',
         success: function (response) {
             console.log("data", response);
             var order = 1;
             $.each(response.Results, function (i, item) {
-                
+                var _color = '';
+                var _statusName = '';
+                switch (item.Status) {
+                    case general.status.Active:
+                        _color = 'green';
+                        _statusName = 'Kích hoạt';
+                        break;
+                    case general.status.InActive:
+                        _color = 'red'
+                        _statusName = 'Khóa';
+                        break;
+                }
                 render += Mustache.render(template, {
-                    
+
                     KeyId: item.KeyId,
-                    Merchant: item.MerchantFKNavigation.MerchantCompanyName,
-                    BookTitle: item.BookTitle,
-                    Author: item.Author,
-                    BookType: item.BookCategoryFKNavigation.BookCategoryName,
-                    UnitPrice: item.UnitPrice,
-                    Qty: item.Quantity,
-                    Description: item.Description,
-                    
+                    MerchantCompanyName: item.MerchantCompanyName,
+                    Hotline: item.Hotline,
+                    Website: item.Website,
+                    Status: '<span class="badge bg-' + _color + '">' + _statusName + '</span>',
+                    DirectContactName: item.DirectContactName,
+             
                 });
                 order++;
 
@@ -421,23 +433,46 @@ function wrapPaging(recordCount, callBack, changePageSize) {
         });
 }
 
-function loadBookCategory() {
+function loadStatus() {
     $.ajax({
         type: 'GET',
-        url: '/Book/GetAllBookCategory',
+        url: '/Merchant/GetAllStatus',
 
         dataType: "json",
 
         success: function (response) {
 
             $.each(response, function (i, item) {
-                $('#selBookCategory').append("<option value='" + item.KeyId + "'>" + item.BookCategoryName + "</option>");
+                $('#selStatus').append("<option value='" + item.KeyId + "'>" + item.Status + "</option>");
 
 
             });
         },
         error: function (err) {
-            general.notify('Có lỗi trong khi load loại sách !', 'error');
+            general.notify('Có lỗi trong khi load trạng thái !', 'error');
+
+        },
+    });
+
+}
+
+function loadScale() {
+    $.ajax({
+        type: 'GET',
+        url: '/Merchant/GetAllScale',
+
+        dataType: "json",
+
+        success: function (response) {
+
+            $.each(response, function (i, item) {
+                $('#selStatus').append("<option value='" + item.KeyId + "'>" + item.Status + "</option>");
+
+
+            });
+        },
+        error: function (err) {
+            general.notify('Có lỗi trong khi load quy mô !', 'error');
 
         },
     });

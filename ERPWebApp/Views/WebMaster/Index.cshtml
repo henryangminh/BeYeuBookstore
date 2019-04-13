@@ -7,17 +7,18 @@
 }
 @section Scripts{
 
-   
+
     <script src="~/lib/bootstrap-datepicker/dist/js/bootstrap-datepicker.js" asp-append-version="true"></script>
     <script src="~/lib/bootstrap-datepicker/dist/locales/bootstrap-datepicker.vi.min.js" asp-append-version="true"></script>
-    <script src="~/app/controllers/book/index.js" asp-append-version="true"></script>
+    <script src="~/app/controllers/webmaster/index.js" asp-append-version="true"></script>
 
     <script>
-        var book = new bookController();
-        book.initialize();</script>
+        var webmaster = new webmasterController();
+        webmaster.initialize();
+    </script>
 }
 <div class="title_left">
-    <h3>Sách</h3>
+    <h3>Quản lý Webmaster</h3>
 </div>
 <div class="form-group row">
     <div class="form-inline pull-left col-lg-4">
@@ -28,11 +29,18 @@
         </div>
     </div>
     <div class="col-lg-2">
-        <select class="form-control" id="selBookCategory">
-            <option value="0">Chọn loại sách</option>
+        <select class="form-control" id="selWebmasterType">
+            <option value="0">Chọn chức vụ</option>
         </select>
     </div>
-    <div class="col-sm-4 form-group">
+    <div class="col-lg-2">
+        <select class="form-control" id="selStatus">
+            <option value="">Chọn trạng thái</option>
+            <option value="0">Kích hoạt</option>
+            <option value="1">Khóa</option>
+        </select>
+    </div>
+    <div class="col-sm-2 form-group">
         <input type="text" id="txtKeyword" class="form-control" placeholder="Gõ từ khóa...">
     </div>
     <div class="col-sm-1 form-group">
@@ -47,14 +55,11 @@
                 <table class="table table-striped table-bordered table-fix-header">
                     <thead>
                         <tr>
-                            <th width="3%">Mã sách</th>
-                            <th width="10%">Nhà cung cấp</th>
-                            <th width="20%">Tên sách</th>
-                            <th>Tác giả</th>
-                            <th width="10%">Loại sách</th>
-                            <th>Giá bán lẻ</th>
-                            <th>Số lượng</th>
-                            <th width="28%%">Mô tả</th>
+                            <th width="3%">Mã</th>
+                            <th width="10%">Họ và tên</th>
+                            <th width="20%">Chức vụ</th>
+                            <th>Tên đăng nhập</th>
+                            <th width="10%">Trạng thái</th>
                             <th width="8%">#</th>
                         </tr>
                     </thead>
@@ -88,13 +93,10 @@
 <script id="table-template" type="x-tmpl-mustache">
     <tr>
         <td>{{KeyId}}</td>
-        <td>{{Merchant}}</td>
-        <td>{{BookTitle}}</td>
-        <td>{{Author}}</td>
-        <td>{{BookType}}</td>
-        <td>{{UnitPrice}}</td>
-        <td>{{Qty}}</td>
-        <td>{{Description}}</td>
+        <td>{{Fullname}}</td>
+        <td>{{WebmasterType}}</td>
+        <td>{{UserName}}</td>
+        <td>{{{Status}}}</td>
         <td scope="row">
             <a class="btn btn-xs btn-default btn-edit {{{Prop}}}" {{{Prop}}} data-id="{{KeyId}}"><i class="fa fa-pencil"></i></a>
             <a class="btn btn-xs btn-danger btn-delete {{{Prop}}}" {{{Prop}}} data-id="{{KeyId}}"><i class="fa fa-trash"></i></a>
@@ -102,4 +104,4 @@
         </td>
     </tr>
 </script>
-@await Html.PartialAsync("_AddEditBook.cshtml")
+@await Html.PartialAsync("_AddEditWebMaster.cshtml")

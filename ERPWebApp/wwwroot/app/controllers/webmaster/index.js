@@ -1,4 +1,4 @@
-﻿var bookController = function () {
+﻿var webmasterController = function () {
     this.initialize = function () {
         loadData();
         registerEvents();
@@ -10,7 +10,11 @@
             loadData(true);
         });
 
-        $('#selBookCategory').on('change', function () {
+        $('#selWebmasterType').on('change', function () {
+            loadData();
+        });
+
+        $('#selStatus').on('change', function () {
             loadData();
         });
 
@@ -29,7 +33,7 @@
         $('#btnCreate').on('click', function () {
             resetForm();
             $('#frmMaintainance').trigger('reset');
-            
+
         });
 
         $('#txtKeyword').on('keyup', function (e) {
@@ -64,7 +68,7 @@
             var that = $(this).data('id');
             $.ajax({
                 type: 'POST',
-                url: '/Book/Delete',
+                url: '/WebMaster/Delete',
                 data: { id: that },
                 dataType: 'json',
                 beforeSend: function () {
@@ -358,28 +362,38 @@ function loadData(isPageChanged) {
             fromdate: $('#dtBegin').val(),
             todate: $('#dtEnd').val(),
             keyword: $('#txtKeyword').val(),
-            bookcategoryid: $('#selBookCategory').val(),
+            type: $('#selWebmaster').val(),
+            status: $('#selStatus').val(),
             page: general.configs.pageIndex,
             pageSize: general.configs.pageSize,
         },
-        url: '/Book/GetAllPaging',
+        url: '/WebMaster/GetAllPaging',
         dataType: 'json',
         success: function (response) {
-            console.log("data", response);
+            console.log("dataWM", response);
             var order = 1;
             $.each(response.Results, function (i, item) {
-                
+                var _color = '';
+                var _statusName = '';
+                switch (item.UserBy.Status) {
+                    case general.status.Active:
+                        _color = 'green';
+                        _statusName = 'Kích hoạt';
+                        break;
+                    case general.status.InActive:
+                        _color = 'red'
+                        _statusName = 'Khóa';
+                        break;
+                }
                 render += Mustache.render(template, {
-                    
+
                     KeyId: item.KeyId,
-                    Merchant: item.MerchantFKNavigation.MerchantCompanyName,
-                    BookTitle: item.BookTitle,
-                    Author: item.Author,
-                    BookType: item.BookCategoryFKNavigation.BookCategoryName,
-                    UnitPrice: item.UnitPrice,
-                    Qty: item.Quantity,
-                    Description: item.Description,
-                    
+                    Fullname: item.UserBy.FullName,
+                    WebmasterType: item.WebMasterTypeFKNavigation.WebMasterTypeName,
+                    UserName: item.UserBy.UserName,
+                    Status: '<span class="badge bg-' + _color + '">' + _statusName + '</span>',
+              
+
                 });
                 order++;
 
