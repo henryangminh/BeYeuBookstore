@@ -48,6 +48,9 @@ namespace BeYeuBookstore.Data.EF
 
 
         //boq
+        public virtual DbSet<SoNotification> SoNotification { get; set; }
+        public virtual DbSet<SoNotificationGeneral> SoNotificationGeneral { get; set; }
+        public virtual DbSet<SoNotificationGeneralDetail> SoNotificationGeneralDetail { get; set; }
 
         #endregion
 

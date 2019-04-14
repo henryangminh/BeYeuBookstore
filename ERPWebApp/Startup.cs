@@ -31,6 +31,8 @@ using Microsoft.AspNetCore.DataProtection;
 using System.IO;
 using BeYeuBookstore.Application.Interfaces;
 using BeYeuBookstore.Application.Implementation;
+using BeYeuBookstore.Application.Interfaces.Boq;
+using BeYeuBookstore.Application.Implementation.Boq;
 
 namespace BeYeuBookstore
 {
@@ -155,6 +157,7 @@ namespace BeYeuBookstore
 
             services.AddTransient<IUserRolesRepository, UserRolesRepository>();
 
+
             //Services
 
             services.AddTransient<ICustomerService, CustomerService>();
@@ -176,7 +179,9 @@ namespace BeYeuBookstore
             services.AddTransient<IUserService,UserService>();
             services.AddTransient<IRoleService, RoleService>();
 
-          
+
+            services.AddTransient<ISO_NotificationGeneralService, SO_NotificationGeneralService>();
+            services.AddTransient<ISO_NotificationGeneralDetailService, SO_NotificationGeneralDetailService>();
 
             services.AddTransient<IAuthorizationHandler, BaseResourceAuthorizationHandler>();
             

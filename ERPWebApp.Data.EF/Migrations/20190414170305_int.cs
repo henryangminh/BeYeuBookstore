@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace BeYeuBookstore.Data.EF.Migrations
 {
-    public partial class init : Migration
+    public partial class @int : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -142,6 +142,47 @@ namespace BeYeuBookstore.Data.EF.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "SoNotification",
+                columns: table => new
+                {
+                    KeyId = table.Column<int>(nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    CustomerFK = table.Column<int>(nullable: false),
+                    SoId = table.Column<int>(nullable: false),
+                    Sodate = table.Column<DateTime>(nullable: false),
+                    AcceptanceFk = table.Column<int>(nullable: true),
+                    AcceptanceDate = table.Column<DateTime>(nullable: true),
+                    EngineerFk = table.Column<int>(nullable: true),
+                    PaymentFk = table.Column<int>(nullable: true),
+                    PaymentDate = table.Column<DateTime>(nullable: true),
+                    CreatePaymentByFk = table.Column<int>(nullable: true),
+                    PaymentStatusFk = table.Column<int>(nullable: true),
+                    InvoiceNo = table.Column<int>(nullable: true),
+                    NotificationDate = table.Column<DateTime>(nullable: true),
+                    NotificationLastUpdate = table.Column<DateTime>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_SoNotification", x => x.KeyId);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "SoNotificationGeneral",
+                columns: table => new
+                {
+                    KeyId = table.Column<int>(nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    NotificationContent = table.Column<string>(nullable: true),
+                    Referent = table.Column<int>(nullable: true),
+                    DateCreated = table.Column<DateTime>(nullable: true),
+                    DateModified = table.Column<DateTime>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_SoNotificationGeneral", x => x.KeyId);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "UserTypes",
                 columns: table => new
                 {
@@ -199,6 +240,28 @@ namespace BeYeuBookstore.Data.EF.Migrations
                         column: x => x.RoleId,
                         principalTable: "Roles",
                         principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "SoNotificationGeneralDetail",
+                columns: table => new
+                {
+                    KeyId = table.Column<int>(nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    NotificationFk = table.Column<int>(nullable: true),
+                    UserFk = table.Column<Guid>(nullable: true),
+                    Status = table.Column<int>(nullable: false),
+                    NotificationFkNavigationKeyId = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_SoNotificationGeneralDetail", x => x.KeyId);
+                    table.ForeignKey(
+                        name: "FK_SoNotificationGeneralDetail_SoNotificationGeneral_Notificati~",
+                        column: x => x.NotificationFkNavigationKeyId,
+                        principalTable: "SoNotificationGeneral",
+                        principalColumn: "KeyId",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -648,6 +711,11 @@ namespace BeYeuBookstore.Data.EF.Migrations
                 column: "RoleId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_SoNotificationGeneralDetail_NotificationFkNavigationKeyId",
+                table: "SoNotificationGeneralDetail",
+                column: "NotificationFkNavigationKeyId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_User_UserTypeFKNavigationKeyId",
                 table: "User",
                 column: "UserTypeFKNavigationKeyId");
@@ -697,6 +765,12 @@ namespace BeYeuBookstore.Data.EF.Migrations
                 name: "Permissions");
 
             migrationBuilder.DropTable(
+                name: "SoNotification");
+
+            migrationBuilder.DropTable(
+                name: "SoNotificationGeneralDetail");
+
+            migrationBuilder.DropTable(
                 name: "AdvertisementContents");
 
             migrationBuilder.DropTable(
@@ -710,6 +784,9 @@ namespace BeYeuBookstore.Data.EF.Migrations
 
             migrationBuilder.DropTable(
                 name: "Roles");
+
+            migrationBuilder.DropTable(
+                name: "SoNotificationGeneral");
 
             migrationBuilder.DropTable(
                 name: "AdvertisementPositions");

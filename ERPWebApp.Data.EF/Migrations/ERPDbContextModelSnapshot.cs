@@ -436,6 +436,80 @@ namespace BeYeuBookstore.Data.EF.Migrations
                     b.ToTable("Roles");
                 });
 
+            modelBuilder.Entity("BeYeuBookstore.Data.Entities.SoNotification", b =>
+                {
+                    b.Property<int>("KeyId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<DateTime?>("AcceptanceDate");
+
+                    b.Property<int?>("AcceptanceFk");
+
+                    b.Property<int?>("CreatePaymentByFk");
+
+                    b.Property<int>("CustomerFK");
+
+                    b.Property<int?>("EngineerFk");
+
+                    b.Property<int?>("InvoiceNo");
+
+                    b.Property<DateTime?>("NotificationDate");
+
+                    b.Property<DateTime?>("NotificationLastUpdate");
+
+                    b.Property<DateTime?>("PaymentDate");
+
+                    b.Property<int?>("PaymentFk");
+
+                    b.Property<int?>("PaymentStatusFk");
+
+                    b.Property<int>("SoId");
+
+                    b.Property<DateTime>("Sodate");
+
+                    b.HasKey("KeyId");
+
+                    b.ToTable("SoNotification");
+                });
+
+            modelBuilder.Entity("BeYeuBookstore.Data.Entities.SoNotificationGeneral", b =>
+                {
+                    b.Property<int>("KeyId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<DateTime?>("DateCreated");
+
+                    b.Property<DateTime?>("DateModified");
+
+                    b.Property<string>("NotificationContent");
+
+                    b.Property<int?>("Referent");
+
+                    b.HasKey("KeyId");
+
+                    b.ToTable("SoNotificationGeneral");
+                });
+
+            modelBuilder.Entity("BeYeuBookstore.Data.Entities.SoNotificationGeneralDetail", b =>
+                {
+                    b.Property<int>("KeyId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int?>("NotificationFk");
+
+                    b.Property<int>("NotificationFkNavigationKeyId");
+
+                    b.Property<int>("Status");
+
+                    b.Property<Guid?>("UserFk");
+
+                    b.HasKey("KeyId");
+
+                    b.HasIndex("NotificationFkNavigationKeyId");
+
+                    b.ToTable("SoNotificationGeneralDetail");
+                });
+
             modelBuilder.Entity("BeYeuBookstore.Data.Entities.User", b =>
                 {
                     b.Property<Guid>("Id")
@@ -752,6 +826,14 @@ namespace BeYeuBookstore.Data.EF.Migrations
                     b.HasOne("BeYeuBookstore.Data.Entities.Role", "AppRole")
                         .WithMany()
                         .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("BeYeuBookstore.Data.Entities.SoNotificationGeneralDetail", b =>
+                {
+                    b.HasOne("BeYeuBookstore.Data.Entities.SoNotificationGeneral", "NotificationFkNavigation")
+                        .WithMany("SoNotificationGeneralDetail")
+                        .HasForeignKey("NotificationFkNavigationKeyId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 

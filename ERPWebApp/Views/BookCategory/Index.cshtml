@@ -1,7 +1,103 @@
-﻿
+﻿@using BeYeuBookstore.Utilities.Constants
+@using Microsoft.AspNetCore.Authorization
+@using BeYeuBookstore.Authorization
+@inject IAuthorizationService AuthorizationService
+@{
+    //kiểm tra quyền tạo đối với nut create cho hiểu thị nut
+    var result_edit = await AuthorizationService.AuthorizeAsync(User, Const_FunctionId.AllowedVacation, Operations.Create);
+    //kiểm tra quyền tạo đối với nut delete cho hiểu thị nut
+    var result_delete = await AuthorizationService.AuthorizeAsync(User, Const_FunctionId.AllowedVacation, Operations.Delete);
+    //kiểm tra quyền tạo đối với nut update cho hiểu thị nut
+    var result_create = await AuthorizationService.AuthorizeAsync(User, Const_FunctionId.AllowedVacation, Operations.Update);
+    //kiểm tra quyền tạo đối với nut delete cho hiểu thị nut
+    var result_confirm = await AuthorizationService.AuthorizeAsync(User, Const_FunctionId.AllowedVacation, Operations.Confirm);
+}
 @{
     ViewData["Title"] = "Index";
 }
+@section Styles{
+    <link href="~/lib/bootstrap-datepicker/dist/css/bootstrap-datepicker3.css" rel="stylesheet" />
+}
+@section Scripts{
 
-<h2>Index</h2>
 
+    <script src="~/lib/bootstrap-datepicker/dist/js/bootstrap-datepicker.js" asp-append-version="true"></script>
+    <script src="~/lib/bootstrap-datepicker/dist/locales/bootstrap-datepicker.vi.min.js" asp-append-version="true"></script>
+    <script src="~/app/controllers/bookcategory/index.js" asp-append-version="true"></script>
+
+    <script>
+        var bookCategory = new bookCategoryController();
+        bookCategory.initialize();</script>
+}
+<div class="title_left">
+    <h3>Loại Sách</h3>
+</div>
+<div class="form-group row">
+
+    <div class="col-sm-5 form-group">
+        <input type="text" id="txtKeyword" class="form-control" placeholder="Gõ từ khóa...">
+    </div>
+    <div class="col-sm-5 form-group">
+
+    </div>
+    <div class="col-sm-1 form-group">
+        <button id="btnCreate" class="btn btn-success"><i class="fa fa-plus"></i> Thêm mới</button>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="x_panel">
+            <div class="x_content">
+                <table class="table table-striped table-bordered table-fix-header">
+                    <thead>
+                        <tr>
+                            <th width="10%">Mã loại sách</th>
+                            <th>Tên loại</th>
+                            <th width="8%">#</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbl-content"></tbody>
+                </table>
+                <!--Pagination-->
+                <div class="row">
+                    <div class="col-sm-5">
+                        <div class="dataTables_info" id="datatable-checkbox_info" role="status" aria-live="polite">
+                            <select id="ddlShowPage">
+                                <option value="10" selected="selected">10</option>
+                                <option value="20">20</option>
+                                <option value="30">30</option>
+                                <option value="50">50</option>
+                            </select>
+                            <span class="item-per-page">
+                                bản ghi/trang.
+                            </span>
+                            Tổng số bản ghi: <strong id="lblTotalRecords"></strong>
+                        </div>
+                    </div><div class="col-sm-7">
+                        <div class="dataTables_paginate paging_simple_numbers" id="datatable-checkbox_paginate">
+                            <ul id="paginationUL"></ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script id="table-template" type="x-tmpl-mustache">
+    <tr>
+        <td>{{KeyId}}</td>
+        <td>{{BookCategoryName}}</td>
+        <td scope="row">
+            @if (result_edit.Succeeded)
+            {
+                <a class="btn btn-xs btn-default btn-edit {{{Prop}}}" {{{Prop}}} data-id="{{KeyId}}"><i class="fa fa-pencil"></i></a>
+            }
+            @if (result_delete.Succeeded)
+            {
+                <a class="btn btn-xs btn-danger btn-delete {{{Prop}}}" {{{Prop}}} data-id="{{KeyId}}"><i class="fa fa-trash"></i></a>
+            }
+            </td>
+    </tr>
+</script>
+@await Html.PartialAsync("_AddEditBookCategory.cshtml")

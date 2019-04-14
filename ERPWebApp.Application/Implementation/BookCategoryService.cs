@@ -6,6 +6,7 @@ using BeYeuBookstore.Infrastructure.Interfaces;
 using BeYeuBookstore.Utilities.DTOs;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace BeYeuBookstore.Application.Implementation
@@ -57,7 +58,34 @@ namespace BeYeuBookstore.Application.Implementation
 
         public PagedResult<BookCategoryViewModel> GetAllPaging(string keyword, int page, int pageSize)
         {
-            throw new NotImplementedException();
+            var query = _bookCategoryRepository.FindAll();
+            query = query.OrderBy(x => x.KeyId);
+            if (!string.IsNullOrEmpty(keyword))
+            {
+                var keysearch = keyword.Trim().ToUpper();
+
+                query = query.OrderBy(x => x.KeyId).Where(x => (x.BookCategoryName.ToUpper().Contains(keysearch)));
+
+            }
+           
+            int totalRow = query.Count();
+
+            query = query.Skip((page - 1) * pageSize).Take(pageSize);
+            var data = new List<BookCategoryViewModel>();
+            foreach (var item in query)
+            {
+                var _data = Mapper.Map<BookCategory, BookCategoryViewModel>(item);
+                data.Add(_data);
+            }
+
+            var paginationSet = new PagedResult<BookCategoryViewModel>()
+            {
+                Results = data,
+                CurrentPage = page,
+                RowCount = totalRow,
+                PageSize = pageSize
+            };
+            return paginationSet;
         }
 
         public BookCategoryViewModel GetById(int id)

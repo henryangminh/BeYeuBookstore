@@ -15,4 +15,10 @@
     <ProjectReference Include="..\ERPWebApp.Utilities\BeYeuBookstore.Utilities.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Implementation\Boq\" />
+    <Folder Include="Interfaces\Boq\" />
+    <Folder Include="ViewModels\Boq\" />
+  </ItemGroup>
+
 </Project>

@@ -44,13 +44,13 @@ namespace BeYeuBookstore.Data.EF
                       new Function() {KeyId = "ProductItem",Name = "Sản phẩm",ParentId = null,SortOrder = 2,Status = Status.Active,URL = "/",IconCss = "fa-building"  },
 
                       new Function() {KeyId = "BookItem",Name = "Sách",ParentId = "ProductItem",SortOrder = 1,Status = Status.Active,URL = "/Book",IconCss = "fa-chevron-down"  },
-                      new Function() {KeyId = "BookCategoryItem",Name = "Loại sách",ParentId = "ProductItem",SortOrder = 2,Status = Status.Active,URL = "/UnitCategory",IconCss = "fa-clone"  },
+                      new Function() {KeyId = "BookCategoryItem",Name = "Loại sách",ParentId = "ProductItem",SortOrder = 2,Status = Status.Active,URL = "/BookCategory",IconCss = "fa-clone"  },
                       new Function() {KeyId = "AdvertisementContentItem",Name = "Nội dung quảng cáo",ParentId = "ProductItem",SortOrder = 3,Status = Status.Active,URL = "/UnitCategory",IconCss = "fa-clone"  },
 
                       new Function() {KeyId = "ContractItem",Name = "Hợp đồng",ParentId = null,SortOrder = 3,Status = Status.Active,URL = "/",IconCss = "fa-building"  },
 
-                      new Function() {KeyId = "MerchantContractItem",Name = "Hợp đồng với nhà cung cấp",ParentId = "ContractItem",SortOrder = 1,Status = Status.Active,URL = "/Book",IconCss = "fa-chevron-down"  },
-                      new Function() {KeyId = "AdvertiseContractItem",Name = "Hợp đồng với nhà quảng cáo",ParentId = "ContractItem",SortOrder = 2,Status = Status.Active,URL = "/UnitCategory",IconCss = "fa-clone"  },
+                      new Function() {KeyId = "MerchantContractItem",Name = "Hợp đồng với nhà cung cấp",ParentId = "ContractItem",SortOrder = 1,Status = Status.Active,URL = "/MerchantContract",IconCss = "fa-chevron-down"  },
+                      new Function() {KeyId = "AdvertiseContractItem",Name = "Hợp đồng với nhà quảng cáo",ParentId = "ContractItem",SortOrder = 2,Status = Status.Active,URL = "/AdvertiseContract",IconCss = "fa-clone"  },
 
                 });
             }
@@ -270,9 +270,9 @@ namespace BeYeuBookstore.Data.EF
                 //tạo user customer
                 result = _userManager.CreateAsync(new User()
                 {
-                    UserName = "hippore119@gmail.com",
-                    FullName = "Bé Yêu Customer",
-                    Email = "hippore119@gmail.com",
+                    UserName = "cucmo_cuaca@gmail.com",
+                    FullName = "Mỡ Đại gia",
+                    Email = "cucmo_cuaca@gmail.com",
                     DateCreated = DateTime.Now,
                     DateModified = DateTime.Now,
                     UserTypeFK = Const_UserType.Customer,
@@ -280,9 +280,9 @@ namespace BeYeuBookstore.Data.EF
                 }, CommonConstants.DefaultPW).Result;
                 if (result.Succeeded)
                 {
-                    var user = await _userManager.FindByNameAsync("hippore119@gmail.com"); // tim user 
+                    var user = await _userManager.FindByNameAsync("cucmo_cuaca@gmail.com"); // tim user 
                     await _userManager.AddToRoleAsync(user, "Customer"); // add vao role 
-                    _context.Customers.Add(new Customer() {  UserFK = user.Id });
+                    _context.Customers.Add(new Customer() { UserFK = user.Id, Gender = (Gender)2, Dob = DateTime.Parse("2000-09-16") });
                 }
 
                 //tạo user merchant
