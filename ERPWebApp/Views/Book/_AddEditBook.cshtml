@@ -25,34 +25,21 @@
                 <div id="horizontal-form">
                     <form class="form-horizontal" role="form" id="frmMaintainance">
                         <div class="form-group row">
-                            <label for="" class="col-sm-2 col-form-label">Số phiếu</label>
+                            <label for="txtId" class="col-sm-2 col-form-label">Mã sách</label>
                             <div class="col-sm-4">
                                 <input type="text" class="form-control" id="txtId" readonly />
                             </div>
-                            <label for="" class="col-sm-2 col-form-label">Trạng thái</label>
+                            <label for="txtMerchant" class="col-sm-2 col-form-label">Nhà cung cấp</label>
                             <div class="col-sm-4">
-                                <input type="text" class="form-control" id="txtStatus" readonly />
+                                <input type="text" class="form-control" id="txtMerchant" readonly />
+                            </div>
+                            <div class="hidden">
+                                <input type="text" class="form-control" id="txtMerchantStatus" readonly />
                             </div>
                         </div>
 
-
                         <div class="form-group row">
-                            <div class="col-sm-4 hidden">
-                                <input type="text" class="form-control" id="txtEmployeeKeyId" readonly />
-                            </div>
-                            <label for="txtCustomer" class="col-sm-2 col-form-label">Tên nhân viên @*<span class="star">*</span>*@</label>
-                            <div class="col-sm-4 autocomplete">
-                                <input id="txtEmplyeeFullName" class="form-control" data-addressbookid type="text" name="" style="width:100%" autocomplete="off" readonly />
-                            </div>
-                            <label for="" class="col-sm-2 col-form-label">Số phép năm còn lại</label>
-                            <div class="col-sm-4">
-                                <input type="text" class="form-control" id="txtNODaysRemain" readonly />
-                            </div>
-
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="dtDateModified" class="col-sm-2 col-form-label">Ngày lập phiếu</label>
+                            <label for="dtDateModified" class="col-sm-2 col-form-label">Ngày tạo</label>
                             <div class="col-sm-4">
                                 <input type="text" class="form-control" id="dtDateCreated" readonly />
                             </div>
@@ -63,114 +50,92 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="" class="col-sm-2 col-form-label">Phòng ban</label>
-                            <div class="col-sm-4">
-                                <input type="text" class="form-control" id="txtDepartment" readonly />
-                            </div>
-                            <label for="" class="col-sm-2 col-form-label">Chức vụ</label>
-                            <div class="col-sm-4">
-                                <input type="text" class="form-control" id="txtPosition" readonly />
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
                             <div class="col-sm-4 hidden">
-                                <input type="text" class="form-control" id="txtPermitDaysId" readonly />
+                                <input type="text" class="form-control" id="txtMerchantKeyId" readonly />
                             </div>
-                            <label for="" class="col-sm-2 col-form-label">Loại nghỉ<span class="star">*</span></label>
+                            <label for="txtBooktitle" class="col-sm-2 col-form-label">Tên sách<span class="star">*</span></label>
+                            <div class="col-sm-4 ">
+                                <input id="txtBooktitle" class="form-control" type="text" name="txtBooktitle" />
+                            </div>
+                            <label for="txtAuthor" class="col-sm-2 col-form-label">Tác giả<span class="star">*</span></label>
                             <div class="col-sm-4">
-                                <select id="seldetailTimeKeepingType" class="form-control" name="seldetailTimeKeepingType">
-                                    <option value="">Chọn loại nghỉ</option>
+                                <input type="text" class="form-control" id="txtAuthor" name="txtAuthor" />
+                            </div>
+
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="" class="col-sm-2 col-form-label">Thể loại<span class="star">*</span></label>
+                            <div class="col-sm-4">
+                                <select id="selBookcategory" class="form-control" name="selBookcategory">
+                                    <option value="">Chọn thể loại</option>
 
                                 </select>
                             </div>
-
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="" class="col-sm-2 col-form-label">Ngày bắt đầu<span class="star">*</span></label>
+                            <label for="" class="col-sm-2 col-form-label">Bìa<span class="star">*</span></label>
                             <div class="col-sm-4">
-                                <input type="text" id="txtFromdate" name="txtFromdate" autocomplete="off" class="form-control datepicker" placeholder="Chọn ngày bắt đầu" />
-                            </div>
-                            <label for="" class="col-sm-2 col-form-label">Ngày kết thúc<span class="star">*</span></label>
-                            <div class="col-sm-4">
-                                <input type="text" id="txtTodate" name="txtTodate" autocomplete="off" class="form-control datepicker" placeholder="Chọn ngày kết thúc" />
+                                <select id="selisPaperback" class="form-control" name="selisPaperback">
+                                    <option value="">Chọn bìa</option>
+                                    <option value="0">Mềm</option>
+                                    <option value="1">Cứng</option>
+
+                                </select>
                             </div>
                         </div>
 
                         <div class="form-group row">
-                            <label for="" class="col-sm-2 col-form-label">Số ngày nghỉ phép</label>
+                            <label for="txtLength" class="col-sm-2 col-form-label">Chiều dài (cm)</label>
                             <div class="col-sm-4">
-                                <input type="text" class="form-control" id="txtNOdate" readonly />
+                                <input type="text" class="form-control" id="txtLength" />
                             </div>
-                            <label for="" class="col-sm-2 col-form-label">Phần trăm tính lương</label>
+                            <label for="txtWidth" class="col-sm-2 col-form-label">Chiều rộng (cm)</label>
                             <div class="col-sm-4">
-                                <input type="text" class="form-control" id="txtPercentSalary" readonly />
+                                <input type="text" class="form-control" id="txtWidth" />
                             </div>
                         </div>
 
                         <div class="form-group row">
-                            <label for="" class="col-sm-2 col-form-label">Lý do<span class="star">*</span></label>
+                            <label for="txtHeight" class="col-sm-2 col-form-label">Độ dày</label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" id="txtHeight" />
+                            </div>
+                            <label for="txtPageNumber" class="col-sm-2 col-form-label">Số trang<span class="star">*</span></label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" id="txtPageNumber"  name="txtPageNumber"/>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="txtPrice" class="col-sm-2 col-form-label">Giá bán lẻ (VNĐ)<span class="star">*</span></label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" id="txtPrice" name="txtPrice"/>
+                            </div>
+
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="txtDescription" class="col-sm-2 col-form-label">Mô tả</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="txtReason" name="txtReason" />
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="" class="col-sm-2 col-form-label">Chú thích</label>
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control" id="txtNote">
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="" class="col-sm-2 col-form-label">Bàn giao công việc lại cho</label>
-                            <div class="col-sm-4">
-                                <select id="selHandoverTo" placeholder="Chọn nhân viên" class="form-control" name="selHandoverTo">
-                                    <option value="">Chọn người bàn giao</option>
-                                </select>
-                            </div>
-                            <label for="" class="col-sm-2 col-form-label">Yêu cầu người xác nhận<span class="star">*</span></label>
-                            <div class="col-sm-4">
-                                <input type="hidden" class="form-control" id="txtRequestToId">
-                                <select id="selRequestTo" placeholder="Chọn người xác nhận" class="form-control" name="selRequestTo">
-                                    <option value="">Chọn người xác nhận</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <div class="col-sm-8 checkbox pull-left">
-                                <label><input type="checkbox" value="" id="chkCommitBackToWork" onchange="document.getElementById('btnSave').disabled = !this.checked;">Tôi cam kết sẽ bắt đầu lại công việc sau thời gian nghỉ trên</label>
-                            </div>
-                            <div class="col-sm-4 hidden">
-                                <input type="text" class="form-control" id="txtStatusFK" readonly />
+                                <textarea rows="5" class="form-control" id="txtDescription"></textarea>
                             </div>
 
                         </div>
 
 
-
-                        <div class="form-group row">
-                            <div class="col-sm-offset-2 col-sm-6" id="formEdit">
-                                <button type="button" id="btnSave" class="btn btn-success" disabled>Ghi</button>
-                                <button type="button" id="btnCancel" data-dismiss="modal" class="btn btn-danger">Hủy</button>
-                            </div>
-                            <div class="col-sm-6" id="formEditMaster">
-
-                                <button type="button" id="btnRequest" class="btn btn-primary">Yêu cầu xác nhận</button>
-
-                                @if (result_confirm.Succeeded)
-                                {
-                                    <button type="button" id="btnApprove" class="btn btn-success">Xác nhận</button>
-                                    <button type="button" id="btnDeny" data-dismiss="modal" class="btn btn-danger">Không xác nhận</button>
-                                }
-
-                            </div>
-                        </div>
                     </form>
                 </div>
             </div>
+            <div class="modal-footer">
+
+                <div class="form-group row">
+                    <div class="col-sm-6">
+                        <button type="button" id="btnSave" class="btn btn-success" >Ghi</button>
+                        <button type="button" id="btnCancel" data-dismiss="modal" class="btn btn-danger">Hủy</button>
+                    </div>
+
+                </div>
+            </div>
         </div>
+       
     </div>
 </div>

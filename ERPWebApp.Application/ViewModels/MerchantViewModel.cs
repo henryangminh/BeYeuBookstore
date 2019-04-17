@@ -18,7 +18,6 @@ namespace BeYeuBookstore.Application.ViewModels
         /// SĐT Người liên hệ trực tiếp
         /// </summary>
         public string Hotline { get; set; }
-        public string MerchantName { get; set; }
         public string MerchantCompanyName { get; set; }
         /// <summary>
         /// Địa chỉ in trên hóa đơn
@@ -36,7 +35,6 @@ namespace BeYeuBookstore.Application.ViewModels
         /// </summary>
         public string LegalRepresentative { get; set; }
         public string MerchantBankingName { get; set; }
-        public string AccountNumber { get; set; }
         //Tên ngân hàng
         public string Bank { get; set; }
         //Chi nhánh

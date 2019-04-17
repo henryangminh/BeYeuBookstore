@@ -38,16 +38,20 @@ namespace BeYeuBookstore.Data.EF
 
                       new Function() {KeyId = "PermissionItem", Name = "Phân quyền",ParentId = "UsersItem",SortOrder = 5,Status = Status.Active,URL = "/",IconCss = "fa-chevron-down"  },
                       new Function() {KeyId = "RoleItem", Name = "Nhập liệu nhóm quyền",ParentId = "PermissionItem",SortOrder = 1,Status = Status.Active,URL = "/Role",IconCss = "fa-home"  },
-                      new Function() {KeyId = "UserRoleItem",Name = "User vào nhóm quyền",ParentId = "PermissionItem",SortOrder = 2,Status = Status.Active,URL = "/User",IconCss = "fa-hom"  },
+                      new Function() {KeyId = "UserRoleItem",Name = "User vào nhóm quyền",ParentId = "PermissionItem",SortOrder = 2,Status = Status.Active,URL = "/User",IconCss = "fa-home"  },
 
 
-                      new Function() {KeyId = "ProductItem",Name = "Sản phẩm",ParentId = null,SortOrder = 2,Status = Status.Active,URL = "/",IconCss = "fa-building"  },
+                      new Function() {KeyId = "ProductItem",Name = "Sản phẩm",ParentId = null,SortOrder = 2,Status = Status.Active,URL = "/",IconCss = "fa-box"  },
 
                       new Function() {KeyId = "BookItem",Name = "Sách",ParentId = "ProductItem",SortOrder = 1,Status = Status.Active,URL = "/Book",IconCss = "fa-chevron-down"  },
                       new Function() {KeyId = "BookCategoryItem",Name = "Loại sách",ParentId = "ProductItem",SortOrder = 2,Status = Status.Active,URL = "/BookCategory",IconCss = "fa-clone"  },
                       new Function() {KeyId = "AdvertisementContentItem",Name = "Nội dung quảng cáo",ParentId = "ProductItem",SortOrder = 3,Status = Status.Active,URL = "/UnitCategory",IconCss = "fa-clone"  },
 
-                      new Function() {KeyId = "ContractItem",Name = "Hợp đồng",ParentId = null,SortOrder = 3,Status = Status.Active,URL = "/",IconCss = "fa-building"  },
+                      new Function() {KeyId = "ReceiptandDelivery",Name = "Hóa đơn & Giao hàng",ParentId = null,SortOrder = 3,Status = Status.Active,URL = "/",IconCss = "fa-receipt"  },
+                      new Function() {KeyId = "ReceiptItem",Name = "Hóa đơn",ParentId = "ReceiptandDelivery",SortOrder = 1,Status = Status.Active,URL = "/Invoice",IconCss = "fa-home"  },
+                      new Function() {KeyId = "DeliveryItem",Name = "Phiếu giao hàng",ParentId = "ReceiptandDelivery",SortOrder = 2,Status = Status.Active,URL = "/Delivery",IconCss = "fa-home"  },
+
+                      new Function() {KeyId = "ContractItem",Name = "Hợp đồng",ParentId = null,SortOrder = 4,Status = Status.Active,URL = "/",IconCss = "fa-file-signature"  },
 
                       new Function() {KeyId = "MerchantContractItem",Name = "Hợp đồng với nhà cung cấp",ParentId = "ContractItem",SortOrder = 1,Status = Status.Active,URL = "/MerchantContract",IconCss = "fa-chevron-down"  },
                       new Function() {KeyId = "AdvertiseContractItem",Name = "Hợp đồng với nhà quảng cáo",ParentId = "ContractItem",SortOrder = 2,Status = Status.Active,URL = "/AdvertiseContract",IconCss = "fa-clone"  },
@@ -305,7 +309,6 @@ namespace BeYeuBookstore.Data.EF
                         UserFK = user.Id,
                         DirectContactName = "Đào Bảo Khang",
                         Hotline = "19001112",
-                        MerchantName = "Khang",
                         MerchantCompanyName = "Khang Book",
                         Address = "01 Nguyễn Khang Dương, P.5, Q.5",
                         ContactAddress = "01 Nguyễn Khang Dương, P.5, Q.5",
@@ -314,7 +317,6 @@ namespace BeYeuBookstore.Data.EF
                         Website = "khang.sgu.edu.vn",
                         LegalRepresentative = "Đào Bảo Khang",
                         MerchantBankingName = "Đào Bảo Khang",
-                        AccountNumber = "123123123",
                         Bank = "ACB",
                         BankBranch = "An Đông",
                         Status = 0,
@@ -343,7 +345,6 @@ namespace BeYeuBookstore.Data.EF
                         UserFK = user.Id,
                         DirectContactName = "Hà Thị Bích Trâm",
                         Hotline = "12234332",
-                        MerchantName = "Trâm",
                         MerchantCompanyName = "Trâm Store",
                         Address = "3 Trần Quang Diệu, P.4, Q.3",
                         ContactAddress = "3 Trần Quang Diệu, P.4, Q.3",
@@ -352,7 +353,6 @@ namespace BeYeuBookstore.Data.EF
                         Website = "tram.vn",
                         LegalRepresentative = "Hà Thị Bích Trâm",
                         MerchantBankingName = "Hà Thị Bích Trâm",
-                        AccountNumber = "456432456",
                         Bank = "Agribank",
                         BankBranch = "An Lộc",
                         Status = 0,
@@ -364,9 +364,9 @@ namespace BeYeuBookstore.Data.EF
                 //tạo user advertiser
                 result = _userManager.CreateAsync(new User()
                 {
-                    UserName = "hippore121@gmail.com",
-                    FullName = "Bé Yêu Advertiser",
-                    Email = "hippore121@gmail.com",
+                    UserName = "butkimlong@gmail.com",
+                    FullName = "Anh Long",
+                    Email = "butkimlong@gmail.com",
                     DateCreated = DateTime.Now,
                     DateModified = DateTime.Now,
                     UserTypeFK = Const_UserType.Advertiser, //Webmaster
@@ -374,9 +374,60 @@ namespace BeYeuBookstore.Data.EF
                 }, CommonConstants.DefaultPW).Result;
                 if (result.Succeeded)
                 {
-                    var user = await _userManager.FindByNameAsync("hippore121@gmail.com"); // tim user 
+                    var user = await _userManager.FindByNameAsync("butkimlong@gmail.com"); // tim user 
                     await _userManager.AddToRoleAsync(user, "Advertiser"); // add vao role 
-                    _context.Advertisers.Add(new Advertiser() { UserFK = user.Id });
+                    _context.Advertisers.Add(new Advertiser() { UserFK = user.Id, BrandName = "Bút Kim Long", UrlToBrand = "butkimlong.com.vn" });
+                }
+
+                result = _userManager.CreateAsync(new User()
+                {
+                    UserName = "viethung@gmail.com",
+                    FullName = "Chị Hưng",
+                    Email = "viethung@gmail.com",
+                    DateCreated = DateTime.Now,
+                    DateModified = DateTime.Now,
+                    UserTypeFK = Const_UserType.Advertiser, //Webmaster
+                    Status = Status.Active
+                }, CommonConstants.DefaultPW).Result;
+                if (result.Succeeded)
+                {
+                    var user = await _userManager.FindByNameAsync("viethung@gmail.com"); // tim user 
+                    await _userManager.AddToRoleAsync(user, "Advertiser"); // add vao role 
+                    _context.Advertisers.Add(new Advertiser() { UserFK = user.Id, BrandName = "Bao Sách Viết Hưng", UrlToBrand = "bsviethung.com.vn" });
+                }
+
+                result = _userManager.CreateAsync(new User()
+                {
+                    UserName = "laptopphongvu@gmail.com",
+                    FullName = "Vũ Phong",
+                    Email = "laptopphongvu@gmail.com",
+                    DateCreated = DateTime.Now,
+                    DateModified = DateTime.Now,
+                    UserTypeFK = Const_UserType.Advertiser, //Webmaster
+                    Status = Status.Active
+                }, CommonConstants.DefaultPW).Result;
+                if (result.Succeeded)
+                {
+                    var user = await _userManager.FindByNameAsync("laptopphongvu@gmail.com"); // tim user 
+                    await _userManager.AddToRoleAsync(user, "Advertiser"); // add vao role 
+                    _context.Advertisers.Add(new Advertiser() { UserFK = user.Id, BrandName = "Phong Vũ", UrlToBrand = "phongvu.com.vn" });
+                }
+
+                result = _userManager.CreateAsync(new User()
+                {
+                    UserName = "tiki@gmail.com",
+                    FullName = "Anh Ki",
+                    Email = "tiki@gmail.com",
+                    DateCreated = DateTime.Now,
+                    DateModified = DateTime.Now,
+                    UserTypeFK = Const_UserType.Advertiser, //Webmaster
+                    Status = Status.Active
+                }, CommonConstants.DefaultPW).Result;
+                if (result.Succeeded)
+                {
+                    var user = await _userManager.FindByNameAsync("tiki@gmail.com"); // tim user 
+                    await _userManager.AddToRoleAsync(user, "Advertiser"); // add vao role 
+                    _context.Advertisers.Add(new Advertiser() { UserFK = user.Id, BrandName = "Tiki", UrlToBrand = "tiki.vn" });
                 }
                 #endregion
 

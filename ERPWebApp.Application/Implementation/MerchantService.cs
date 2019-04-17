@@ -51,6 +51,22 @@ namespace BeYeuBookstore.Application.Implementation
             return data;
         }
 
+        public MerchantViewModel GetBysId(string id)
+        {
+            var query = _merchantRepository.FindAll(p => p.UserBy);
+            var _data = new MerchantViewModel();
+            foreach (var item in query)
+            {
+                if ((item.UserFK.ToString()) == id)
+                {
+                    _data = Mapper.Map<Merchant, MerchantViewModel>(item);
+
+                }
+            }
+            return _data;
+
+        }
+
         public List<MerchantViewModel> GetAll(int id)
         {
             throw new NotImplementedException();
@@ -63,7 +79,7 @@ namespace BeYeuBookstore.Application.Implementation
             if (!string.IsNullOrEmpty(keyword))
             {
                 var keysearch = keyword.Trim().ToUpper();
-                query = query.OrderBy(x => x.KeyId).Where(x => ((x.MerchantCompanyName.ToUpper().Contains(keysearch)) || x.DirectContactName.ToUpper().Contains(keysearch)) || (x.MerchantName.ToUpper().Contains(keysearch)));
+                query = query.OrderBy(x => x.KeyId).Where(x => ((x.MerchantCompanyName.ToUpper().Contains(keysearch)) || x.DirectContactName.ToUpper().Contains(keysearch)));
 
             }
             if (!string.IsNullOrEmpty(fromdate))
@@ -127,7 +143,7 @@ namespace BeYeuBookstore.Application.Implementation
             var temp = _merchantRepository.FindById(MerchantViewModel.KeyId);
             if (temp != null)
             {
-                temp.MerchantName = MerchantViewModel.MerchantName;
+                temp.Bank = MerchantViewModel.Bank;
             }
         }
     }

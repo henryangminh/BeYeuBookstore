@@ -63,7 +63,7 @@ namespace BeYeuBookstore.Application.Implementation
             {
                 var keysearch = keyword.Trim().ToUpper();
 
-                query = query.OrderBy(x => x.KeyId).Where(x => (x.BookTitle.ToUpper().Contains(keysearch)) || (x.MerchantFKNavigation.MerchantName.ToUpper().Contains(keysearch)));
+                query = query.OrderBy(x => x.KeyId).Where(x => (x.BookTitle.ToUpper().Contains(keysearch)) || (x.MerchantFKNavigation.MerchantCompanyName.ToUpper().Contains(keysearch)));
 
             }
             if (!string.IsNullOrEmpty(fromdate))
@@ -109,7 +109,7 @@ namespace BeYeuBookstore.Application.Implementation
 
         public BookViewModel GetById(int id)
         {
-            return Mapper.Map<Book, BookViewModel>(_bookRepository.FindById(id));
+            return Mapper.Map<Book, BookViewModel>(_bookRepository.FindById(id, p => p.BookCategoryFKNavigation, p => p.MerchantFKNavigation));
         }
 
         public bool Save()

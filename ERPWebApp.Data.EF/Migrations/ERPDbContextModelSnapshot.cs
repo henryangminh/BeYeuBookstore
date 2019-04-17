@@ -313,8 +313,6 @@ namespace BeYeuBookstore.Data.EF.Migrations
                     b.Property<int>("KeyId")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("AccountNumber");
-
                     b.Property<string>("Address");
 
                     b.Property<string>("Bank");
@@ -344,8 +342,6 @@ namespace BeYeuBookstore.Data.EF.Migrations
                     b.Property<string>("MerchantBankingName");
 
                     b.Property<string>("MerchantCompanyName");
-
-                    b.Property<string>("MerchantName");
 
                     b.Property<int>("Scales");
 

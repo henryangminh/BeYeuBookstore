@@ -24,6 +24,8 @@ namespace BeYeuBookstore.Application.Interfaces
 
         MerchantViewModel GetById(int id);
 
+        MerchantViewModel GetBysId(string id);
+
         bool Save();
     }
 }

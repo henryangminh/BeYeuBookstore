@@ -1849,13 +1849,11 @@ h4.graph_title {
     text-align: right;
     margin-right: 10px
 }
-.main_menu .fa {
+.main_menu .fas {
     width: 26px;
     opacity: .99;
     display: inline-block;
-    font-family: FontAwesome;
     font-style: normal;
-    font-weight: normal;
     font-size: 18px;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale

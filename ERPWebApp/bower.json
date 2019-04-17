@@ -7,7 +7,7 @@
     "jquery-ui": "~1.12.1",
     "jquery-validation": "1.14.0",
     "jquery-validation-unobtrusive": "3.2.6",
-    "font-awesome": "~4.7.0",
+    "font-awesome": "5.8.1",
     "nprogress": "~0.2.0",
     "bootstrap-daterangepicker": "~2.1.25",
     "fastclick": "~1.0.6",

@@ -29,5 +29,12 @@ namespace BeYeuBookstore.Controllers
             var model = _merchantService.GetAllPaging(status, scale, fromdate, todate, keyword, page, pageSize);
             return new OkObjectResult(model);
         }
+
+        [HttpGet]
+        public IActionResult GetById(int id)
+        {
+            var model = _merchantService.GetById(id);
+            return new OkObjectResult(model);
+        }
     }
 }

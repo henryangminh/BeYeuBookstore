@@ -4,8 +4,8 @@
         registerEvents();
     }
     function registerEvents() {
-        loadScale();
-        loadStatus();
+        //loadScale();
+        //loadStatus();
         $('#ddlShowPage').on('change', function () {
             general.configs.pageSize = $(this).val();
             general.configs.pageIndex = 1;
@@ -35,13 +35,14 @@
         $('#btnCreate').on('click', function () {
             resetForm();
             $('#frmMaintainance').trigger('reset');
-
+            $('#modal-add-edit').modal('show');
+   
         });
 
-        $('#txtKeyword').on('keyup', function (e) {
-            if (e.keyCode === 13) {
-                loadData();
-            }
+        $('#txtKeyword').on('keyup change', function (e) {
+           
+            loadData();
+        
         });
 
         $('#btnCancel').on('click', function () {
@@ -92,32 +93,44 @@
             ignore: [],
             lang: 'vi',
             rules: {
-                selRequestTo:
+                txtAddress:
                 {
                     required: true
                 },
-                seldetailTimeKeepingType:
+                txtBussinessRegisterId:
                 {
+                    required: true,
+                    number: true,
+                },
+                txtTaxId: {
+
+                    required: true,
+                    number: true,
+                },
+                txtWebsite: {
                     required: true
                 },
-                txtFromdate: {
+                selStatus: {
                     required: true
                 },
-                txtTodate: {
+                selScale: {
                     required: true
                 },
-                txtReason: {
+                txtDirectContactName: {
                     required: true
-                }
+                },
+                txtContactAddress: {
+                    required: true
+                },
+                txtHotline: {
+
+                    required: true,
+                    number: true,
+                },
             }
         });
         //Save 
-        $('#txtTodate').on('change', function (e) {
-            $('#txtNOdate').val(countDateWithoutSunday($('#txtFromdate').val(), $('#txtTodate').val()));
-        });
-        $('#txtFromdate').on('change', function (e) {
-            $('#txtNOdate').val(countDateWithoutSunday($('#txtFromdate').val(), $('#txtTodate').val()));
-        });
+    
         $('#btnSave').on('click', function (e) {
             if ($('#frmMaintainance').valid()) {
                 e.preventDefault();
@@ -128,55 +141,10 @@
                 else {
                     keyId = parseInt($('#txtId').val());
                 }
-                var statusFK;
-                var timeKeepingTypeFK = $('#seldetailTimeKeepingType option:selected').val();
-                if (timeKeepingTypeFK == '0') {
-                    general.notify('Vui lòng chọn loại nghỉ !', 'error');
-                    return false;
-                }
-                var fromDate = $('#txtFromdate').val();
-                if (fromDate == '') {
-                    general.notify('Vui lòng điền ngày bắt đầu !', 'error');
-                    return false;
-                }
-                var toDate = $('#txtTodate').val();
-                if (toDate == '') {
-                    general.notify('Vui lòng điền ngày kết thúc !', 'error');
-                    return false;
-                }
-                if (moment(toDate, "DD/MM/YYYY") < moment(fromDate, "DD/MM/YYYY")) {
-                    general.notify('Ngày kết thúc phải lớn hơn hoặc bằng ngày bắt đầu!', 'error');
-                    return false;
-                }
-
-
-                var nODate = $('#txtNOdate').val();
-                if (nODate > parseInt($('#txtNODaysRemain').val()) && timeKeepingTypeFK == '15') {
-                    general.notify('Số ngày phép năm không đủ hoặc đã hết!', 'error');
-                    return false;
-                }
-                var percentSalary = $('#txtPercentSalary').val();
-                var reason = $('#txtReason').val();
-                var note = $('#txtNote').val();
-                var handOverTo = $('#selHandoverTo option:selected').val();
-                var requestTo = $('#selRequestTo option:selected').val();
-                //var permitDaysID = $('#txtPermitDaysId').val();
-                var commitBackToWork;
-                if ($('#chkCommitBackToWork').is(":checked")) {
-                    commitBackToWork = true;
-                }
-                else {
-                    commitBackToWork = false;
-                }
-                if ($('#txtStatusFK').val() == "") {
-                    statusFK = general.formStatus.Typing
-                }
-                else {
-                    statusFK = $('#txtStatusFK').val();
-                }
+               
                 $.ajax({
                     type: 'POST',
-                    url: '/AllowedVacation/SaveEntity',
+                    url: '/Merchant/SaveEntity',
                     data: {
                         KeyId: keyId,
                         TimeKeepingTypeFK: timeKeepingTypeFK,
@@ -231,21 +199,13 @@
         $('#dtDateModified').val('');
         $('#chkCommitBackToWork').prop('checked', false);
         $('#txtStatus').empty();
-        //$('#selRequestTo')
-        //    .find('option')
-        //    .remove()
-        //    .end()
-        //    .append('<option value="">Chọn người yêu cầu xác nhận</option>')
-        //    ;
-        //loadRequestTo();
-
+        
 
     }
 
     function loadDetail(that) {
 
-        var _Year = new Date();
-        var Year = _Year.getFullYear();
+    
         $.ajax({
             type: "GET",
             url: "/Merchant/GetById",
@@ -256,92 +216,26 @@
             },
             success: function (response) {
                 console.log("loaddetail", response);
-                var data = response;
-
-                $('#txtId').val(data.KeyId);
-                $('#txtEmployeeKeyId').val(data.EmployeeFK);
-                $('#txtEmplyeeFullName').val(data.EmployeeFKNavigation.UserBy.FullName);
-                $('#txtDepartment').val(data.EmployeeFKNavigation.DepartmentFkNavigation.DepartmentName);
-                $('#seldetailTimeKeepingType').val(data.TimeKeepingTypeFK);
-                $('#txtPosition').val(data.EmployeeFKNavigation.PositionFkNavigation.PositionName);
-                var _FromDate = data.FromDate.split("T");
-                $('#txtFromdate').val(_FromDate[0]);
-                var _ToDate = data.ToDate.split("T");
-                $('#txtTodate').val(_ToDate[0]);
-                $('#txtNOdate').val(data.NODate);
-                $('#txtPercentSalary').val(data.PercentSalary);
-                $('#txtReason').val(data.Reason);
-                $('#txtNote').val(data.Note);
-                $('#dtDateCreated').val(moment(data.DateCreated).format("DD/MM/YYYY"));
-                $('#dtDateModified').val(moment(data.DateModified).format("DD/MM/YYYY"));
-                $('#selHandoverTo').val(data.HandoverToFK);
-                //loadRequestToById(data.RequestToFK);
-                //$('#txtRequestToId').val(data.RequestToFK);
-                $('#txtStatusFK').val(data.StatusFK);
-                switch (data.StatusFK) {
-                    case general.formStatus.Typing:
-                        $('#btnRequest').removeClass('hidden');
-                        $('#btnApprove').removeClass('hidden');
-                        $('#btnDeny').removeClass('hidden');
-                        break;
-                    case general.formStatus.RequestConfirmation:
-                        $('#btnRequest').addClass('hidden');
-                        $('#btnApprove').removeClass('hidden');
-                        $('#btnDeny').removeClass('hidden');
-                        break;
-                    case general.formStatus.Approved:
-                    case general.formStatus.Denied:
-
-                        $('#btnRequest').addClass('hidden');
-                        $('#btnApprove').addClass('hidden');
-                        $('#btnDeny').addClass('hidden');
-                        break;
-                }
-
-                $('#chkCommitBackToWork').prop('checked', true);
-                $.ajax({
-                    type: "GET",
-                    url: "/AllowedVacation/GetPermitDays",
-                    data: { id: data.EmployeeFK, year: Year },
-                    dataType: "json",
-                    beforeSend: function () {
-                        general.startLoading();
-                    },
-                    success: function (response) {
-                        console.log("loadPermitDays", response);
-                        var _data = response;
-                        $('#txtNODaysRemain').val(_data.NODaysRemain);
-                        $('#txtPermitDaysId').val(_data.KeyId);
-                        general.stopLoading();
-
-                    },
-                    error: function (status) {
-                        general.notify('Có lỗi xảy ra', 'error');
-                        general.stopLoading();
-                    }
-                });
-                var _statusName = '';
-                switch (data.StatusFK) {
-                    case general.formStatus.Typing:
-                        _statusName = 'Đang nhập';
-                        break;
-                    case general.formStatus.RequestConfirmation:
-                        _statusName = 'Yêu cầu xác nhận';
-                        break;
-                    case general.formStatus.Approved:
-                        _statusName = 'Đã xác nhận';
-                        break;
-                    case general.formStatus.Denied:
-                        _statusName = 'Không xác nhận';
-                        break;
-                }
-                $('#txtStatus').val(_statusName);
+                $('#txtId').val(response.KeyId);
+                $('#txtMerchantCompanyName').val(response.MerchantCompanyName);
+                $('#dtDateModified').val(response.DateModified);
+                $('#dtDateCreated').val(response.DateModified);
+                $('#txtAddress').val(response.Address);
+                $('#txtBussinessRegisterId').val(response.BussinessRegisterId);
+                $('#txtTaxId').val(response.TaxId);
+                $('#txtWebsite').val(response.Website);
+                $('#selStatus').val(response.Status+'');
+                $('#selScale').val(response.Scales+'');
+                $('#txtDirectContactName').val(response.DirectContactName);
+                $('#txtHotline').val(response.Hotline);
+                $('#txtContactAddress').val(response.ContactAddress);
+            
                 $('#modal-add-edit').modal('show');
                 general.stopLoading();
 
             },
             error: function (status) {
-                general.notify('Có lỗi xảy ra', 'error');
+                general.notify('Có lỗi xảy ra khi load chi tiết', 'error');
                 general.stopLoading();
             }
         });
@@ -441,7 +335,7 @@ function loadStatus() {
         dataType: "json",
 
         success: function (response) {
-
+            console.log("Status", response);
             $.each(response, function (i, item) {
                 $('#selStatus').append("<option value='" + item.KeyId + "'>" + item.Status + "</option>");
 
@@ -465,6 +359,7 @@ function loadScale() {
 
         success: function (response) {
 
+            console.log("Scale", response);
             $.each(response, function (i, item) {
                 $('#selStatus').append("<option value='" + item.KeyId + "'>" + item.Status + "</option>");
 

@@ -10,12 +10,11 @@ namespace BeYeuBookstore.Data.Entities
     public class Merchant : DomainEntity<int>, IDateTracking
     {
         public Merchant() { }
-        public Merchant(int keyId, string directContactName, string hotline, string merchantName, string merchantCompanyName, string address, string contactAddress, string bussinessRegisterId, string taxId, string website, string legalRepresentative, string merchantBankingName, string accountNumber, string bank, string bankBranch, string bussinessRegisterLinkImg, string bankAccountNotificationLinkImg, string taxRegisterLinkImg, Status status, Scale scales, DateTime establishDate, DateTime? dateCreated, DateTime? dateModified)
+        public Merchant(int keyId, string directContactName, string hotline,  string merchantCompanyName, string address, string contactAddress, string bussinessRegisterId, string taxId, string website, string legalRepresentative, string merchantBankingName,  string bank, string bankBranch, string bussinessRegisterLinkImg, string bankAccountNotificationLinkImg, string taxRegisterLinkImg, Status status, Scale scales, DateTime establishDate, DateTime? dateCreated, DateTime? dateModified)
         {
             KeyId = keyId;
             DirectContactName = directContactName;
             Hotline = hotline;
-            MerchantName = merchantName;
             MerchantCompanyName = merchantCompanyName;
             Address = address;
             ContactAddress = contactAddress;
@@ -24,7 +23,6 @@ namespace BeYeuBookstore.Data.Entities
             Website = website;
             LegalRepresentative = legalRepresentative;
             MerchantBankingName = merchantBankingName;
-            AccountNumber = accountNumber;
             Bank = bank;
             BankBranch = bankBranch;
             BussinessRegisterLinkImg = bussinessRegisterLinkImg;
@@ -45,7 +43,6 @@ namespace BeYeuBookstore.Data.Entities
         /// SĐT Người liên hệ trực tiếp
         /// </summary>
         public string Hotline { get; set; }
-        public string MerchantName { get; set; }
         public string MerchantCompanyName { get; set; }
         /// <summary>
         /// Địa chỉ in trên hóa đơn
@@ -63,8 +60,6 @@ namespace BeYeuBookstore.Data.Entities
         /// </summary>
         public string LegalRepresentative { get; set; }
         public string MerchantBankingName { get; set; }
-        //Saiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii
-        public string AccountNumber { get; set; }
         //Tên ngân hàng
         public string Bank { get; set; }
         //Chi nhánh

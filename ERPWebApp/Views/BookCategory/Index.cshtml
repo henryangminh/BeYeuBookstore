@@ -40,9 +40,12 @@
     <div class="col-sm-5 form-group">
 
     </div>
-    <div class="col-sm-1 form-group">
-        <button id="btnCreate" class="btn btn-success"><i class="fa fa-plus"></i> Thêm mới</button>
-    </div>
+    @if (result_create.Succeeded)
+    {
+        <div class="col-sm-1 form-group">
+            <button id="btnCreate" class="btn btn-success"><i class="fa fa-plus"></i> Thêm mới</button>
+        </div>
+    }
 </div>
 
 <div class="row">
