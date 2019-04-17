@@ -197,10 +197,6 @@ namespace BeYeuBookstore.Data.EF.Migrations
 
                     b.Property<DateTime?>("DateModified");
 
-                    b.Property<DateTime?>("Dob");
-
-                    b.Property<int>("Gender");
-
                     b.Property<Guid>("UserFK");
 
                     b.HasKey("KeyId");

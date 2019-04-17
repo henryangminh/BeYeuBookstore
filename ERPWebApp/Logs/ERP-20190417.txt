@@ -23531,3 +23531,1111 @@ WHERE `p`.`UserFk` = @__userId_0" (0723d8ff)
 2019-04-17T20:59:02.3349637+07:00 0HLM36V1UFD9L:00000022 [INF] Executing ObjectResult, writing value of type '"System.Collections.Generic.List`1[[BeYeuBookstore.Utilities.DTOs.Boq.SO_NotificationGeneralDTO, BeYeuBookstore.Utilities, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'. (8a1b66c8)
 2019-04-17T20:59:02.3480775+07:00 0HLM36V1UFD9L:00000022 [INF] Executed action "BeYeuBookstore.Controllers.Construction.NotificationController.GetByUserId (BeYeuBookstore)" in 234.9008ms (afa2e885)
 2019-04-17T20:59:02.4161358+07:00 0HLM36V1UFD9L:00000022 [INF] Request finished in 349.635ms 200 application/json; charset=utf-8 (791a596a)
+2019-04-17T21:00:14.9017468+07:00 0HLM36V1UFD9O:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44379/Advertiser   (ca22a1cb)
+2019-04-17T21:00:14.9310112+07:00 0HLM36V1UFD9O:00000001 [INF] Entity Framework Core "2.2.0-preview1-35029" initialized '"ERPDbContext"' using provider '"Pomelo.EntityFrameworkCore.MySql"' with options: "ServerVersion 8.0.13 MySql " (9958f5bb)
+2019-04-17T21:00:15.1366509+07:00 0HLM36V1UFD9O:00000001 [INF] Executed DbCommand ("42"ms) [Parameters=["@__get_Item_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT `e`.`Id`, `e`.`AccessFailedCount`, `e`.`Address`, `e`.`Avatar`, `e`.`ConcurrencyStamp`, `e`.`DateCreated`, `e`.`DateModified`, `e`.`Dob`, `e`.`Email`, `e`.`EmailConfirmed`, `e`.`FullName`, `e`.`Gender`, `e`.`IdDate`, `e`.`IdNumber`, `e`.`LastupdatedFk`, `e`.`LockoutEnabled`, `e`.`LockoutEnd`, `e`.`NormalizedEmail`, `e`.`NormalizedUserName`, `e`.`PasswordHash`, `e`.`PhoneNumber`, `e`.`PhoneNumberConfirmed`, `e`.`SecurityStamp`, `e`.`Status`, `e`.`TwoFactorEnabled`, `e`.`UserName`, `e`.`UserTypeFK`, `e`.`UserTypeFKNavigationKeyId`
+FROM `User` AS `e`
+WHERE `e`.`Id` = @__get_Item_0
+LIMIT 1" (0723d8ff)
+2019-04-17T21:00:15.1709055+07:00 0HLM36V1UFD9O:00000001 [INF] Executed DbCommand ("1"ms) [Parameters=["@__user_Id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT `uc`.`Id`, `uc`.`ClaimType`, `uc`.`ClaimValue`, `uc`.`UserId`
+FROM `AppUserClaims` AS `uc`
+WHERE `uc`.`UserId` = @__user_Id_0" (0723d8ff)
+2019-04-17T21:00:15.2000296+07:00 0HLM36V1UFD9O:00000001 [INF] Executed DbCommand ("2"ms) [Parameters=["@__userId_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT `role`.`Name`
+FROM `AppUserRoles` AS `userRole`
+INNER JOIN `Roles` AS `role` ON `userRole`.`RoleId` = `role`.`Id`
+WHERE `userRole`.`UserId` = @__userId_0" (0723d8ff)
+2019-04-17T21:00:15.3297709+07:00 0HLM36V1UFD9O:00000001 [INF] Executed DbCommand ("1"ms) [Parameters=["@__normalizedName_0='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SELECT `r`.`Id`, `r`.`ConcurrencyStamp`, `r`.`Description`, `r`.`Name`, `r`.`NormalizedName`
+FROM `Roles` AS `r`
+WHERE `r`.`NormalizedName` = @__normalizedName_0
+LIMIT 1" (0723d8ff)
+2019-04-17T21:00:15.3917918+07:00 0HLM36V1UFD9O:00000001 [INF] Executed DbCommand ("1"ms) [Parameters=["@__role_Id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT `rc`.`ClaimType`, `rc`.`ClaimValue`
+FROM `AppRoleClaims` AS `rc`
+WHERE `rc`.`RoleId` = @__role_Id_0" (0723d8ff)
+2019-04-17T21:00:15.7681802+07:00 0HLM36V1UFD9O:00000001 [INF] Executed DbCommand ("10"ms) [Parameters=["@__userId_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT `role`.`Name`
+FROM `AppUserRoles` AS `userRole`
+INNER JOIN `Roles` AS `role` ON `userRole`.`RoleId` = `role`.`Id`
+WHERE `userRole`.`UserId` = @__userId_0" (0723d8ff)
+2019-04-17T21:00:15.8785274+07:00 0HLM36V1UFD9O:00000001 [INF] Route matched with "{action = \"Index\", controller = \"Advertiser\", area = \"\"}". Executing action "BeYeuBookstore.Controllers.AdvertiserController.Index (BeYeuBookstore)" (a44c0341)
+2019-04-17T21:00:15.9047021+07:00 0HLM36V1UFD9O:00000001 [INF] Executing action method "BeYeuBookstore.Controllers.AdvertiserController.Index (BeYeuBookstore)" - Validation state: Valid (dad538d7)
+2019-04-17T21:00:15.9364600+07:00 0HLM36V1UFD9O:00000001 [INF] Executed action method "BeYeuBookstore.Controllers.AdvertiserController.Index (BeYeuBookstore)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 0.0367ms. (50a9e262)
+2019-04-17T21:00:15.9855018+07:00 0HLM36V1UFD9O:00000001 [INF] Executing ViewResult, running view "Index". (c83d0e25)
+2019-04-17T21:00:16.0608791+07:00 0HLM36V1UFD9O:00000001 [INF] Executed DbCommand ("5"ms) [Parameters=["@__functionId_1='?' (Size = 128) (DbType = AnsiString)"], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM `Functions` AS `f`
+        INNER JOIN `Permissions` AS `p` ON `f`.`KeyId` = `p`.`FunctionId`
+        INNER JOIN `Roles` AS `r` ON `p`.`RoleId` = `r`.`Id`
+        WHERE (`r`.`Name` IN ('test') AND (`f`.`KeyId` = @__functionId_1)) AND (`p`.`CanCreate` = TRUE))
+    THEN TRUE ELSE FALSE
+END" (0723d8ff)
+2019-04-17T21:00:16.0810224+07:00 0HLM36V1UFD9O:00000001 [INF] Authorization was successful. (0d575a54)
+2019-04-17T21:00:16.1206232+07:00 0HLM36V1UFD9O:00000001 [INF] Executed DbCommand ("3"ms) [Parameters=["@__functionId_1='?' (Size = 128) (DbType = AnsiString)"], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM `Functions` AS `f`
+        INNER JOIN `Permissions` AS `p` ON `f`.`KeyId` = `p`.`FunctionId`
+        INNER JOIN `Roles` AS `r` ON `p`.`RoleId` = `r`.`Id`
+        WHERE (`r`.`Name` IN ('test') AND (`f`.`KeyId` = @__functionId_1)) AND (`p`.`CanDelete` = TRUE))
+    THEN TRUE ELSE FALSE
+END" (0723d8ff)
+2019-04-17T21:00:16.1400648+07:00 0HLM36V1UFD9O:00000001 [INF] Authorization was successful. (0d575a54)
+2019-04-17T21:00:16.1781894+07:00 0HLM36V1UFD9O:00000001 [INF] Executed DbCommand ("4"ms) [Parameters=["@__functionId_1='?' (Size = 128) (DbType = AnsiString)"], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM `Functions` AS `f`
+        INNER JOIN `Permissions` AS `p` ON `f`.`KeyId` = `p`.`FunctionId`
+        INNER JOIN `Roles` AS `r` ON `p`.`RoleId` = `r`.`Id`
+        WHERE (`r`.`Name` IN ('test') AND (`f`.`KeyId` = @__functionId_1)) AND (`p`.`CanUpdate` = TRUE))
+    THEN TRUE ELSE FALSE
+END" (0723d8ff)
+2019-04-17T21:00:16.1955651+07:00 0HLM36V1UFD9O:00000001 [INF] Authorization was successful. (0d575a54)
+2019-04-17T21:00:16.2814750+07:00 0HLM36V1UFD9O:00000001 [INF] Executed DbCommand ("6"ms) [Parameters=["@__functionId_1='?' (Size = 128) (DbType = AnsiString)"], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM `Functions` AS `f`
+        INNER JOIN `Permissions` AS `p` ON `f`.`KeyId` = `p`.`FunctionId`
+        INNER JOIN `Roles` AS `r` ON `p`.`RoleId` = `r`.`Id`
+        WHERE (`r`.`Name` IN ('test') AND (`f`.`KeyId` = @__functionId_1)) AND (`p`.`CanConfirm` = TRUE))
+    THEN TRUE ELSE FALSE
+END" (0723d8ff)
+2019-04-17T21:00:16.3009461+07:00 0HLM36V1UFD9O:00000001 [INF] Authorization was successful. (0d575a54)
+2019-04-17T21:00:16.3360863+07:00 0HLM36V1UFD9O:00000001 [INF] Executed DbCommand ("2"ms) [Parameters=["@__functionId_1='?' (Size = 128) (DbType = AnsiString)"], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM `Functions` AS `f`
+        INNER JOIN `Permissions` AS `p` ON `f`.`KeyId` = `p`.`FunctionId`
+        INNER JOIN `Roles` AS `r` ON `p`.`RoleId` = `r`.`Id`
+        WHERE (`r`.`Name` IN ('test') AND (`f`.`KeyId` = @__functionId_1)) AND (`p`.`CanCreate` = TRUE))
+    THEN TRUE ELSE FALSE
+END" (0723d8ff)
+2019-04-17T21:00:16.3526341+07:00 0HLM36V1UFD9O:00000001 [INF] Authorization was successful. (0d575a54)
+2019-04-17T21:00:16.3840119+07:00 0HLM36V1UFD9O:00000001 [INF] Executed DbCommand ("2"ms) [Parameters=["@__functionId_1='?' (Size = 128) (DbType = AnsiString)"], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM `Functions` AS `f`
+        INNER JOIN `Permissions` AS `p` ON `f`.`KeyId` = `p`.`FunctionId`
+        INNER JOIN `Roles` AS `r` ON `p`.`RoleId` = `r`.`Id`
+        WHERE (`r`.`Name` IN ('test') AND (`f`.`KeyId` = @__functionId_1)) AND (`p`.`CanDelete` = TRUE))
+    THEN TRUE ELSE FALSE
+END" (0723d8ff)
+2019-04-17T21:00:16.3968371+07:00 0HLM36V1UFD9O:00000001 [INF] Authorization was successful. (0d575a54)
+2019-04-17T21:00:16.4446514+07:00 0HLM36V1UFD9O:00000001 [INF] Executed DbCommand ("3"ms) [Parameters=["@__functionId_1='?' (Size = 128) (DbType = AnsiString)"], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM `Functions` AS `f`
+        INNER JOIN `Permissions` AS `p` ON `f`.`KeyId` = `p`.`FunctionId`
+        INNER JOIN `Roles` AS `r` ON `p`.`RoleId` = `r`.`Id`
+        WHERE (`r`.`Name` IN ('test') AND (`f`.`KeyId` = @__functionId_1)) AND (`p`.`CanUpdate` = TRUE))
+    THEN TRUE ELSE FALSE
+END" (0723d8ff)
+2019-04-17T21:00:16.4629085+07:00 0HLM36V1UFD9O:00000001 [INF] Authorization was successful. (0d575a54)
+2019-04-17T21:00:16.5022039+07:00 0HLM36V1UFD9O:00000001 [INF] Executed DbCommand ("4"ms) [Parameters=["@__functionId_1='?' (Size = 128) (DbType = AnsiString)"], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM `Functions` AS `f`
+        INNER JOIN `Permissions` AS `p` ON `f`.`KeyId` = `p`.`FunctionId`
+        INNER JOIN `Roles` AS `r` ON `p`.`RoleId` = `r`.`Id`
+        WHERE (`r`.`Name` IN ('test') AND (`f`.`KeyId` = @__functionId_1)) AND (`p`.`CanConfirm` = TRUE))
+    THEN TRUE ELSE FALSE
+END" (0723d8ff)
+2019-04-17T21:00:16.5139580+07:00 0HLM36V1UFD9O:00000001 [INF] Authorization was successful. (0d575a54)
+2019-04-17T21:00:16.5412437+07:00 0HLM36V1UFD9O:00000001 [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT `x`.`KeyId`, `x`.`Name`, `x`.`URL`, `x`.`ParentId`, `x`.`IconCss`, `x`.`SortOrder`, `x`.`Status`
+FROM `Functions` AS `x`
+WHERE `x`.`Status` = 1
+ORDER BY `x`.`SortOrder`, `x`.`ParentId`" (0723d8ff)
+2019-04-17T21:00:16.5581460+07:00 0HLM36V1UFD9O:00000001 [INF] Executed ViewResult - view "Index" executed in 608.7691ms. (f66409e9)
+2019-04-17T21:00:16.5706236+07:00 0HLM36V1UFD9O:00000001 [INF] Executed action "BeYeuBookstore.Controllers.AdvertiserController.Index (BeYeuBookstore)" in 679.8238ms (afa2e885)
+2019-04-17T21:00:16.7844175+07:00 0HLM36V1UFD9O:00000001 [INF] Request finished in 1738.5733ms 200 text/html; charset=utf-8 (791a596a)
+2019-04-17T21:00:17.2130281+07:00 0HLM36V1UFD9O:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44379/Notification/GetByUserId   (ca22a1cb)
+2019-04-17T21:00:17.2987810+07:00 0HLM36V1UFD9P:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44379/Advertiser/GetAllPaging?keyword=&page=1&pageSize=10   (ca22a1cb)
+2019-04-17T21:00:17.3072781+07:00 0HLM36V1UFD9O:00000002 [INF] Route matched with "{action = \"GetByUserId\", controller = \"Notification\", area = \"\"}". Executing action "BeYeuBookstore.Controllers.Construction.NotificationController.GetByUserId (BeYeuBookstore)" (a44c0341)
+2019-04-17T21:00:17.4028838+07:00 0HLM36V1UFD9P:00000001 [INF] Route matched with "{action = \"GetAllPaging\", controller = \"Advertiser\", area = \"\"}". Executing action "BeYeuBookstore.Controllers.AdvertiserController.GetAllPaging (BeYeuBookstore)" (a44c0341)
+2019-04-17T21:00:17.4907557+07:00 0HLM36V1UFD9O:00000002 [INF] Executing action method "BeYeuBookstore.Controllers.Construction.NotificationController.GetByUserId (BeYeuBookstore)" - Validation state: Valid (dad538d7)
+2019-04-17T21:00:17.6689546+07:00 0HLM36V1UFD9P:00000001 [INF] Executing action method "BeYeuBookstore.Controllers.AdvertiserController.GetAllPaging (BeYeuBookstore)" with arguments (["", "1", "10"]) - Validation state: Valid (4e3479ed)
+2019-04-17T21:00:17.7477931+07:00 0HLM36V1UFD9O:00000002 [INF] Entity Framework Core "2.2.0-preview1-35029" initialized '"ERPDbContext"' using provider '"Pomelo.EntityFrameworkCore.MySql"' with options: "ServerVersion 8.0.13 MySql " (9958f5bb)
+2019-04-17T21:00:17.7798902+07:00 0HLM36V1UFD9P:00000001 [INF] Entity Framework Core "2.2.0-preview1-35029" initialized '"ERPDbContext"' using provider '"Pomelo.EntityFrameworkCore.MySql"' with options: "ServerVersion 8.0.13 MySql " (9958f5bb)
+2019-04-17T21:00:17.7912307+07:00 0HLM36V1UFD9O:00000002 [INF] Executed DbCommand ("1"ms) [Parameters=["@__userId_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT `p`.`NotificationFkNavigationKeyId` AS `KeyId`, `p.NotificationFkNavigation`.`NotificationContent`, `p.NotificationFkNavigation`.`DateCreated` AS `NotificationTime`, `p`.`Status`
+FROM `SoNotificationGeneralDetail` AS `p`
+INNER JOIN `SoNotificationGeneral` AS `p.NotificationFkNavigation` ON `p`.`NotificationFkNavigationKeyId` = `p.NotificationFkNavigation`.`KeyId`
+WHERE `p`.`UserFk` = @__userId_0" (0723d8ff)
+2019-04-17T21:00:17.8078867+07:00 0HLM36V1UFD9P:00000001 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM `Advertisers` AS `x`" (0723d8ff)
+2019-04-17T21:00:17.8122331+07:00 0HLM36V1UFD9O:00000002 [INF] Executed action method "BeYeuBookstore.Controllers.Construction.NotificationController.GetByUserId (BeYeuBookstore)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult" in 300.5211ms. (50a9e262)
+2019-04-17T21:00:17.8302028+07:00 0HLM36V1UFD9P:00000001 [INF] Executed DbCommand ("1"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT `x`.`KeyId`, `x`.`BrandName`, `x`.`DateCreated`, `x`.`DateModified`, `x`.`Status`, `x`.`UrlToBrand`, `x`.`UserFK`, `x.UserBy`.`Id`, `x.UserBy`.`AccessFailedCount`, `x.UserBy`.`Address`, `x.UserBy`.`Avatar`, `x.UserBy`.`ConcurrencyStamp`, `x.UserBy`.`DateCreated`, `x.UserBy`.`DateModified`, `x.UserBy`.`Dob`, `x.UserBy`.`Email`, `x.UserBy`.`EmailConfirmed`, `x.UserBy`.`FullName`, `x.UserBy`.`Gender`, `x.UserBy`.`IdDate`, `x.UserBy`.`IdNumber`, `x.UserBy`.`LastupdatedFk`, `x.UserBy`.`LockoutEnabled`, `x.UserBy`.`LockoutEnd`, `x.UserBy`.`NormalizedEmail`, `x.UserBy`.`NormalizedUserName`, `x.UserBy`.`PasswordHash`, `x.UserBy`.`PhoneNumber`, `x.UserBy`.`PhoneNumberConfirmed`, `x.UserBy`.`SecurityStamp`, `x.UserBy`.`Status`, `x.UserBy`.`TwoFactorEnabled`, `x.UserBy`.`UserName`, `x.UserBy`.`UserTypeFK`, `x.UserBy`.`UserTypeFKNavigationKeyId`
+FROM `Advertisers` AS `x`
+INNER JOIN `User` AS `x.UserBy` ON `x`.`UserFK` = `x.UserBy`.`Id`
+ORDER BY `x`.`KeyId`
+LIMIT @__p_1 OFFSET @__p_0" (0723d8ff)
+2019-04-17T21:00:17.8337278+07:00 0HLM36V1UFD9O:00000002 [INF] Executing ObjectResult, writing value of type '"System.Collections.Generic.List`1[[BeYeuBookstore.Utilities.DTOs.Boq.SO_NotificationGeneralDTO, BeYeuBookstore.Utilities, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'. (8a1b66c8)
+2019-04-17T21:00:17.8557874+07:00 0HLM36V1UFD9P:00000001 [INF] Executed action method "BeYeuBookstore.Controllers.AdvertiserController.GetAllPaging (BeYeuBookstore)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult" in 162.3177ms. (50a9e262)
+2019-04-17T21:00:17.8605555+07:00 0HLM36V1UFD9O:00000002 [INF] Executed action "BeYeuBookstore.Controllers.Construction.NotificationController.GetByUserId (BeYeuBookstore)" in 529.2776ms (afa2e885)
+2019-04-17T21:00:17.8933843+07:00 0HLM36V1UFD9P:00000001 [INF] Executing ObjectResult, writing value of type '"BeYeuBookstore.Utilities.DTOs.PagedResult`1[[BeYeuBookstore.Application.ViewModels.AdvertiserViewModel, BeYeuBookstore.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'. (8a1b66c8)
+2019-04-17T21:00:17.8977017+07:00 0HLM36V1UFD9O:00000002 [INF] Request finished in 698.2921ms 200 application/json; charset=utf-8 (791a596a)
+2019-04-17T21:00:17.9123765+07:00 0HLM36V1UFD9P:00000001 [INF] Executed action "BeYeuBookstore.Controllers.AdvertiserController.GetAllPaging (BeYeuBookstore)" in 491.0239ms (afa2e885)
+2019-04-17T21:00:17.9887946+07:00 0HLM36V1UFD9P:00000001 [INF] Request finished in 704.9329ms 200 application/json; charset=utf-8 (791a596a)
+2019-04-17T21:00:18.0004768+07:00 0HLM36V1UFD9O:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:44379/Advertiser/GetAllPaging?keyword=&page=1&pageSize=10   (ca22a1cb)
+2019-04-17T21:00:18.0116256+07:00 0HLM36V1UFD9O:00000003 [INF] Route matched with "{action = \"GetAllPaging\", controller = \"Advertiser\", area = \"\"}". Executing action "BeYeuBookstore.Controllers.AdvertiserController.GetAllPaging (BeYeuBookstore)" (a44c0341)
+2019-04-17T21:00:18.0225877+07:00 0HLM36V1UFD9O:00000003 [INF] Executing action method "BeYeuBookstore.Controllers.AdvertiserController.GetAllPaging (BeYeuBookstore)" with arguments (["", "1", "10"]) - Validation state: Valid (4e3479ed)
+2019-04-17T21:00:18.0338024+07:00 0HLM36V1UFD9O:00000003 [INF] Entity Framework Core "2.2.0-preview1-35029" initialized '"ERPDbContext"' using provider '"Pomelo.EntityFrameworkCore.MySql"' with options: "ServerVersion 8.0.13 MySql " (9958f5bb)
+2019-04-17T21:00:18.0451181+07:00 0HLM36V1UFD9O:00000003 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM `Advertisers` AS `x`" (0723d8ff)
+2019-04-17T21:00:18.0587040+07:00 0HLM36V1UFD9O:00000003 [INF] Executed DbCommand ("1"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT `x`.`KeyId`, `x`.`BrandName`, `x`.`DateCreated`, `x`.`DateModified`, `x`.`Status`, `x`.`UrlToBrand`, `x`.`UserFK`, `x.UserBy`.`Id`, `x.UserBy`.`AccessFailedCount`, `x.UserBy`.`Address`, `x.UserBy`.`Avatar`, `x.UserBy`.`ConcurrencyStamp`, `x.UserBy`.`DateCreated`, `x.UserBy`.`DateModified`, `x.UserBy`.`Dob`, `x.UserBy`.`Email`, `x.UserBy`.`EmailConfirmed`, `x.UserBy`.`FullName`, `x.UserBy`.`Gender`, `x.UserBy`.`IdDate`, `x.UserBy`.`IdNumber`, `x.UserBy`.`LastupdatedFk`, `x.UserBy`.`LockoutEnabled`, `x.UserBy`.`LockoutEnd`, `x.UserBy`.`NormalizedEmail`, `x.UserBy`.`NormalizedUserName`, `x.UserBy`.`PasswordHash`, `x.UserBy`.`PhoneNumber`, `x.UserBy`.`PhoneNumberConfirmed`, `x.UserBy`.`SecurityStamp`, `x.UserBy`.`Status`, `x.UserBy`.`TwoFactorEnabled`, `x.UserBy`.`UserName`, `x.UserBy`.`UserTypeFK`, `x.UserBy`.`UserTypeFKNavigationKeyId`
+FROM `Advertisers` AS `x`
+INNER JOIN `User` AS `x.UserBy` ON `x`.`UserFK` = `x.UserBy`.`Id`
+ORDER BY `x`.`KeyId`
+LIMIT @__p_1 OFFSET @__p_0" (0723d8ff)
+2019-04-17T21:00:18.0710195+07:00 0HLM36V1UFD9O:00000003 [INF] Executed action method "BeYeuBookstore.Controllers.AdvertiserController.GetAllPaging (BeYeuBookstore)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult" in 37.0918ms. (50a9e262)
+2019-04-17T21:00:18.0822112+07:00 0HLM36V1UFD9O:00000003 [INF] Executing ObjectResult, writing value of type '"BeYeuBookstore.Utilities.DTOs.PagedResult`1[[BeYeuBookstore.Application.ViewModels.AdvertiserViewModel, BeYeuBookstore.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'. (8a1b66c8)
+2019-04-17T21:00:18.0934922+07:00 0HLM36V1UFD9O:00000003 [INF] Executed action "BeYeuBookstore.Controllers.AdvertiserController.GetAllPaging (BeYeuBookstore)" in 71.1423ms (afa2e885)
+2019-04-17T21:00:18.1389996+07:00 0HLM36V1UFD9O:00000003 [INF] Request finished in 110.41ms 200 application/json; charset=utf-8 (791a596a)
+2019-04-17T21:00:21.9948259+07:00 0HLM36V1UFD9P:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44379/Customer   (ca22a1cb)
+2019-04-17T21:00:22.0203383+07:00 0HLM36V1UFD9P:00000002 [INF] Route matched with "{action = \"Index\", controller = \"Customer\", area = \"\"}". Executing action "BeYeuBookstore.Controllers.CustomerController.Index (BeYeuBookstore)" (a44c0341)
+2019-04-17T21:00:22.0413121+07:00 0HLM36V1UFD9P:00000002 [INF] Executing action method "BeYeuBookstore.Controllers.CustomerController.Index (BeYeuBookstore)" - Validation state: Valid (dad538d7)
+2019-04-17T21:00:22.0664592+07:00 0HLM36V1UFD9P:00000002 [INF] Executed action method "BeYeuBookstore.Controllers.CustomerController.Index (BeYeuBookstore)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 0.0342ms. (50a9e262)
+2019-04-17T21:00:22.0964951+07:00 0HLM36V1UFD9P:00000002 [INF] Executing ViewResult, running view "Index". (c83d0e25)
+2019-04-17T21:00:22.1448705+07:00 0HLM36V1UFD9P:00000002 [INF] Entity Framework Core "2.2.0-preview1-35029" initialized '"ERPDbContext"' using provider '"Pomelo.EntityFrameworkCore.MySql"' with options: "ServerVersion 8.0.13 MySql " (9958f5bb)
+2019-04-17T21:00:22.1972509+07:00 0HLM36V1UFD9P:00000002 [INF] Executed DbCommand ("4"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT `x`.`KeyId`, `x`.`Name`, `x`.`URL`, `x`.`ParentId`, `x`.`IconCss`, `x`.`SortOrder`, `x`.`Status`
+FROM `Functions` AS `x`
+WHERE `x`.`Status` = 1
+ORDER BY `x`.`SortOrder`, `x`.`ParentId`" (0723d8ff)
+2019-04-17T21:00:22.2247923+07:00 0HLM36V1UFD9P:00000002 [INF] Executed ViewResult - view "Index" executed in 137.6551ms. (f66409e9)
+2019-04-17T21:00:22.2457003+07:00 0HLM36V1UFD9P:00000002 [INF] Executed action "BeYeuBookstore.Controllers.CustomerController.Index (BeYeuBookstore)" in 204.7003ms (afa2e885)
+2019-04-17T21:00:22.4774263+07:00 0HLM36V1UFD9P:00000002 [INF] Request finished in 322.4472ms 200 text/html; charset=utf-8 (791a596a)
+2019-04-17T21:00:23.0989335+07:00 0HLM36V1UFD9O:00000004 [INF] Request starting HTTP/1.1 GET http://localhost:44379/Notification/GetByUserId   (ca22a1cb)
+2019-04-17T21:00:23.1234075+07:00 0HLM36V1UFD9O:00000004 [INF] Route matched with "{action = \"GetByUserId\", controller = \"Notification\", area = \"\"}". Executing action "BeYeuBookstore.Controllers.Construction.NotificationController.GetByUserId (BeYeuBookstore)" (a44c0341)
+2019-04-17T21:00:23.1452965+07:00 0HLM36V1UFD9O:00000004 [INF] Executing action method "BeYeuBookstore.Controllers.Construction.NotificationController.GetByUserId (BeYeuBookstore)" - Validation state: Valid (dad538d7)
+2019-04-17T21:00:23.1618204+07:00 0HLM36V1UFD9O:00000004 [INF] Entity Framework Core "2.2.0-preview1-35029" initialized '"ERPDbContext"' using provider '"Pomelo.EntityFrameworkCore.MySql"' with options: "ServerVersion 8.0.13 MySql " (9958f5bb)
+2019-04-17T21:00:23.1803849+07:00 0HLM36V1UFD9O:00000004 [INF] Executed DbCommand ("1"ms) [Parameters=["@__userId_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT `p`.`NotificationFkNavigationKeyId` AS `KeyId`, `p.NotificationFkNavigation`.`NotificationContent`, `p.NotificationFkNavigation`.`DateCreated` AS `NotificationTime`, `p`.`Status`
+FROM `SoNotificationGeneralDetail` AS `p`
+INNER JOIN `SoNotificationGeneral` AS `p.NotificationFkNavigation` ON `p`.`NotificationFkNavigationKeyId` = `p.NotificationFkNavigation`.`KeyId`
+WHERE `p`.`UserFk` = @__userId_0" (0723d8ff)
+2019-04-17T21:00:23.1949917+07:00 0HLM36V1UFD9O:00000004 [INF] Executed action method "BeYeuBookstore.Controllers.Construction.NotificationController.GetByUserId (BeYeuBookstore)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult" in 35.0533ms. (50a9e262)
+2019-04-17T21:00:23.2118529+07:00 0HLM36V1UFD9O:00000004 [INF] Executing ObjectResult, writing value of type '"System.Collections.Generic.List`1[[BeYeuBookstore.Utilities.DTOs.Boq.SO_NotificationGeneralDTO, BeYeuBookstore.Utilities, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'. (8a1b66c8)
+2019-04-17T21:00:23.2487719+07:00 0HLM36V1UFD9O:00000004 [INF] Executed action "BeYeuBookstore.Controllers.Construction.NotificationController.GetByUserId (BeYeuBookstore)" in 88.6673ms (afa2e885)
+2019-04-17T21:00:23.4191481+07:00 0HLM36V1UFD9O:00000004 [INF] Request finished in 173.0804ms 200 application/json; charset=utf-8 (791a596a)
+2019-04-17T23:34:22.8837516+07:00 0HLM3AA6235T0:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44379/   (ca22a1cb)
+2019-04-17T23:34:22.8837516+07:00 0HLM3AA6235T1:00000001 [INF] Request starting HTTP/1.1 DEBUG http://localhost:50873/  0 (ca22a1cb)
+2019-04-17T23:34:22.9753038+07:00 0HLM3AA6235T1:00000001 [INF] Request finished in 239.8956ms 200  (791a596a)
+2019-04-17T23:34:23.9862662+07:00 0HLM3AA6235T0:00000001 [INF] Route matched with "{action = \"Login\", controller = \"Account\", area = \"\"}". Executing action "BeYeuBookstore.Controllers.AccountController.Login (BeYeuBookstore)" (a44c0341)
+2019-04-17T23:34:24.0544819+07:00 0HLM3AA6235T0:00000001 [INF] Executing action method "BeYeuBookstore.Controllers.AccountController.Login (BeYeuBookstore)" with arguments ([""]) - Validation state: Valid (4e3479ed)
+2019-04-17T23:34:24.1950719+07:00 0HLM3AA6235T0:00000001 [INF] AuthenticationScheme: "Identity.External" signed out. (d3f50c8d)
+2019-04-17T23:34:24.2111249+07:00 0HLM3AA6235T0:00000001 [INF] Executed action method "BeYeuBookstore.Controllers.AccountController.Login (BeYeuBookstore)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 141.3571ms. (50a9e262)
+2019-04-17T23:34:24.2622757+07:00 0HLM3AA6235T0:00000001 [INF] Executing ViewResult, running view "Login". (c83d0e25)
+2019-04-17T23:34:24.5074180+07:00 0HLM3AA6235T0:00000001 [INF] Executed ViewResult - view "Login" executed in 274.5815ms. (f66409e9)
+2019-04-17T23:34:24.5207016+07:00 0HLM3AA6235T0:00000001 [INF] Executed action "BeYeuBookstore.Controllers.AccountController.Login (BeYeuBookstore)" in 526.3581ms (afa2e885)
+2019-04-17T23:34:25.0654140+07:00 0HLM3AA6235T0:00000001 [INF] Request finished in 2345.7474ms 200 text/html; charset=utf-8 (791a596a)
+2019-04-17T23:34:25.0906295+07:00 0HLM3AA6235T1:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44379/lib/font-awesome/css/font-awesome.css   (ca22a1cb)
+2019-04-17T23:34:25.1031092+07:00 0HLM3AA6235T1:00000002 [INF] Request finished in 16.9514ms 404  (791a596a)
+2019-04-17T23:34:25.3175656+07:00 0HLM3AA6235T0:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44379/lib/font-awesome/css/font-awesome.css   (ca22a1cb)
+2019-04-17T23:34:25.3258536+07:00 0HLM3AA6235T0:00000002 [INF] Request finished in 6.6386ms 404  (791a596a)
+2019-04-17T23:34:29.7687950+07:00 0HLM3AA6235T1:00000003 [INF] Request starting HTTP/1.1 POST http://localhost:44379/ application/x-www-form-urlencoded 263 (ca22a1cb)
+2019-04-17T23:34:29.8306487+07:00 0HLM3AA6235T1:00000003 [INF] Route matched with "{action = \"Login\", controller = \"Account\", area = \"\"}". Executing action "BeYeuBookstore.Controllers.AccountController.Login (BeYeuBookstore)" (a44c0341)
+2019-04-17T23:34:30.2928213+07:00 0HLM3AA6235T1:00000003 [INF] Executing action method "BeYeuBookstore.Controllers.AccountController.Login (BeYeuBookstore)" with arguments (["BeYeuBookstore.Models.AccountViewModels.LoginViewModel", ""]) - Validation state: Valid (4e3479ed)
+2019-04-17T23:34:30.5024612+07:00 0HLM3AA6235T1:00000003 [INF] Entity Framework Core "2.2.0-preview1-35029" initialized '"ERPDbContext"' using provider '"Pomelo.EntityFrameworkCore.MySql"' with options: "ServerVersion 8.0.13 MySql " (9958f5bb)
+2019-04-17T23:34:31.5159549+07:00 0HLM3AA6235T1:00000003 [INF] Executed DbCommand ("71"ms) [Parameters=["@__normalizedUserName_0='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SELECT `u`.`Id`, `u`.`AccessFailedCount`, `u`.`Address`, `u`.`Avatar`, `u`.`ConcurrencyStamp`, `u`.`DateCreated`, `u`.`DateModified`, `u`.`Dob`, `u`.`Email`, `u`.`EmailConfirmed`, `u`.`FullName`, `u`.`Gender`, `u`.`IdDate`, `u`.`IdNumber`, `u`.`LastupdatedFk`, `u`.`LockoutEnabled`, `u`.`LockoutEnd`, `u`.`NormalizedEmail`, `u`.`NormalizedUserName`, `u`.`PasswordHash`, `u`.`PhoneNumber`, `u`.`PhoneNumberConfirmed`, `u`.`SecurityStamp`, `u`.`Status`, `u`.`TwoFactorEnabled`, `u`.`UserName`, `u`.`UserTypeFK`, `u`.`UserTypeFKNavigationKeyId`
+FROM `User` AS `u`
+WHERE `u`.`NormalizedUserName` = @__normalizedUserName_0
+LIMIT 1" (0723d8ff)
+2019-04-17T23:34:33.5864639+07:00 0HLM3AA6235T1:00000003 [INF] Executed DbCommand ("26"ms) [Parameters=["@__user_Id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT `uc`.`Id`, `uc`.`ClaimType`, `uc`.`ClaimValue`, `uc`.`UserId`
+FROM `AppUserClaims` AS `uc`
+WHERE `uc`.`UserId` = @__user_Id_0" (0723d8ff)
+2019-04-17T23:34:33.7441765+07:00 0HLM3AA6235T1:00000003 [INF] Executed DbCommand ("2"ms) [Parameters=["@__userId_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT `role`.`Name`
+FROM `AppUserRoles` AS `userRole`
+INNER JOIN `Roles` AS `role` ON `userRole`.`RoleId` = `role`.`Id`
+WHERE `userRole`.`UserId` = @__userId_0" (0723d8ff)
+2019-04-17T23:34:33.8575603+07:00 0HLM3AA6235T1:00000003 [INF] Executed DbCommand ("2"ms) [Parameters=["@__normalizedName_0='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SELECT `r`.`Id`, `r`.`ConcurrencyStamp`, `r`.`Description`, `r`.`Name`, `r`.`NormalizedName`
+FROM `Roles` AS `r`
+WHERE `r`.`NormalizedName` = @__normalizedName_0
+LIMIT 1" (0723d8ff)
+2019-04-17T23:34:34.0685755+07:00 0HLM3AA6235T1:00000003 [INF] Executed DbCommand ("2"ms) [Parameters=["@__role_Id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT `rc`.`ClaimType`, `rc`.`ClaimValue`
+FROM `AppRoleClaims` AS `rc`
+WHERE `rc`.`RoleId` = @__role_Id_0" (0723d8ff)
+2019-04-17T23:34:34.2474915+07:00 0HLM3AA6235T1:00000003 [INF] Executed DbCommand ("87"ms) [Parameters=["@__userId_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT `role`.`Name`
+FROM `AppUserRoles` AS `userRole`
+INNER JOIN `Roles` AS `role` ON `userRole`.`RoleId` = `role`.`Id`
+WHERE `userRole`.`UserId` = @__userId_0" (0723d8ff)
+2019-04-17T23:34:34.5239601+07:00 0HLM3AA6235T1:00000003 [INF] AuthenticationScheme: "Identity.Application" signed in. (c66dd7e7)
+2019-04-17T23:34:34.5717784+07:00 0HLM3AA6235T1:00000003 [INF] User đăng nhập thành công . (a79f9d02)
+2019-04-17T23:34:34.6340205+07:00 0HLM3AA6235T1:00000003 [INF] Executed action method "BeYeuBookstore.Controllers.AccountController.Login (BeYeuBookstore)", returned result "Microsoft.AspNetCore.Mvc.RedirectToActionResult" in 4290.0466ms. (50a9e262)
+2019-04-17T23:34:34.7289723+07:00 0HLM3AA6235T1:00000003 [INF] Executing RedirectResult, redirecting to "/Home/Index". (d98d540e)
+2019-04-17T23:34:34.7576273+07:00 0HLM3AA6235T1:00000003 [INF] Executed action "BeYeuBookstore.Controllers.AccountController.Login (BeYeuBookstore)" in 4912.5232ms (afa2e885)
+2019-04-17T23:34:34.8332188+07:00 0HLM3AA6235T1:00000003 [INF] Request finished in 5061.1497ms 302  (791a596a)
+2019-04-17T23:34:34.8653210+07:00 0HLM3AA6235T0:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:44379/Home/Index   (ca22a1cb)
+2019-04-17T23:34:34.9646249+07:00 0HLM3AA6235T0:00000003 [INF] Route matched with "{action = \"Index\", controller = \"Home\", area = \"\"}". Executing action "BeYeuBookstore.Controllers.HomeController.Index (BeYeuBookstore)" (a44c0341)
+2019-04-17T23:34:35.0105585+07:00 0HLM3AA6235T0:00000003 [INF] Authorization was successful. (0d575a54)
+2019-04-17T23:34:35.0360260+07:00 0HLM3AA6235T0:00000003 [INF] Executing action method "BeYeuBookstore.Controllers.HomeController.Index (BeYeuBookstore)" - Validation state: Valid (dad538d7)
+2019-04-17T23:34:35.0521063+07:00 0HLM3AA6235T0:00000003 [INF] Executed action method "BeYeuBookstore.Controllers.HomeController.Index (BeYeuBookstore)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 3.6618ms. (50a9e262)
+2019-04-17T23:34:35.0777756+07:00 0HLM3AA6235T0:00000003 [INF] Executing ViewResult, running view "Index". (c83d0e25)
+2019-04-17T23:34:35.3816156+07:00 0HLM3AA6235T0:00000003 [INF] Entity Framework Core "2.2.0-preview1-35029" initialized '"ERPDbContext"' using provider '"Pomelo.EntityFrameworkCore.MySql"' with options: "ServerVersion 8.0.13 MySql " (9958f5bb)
+2019-04-17T23:34:35.6560304+07:00 0HLM3AA6235T0:00000003 [INF] Executed DbCommand ("19"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT `x`.`KeyId`, `x`.`Name`, `x`.`URL`, `x`.`ParentId`, `x`.`IconCss`, `x`.`SortOrder`, `x`.`Status`
+FROM `Functions` AS `x`
+WHERE `x`.`Status` = 1
+ORDER BY `x`.`SortOrder`, `x`.`ParentId`" (0723d8ff)
+2019-04-17T23:34:35.9040169+07:00 0HLM3AA6235T0:00000003 [INF] Executed ViewResult - view "Index" executed in 833.3417ms. (f66409e9)
+2019-04-17T23:34:35.9280380+07:00 0HLM3AA6235T0:00000003 [INF] Executed action "BeYeuBookstore.Controllers.HomeController.Index (BeYeuBookstore)" in 953.4766ms (afa2e885)
+2019-04-17T23:34:36.3907653+07:00 0HLM3AA6235T0:00000003 [INF] Request finished in 1329.4284ms 200 text/html; charset=utf-8 (791a596a)
+2019-04-17T23:34:36.9785765+07:00 0HLM3AA6235T1:00000004 [INF] Request starting HTTP/1.1 GET http://localhost:44379/Notification/GetByUserId   (ca22a1cb)
+2019-04-17T23:34:36.9912524+07:00 0HLM3AA6235T1:00000004 [INF] Route matched with "{action = \"GetByUserId\", controller = \"Notification\", area = \"\"}". Executing action "BeYeuBookstore.Controllers.Construction.NotificationController.GetByUserId (BeYeuBookstore)" (a44c0341)
+2019-04-17T23:34:37.0010137+07:00 0HLM3AA6235T1:00000004 [INF] Executing action method "BeYeuBookstore.Controllers.Construction.NotificationController.GetByUserId (BeYeuBookstore)" - Validation state: Valid (dad538d7)
+2019-04-17T23:34:37.0175722+07:00 0HLM3AA6235T1:00000004 [INF] Entity Framework Core "2.2.0-preview1-35029" initialized '"ERPDbContext"' using provider '"Pomelo.EntityFrameworkCore.MySql"' with options: "ServerVersion 8.0.13 MySql " (9958f5bb)
+2019-04-17T23:34:37.1192824+07:00 0HLM3AA6235T1:00000004 [INF] Executed DbCommand ("1"ms) [Parameters=["@__userId_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT `p`.`NotificationFkNavigationKeyId` AS `KeyId`, `p.NotificationFkNavigation`.`NotificationContent`, `p.NotificationFkNavigation`.`DateCreated` AS `NotificationTime`, `p`.`Status`
+FROM `SoNotificationGeneralDetail` AS `p`
+INNER JOIN `SoNotificationGeneral` AS `p.NotificationFkNavigation` ON `p`.`NotificationFkNavigationKeyId` = `p.NotificationFkNavigation`.`KeyId`
+WHERE `p`.`UserFk` = @__userId_0" (0723d8ff)
+2019-04-17T23:34:37.1312442+07:00 0HLM3AA6235T1:00000004 [INF] Executed action method "BeYeuBookstore.Controllers.Construction.NotificationController.GetByUserId (BeYeuBookstore)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult" in 120.9914ms. (50a9e262)
+2019-04-17T23:34:37.1459741+07:00 0HLM3AA6235T1:00000004 [INF] Executing ObjectResult, writing value of type '"System.Collections.Generic.List`1[[BeYeuBookstore.Utilities.DTOs.Boq.SO_NotificationGeneralDTO, BeYeuBookstore.Utilities, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'. (8a1b66c8)
+2019-04-17T23:34:37.2077174+07:00 0HLM3AA6235T1:00000004 [INF] Executed action "BeYeuBookstore.Controllers.Construction.NotificationController.GetByUserId (BeYeuBookstore)" in 210.9399ms (afa2e885)
+2019-04-17T23:34:37.2197994+07:00 0HLM3AA6235T1:00000004 [INF] Request finished in 236.8392ms 200 application/json; charset=utf-8 (791a596a)
+2019-04-17T23:40:18.0397139+07:00 0HLM3AA6235T2:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44379/Home/Index   (ca22a1cb)
+2019-04-17T23:40:18.1907489+07:00 0HLM3AA6235T2:00000001 [INF] Entity Framework Core "2.2.0-preview1-35029" initialized '"ERPDbContext"' using provider '"Pomelo.EntityFrameworkCore.MySql"' with options: "ServerVersion 8.0.13 MySql " (9958f5bb)
+2019-04-17T23:40:18.9452461+07:00 0HLM3AA6235T2:00000001 [INF] Executed DbCommand ("3"ms) [Parameters=["@__get_Item_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT `e`.`Id`, `e`.`AccessFailedCount`, `e`.`Address`, `e`.`Avatar`, `e`.`ConcurrencyStamp`, `e`.`DateCreated`, `e`.`DateModified`, `e`.`Dob`, `e`.`Email`, `e`.`EmailConfirmed`, `e`.`FullName`, `e`.`Gender`, `e`.`IdDate`, `e`.`IdNumber`, `e`.`LastupdatedFk`, `e`.`LockoutEnabled`, `e`.`LockoutEnd`, `e`.`NormalizedEmail`, `e`.`NormalizedUserName`, `e`.`PasswordHash`, `e`.`PhoneNumber`, `e`.`PhoneNumberConfirmed`, `e`.`SecurityStamp`, `e`.`Status`, `e`.`TwoFactorEnabled`, `e`.`UserName`, `e`.`UserTypeFK`, `e`.`UserTypeFKNavigationKeyId`
+FROM `User` AS `e`
+WHERE `e`.`Id` = @__get_Item_0
+LIMIT 1" (0723d8ff)
+2019-04-17T23:40:19.0483184+07:00 0HLM3AA6235T2:00000001 [INF] Executed DbCommand ("2"ms) [Parameters=["@__user_Id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT `uc`.`Id`, `uc`.`ClaimType`, `uc`.`ClaimValue`, `uc`.`UserId`
+FROM `AppUserClaims` AS `uc`
+WHERE `uc`.`UserId` = @__user_Id_0" (0723d8ff)
+2019-04-17T23:40:19.1003843+07:00 0HLM3AA6235T2:00000001 [INF] Executed DbCommand ("3"ms) [Parameters=["@__userId_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT `role`.`Name`
+FROM `AppUserRoles` AS `userRole`
+INNER JOIN `Roles` AS `role` ON `userRole`.`RoleId` = `role`.`Id`
+WHERE `userRole`.`UserId` = @__userId_0" (0723d8ff)
+2019-04-17T23:40:19.1252880+07:00 0HLM3AA6235T2:00000001 [INF] Executed DbCommand ("3"ms) [Parameters=["@__normalizedName_0='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SELECT `r`.`Id`, `r`.`ConcurrencyStamp`, `r`.`Description`, `r`.`Name`, `r`.`NormalizedName`
+FROM `Roles` AS `r`
+WHERE `r`.`NormalizedName` = @__normalizedName_0
+LIMIT 1" (0723d8ff)
+2019-04-17T23:40:19.1592022+07:00 0HLM3AA6235T2:00000001 [INF] Executed DbCommand ("10"ms) [Parameters=["@__role_Id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT `rc`.`ClaimType`, `rc`.`ClaimValue`
+FROM `AppRoleClaims` AS `rc`
+WHERE `rc`.`RoleId` = @__role_Id_0" (0723d8ff)
+2019-04-17T23:40:19.1813939+07:00 0HLM3AA6235T2:00000001 [INF] Executed DbCommand ("2"ms) [Parameters=["@__userId_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT `role`.`Name`
+FROM `AppUserRoles` AS `userRole`
+INNER JOIN `Roles` AS `role` ON `userRole`.`RoleId` = `role`.`Id`
+WHERE `userRole`.`UserId` = @__userId_0" (0723d8ff)
+2019-04-17T23:40:19.2304562+07:00 0HLM3AA6235T2:00000001 [INF] Route matched with "{action = \"Index\", controller = \"Home\", area = \"\"}". Executing action "BeYeuBookstore.Controllers.HomeController.Index (BeYeuBookstore)" (a44c0341)
+2019-04-17T23:40:19.2489989+07:00 0HLM3AA6235T2:00000001 [INF] Authorization was successful. (0d575a54)
+2019-04-17T23:40:19.2666004+07:00 0HLM3AA6235T2:00000001 [INF] Executing action method "BeYeuBookstore.Controllers.HomeController.Index (BeYeuBookstore)" - Validation state: Valid (dad538d7)
+2019-04-17T23:40:19.2833478+07:00 0HLM3AA6235T2:00000001 [INF] Executed action method "BeYeuBookstore.Controllers.HomeController.Index (BeYeuBookstore)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 0.0829ms. (50a9e262)
+2019-04-17T23:40:19.2973255+07:00 0HLM3AA6235T2:00000001 [INF] Executing ViewResult, running view "Index". (c83d0e25)
+2019-04-17T23:40:19.3277963+07:00 0HLM3AA6235T2:00000001 [INF] Executed DbCommand ("4"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT `x`.`KeyId`, `x`.`Name`, `x`.`URL`, `x`.`ParentId`, `x`.`IconCss`, `x`.`SortOrder`, `x`.`Status`
+FROM `Functions` AS `x`
+WHERE `x`.`Status` = 1
+ORDER BY `x`.`SortOrder`, `x`.`ParentId`" (0723d8ff)
+2019-04-17T23:40:19.3476737+07:00 0HLM3AA6235T2:00000001 [INF] Executed ViewResult - view "Index" executed in 50.5102ms. (f66409e9)
+2019-04-17T23:40:19.3599926+07:00 0HLM3AA6235T2:00000001 [INF] Executed action "BeYeuBookstore.Controllers.HomeController.Index (BeYeuBookstore)" in 116.5111ms (afa2e885)
+2019-04-17T23:40:19.5186925+07:00 0HLM3AA6235T2:00000001 [INF] Request finished in 1368.2077ms 200 text/html; charset=utf-8 (791a596a)
+2019-04-17T23:40:20.9298931+07:00 0HLM3AA6235T2:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44379/Notification/GetByUserId   (ca22a1cb)
+2019-04-17T23:40:20.9432161+07:00 0HLM3AA6235T2:00000002 [INF] Route matched with "{action = \"GetByUserId\", controller = \"Notification\", area = \"\"}". Executing action "BeYeuBookstore.Controllers.Construction.NotificationController.GetByUserId (BeYeuBookstore)" (a44c0341)
+2019-04-17T23:40:20.9617144+07:00 0HLM3AA6235T2:00000002 [INF] Executing action method "BeYeuBookstore.Controllers.Construction.NotificationController.GetByUserId (BeYeuBookstore)" - Validation state: Valid (dad538d7)
+2019-04-17T23:40:20.9805286+07:00 0HLM3AA6235T2:00000002 [INF] Entity Framework Core "2.2.0-preview1-35029" initialized '"ERPDbContext"' using provider '"Pomelo.EntityFrameworkCore.MySql"' with options: "ServerVersion 8.0.13 MySql " (9958f5bb)
+2019-04-17T23:40:20.9994665+07:00 0HLM3AA6235T2:00000002 [INF] Executed DbCommand ("1"ms) [Parameters=["@__userId_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT `p`.`NotificationFkNavigationKeyId` AS `KeyId`, `p.NotificationFkNavigation`.`NotificationContent`, `p.NotificationFkNavigation`.`DateCreated` AS `NotificationTime`, `p`.`Status`
+FROM `SoNotificationGeneralDetail` AS `p`
+INNER JOIN `SoNotificationGeneral` AS `p.NotificationFkNavigation` ON `p`.`NotificationFkNavigationKeyId` = `p.NotificationFkNavigation`.`KeyId`
+WHERE `p`.`UserFk` = @__userId_0" (0723d8ff)
+2019-04-17T23:40:21.0174849+07:00 0HLM3AA6235T2:00000002 [INF] Executed action method "BeYeuBookstore.Controllers.Construction.NotificationController.GetByUserId (BeYeuBookstore)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult" in 37.8667ms. (50a9e262)
+2019-04-17T23:40:21.0350480+07:00 0HLM3AA6235T2:00000002 [INF] Executing ObjectResult, writing value of type '"System.Collections.Generic.List`1[[BeYeuBookstore.Utilities.DTOs.Boq.SO_NotificationGeneralDTO, BeYeuBookstore.Utilities, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'. (8a1b66c8)
+2019-04-17T23:40:21.0503321+07:00 0HLM3AA6235T2:00000002 [INF] Executed action "BeYeuBookstore.Controllers.Construction.NotificationController.GetByUserId (BeYeuBookstore)" in 92.584ms (afa2e885)
+2019-04-17T23:40:21.0797140+07:00 0HLM3AA6235T2:00000002 [INF] Request finished in 131.3073ms 200 application/json; charset=utf-8 (791a596a)
+2019-04-17T23:40:21.2504045+07:00 0HLM3AA6235T2:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:44379/favicon.ico   (ca22a1cb)
+2019-04-17T23:40:21.3182900+07:00 0HLM3AA6235T2:00000003 [INF] Sending file. Request path: '"/favicon.ico"'. Physical path: '"H:\Kul\TMĐT\ERPWebApp\wwwroot\favicon.ico"' (27b0a520)
+2019-04-17T23:40:21.3303938+07:00 0HLM3AA6235T2:00000003 [INF] Request finished in 81.8644ms 200 image/x-icon (791a596a)
+2019-04-17T23:41:50.2879415+07:00 0HLM3AA6235T3:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44379/WebMaster   (ca22a1cb)
+2019-04-17T23:41:50.3346804+07:00 0HLM3AA6235T3:00000001 [INF] Entity Framework Core "2.2.0-preview1-35029" initialized '"ERPDbContext"' using provider '"Pomelo.EntityFrameworkCore.MySql"' with options: "ServerVersion 8.0.13 MySql " (9958f5bb)
+2019-04-17T23:41:50.4332124+07:00 0HLM3AA6235T3:00000001 [INF] Executed DbCommand ("10"ms) [Parameters=["@__get_Item_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT `e`.`Id`, `e`.`AccessFailedCount`, `e`.`Address`, `e`.`Avatar`, `e`.`ConcurrencyStamp`, `e`.`DateCreated`, `e`.`DateModified`, `e`.`Dob`, `e`.`Email`, `e`.`EmailConfirmed`, `e`.`FullName`, `e`.`Gender`, `e`.`IdDate`, `e`.`IdNumber`, `e`.`LastupdatedFk`, `e`.`LockoutEnabled`, `e`.`LockoutEnd`, `e`.`NormalizedEmail`, `e`.`NormalizedUserName`, `e`.`PasswordHash`, `e`.`PhoneNumber`, `e`.`PhoneNumberConfirmed`, `e`.`SecurityStamp`, `e`.`Status`, `e`.`TwoFactorEnabled`, `e`.`UserName`, `e`.`UserTypeFK`, `e`.`UserTypeFKNavigationKeyId`
+FROM `User` AS `e`
+WHERE `e`.`Id` = @__get_Item_0
+LIMIT 1" (0723d8ff)
+2019-04-17T23:41:50.5035268+07:00 0HLM3AA6235T3:00000001 [INF] Executed DbCommand ("1"ms) [Parameters=["@__user_Id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT `uc`.`Id`, `uc`.`ClaimType`, `uc`.`ClaimValue`, `uc`.`UserId`
+FROM `AppUserClaims` AS `uc`
+WHERE `uc`.`UserId` = @__user_Id_0" (0723d8ff)
+2019-04-17T23:41:50.5342508+07:00 0HLM3AA6235T3:00000001 [INF] Executed DbCommand ("2"ms) [Parameters=["@__userId_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT `role`.`Name`
+FROM `AppUserRoles` AS `userRole`
+INNER JOIN `Roles` AS `role` ON `userRole`.`RoleId` = `role`.`Id`
+WHERE `userRole`.`UserId` = @__userId_0" (0723d8ff)
+2019-04-17T23:41:50.5877823+07:00 0HLM3AA6235T3:00000001 [INF] Executed DbCommand ("2"ms) [Parameters=["@__normalizedName_0='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SELECT `r`.`Id`, `r`.`ConcurrencyStamp`, `r`.`Description`, `r`.`Name`, `r`.`NormalizedName`
+FROM `Roles` AS `r`
+WHERE `r`.`NormalizedName` = @__normalizedName_0
+LIMIT 1" (0723d8ff)
+2019-04-17T23:41:50.6518169+07:00 0HLM3AA6235T3:00000001 [INF] Executed DbCommand ("3"ms) [Parameters=["@__role_Id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT `rc`.`ClaimType`, `rc`.`ClaimValue`
+FROM `AppRoleClaims` AS `rc`
+WHERE `rc`.`RoleId` = @__role_Id_0" (0723d8ff)
+2019-04-17T23:41:50.7226796+07:00 0HLM3AA6235T3:00000001 [INF] Executed DbCommand ("2"ms) [Parameters=["@__userId_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT `role`.`Name`
+FROM `AppUserRoles` AS `userRole`
+INNER JOIN `Roles` AS `role` ON `userRole`.`RoleId` = `role`.`Id`
+WHERE `userRole`.`UserId` = @__userId_0" (0723d8ff)
+2019-04-17T23:41:50.7712377+07:00 0HLM3AA6235T3:00000001 [INF] Route matched with "{action = \"Index\", controller = \"WebMaster\", area = \"\"}". Executing action "BeYeuBookstore.Controllers.WebMasterController.Index (BeYeuBookstore)" (a44c0341)
+2019-04-17T23:41:50.7924074+07:00 0HLM3AA6235T3:00000001 [INF] Executing action method "BeYeuBookstore.Controllers.WebMasterController.Index (BeYeuBookstore)" - Validation state: Valid (dad538d7)
+2019-04-17T23:41:50.8103877+07:00 0HLM3AA6235T3:00000001 [INF] Executed action method "BeYeuBookstore.Controllers.WebMasterController.Index (BeYeuBookstore)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 2.0086ms. (50a9e262)
+2019-04-17T23:41:50.8406524+07:00 0HLM3AA6235T3:00000001 [INF] Executing ViewResult, running view "Index". (c83d0e25)
+2019-04-17T23:41:51.0196342+07:00 0HLM3AA6235T3:00000001 [INF] Executed DbCommand ("8"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT `x`.`KeyId`, `x`.`Name`, `x`.`URL`, `x`.`ParentId`, `x`.`IconCss`, `x`.`SortOrder`, `x`.`Status`
+FROM `Functions` AS `x`
+WHERE `x`.`Status` = 1
+ORDER BY `x`.`SortOrder`, `x`.`ParentId`" (0723d8ff)
+2019-04-17T23:41:51.1596400+07:00 0HLM3AA6235T3:00000001 [INF] Executed ViewResult - view "Index" executed in 292.177ms. (f66409e9)
+2019-04-17T23:41:51.1842240+07:00 0HLM3AA6235T3:00000001 [INF] Executed action "BeYeuBookstore.Controllers.WebMasterController.Index (BeYeuBookstore)" in 388.7663ms (afa2e885)
+2019-04-17T23:41:51.4825603+07:00 0HLM3AA6235T3:00000001 [INF] Request finished in 1059.8455ms 200 text/html; charset=utf-8 (791a596a)
+2019-04-17T23:41:52.7125292+07:00 0HLM3AA6235T3:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44379/Notification/GetByUserId   (ca22a1cb)
+2019-04-17T23:41:52.7420280+07:00 0HLM3AA6235T3:00000002 [INF] Route matched with "{action = \"GetByUserId\", controller = \"Notification\", area = \"\"}". Executing action "BeYeuBookstore.Controllers.Construction.NotificationController.GetByUserId (BeYeuBookstore)" (a44c0341)
+2019-04-17T23:41:52.7608662+07:00 0HLM3AA6235T3:00000002 [INF] Executing action method "BeYeuBookstore.Controllers.Construction.NotificationController.GetByUserId (BeYeuBookstore)" - Validation state: Valid (dad538d7)
+2019-04-17T23:41:52.7746549+07:00 0HLM3AA6235T3:00000002 [INF] Entity Framework Core "2.2.0-preview1-35029" initialized '"ERPDbContext"' using provider '"Pomelo.EntityFrameworkCore.MySql"' with options: "ServerVersion 8.0.13 MySql " (9958f5bb)
+2019-04-17T23:41:52.7965734+07:00 0HLM3AA6235T3:00000002 [INF] Executed DbCommand ("1"ms) [Parameters=["@__userId_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT `p`.`NotificationFkNavigationKeyId` AS `KeyId`, `p.NotificationFkNavigation`.`NotificationContent`, `p.NotificationFkNavigation`.`DateCreated` AS `NotificationTime`, `p`.`Status`
+FROM `SoNotificationGeneralDetail` AS `p`
+INNER JOIN `SoNotificationGeneral` AS `p.NotificationFkNavigation` ON `p`.`NotificationFkNavigationKeyId` = `p.NotificationFkNavigation`.`KeyId`
+WHERE `p`.`UserFk` = @__userId_0" (0723d8ff)
+2019-04-17T23:41:52.8137070+07:00 0HLM3AA6235T3:00000002 [INF] Executed action method "BeYeuBookstore.Controllers.Construction.NotificationController.GetByUserId (BeYeuBookstore)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult" in 35.767ms. (50a9e262)
+2019-04-17T23:41:52.8294923+07:00 0HLM3AA6235T3:00000002 [INF] Executing ObjectResult, writing value of type '"System.Collections.Generic.List`1[[BeYeuBookstore.Utilities.DTOs.Boq.SO_NotificationGeneralDTO, BeYeuBookstore.Utilities, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'. (8a1b66c8)
+2019-04-17T23:41:52.8421209+07:00 0HLM3AA6235T3:00000002 [INF] Executed action "BeYeuBookstore.Controllers.Construction.NotificationController.GetByUserId (BeYeuBookstore)" in 88.0352ms (afa2e885)
+2019-04-17T23:41:52.8761974+07:00 0HLM3AA6235T3:00000002 [INF] Request finished in 145.4552ms 200 application/json; charset=utf-8 (791a596a)
+2019-04-17T23:41:53.0444666+07:00 0HLM3AA6235T3:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:44379/WebMaster/GetAllPaging?fromdate=&todate=&keyword=&status=&page=1&pageSize=10   (ca22a1cb)
+2019-04-17T23:41:53.0811723+07:00 0HLM3AA6235T3:00000003 [INF] Route matched with "{action = \"GetAllPaging\", controller = \"WebMaster\", area = \"\"}". Executing action "BeYeuBookstore.Controllers.WebMasterController.GetAllPaging (BeYeuBookstore)" (a44c0341)
+2019-04-17T23:41:53.1004642+07:00 0HLM3AA6235T3:00000003 [INF] Executing action method "BeYeuBookstore.Controllers.WebMasterController.GetAllPaging (BeYeuBookstore)" with arguments (["0", "InActive", "", "", "", "1", "10"]) - Validation state: Invalid (4e3479ed)
+2019-04-17T23:41:53.1337501+07:00 0HLM3AA6235T3:00000003 [INF] Entity Framework Core "2.2.0-preview1-35029" initialized '"ERPDbContext"' using provider '"Pomelo.EntityFrameworkCore.MySql"' with options: "ServerVersion 8.0.13 MySql " (9958f5bb)
+2019-04-17T23:41:53.2795808+07:00 0HLM3AA6235T3:00000003 [WRN] The Include operation for navigation '"[p].UserBy"' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information. (10efaee6)
+2019-04-17T23:41:53.3137899+07:00 0HLM3AA6235T3:00000003 [WRN] The Include operation for navigation '"[p].WebMasterTypeFKNavigation"' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information. (10efaee6)
+2019-04-17T23:41:53.3702991+07:00 0HLM3AA6235T3:00000003 [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM `WebMasters` AS `p`" (0723d8ff)
+2019-04-17T23:41:53.6805784+07:00 0HLM3AA6235T3:00000003 [INF] Executed DbCommand ("10"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT `p`.`KeyId`, `p`.`DateCreated`, `p`.`DateModified`, `p`.`UserFK`, `p`.`WebMasterTypeFK`, `p.WebMasterTypeFKNavigation`.`KeyId`, `p.WebMasterTypeFKNavigation`.`DateCreated`, `p.WebMasterTypeFKNavigation`.`DateModified`, `p.WebMasterTypeFKNavigation`.`WebMasterTypeName`, `p.UserBy`.`Id`, `p.UserBy`.`AccessFailedCount`, `p.UserBy`.`Address`, `p.UserBy`.`Avatar`, `p.UserBy`.`ConcurrencyStamp`, `p.UserBy`.`DateCreated`, `p.UserBy`.`DateModified`, `p.UserBy`.`Dob`, `p.UserBy`.`Email`, `p.UserBy`.`EmailConfirmed`, `p.UserBy`.`FullName`, `p.UserBy`.`Gender`, `p.UserBy`.`IdDate`, `p.UserBy`.`IdNumber`, `p.UserBy`.`LastupdatedFk`, `p.UserBy`.`LockoutEnabled`, `p.UserBy`.`LockoutEnd`, `p.UserBy`.`NormalizedEmail`, `p.UserBy`.`NormalizedUserName`, `p.UserBy`.`PasswordHash`, `p.UserBy`.`PhoneNumber`, `p.UserBy`.`PhoneNumberConfirmed`, `p.UserBy`.`SecurityStamp`, `p.UserBy`.`Status`, `p.UserBy`.`TwoFactorEnabled`, `p.UserBy`.`UserName`, `p.UserBy`.`UserTypeFK`, `p.UserBy`.`UserTypeFKNavigationKeyId`
+FROM `WebMasters` AS `p`
+INNER JOIN `WebMasterTypes` AS `p.WebMasterTypeFKNavigation` ON `p`.`WebMasterTypeFK` = `p.WebMasterTypeFKNavigation`.`KeyId`
+INNER JOIN `User` AS `p.UserBy` ON `p`.`UserFK` = `p.UserBy`.`Id`
+ORDER BY `p`.`KeyId`
+LIMIT @__p_1 OFFSET @__p_0" (0723d8ff)
+2019-04-17T23:41:53.9875205+07:00 0HLM3AA6235T3:00000003 [INF] Executed action method "BeYeuBookstore.Controllers.WebMasterController.GetAllPaging (BeYeuBookstore)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult" in 879.0889ms. (50a9e262)
+2019-04-17T23:41:53.9951504+07:00 0HLM3AA6235T3:00000003 [INF] Executing ObjectResult, writing value of type '"BeYeuBookstore.Utilities.DTOs.PagedResult`1[[BeYeuBookstore.Application.ViewModels.WebMasterViewModel, BeYeuBookstore.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'. (8a1b66c8)
+2019-04-17T23:41:54.3002779+07:00 0HLM3AA6235T3:00000003 [INF] Executed action "BeYeuBookstore.Controllers.WebMasterController.GetAllPaging (BeYeuBookstore)" in 1093.7929ms (afa2e885)
+2019-04-17T23:41:54.3978623+07:00 0HLM3AA6235T3:00000003 [INF] Request finished in 1293.9808ms 200 application/json; charset=utf-8 (791a596a)
+2019-04-17T23:41:54.4145529+07:00 0HLM3AA6235T3:00000004 [INF] Request starting HTTP/1.1 GET http://localhost:44379/WebMaster/GetAllPaging?fromdate=&todate=&keyword=&status=&page=1&pageSize=10   (ca22a1cb)
+2019-04-17T23:41:54.4438332+07:00 0HLM3AA6235T3:00000004 [INF] Route matched with "{action = \"GetAllPaging\", controller = \"WebMaster\", area = \"\"}". Executing action "BeYeuBookstore.Controllers.WebMasterController.GetAllPaging (BeYeuBookstore)" (a44c0341)
+2019-04-17T23:41:54.4862516+07:00 0HLM3AA6235T3:00000004 [INF] Executing action method "BeYeuBookstore.Controllers.WebMasterController.GetAllPaging (BeYeuBookstore)" with arguments (["0", "InActive", "", "", "", "1", "10"]) - Validation state: Invalid (4e3479ed)
+2019-04-17T23:41:54.5148558+07:00 0HLM3AA6235T3:00000004 [INF] Entity Framework Core "2.2.0-preview1-35029" initialized '"ERPDbContext"' using provider '"Pomelo.EntityFrameworkCore.MySql"' with options: "ServerVersion 8.0.13 MySql " (9958f5bb)
+2019-04-17T23:41:54.5267997+07:00 0HLM3AA6235T3:00000004 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM `WebMasters` AS `p`" (0723d8ff)
+2019-04-17T23:41:54.5457892+07:00 0HLM3AA6235T3:00000004 [INF] Executed DbCommand ("1"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT `p`.`KeyId`, `p`.`DateCreated`, `p`.`DateModified`, `p`.`UserFK`, `p`.`WebMasterTypeFK`, `p.WebMasterTypeFKNavigation`.`KeyId`, `p.WebMasterTypeFKNavigation`.`DateCreated`, `p.WebMasterTypeFKNavigation`.`DateModified`, `p.WebMasterTypeFKNavigation`.`WebMasterTypeName`, `p.UserBy`.`Id`, `p.UserBy`.`AccessFailedCount`, `p.UserBy`.`Address`, `p.UserBy`.`Avatar`, `p.UserBy`.`ConcurrencyStamp`, `p.UserBy`.`DateCreated`, `p.UserBy`.`DateModified`, `p.UserBy`.`Dob`, `p.UserBy`.`Email`, `p.UserBy`.`EmailConfirmed`, `p.UserBy`.`FullName`, `p.UserBy`.`Gender`, `p.UserBy`.`IdDate`, `p.UserBy`.`IdNumber`, `p.UserBy`.`LastupdatedFk`, `p.UserBy`.`LockoutEnabled`, `p.UserBy`.`LockoutEnd`, `p.UserBy`.`NormalizedEmail`, `p.UserBy`.`NormalizedUserName`, `p.UserBy`.`PasswordHash`, `p.UserBy`.`PhoneNumber`, `p.UserBy`.`PhoneNumberConfirmed`, `p.UserBy`.`SecurityStamp`, `p.UserBy`.`Status`, `p.UserBy`.`TwoFactorEnabled`, `p.UserBy`.`UserName`, `p.UserBy`.`UserTypeFK`, `p.UserBy`.`UserTypeFKNavigationKeyId`
+FROM `WebMasters` AS `p`
+INNER JOIN `WebMasterTypes` AS `p.WebMasterTypeFKNavigation` ON `p`.`WebMasterTypeFK` = `p.WebMasterTypeFKNavigation`.`KeyId`
+INNER JOIN `User` AS `p.UserBy` ON `p`.`UserFK` = `p.UserBy`.`Id`
+ORDER BY `p`.`KeyId`
+LIMIT @__p_1 OFFSET @__p_0" (0723d8ff)
+2019-04-17T23:41:54.5543335+07:00 0HLM3AA6235T3:00000004 [INF] Executed action method "BeYeuBookstore.Controllers.WebMasterController.GetAllPaging (BeYeuBookstore)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult" in 60.2598ms. (50a9e262)
+2019-04-17T23:41:54.5633266+07:00 0HLM3AA6235T3:00000004 [INF] Executing ObjectResult, writing value of type '"BeYeuBookstore.Utilities.DTOs.PagedResult`1[[BeYeuBookstore.Application.ViewModels.WebMasterViewModel, BeYeuBookstore.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'. (8a1b66c8)
+2019-04-17T23:41:54.5713410+07:00 0HLM3AA6235T3:00000004 [INF] Executed action "BeYeuBookstore.Controllers.WebMasterController.GetAllPaging (BeYeuBookstore)" in 120.0904ms (afa2e885)
+2019-04-17T23:41:54.6162222+07:00 0HLM3AA6235T3:00000004 [INF] Request finished in 167.8346ms 200 application/json; charset=utf-8 (791a596a)
+2019-04-17T23:45:01.5739085+07:00 0HLM3AA6235T4:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44379/Customer   (ca22a1cb)
+2019-04-17T23:45:01.6079462+07:00 0HLM3AA6235T4:00000001 [INF] Entity Framework Core "2.2.0-preview1-35029" initialized '"ERPDbContext"' using provider '"Pomelo.EntityFrameworkCore.MySql"' with options: "ServerVersion 8.0.13 MySql " (9958f5bb)
+2019-04-17T23:45:01.6897097+07:00 0HLM3AA6235T4:00000001 [INF] Executed DbCommand ("23"ms) [Parameters=["@__get_Item_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT `e`.`Id`, `e`.`AccessFailedCount`, `e`.`Address`, `e`.`Avatar`, `e`.`ConcurrencyStamp`, `e`.`DateCreated`, `e`.`DateModified`, `e`.`Dob`, `e`.`Email`, `e`.`EmailConfirmed`, `e`.`FullName`, `e`.`Gender`, `e`.`IdDate`, `e`.`IdNumber`, `e`.`LastupdatedFk`, `e`.`LockoutEnabled`, `e`.`LockoutEnd`, `e`.`NormalizedEmail`, `e`.`NormalizedUserName`, `e`.`PasswordHash`, `e`.`PhoneNumber`, `e`.`PhoneNumberConfirmed`, `e`.`SecurityStamp`, `e`.`Status`, `e`.`TwoFactorEnabled`, `e`.`UserName`, `e`.`UserTypeFK`, `e`.`UserTypeFKNavigationKeyId`
+FROM `User` AS `e`
+WHERE `e`.`Id` = @__get_Item_0
+LIMIT 1" (0723d8ff)
+2019-04-17T23:45:01.7231859+07:00 0HLM3AA6235T4:00000001 [INF] Executed DbCommand ("1"ms) [Parameters=["@__user_Id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT `uc`.`Id`, `uc`.`ClaimType`, `uc`.`ClaimValue`, `uc`.`UserId`
+FROM `AppUserClaims` AS `uc`
+WHERE `uc`.`UserId` = @__user_Id_0" (0723d8ff)
+2019-04-17T23:45:01.7483719+07:00 0HLM3AA6235T4:00000001 [INF] Executed DbCommand ("2"ms) [Parameters=["@__userId_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT `role`.`Name`
+FROM `AppUserRoles` AS `userRole`
+INNER JOIN `Roles` AS `role` ON `userRole`.`RoleId` = `role`.`Id`
+WHERE `userRole`.`UserId` = @__userId_0" (0723d8ff)
+2019-04-17T23:45:01.7957480+07:00 0HLM3AA6235T4:00000001 [INF] Executed DbCommand ("2"ms) [Parameters=["@__normalizedName_0='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SELECT `r`.`Id`, `r`.`ConcurrencyStamp`, `r`.`Description`, `r`.`Name`, `r`.`NormalizedName`
+FROM `Roles` AS `r`
+WHERE `r`.`NormalizedName` = @__normalizedName_0
+LIMIT 1" (0723d8ff)
+2019-04-17T23:45:01.8277651+07:00 0HLM3AA6235T4:00000001 [INF] Executed DbCommand ("2"ms) [Parameters=["@__role_Id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT `rc`.`ClaimType`, `rc`.`ClaimValue`
+FROM `AppRoleClaims` AS `rc`
+WHERE `rc`.`RoleId` = @__role_Id_0" (0723d8ff)
+2019-04-17T23:45:01.8610848+07:00 0HLM3AA6235T4:00000001 [INF] Executed DbCommand ("4"ms) [Parameters=["@__userId_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT `role`.`Name`
+FROM `AppUserRoles` AS `userRole`
+INNER JOIN `Roles` AS `role` ON `userRole`.`RoleId` = `role`.`Id`
+WHERE `userRole`.`UserId` = @__userId_0" (0723d8ff)
+2019-04-17T23:45:01.8856918+07:00 0HLM3AA6235T4:00000001 [INF] Route matched with "{action = \"Index\", controller = \"Customer\", area = \"\"}". Executing action "BeYeuBookstore.Controllers.CustomerController.Index (BeYeuBookstore)" (a44c0341)
+2019-04-17T23:45:01.9097703+07:00 0HLM3AA6235T4:00000001 [INF] Executing action method "BeYeuBookstore.Controllers.CustomerController.Index (BeYeuBookstore)" - Validation state: Valid (dad538d7)
+2019-04-17T23:45:01.9335173+07:00 0HLM3AA6235T4:00000001 [INF] Executed action method "BeYeuBookstore.Controllers.CustomerController.Index (BeYeuBookstore)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 1.1931ms. (50a9e262)
+2019-04-17T23:45:01.9592238+07:00 0HLM3AA6235T4:00000001 [INF] Executing ViewResult, running view "Index". (c83d0e25)
+2019-04-17T23:45:02.3769638+07:00 0HLM3AA6235T4:00000001 [INF] Executed DbCommand ("5"ms) [Parameters=["@__functionId_1='?' (Size = 128) (DbType = AnsiString)"], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM `Functions` AS `f`
+        INNER JOIN `Permissions` AS `p` ON `f`.`KeyId` = `p`.`FunctionId`
+        INNER JOIN `Roles` AS `r` ON `p`.`RoleId` = `r`.`Id`
+        WHERE (`r`.`Name` IN ('test') AND (`f`.`KeyId` = @__functionId_1)) AND (`p`.`CanCreate` = TRUE))
+    THEN TRUE ELSE FALSE
+END" (0723d8ff)
+2019-04-17T23:45:02.4645355+07:00 0HLM3AA6235T4:00000001 [INF] Authorization was successful. (0d575a54)
+2019-04-17T23:45:02.5459338+07:00 0HLM3AA6235T4:00000001 [INF] Executed DbCommand ("5"ms) [Parameters=["@__functionId_1='?' (Size = 128) (DbType = AnsiString)"], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM `Functions` AS `f`
+        INNER JOIN `Permissions` AS `p` ON `f`.`KeyId` = `p`.`FunctionId`
+        INNER JOIN `Roles` AS `r` ON `p`.`RoleId` = `r`.`Id`
+        WHERE (`r`.`Name` IN ('test') AND (`f`.`KeyId` = @__functionId_1)) AND (`p`.`CanDelete` = TRUE))
+    THEN TRUE ELSE FALSE
+END" (0723d8ff)
+2019-04-17T23:45:02.5683108+07:00 0HLM3AA6235T4:00000001 [INF] Authorization was successful. (0d575a54)
+2019-04-17T23:45:02.6359632+07:00 0HLM3AA6235T4:00000001 [INF] Executed DbCommand ("3"ms) [Parameters=["@__functionId_1='?' (Size = 128) (DbType = AnsiString)"], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM `Functions` AS `f`
+        INNER JOIN `Permissions` AS `p` ON `f`.`KeyId` = `p`.`FunctionId`
+        INNER JOIN `Roles` AS `r` ON `p`.`RoleId` = `r`.`Id`
+        WHERE (`r`.`Name` IN ('test') AND (`f`.`KeyId` = @__functionId_1)) AND (`p`.`CanUpdate` = TRUE))
+    THEN TRUE ELSE FALSE
+END" (0723d8ff)
+2019-04-17T23:45:02.6550335+07:00 0HLM3AA6235T4:00000001 [INF] Authorization was successful. (0d575a54)
+2019-04-17T23:45:02.7174000+07:00 0HLM3AA6235T4:00000001 [INF] Executed DbCommand ("2"ms) [Parameters=["@__functionId_1='?' (Size = 128) (DbType = AnsiString)"], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM `Functions` AS `f`
+        INNER JOIN `Permissions` AS `p` ON `f`.`KeyId` = `p`.`FunctionId`
+        INNER JOIN `Roles` AS `r` ON `p`.`RoleId` = `r`.`Id`
+        WHERE (`r`.`Name` IN ('test') AND (`f`.`KeyId` = @__functionId_1)) AND (`p`.`CanConfirm` = TRUE))
+    THEN TRUE ELSE FALSE
+END" (0723d8ff)
+2019-04-17T23:45:02.7316167+07:00 0HLM3AA6235T4:00000001 [INF] Authorization was successful. (0d575a54)
+2019-04-17T23:45:02.8144678+07:00 0HLM3AA6235T4:00000001 [INF] Executed DbCommand ("3"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT `x`.`KeyId`, `x`.`Name`, `x`.`URL`, `x`.`ParentId`, `x`.`IconCss`, `x`.`SortOrder`, `x`.`Status`
+FROM `Functions` AS `x`
+WHERE `x`.`Status` = 1
+ORDER BY `x`.`SortOrder`, `x`.`ParentId`" (0723d8ff)
+2019-04-17T23:45:02.8649267+07:00 0HLM3AA6235T4:00000001 [INF] Executed ViewResult - view "Index" executed in 911.7175ms. (f66409e9)
+2019-04-17T23:45:02.9067456+07:00 0HLM3AA6235T4:00000001 [INF] Executed action "BeYeuBookstore.Controllers.CustomerController.Index (BeYeuBookstore)" in 979.6385ms (afa2e885)
+2019-04-17T23:45:03.1414531+07:00 0HLM3AA6235T4:00000001 [INF] Request finished in 1395.0709ms 200 text/html; charset=utf-8 (791a596a)
+2019-04-17T23:45:03.3466795+07:00 0HLM3AA6235T4:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44379/app/controllers/customer/index.js?v=66dhacx4XtPxt2RCdsOKPKHAwEDa43JL6N0hzoUmvYg   (ca22a1cb)
+2019-04-17T23:45:03.4318589+07:00 0HLM3AA6235T4:00000002 [INF] Sending file. Request path: '"/app/controllers/customer/index.js"'. Physical path: '"H:\Kul\TMĐT\ERPWebApp\wwwroot\app\controllers\customer\index.js"' (27b0a520)
+2019-04-17T23:45:03.5000874+07:00 0HLM3AA6235T4:00000002 [INF] Request finished in 133.723ms 200 application/javascript (791a596a)
+2019-04-17T23:45:03.9431545+07:00 0HLM3AA6235T4:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:44379/Notification/GetByUserId   (ca22a1cb)
+2019-04-17T23:45:03.9566764+07:00 0HLM3AA6235T4:00000003 [INF] Route matched with "{action = \"GetByUserId\", controller = \"Notification\", area = \"\"}". Executing action "BeYeuBookstore.Controllers.Construction.NotificationController.GetByUserId (BeYeuBookstore)" (a44c0341)
+2019-04-17T23:45:04.0257105+07:00 0HLM3AA6235T4:00000003 [INF] Executing action method "BeYeuBookstore.Controllers.Construction.NotificationController.GetByUserId (BeYeuBookstore)" - Validation state: Valid (dad538d7)
+2019-04-17T23:45:04.1672888+07:00 0HLM3AA6235T4:00000003 [INF] Entity Framework Core "2.2.0-preview1-35029" initialized '"ERPDbContext"' using provider '"Pomelo.EntityFrameworkCore.MySql"' with options: "ServerVersion 8.0.13 MySql " (9958f5bb)
+2019-04-17T23:45:04.1755524+07:00 0HLM3AA6235T5:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44379/Customer/GetAllPaging?keyword=&page=1&pageSize=10   (ca22a1cb)
+2019-04-17T23:45:04.2017861+07:00 0HLM3AA6235T4:00000003 [INF] Executed DbCommand ("1"ms) [Parameters=["@__userId_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT `p`.`NotificationFkNavigationKeyId` AS `KeyId`, `p.NotificationFkNavigation`.`NotificationContent`, `p.NotificationFkNavigation`.`DateCreated` AS `NotificationTime`, `p`.`Status`
+FROM `SoNotificationGeneralDetail` AS `p`
+INNER JOIN `SoNotificationGeneral` AS `p.NotificationFkNavigation` ON `p`.`NotificationFkNavigationKeyId` = `p.NotificationFkNavigation`.`KeyId`
+WHERE `p`.`UserFk` = @__userId_0" (0723d8ff)
+2019-04-17T23:45:04.2184751+07:00 0HLM3AA6235T5:00000001 [INF] Route matched with "{action = \"GetAllPaging\", controller = \"Customer\", area = \"\"}". Executing action "BeYeuBookstore.Controllers.CustomerController.GetAllPaging (BeYeuBookstore)" (a44c0341)
+2019-04-17T23:45:04.2556384+07:00 0HLM3AA6235T4:00000003 [INF] Executed action method "BeYeuBookstore.Controllers.Construction.NotificationController.GetByUserId (BeYeuBookstore)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult" in 176.1534ms. (50a9e262)
+2019-04-17T23:45:04.2959901+07:00 0HLM3AA6235T5:00000001 [INF] Executing action method "BeYeuBookstore.Controllers.CustomerController.GetAllPaging (BeYeuBookstore)" with arguments (["", "1", "10"]) - Validation state: Valid (4e3479ed)
+2019-04-17T23:45:04.3288885+07:00 0HLM3AA6235T4:00000003 [INF] Executing ObjectResult, writing value of type '"System.Collections.Generic.List`1[[BeYeuBookstore.Utilities.DTOs.Boq.SO_NotificationGeneralDTO, BeYeuBookstore.Utilities, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'. (8a1b66c8)
+2019-04-17T23:45:04.3485803+07:00 0HLM3AA6235T5:00000001 [INF] Entity Framework Core "2.2.0-preview1-35029" initialized '"ERPDbContext"' using provider '"Pomelo.EntityFrameworkCore.MySql"' with options: "ServerVersion 8.0.13 MySql " (9958f5bb)
+2019-04-17T23:45:04.3522661+07:00 0HLM3AA6235T4:00000003 [INF] Executed action "BeYeuBookstore.Controllers.Construction.NotificationController.GetByUserId (BeYeuBookstore)" in 373.1289ms (afa2e885)
+2019-04-17T23:45:04.4441466+07:00 0HLM3AA6235T4:00000003 [INF] Request finished in 437.7674ms 200 application/json; charset=utf-8 (791a596a)
+2019-04-17T23:45:04.4489610+07:00 0HLM3AA6235T5:00000001 [WRN] The Include operation for navigation '"[x].UserBy"' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information. (10efaee6)
+2019-04-17T23:45:04.4789041+07:00 0HLM3AA6235T5:00000001 [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM `Customers` AS `x`" (0723d8ff)
+2019-04-17T23:45:04.6137184+07:00 0HLM3AA6235T5:00000001 [INF] Executed DbCommand ("1"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT `x`.`KeyId`, `x`.`DateCreated`, `x`.`DateModified`, `x`.`Dob`, `x`.`Gender`, `x`.`UserFK`, `x.UserBy`.`Id`, `x.UserBy`.`AccessFailedCount`, `x.UserBy`.`Address`, `x.UserBy`.`Avatar`, `x.UserBy`.`ConcurrencyStamp`, `x.UserBy`.`DateCreated`, `x.UserBy`.`DateModified`, `x.UserBy`.`Dob`, `x.UserBy`.`Email`, `x.UserBy`.`EmailConfirmed`, `x.UserBy`.`FullName`, `x.UserBy`.`Gender`, `x.UserBy`.`IdDate`, `x.UserBy`.`IdNumber`, `x.UserBy`.`LastupdatedFk`, `x.UserBy`.`LockoutEnabled`, `x.UserBy`.`LockoutEnd`, `x.UserBy`.`NormalizedEmail`, `x.UserBy`.`NormalizedUserName`, `x.UserBy`.`PasswordHash`, `x.UserBy`.`PhoneNumber`, `x.UserBy`.`PhoneNumberConfirmed`, `x.UserBy`.`SecurityStamp`, `x.UserBy`.`Status`, `x.UserBy`.`TwoFactorEnabled`, `x.UserBy`.`UserName`, `x.UserBy`.`UserTypeFK`, `x.UserBy`.`UserTypeFKNavigationKeyId`
+FROM `Customers` AS `x`
+INNER JOIN `User` AS `x.UserBy` ON `x`.`UserFK` = `x.UserBy`.`Id`
+ORDER BY `x`.`KeyId`
+LIMIT @__p_1 OFFSET @__p_0" (0723d8ff)
+2019-04-17T23:45:04.7404863+07:00 0HLM3AA6235T5:00000001 [INF] Executed action method "BeYeuBookstore.Controllers.CustomerController.GetAllPaging (BeYeuBookstore)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult" in 417.0001ms. (50a9e262)
+2019-04-17T23:45:04.7611600+07:00 0HLM3AA6235T5:00000001 [INF] Executing ObjectResult, writing value of type '"BeYeuBookstore.Utilities.DTOs.PagedResult`1[[BeYeuBookstore.Application.ViewModels.CustomerViewModel, BeYeuBookstore.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'. (8a1b66c8)
+2019-04-17T23:45:04.7970775+07:00 0HLM3AA6235T5:00000001 [INF] Executed action "BeYeuBookstore.Controllers.CustomerController.GetAllPaging (BeYeuBookstore)" in 566.9019ms (afa2e885)
+2019-04-17T23:45:04.8486445+07:00 0HLM3AA6235T5:00000001 [INF] Request finished in 681.8547ms 200 application/json; charset=utf-8 (791a596a)
+2019-04-17T23:45:04.8589585+07:00 0HLM3AA6235T4:00000004 [INF] Request starting HTTP/1.1 GET http://localhost:44379/Customer/GetAllPaging?keyword=&page=1&pageSize=10   (ca22a1cb)
+2019-04-17T23:45:04.8698569+07:00 0HLM3AA6235T4:00000004 [INF] Route matched with "{action = \"GetAllPaging\", controller = \"Customer\", area = \"\"}". Executing action "BeYeuBookstore.Controllers.CustomerController.GetAllPaging (BeYeuBookstore)" (a44c0341)
+2019-04-17T23:45:04.8806491+07:00 0HLM3AA6235T4:00000004 [INF] Executing action method "BeYeuBookstore.Controllers.CustomerController.GetAllPaging (BeYeuBookstore)" with arguments (["", "1", "10"]) - Validation state: Valid (4e3479ed)
+2019-04-17T23:45:04.8907876+07:00 0HLM3AA6235T4:00000004 [INF] Entity Framework Core "2.2.0-preview1-35029" initialized '"ERPDbContext"' using provider '"Pomelo.EntityFrameworkCore.MySql"' with options: "ServerVersion 8.0.13 MySql " (9958f5bb)
+2019-04-17T23:45:04.9040959+07:00 0HLM3AA6235T4:00000004 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM `Customers` AS `x`" (0723d8ff)
+2019-04-17T23:45:04.9174703+07:00 0HLM3AA6235T4:00000004 [INF] Executed DbCommand ("1"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT `x`.`KeyId`, `x`.`DateCreated`, `x`.`DateModified`, `x`.`Dob`, `x`.`Gender`, `x`.`UserFK`, `x.UserBy`.`Id`, `x.UserBy`.`AccessFailedCount`, `x.UserBy`.`Address`, `x.UserBy`.`Avatar`, `x.UserBy`.`ConcurrencyStamp`, `x.UserBy`.`DateCreated`, `x.UserBy`.`DateModified`, `x.UserBy`.`Dob`, `x.UserBy`.`Email`, `x.UserBy`.`EmailConfirmed`, `x.UserBy`.`FullName`, `x.UserBy`.`Gender`, `x.UserBy`.`IdDate`, `x.UserBy`.`IdNumber`, `x.UserBy`.`LastupdatedFk`, `x.UserBy`.`LockoutEnabled`, `x.UserBy`.`LockoutEnd`, `x.UserBy`.`NormalizedEmail`, `x.UserBy`.`NormalizedUserName`, `x.UserBy`.`PasswordHash`, `x.UserBy`.`PhoneNumber`, `x.UserBy`.`PhoneNumberConfirmed`, `x.UserBy`.`SecurityStamp`, `x.UserBy`.`Status`, `x.UserBy`.`TwoFactorEnabled`, `x.UserBy`.`UserName`, `x.UserBy`.`UserTypeFK`, `x.UserBy`.`UserTypeFKNavigationKeyId`
+FROM `Customers` AS `x`
+INNER JOIN `User` AS `x.UserBy` ON `x`.`UserFK` = `x.UserBy`.`Id`
+ORDER BY `x`.`KeyId`
+LIMIT @__p_1 OFFSET @__p_0" (0723d8ff)
+2019-04-17T23:45:04.9283390+07:00 0HLM3AA6235T4:00000004 [INF] Executed action method "BeYeuBookstore.Controllers.CustomerController.GetAllPaging (BeYeuBookstore)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult" in 37.4523ms. (50a9e262)
+2019-04-17T23:45:04.9382196+07:00 0HLM3AA6235T4:00000004 [INF] Executing ObjectResult, writing value of type '"BeYeuBookstore.Utilities.DTOs.PagedResult`1[[BeYeuBookstore.Application.ViewModels.CustomerViewModel, BeYeuBookstore.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'. (8a1b66c8)
+2019-04-17T23:45:04.9486655+07:00 0HLM3AA6235T4:00000004 [INF] Executed action "BeYeuBookstore.Controllers.CustomerController.GetAllPaging (BeYeuBookstore)" in 68.727ms (afa2e885)
+2019-04-17T23:45:04.9703235+07:00 0HLM3AA6235T4:00000004 [INF] Request finished in 104.2661ms 200 application/json; charset=utf-8 (791a596a)
+2019-04-17T23:55:56.7206654+07:00 0HLM3AM7I9G63:00000001 [INF] Request starting HTTP/1.1 DEBUG http://localhost:50873/  0 (ca22a1cb)
+2019-04-17T23:55:56.7206672+07:00 0HLM3AM7I9G62:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44379/   (ca22a1cb)
+2019-04-17T23:55:56.8476348+07:00 0HLM3AM7I9G63:00000001 [INF] Request finished in 387.2144ms 200  (791a596a)
+2019-04-17T23:55:57.3791011+07:00 0HLM3AM7I9G62:00000001 [INF] Entity Framework Core "2.2.0-preview1-35029" initialized '"ERPDbContext"' using provider '"Pomelo.EntityFrameworkCore.MySql"' with options: "ServerVersion 8.0.13 MySql " (9958f5bb)
+2019-04-17T23:55:58.2086617+07:00 0HLM3AM7I9G62:00000001 [INF] Executed DbCommand ("88"ms) [Parameters=["@__get_Item_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT `e`.`Id`, `e`.`AccessFailedCount`, `e`.`Address`, `e`.`Avatar`, `e`.`ConcurrencyStamp`, `e`.`DateCreated`, `e`.`DateModified`, `e`.`Dob`, `e`.`Email`, `e`.`EmailConfirmed`, `e`.`FullName`, `e`.`Gender`, `e`.`IdDate`, `e`.`IdNumber`, `e`.`LastupdatedFk`, `e`.`LockoutEnabled`, `e`.`LockoutEnd`, `e`.`NormalizedEmail`, `e`.`NormalizedUserName`, `e`.`PasswordHash`, `e`.`PhoneNumber`, `e`.`PhoneNumberConfirmed`, `e`.`SecurityStamp`, `e`.`Status`, `e`.`TwoFactorEnabled`, `e`.`UserName`, `e`.`UserTypeFK`, `e`.`UserTypeFKNavigationKeyId`
+FROM `User` AS `e`
+WHERE `e`.`Id` = @__get_Item_0
+LIMIT 1" (0723d8ff)
+2019-04-17T23:55:58.8306349+07:00 0HLM3AM7I9G62:00000001 [INF] Executed DbCommand ("31"ms) [Parameters=["@__user_Id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT `uc`.`Id`, `uc`.`ClaimType`, `uc`.`ClaimValue`, `uc`.`UserId`
+FROM `AppUserClaims` AS `uc`
+WHERE `uc`.`UserId` = @__user_Id_0" (0723d8ff)
+2019-04-17T23:55:59.0179394+07:00 0HLM3AM7I9G62:00000001 [INF] Executed DbCommand ("3"ms) [Parameters=["@__userId_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT `role`.`Name`
+FROM `AppUserRoles` AS `userRole`
+INNER JOIN `Roles` AS `role` ON `userRole`.`RoleId` = `role`.`Id`
+WHERE `userRole`.`UserId` = @__userId_0" (0723d8ff)
+2019-04-17T23:55:59.1188355+07:00 0HLM3AM7I9G62:00000001 [INF] Executed DbCommand ("1"ms) [Parameters=["@__normalizedName_0='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SELECT `r`.`Id`, `r`.`ConcurrencyStamp`, `r`.`Description`, `r`.`Name`, `r`.`NormalizedName`
+FROM `Roles` AS `r`
+WHERE `r`.`NormalizedName` = @__normalizedName_0
+LIMIT 1" (0723d8ff)
+2019-04-17T23:55:59.2537212+07:00 0HLM3AM7I9G62:00000001 [INF] Executed DbCommand ("3"ms) [Parameters=["@__role_Id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT `rc`.`ClaimType`, `rc`.`ClaimValue`
+FROM `AppRoleClaims` AS `rc`
+WHERE `rc`.`RoleId` = @__role_Id_0" (0723d8ff)
+2019-04-17T23:55:59.3571223+07:00 0HLM3AM7I9G62:00000001 [INF] Executed DbCommand ("1"ms) [Parameters=["@__userId_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT `role`.`Name`
+FROM `AppUserRoles` AS `userRole`
+INNER JOIN `Roles` AS `role` ON `userRole`.`RoleId` = `role`.`Id`
+WHERE `userRole`.`UserId` = @__userId_0" (0723d8ff)
+2019-04-17T23:56:00.1660662+07:00 0HLM3AM7I9G62:00000001 [INF] Route matched with "{action = \"Login\", controller = \"Account\", area = \"\"}". Executing action "BeYeuBookstore.Controllers.AccountController.Login (BeYeuBookstore)" (a44c0341)
+2019-04-17T23:56:00.2398184+07:00 0HLM3AM7I9G62:00000001 [INF] Executing action method "BeYeuBookstore.Controllers.AccountController.Login (BeYeuBookstore)" with arguments ([""]) - Validation state: Valid (4e3479ed)
+2019-04-17T23:56:00.2542339+07:00 0HLM3AM7I9G62:00000001 [INF] Executed action method "BeYeuBookstore.Controllers.AccountController.Login (BeYeuBookstore)", returned result "Microsoft.AspNetCore.Mvc.RedirectResult" in 3.4369ms. (50a9e262)
+2019-04-17T23:56:00.2723353+07:00 0HLM3AM7I9G62:00000001 [INF] Executing RedirectResult, redirecting to "/Home/Index". (d98d540e)
+2019-04-17T23:56:00.3160462+07:00 0HLM3AM7I9G62:00000001 [INF] Executed action "BeYeuBookstore.Controllers.AccountController.Login (BeYeuBookstore)" in 136.7092ms (afa2e885)
+2019-04-17T23:56:00.4148202+07:00 0HLM3AM7I9G62:00000001 [INF] Request finished in 3964.6738ms 302  (791a596a)
+2019-04-17T23:56:00.4564163+07:00 0HLM3AM7I9G63:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44379/Home/Index   (ca22a1cb)
+2019-04-17T23:56:00.5213285+07:00 0HLM3AM7I9G63:00000002 [INF] Route matched with "{action = \"Index\", controller = \"Home\", area = \"\"}". Executing action "BeYeuBookstore.Controllers.HomeController.Index (BeYeuBookstore)" (a44c0341)
+2019-04-17T23:56:01.0366348+07:00 0HLM3AM7I9G63:00000002 [INF] Authorization was successful. (0d575a54)
+2019-04-17T23:56:01.0888111+07:00 0HLM3AM7I9G63:00000002 [INF] Executing action method "BeYeuBookstore.Controllers.HomeController.Index (BeYeuBookstore)" - Validation state: Valid (dad538d7)
+2019-04-17T23:56:01.1202030+07:00 0HLM3AM7I9G63:00000002 [INF] Executed action method "BeYeuBookstore.Controllers.HomeController.Index (BeYeuBookstore)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 4.9875ms. (50a9e262)
+2019-04-17T23:56:01.3445374+07:00 0HLM3AM7I9G63:00000002 [INF] Executing ViewResult, running view "Index". (c83d0e25)
+2019-04-17T23:56:02.0941374+07:00 0HLM3AM7I9G63:00000002 [INF] Entity Framework Core "2.2.0-preview1-35029" initialized '"ERPDbContext"' using provider '"Pomelo.EntityFrameworkCore.MySql"' with options: "ServerVersion 8.0.13 MySql " (9958f5bb)
+2019-04-17T23:56:02.3818748+07:00 0HLM3AM7I9G63:00000002 [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT `x`.`KeyId`, `x`.`Name`, `x`.`URL`, `x`.`ParentId`, `x`.`IconCss`, `x`.`SortOrder`, `x`.`Status`
+FROM `Functions` AS `x`
+WHERE `x`.`Status` = 1
+ORDER BY `x`.`SortOrder`, `x`.`ParentId`" (0723d8ff)
+2019-04-17T23:56:03.0367255+07:00 0HLM3AM7I9G63:00000002 [INF] Executed ViewResult - view "Index" executed in 1878.8216ms. (f66409e9)
+2019-04-17T23:56:03.0842072+07:00 0HLM3AM7I9G63:00000002 [INF] Executed action "BeYeuBookstore.Controllers.HomeController.Index (BeYeuBookstore)" in 2545.1716ms (afa2e885)
+2019-04-17T23:56:04.3316805+07:00 0HLM3AM7I9G63:00000002 [INF] Request finished in 3822.7449ms 200 text/html; charset=utf-8 (791a596a)
+2019-04-17T23:56:05.0310944+07:00 0HLM3AM7I9G62:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44379/Notification/GetByUserId   (ca22a1cb)
+2019-04-17T23:56:05.0424409+07:00 0HLM3AM7I9G62:00000002 [INF] Route matched with "{action = \"GetByUserId\", controller = \"Notification\", area = \"\"}". Executing action "BeYeuBookstore.Controllers.Construction.NotificationController.GetByUserId (BeYeuBookstore)" (a44c0341)
+2019-04-17T23:56:05.0517659+07:00 0HLM3AM7I9G62:00000002 [INF] Executing action method "BeYeuBookstore.Controllers.Construction.NotificationController.GetByUserId (BeYeuBookstore)" - Validation state: Valid (dad538d7)
+2019-04-17T23:56:05.0657244+07:00 0HLM3AM7I9G62:00000002 [INF] Entity Framework Core "2.2.0-preview1-35029" initialized '"ERPDbContext"' using provider '"Pomelo.EntityFrameworkCore.MySql"' with options: "ServerVersion 8.0.13 MySql " (9958f5bb)
+2019-04-17T23:56:05.1885431+07:00 0HLM3AM7I9G62:00000002 [INF] Executed DbCommand ("1"ms) [Parameters=["@__userId_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT `p`.`NotificationFkNavigationKeyId` AS `KeyId`, `p.NotificationFkNavigation`.`NotificationContent`, `p.NotificationFkNavigation`.`DateCreated` AS `NotificationTime`, `p`.`Status`
+FROM `SoNotificationGeneralDetail` AS `p`
+INNER JOIN `SoNotificationGeneral` AS `p.NotificationFkNavigation` ON `p`.`NotificationFkNavigationKeyId` = `p.NotificationFkNavigation`.`KeyId`
+WHERE `p`.`UserFk` = @__userId_0" (0723d8ff)
+2019-04-17T23:56:05.1981799+07:00 0HLM3AM7I9G62:00000002 [INF] Executed action method "BeYeuBookstore.Controllers.Construction.NotificationController.GetByUserId (BeYeuBookstore)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult" in 139.2442ms. (50a9e262)
+2019-04-17T23:56:05.2504306+07:00 0HLM3AM7I9G62:00000002 [INF] Executing ObjectResult, writing value of type '"System.Collections.Generic.List`1[[BeYeuBookstore.Utilities.DTOs.Boq.SO_NotificationGeneralDTO, BeYeuBookstore.Utilities, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'. (8a1b66c8)
+2019-04-17T23:56:05.3523751+07:00 0HLM3AM7I9G62:00000002 [INF] Executed action "BeYeuBookstore.Controllers.Construction.NotificationController.GetByUserId (BeYeuBookstore)" in 301.5465ms (afa2e885)
+2019-04-17T23:56:05.3658367+07:00 0HLM3AM7I9G62:00000002 [INF] Request finished in 329.9369ms 200 application/json; charset=utf-8 (791a596a)
+2019-04-17T23:57:38.5933463+07:00 0HLM3AM7I9G64:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44379/Customer   (ca22a1cb)
+2019-04-17T23:57:38.6136974+07:00 0HLM3AM7I9G64:00000001 [INF] Entity Framework Core "2.2.0-preview1-35029" initialized '"ERPDbContext"' using provider '"Pomelo.EntityFrameworkCore.MySql"' with options: "ServerVersion 8.0.13 MySql " (9958f5bb)
+2019-04-17T23:57:38.7061908+07:00 0HLM3AM7I9G64:00000001 [INF] Executed DbCommand ("26"ms) [Parameters=["@__get_Item_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT `e`.`Id`, `e`.`AccessFailedCount`, `e`.`Address`, `e`.`Avatar`, `e`.`ConcurrencyStamp`, `e`.`DateCreated`, `e`.`DateModified`, `e`.`Dob`, `e`.`Email`, `e`.`EmailConfirmed`, `e`.`FullName`, `e`.`Gender`, `e`.`IdDate`, `e`.`IdNumber`, `e`.`LastupdatedFk`, `e`.`LockoutEnabled`, `e`.`LockoutEnd`, `e`.`NormalizedEmail`, `e`.`NormalizedUserName`, `e`.`PasswordHash`, `e`.`PhoneNumber`, `e`.`PhoneNumberConfirmed`, `e`.`SecurityStamp`, `e`.`Status`, `e`.`TwoFactorEnabled`, `e`.`UserName`, `e`.`UserTypeFK`, `e`.`UserTypeFKNavigationKeyId`
+FROM `User` AS `e`
+WHERE `e`.`Id` = @__get_Item_0
+LIMIT 1" (0723d8ff)
+2019-04-17T23:57:38.7503471+07:00 0HLM3AM7I9G64:00000001 [INF] Executed DbCommand ("2"ms) [Parameters=["@__user_Id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT `uc`.`Id`, `uc`.`ClaimType`, `uc`.`ClaimValue`, `uc`.`UserId`
+FROM `AppUserClaims` AS `uc`
+WHERE `uc`.`UserId` = @__user_Id_0" (0723d8ff)
+2019-04-17T23:57:38.8022498+07:00 0HLM3AM7I9G64:00000001 [INF] Executed DbCommand ("3"ms) [Parameters=["@__userId_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT `role`.`Name`
+FROM `AppUserRoles` AS `userRole`
+INNER JOIN `Roles` AS `role` ON `userRole`.`RoleId` = `role`.`Id`
+WHERE `userRole`.`UserId` = @__userId_0" (0723d8ff)
+2019-04-17T23:57:38.8784677+07:00 0HLM3AM7I9G64:00000001 [INF] Executed DbCommand ("10"ms) [Parameters=["@__normalizedName_0='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SELECT `r`.`Id`, `r`.`ConcurrencyStamp`, `r`.`Description`, `r`.`Name`, `r`.`NormalizedName`
+FROM `Roles` AS `r`
+WHERE `r`.`NormalizedName` = @__normalizedName_0
+LIMIT 1" (0723d8ff)
+2019-04-17T23:57:38.9260491+07:00 0HLM3AM7I9G64:00000001 [INF] Executed DbCommand ("10"ms) [Parameters=["@__role_Id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT `rc`.`ClaimType`, `rc`.`ClaimValue`
+FROM `AppRoleClaims` AS `rc`
+WHERE `rc`.`RoleId` = @__role_Id_0" (0723d8ff)
+2019-04-17T23:57:38.9554041+07:00 0HLM3AM7I9G64:00000001 [INF] Executed DbCommand ("2"ms) [Parameters=["@__userId_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT `role`.`Name`
+FROM `AppUserRoles` AS `userRole`
+INNER JOIN `Roles` AS `role` ON `userRole`.`RoleId` = `role`.`Id`
+WHERE `userRole`.`UserId` = @__userId_0" (0723d8ff)
+2019-04-17T23:57:38.9871334+07:00 0HLM3AM7I9G64:00000001 [INF] Route matched with "{action = \"Index\", controller = \"Customer\", area = \"\"}". Executing action "BeYeuBookstore.Controllers.CustomerController.Index (BeYeuBookstore)" (a44c0341)
+2019-04-17T23:57:39.0074996+07:00 0HLM3AM7I9G64:00000001 [INF] Executing action method "BeYeuBookstore.Controllers.CustomerController.Index (BeYeuBookstore)" - Validation state: Valid (dad538d7)
+2019-04-17T23:57:39.0256891+07:00 0HLM3AM7I9G64:00000001 [INF] Executed action method "BeYeuBookstore.Controllers.CustomerController.Index (BeYeuBookstore)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 0.895ms. (50a9e262)
+2019-04-17T23:57:39.0676530+07:00 0HLM3AM7I9G64:00000001 [INF] Executing ViewResult, running view "Index". (c83d0e25)
+2019-04-17T23:57:39.6276598+07:00 0HLM3AM7I9G64:00000001 [INF] Executed DbCommand ("52"ms) [Parameters=["@__functionId_1='?' (Size = 128) (DbType = AnsiString)"], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM `Functions` AS `f`
+        INNER JOIN `Permissions` AS `p` ON `f`.`KeyId` = `p`.`FunctionId`
+        INNER JOIN `Roles` AS `r` ON `p`.`RoleId` = `r`.`Id`
+        WHERE (`r`.`Name` IN ('test') AND (`f`.`KeyId` = @__functionId_1)) AND (`p`.`CanCreate` = TRUE))
+    THEN TRUE ELSE FALSE
+END" (0723d8ff)
+2019-04-17T23:57:39.6962671+07:00 0HLM3AM7I9G64:00000001 [INF] Authorization was successful. (0d575a54)
+2019-04-17T23:57:39.8173479+07:00 0HLM3AM7I9G64:00000001 [INF] Executed DbCommand ("6"ms) [Parameters=["@__functionId_1='?' (Size = 128) (DbType = AnsiString)"], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM `Functions` AS `f`
+        INNER JOIN `Permissions` AS `p` ON `f`.`KeyId` = `p`.`FunctionId`
+        INNER JOIN `Roles` AS `r` ON `p`.`RoleId` = `r`.`Id`
+        WHERE (`r`.`Name` IN ('test') AND (`f`.`KeyId` = @__functionId_1)) AND (`p`.`CanDelete` = TRUE))
+    THEN TRUE ELSE FALSE
+END" (0723d8ff)
+2019-04-17T23:57:39.8336819+07:00 0HLM3AM7I9G64:00000001 [INF] Authorization was successful. (0d575a54)
+2019-04-17T23:57:39.8890658+07:00 0HLM3AM7I9G64:00000001 [INF] Executed DbCommand ("6"ms) [Parameters=["@__functionId_1='?' (Size = 128) (DbType = AnsiString)"], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM `Functions` AS `f`
+        INNER JOIN `Permissions` AS `p` ON `f`.`KeyId` = `p`.`FunctionId`
+        INNER JOIN `Roles` AS `r` ON `p`.`RoleId` = `r`.`Id`
+        WHERE (`r`.`Name` IN ('test') AND (`f`.`KeyId` = @__functionId_1)) AND (`p`.`CanUpdate` = TRUE))
+    THEN TRUE ELSE FALSE
+END" (0723d8ff)
+2019-04-17T23:57:39.9049491+07:00 0HLM3AM7I9G64:00000001 [INF] Authorization was successful. (0d575a54)
+2019-04-17T23:57:39.9964251+07:00 0HLM3AM7I9G64:00000001 [INF] Executed DbCommand ("18"ms) [Parameters=["@__functionId_1='?' (Size = 128) (DbType = AnsiString)"], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM `Functions` AS `f`
+        INNER JOIN `Permissions` AS `p` ON `f`.`KeyId` = `p`.`FunctionId`
+        INNER JOIN `Roles` AS `r` ON `p`.`RoleId` = `r`.`Id`
+        WHERE (`r`.`Name` IN ('test') AND (`f`.`KeyId` = @__functionId_1)) AND (`p`.`CanConfirm` = TRUE))
+    THEN TRUE ELSE FALSE
+END" (0723d8ff)
+2019-04-17T23:57:40.0089656+07:00 0HLM3AM7I9G64:00000001 [INF] Authorization was successful. (0d575a54)
+2019-04-17T23:57:40.1007422+07:00 0HLM3AM7I9G64:00000001 [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT `x`.`KeyId`, `x`.`Name`, `x`.`URL`, `x`.`ParentId`, `x`.`IconCss`, `x`.`SortOrder`, `x`.`Status`
+FROM `Functions` AS `x`
+WHERE `x`.`Status` = 1
+ORDER BY `x`.`SortOrder`, `x`.`ParentId`" (0723d8ff)
+2019-04-17T23:57:40.1711845+07:00 0HLM3AM7I9G64:00000001 [INF] Executed ViewResult - view "Index" executed in 1132.5979ms. (f66409e9)
+2019-04-17T23:57:40.1958582+07:00 0HLM3AM7I9G64:00000001 [INF] Executed action "BeYeuBookstore.Controllers.CustomerController.Index (BeYeuBookstore)" in 1186.1199ms (afa2e885)
+2019-04-17T23:57:40.2436978+07:00 0HLM3AM7I9G64:00000001 [INF] Request finished in 1653.7346ms 200 text/html; charset=utf-8 (791a596a)
+2019-04-17T23:57:40.5074760+07:00 0HLM3AM7I9G64:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44379/app/controllers/customer/index.js?v=P2h1W7cGyH0MTErRdDmcwWxP7rQqFc2AKI5Y7COQN1c   (ca22a1cb)
+2019-04-17T23:57:40.6374688+07:00 0HLM3AM7I9G64:00000002 [INF] Sending file. Request path: '"/app/controllers/customer/index.js"'. Physical path: '"H:\Kul\TMĐT\ERPWebApp\wwwroot\app\controllers\customer\index.js"' (27b0a520)
+2019-04-17T23:57:40.6533414+07:00 0HLM3AM7I9G64:00000002 [INF] Request finished in 174.7888ms 200 application/javascript (791a596a)
+2019-04-17T23:57:40.9858732+07:00 0HLM3AM7I9G64:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:44379/Notification/GetByUserId   (ca22a1cb)
+2019-04-17T23:57:41.0001152+07:00 0HLM3AM7I9G64:00000003 [INF] Route matched with "{action = \"GetByUserId\", controller = \"Notification\", area = \"\"}". Executing action "BeYeuBookstore.Controllers.Construction.NotificationController.GetByUserId (BeYeuBookstore)" (a44c0341)
+2019-04-17T23:57:41.0215239+07:00 0HLM3AM7I9G64:00000003 [INF] Executing action method "BeYeuBookstore.Controllers.Construction.NotificationController.GetByUserId (BeYeuBookstore)" - Validation state: Valid (dad538d7)
+2019-04-17T23:57:41.0372486+07:00 0HLM3AM7I9G64:00000003 [INF] Entity Framework Core "2.2.0-preview1-35029" initialized '"ERPDbContext"' using provider '"Pomelo.EntityFrameworkCore.MySql"' with options: "ServerVersion 8.0.13 MySql " (9958f5bb)
+2019-04-17T23:57:41.0637192+07:00 0HLM3AM7I9G64:00000003 [INF] Executed DbCommand ("1"ms) [Parameters=["@__userId_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT `p`.`NotificationFkNavigationKeyId` AS `KeyId`, `p.NotificationFkNavigation`.`NotificationContent`, `p.NotificationFkNavigation`.`DateCreated` AS `NotificationTime`, `p`.`Status`
+FROM `SoNotificationGeneralDetail` AS `p`
+INNER JOIN `SoNotificationGeneral` AS `p.NotificationFkNavigation` ON `p`.`NotificationFkNavigationKeyId` = `p.NotificationFkNavigation`.`KeyId`
+WHERE `p`.`UserFk` = @__userId_0" (0723d8ff)
+2019-04-17T23:57:41.1027320+07:00 0HLM3AM7I9G64:00000003 [INF] Executed action method "BeYeuBookstore.Controllers.Construction.NotificationController.GetByUserId (BeYeuBookstore)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult" in 42.3368ms. (50a9e262)
+2019-04-17T23:57:41.1595661+07:00 0HLM3AM7I9G64:00000003 [INF] Executing ObjectResult, writing value of type '"System.Collections.Generic.List`1[[BeYeuBookstore.Utilities.DTOs.Boq.SO_NotificationGeneralDTO, BeYeuBookstore.Utilities, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'. (8a1b66c8)
+2019-04-17T23:57:41.2216156+07:00 0HLM3AM7I9G64:00000003 [INF] Executed action "BeYeuBookstore.Controllers.Construction.NotificationController.GetByUserId (BeYeuBookstore)" in 160.6268ms (afa2e885)
+2019-04-17T23:57:41.4556162+07:00 0HLM3AM7I9G65:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44379/Customer/GetAllPaging?keyword=&page=1&pageSize=10   (ca22a1cb)
+2019-04-17T23:57:41.4581398+07:00 0HLM3AM7I9G64:00000003 [INF] Request finished in 287.6214ms 200 application/json; charset=utf-8 (791a596a)
+2019-04-17T23:57:41.5041225+07:00 0HLM3AM7I9G65:00000001 [INF] Route matched with "{action = \"GetAllPaging\", controller = \"Customer\", area = \"\"}". Executing action "BeYeuBookstore.Controllers.CustomerController.GetAllPaging (BeYeuBookstore)" (a44c0341)
+2019-04-17T23:57:41.5917058+07:00 0HLM3AM7I9G65:00000001 [INF] Executing action method "BeYeuBookstore.Controllers.CustomerController.GetAllPaging (BeYeuBookstore)" with arguments (["", "1", "10"]) - Validation state: Valid (4e3479ed)
+2019-04-17T23:57:41.6193884+07:00 0HLM3AM7I9G65:00000001 [INF] Entity Framework Core "2.2.0-preview1-35029" initialized '"ERPDbContext"' using provider '"Pomelo.EntityFrameworkCore.MySql"' with options: "ServerVersion 8.0.13 MySql " (9958f5bb)
+2019-04-17T23:57:41.6778972+07:00 0HLM3AM7I9G65:00000001 [WRN] The Include operation for navigation '"[x].UserBy"' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information. (10efaee6)
+2019-04-17T23:57:41.7027958+07:00 0HLM3AM7I9G65:00000001 [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM `Customers` AS `x`" (0723d8ff)
+2019-04-17T23:57:41.9040352+07:00 0HLM3AM7I9G65:00000001 [INF] Executed DbCommand ("9"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT `x`.`KeyId`, `x`.`DateCreated`, `x`.`DateModified`, `x`.`UserFK`, `x.UserBy`.`Id`, `x.UserBy`.`AccessFailedCount`, `x.UserBy`.`Address`, `x.UserBy`.`Avatar`, `x.UserBy`.`ConcurrencyStamp`, `x.UserBy`.`DateCreated`, `x.UserBy`.`DateModified`, `x.UserBy`.`Dob`, `x.UserBy`.`Email`, `x.UserBy`.`EmailConfirmed`, `x.UserBy`.`FullName`, `x.UserBy`.`Gender`, `x.UserBy`.`IdDate`, `x.UserBy`.`IdNumber`, `x.UserBy`.`LastupdatedFk`, `x.UserBy`.`LockoutEnabled`, `x.UserBy`.`LockoutEnd`, `x.UserBy`.`NormalizedEmail`, `x.UserBy`.`NormalizedUserName`, `x.UserBy`.`PasswordHash`, `x.UserBy`.`PhoneNumber`, `x.UserBy`.`PhoneNumberConfirmed`, `x.UserBy`.`SecurityStamp`, `x.UserBy`.`Status`, `x.UserBy`.`TwoFactorEnabled`, `x.UserBy`.`UserName`, `x.UserBy`.`UserTypeFK`, `x.UserBy`.`UserTypeFKNavigationKeyId`
+FROM `Customers` AS `x`
+INNER JOIN `User` AS `x.UserBy` ON `x`.`UserFK` = `x.UserBy`.`Id`
+ORDER BY `x`.`KeyId`
+LIMIT @__p_1 OFFSET @__p_0" (0723d8ff)
+2019-04-17T23:57:42.0977312+07:00 0HLM3AM7I9G65:00000001 [INF] Executed action method "BeYeuBookstore.Controllers.CustomerController.GetAllPaging (BeYeuBookstore)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult" in 497.5706ms. (50a9e262)
+2019-04-17T23:57:42.1052644+07:00 0HLM3AM7I9G65:00000001 [INF] Executing ObjectResult, writing value of type '"BeYeuBookstore.Utilities.DTOs.PagedResult`1[[BeYeuBookstore.Application.ViewModels.CustomerViewModel, BeYeuBookstore.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'. (8a1b66c8)
+2019-04-17T23:57:42.1873128+07:00 0HLM3AM7I9G65:00000001 [INF] Executed action "BeYeuBookstore.Controllers.CustomerController.GetAllPaging (BeYeuBookstore)" in 674.3834ms (afa2e885)
+2019-04-17T23:57:42.2269914+07:00 0HLM3AM7I9G65:00000001 [INF] Request finished in 966.0623ms 200 application/json; charset=utf-8 (791a596a)
+2019-04-17T23:57:42.2357345+07:00 0HLM3AM7I9G64:00000004 [INF] Request starting HTTP/1.1 GET http://localhost:44379/Customer/GetAllPaging?keyword=&page=1&pageSize=10   (ca22a1cb)
+2019-04-17T23:57:42.2435974+07:00 0HLM3AM7I9G64:00000004 [INF] Route matched with "{action = \"GetAllPaging\", controller = \"Customer\", area = \"\"}". Executing action "BeYeuBookstore.Controllers.CustomerController.GetAllPaging (BeYeuBookstore)" (a44c0341)
+2019-04-17T23:57:42.2525867+07:00 0HLM3AM7I9G64:00000004 [INF] Executing action method "BeYeuBookstore.Controllers.CustomerController.GetAllPaging (BeYeuBookstore)" with arguments (["", "1", "10"]) - Validation state: Valid (4e3479ed)
+2019-04-17T23:57:42.2601494+07:00 0HLM3AM7I9G64:00000004 [INF] Entity Framework Core "2.2.0-preview1-35029" initialized '"ERPDbContext"' using provider '"Pomelo.EntityFrameworkCore.MySql"' with options: "ServerVersion 8.0.13 MySql " (9958f5bb)
+2019-04-17T23:57:42.2685080+07:00 0HLM3AM7I9G64:00000004 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM `Customers` AS `x`" (0723d8ff)
+2019-04-17T23:57:42.2791313+07:00 0HLM3AM7I9G64:00000004 [INF] Executed DbCommand ("1"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT `x`.`KeyId`, `x`.`DateCreated`, `x`.`DateModified`, `x`.`UserFK`, `x.UserBy`.`Id`, `x.UserBy`.`AccessFailedCount`, `x.UserBy`.`Address`, `x.UserBy`.`Avatar`, `x.UserBy`.`ConcurrencyStamp`, `x.UserBy`.`DateCreated`, `x.UserBy`.`DateModified`, `x.UserBy`.`Dob`, `x.UserBy`.`Email`, `x.UserBy`.`EmailConfirmed`, `x.UserBy`.`FullName`, `x.UserBy`.`Gender`, `x.UserBy`.`IdDate`, `x.UserBy`.`IdNumber`, `x.UserBy`.`LastupdatedFk`, `x.UserBy`.`LockoutEnabled`, `x.UserBy`.`LockoutEnd`, `x.UserBy`.`NormalizedEmail`, `x.UserBy`.`NormalizedUserName`, `x.UserBy`.`PasswordHash`, `x.UserBy`.`PhoneNumber`, `x.UserBy`.`PhoneNumberConfirmed`, `x.UserBy`.`SecurityStamp`, `x.UserBy`.`Status`, `x.UserBy`.`TwoFactorEnabled`, `x.UserBy`.`UserName`, `x.UserBy`.`UserTypeFK`, `x.UserBy`.`UserTypeFKNavigationKeyId`
+FROM `Customers` AS `x`
+INNER JOIN `User` AS `x.UserBy` ON `x`.`UserFK` = `x.UserBy`.`Id`
+ORDER BY `x`.`KeyId`
+LIMIT @__p_1 OFFSET @__p_0" (0723d8ff)
+2019-04-17T23:57:42.2882408+07:00 0HLM3AM7I9G64:00000004 [INF] Executed action method "BeYeuBookstore.Controllers.CustomerController.GetAllPaging (BeYeuBookstore)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult" in 28.6379ms. (50a9e262)
+2019-04-17T23:57:42.2958135+07:00 0HLM3AM7I9G64:00000004 [INF] Executing ObjectResult, writing value of type '"BeYeuBookstore.Utilities.DTOs.PagedResult`1[[BeYeuBookstore.Application.ViewModels.CustomerViewModel, BeYeuBookstore.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'. (8a1b66c8)
+2019-04-17T23:57:42.3026219+07:00 0HLM3AM7I9G64:00000004 [INF] Executed action "BeYeuBookstore.Controllers.CustomerController.GetAllPaging (BeYeuBookstore)" in 52.7518ms (afa2e885)
+2019-04-17T23:57:42.3228063+07:00 0HLM3AM7I9G64:00000004 [INF] Request finished in 78.5404ms 200 application/json; charset=utf-8 (791a596a)
+2019-04-17T23:57:51.5368230+07:00 0HLM3AM7I9G65:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44379/Customer/GetById?id=1   (ca22a1cb)
+2019-04-17T23:57:51.5623011+07:00 0HLM3AM7I9G65:00000002 [INF] Entity Framework Core "2.2.0-preview1-35029" initialized '"ERPDbContext"' using provider '"Pomelo.EntityFrameworkCore.MySql"' with options: "ServerVersion 8.0.13 MySql " (9958f5bb)
+2019-04-17T23:57:51.6063335+07:00 0HLM3AM7I9G65:00000002 [INF] Executed DbCommand ("5"ms) [Parameters=["@__get_Item_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT `e`.`Id`, `e`.`AccessFailedCount`, `e`.`Address`, `e`.`Avatar`, `e`.`ConcurrencyStamp`, `e`.`DateCreated`, `e`.`DateModified`, `e`.`Dob`, `e`.`Email`, `e`.`EmailConfirmed`, `e`.`FullName`, `e`.`Gender`, `e`.`IdDate`, `e`.`IdNumber`, `e`.`LastupdatedFk`, `e`.`LockoutEnabled`, `e`.`LockoutEnd`, `e`.`NormalizedEmail`, `e`.`NormalizedUserName`, `e`.`PasswordHash`, `e`.`PhoneNumber`, `e`.`PhoneNumberConfirmed`, `e`.`SecurityStamp`, `e`.`Status`, `e`.`TwoFactorEnabled`, `e`.`UserName`, `e`.`UserTypeFK`, `e`.`UserTypeFKNavigationKeyId`
+FROM `User` AS `e`
+WHERE `e`.`Id` = @__get_Item_0
+LIMIT 1" (0723d8ff)
+2019-04-17T23:57:51.6453647+07:00 0HLM3AM7I9G65:00000002 [INF] Executed DbCommand ("4"ms) [Parameters=["@__user_Id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT `uc`.`Id`, `uc`.`ClaimType`, `uc`.`ClaimValue`, `uc`.`UserId`
+FROM `AppUserClaims` AS `uc`
+WHERE `uc`.`UserId` = @__user_Id_0" (0723d8ff)
+2019-04-17T23:57:51.6765128+07:00 0HLM3AM7I9G65:00000002 [INF] Executed DbCommand ("3"ms) [Parameters=["@__userId_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT `role`.`Name`
+FROM `AppUserRoles` AS `userRole`
+INNER JOIN `Roles` AS `role` ON `userRole`.`RoleId` = `role`.`Id`
+WHERE `userRole`.`UserId` = @__userId_0" (0723d8ff)
+2019-04-17T23:57:51.7074609+07:00 0HLM3AM7I9G65:00000002 [INF] Executed DbCommand ("4"ms) [Parameters=["@__normalizedName_0='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SELECT `r`.`Id`, `r`.`ConcurrencyStamp`, `r`.`Description`, `r`.`Name`, `r`.`NormalizedName`
+FROM `Roles` AS `r`
+WHERE `r`.`NormalizedName` = @__normalizedName_0
+LIMIT 1" (0723d8ff)
+2019-04-17T23:57:51.7413044+07:00 0HLM3AM7I9G65:00000002 [INF] Executed DbCommand ("2"ms) [Parameters=["@__role_Id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT `rc`.`ClaimType`, `rc`.`ClaimValue`
+FROM `AppRoleClaims` AS `rc`
+WHERE `rc`.`RoleId` = @__role_Id_0" (0723d8ff)
+2019-04-17T23:57:51.7754297+07:00 0HLM3AM7I9G65:00000002 [INF] Executed DbCommand ("3"ms) [Parameters=["@__userId_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT `role`.`Name`
+FROM `AppUserRoles` AS `userRole`
+INNER JOIN `Roles` AS `role` ON `userRole`.`RoleId` = `role`.`Id`
+WHERE `userRole`.`UserId` = @__userId_0" (0723d8ff)
+2019-04-17T23:57:51.8084526+07:00 0HLM3AM7I9G65:00000002 [INF] Route matched with "{action = \"GetById\", controller = \"Customer\", area = \"\"}". Executing action "BeYeuBookstore.Controllers.CustomerController.GetById (BeYeuBookstore)" (a44c0341)
+2019-04-17T23:57:51.8284288+07:00 0HLM3AM7I9G65:00000002 [INF] Executing action method "BeYeuBookstore.Controllers.CustomerController.GetById (BeYeuBookstore)" with arguments (["1"]) - Validation state: Valid (4e3479ed)
+2019-04-17T23:57:51.9013600+07:00 0HLM3AM7I9G65:00000002 [INF] Executed DbCommand ("1"ms) [Parameters=["@__id_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT `x`.`KeyId`, `x`.`DateCreated`, `x`.`DateModified`, `x`.`UserFK`
+FROM `Customers` AS `x`
+WHERE `x`.`KeyId` = @__id_0
+LIMIT 2" (0723d8ff)
+2019-04-17T23:57:51.9271472+07:00 0HLM3AM7I9G65:00000002 [INF] Executed action method "BeYeuBookstore.Controllers.CustomerController.GetById (BeYeuBookstore)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult" in 82.5854ms. (50a9e262)
+2019-04-17T23:57:51.9529286+07:00 0HLM3AM7I9G65:00000002 [INF] Executing ObjectResult, writing value of type '"BeYeuBookstore.Application.ViewModels.CustomerViewModel"'. (8a1b66c8)
+2019-04-17T23:57:51.9718668+07:00 0HLM3AM7I9G65:00000002 [INF] Executed action "BeYeuBookstore.Controllers.CustomerController.GetById (BeYeuBookstore)" in 144.8231ms (afa2e885)
+2019-04-17T23:57:52.0164676+07:00 0HLM3AM7I9G65:00000002 [INF] Request finished in 472.6223ms 200 application/json; charset=utf-8 (791a596a)
+2019-04-17T23:57:54.6460417+07:00 0HLM3AM7I9G64:00000005 [INF] Request starting HTTP/1.1 GET http://localhost:44379/Customer/GetById?id=1   (ca22a1cb)
+2019-04-17T23:57:54.6721381+07:00 0HLM3AM7I9G64:00000005 [INF] Route matched with "{action = \"GetById\", controller = \"Customer\", area = \"\"}". Executing action "BeYeuBookstore.Controllers.CustomerController.GetById (BeYeuBookstore)" (a44c0341)
+2019-04-17T23:57:54.7011635+07:00 0HLM3AM7I9G64:00000005 [INF] Executing action method "BeYeuBookstore.Controllers.CustomerController.GetById (BeYeuBookstore)" with arguments (["1"]) - Validation state: Valid (4e3479ed)
+2019-04-17T23:57:54.7355497+07:00 0HLM3AM7I9G64:00000005 [INF] Entity Framework Core "2.2.0-preview1-35029" initialized '"ERPDbContext"' using provider '"Pomelo.EntityFrameworkCore.MySql"' with options: "ServerVersion 8.0.13 MySql " (9958f5bb)
+2019-04-17T23:57:54.7851427+07:00 0HLM3AM7I9G64:00000005 [INF] Executed DbCommand ("1"ms) [Parameters=["@__id_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT `x`.`KeyId`, `x`.`DateCreated`, `x`.`DateModified`, `x`.`UserFK`
+FROM `Customers` AS `x`
+WHERE `x`.`KeyId` = @__id_0
+LIMIT 2" (0723d8ff)
+2019-04-17T23:57:54.8361724+07:00 0HLM3AM7I9G64:00000005 [INF] Executed action method "BeYeuBookstore.Controllers.CustomerController.GetById (BeYeuBookstore)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult" in 90.8764ms. (50a9e262)
+2019-04-17T23:57:54.8629831+07:00 0HLM3AM7I9G64:00000005 [INF] Executing ObjectResult, writing value of type '"BeYeuBookstore.Application.ViewModels.CustomerViewModel"'. (8a1b66c8)
+2019-04-17T23:57:54.9005440+07:00 0HLM3AM7I9G64:00000005 [INF] Executed action "BeYeuBookstore.Controllers.CustomerController.GetById (BeYeuBookstore)" in 191.2135ms (afa2e885)
+2019-04-17T23:57:54.9398335+07:00 0HLM3AM7I9G64:00000005 [INF] Request finished in 279.1213ms 200 application/json; charset=utf-8 (791a596a)
+2019-04-17T23:59:17.6289344+07:00 0HLM3AM7I9G66:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44379/Customer   (ca22a1cb)
+2019-04-17T23:59:17.6393876+07:00 0HLM3AM7I9G66:00000001 [INF] Entity Framework Core "2.2.0-preview1-35029" initialized '"ERPDbContext"' using provider '"Pomelo.EntityFrameworkCore.MySql"' with options: "ServerVersion 8.0.13 MySql " (9958f5bb)
+2019-04-17T23:59:17.6893833+07:00 0HLM3AM7I9G66:00000001 [INF] Executed DbCommand ("37"ms) [Parameters=["@__get_Item_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT `e`.`Id`, `e`.`AccessFailedCount`, `e`.`Address`, `e`.`Avatar`, `e`.`ConcurrencyStamp`, `e`.`DateCreated`, `e`.`DateModified`, `e`.`Dob`, `e`.`Email`, `e`.`EmailConfirmed`, `e`.`FullName`, `e`.`Gender`, `e`.`IdDate`, `e`.`IdNumber`, `e`.`LastupdatedFk`, `e`.`LockoutEnabled`, `e`.`LockoutEnd`, `e`.`NormalizedEmail`, `e`.`NormalizedUserName`, `e`.`PasswordHash`, `e`.`PhoneNumber`, `e`.`PhoneNumberConfirmed`, `e`.`SecurityStamp`, `e`.`Status`, `e`.`TwoFactorEnabled`, `e`.`UserName`, `e`.`UserTypeFK`, `e`.`UserTypeFKNavigationKeyId`
+FROM `User` AS `e`
+WHERE `e`.`Id` = @__get_Item_0
+LIMIT 1" (0723d8ff)
+2019-04-17T23:59:17.7001037+07:00 0HLM3AM7I9G66:00000001 [INF] Executed DbCommand ("1"ms) [Parameters=["@__user_Id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT `uc`.`Id`, `uc`.`ClaimType`, `uc`.`ClaimValue`, `uc`.`UserId`
+FROM `AppUserClaims` AS `uc`
+WHERE `uc`.`UserId` = @__user_Id_0" (0723d8ff)
+2019-04-17T23:59:17.7092542+07:00 0HLM3AM7I9G66:00000001 [INF] Executed DbCommand ("1"ms) [Parameters=["@__userId_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT `role`.`Name`
+FROM `AppUserRoles` AS `userRole`
+INNER JOIN `Roles` AS `role` ON `userRole`.`RoleId` = `role`.`Id`
+WHERE `userRole`.`UserId` = @__userId_0" (0723d8ff)
+2019-04-17T23:59:17.7167370+07:00 0HLM3AM7I9G66:00000001 [INF] Executed DbCommand ("1"ms) [Parameters=["@__normalizedName_0='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SELECT `r`.`Id`, `r`.`ConcurrencyStamp`, `r`.`Description`, `r`.`Name`, `r`.`NormalizedName`
+FROM `Roles` AS `r`
+WHERE `r`.`NormalizedName` = @__normalizedName_0
+LIMIT 1" (0723d8ff)
+2019-04-17T23:59:17.7251178+07:00 0HLM3AM7I9G66:00000001 [INF] Executed DbCommand ("1"ms) [Parameters=["@__role_Id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT `rc`.`ClaimType`, `rc`.`ClaimValue`
+FROM `AppRoleClaims` AS `rc`
+WHERE `rc`.`RoleId` = @__role_Id_0" (0723d8ff)
+2019-04-17T23:59:17.7329714+07:00 0HLM3AM7I9G66:00000001 [INF] Executed DbCommand ("1"ms) [Parameters=["@__userId_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT `role`.`Name`
+FROM `AppUserRoles` AS `userRole`
+INNER JOIN `Roles` AS `role` ON `userRole`.`RoleId` = `role`.`Id`
+WHERE `userRole`.`UserId` = @__userId_0" (0723d8ff)
+2019-04-17T23:59:17.7387756+07:00 0HLM3AM7I9G66:00000001 [INF] Route matched with "{action = \"Index\", controller = \"Customer\", area = \"\"}". Executing action "BeYeuBookstore.Controllers.CustomerController.Index (BeYeuBookstore)" (a44c0341)
+2019-04-17T23:59:17.7438188+07:00 0HLM3AM7I9G66:00000001 [INF] Executing action method "BeYeuBookstore.Controllers.CustomerController.Index (BeYeuBookstore)" - Validation state: Valid (dad538d7)
+2019-04-17T23:59:17.7487991+07:00 0HLM3AM7I9G66:00000001 [INF] Executed action method "BeYeuBookstore.Controllers.CustomerController.Index (BeYeuBookstore)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 0.0384ms. (50a9e262)
+2019-04-17T23:59:17.7550331+07:00 0HLM3AM7I9G66:00000001 [INF] Executing ViewResult, running view "Index". (c83d0e25)
+2019-04-17T23:59:17.7686713+07:00 0HLM3AM7I9G66:00000001 [INF] Executed DbCommand ("1"ms) [Parameters=["@__functionId_1='?' (Size = 128) (DbType = AnsiString)"], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM `Functions` AS `f`
+        INNER JOIN `Permissions` AS `p` ON `f`.`KeyId` = `p`.`FunctionId`
+        INNER JOIN `Roles` AS `r` ON `p`.`RoleId` = `r`.`Id`
+        WHERE (`r`.`Name` IN ('test') AND (`f`.`KeyId` = @__functionId_1)) AND (`p`.`CanCreate` = TRUE))
+    THEN TRUE ELSE FALSE
+END" (0723d8ff)
+2019-04-17T23:59:17.7744918+07:00 0HLM3AM7I9G66:00000001 [INF] Authorization was successful. (0d575a54)
+2019-04-17T23:59:17.7857986+07:00 0HLM3AM7I9G66:00000001 [INF] Executed DbCommand ("1"ms) [Parameters=["@__functionId_1='?' (Size = 128) (DbType = AnsiString)"], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM `Functions` AS `f`
+        INNER JOIN `Permissions` AS `p` ON `f`.`KeyId` = `p`.`FunctionId`
+        INNER JOIN `Roles` AS `r` ON `p`.`RoleId` = `r`.`Id`
+        WHERE (`r`.`Name` IN ('test') AND (`f`.`KeyId` = @__functionId_1)) AND (`p`.`CanDelete` = TRUE))
+    THEN TRUE ELSE FALSE
+END" (0723d8ff)
+2019-04-17T23:59:17.7921006+07:00 0HLM3AM7I9G66:00000001 [INF] Authorization was successful. (0d575a54)
+2019-04-17T23:59:17.8035937+07:00 0HLM3AM7I9G66:00000001 [INF] Executed DbCommand ("1"ms) [Parameters=["@__functionId_1='?' (Size = 128) (DbType = AnsiString)"], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM `Functions` AS `f`
+        INNER JOIN `Permissions` AS `p` ON `f`.`KeyId` = `p`.`FunctionId`
+        INNER JOIN `Roles` AS `r` ON `p`.`RoleId` = `r`.`Id`
+        WHERE (`r`.`Name` IN ('test') AND (`f`.`KeyId` = @__functionId_1)) AND (`p`.`CanUpdate` = TRUE))
+    THEN TRUE ELSE FALSE
+END" (0723d8ff)
+2019-04-17T23:59:17.8090345+07:00 0HLM3AM7I9G66:00000001 [INF] Authorization was successful. (0d575a54)
+2019-04-17T23:59:17.8231508+07:00 0HLM3AM7I9G66:00000001 [INF] Executed DbCommand ("1"ms) [Parameters=["@__functionId_1='?' (Size = 128) (DbType = AnsiString)"], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM `Functions` AS `f`
+        INNER JOIN `Permissions` AS `p` ON `f`.`KeyId` = `p`.`FunctionId`
+        INNER JOIN `Roles` AS `r` ON `p`.`RoleId` = `r`.`Id`
+        WHERE (`r`.`Name` IN ('test') AND (`f`.`KeyId` = @__functionId_1)) AND (`p`.`CanConfirm` = TRUE))
+    THEN TRUE ELSE FALSE
+END" (0723d8ff)
+2019-04-17T23:59:17.8293562+07:00 0HLM3AM7I9G66:00000001 [INF] Authorization was successful. (0d575a54)
+2019-04-17T23:59:17.8447460+07:00 0HLM3AM7I9G66:00000001 [INF] Executed DbCommand ("3"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT `x`.`KeyId`, `x`.`Name`, `x`.`URL`, `x`.`ParentId`, `x`.`IconCss`, `x`.`SortOrder`, `x`.`Status`
+FROM `Functions` AS `x`
+WHERE `x`.`Status` = 1
+ORDER BY `x`.`SortOrder`, `x`.`ParentId`" (0723d8ff)
+2019-04-17T23:59:17.8546210+07:00 0HLM3AM7I9G66:00000001 [INF] Executed ViewResult - view "Index" executed in 99.572ms. (f66409e9)
+2019-04-17T23:59:17.8625617+07:00 0HLM3AM7I9G66:00000001 [INF] Executed action "BeYeuBookstore.Controllers.CustomerController.Index (BeYeuBookstore)" in 116.071ms (afa2e885)
+2019-04-17T23:59:17.9200839+07:00 0HLM3AM7I9G66:00000001 [INF] Request finished in 474.5436ms 200 text/html; charset=utf-8 (791a596a)
+2019-04-17T23:59:18.0483426+07:00 0HLM3AM7I9G69:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44379/lib/font-awesome/css/all.css   (ca22a1cb)
+2019-04-17T23:59:18.0558305+07:00 0HLM3AM7I9G68:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44379/lib/font-awesome/css/fontawesome.css   (ca22a1cb)
+2019-04-17T23:59:18.1915878+07:00 0HLM3AM7I9G67:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44379/lib/font-awesome/css/brands.css   (ca22a1cb)
+2019-04-17T23:59:18.2019994+07:00 0HLM3AM7I9G69:00000001 [INF] Sending file. Request path: '"/lib/font-awesome/css/all.css"'. Physical path: '"H:\Kul\TMĐT\ERPWebApp\wwwroot\lib\font-awesome\css\all.css"' (27b0a520)
+2019-04-17T23:59:18.2119753+07:00 0HLM3AM7I9G6B:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44379/lib/font-awesome/css/regular.css   (ca22a1cb)
+2019-04-17T23:59:18.2364121+07:00 0HLM3AM7I9G69:00000001 [INF] Request finished in 227.0336ms 200 text/css (791a596a)
+2019-04-17T23:59:18.2489696+07:00 0HLM3AM7I9G6B:00000001 [INF] Sending file. Request path: '"/lib/font-awesome/css/regular.css"'. Physical path: '"H:\Kul\TMĐT\ERPWebApp\wwwroot\lib\font-awesome\css\regular.css"' (27b0a520)
+2019-04-17T23:59:18.2519597+07:00 0HLM3AM7I9G66:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44379/lib/bootstrap/dist/css/bootstrap.css   (ca22a1cb)
+2019-04-17T23:59:18.2685635+07:00 0HLM3AM7I9G69:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44379/lib/font-awesome/css/svg-with-js.css   (ca22a1cb)
+2019-04-17T23:59:18.2789550+07:00 0HLM3AM7I9G6B:00000001 [INF] Request finished in 216.5141ms 200 text/css (791a596a)
+2019-04-17T23:59:18.3203994+07:00 0HLM3AM7I9G69:00000002 [INF] Sending file. Request path: '"/lib/font-awesome/css/svg-with-js.css"'. Physical path: '"H:\Kul\TMĐT\ERPWebApp\wwwroot\lib\font-awesome\css\svg-with-js.css"' (27b0a520)
+2019-04-17T23:59:18.3326644+07:00 0HLM3AM7I9G6B:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44379/lib/nprogress/nprogress.css   (ca22a1cb)
+2019-04-17T23:59:18.3363224+07:00 0HLM3AM7I9G69:00000002 [INF] Request finished in 74.8272ms 200 text/css (791a596a)
+2019-04-17T23:59:18.3486922+07:00 0HLM3AM7I9G6A:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:44379/lib/font-awesome/css/solid.css   (ca22a1cb)
+2019-04-17T23:59:18.3679234+07:00 0HLM3AM7I9G69:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:44379/lib/bootstrap-datepicker/dist/css/bootstrap-datepicker3.css   (ca22a1cb)
+2019-04-17T23:59:18.3710935+07:00 0HLM3AM7I9G66:00000002 [INF] Sending file. Request path: '"/lib/bootstrap/dist/css/bootstrap.css"'. Physical path: '"H:\Kul\TMĐT\ERPWebApp\wwwroot\lib\bootstrap\dist\css\bootstrap.css"' (27b0a520)
+2019-04-17T23:59:18.3756200+07:00 0HLM3AM7I9G6A:00000001 [INF] Sending file. Request path: '"/lib/font-awesome/css/solid.css"'. Physical path: '"H:\Kul\TMĐT\ERPWebApp\wwwroot\lib\font-awesome\css\solid.css"' (27b0a520)
+2019-04-17T23:59:18.3910247+07:00 0HLM3AM7I9G66:00000002 [INF] Request finished in 338.7697ms 200 text/css (791a596a)
+2019-04-17T23:59:18.3963202+07:00 0HLM3AM7I9G6A:00000001 [INF] Request finished in 343.4527ms 200 text/css (791a596a)
+2019-04-17T23:59:18.4234091+07:00 0HLM3AM7I9G66:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:44379/lib/notifyjs/dist/styles/metro/notify-metro.css   (ca22a1cb)
+2019-04-17T23:59:18.4343472+07:00 0HLM3AM7I9G6A:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44379/admin-side/css/custom.css   (ca22a1cb)
+2019-04-17T23:59:18.4586459+07:00 0HLM3AM7I9G69:00000003 [INF] Sending file. Request path: '"/lib/bootstrap-datepicker/dist/css/bootstrap-datepicker3.css"'. Physical path: '"H:\Kul\TMĐT\ERPWebApp\wwwroot\lib\bootstrap-datepicker\dist\css\bootstrap-datepicker3.css"' (27b0a520)
+2019-04-17T23:59:18.4657815+07:00 0HLM3AM7I9G66:00000003 [INF] Sending file. Request path: '"/lib/notifyjs/dist/styles/metro/notify-metro.css"'. Physical path: '"H:\Kul\TMĐT\ERPWebApp\wwwroot\lib\notifyjs\dist\styles\metro\notify-metro.css"' (27b0a520)
+2019-04-17T23:59:18.4858034+07:00 0HLM3AM7I9G6A:00000002 [INF] Sending file. Request path: '"/admin-side/css/custom.css"'. Physical path: '"H:\Kul\TMĐT\ERPWebApp\wwwroot\admin-side\css\custom.css"' (27b0a520)
+2019-04-17T23:59:18.4973286+07:00 0HLM3AM7I9G66:00000003 [INF] Request finished in 65.2683ms 200 text/css (791a596a)
+2019-04-17T23:59:18.5127770+07:00 0HLM3AM7I9G6A:00000002 [INF] Request finished in 81.1032ms 200 text/css (791a596a)
+2019-04-17T23:59:18.5336841+07:00 0HLM3AM7I9G69:00000003 [INF] Request finished in 113.976ms 200 text/css (791a596a)
+2019-04-17T23:59:18.5422248+07:00 0HLM3AM7I9G66:00000004 [INF] Request starting HTTP/1.1 GET http://localhost:44379/admin-side/images/user.png   (ca22a1cb)
+2019-04-17T23:59:18.5476656+07:00 0HLM3AM7I9G6A:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:44379/lib/jquery/dist/jquery.js   (ca22a1cb)
+2019-04-17T23:59:18.5769723+07:00 0HLM3AM7I9G66:00000004 [INF] Sending file. Request path: '"/admin-side/images/user.png"'. Physical path: '"H:\Kul\TMĐT\ERPWebApp\wwwroot\admin-side\images\user.png"' (27b0a520)
+2019-04-17T23:59:18.5818894+07:00 0HLM3AM7I9G69:00000004 [INF] Request starting HTTP/1.1 GET http://localhost:44379/admin-side/css/style.css   (ca22a1cb)
+2019-04-17T23:59:18.6011705+07:00 0HLM3AM7I9G66:00000004 [INF] Request finished in 67.9162ms 200 image/png (791a596a)
+2019-04-17T23:59:18.6146672+07:00 0HLM3AM7I9G69:00000004 [INF] Sending file. Request path: '"/admin-side/css/style.css"'. Physical path: '"H:\Kul\TMĐT\ERPWebApp\wwwroot\admin-side\css\style.css"' (27b0a520)
+2019-04-17T23:59:18.6186130+07:00 0HLM3AM7I9G6A:00000003 [INF] Sending file. Request path: '"/lib/jquery/dist/jquery.js"'. Physical path: '"H:\Kul\TMĐT\ERPWebApp\wwwroot\lib\jquery\dist\jquery.js"' (27b0a520)
+2019-04-17T23:59:18.6339536+07:00 0HLM3AM7I9G69:00000004 [INF] Request finished in 59.8283ms 200 text/css (791a596a)
+2019-04-17T23:59:18.6391754+07:00 0HLM3AM7I9G66:00000005 [INF] Request starting HTTP/1.1 GET http://localhost:44379/lib/jquery-ui/jquery-ui.js   (ca22a1cb)
+2019-04-17T23:59:18.6476136+07:00 0HLM3AM7I9G6A:00000003 [INF] Request finished in 90.7729ms 200 application/javascript (791a596a)
+2019-04-17T23:59:18.6703364+07:00 0HLM3AM7I9G69:00000005 [INF] Request starting HTTP/1.1 GET http://localhost:44379/lib/fastclick/lib/fastclick.js   (ca22a1cb)
+2019-04-17T23:59:18.6764208+07:00 0HLM3AM7I9G68:00000001 [INF] Sending file. Request path: '"/lib/font-awesome/css/fontawesome.css"'. Physical path: '"H:\Kul\TMĐT\ERPWebApp\wwwroot\lib\font-awesome\css\fontawesome.css"' (27b0a520)
+2019-04-17T23:59:18.7117345+07:00 0HLM3AM7I9G6A:00000004 [INF] Request starting HTTP/1.1 GET http://localhost:44379/lib/bootstrap/dist/js/bootstrap.js   (ca22a1cb)
+2019-04-17T23:59:18.7511301+07:00 0HLM3AM7I9G69:00000005 [INF] Sending file. Request path: '"/lib/fastclick/lib/fastclick.js"'. Physical path: '"H:\Kul\TMĐT\ERPWebApp\wwwroot\lib\fastclick\lib\fastclick.js"' (27b0a520)
+2019-04-17T23:59:18.8414703+07:00 0HLM3AM7I9G66:00000005 [INF] Sending file. Request path: '"/lib/jquery-ui/jquery-ui.js"'. Physical path: '"H:\Kul\TMĐT\ERPWebApp\wwwroot\lib\jquery-ui\jquery-ui.js"' (27b0a520)
+2019-04-17T23:59:18.8453947+07:00 0HLM3AM7I9G69:00000005 [INF] Request finished in 107.712ms 200 application/javascript (791a596a)
+2019-04-17T23:59:18.8602658+07:00 0HLM3AM7I9G66:00000005 [INF] Request finished in 229.8957ms 200 application/javascript (791a596a)
+2019-04-17T23:59:18.8681389+07:00 0HLM3AM7I9G6A:00000004 [INF] Sending file. Request path: '"/lib/bootstrap/dist/js/bootstrap.js"'. Physical path: '"H:\Kul\TMĐT\ERPWebApp\wwwroot\lib\bootstrap\dist\js\bootstrap.js"' (27b0a520)
+2019-04-17T23:59:18.8865670+07:00 0HLM3AM7I9G69:00000006 [INF] Request starting HTTP/1.1 GET http://localhost:44379/lib/nprogress/nprogress.js   (ca22a1cb)
+2019-04-17T23:59:18.8932394+07:00 0HLM3AM7I9G66:00000006 [INF] Request starting HTTP/1.1 GET http://localhost:44379/lib/mustache/mustache.js   (ca22a1cb)
+2019-04-17T23:59:18.9232988+07:00 0HLM3AM7I9G6A:00000004 [INF] Request finished in 201.9069ms 200 application/javascript (791a596a)
+2019-04-17T23:59:18.9489668+07:00 0HLM3AM7I9G69:00000006 [INF] Sending file. Request path: '"/lib/nprogress/nprogress.js"'. Physical path: '"H:\Kul\TMĐT\ERPWebApp\wwwroot\lib\nprogress\nprogress.js"' (27b0a520)
+2019-04-17T23:59:18.9700955+07:00 0HLM3AM7I9G68:00000001 [INF] Request finished in 695.5437ms 200 text/css (791a596a)
+2019-04-17T23:59:18.9757235+07:00 0HLM3AM7I9G69:00000006 [INF] Request finished in 84.919ms 200 application/javascript (791a596a)
+2019-04-17T23:59:18.9816566+07:00 0HLM3AM7I9G6A:00000005 [INF] Request starting HTTP/1.1 GET http://localhost:44379/lib/twbs-pagination/jquery.twbsPagination.js   (ca22a1cb)
+2019-04-17T23:59:19.0106430+07:00 0HLM3AM7I9G69:00000007 [INF] Request starting HTTP/1.1 GET http://localhost:44379/lib/jquery-sparkline/dist/jquery.sparkline.js   (ca22a1cb)
+2019-04-17T23:59:19.0147937+07:00 0HLM3AM7I9G6A:00000005 [INF] Sending file. Request path: '"/lib/twbs-pagination/jquery.twbsPagination.js"'. Physical path: '"H:\Kul\TMĐT\ERPWebApp\wwwroot\lib\twbs-pagination\jquery.twbsPagination.js"' (27b0a520)
+2019-04-17T23:59:19.0303421+07:00 0HLM3AM7I9G68:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44379/lib/font-awesome/css/v4-shims.css   (ca22a1cb)
+2019-04-17T23:59:19.0325581+07:00 0HLM3AM7I9G6A:00000005 [INF] Request finished in 59.3447ms 200 application/javascript (791a596a)
+2019-04-17T23:59:19.0648788+07:00 0HLM3AM7I9G69:00000007 [INF] Sending file. Request path: '"/lib/jquery-sparkline/dist/jquery.sparkline.js"'. Physical path: '"H:\Kul\TMĐT\ERPWebApp\wwwroot\lib\jquery-sparkline\dist\jquery.sparkline.js"' (27b0a520)
+2019-04-17T23:59:19.0783934+07:00 0HLM3AM7I9G6A:00000006 [INF] Request starting HTTP/1.1 GET http://localhost:44379/lib/jquery-validation/dist/jquery.validate.js   (ca22a1cb)
+2019-04-17T23:59:19.0827095+07:00 0HLM3AM7I9G69:00000007 [INF] Request finished in 78.2937ms 200 application/javascript (791a596a)
+2019-04-17T23:59:19.1094932+07:00 0HLM3AM7I9G6A:00000006 [INF] Sending file. Request path: '"/lib/jquery-validation/dist/jquery.validate.js"'. Physical path: '"H:\Kul\TMĐT\ERPWebApp\wwwroot\lib\jquery-validation\dist\jquery.validate.js"' (27b0a520)
+2019-04-17T23:59:19.1133945+07:00 0HLM3AM7I9G69:00000008 [INF] Request starting HTTP/1.1 GET http://localhost:44379/lib/jquery-validation/dist/Localization/messages_vi.js   (ca22a1cb)
+2019-04-17T23:59:19.1169802+07:00 0HLM3AM7I9G68:00000002 [INF] Sending file. Request path: '"/lib/font-awesome/css/v4-shims.css"'. Physical path: '"H:\Kul\TMĐT\ERPWebApp\wwwroot\lib\font-awesome\css\v4-shims.css"' (27b0a520)
+2019-04-17T23:59:19.1319988+07:00 0HLM3AM7I9G6A:00000006 [INF] Request finished in 49.8756ms 200 application/javascript (791a596a)
+2019-04-17T23:59:19.1360917+07:00 0HLM3AM7I9G69:00000008 [INF] Sending file. Request path: '"/lib/jquery-validation/dist/Localization/messages_vi.js"'. Physical path: '"H:\Kul\TMĐT\ERPWebApp\wwwroot\lib\jquery-validation\dist\Localization\messages_vi.js"' (27b0a520)
+2019-04-17T23:59:19.1550164+07:00 0HLM3AM7I9G69:00000008 [INF] Request finished in 42.0827ms 200 application/javascript (791a596a)
+2019-04-17T23:59:19.1600175+07:00 0HLM3AM7I9G68:00000002 [INF] Request finished in 123.473ms 200 text/css (791a596a)
+2019-04-17T23:59:19.1730934+07:00 0HLM3AM7I9G6A:00000007 [INF] Request starting HTTP/1.1 GET http://localhost:44379/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js   (ca22a1cb)
+2019-04-17T23:59:19.1954271+07:00 0HLM3AM7I9G69:00000009 [INF] Request starting HTTP/1.1 GET http://localhost:44379/lib/moment/moment.js   (ca22a1cb)
+2019-04-17T23:59:19.2010988+07:00 0HLM3AM7I9G6A:00000007 [INF] Sending file. Request path: '"/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"'. Physical path: '"H:\Kul\TMĐT\ERPWebApp\wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.js"' (27b0a520)
+2019-04-17T23:59:19.2206905+07:00 0HLM3AM7I9G6A:00000007 [INF] Request finished in 50.6402ms 200 application/javascript (791a596a)
+2019-04-17T23:59:19.2263593+07:00 0HLM3AM7I9G68:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:44379/lib/jquery-validation/dist/additional-methods.js   (ca22a1cb)
+2019-04-17T23:59:19.2431650+07:00 0HLM3AM7I9G69:00000009 [INF] Sending file. Request path: '"/lib/moment/moment.js"'. Physical path: '"H:\Kul\TMĐT\ERPWebApp\wwwroot\lib\moment\moment.js"' (27b0a520)
+2019-04-17T23:59:19.2597037+07:00 0HLM3AM7I9G6A:00000008 [INF] Request starting HTTP/1.1 GET http://localhost:44379/lib/bootstrap-datetimepicker-master/js/bootstrap-datetimepicker.js   (ca22a1cb)
+2019-04-17T23:59:19.2662534+07:00 0HLM3AM7I9G69:00000009 [INF] Request finished in 73.9172ms 200 application/javascript (791a596a)
+2019-04-17T23:59:19.2916687+07:00 0HLM3AM7I9G6A:00000008 [INF] Sending file. Request path: '"/lib/bootstrap-datetimepicker-master/js/bootstrap-datetimepicker.js"'. Physical path: '"H:\Kul\TMĐT\ERPWebApp\wwwroot\lib\bootstrap-datetimepicker-master\js\bootstrap-datetimepicker.js"' (27b0a520)
+2019-04-17T23:59:19.3063985+07:00 0HLM3AM7I9G69:0000000A [INF] Request starting HTTP/1.1 GET http://localhost:44379/lib/bootstrap-datetimepicker-master/js/locales/bootstrap-datetimepicker.vi.js   (ca22a1cb)
+2019-04-17T23:59:19.3144116+07:00 0HLM3AM7I9G6A:00000008 [INF] Request finished in 53.0264ms 200 application/javascript (791a596a)
+2019-04-17T23:59:19.3200564+07:00 0HLM3AM7I9G68:00000003 [INF] Sending file. Request path: '"/lib/jquery-validation/dist/additional-methods.js"'. Physical path: '"H:\Kul\TMĐT\ERPWebApp\wwwroot\lib\jquery-validation\dist\additional-methods.js"' (27b0a520)
+2019-04-17T23:59:19.3377191+07:00 0HLM3AM7I9G69:0000000A [INF] Sending file. Request path: '"/lib/bootstrap-datetimepicker-master/js/locales/bootstrap-datetimepicker.vi.js"'. Physical path: '"H:\Kul\TMĐT\ERPWebApp\wwwroot\lib\bootstrap-datetimepicker-master\js\locales\bootstrap-datetimepicker.vi.js"' (27b0a520)
+2019-04-17T23:59:19.3495086+07:00 0HLM3AM7I9G6A:00000009 [INF] Request starting HTTP/1.1 GET http://localhost:44379/lib/bootstrap-datepicker/dist/locales/bootstrap-datepicker.vi.min.js   (ca22a1cb)
+2019-04-17T23:59:19.3619725+07:00 0HLM3AM7I9G68:00000003 [INF] Request finished in 114.9506ms 200 application/javascript (791a596a)
+2019-04-17T23:59:19.3771873+07:00 0HLM3AM7I9G69:0000000A [INF] Request finished in 50.1073ms 200 application/javascript (791a596a)
+2019-04-17T23:59:19.3825486+07:00 0HLM3AM7I9G6A:00000009 [INF] Sending file. Request path: '"/lib/bootstrap-datepicker/dist/locales/bootstrap-datepicker.vi.min.js"'. Physical path: '"H:\Kul\TMĐT\ERPWebApp\wwwroot\lib\bootstrap-datepicker\dist\locales\bootstrap-datepicker.vi.min.js"' (27b0a520)
+2019-04-17T23:59:19.4037251+07:00 0HLM3AM7I9G6A:00000009 [INF] Request finished in 57.9275ms 200 application/javascript (791a596a)
+2019-04-17T23:59:19.4212535+07:00 0HLM3AM7I9G69:0000000B [INF] Request starting HTTP/1.1 GET http://localhost:44379/lib/notifyjs/dist/notify.js   (ca22a1cb)
+2019-04-17T23:59:19.4290163+07:00 0HLM3AM7I9G68:00000004 [INF] Request starting HTTP/1.1 GET http://localhost:44379/lib/bootstrap-datepicker/dist/js/bootstrap-datepicker.js   (ca22a1cb)
+2019-04-17T23:59:19.4492820+07:00 0HLM3AM7I9G6A:0000000A [INF] Request starting HTTP/1.1 GET http://localhost:44379/lib/notifyjs/dist/styles/metro/notify-metro.js   (ca22a1cb)
+2019-04-17T23:59:19.4547823+07:00 0HLM3AM7I9G69:0000000B [INF] Sending file. Request path: '"/lib/notifyjs/dist/notify.js"'. Physical path: '"H:\Kul\TMĐT\ERPWebApp\wwwroot\lib\notifyjs\dist\notify.js"' (27b0a520)
+2019-04-17T23:59:19.4682912+07:00 0HLM3AM7I9G67:00000001 [INF] Sending file. Request path: '"/lib/font-awesome/css/brands.css"'. Physical path: '"H:\Kul\TMĐT\ERPWebApp\wwwroot\lib\font-awesome\css\brands.css"' (27b0a520)
+2019-04-17T23:59:19.4726762+07:00 0HLM3AM7I9G69:0000000B [INF] Request finished in 66.6491ms 200 application/javascript (791a596a)
+2019-04-17T23:59:19.4888139+07:00 0HLM3AM7I9G67:00000001 [INF] Request finished in 1487.061ms 200 text/css (791a596a)
+2019-04-17T23:59:19.5304204+07:00 0HLM3AM7I9G6B:00000002 [INF] Sending file. Request path: '"/lib/nprogress/nprogress.css"'. Physical path: '"H:\Kul\TMĐT\ERPWebApp\wwwroot\lib\nprogress\nprogress.css"' (27b0a520)
+2019-04-17T23:59:19.5574375+07:00 0HLM3AM7I9G67:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:44379/lib/jquery-ui/themes/flick/jquery-ui.css   (ca22a1cb)
+2019-04-17T23:59:19.5624015+07:00 0HLM3AM7I9G6B:00000002 [INF] Request finished in 1218.2491ms 200 text/css (791a596a)
+2019-04-17T23:59:19.5846236+07:00 0HLM3AM7I9G66:00000006 [INF] Sending file. Request path: '"/lib/mustache/mustache.js"'. Physical path: '"H:\Kul\TMĐT\ERPWebApp\wwwroot\lib\mustache\mustache.js"' (27b0a520)
+2019-04-17T23:59:19.5976644+07:00 0HLM3AM7I9G6B:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:44379/lib/ckeditor/skins/moono/editor.css   (ca22a1cb)
+2019-04-17T23:59:19.6000506+07:00 0HLM3AM7I9G66:00000006 [INF] Request finished in 711.3941ms 200 application/javascript (791a596a)
+2019-04-17T23:59:19.6396501+07:00 0HLM3AM7I9G69:0000000C [INF] Request starting HTTP/1.1 GET http://localhost:44379/lib/bootbox/bootbox.js   (ca22a1cb)
+2019-04-17T23:59:19.6429728+07:00 0HLM3AM7I9G66:00000007 [INF] Request starting HTTP/1.1 GET http://localhost:44379/lib/chart.js/dist/Chart.js   (ca22a1cb)
+2019-04-17T23:59:19.6550574+07:00 0HLM3AM7I9G69:0000000C [INF] Sending file. Request path: '"/lib/bootbox/bootbox.js"'. Physical path: '"H:\Kul\TMĐT\ERPWebApp\wwwroot\lib\bootbox\bootbox.js"' (27b0a520)
+2019-04-17T23:59:19.6837663+07:00 0HLM3AM7I9G68:00000004 [INF] Sending file. Request path: '"/lib/bootstrap-datepicker/dist/js/bootstrap-datepicker.js"'. Physical path: '"H:\Kul\TMĐT\ERPWebApp\wwwroot\lib\bootstrap-datepicker\dist\js\bootstrap-datepicker.js"' (27b0a520)
+2019-04-17T23:59:19.6878502+07:00 0HLM3AM7I9G69:0000000C [INF] Request finished in 60.6118ms 200 application/javascript (791a596a)
+2019-04-17T23:59:19.6983371+07:00 0HLM3AM7I9G68:00000004 [INF] Request finished in 283.8018ms 200 application/javascript (791a596a)
+2019-04-17T23:59:19.7708761+07:00 0HLM3AM7I9G69:0000000D [INF] Request starting HTTP/1.1 GET http://localhost:44379/lib/ckeditor/ckeditor.js   (ca22a1cb)
+2019-04-17T23:59:19.7831848+07:00 0HLM3AM7I9G68:00000005 [INF] Request starting HTTP/1.1 GET http://localhost:44379/app/shared/general.js   (ca22a1cb)
+2019-04-17T23:59:19.8160670+07:00 0HLM3AM7I9G66:00000007 [INF] Sending file. Request path: '"/lib/chart.js/dist/Chart.js"'. Physical path: '"H:\Kul\TMĐT\ERPWebApp\wwwroot\lib\chart.js\dist\Chart.js"' (27b0a520)
+2019-04-17T23:59:19.8201697+07:00 0HLM3AM7I9G68:00000005 [INF] Sending file. Request path: '"/app/shared/general.js"'. Physical path: '"H:\Kul\TMĐT\ERPWebApp\wwwroot\app\shared\general.js"' (27b0a520)
+2019-04-17T23:59:19.8337908+07:00 0HLM3AM7I9G66:00000007 [INF] Request finished in 187.9528ms 200 application/javascript (791a596a)
+2019-04-17T23:59:19.8379979+07:00 0HLM3AM7I9G68:00000005 [INF] Request finished in 76.3693ms 200 application/javascript (791a596a)
+2019-04-17T23:59:19.9118963+07:00 0HLM3AM7I9G6A:0000000A [INF] Sending file. Request path: '"/lib/notifyjs/dist/styles/metro/notify-metro.js"'. Physical path: '"H:\Kul\TMĐT\ERPWebApp\wwwroot\lib\notifyjs\dist\styles\metro\notify-metro.js"' (27b0a520)
+2019-04-17T23:59:19.9207839+07:00 0HLM3AM7I9G67:00000002 [INF] Sending file. Request path: '"/lib/jquery-ui/themes/flick/jquery-ui.css"'. Physical path: '"H:\Kul\TMĐT\ERPWebApp\wwwroot\lib\jquery-ui\themes\flick\jquery-ui.css"' (27b0a520)
+2019-04-17T23:59:19.9385817+07:00 0HLM3AM7I9G6A:0000000A [INF] Request finished in 494.5044ms 200 application/javascript (791a596a)
+2019-04-17T23:59:19.9438651+07:00 0HLM3AM7I9G67:00000002 [INF] Request finished in 420.1706ms 200 text/css (791a596a)
+2019-04-17T23:59:20.0400379+07:00 0HLM3AM7I9G66:00000008 [INF] Request starting HTTP/1.1 GET http://localhost:44379/admin-side/js/custom.js   (ca22a1cb)
+2019-04-17T23:59:20.1021054+07:00 0HLM3AM7I9G6A:0000000B [INF] Request starting HTTP/1.1 GET http://localhost:44379/app/shared/BeYeuTheme.js   (ca22a1cb)
+2019-04-17T23:59:20.1458670+07:00 0HLM3AM7I9G68:00000006 [INF] Request starting HTTP/1.1 GET http://localhost:44379/app/shared/notificationgeneral.js   (ca22a1cb)
+2019-04-17T23:59:20.1667665+07:00 0HLM3AM7I9G6A:0000000B [INF] Sending file. Request path: '"/app/shared/BeYeuTheme.js"'. Physical path: '"H:\Kul\TMĐT\ERPWebApp\wwwroot\app\shared\BeYeuTheme.js"' (27b0a520)
+2019-04-17T23:59:20.1851596+07:00 0HLM3AM7I9G6A:0000000B [INF] Request finished in 206.0341ms 200 application/javascript (791a596a)
+2019-04-17T23:59:20.1909754+07:00 0HLM3AM7I9G68:00000006 [INF] Sending file. Request path: '"/app/shared/notificationgeneral.js"'. Physical path: '"H:\Kul\TMĐT\ERPWebApp\wwwroot\app\shared\notificationgeneral.js"' (27b0a520)
+2019-04-17T23:59:20.2425697+07:00 0HLM3AM7I9G68:00000006 [INF] Request finished in 88.7113ms 200 application/javascript (791a596a)
+2019-04-17T23:59:20.2541893+07:00 0HLM3AM7I9G67:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:44379/lib/bootstrap-datepicker/dist/js/bootstrap-datepicker.js?v=zf23LV3FJu_gCSogDVA4jrE1kS6ehY6o4UstNBvZBgk   (ca22a1cb)
+2019-04-17T23:59:20.2732050+07:00 0HLM3AM7I9G67:00000003 [INF] Sending file. Request path: '"/lib/bootstrap-datepicker/dist/js/bootstrap-datepicker.js"'. Physical path: '"H:\Kul\TMĐT\ERPWebApp\wwwroot\lib\bootstrap-datepicker\dist\js\bootstrap-datepicker.js"' (27b0a520)
+2019-04-17T23:59:20.2743733+07:00 0HLM3AM7I9G66:00000008 [INF] Sending file. Request path: '"/admin-side/js/custom.js"'. Physical path: '"H:\Kul\TMĐT\ERPWebApp\wwwroot\admin-side\js\custom.js"' (27b0a520)
+2019-04-17T23:59:20.2925317+07:00 0HLM3AM7I9G67:00000003 [INF] Request finished in 67.1777ms 200 application/javascript (791a596a)
+2019-04-17T23:59:20.2938111+07:00 0HLM3AM7I9G66:00000008 [INF] Request finished in 319.3687ms 200 application/javascript (791a596a)
+2019-04-17T23:59:20.3528599+07:00 0HLM3AM7I9G6A:0000000C [INF] Request starting HTTP/1.1 GET http://localhost:44379/lib/bootstrap-datepicker/dist/locales/bootstrap-datepicker.vi.min.js?v=TnMvef6AxT9fg6mNrTsZCgPDkU4g5EyB-tu66oLAI4U   (ca22a1cb)
+2019-04-17T23:59:20.3747973+07:00 0HLM3AM7I9G68:00000007 [INF] Request starting HTTP/1.1 GET http://localhost:44379/app/controllers/customer/index.js?v=oCmIw9uWtX8AfOouQvak9jMZ9Q4wVP_6d3Q6dlFGzCU   (ca22a1cb)
+2019-04-17T23:59:20.4063918+07:00 0HLM3AM7I9G6A:0000000C [INF] Sending file. Request path: '"/lib/bootstrap-datepicker/dist/locales/bootstrap-datepicker.vi.min.js"'. Physical path: '"H:\Kul\TMĐT\ERPWebApp\wwwroot\lib\bootstrap-datepicker\dist\locales\bootstrap-datepicker.vi.min.js"' (27b0a520)
+2019-04-17T23:59:20.4076328+07:00 0HLM3AM7I9G68:00000007 [INF] Sending file. Request path: '"/app/controllers/customer/index.js"'. Physical path: '"H:\Kul\TMĐT\ERPWebApp\wwwroot\app\controllers\customer\index.js"' (27b0a520)
+2019-04-17T23:59:20.4360976+07:00 0HLM3AM7I9G68:00000007 [INF] Request finished in 95.825ms 200 application/javascript (791a596a)
+2019-04-17T23:59:20.4715183+07:00 0HLM3AM7I9G6A:0000000C [INF] Request finished in 106.7652ms 200 application/javascript (791a596a)
+2019-04-17T23:59:20.6366797+07:00 0HLM3AM7I9G6B:00000003 [INF] Sending file. Request path: '"/lib/ckeditor/skins/moono/editor.css"'. Physical path: '"H:\Kul\TMĐT\ERPWebApp\wwwroot\lib\ckeditor\skins\moono\editor.css"' (27b0a520)
+2019-04-17T23:59:21.0262975+07:00 0HLM3AM7I9G6A:0000000D [INF] Request starting HTTP/1.1 GET http://localhost:44379/lib/font-awesome/webfonts/fa-solid-900.woff2   (ca22a1cb)
+2019-04-17T23:59:21.1092576+07:00 0HLM3AM7I9G67:00000004 [INF] Request starting HTTP/1.1 GET http://localhost:44379/lib/font-awesome/webfonts/fa-regular-400.woff2   (ca22a1cb)
+2019-04-17T23:59:21.1347844+07:00 0HLM3AM7I9G6B:00000003 [INF] Request finished in 1058.0019ms 200 text/css (791a596a)
+2019-04-17T23:59:21.1876262+07:00 0HLM3AM7I9G67:00000004 [INF] Sending file. Request path: '"/lib/font-awesome/webfonts/fa-regular-400.woff2"'. Physical path: '"H:\Kul\TMĐT\ERPWebApp\wwwroot\lib\font-awesome\webfonts\fa-regular-400.woff2"' (27b0a520)
+2019-04-17T23:59:21.2287711+07:00 0HLM3AM7I9G6A:0000000D [INF] Sending file. Request path: '"/lib/font-awesome/webfonts/fa-solid-900.woff2"'. Physical path: '"H:\Kul\TMĐT\ERPWebApp\wwwroot\lib\font-awesome\webfonts\fa-solid-900.woff2"' (27b0a520)
+2019-04-17T23:59:21.2709403+07:00 0HLM3AM7I9G67:00000004 [INF] Request finished in 443.7829ms 200 font/woff2 (791a596a)
+2019-04-17T23:59:21.2761690+07:00 0HLM3AM7I9G6A:0000000D [INF] Request finished in 484.9741ms 200 font/woff2 (791a596a)
+2019-04-17T23:59:21.3018909+07:00 0HLM3AM7I9G69:0000000D [INF] Sending file. Request path: '"/lib/ckeditor/ckeditor.js"'. Physical path: '"H:\Kul\TMĐT\ERPWebApp\wwwroot\lib\ckeditor\ckeditor.js"' (27b0a520)
+2019-04-17T23:59:21.3195928+07:00 0HLM3AM7I9G69:0000000D [INF] Request finished in 1600.6295ms 200 application/javascript (791a596a)
+2019-04-17T23:59:21.3746009+07:00 0HLM3AM7I9G68:00000008 [INF] Request starting HTTP/1.1 GET http://localhost:44379/Notification/GetByUserId   (ca22a1cb)
+2019-04-17T23:59:21.4120109+07:00 0HLM3AM7I9G6B:00000004 [INF] Request starting HTTP/1.1 GET http://localhost:44379/Customer/GetAllPaging?keyword=&page=1&pageSize=10   (ca22a1cb)
+2019-04-17T23:59:21.4263530+07:00 0HLM3AM7I9G68:00000008 [INF] Route matched with "{action = \"GetByUserId\", controller = \"Notification\", area = \"\"}". Executing action "BeYeuBookstore.Controllers.Construction.NotificationController.GetByUserId (BeYeuBookstore)" (a44c0341)
+2019-04-17T23:59:21.4772520+07:00 0HLM3AM7I9G6B:00000004 [INF] Route matched with "{action = \"GetAllPaging\", controller = \"Customer\", area = \"\"}". Executing action "BeYeuBookstore.Controllers.CustomerController.GetAllPaging (BeYeuBookstore)" (a44c0341)
+2019-04-17T23:59:21.4838238+07:00 0HLM3AM7I9G68:00000008 [INF] Executing action method "BeYeuBookstore.Controllers.Construction.NotificationController.GetByUserId (BeYeuBookstore)" - Validation state: Valid (dad538d7)
+2019-04-17T23:59:21.5444660+07:00 0HLM3AM7I9G6B:00000004 [INF] Executing action method "BeYeuBookstore.Controllers.CustomerController.GetAllPaging (BeYeuBookstore)" with arguments (["", "1", "10"]) - Validation state: Valid (4e3479ed)
+2019-04-17T23:59:21.7157698+07:00 0HLM3AM7I9G68:00000008 [INF] Entity Framework Core "2.2.0-preview1-35029" initialized '"ERPDbContext"' using provider '"Pomelo.EntityFrameworkCore.MySql"' with options: "ServerVersion 8.0.13 MySql " (9958f5bb)
+2019-04-17T23:59:21.7712905+07:00 0HLM3AM7I9G66:00000009 [INF] Request starting HTTP/1.1 GET http://localhost:44379/favicon.ico   (ca22a1cb)
+2019-04-17T23:59:21.8183228+07:00 0HLM3AM7I9G68:00000008 [INF] Executed DbCommand ("1"ms) [Parameters=["@__userId_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT `p`.`NotificationFkNavigationKeyId` AS `KeyId`, `p.NotificationFkNavigation`.`NotificationContent`, `p.NotificationFkNavigation`.`DateCreated` AS `NotificationTime`, `p`.`Status`
+FROM `SoNotificationGeneralDetail` AS `p`
+INNER JOIN `SoNotificationGeneral` AS `p.NotificationFkNavigation` ON `p`.`NotificationFkNavigationKeyId` = `p.NotificationFkNavigation`.`KeyId`
+WHERE `p`.`UserFk` = @__userId_0" (0723d8ff)
+2019-04-17T23:59:21.8393090+07:00 0HLM3AM7I9G66:00000009 [INF] Sending file. Request path: '"/favicon.ico"'. Physical path: '"H:\Kul\TMĐT\ERPWebApp\wwwroot\favicon.ico"' (27b0a520)
+2019-04-17T23:59:21.8452707+07:00 0HLM3AM7I9G68:00000008 [INF] Executed action method "BeYeuBookstore.Controllers.Construction.NotificationController.GetByUserId (BeYeuBookstore)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult" in 334.5652ms. (50a9e262)
+2019-04-17T23:59:21.8589469+07:00 0HLM3AM7I9G66:00000009 [INF] Request finished in 307.3025ms 200 image/x-icon (791a596a)
+2019-04-17T23:59:21.8627426+07:00 0HLM3AM7I9G68:00000008 [INF] Executing ObjectResult, writing value of type '"System.Collections.Generic.List`1[[BeYeuBookstore.Utilities.DTOs.Boq.SO_NotificationGeneralDTO, BeYeuBookstore.Utilities, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'. (8a1b66c8)
+2019-04-17T23:59:21.8750170+07:00 0HLM3AM7I9G6B:00000004 [INF] Entity Framework Core "2.2.0-preview1-35029" initialized '"ERPDbContext"' using provider '"Pomelo.EntityFrameworkCore.MySql"' with options: "ServerVersion 8.0.13 MySql " (9958f5bb)
+2019-04-17T23:59:21.8764278+07:00 0HLM3AM7I9G68:00000008 [INF] Executed action "BeYeuBookstore.Controllers.Construction.NotificationController.GetByUserId (BeYeuBookstore)" in 436.7573ms (afa2e885)
+2019-04-17T23:59:21.8937052+07:00 0HLM3AM7I9G68:00000008 [INF] Request finished in 543.3199ms 200 application/json; charset=utf-8 (791a596a)
+2019-04-17T23:59:21.8974196+07:00 0HLM3AM7I9G6B:00000004 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM `Customers` AS `x`" (0723d8ff)
+2019-04-17T23:59:21.9133499+07:00 0HLM3AM7I9G6B:00000004 [INF] Executed DbCommand ("1"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT `x`.`KeyId`, `x`.`DateCreated`, `x`.`DateModified`, `x`.`UserFK`, `x.UserBy`.`Id`, `x.UserBy`.`AccessFailedCount`, `x.UserBy`.`Address`, `x.UserBy`.`Avatar`, `x.UserBy`.`ConcurrencyStamp`, `x.UserBy`.`DateCreated`, `x.UserBy`.`DateModified`, `x.UserBy`.`Dob`, `x.UserBy`.`Email`, `x.UserBy`.`EmailConfirmed`, `x.UserBy`.`FullName`, `x.UserBy`.`Gender`, `x.UserBy`.`IdDate`, `x.UserBy`.`IdNumber`, `x.UserBy`.`LastupdatedFk`, `x.UserBy`.`LockoutEnabled`, `x.UserBy`.`LockoutEnd`, `x.UserBy`.`NormalizedEmail`, `x.UserBy`.`NormalizedUserName`, `x.UserBy`.`PasswordHash`, `x.UserBy`.`PhoneNumber`, `x.UserBy`.`PhoneNumberConfirmed`, `x.UserBy`.`SecurityStamp`, `x.UserBy`.`Status`, `x.UserBy`.`TwoFactorEnabled`, `x.UserBy`.`UserName`, `x.UserBy`.`UserTypeFK`, `x.UserBy`.`UserTypeFKNavigationKeyId`
+FROM `Customers` AS `x`
+INNER JOIN `User` AS `x.UserBy` ON `x`.`UserFK` = `x.UserBy`.`Id`
+ORDER BY `x`.`KeyId`
+LIMIT @__p_1 OFFSET @__p_0" (0723d8ff)
+2019-04-17T23:59:21.9401443+07:00 0HLM3AM7I9G6B:00000004 [INF] Executed action method "BeYeuBookstore.Controllers.CustomerController.GetAllPaging (BeYeuBookstore)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult" in 369.3337ms. (50a9e262)
+2019-04-17T23:59:21.9756919+07:00 0HLM3AM7I9G6B:00000004 [INF] Executing ObjectResult, writing value of type '"BeYeuBookstore.Utilities.DTOs.PagedResult`1[[BeYeuBookstore.Application.ViewModels.CustomerViewModel, BeYeuBookstore.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'. (8a1b66c8)
+2019-04-17T23:59:21.9874151+07:00 0HLM3AM7I9G6B:00000004 [INF] Executed action "BeYeuBookstore.Controllers.CustomerController.GetAllPaging (BeYeuBookstore)" in 499.1507ms (afa2e885)
+2019-04-17T23:59:22.0139131+07:00 0HLM3AM7I9G6B:00000004 [INF] Request finished in 623.9925ms 200 application/json; charset=utf-8 (791a596a)
+2019-04-17T23:59:22.0479803+07:00 0HLM3AM7I9G69:0000000E [INF] Request starting HTTP/1.1 GET http://localhost:44379/Customer/GetAllPaging?keyword=&page=1&pageSize=10   (ca22a1cb)
+2019-04-17T23:59:22.0741119+07:00 0HLM3AM7I9G69:0000000E [INF] Route matched with "{action = \"GetAllPaging\", controller = \"Customer\", area = \"\"}". Executing action "BeYeuBookstore.Controllers.CustomerController.GetAllPaging (BeYeuBookstore)" (a44c0341)
+2019-04-17T23:59:22.0863992+07:00 0HLM3AM7I9G69:0000000E [INF] Executing action method "BeYeuBookstore.Controllers.CustomerController.GetAllPaging (BeYeuBookstore)" with arguments (["", "1", "10"]) - Validation state: Valid (4e3479ed)
+2019-04-17T23:59:22.0958619+07:00 0HLM3AM7I9G69:0000000E [INF] Entity Framework Core "2.2.0-preview1-35029" initialized '"ERPDbContext"' using provider '"Pomelo.EntityFrameworkCore.MySql"' with options: "ServerVersion 8.0.13 MySql " (9958f5bb)
+2019-04-17T23:59:22.1060370+07:00 0HLM3AM7I9G69:0000000E [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM `Customers` AS `x`" (0723d8ff)
+2019-04-17T23:59:22.1182217+07:00 0HLM3AM7I9G69:0000000E [INF] Executed DbCommand ("1"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT `x`.`KeyId`, `x`.`DateCreated`, `x`.`DateModified`, `x`.`UserFK`, `x.UserBy`.`Id`, `x.UserBy`.`AccessFailedCount`, `x.UserBy`.`Address`, `x.UserBy`.`Avatar`, `x.UserBy`.`ConcurrencyStamp`, `x.UserBy`.`DateCreated`, `x.UserBy`.`DateModified`, `x.UserBy`.`Dob`, `x.UserBy`.`Email`, `x.UserBy`.`EmailConfirmed`, `x.UserBy`.`FullName`, `x.UserBy`.`Gender`, `x.UserBy`.`IdDate`, `x.UserBy`.`IdNumber`, `x.UserBy`.`LastupdatedFk`, `x.UserBy`.`LockoutEnabled`, `x.UserBy`.`LockoutEnd`, `x.UserBy`.`NormalizedEmail`, `x.UserBy`.`NormalizedUserName`, `x.UserBy`.`PasswordHash`, `x.UserBy`.`PhoneNumber`, `x.UserBy`.`PhoneNumberConfirmed`, `x.UserBy`.`SecurityStamp`, `x.UserBy`.`Status`, `x.UserBy`.`TwoFactorEnabled`, `x.UserBy`.`UserName`, `x.UserBy`.`UserTypeFK`, `x.UserBy`.`UserTypeFKNavigationKeyId`
+FROM `Customers` AS `x`
+INNER JOIN `User` AS `x.UserBy` ON `x`.`UserFK` = `x.UserBy`.`Id`
+ORDER BY `x`.`KeyId`
+LIMIT @__p_1 OFFSET @__p_0" (0723d8ff)
+2019-04-17T23:59:22.1293286+07:00 0HLM3AM7I9G69:0000000E [INF] Executed action method "BeYeuBookstore.Controllers.CustomerController.GetAllPaging (BeYeuBookstore)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult" in 32.1145ms. (50a9e262)
+2019-04-17T23:59:22.1384532+07:00 0HLM3AM7I9G69:0000000E [INF] Executing ObjectResult, writing value of type '"BeYeuBookstore.Utilities.DTOs.PagedResult`1[[BeYeuBookstore.Application.ViewModels.CustomerViewModel, BeYeuBookstore.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'. (8a1b66c8)
+2019-04-17T23:59:22.1486724+07:00 0HLM3AM7I9G69:0000000E [INF] Executed action "BeYeuBookstore.Controllers.CustomerController.GetAllPaging (BeYeuBookstore)" in 64.709ms (afa2e885)
+2019-04-17T23:59:22.1789097+07:00 0HLM3AM7I9G69:0000000E [INF] Request finished in 122.1097ms 200 application/json; charset=utf-8 (791a596a)

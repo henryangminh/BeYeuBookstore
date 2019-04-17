@@ -6,6 +6,7 @@ using BeYeuBookstore.Infrastructure.Interfaces;
 using BeYeuBookstore.Utilities.DTOs;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace BeYeuBookstore.Application.Implementation
@@ -56,7 +57,34 @@ namespace BeYeuBookstore.Application.Implementation
 
         public PagedResult<CustomerViewModel> GetAllPaging(string keyword, int page, int pageSize)
         {
-            throw new NotImplementedException();
+            var query = _customerRepository.FindAll(x=>x.UserBy);
+            query = query.OrderBy(x => x.KeyId);
+            if (!string.IsNullOrEmpty(keyword))
+            {
+                var keysearch = keyword.Trim().ToUpper();
+
+                query = query.OrderBy(x => x.KeyId).Where(x => (x.UserBy.UserName.ToUpper().Contains(keysearch)));
+
+            }
+
+            int totalRow = query.Count();
+
+            query = query.Skip((page - 1) * pageSize).Take(pageSize);
+            var data = new List<CustomerViewModel>();
+            foreach (var item in query)
+            {
+                var _data = Mapper.Map<Customer, CustomerViewModel>(item);
+                data.Add(_data);
+            }
+
+            var paginationSet = new PagedResult<CustomerViewModel>()
+            {
+                Results = data,
+                CurrentPage = page,
+                RowCount = totalRow,
+                PageSize = pageSize
+            };
+            return paginationSet;
         }
 
         public CustomerViewModel GetById(int id)
@@ -74,7 +102,8 @@ namespace BeYeuBookstore.Application.Implementation
             var temp = _customerRepository.FindById(CustomerViewModel.KeyId);
             if (temp != null)
             {
-                temp.Dob = CustomerViewModel.Dob;
+                temp.DateModified = CustomerViewModel.DateModified;
+
             }
         }
     }

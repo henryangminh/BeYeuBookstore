@@ -286,7 +286,7 @@ namespace BeYeuBookstore.Data.EF
                 {
                     var user = await _userManager.FindByNameAsync("cucmo_cuaca@gmail.com"); // tim user 
                     await _userManager.AddToRoleAsync(user, "Customer"); // add vao role 
-                    _context.Customers.Add(new Customer() { UserFK = user.Id, Gender = (Gender)2, Dob = DateTime.Parse("2000-09-16") });
+                    _context.Customers.Add(new Customer() { UserFK = user.Id });
                 }
 
                 //tạo user merchant

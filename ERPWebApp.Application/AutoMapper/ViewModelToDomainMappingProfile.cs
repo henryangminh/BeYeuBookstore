@@ -39,7 +39,7 @@ namespace BeYeuBookstore.Application.AutoMapper
 
             CreateMap<AdvertiserViewModel, Advertiser>().ConstructUsing(c => new Advertiser(c.KeyId, c.UserFK,c.BrandName,c.UrlToBrand,c.DateCreated,c.DateModified));
 
-            CreateMap<CustomerViewModel, Customer>().ConstructUsing(c => new Customer(c.KeyId, c.UserFK,c.Dob, c.Gender,c.DateCreated,c.DateModified ));
+            CreateMap<CustomerViewModel, Customer>().ConstructUsing(c => new Customer(c.KeyId, c.UserFK, c.DateCreated,c.DateModified ));
 
             CreateMap<MerchantViewModel, Merchant>().ConstructUsing(c => new Merchant(c.KeyId, c.DirectContactName, c.Hotline, c.MerchantCompanyName,c.Address,
                 c.ContactAddress,c.BussinessRegisterId,c.TaxId,c.Website,c.LegalRepresentative,c.MerchantBankingName, c.Bank,c.BankBranch,c.BussinessRegisterLinkImg,

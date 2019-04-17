@@ -11,8 +11,6 @@ namespace BeYeuBookstore.Application.ViewModels
     {
         public int KeyId { get; set; }
         public Guid UserFK { get; set; }
-        public DateTime? Dob { get; set; }
-        public Gender Gender { get; set; }
         public DateTime? DateCreated { get; set; }
         public DateTime? DateModified { get; set; }
 

@@ -85,7 +85,7 @@ var setContentHeight = function () {
                 $SIDEBAR_MENU.find('li ul').slideUp();
             }else
             {
-				if ( $BODY.is( ".nav-sm" ) )
+                if ($BODY.is(".nav-sm") && (typeof $('ul:first', $li).html === 'undefined') )
 				{
 					$SIDEBAR_MENU.find( "li" ).removeClass( "active active-sm" );
 					$SIDEBAR_MENU.find( "li ul" ).slideUp();

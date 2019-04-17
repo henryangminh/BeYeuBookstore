@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BeYeuBookstore.Data.EF.Migrations
 {
     [DbContext(typeof(ERPDbContext))]
-    [Migration("20190417085801_init")]
-    partial class init
+    [Migration("20190417173043_initblablabla")]
+    partial class initblablabla
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -198,10 +198,6 @@ namespace BeYeuBookstore.Data.EF.Migrations
                     b.Property<DateTime?>("DateCreated");
 
                     b.Property<DateTime?>("DateModified");
-
-                    b.Property<DateTime?>("Dob");
-
-                    b.Property<int>("Gender");
 
                     b.Property<Guid>("UserFK");
 
