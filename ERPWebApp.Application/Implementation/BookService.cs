@@ -55,7 +55,7 @@ namespace BeYeuBookstore.Application.Implementation
             throw new NotImplementedException();
         }
 
-        public PagedResult<BookViewModel> GetAllPaging(string fromdate, string todate, string keyword, int bookcategoryid, int page, int pageSize)
+        public PagedResult<BookViewModel> GetAllPaging(int? merchantId, string fromdate, string todate, string keyword, int bookcategoryid, int page, int pageSize)
         {
             var query = _bookRepository.FindAll(p => p.BookCategoryFKNavigation, p=>p.MerchantFKNavigation);
             query = query.OrderBy(x => x.KeyId);
@@ -65,6 +65,11 @@ namespace BeYeuBookstore.Application.Implementation
 
                 query = query.OrderBy(x => x.KeyId).Where(x => (x.BookTitle.ToUpper().Contains(keysearch)) || (x.MerchantFKNavigation.MerchantCompanyName.ToUpper().Contains(keysearch)));
 
+            }
+            if(merchantId!=0)
+            {
+                query = query.OrderBy(x => x.KeyId).Where(x => x.MerchantFK==merchantId);
+ 
             }
             if (!string.IsNullOrEmpty(fromdate))
             {

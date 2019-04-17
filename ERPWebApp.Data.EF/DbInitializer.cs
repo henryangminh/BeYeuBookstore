@@ -398,9 +398,9 @@ namespace BeYeuBookstore.Data.EF
 
                 result = _userManager.CreateAsync(new User()
                 {
-                    UserName = "laptopphongvu@gmail.com",
-                    FullName = "Vũ Phong",
-                    Email = "laptopphongvu@gmail.com",
+                    UserName = "blackpigkun@gmail.com",
+                    FullName = "Cá Mập Heo",
+                    Email = "blackpigkun@gmail.com",
                     DateCreated = DateTime.Now,
                     DateModified = DateTime.Now,
                     UserTypeFK = Const_UserType.Advertiser, //Webmaster
@@ -408,7 +408,7 @@ namespace BeYeuBookstore.Data.EF
                 }, CommonConstants.DefaultPW).Result;
                 if (result.Succeeded)
                 {
-                    var user = await _userManager.FindByNameAsync("laptopphongvu@gmail.com"); // tim user 
+                    var user = await _userManager.FindByNameAsync("blackpigkun@gmail.com"); // tim user 
                     await _userManager.AddToRoleAsync(user, "Advertiser"); // add vao role 
                     _context.Advertisers.Add(new Advertiser() { UserFK = user.Id, BrandName = "Phong Vũ", UrlToBrand = "phongvu.com.vn" });
                 }

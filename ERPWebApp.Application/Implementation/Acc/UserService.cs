@@ -99,7 +99,7 @@ namespace BeYeuBookstore.Application.Implementation.Acc
 
             var data = query.Select(x => new UserViewModel()
             {
-                /*
+                
                 UserName = x.UserName,
                 Avatar = x.Avatar,
                 Email = x.Email,
@@ -111,7 +111,7 @@ namespace BeYeuBookstore.Application.Implementation.Acc
                 PhoneNumber = x.PhoneNumber,
                 Status = x.Status,
                 DateModified = x.DateModified
-                */
+                
 
             }).ToList();
             var paginationSet = new PagedResult<UserViewModel>()

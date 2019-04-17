@@ -37,8 +37,17 @@
     <div class="col-sm-5 form-group">
         <input type="text" id="txtKeyword" class="form-control" placeholder="Gõ từ khóa...">
     </div>
-    <div class="col-sm-5 form-group">
 
+
+    <div class="col-sm-2">
+        <select class="form-control" id="selStatus">
+            <option value="">Chọn trạng thái</option>
+            <option value="0">Kích hoạt</option>
+            <option value="1">Khóa</option>
+        </select>
+
+    </div>
+    <div class="col-sm-3">
     </div>
     @if (result_create.Succeeded)
     {

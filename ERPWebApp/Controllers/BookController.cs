@@ -68,9 +68,11 @@ namespace BeYeuBookstore.Controllers
         }
 
         [HttpGet]
-        public IActionResult GetAllPaging(string fromdate, string todate, string keyword, int bookcategoryid, int page, int pageSize)
+        public IActionResult GetAllPaging( string fromdate, string todate, string keyword, int bookcategoryid, int page, int pageSize)
         {
-            var model = _bookService.GetAllPaging(fromdate, todate, keyword, bookcategoryid, page, pageSize);
+            var userid = _generalFunctionController.Instance.getClaimType(User, CommonConstants.UserClaims.Key);
+            var M=_merchantService.GetBysId(userid);
+            var model = _bookService.GetAllPaging(M.KeyId, fromdate, todate, keyword, bookcategoryid, page, pageSize);
             return new OkObjectResult(model);
         }
 

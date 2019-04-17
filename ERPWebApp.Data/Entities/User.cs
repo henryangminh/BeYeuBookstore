@@ -45,7 +45,11 @@ namespace BeYeuBookstore.Data.Entities
         public string Avatar { get; set; }
 
         public string Address { get; set; }
-        
+        public string IdNumber { get; set; }
+        public DateTime? Dob { get; set; }
+        public DateTime? IdDate { get; set; }
+        public Gender? Gender { get; set; }
+
 
         public DateTime? DateCreated { get; set; }
         public DateTime? DateModified { get; set; }

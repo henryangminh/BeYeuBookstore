@@ -303,6 +303,7 @@ function loadData(isPageChanged) {
     $.ajax({
         type: 'GET',
         data: {
+            
             fromdate: $('#dtBegin').val(),
             todate: $('#dtEnd').val(),
             keyword: $('#txtKeyword').val(),

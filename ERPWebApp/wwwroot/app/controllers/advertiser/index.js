@@ -177,7 +177,12 @@
                 var data = response;
 
                 $('#txtId').val(data.KeyId);
-                $('#txtName').val(data.BookCategoryName);
+                $('#txtUserName').val(data.UserBy.UserName);
+                $('#dtDateCreated').val(data.DateCreated);
+                $('#dtDateModified').val(data.DateModified);
+                $('#txtBrandName').val(data.BrandName);
+                $('#txtUrlToBrand').val(data.UrlToBrand);
+                $('#selStatus').val(data.Status);
                 $('#modal-add-edit').modal('show');
                 general.stopLoading();
 

@@ -59,7 +59,7 @@ namespace BeYeuBookstore.Application.Implementation
 
         public PagedResult<AdvertiserViewModel> GetAllPaging(string keyword, int page, int pageSize)
         {
-            var query = _advertiserRepository.FindAll();
+            var query = _advertiserRepository.FindAll(x=>x.UserBy);
             query = query.OrderBy(x => x.KeyId);
             if (!string.IsNullOrEmpty(keyword))
             {
@@ -91,7 +91,7 @@ namespace BeYeuBookstore.Application.Implementation
 
         public AdvertiserViewModel GetById(int id)
         {
-            return Mapper.Map<Advertiser, AdvertiserViewModel>(_advertiserRepository.FindById(id));
+            return Mapper.Map<Advertiser, AdvertiserViewModel>(_advertiserRepository.FindById(id,p=>p.UserBy));
         }
 
         public bool Save()
