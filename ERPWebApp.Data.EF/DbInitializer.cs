@@ -475,6 +475,45 @@ namespace BeYeuBookstore.Data.EF
                 {
                     string a = ex.ToString();
                 };
+
+                if (_context.Invoices.Count() == 0)
+                {
+                        _context.Invoices.AddRange(new List<Invoice>()
+                    {
+                            new Invoice(){ CustomerFK=1,TotalPrice=0},
+                            new Invoice(){ CustomerFK=1,TotalPrice=0}
+                    });
+             
+                }
+                try
+                {
+                    _context.SaveChanges();
+                }
+                catch (Exception ex)
+                {
+                    string a = ex.ToString();
+                };
+
+                if (_context.InvoiceDetails.Count() == 0)
+                {
+                    _context.InvoiceDetails.AddRange(new List<InvoiceDetail>()
+                    {
+                            new InvoiceDetail(){ InvoiceFK=1,BookFK=1,Qty=2,SubTotal=0},
+                            new InvoiceDetail(){ InvoiceFK=1,BookFK=2,Qty=2,SubTotal=0},
+                            new InvoiceDetail(){ InvoiceFK=2,BookFK=1,Qty=3,SubTotal=0},
+                            new InvoiceDetail(){ InvoiceFK=2,BookFK=2,Qty=4,SubTotal=0},
+                    });
+
+                }
+                try
+                {
+                    _context.SaveChanges();
+                }
+                catch (Exception ex)
+                {
+                    string a = ex.ToString();
+                };
+               
             }
         }
     }

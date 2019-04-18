@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BeYeuBookstore.Data.EF.Migrations
 {
     [DbContext(typeof(ERPDbContext))]
-    [Migration("20190418080035_init")]
+    [Migration("20190418140253_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

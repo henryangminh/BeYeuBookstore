@@ -23,5 +23,40 @@ namespace BeYeuBookstore.Controllers
         {
             return View();
         }
+
+        [HttpGet]
+        public IActionResult GetAllPaging(string fromdate, string todate, string keyword, int page, int pageSize)
+        {
+            var model = _invoiceService.GetAllPaging(fromdate, todate, keyword, page, pageSize);
+            return new OkObjectResult(model);
+        }
+
+
+        [HttpGet]
+        public IActionResult GetById(int id)
+        {
+            var model = _invoiceService.GetById(id);
+            return new OkObjectResult(model);
+        }
+
+
+        [HttpPost]
+        public IActionResult Delete(int id)
+        {
+            if (id == 0)
+            {
+                return new BadRequestResult();
+            }
+            else
+            {
+                _invoiceService.Delete(id);
+                _invoiceService.Save();
+                return new OkObjectResult(id);
+
+            }
+
+
+        }
+
     }
 }
