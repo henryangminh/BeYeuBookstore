@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace BeYeuBookstore.Data.EF.Migrations
 {
-    public partial class initblablabla : Migration
+    public partial class init : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -489,6 +489,8 @@ namespace BeYeuBookstore.Data.EF.Migrations
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     ContractLink = table.Column<string>(nullable: true),
                     MerchantFK = table.Column<int>(nullable: false),
+                    DateStart = table.Column<DateTime>(nullable: false),
+                    DateEnd = table.Column<DateTime>(nullable: false),
                     DateCreated = table.Column<DateTime>(nullable: true),
                     DateModified = table.Column<DateTime>(nullable: true)
                 },

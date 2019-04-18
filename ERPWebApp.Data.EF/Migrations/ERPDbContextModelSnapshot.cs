@@ -368,7 +368,11 @@ namespace BeYeuBookstore.Data.EF.Migrations
 
                     b.Property<DateTime?>("DateCreated");
 
+                    b.Property<DateTime>("DateEnd");
+
                     b.Property<DateTime?>("DateModified");
+
+                    b.Property<DateTime>("DateStart");
 
                     b.Property<int>("MerchantFK");
 

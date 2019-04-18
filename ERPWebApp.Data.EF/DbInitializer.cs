@@ -54,7 +54,7 @@ namespace BeYeuBookstore.Data.EF
                       new Function() {KeyId = "ContractItem",Name = "Hợp đồng",ParentId = null,SortOrder = 4,Status = Status.Active,URL = "/",IconCss = "fa-file-signature"  },
 
                       new Function() {KeyId = "MerchantContractItem",Name = "Hợp đồng với nhà cung cấp",ParentId = "ContractItem",SortOrder = 1,Status = Status.Active,URL = "/MerchantContract",IconCss = "fa-chevron-down"  },
-                      new Function() {KeyId = "AdvertiseContractItem",Name = "Hợp đồng với nhà quảng cáo",ParentId = "ContractItem",SortOrder = 2,Status = Status.Active,URL = "/AdvertiseContract",IconCss = "fa-clone"  },
+                      new Function() {KeyId = "AdvertiseContractItem",Name = "Hợp đồng quảng cáo",ParentId = "ContractItem",SortOrder = 2,Status = Status.Active,URL = "/AdvertiseContract",IconCss = "fa-clone"  },
 
                 });
             }
@@ -449,6 +449,23 @@ namespace BeYeuBookstore.Data.EF
 
                     });
 
+                }
+                try
+                {
+                    _context.SaveChanges();
+                }
+                catch (Exception ex)
+                {
+                    string a = ex.ToString();
+                };
+
+                if (_context.MerchantContracts.Count() == 0)
+                {
+                    _context.MerchantContracts.AddRange(new List<MerchantContract>()
+                {
+                        new MerchantContract(){ ContractLink="", MerchantFK = 1, DateStart = DateTime.Parse("2019-01-01"), DateEnd = DateTime.Parse("2020-01-01")},
+                        new MerchantContract(){ ContractLink="", MerchantFK = 2, DateStart = DateTime.Parse("2019-01-01"), DateEnd = DateTime.Parse("2020-01-01")}
+                    });
                 }
                 try
                 {

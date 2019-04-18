@@ -45,7 +45,7 @@ namespace BeYeuBookstore.Application.AutoMapper
                 c.ContactAddress,c.BussinessRegisterId,c.TaxId,c.Website,c.LegalRepresentative,c.MerchantBankingName, c.Bank,c.BankBranch,c.BussinessRegisterLinkImg,
                 c.BankAccountNotificationLinkImg,c.TaxRegisterLinkImg,c.Status,c.Scales, c.EstablishDate,c.DateCreated,c.DateModified));
 
-            CreateMap<MerchantContractViewModel, MerchantContract>().ConstructUsing(c => new MerchantContract(c.KeyId,c.ContractLink,c.MerchantFK,c.DateCreated,c.DateModified));
+            CreateMap<MerchantContractViewModel, MerchantContract>().ConstructUsing(c => new MerchantContract(c.KeyId,c.ContractLink,c.MerchantFK,c.DateStart,c.DateEnd ,c.DateCreated,c.DateModified));
 
             CreateMap<WebMasterViewModel, WebMaster>().ConstructUsing(c => new WebMaster(c.KeyId,c.UserFK,c.WebMasterTypeFK,c.DateCreated,c.DateModified));
 
