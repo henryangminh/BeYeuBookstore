@@ -10,9 +10,13 @@
 
   <ItemGroup>
     <Compile Remove="NewFolder\**" />
+    <Compile Remove="wwwroot\css\beyeubookstore\**" />
     <Content Remove="NewFolder\**" />
+    <Content Remove="wwwroot\css\beyeubookstore\**" />
     <EmbeddedResource Remove="NewFolder\**" />
+    <EmbeddedResource Remove="wwwroot\css\beyeubookstore\**" />
     <None Remove="NewFolder\**" />
+    <None Remove="wwwroot\css\beyeubookstore\**" />
   </ItemGroup>
 
 
@@ -57,12 +61,29 @@
     <Content Update="Areas\Admin\Views\_ViewImports.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
+    <Content Update="Views\Shared\Frontend\Components\SideBar\Default.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Views\Shared\Frontend\Error.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Views\Shared\Frontend\_Layout.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Views\Shared\Frontend\_LoginPartial.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Views\Shared\Frontend\_ValidationScriptsPartial.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="report\" />
     <Folder Include="wwwroot\app\controllers\profile\" />
+    <Folder Include="wwwroot\app\shared\beyeubookstore\" />
     <Folder Include="wwwroot\export-files\" />
+    <Folder Include="wwwroot\images\img\" />
     <Folder Include="wwwroot\images\user\" />
   </ItemGroup>
 
