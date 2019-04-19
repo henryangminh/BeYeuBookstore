@@ -58,7 +58,7 @@ namespace BeYeuBookstore.Application.Implementation
 
         public PagedResult<DeliveryViewModel> GetAllPaging(int status, string keyword, int page, int pageSize)
         {
-            var query = _deliveryRepository.FindAll(x=>x.InvoiceFKNavigation);
+            var query = _deliveryRepository.FindAll(x=>x.InvoiceFKNavigation, x=>x.MerchantFKNavigation, x => x.InvoiceFKNavigation.CustomerFKNavigation.UserBy);
             query = query.OrderBy(x => x.KeyId);
             if (!string.IsNullOrEmpty(keyword))
             {

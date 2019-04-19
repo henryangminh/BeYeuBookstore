@@ -247,7 +247,7 @@ function loadData(isPageChanged) {
                 render += Mustache.render(template, {
 
                     KeyId: item.KeyId,
-                    CustomerName: "lỗi",
+                    CustomerName: item.InvoiceFKNavigation.CustomerFKNavigation.UserBy.FullName,
                     DateCreated: _dateCreate,
                     Status: '<span class="badge bg-' + _color + '">' + _statusName + '</span>',
 
@@ -256,7 +256,6 @@ function loadData(isPageChanged) {
 
             });
             $('#lblTotalRecords').text(response.RowCount);
-            console.log(render);
             $('#tbl-content').html(render);
             wrapPaging(response.RowCount, function () {
                 loadData();

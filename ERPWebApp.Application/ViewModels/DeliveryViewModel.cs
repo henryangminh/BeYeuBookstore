@@ -15,5 +15,6 @@ namespace BeYeuBookstore.Application.ViewModels
         public DateTime? DateModified { get; set; }
         //
         public virtual InvoiceViewModel InvoiceFKNavigation { get; set; }
+        public virtual MerchantViewModel MerchantFKNavigation { get; set; }
     }
 }
