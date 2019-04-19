@@ -1,0 +1,377 @@
+﻿@using BeYeuBookstore.Extensions;
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="~/images/img/favicon.png" />
+
+    <!--CSS is here-->
+    <!-- bootstrap v3.3.6 css -->
+    <link href="~/beyeubookstore/css/bootstrap.min.css" rel="stylesheet">
+    <!-- animate css -->
+    <link href="~/beyeubookstore/css/animate.css" rel="stylesheet">
+    <!-- meanmenu css -->
+    <link href="~/beyeubookstore/css/meanmenu.min.css" rel="stylesheet">
+    <!-- owl.carousel css -->
+    <link href="~/beyeubookstore/css/owl.carousel.css" rel="stylesheet">
+    <!-- font-awesome css -->
+    <link href="~/beyeubookstore/css/font-awesome.min.css" rel="stylesheet">
+    <!-- flexslider.css-->
+    <link href="~/beyeubookstore/css/flexslider.css" rel="stylesheet">
+    <!-- chosen.min.css-->
+    <link href="~/beyeubookstore/css/chosen.min.css" rel="stylesheet">
+    <!-- style css -->
+    <link href="~/beyeubookstore/css/style.css" rel="stylesheet">
+    <!-- responsive css -->
+    <link href="~/beyeubookstore/css/responsive.css" rel="stylesheet">
+    <!-- modernizr css -->
+    <script src="~/app/shared/beyeubookstore/vendor/modernizr-2.8.3.min.js"></script>
+    <title>Bé Yêu Bookstore</title>
+
+</head>
+
+<body class="home-4">
+    <!-- header-area-start -->
+    <header>
+        <!-- header-top-area-start -->
+        <!-- Login or registration-->
+        <div class="header-top-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <div class="language-area">
+                            <ul></ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <div class="account-area text-right">
+                            <ul>
+                                <li><a href="Account/Login">Đăng ký</a></li>
+                                <li><a href="Account/Login">Đăng nhập</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- header-top-area-end -->
+        <!-- header-mid-area-start -->
+        <div class="header-mid-area ptb-40">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12">
+                        <div class="logo-area">
+                            <a href="index.html"><img src="~/images/img/logo/3.png" alt="logo" /></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-5 col-xs-12">
+                        <div class="header-search">
+                            <form action="#">
+                                <input type="text" placeholder="Tìm kiếm tựa sách" />
+                                <a href="#"><i class="fa fa-search"></i></a>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                        <div class="my-cart">
+                            <ul>
+                                <li>
+                                    <a href="#"><i class="fa fa-shopping-cart"></i>Giỏ hàng</a>
+                                    <span>2</span>
+                                    <div class="mini-cart-sub">
+                                        <div class="cart-product">
+                                            <div class="single-cart">
+
+                                            </div>
+                                            <div class="single-cart">
+
+                                            </div>
+                                        </div>
+                                        <div class="cart-totals">
+                                            <h5>Total <span>£12.00</span></h5>
+                                        </div>
+                                        <div class="cart-bottom">
+                                            <a class="view-cart" href="cart.html">view cart</a>
+                                            <a href="checkout.html">Check out</a>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- header-mid-area-end -->
+        <!-- main-menu-area-start -->
+        <div class="main-menu-area hidden-sm hidden-xs" id="header-sticky">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="menu-area">
+                            <nav>
+                                <ul>
+                                    <li class="active">
+                                        <a href="index.html">Trang chủ<i class="fa fa-angle-down"></i></a>
+                                        <div class="sub-menu">
+                                            <ul>
+                                                <li><a href="index-2.html">Home-2</a></li>
+                                                <li><a href="index-3.html">Home-3</a></li>
+                                                <li><a href="index-4.html">Home-4</a></li>
+                                                <li><a href="index-5.html">Home-5</a></li>
+                                                <li><a href="index-6.html">Home-6</a></li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <a href="product-details.html">Sách<i class="fa fa-angle-down"></i></a>
+                                        <div class="mega-menu">
+                                            <span>
+                                                <a href="#" class="title">Jackets</a>
+                                                <a href="shop.html">Tops & Tees</a>
+                                                <a href="shop.html">Polo Short Sleeve</a>
+                                                <a href="shop.html">Graphic T-Shirts</a>
+                                                <a href="shop.html">Jackets & Coats</a>
+                                                <a href="shop.html">Fashion Jackets</a>
+                                            </span>
+                                            <span>
+                                                <a href="#" class="title">weaters</a>
+                                                <a href="shop.html">Crochet</a>
+                                                <a href="shop.html">Sleeveless</a>
+                                                <a href="shop.html">Stripes</a>
+                                                <a href="shop.html">Sweaters</a>
+                                                <a href="shop.html">hoodies</a>
+                                            </span>
+                                            <span>
+                                                <a href="#" class="title">Bottoms</a>
+                                                <a href="shop.html">Heeled sandals</a>
+                                                <a href="shop.html">Polo Short Sleeve</a>
+                                                <a href="shop.html">Flat sandals</a>
+                                                <a href="shop.html">Short Sleeve</a>
+                                                <a href="shop.html">Long Sleeve</a>
+                                            </span>
+                                            <span>
+                                                <a href="#" class="title">Jeans Pants</a>
+                                                <a href="shop.html">Polo Short Sleeve</a>
+                                                <a href="shop.html">Sleeveless</a>
+                                                <a href="shop.html">Graphic T-Shirts</a>
+                                                <a href="shop.html">Hoodies</a>
+                                                <a href="shop.html">Jackets</a>
+                                            </span>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- main-menu-area-end -->
+    </header>
+    @RenderBody()
+
+    <!-- social-group-area-start -->
+    <div class="social-group-area ptb-60">
+       
+    </div>
+    <!-- social-group-area-end -->
+    <!-- footer-area-start -->
+    <footer>
+        <!-- footer-top-start -->
+        <div class="footer-top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="footer-top-menu bb-2">
+                            <nav>
+                                <ul></ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- footer-top-start -->
+        <!-- footer-mid-start -->
+        <div class="footer-mid ptb-50">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-md-8 col-sm-12">
+                        <div class="row">
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                <div class="single-footer br-2 xs-mb">
+                                    <div class="footer-title mb-20">
+                                        <h3>Về chúng tôi</h3>
+                                    </div>
+                                    <div class="footer-mid-menu">
+                                        <ul>
+                                            <li><a href="#">Giới thiệu</a></li>
+                                            <li><a href="#">Giới thiệu "Bé Yêu Xu"</a></li>
+                                            <li><a href="#">Tuyển dụng</a></li>
+                                            <li><a href="#">Góc báo chí</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                <div class="single-footer br-2 xs-mb">
+                                    <div class="footer-title mb-20">
+                                        <h3>Điều khoản</h3>
+                                    </div>
+                                    <div class="footer-mid-menu">
+                                        <ul>
+                                            <li><a href="#">Điều khoản sử dụng</a></li>
+                                            <li><a href="#">Điều khoản giao dịch</a></li>
+                                            <li><a href="#"> Dịch vụ tiện ích</a></li>
+                                            <li><a href="#">Sở hữu trí tuệ</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                <div class="single-footer br-2 xs-mb">
+                                    <div class="footer-title mb-20">
+                                        <h3>Chính sách</h3>
+                                    </div>
+                                    <div class="footer-mid-menu">
+                                        <ul>
+                                            <li><a href="#">Chính sách thanh toán</a></li>
+                                            <li><a href="#">Điều khoản sử dụng</a></li>
+                                            <li><a href="#">Chính sách bảo mật</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-12">
+                        <div class="single-footer mrg-sm">
+                            <div class="footer-title mb-20">
+                                <h3>Liên hệ</h3>
+                            </div>
+                            <div class="footer-contact">
+                                <p class="adress">
+                                    <span>Công ty</span>
+                                    Số 1, đường Bé Yêu, Thành phố Còn Màu Hồng
+                                </p>
+                                <p><span>Điện thoại: </span>1900-6035</p>
+                                <p><span>Email:</span> support@beyeu.com</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- footer-mid-end -->
+        <!-- footer-bottom-start -->
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="row bt-2">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <div class="copy-right-area">
+                            <p>Bản quyền thuộc về<a href="#"> Công ty Cổ phần Bé Yêu</a></p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <div class="payment-img text-right">
+                            <a href="#"><img src="~/images/img/1.png" alt="payment" /></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- footer-bottom-end -->
+    </footer>
+    <!-- footer-area-end -->
+    <!-- Modal -->
+    <div class="modal fade" id="productModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">x</span></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-5 col-sm-5 col-xs-12">
+                            <div class="modal-tab">
+                                <div class="product-details-large tab-content">
+                                    <div class="tab-pane active" id="image-1">
+                                        <img src="img/product/quickview-l4.jpg" alt="" />
+                                    </div>
+                                    <div class="tab-pane" id="image-2">
+                                        <img src="img/product/quickview-l2.jpg" alt="" />
+                                    </div>
+                                    <div class="tab-pane" id="image-3">
+                                        <img src="img/product/quickview-l3.jpg" alt="" />
+                                    </div>
+                                    <div class="tab-pane" id="image-4">
+                                        <img src="img/product/quickview-l5.jpg" alt="" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-7 col-sm-7 col-xs-12">
+                            <div class="modal-pro-content">
+                                <h3>Chaz Kangeroo Hoodie3</h3>
+                                <div class="price">
+                                    <span>$70.00</span>
+                                </div>
+                                <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet.</p>
+                                <div class="quick-view-select">
+                                    <div class="select-option-part">
+
+                                    </div>
+                                    <div class="quickview-color-wrap">
+
+                                    </div>
+                                </div>
+                                <form action="#">
+                                    <input type="number" value="1" />
+                                    <button>Thêm vào giỏ hàng</button>
+                                </form>
+                                <span><i class="fa fa-check"></i>Còn hàng</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal end -->
+    <!-- all js here -->
+    <!-- jquery latest version -->
+    <script src="~/beyeubookstore/js/vendor/jquery-1.12.0.min.js"></script>
+    <!-- bootstrap js -->
+    <script src="~/beyeubookstore/js/bootstrap.min.js"></script>
+    <!-- owl.carousel js -->
+    <script src="~/beyeubookstore/js/owl.carousel.min.js"></script>
+    <!-- meanmenu js -->
+    <script src="~/beyeubookstore/js/jquery.meanmenu.js"></script>
+    <!-- wow js -->
+    <script src="~/beyeubookstore/js/wow.min.js"></script>
+    <!-- jquery.parallax-1.1.3.js -->
+    <script src="~/beyeubookstore/js/jquery.parallax-1.1.3.js"></script>
+    <!-- jquery.countdown.min.js -->
+    <script src="~/beyeubookstore/js/jquery.countdown.min.js"></script>
+    <!-- jquery.flexslider.js -->
+    <script src="~/beyeubookstore/js/jquery.flexslider.js"></script>
+    <!-- chosen.jquery.min.js -->
+    <script src="~/beyeubookstore/js/chosen.jquery.min.js"></script>
+    <!-- jquery.counterup.min.js -->
+    <script src="~/beyeubookstore/js/jquery.counterup.min.js"></script>
+    <!-- waypoints.min.js -->
+    <script src="~/beyeubookstore/js/waypoints.min.js"></script>
+    <!-- plugins js -->
+    <script src="~/beyeubookstore/js/plugins.js"></script>
+    <!-- main js -->
+    <script src="~/beyeubookstore/js/main.js"></script>
+</body>
+</html>
