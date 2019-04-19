@@ -51,7 +51,14 @@ namespace BeYeuBookstore.Application.Implementation
 
         public List<InvoiceDetailViewModel> GetAll(int id)
         {
-            throw new NotImplementedException();
+            var query = _invoiceDetailRepository.FindAll(p => p.InvoiceFK == id, p=>p.BookFKNavigation, p=>p.InvoiceFKNavigation);
+            var data = new List<InvoiceDetailViewModel>();
+            foreach (var item in query)
+            {
+                var _data = Mapper.Map<InvoiceDetail, InvoiceDetailViewModel>(item);
+                data.Add(_data);
+            }
+            return data;
         }
 
         public PagedResult<InvoiceDetailViewModel> GetAllPaging(string keyword, int page, int pageSize)

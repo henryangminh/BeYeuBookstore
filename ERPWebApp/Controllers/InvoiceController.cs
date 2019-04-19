@@ -12,10 +12,12 @@ namespace BeYeuBookstore.Controllers
     {
 
         IInvoiceService _invoiceService;
+        IInvoiceDetailService _invoiceDetailService;
         IUnitOfWork _unitOfWork;
-        public InvoiceController(IInvoiceService invoiceService, IUnitOfWork unitOfWork)
+        public InvoiceController(IInvoiceDetailService invoiceDetailService, IInvoiceService invoiceService, IUnitOfWork unitOfWork)
         {
             _invoiceService = invoiceService;
+            _invoiceDetailService = invoiceDetailService;
             _unitOfWork = unitOfWork;
         }
 
@@ -39,6 +41,12 @@ namespace BeYeuBookstore.Controllers
             return new OkObjectResult(model);
         }
 
+        [HttpGet]
+        public IActionResult GetAllInvoiceDetailById(int id)
+        {
+            var model = _invoiceDetailService.GetAll(id);
+            return new OkObjectResult(model);
+        }
 
         [HttpPost]
         public IActionResult Delete(int id)

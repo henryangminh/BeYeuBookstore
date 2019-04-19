@@ -107,7 +107,7 @@ namespace BeYeuBookstore.Application.Implementation
 
         public InvoiceViewModel GetById(int id)
         {
-            return Mapper.Map<Invoice, InvoiceViewModel>(_invoiceRepository.FindById(id));
+            return Mapper.Map<Invoice, InvoiceViewModel>(_invoiceRepository.FindById(id, p=>p.CustomerFKNavigation.UserBy));
         }
 
         public bool Save()

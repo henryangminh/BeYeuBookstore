@@ -26,23 +26,12 @@
             <input id="dtEnd" type="text" placeholder="dd/mm/yyyy" name="end" class="form-control" />
         </div>
     </div>
-    <div class="col-lg-2">
-        <select class="form-control" id="selStatus">
-            <option value="">Chọn trạng thái</option>
-            <option value="0">Kích hoạt</option>
-            <option value="1">Khóa</option>
-        </select>
-    </div>
-    <div class="col-lg-2">
-        <select class="form-control" id="selScale">
-            <option value="">Chọn quy mô</option>
-            <option value="0">Lớn</option>
-            <option value="1">Vừa</option>
-            <option value="2">Nhỏ</option>
-        </select>
-    </div>
-    <div class="col-sm-2 form-group">
+
+    <div class="col-sm-4 form-group">
         <input type="text" id="txtKeyword" class="form-control" placeholder="Gõ từ khóa...">
+    </div>
+    <div class="col-lg-2">
+
     </div>
     <div class="col-sm-1 form-group">
         <button id="btnCreate" class="btn btn-success"><i class="fa fa-plus"></i> Thêm mới</button>
@@ -60,7 +49,7 @@
                             <th width="10%">Khách hàng</th>
                             <th width="20%">Ngày tạo</th>
                             <th width="20%">Tổng tiền (VNĐ)</th>
-                            <th width="8%">#</th>
+                            <th width="1%">#</th>
                         </tr>
                     </thead>
                     <tbody id="tbl-content"></tbody>
@@ -98,8 +87,8 @@
         <td>{{TotalPrice}}</td>
     
         <td scope="row">
-            <a class="btn btn-xs btn-default btn-edit {{{Prop}}}" {{{Prop}}} data-id="{{KeyId}}"><i class="fa fa-pencil"></i></a>
-            <a class="btn btn-xs btn-danger btn-delete {{{Prop}}}" {{{Prop}}} data-id="{{KeyId}}"><i class="fa fa-trash"></i></a>
+            <a class="btn btn-xs btn-primary btn-edit {{{Prop}}}" {{{Prop}}} data-id="{{KeyId}}"><i class="fa fa-eye"></i></a>
+          
 
         </td>
     </tr>

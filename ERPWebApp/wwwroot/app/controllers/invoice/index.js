@@ -163,7 +163,8 @@
     }
 
     function loadDetail(that) {
-
+        var template = $('#InvoiceDetail-table-template').html();
+        var renderDetail = "";
         $.ajax({
             type: "GET",
             url: "/Invoice/GetById",
@@ -177,13 +178,48 @@
                 var data = response;
 
                 $('#txtId').val(data.KeyId);
-                $('#txtUserName').val(data.UserBy.UserName);
-                $('#dtDateCreated').val(data.DateCreated);
-                $('#dtDateModified').val(data.DateModified);
-                $('#txtBrandName').val(data.BrandName);
-                $('#txtUrlToBrand').val(data.UrlToBrand);
-                $('#selStatus').val(data.Status);
-                $('#modal-add-edit').modal('show');
+                $('#txtCustomer').val(data.CustomerFKNavigation.UserBy.UserName);
+                $('#txtCustomerId').val(data.CustomerFK);
+                $('#dtDateCreated').val(moment(data.DateCreated).format("DD/MM/YYYY"));
+                $('#txtTotalPrice').val(data.TotalPrice);
+                
+                $.ajax({
+                    type: "GET",
+                    url: "/Invoice/GetAllInvoiceDetailById",
+                    data: { id: that },
+                    dataType: "json",
+                    beforeSend: function () {
+                        general.startLoading();
+                    },
+                    success: function (innerresponse) {
+                      
+                        console.log("InvoiceDetail", innerresponse);
+                        $.each(innerresponse, function (i, item) {
+
+                            renderDetail += Mustache.render(template, {
+
+                                InvoiceId: item.InvoiceFK,
+                                BookName: item.BookFKNavigation.BookTitle,
+                                Qty: item.Qty,
+                                Price: item.SubTotal,
+
+                            });
+                           
+                        });
+                        $('#InvoiceDetail-tbl-content').html(renderDetail);
+                        console.log("ahihi",renderDetail);
+                        $('#modal-add-edit').modal('show');
+                       
+                        
+                        general.stopLoading();
+
+                    },
+                    error: function (status) {
+                        general.notify('Có lỗi xảy ra', 'error');
+                        general.stopLoading();
+                    }
+                });
+                
                 general.stopLoading();
 
             },
