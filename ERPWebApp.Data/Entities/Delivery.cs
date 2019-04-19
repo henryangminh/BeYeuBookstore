@@ -11,20 +11,24 @@ namespace BeYeuBookstore.Data.Entities
     {
         public Delivery() { }
 
-        public Delivery(int keyId, int invoiceFK, DeliveryStatus deliveryStatus, DateTime? dateCreated, DateTime? dateModified)
+        public Delivery(int keyId, int invoiceFK, int deliveryStatus, int merchantFK,DateTime? dateCreated, DateTime? dateModified)
         {
             KeyId = keyId;
             InvoiceFK = invoiceFK;
             DeliveryStatus = deliveryStatus;
+            MerchantFK = merchantFK;
             DateCreated = dateCreated;
             DateModified = dateModified;
         }
 
         public int InvoiceFK { get; set; }
-        public DeliveryStatus DeliveryStatus { get; set; }
+        public int DeliveryStatus { get; set; }
+        public int MerchantFK { get; set; }
         public DateTime? DateCreated { get; set; }
         public DateTime? DateModified { get; set; }
         //
         public virtual Invoice InvoiceFKNavigation { get; set; }
+
+        public virtual Merchant MerchantFKNavigation { get; set; }
     }
 }

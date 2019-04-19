@@ -9,7 +9,8 @@ namespace BeYeuBookstore.Application.ViewModels
     {
         public int KeyId { get; set; }
         public int InvoiceFK { get; set; }
-        public DeliveryStatus DeliveryStatus { get; set; }
+        public int DeliveryStatus { get; set; }
+        public int MerchantFK { get; set; }
         public DateTime? DateCreated { get; set; }
         public DateTime? DateModified { get; set; }
         //

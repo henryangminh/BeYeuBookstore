@@ -37,7 +37,7 @@ namespace BeYeuBookstore.Data.EF
         public virtual DbSet<Book> Books { get; set; }
         public virtual DbSet<BookCategory> BookCategorys { get; set; }
         public virtual DbSet<Customer> Customers { get; set; }
-        public virtual DbSet<Delivery> Deliverys { get; set; }
+        public virtual DbSet<Delivery> Deliveries { get; set; }
         public virtual DbSet<Invoice> Invoices { get; set; }
         public virtual DbSet<InvoiceDetail> InvoiceDetails { get; set; }
         public virtual DbSet<Merchant> Merchants { get; set; }
@@ -148,6 +148,16 @@ namespace BeYeuBookstore.Data.EF
             {
                 entity.HasKey(e => e.KeyId);
 
+                entity.HasOne(d => d.MerchantFKNavigation)
+              .WithMany(p => p.Deliveries)
+              .HasForeignKey(d => d.MerchantFK)
+              .HasConstraintName("FK_dbo.Deliveries.MerchantFK");
+
+                entity.HasOne(d => d.InvoiceFKNavigation)
+              .WithMany(p => p.Deliveries)
+              .HasForeignKey(d => d.InvoiceFK)
+              .HasConstraintName("FK_dbo.Deliveries.InvoiceFK");
+
             });
 
 
@@ -160,9 +170,7 @@ namespace BeYeuBookstore.Data.EF
               .HasForeignKey(d => d.CustomerFK)
               .HasConstraintName("FK_dbo.Invoices.CustomerFK");
 
-                entity.HasOne(d => d.DeliveryFKNavigation)
-                .WithOne(p => p.InvoiceFKNavigation)
-                .HasForeignKey<Delivery>(d => d.InvoiceFK);
+               
 
             });
 

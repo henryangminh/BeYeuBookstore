@@ -10,11 +10,14 @@ namespace BeYeuBookstore.Data.Entities
     {
         public Invoice() { }
 
-        public Invoice(int keyId, int customerFK, decimal totalPrice, DateTime? dateCreated, DateTime? dateModified)
-        {
-            KeyId = keyId;
+        public Invoice(int keyId, int customerFK, decimal totalPrice, string deliAddress, string deliContactName, string deliContactHotline, DateTime? dateCreated, DateTime? dateModified)
+        {                                                             
+            KeyId = keyId;                                           
             CustomerFK = customerFK;
             TotalPrice = totalPrice;
+            DeliAddress = deliAddress;
+            DeliContactName = deliContactName;
+            DeliContactHotline = deliContactHotline;
             DateCreated = dateCreated;
             DateModified = dateModified;
         }
@@ -22,11 +25,14 @@ namespace BeYeuBookstore.Data.Entities
         public int CustomerFK { get; set; }
         //Tổng tiền
         public decimal TotalPrice { get; set; }
+        public string DeliAddress { get; set; }
+        public string DeliContactName { get; set; }
+        public string DeliContactHotline { get; set; }
         public DateTime? DateCreated { get; set; }
         public DateTime? DateModified { get; set; }
         //
         public virtual Customer CustomerFKNavigation { get; set; }
-        public virtual Delivery DeliveryFKNavigation { get; set; }
+        public virtual ICollection<Delivery> Deliveries { get; set; }
         //
         public virtual ICollection<InvoiceDetail> InvoiceDetails { get; set; }
 

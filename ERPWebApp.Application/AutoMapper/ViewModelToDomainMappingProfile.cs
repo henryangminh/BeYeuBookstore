@@ -51,11 +51,11 @@ namespace BeYeuBookstore.Application.AutoMapper
 
             CreateMap<WebMasterTypeViewModel, WebMasterType>().ConstructUsing(c => new WebMasterType(c.KeyId,c.WebMasterTypeName,c.DateCreated,c.DateModified));
 
-            CreateMap<InvoiceViewModel, Invoice>().ConstructUsing(c => new Invoice(c.KeyId,c.CustomerFK,c.TotalPrice,c.DateCreated,c.DateModified));
+            CreateMap<InvoiceViewModel, Invoice>().ConstructUsing(c => new Invoice(c.KeyId,c.CustomerFK,c.TotalPrice,c.DeliAddress,c.DeliContactHotline,c.DeliContactName,c.DateCreated,c.DateModified));
 
             CreateMap<InvoiceDetailViewModel, InvoiceDetail>().ConstructUsing(c => new InvoiceDetail(c.KeyId,c.BookFK,c.Qty,c.UnitPrice,c.SubTotal,c.DateCreated,c.DateModified));
 
-            CreateMap<DeliveryViewModel, Delivery>().ConstructUsing(c => new Delivery(c.KeyId,c.InvoiceFK,c.DeliveryStatus,c.DateCreated,c.DateModified));
+            CreateMap<DeliveryViewModel, Delivery>().ConstructUsing(c => new Delivery(c.KeyId,c.InvoiceFK,c.DeliveryStatus,c.MerchantFK,c.DateCreated,c.DateModified));
 
         }
     }

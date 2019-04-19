@@ -6,7 +6,7 @@ namespace BeYeuBookstore.Data.Enums
 {
     public enum DeliveryStatus
     {
-        NotYetConfirmed,
+        UnConfirmed,
         Confirmed,
         Delivery,
         Success,

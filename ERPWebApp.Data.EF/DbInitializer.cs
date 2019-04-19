@@ -513,7 +513,27 @@ namespace BeYeuBookstore.Data.EF
                 {
                     string a = ex.ToString();
                 };
-               
+
+                if (_context.Deliveries.Count() == 0)
+                {
+                    _context.Deliveries.AddRange(new List<Delivery>()
+                    {
+                            new Delivery(){ InvoiceFK=1,MerchantFK=1,DeliveryStatus=1},
+                            new Delivery(){ InvoiceFK=1,MerchantFK=2,DeliveryStatus=1},
+                            new Delivery(){ InvoiceFK=2,MerchantFK=1,DeliveryStatus=1},
+                            new Delivery(){ InvoiceFK=2,MerchantFK=2,DeliveryStatus=1},
+                    });
+
+                }
+                try
+                {
+                    _context.SaveChanges();
+                }
+                catch (Exception ex)
+                {
+                    string a = ex.ToString();
+                };
+
             }
         }
     }

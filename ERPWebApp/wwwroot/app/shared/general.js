@@ -101,6 +101,14 @@
         SundayOff: 5,
         WorkDay: 1
     },
+    deliStatus: {
+        UnConfirm: 1,
+        Confirm: 2,
+        Packaged: 3,
+        OnDelivery: 4,
+        Success: 5,
+        Fail:6,
+    },
     notify: function (message, type) {
         $.notify(message, {
             // whether to hide the notification on click

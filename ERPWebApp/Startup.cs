@@ -204,6 +204,7 @@ namespace BeYeuBookstore
                    opts => { opts.ResourcesPath = "Resources"; })
                .SetCompatibilityVersion(CompatibilityVersion.Version_2_1)
                .AddDataAnnotationsLocalization()
+               //.AddJsonOptions(options => options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
                .AddJsonOptions(options => options.SerializerSettings.ContractResolver = new DefaultContractResolver());
             services.AddLocalization(opts => { opts.ResourcesPath = "Resources"; });
 
