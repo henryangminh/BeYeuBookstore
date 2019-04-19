@@ -5,6 +5,7 @@
     }
     function registerEvents() {
         //loadScale();
+
         //loadStatus();
         $('#ddlShowPage').on('change', function () {
             general.configs.pageSize = $(this).val();
