@@ -149,7 +149,18 @@
                 return false;
             }
         });
+        $('#txtShip').on('keyup change', function (e) {
+            var _delitotal = $('#txtTotalPrice').val() + $('#txtShip').val();
+            var template = $('#DeliTotal-template').html();
+            var renderDetail = "";
+            renderDetail += Mustache.render(template, {
 
+              DeliTotal:_delitotal,
+              
+            });
+            $('#txtDeliTotal').html(renderDetail);
+
+        }); 
 
 
 
@@ -163,7 +174,8 @@
     }
 
     function loadDetail(that) {
-
+        var template = $('#InvoiceDetail-table-template').html();
+        var renderDetail = "";
         $.ajax({
             type: "GET",
             url: "/Delivery/GetById",
@@ -174,21 +186,57 @@
             },
             success: function (response) {
                 console.log("loaddetail", response);
-                var data = response;
+                 
 
-                $('#txtId').val(data.KeyId);
-                $('#txtUserName').val(data.UserBy.UserName);
-                $('#dtDateCreated').val(data.DateCreated);
-                $('#dtDateModified').val(data.DateModified);
-                $('#txtBrandName').val(data.BrandName);
-                $('#txtUrlToBrand').val(data.UrlToBrand);
-                $('#selStatus').val(data.Status);
-                $('#modal-add-edit').modal('show');
+                $('#txtId').val(response.KeyId);
+                $('#txtInvoiceId').val(response.InvoiceFK);
+                $('#txtCustomer').val(response.InvoiceFKNavigation.CustomerFKNavigation.UserBy.FullName);
+                $('#txtCustomerId').val(response.InvoiceFKNavigation.CustomerFK);
+                $('#txtUserName').val(response.InvoiceFKNavigation.CustomerFKNavigation.UserBy.UserName);
+                $('#txtDeliName').val(response.InvoiceFKNavigation.DeliContactName);
+                $('#txtDeliHotline').val(response.InvoiceFKNavigation.DeliContactHotline);    
+                $('#txtDeliAddress').val(response.InvoiceFKNavigation.DeliAddress);
+                $('#selStatus').val(response.DeliveryStatus);
+                $.ajax({
+                    type: "GET",
+                    url: "/Delivery/GetInvoiceDetailByInvoiceId",
+                    data: { invoiceId: response.InvoiceFK },
+                    dataType: "json",
+                    beforeSend: function () {
+                        general.startLoading();
+                    },
+                    success: function (innerresponse) {
+                        $.each(innerresponse, function (i, item) {
+
+                            renderDetail += Mustache.render(template, {
+
+                                BookId: item.BookFK,
+                                BookName: item.BookFKNavigation.BookTitle,
+                                Qty: item.Qty,
+                                UnitPrice: item.UnitPrice,
+                                Price: item.SubTotal,
+
+                            });
+
+                        });
+                  
+                        console.log(renderDetail);
+                        $('#Delivery-tbl-content').html(renderDetail);
+                        $('#modal-add-edit').modal('show');
+                        general.stopLoading();
+
+                    },
+                    error: function (status) {
+                        general.notify('Có lỗi xảy ra khi load mặt hàng', 'error');
+                        general.stopLoading();
+                    }
+                });
+
                 general.stopLoading();
 
             },
             error: function (status) {
-                general.notify('Có lỗi xảy ra', 'error');
+                general.notify('Có lỗi xảy ra khi xem phiếu giao hàng này!', 'error');
                 general.stopLoading();
             }
         });

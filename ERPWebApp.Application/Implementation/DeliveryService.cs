@@ -56,10 +56,15 @@ namespace BeYeuBookstore.Application.Implementation
             throw new NotImplementedException();
         }
 
-        public PagedResult<DeliveryViewModel> GetAllPaging(int status, string keyword, int page, int pageSize)
+        public PagedResult<DeliveryViewModel> GetAllPaging(int merchantId, int status, string keyword, int page, int pageSize)
         {
             var query = _deliveryRepository.FindAll(x=>x.InvoiceFKNavigation, x=>x.MerchantFKNavigation, x => x.InvoiceFKNavigation.CustomerFKNavigation.UserBy);
             query = query.OrderBy(x => x.KeyId);
+
+            if (merchantId != 0)
+            {
+                query = query.Where(x => x.MerchantFK == merchantId);
+            }
             if (!string.IsNullOrEmpty(keyword))
             {
                 var keysearch = keyword.Trim().ToUpper();
@@ -72,6 +77,7 @@ namespace BeYeuBookstore.Application.Implementation
             {
                 query = query.Where(x => x.DeliveryStatus == status);
             }
+
             int totalRow = query.Count();
 
             query = query.Skip((page - 1) * pageSize).Take(pageSize);
@@ -94,7 +100,7 @@ namespace BeYeuBookstore.Application.Implementation
 
         public DeliveryViewModel GetById(int id)
         {
-            return Mapper.Map<Delivery, DeliveryViewModel>(_deliveryRepository.FindById(id));
+            return Mapper.Map<Delivery, DeliveryViewModel>(_deliveryRepository.FindById(id, x => x.InvoiceFKNavigation, x => x.MerchantFKNavigation, x => x.InvoiceFKNavigation.CustomerFKNavigation.UserBy));
         }
 
         public bool Save()

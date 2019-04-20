@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using BeYeuBookstore.Application.Interfaces;
 using BeYeuBookstore.Infrastructure.Interfaces;
+using BeYeuBookstore.Utilities.Constants;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BeYeuBookstore.Controllers
@@ -12,10 +13,14 @@ namespace BeYeuBookstore.Controllers
     {
 
         IDeliveryService _deliveryService;
+        IMerchantService _merchantService;
+        IInvoiceDetailService _invoiceDetailService;
         IUnitOfWork _unitOfWork;
-        public DeliveryController(IDeliveryService deliveryService, IUnitOfWork unitOfWork)
+        public DeliveryController(IInvoiceDetailService invoiceDetailService,IMerchantService merchantService , IDeliveryService deliveryService, IUnitOfWork unitOfWork)
         {
+            _merchantService = merchantService;
             _deliveryService = deliveryService;
+            _invoiceDetailService = invoiceDetailService;
             _unitOfWork = unitOfWork;
         }
         public IActionResult Index()
@@ -26,7 +31,9 @@ namespace BeYeuBookstore.Controllers
         [HttpGet]
         public IActionResult GetAllPaging(int status, string keyword, int page, int pageSize)
         {
-            var model = _deliveryService.GetAllPaging(status, keyword, page, pageSize);
+            var userid = _generalFunctionController.Instance.getClaimType(User, CommonConstants.UserClaims.Key);
+            var M = _merchantService.GetBysId(userid);
+            var model = _deliveryService.GetAllPaging(M.KeyId,status, keyword, page, pageSize);
             return new OkObjectResult(model);
         }
 
@@ -35,6 +42,15 @@ namespace BeYeuBookstore.Controllers
         public IActionResult GetById(int id)
         {
             var model = _deliveryService.GetById(id);
+            return new OkObjectResult(model);
+        }
+
+        [HttpGet]
+        public IActionResult GetInvoiceDetailByInvoiceId(int invoiceId)
+        {
+            var userid = _generalFunctionController.Instance.getClaimType(User, CommonConstants.UserClaims.Key);
+            var M = _merchantService.GetBysId(userid);
+            var model = _invoiceDetailService.GetAllByInvoiceIdAndMerchantId(invoiceId, M.KeyId);
             return new OkObjectResult(model);
         }
 

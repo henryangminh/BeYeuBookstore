@@ -17,6 +17,8 @@ namespace BeYeuBookstore.Application.Interfaces
 
         PagedResult<InvoiceDetailViewModel> GetAllPaging(string keyword, int page, int pageSize);
 
+        List<InvoiceDetailViewModel> GetAllByInvoiceIdAndMerchantId(int invoiceId, int merchantId);
+
         List<InvoiceDetailViewModel> GetAll(int id);
 
         InvoiceDetailViewModel GetById(int id);

@@ -11,6 +11,7 @@ namespace BeYeuBookstore.Application.ViewModels
         public int InvoiceFK { get; set; }
         public int DeliveryStatus { get; set; }
         public int MerchantFK { get; set; }
+        public decimal TotalPrice { get; set; }
         public DateTime? DateCreated { get; set; }
         public DateTime? DateModified { get; set; }
         //

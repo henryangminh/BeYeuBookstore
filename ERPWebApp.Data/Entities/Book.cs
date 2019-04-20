@@ -47,6 +47,12 @@ namespace BeYeuBookstore.Data.Entities
         public int PageNumber { get; set; }
         public string Description { get; set; }
         public int Quantity { get; set; }
+        /// <summary>
+        /// Đánh giá
+        /// </summary>
+        public int RatingNumber { get; set; }
+        public double Rating { get; set; }
+
         public DateTime? DateCreated { get; set; }
         public DateTime? DateModified { get; set; }
         //
@@ -55,5 +61,6 @@ namespace BeYeuBookstore.Data.Entities
         public virtual BookCategory BookCategoryFKNavigation { get; set; }
 
         public virtual ICollection<InvoiceDetail> InvoiceDetails { get; set; }
+        public virtual ICollection<RatingDetail> RatingDetails { get; set; }
     }
 }

@@ -35,7 +35,7 @@ namespace BeYeuBookstore.Application.AutoMapper
             CreateMap<Invoice, InvoiceViewModel>();
             CreateMap<InvoiceDetail, InvoiceDetailViewModel>();
             CreateMap<Delivery, DeliveryViewModel>();
-
+            CreateMap<RatingDetail, RatingDetailViewModel>();
 
         }
     }

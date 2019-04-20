@@ -26,5 +26,6 @@ namespace BeYeuBookstore.Data.Entities
         public virtual User UserBy { get; set; }
         
         public virtual ICollection<Invoice> Invoices { get; set; }
+        public virtual ICollection<RatingDetail> RatingDetails { get; set; }
     }
 }

@@ -6,6 +6,7 @@ using BeYeuBookstore.Infrastructure.Interfaces;
 using BeYeuBookstore.Utilities.DTOs;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace BeYeuBookstore.Application.Implementation
@@ -40,6 +41,19 @@ namespace BeYeuBookstore.Application.Implementation
         public List<InvoiceDetailViewModel> GetAll()
         {
             var query = _invoiceDetailRepository.FindAll();
+            var data = new List<InvoiceDetailViewModel>();
+            foreach (var item in query)
+            {
+                var _data = Mapper.Map<InvoiceDetail, InvoiceDetailViewModel>(item);
+                data.Add(_data);
+            }
+            return data;
+        }
+
+        public List<InvoiceDetailViewModel> GetAllByInvoiceIdAndMerchantId(int invoiceId, int merchantId)
+        {
+            var query = _invoiceDetailRepository.FindAll(x=>x.BookFKNavigation);
+            query = query.Where(x => (x.InvoiceFK == invoiceId && x.BookFKNavigation.MerchantFK == merchantId));
             var data = new List<InvoiceDetailViewModel>();
             foreach (var item in query)
             {
