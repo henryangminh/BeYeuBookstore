@@ -196,7 +196,7 @@
                 $('#txtDeliName').val(response.InvoiceFKNavigation.DeliContactName);
                 $('#txtDeliHotline').val(response.InvoiceFKNavigation.DeliContactHotline);    
                 $('#txtDeliAddress').val(response.InvoiceFKNavigation.DeliAddress);
-                $('#selStatus').val(response.DeliveryStatus);
+                $('#selDeliStatus').val(response.DeliveryStatus);
                 $('#txtTotalPrice').val(response.TotalPrice);
                 $.ajax({
                     type: "GET",
