@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace BeYeuBookstore.Data.EF.Migrations
 {
-    public partial class init : Migration
+    public partial class initblablabla : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -464,6 +464,8 @@ namespace BeYeuBookstore.Data.EF.Migrations
                     PageNumber = table.Column<int>(nullable: false),
                     Description = table.Column<string>(nullable: true),
                     Quantity = table.Column<int>(nullable: false),
+                    RatingNumber = table.Column<int>(nullable: false),
+                    Rating = table.Column<double>(nullable: false),
                     DateCreated = table.Column<DateTime>(nullable: true),
                     DateModified = table.Column<DateTime>(nullable: true)
                 },
@@ -559,6 +561,7 @@ namespace BeYeuBookstore.Data.EF.Migrations
                     InvoiceFK = table.Column<int>(nullable: false),
                     DeliveryStatus = table.Column<int>(nullable: false),
                     MerchantFK = table.Column<int>(nullable: false),
+                    TotalPrice = table.Column<decimal>(nullable: false),
                     DateCreated = table.Column<DateTime>(nullable: true),
                     DateModified = table.Column<DateTime>(nullable: true)
                 },
@@ -606,6 +609,36 @@ namespace BeYeuBookstore.Data.EF.Migrations
                         name: "FK_dbo.InvoiceDetails.InvoiceFK",
                         column: x => x.InvoiceFK,
                         principalTable: "Invoices",
+                        principalColumn: "KeyId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "RatingDetail",
+                columns: table => new
+                {
+                    KeyId = table.Column<int>(nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    BookFK = table.Column<int>(nullable: false),
+                    CustomerFK = table.Column<int>(nullable: false),
+                    Rating = table.Column<double>(nullable: false),
+                    Comment = table.Column<string>(nullable: true),
+                    DateCreated = table.Column<DateTime>(nullable: true),
+                    DateModified = table.Column<DateTime>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_RatingDetail", x => x.KeyId);
+                    table.ForeignKey(
+                        name: "FK_dbo.RatingDetails.BookFK",
+                        column: x => x.BookFK,
+                        principalTable: "Books",
+                        principalColumn: "KeyId",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_dbo.RatingDetails.CustomerFK",
+                        column: x => x.CustomerFK,
+                        principalTable: "Customers",
                         principalColumn: "KeyId",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -727,6 +760,16 @@ namespace BeYeuBookstore.Data.EF.Migrations
                 column: "RoleId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_RatingDetail_BookFK",
+                table: "RatingDetail",
+                column: "BookFK");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_RatingDetail_CustomerFK",
+                table: "RatingDetail",
+                column: "CustomerFK");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_SoNotificationGeneralDetail_NotificationFkNavigationKeyId",
                 table: "SoNotificationGeneralDetail",
                 column: "NotificationFkNavigationKeyId");
@@ -781,6 +824,9 @@ namespace BeYeuBookstore.Data.EF.Migrations
                 name: "Permissions");
 
             migrationBuilder.DropTable(
+                name: "RatingDetail");
+
+            migrationBuilder.DropTable(
                 name: "SoNotification");
 
             migrationBuilder.DropTable(
@@ -790,9 +836,6 @@ namespace BeYeuBookstore.Data.EF.Migrations
                 name: "AdvertisementContents");
 
             migrationBuilder.DropTable(
-                name: "Books");
-
-            migrationBuilder.DropTable(
                 name: "Invoices");
 
             migrationBuilder.DropTable(
@@ -800,6 +843,9 @@ namespace BeYeuBookstore.Data.EF.Migrations
 
             migrationBuilder.DropTable(
                 name: "Roles");
+
+            migrationBuilder.DropTable(
+                name: "Books");
 
             migrationBuilder.DropTable(
                 name: "SoNotificationGeneral");
@@ -814,13 +860,13 @@ namespace BeYeuBookstore.Data.EF.Migrations
                 name: "WebMasters");
 
             migrationBuilder.DropTable(
+                name: "Customers");
+
+            migrationBuilder.DropTable(
                 name: "BookCategorys");
 
             migrationBuilder.DropTable(
                 name: "Merchants");
-
-            migrationBuilder.DropTable(
-                name: "Customers");
 
             migrationBuilder.DropTable(
                 name: "WebMasterTypes");

@@ -150,7 +150,7 @@
             }
         });
         $('#txtShip').on('keyup change', function (e) {
-            var _delitotal = $('#txtTotalPrice').val() + $('#txtShip').val();
+            var _delitotal = parseInt($('#txtTotalPrice').val()) + parseInt($('#txtShip').val());
             var template = $('#DeliTotal-template').html();
             var renderDetail = "";
             renderDetail += Mustache.render(template, {
@@ -197,6 +197,7 @@
                 $('#txtDeliHotline').val(response.InvoiceFKNavigation.DeliContactHotline);    
                 $('#txtDeliAddress').val(response.InvoiceFKNavigation.DeliAddress);
                 $('#selStatus').val(response.DeliveryStatus);
+                $('#txtTotalPrice').val(response.TotalPrice);
                 $.ajax({
                     type: "GET",
                     url: "/Delivery/GetInvoiceDetailByInvoiceId",

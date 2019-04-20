@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BeYeuBookstore.Data.EF.Migrations
 {
     [DbContext(typeof(ERPDbContext))]
-    [Migration("20190419121045_init")]
-    partial class init
+    [Migration("20190420144706_initblablabla")]
+    partial class initblablabla
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -163,6 +163,10 @@ namespace BeYeuBookstore.Data.EF.Migrations
 
                     b.Property<int>("Quantity");
 
+                    b.Property<double>("Rating");
+
+                    b.Property<int>("RatingNumber");
+
                     b.Property<decimal>("UnitPrice");
 
                     b.Property<int?>("Width");
@@ -223,6 +227,8 @@ namespace BeYeuBookstore.Data.EF.Migrations
                     b.Property<int>("InvoiceFK");
 
                     b.Property<int>("MerchantFK");
+
+                    b.Property<decimal>("TotalPrice");
 
                     b.HasKey("KeyId");
 
@@ -422,6 +428,32 @@ namespace BeYeuBookstore.Data.EF.Migrations
                     b.HasIndex("RoleId");
 
                     b.ToTable("Permissions");
+                });
+
+            modelBuilder.Entity("BeYeuBookstore.Data.Entities.RatingDetail", b =>
+                {
+                    b.Property<int>("KeyId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int>("BookFK");
+
+                    b.Property<string>("Comment");
+
+                    b.Property<int>("CustomerFK");
+
+                    b.Property<DateTime?>("DateCreated");
+
+                    b.Property<DateTime?>("DateModified");
+
+                    b.Property<double>("Rating");
+
+                    b.HasKey("KeyId");
+
+                    b.HasIndex("BookFK");
+
+                    b.HasIndex("CustomerFK");
+
+                    b.ToTable("RatingDetail");
                 });
 
             modelBuilder.Entity("BeYeuBookstore.Data.Entities.Role", b =>
@@ -848,6 +880,21 @@ namespace BeYeuBookstore.Data.EF.Migrations
                     b.HasOne("BeYeuBookstore.Data.Entities.Role", "AppRole")
                         .WithMany()
                         .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("BeYeuBookstore.Data.Entities.RatingDetail", b =>
+                {
+                    b.HasOne("BeYeuBookstore.Data.Entities.Book", "BookFKNavigation")
+                        .WithMany("RatingDetails")
+                        .HasForeignKey("BookFK")
+                        .HasConstraintName("FK_dbo.RatingDetails.BookFK")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("BeYeuBookstore.Data.Entities.Customer", "CustomerFKNavigation")
+                        .WithMany("RatingDetails")
+                        .HasForeignKey("CustomerFK")
+                        .HasConstraintName("FK_dbo.RatingDetails.CustomerFK")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
