@@ -144,6 +144,21 @@ namespace BeYeuBookstore.Data.EF
 
             });
 
+            modelBuilder.Entity<RatingDetail>(entity =>
+            {
+                entity.HasKey(e => e.KeyId);
+
+                entity.HasOne(d => d.BookFKNavigation)
+            .WithMany(p => p.RatingDetails)
+            .HasForeignKey(d => d.BookFK)
+            .HasConstraintName("FK_dbo.RatingDetails.BookFK");
+
+                entity.HasOne(d => d.CustomerFKNavigation)
+              .WithMany(p => p.RatingDetails)
+              .HasForeignKey(d => d.CustomerFK)
+              .HasConstraintName("FK_dbo.RatingDetails.CustomerFK");
+            });
+
             modelBuilder.Entity<Delivery>(entity =>
             {
                 entity.HasKey(e => e.KeyId);
