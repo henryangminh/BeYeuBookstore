@@ -118,14 +118,18 @@
                 else {
                     keyId = parseInt($('#txtId').val());
                 }
-                var statusFK;
-                var name = $('#txtName').val();
+                
+                var brandName = $('#txtBrandName').val();
+                var urlToBrand = $('#txtUrlToBrand').val();
+                var status = $('#seldetailStatus option:selected').val();
                 $.ajax({
                     type: 'POST',
                     url: '/Advertiser/SaveEntity',
                     data: {
                         KeyId: keyId,
-                        BookCategoryName: name,
+                        BrandName: brandName,
+                        UrlToBrand: urlToBrand,
+                        Status: status
                     },
                     dataType: "json",
                     beforeSend: function () {
@@ -178,11 +182,11 @@
 
                 $('#txtId').val(data.KeyId);
                 $('#txtUserName').val(data.UserBy.UserName);
-                $('#dtDateCreated').val(data.DateCreated);
-                $('#dtDateModified').val(data.DateModified);
+                $('#dtDateCreated').val(moment(data.DateCreated).format("DD/MM/YYYY HH:mm:ss"));
+                $('#dtDateModified').val(moment(data.DateModified).format("DD/MM/YYYY HH:mm:ss"));
                 $('#txtBrandName').val(data.BrandName);
                 $('#txtUrlToBrand').val(data.UrlToBrand);
-                $('#selStatus').val(data.Status);
+                $('#seldetailStatus').val(data.Status);
                 $('#modal-add-edit').modal('show');
                 general.stopLoading();
 
@@ -207,6 +211,7 @@ function loadData(isPageChanged) {
             fromdate: $('#dtBegin').val(),
             todate: $('#dtEnd').val(),
             keyword: $('#txtKeyword').val(),
+            status: $('#selStatus').val(),
             page: general.configs.pageIndex,
             pageSize: general.configs.pageSize,
         },
@@ -214,7 +219,7 @@ function loadData(isPageChanged) {
         dataType: 'json',
         success: function (response) {
             console.log("data", response);
-            var order = 1;
+         
             $.each(response.Results, function (i, item) {
                 var _color = '';
                 var _statusName = '';
@@ -236,7 +241,7 @@ function loadData(isPageChanged) {
                     Status: '<span class="badge bg-' + _color + '">' + _statusName + '</span>',
 
                 });
-                order++;
+             
 
             });
             $('#lblTotalRecords').text(response.RowCount);
