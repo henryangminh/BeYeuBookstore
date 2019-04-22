@@ -205,6 +205,7 @@ function loadData(isPageChanged) {
             page: general.configs.pageIndex,
             pageSize: general.configs.pageSize,
         },
+        //url: '/Controller/FunctionName'
         url: '/Advertiser/GetAllPaging',
         dataType: 'json',
         success: function (response) {

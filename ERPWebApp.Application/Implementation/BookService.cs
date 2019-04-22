@@ -50,9 +50,16 @@ namespace BeYeuBookstore.Application.Implementation
             return data;
         }
 
-        public List<BookViewModel> GetAll(int id)
+        public List<BookViewModel> GetAll(int quantity)
         {
-            throw new NotImplementedException();
+            var query = _bookRepository.FindAll().OrderBy(x => x.KeyId).Take(quantity);
+            var data = new List<BookViewModel>();
+            foreach (var item in query)
+            {
+                var _data = Mapper.Map<Book, BookViewModel>(item);
+                data.Add(_data);
+            }
+            return data;
         }
 
         public PagedResult<BookViewModel> GetAllPaging(string fromdate, string todate, string keyword, int bookcategoryid, int page, int pageSize)

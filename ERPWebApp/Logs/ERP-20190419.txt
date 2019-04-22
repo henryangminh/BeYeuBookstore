@@ -1495,3 +1495,505 @@ MySql.Data.MySqlClient.MySqlException (0x80004005): Unable to connect to any of 
 2019-04-19T15:10:41.3006919+07:00 0HLM4JPVIP587:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:59754/wwwroot/images/img/slider/8.jpg   (ca22a1cb)
 2019-04-19T15:10:41.3334618+07:00 0HLM4JPVIP589:00000003 [INF] Request finished in 340.4474ms 404  (791a596a)
 2019-04-19T15:10:41.3436371+07:00 0HLM4JPVIP587:00000003 [INF] Request finished in 360.7875ms 404  (791a596a)
+2019-04-19T17:15:51.2281531+07:00 0HLM4LVVQONAF:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:59754/   (ca22a1cb)
+2019-04-19T17:15:51.2281703+07:00 0HLM4LVVQONAG:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:59754/beyeubookstore   (ca22a1cb)
+2019-04-19T17:15:51.2281704+07:00 0HLM4LVVQONAE:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:59754/beyeubookstore   (ca22a1cb)
+2019-04-19T17:15:52.3313744+07:00 0HLM4LVVQONAH:00000001 [INF] Request starting HTTP/1.1 DEBUG http://localhost:59754/  0 (ca22a1cb)
+2019-04-19T17:15:52.3967111+07:00 0HLM4LVVQONAH:00000001 [INF] Request finished in 30.3891ms 200  (791a596a)
+2019-04-19T17:15:52.4865949+07:00 0HLM4LVVQONAE:00000001 [INF] Route matched with "{action = \"Index\", controller = \"BeyeuBookstore\", area = \"\"}". Executing action "BeYeuBookstore.Controllers.BeyeuBookstoreController.Index (BeYeuBookstore)" (a44c0341)
+2019-04-19T17:15:52.4925074+07:00 0HLM4LVVQONAF:00000001 [INF] Route matched with "{action = \"Login\", controller = \"Account\", area = \"\"}". Executing action "BeYeuBookstore.Controllers.AccountController.Login (BeYeuBookstore)" (a44c0341)
+2019-04-19T17:15:52.4955574+07:00 0HLM4LVVQONAG:00000001 [INF] Route matched with "{action = \"Index\", controller = \"BeyeuBookstore\", area = \"\"}". Executing action "BeYeuBookstore.Controllers.BeyeuBookstoreController.Index (BeYeuBookstore)" (a44c0341)
+2019-04-19T17:15:53.0900359+07:00 0HLM4LVVQONAE:00000001 [INF] Executing action method "BeYeuBookstore.Controllers.BeyeuBookstoreController.Index (BeYeuBookstore)" - Validation state: Valid (dad538d7)
+2019-04-19T17:15:53.0997268+07:00 0HLM4LVVQONAG:00000001 [INF] Executing action method "BeYeuBookstore.Controllers.BeyeuBookstoreController.Index (BeYeuBookstore)" - Validation state: Valid (dad538d7)
+2019-04-19T17:15:53.1306637+07:00 0HLM4LVVQONAF:00000001 [INF] Executing action method "BeYeuBookstore.Controllers.AccountController.Login (BeYeuBookstore)" with arguments ([""]) - Validation state: Valid (4e3479ed)
+2019-04-19T17:15:53.1351368+07:00 0HLM4LVVQONAG:00000001 [INF] Executed action method "BeYeuBookstore.Controllers.BeyeuBookstoreController.Index (BeYeuBookstore)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 0.1245ms. (50a9e262)
+2019-04-19T17:15:53.1514011+07:00 0HLM4LVVQONAE:00000001 [INF] Executed action method "BeYeuBookstore.Controllers.BeyeuBookstoreController.Index (BeYeuBookstore)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 2.0203ms. (50a9e262)
+2019-04-19T17:15:53.3346681+07:00 0HLM4LVVQONAE:00000001 [INF] Executing ViewResult, running view "Index". (c83d0e25)
+2019-04-19T17:15:53.3398667+07:00 0HLM4LVVQONAG:00000001 [INF] Executing ViewResult, running view "Index". (c83d0e25)
+2019-04-19T17:15:53.3500630+07:00 0HLM4LVVQONAF:00000001 [INF] AuthenticationScheme: "Identity.External" signed out. (d3f50c8d)
+2019-04-19T17:15:53.3752064+07:00 0HLM4LVVQONAF:00000001 [INF] Executed action method "BeYeuBookstore.Controllers.AccountController.Login (BeYeuBookstore)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 219.5815ms. (50a9e262)
+2019-04-19T17:15:53.4053497+07:00 0HLM4LVVQONAF:00000001 [INF] Executing ViewResult, running view "Login". (c83d0e25)
+2019-04-19T17:15:53.9909559+07:00 0HLM4LVVQONAG:00000001 [INF] Executed action "BeYeuBookstore.Controllers.BeyeuBookstoreController.Index (BeYeuBookstore)" in 1458.3797ms (afa2e885)
+2019-04-19T17:15:53.9971197+07:00 0HLM4LVVQONAE:00000001 [INF] Executed action "BeYeuBookstore.Controllers.BeyeuBookstoreController.Index (BeYeuBookstore)" in 1460.693ms (afa2e885)
+2019-04-19T17:15:54.1327779+07:00 0HLM4LVVQONAE:00000001 [ERR] An unhandled exception has occurred while executing the request. (48a46595)
+System.InvalidOperationException: The following sections have been defined but have not been rendered by the page at '/Views/Shared/Frontend/_Layout.cshtml': 'Scripts'. To ignore an unrendered section call IgnoreSection("sectionName").
+   at Microsoft.AspNetCore.Mvc.Razor.RazorPage.EnsureRenderedBodyOrSections()
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderLayoutAsync(ViewContext context, ViewBufferTextWriter bodyWriter)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ActionContext actionContext, IView view, ViewDataDictionary viewData, ITempDataDictionary tempData, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+   at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeResultAsync(IActionResult result)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResultFilterAsync[TFilter,TFilterAsync]()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResultExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeResultFilters()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at WebMarkupMin.AspNetCore2.WebMarkupMinMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.MigrationsEndPointMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.DatabaseErrorPageMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.DatabaseErrorPageMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2019-04-19T17:15:54.1538346+07:00 0HLM4LVVQONAG:00000001 [ERR] An unhandled exception has occurred while executing the request. (48a46595)
+System.InvalidOperationException: The following sections have been defined but have not been rendered by the page at '/Views/Shared/Frontend/_Layout.cshtml': 'Scripts'. To ignore an unrendered section call IgnoreSection("sectionName").
+   at Microsoft.AspNetCore.Mvc.Razor.RazorPage.EnsureRenderedBodyOrSections()
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderLayoutAsync(ViewContext context, ViewBufferTextWriter bodyWriter)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ActionContext actionContext, IView view, ViewDataDictionary viewData, ITempDataDictionary tempData, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+   at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeResultAsync(IActionResult result)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResultFilterAsync[TFilter,TFilterAsync]()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResultExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeResultFilters()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at WebMarkupMin.AspNetCore2.WebMarkupMinMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.MigrationsEndPointMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.DatabaseErrorPageMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.DatabaseErrorPageMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2019-04-19T17:15:54.2216054+07:00 0HLM4LVVQONAF:00000001 [INF] Executed ViewResult - view "Login" executed in 824.7341ms. (f66409e9)
+2019-04-19T17:15:54.2754517+07:00 0HLM4LVVQONAF:00000001 [INF] Executed action "BeYeuBookstore.Controllers.AccountController.Login (BeYeuBookstore)" in 1743.0652ms (afa2e885)
+2019-04-19T17:15:54.8329189+07:00 0HLM4LVVQONAE:00000001 [INF] Request finished in 3434.8067ms 500 text/html; charset=utf-8 (791a596a)
+2019-04-19T17:15:54.9145801+07:00 0HLM4LVVQONAG:00000001 [INF] Request finished in 3485.2924ms 500 text/html; charset=utf-8 (791a596a)
+2019-04-19T17:15:55.8550374+07:00 0HLM4LVVQONAF:00000001 [INF] Request finished in 4812.3948ms 200 text/html; charset=utf-8 (791a596a)
+2019-04-19T17:18:19.4294019+07:00 0HLM4M1C0J0E8:00000001 [INF] Request starting HTTP/1.1 DEBUG http://localhost:59754/  0 (ca22a1cb)
+2019-04-19T17:18:19.4294020+07:00 0HLM4M1C0J0E7:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:59754/beyeubookstore   (ca22a1cb)
+2019-04-19T17:18:19.4294020+07:00 0HLM4M1C0J0E9:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:59754/   (ca22a1cb)
+2019-04-19T17:18:19.5110979+07:00 0HLM4M1C0J0E8:00000001 [INF] Request finished in 263.4954ms 200  (791a596a)
+2019-04-19T17:18:20.6000798+07:00 0HLM4M1C0J0E9:00000001 [INF] Route matched with "{action = \"Login\", controller = \"Account\", area = \"\"}". Executing action "BeYeuBookstore.Controllers.AccountController.Login (BeYeuBookstore)" (a44c0341)
+2019-04-19T17:18:20.6021743+07:00 0HLM4M1C0J0E7:00000001 [INF] Route matched with "{action = \"Index\", controller = \"BeyeuBookstore\", area = \"\"}". Executing action "BeYeuBookstore.Controllers.BeyeuBookstoreController.Index (BeYeuBookstore)" (a44c0341)
+2019-04-19T17:18:21.0976675+07:00 0HLM4M1C0J0E7:00000001 [INF] Executing action method "BeYeuBookstore.Controllers.BeyeuBookstoreController.Index (BeYeuBookstore)" - Validation state: Valid (dad538d7)
+2019-04-19T17:18:21.1267964+07:00 0HLM4M1C0J0E7:00000001 [INF] Executed action method "BeYeuBookstore.Controllers.BeyeuBookstoreController.Index (BeYeuBookstore)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 1.4704ms. (50a9e262)
+2019-04-19T17:18:21.1388524+07:00 0HLM4M1C0J0E9:00000001 [INF] Executing action method "BeYeuBookstore.Controllers.AccountController.Login (BeYeuBookstore)" with arguments ([""]) - Validation state: Valid (4e3479ed)
+2019-04-19T17:18:21.2211980+07:00 0HLM4M1C0J0E7:00000001 [INF] Executing ViewResult, running view "Index". (c83d0e25)
+2019-04-19T17:18:21.2635027+07:00 0HLM4M1C0J0E9:00000001 [INF] AuthenticationScheme: "Identity.External" signed out. (d3f50c8d)
+2019-04-19T17:18:21.2736152+07:00 0HLM4M1C0J0E9:00000001 [INF] Executed action method "BeYeuBookstore.Controllers.AccountController.Login (BeYeuBookstore)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 125.1328ms. (50a9e262)
+2019-04-19T17:18:21.2905421+07:00 0HLM4M1C0J0E9:00000001 [INF] Executing ViewResult, running view "Login". (c83d0e25)
+2019-04-19T17:18:21.7765833+07:00 0HLM4M1C0J0E9:00000001 [INF] Executed ViewResult - view "Login" executed in 480.7589ms. (f66409e9)
+2019-04-19T17:18:21.7787415+07:00 0HLM4M1C0J0E7:00000001 [INF] Executed ViewResult - view "Index" executed in 601.9965ms. (f66409e9)
+2019-04-19T17:18:21.7966130+07:00 0HLM4M1C0J0E7:00000001 [INF] Executed action "BeYeuBookstore.Controllers.BeyeuBookstoreController.Index (BeYeuBookstore)" in 1178.1418ms (afa2e885)
+2019-04-19T17:18:21.8142700+07:00 0HLM4M1C0J0E9:00000001 [INF] Executed action "BeYeuBookstore.Controllers.AccountController.Login (BeYeuBookstore)" in 1197.1886ms (afa2e885)
+2019-04-19T17:18:23.0159355+07:00 0HLM4M1C0J0E9:00000001 [INF] Request finished in 3684.2339ms 200 text/html; charset=utf-8 (791a596a)
+2019-04-19T17:18:23.0385631+07:00 0HLM4M1C0J0E7:00000001 [INF] Request finished in 3684.2284ms 200 text/html; charset=utf-8 (791a596a)
+2019-04-19T17:18:23.7673304+07:00 0HLM4M1C0J0E9:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:59754/img/product/quickview-l3.jpg   (ca22a1cb)
+2019-04-19T17:18:23.7778736+07:00 0HLM4M1C0J0E7:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:59754/img/product/quickview-l5.jpg   (ca22a1cb)
+2019-04-19T17:18:23.7821323+07:00 0HLM4M1C0J0EA:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:59754/img/product/quickview-l4.jpg   (ca22a1cb)
+2019-04-19T17:18:23.8255011+07:00 0HLM4M1C0J0E7:00000002 [INF] Request finished in 72.6765ms 404  (791a596a)
+2019-04-19T17:18:23.8375838+07:00 0HLM4M1C0J0E9:00000002 [INF] Request finished in 68.7432ms 404  (791a596a)
+2019-04-19T17:18:23.9293205+07:00 0HLM4M1C0J0EA:00000001 [INF] Request finished in 69.1028ms 404  (791a596a)
+2019-04-19T17:18:23.9436826+07:00 0HLM4M1C0J0E8:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:59754/img/product/quickview-l2.jpg   (ca22a1cb)
+2019-04-19T17:18:23.9760752+07:00 0HLM4M1C0J0E8:00000002 [INF] Request finished in 95.1739ms 404  (791a596a)
+2019-04-19T17:18:23.9974689+07:00 0HLM4M1C0J0E7:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:59754/beyeubookstore/css/img/banner/22.jpg   (ca22a1cb)
+2019-04-19T17:18:24.0149276+07:00 0HLM4M1C0J0E7:00000003 [INF] Request finished in 21.9157ms 404  (791a596a)
+2019-04-19T17:18:24.4343008+07:00 0HLM4M1C0J0EA:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:59754/wwwroot/images/img/slider/7.jpg   (ca22a1cb)
+2019-04-19T17:18:24.4408291+07:00 0HLM4M1C0J0E9:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:59754/wwwroot/images/img/slider/8.jpg   (ca22a1cb)
+2019-04-19T17:18:24.4549910+07:00 0HLM4M1C0J0EA:00000002 [INF] Request finished in 22.9302ms 404  (791a596a)
+2019-04-19T17:18:24.4618132+07:00 0HLM4M1C0J0E9:00000003 [INF] Request finished in 25.8283ms 404  (791a596a)
+2019-04-19T17:21:23.5851334+07:00 0HLM4M1C0J0EB:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:59754/   (ca22a1cb)
+2019-04-19T17:21:23.5999197+07:00 0HLM4M1C0J0EB:00000001 [INF] Route matched with "{action = \"Login\", controller = \"Account\", area = \"\"}". Executing action "BeYeuBookstore.Controllers.AccountController.Login (BeYeuBookstore)" (a44c0341)
+2019-04-19T17:21:23.6587679+07:00 0HLM4M1C0J0EB:00000001 [INF] Executing action method "BeYeuBookstore.Controllers.AccountController.Login (BeYeuBookstore)" with arguments ([""]) - Validation state: Valid (4e3479ed)
+2019-04-19T17:21:23.6686355+07:00 0HLM4M1C0J0EB:00000001 [INF] AuthenticationScheme: "Identity.External" signed out. (d3f50c8d)
+2019-04-19T17:21:23.6808391+07:00 0HLM4M1C0J0EB:00000001 [INF] Executed action method "BeYeuBookstore.Controllers.AccountController.Login (BeYeuBookstore)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 13.9027ms. (50a9e262)
+2019-04-19T17:21:23.6920605+07:00 0HLM4M1C0J0EB:00000001 [INF] Executing ViewResult, running view "Login". (c83d0e25)
+2019-04-19T17:21:23.7080964+07:00 0HLM4M1C0J0EB:00000001 [INF] Executed ViewResult - view "Login" executed in 18.6022ms. (f66409e9)
+2019-04-19T17:21:23.7152744+07:00 0HLM4M1C0J0EB:00000001 [INF] Executed action "BeYeuBookstore.Controllers.AccountController.Login (BeYeuBookstore)" in 108.541ms (afa2e885)
+2019-04-19T17:21:23.7294864+07:00 0HLM4M1C0J0EB:00000001 [INF] Request finished in 154.47ms 200 text/html; charset=utf-8 (791a596a)
+2019-04-19T17:21:23.8313618+07:00 0HLM4M1C0J0EB:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:59754/lib/font-awesome/css/font-awesome.css   (ca22a1cb)
+2019-04-19T17:21:23.8456257+07:00 0HLM4M1C0J0EB:00000002 [INF] Request finished in 9.5898ms 404  (791a596a)
+2019-04-19T17:21:24.3069509+07:00 0HLM4M1C0J0EB:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:59754/lib/font-awesome/css/font-awesome.css   (ca22a1cb)
+2019-04-19T17:21:24.3193423+07:00 0HLM4M1C0J0EB:00000003 [INF] Request finished in 16.5614ms 404  (791a596a)
+2019-04-19T17:21:26.8249672+07:00 0HLM4M1C0J0EB:00000004 [INF] Request starting HTTP/1.1 POST http://localhost:59754/ application/x-www-form-urlencoded 263 (ca22a1cb)
+2019-04-19T17:21:26.8460557+07:00 0HLM4M1C0J0EB:00000004 [INF] Route matched with "{action = \"Login\", controller = \"Account\", area = \"\"}". Executing action "BeYeuBookstore.Controllers.AccountController.Login (BeYeuBookstore)" (a44c0341)
+2019-04-19T17:21:27.1488537+07:00 0HLM4M1C0J0EB:00000004 [INF] Executing action method "BeYeuBookstore.Controllers.AccountController.Login (BeYeuBookstore)" with arguments (["BeYeuBookstore.Models.AccountViewModels.LoginViewModel", ""]) - Validation state: Valid (4e3479ed)
+2019-04-19T17:21:27.2633846+07:00 0HLM4M1C0J0EB:00000004 [INF] Entity Framework Core "2.2.0-preview1-35029" initialized '"ERPDbContext"' using provider '"Pomelo.EntityFrameworkCore.MySql"' with options: "ServerVersion 8.0.13 MySql " (9958f5bb)
+2019-04-19T17:21:29.9096044+07:00 0HLM4M1C0J0EB:00000004 [ERR] An error occurred using the connection to database '"BeYeuBookstore"' on server '"localhost"'. (5fc3407c)
+MySql.Data.MySqlClient.MySqlException (0x80004005): Unable to connect to any of the specified MySQL hosts.
+   at MySqlConnector.Core.ServerSession.ConnectAsync(ConnectionSettings cs, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ServerSession.cs:line 322
+   at MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ConnectionPool.cs:line 112
+   at MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ConnectionPool.cs:line 141
+   at MySql.Data.MySqlClient.MySqlConnection.CreateSessionAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 405
+   at MySql.Data.MySqlClient.MySqlConnection.OpenAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 175
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnectionAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+2019-04-19T17:21:30.0819545+07:00 0HLM4M1C0J0EB:00000004 [ERR] An exception occurred in the database while iterating the results of a query for context type '"BeYeuBookstore.Data.EF.ERPDbContext"'."
+""MySql.Data.MySqlClient.MySqlException (0x80004005): Unable to connect to any of the specified MySQL hosts.
+   at MySqlConnector.Core.ServerSession.ConnectAsync(ConnectionSettings cs, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ServerSession.cs:line 322
+   at MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ConnectionPool.cs:line 112
+   at MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ConnectionPool.cs:line 141
+   at MySql.Data.MySqlClient.MySqlConnection.CreateSessionAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 405
+   at MySql.Data.MySqlClient.MySqlConnection.OpenAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 175
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnectionAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncQueryingEnumerable`1.AsyncEnumerator.BufferlessMoveNext(DbContext _, Boolean buffer, CancellationToken cancellationToken)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncQueryingEnumerable`1.AsyncEnumerator.MoveNext(CancellationToken cancellationToken)
+   at System.Linq.AsyncEnumerable.FirstOrDefault_[TSource](IAsyncEnumerable`1 source, CancellationToken cancellationToken) in D:\a\1\s\Ix.NET\Source\System.Interactive.Async\First.cs:line 144
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.TaskResultAsyncEnumerable`1.Enumerator.MoveNext(CancellationToken cancellationToken)
+   at System.Linq.AsyncEnumerable.SelectEnumerableAsyncIterator`2.MoveNextCore(CancellationToken cancellationToken) in D:\a\1\s\Ix.NET\Source\System.Interactive.Async\Select.cs:line 106
+   at System.Linq.AsyncEnumerable.AsyncIterator`1.MoveNext(CancellationToken cancellationToken) in D:\a\1\s\Ix.NET\Source\System.Interactive.Async\AsyncIterator.cs:line 98
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.MoveNext(CancellationToken cancellationToken)" (64e2593c)
+MySql.Data.MySqlClient.MySqlException (0x80004005): Unable to connect to any of the specified MySQL hosts.
+   at MySqlConnector.Core.ServerSession.ConnectAsync(ConnectionSettings cs, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ServerSession.cs:line 322
+   at MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ConnectionPool.cs:line 112
+   at MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ConnectionPool.cs:line 141
+   at MySql.Data.MySqlClient.MySqlConnection.CreateSessionAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 405
+   at MySql.Data.MySqlClient.MySqlConnection.OpenAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 175
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnectionAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncQueryingEnumerable`1.AsyncEnumerator.BufferlessMoveNext(DbContext _, Boolean buffer, CancellationToken cancellationToken)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncQueryingEnumerable`1.AsyncEnumerator.MoveNext(CancellationToken cancellationToken)
+   at System.Linq.AsyncEnumerable.FirstOrDefault_[TSource](IAsyncEnumerable`1 source, CancellationToken cancellationToken) in D:\a\1\s\Ix.NET\Source\System.Interactive.Async\First.cs:line 144
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.TaskResultAsyncEnumerable`1.Enumerator.MoveNext(CancellationToken cancellationToken)
+   at System.Linq.AsyncEnumerable.SelectEnumerableAsyncIterator`2.MoveNextCore(CancellationToken cancellationToken) in D:\a\1\s\Ix.NET\Source\System.Interactive.Async\Select.cs:line 106
+   at System.Linq.AsyncEnumerable.AsyncIterator`1.MoveNext(CancellationToken cancellationToken) in D:\a\1\s\Ix.NET\Source\System.Interactive.Async\AsyncIterator.cs:line 98
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.MoveNext(CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.ExecuteSingletonAsyncQuery[TResult](QueryContext queryContext, Func`2 compiledQuery, IDiagnosticsLogger`1 logger, Type contextType)
+2019-04-19T17:21:30.2016444+07:00 0HLM4M1C0J0EB:00000004 [ERR] An exception occurred in the database while iterating the results of a query for context type '"BeYeuBookstore.Data.EF.ERPDbContext"'."
+""MySql.Data.MySqlClient.MySqlException (0x80004005): Unable to connect to any of the specified MySQL hosts.
+   at MySqlConnector.Core.ServerSession.ConnectAsync(ConnectionSettings cs, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ServerSession.cs:line 322
+   at MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ConnectionPool.cs:line 112
+   at MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ConnectionPool.cs:line 141
+   at MySql.Data.MySqlClient.MySqlConnection.CreateSessionAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 405
+   at MySql.Data.MySqlClient.MySqlConnection.OpenAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 175
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnectionAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncQueryingEnumerable`1.AsyncEnumerator.BufferlessMoveNext(DbContext _, Boolean buffer, CancellationToken cancellationToken)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncQueryingEnumerable`1.AsyncEnumerator.MoveNext(CancellationToken cancellationToken)
+   at System.Linq.AsyncEnumerable.FirstOrDefault_[TSource](IAsyncEnumerable`1 source, CancellationToken cancellationToken) in D:\a\1\s\Ix.NET\Source\System.Interactive.Async\First.cs:line 144
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.TaskResultAsyncEnumerable`1.Enumerator.MoveNext(CancellationToken cancellationToken)
+   at System.Linq.AsyncEnumerable.SelectEnumerableAsyncIterator`2.MoveNextCore(CancellationToken cancellationToken) in D:\a\1\s\Ix.NET\Source\System.Interactive.Async\Select.cs:line 106
+   at System.Linq.AsyncEnumerable.AsyncIterator`1.MoveNext(CancellationToken cancellationToken) in D:\a\1\s\Ix.NET\Source\System.Interactive.Async\AsyncIterator.cs:line 98
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.MoveNext(CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.ExecuteSingletonAsyncQuery[TResult](QueryContext queryContext, Func`2 compiledQuery, IDiagnosticsLogger`1 logger, Type contextType)" (64e2593c)
+MySql.Data.MySqlClient.MySqlException (0x80004005): Unable to connect to any of the specified MySQL hosts.
+   at MySqlConnector.Core.ServerSession.ConnectAsync(ConnectionSettings cs, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ServerSession.cs:line 322
+   at MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ConnectionPool.cs:line 112
+   at MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ConnectionPool.cs:line 141
+   at MySql.Data.MySqlClient.MySqlConnection.CreateSessionAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 405
+   at MySql.Data.MySqlClient.MySqlConnection.OpenAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 175
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnectionAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncQueryingEnumerable`1.AsyncEnumerator.BufferlessMoveNext(DbContext _, Boolean buffer, CancellationToken cancellationToken)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncQueryingEnumerable`1.AsyncEnumerator.MoveNext(CancellationToken cancellationToken)
+   at System.Linq.AsyncEnumerable.FirstOrDefault_[TSource](IAsyncEnumerable`1 source, CancellationToken cancellationToken) in D:\a\1\s\Ix.NET\Source\System.Interactive.Async\First.cs:line 144
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.TaskResultAsyncEnumerable`1.Enumerator.MoveNext(CancellationToken cancellationToken)
+   at System.Linq.AsyncEnumerable.SelectEnumerableAsyncIterator`2.MoveNextCore(CancellationToken cancellationToken) in D:\a\1\s\Ix.NET\Source\System.Interactive.Async\Select.cs:line 106
+   at System.Linq.AsyncEnumerable.AsyncIterator`1.MoveNext(CancellationToken cancellationToken) in D:\a\1\s\Ix.NET\Source\System.Interactive.Async\AsyncIterator.cs:line 98
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.MoveNext(CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.ExecuteSingletonAsyncQuery[TResult](QueryContext queryContext, Func`2 compiledQuery, IDiagnosticsLogger`1 logger, Type contextType)
+   at Microsoft.AspNetCore.Identity.UserManager`1.FindByNameAsync(String userName)
+2019-04-19T17:21:30.6182711+07:00 0HLM4M1C0J0EB:00000004 [INF] Executed action "BeYeuBookstore.Controllers.AccountController.Login (BeYeuBookstore)" in 3754.0865ms (afa2e885)
+2019-04-19T17:21:32.9226461+07:00 0HLM4M1C0J0EB:00000004 [ERR] An error occurred using the connection to database '""' on server '"localhost"'. (5fc3407c)
+MySql.Data.MySqlClient.MySqlException (0x80004005): Unable to connect to any of the specified MySQL hosts.
+   at MySqlConnector.Core.ServerSession.ConnectAsync(ConnectionSettings cs, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ServerSession.cs:line 322
+   at MySql.Data.MySqlClient.MySqlConnection.CreateSessionAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 416
+   at MySql.Data.MySqlClient.MySqlConnection.OpenAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 175
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnectionAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+2019-04-19T17:21:32.9829129+07:00 0HLM4M1C0J0EB:00000004 [ERR] An exception occurred while calculating the database error page content. Skipping display of the database error page. (3f43c218)
+MySql.Data.MySqlClient.MySqlException (0x80004005): Unable to connect to any of the specified MySQL hosts.
+   at MySqlConnector.Core.ServerSession.ConnectAsync(ConnectionSettings cs, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ServerSession.cs:line 322
+   at MySql.Data.MySqlClient.MySqlConnection.CreateSessionAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 416
+   at MySql.Data.MySqlClient.MySqlConnection.OpenAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 175
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnectionAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlDatabaseCreator.<>c__DisplayClass20_0.<<ExistsAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlDatabaseCreator.<>c__DisplayClass20_0.<<ExistsAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlDatabaseCreator.<>c__DisplayClass20_0.<<ExistsAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.DatabaseErrorPageMiddleware.Invoke(HttpContext httpContext)
+2019-04-19T17:21:33.1099975+07:00 0HLM4M1C0J0EB:00000004 [ERR] An unhandled exception has occurred while executing the request. (48a46595)
+MySql.Data.MySqlClient.MySqlException (0x80004005): Unable to connect to any of the specified MySQL hosts.
+   at MySqlConnector.Core.ServerSession.ConnectAsync(ConnectionSettings cs, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ServerSession.cs:line 322
+   at MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ConnectionPool.cs:line 112
+   at MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ConnectionPool.cs:line 141
+   at MySql.Data.MySqlClient.MySqlConnection.CreateSessionAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 405
+   at MySql.Data.MySqlClient.MySqlConnection.OpenAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 175
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnectionAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncQueryingEnumerable`1.AsyncEnumerator.BufferlessMoveNext(DbContext _, Boolean buffer, CancellationToken cancellationToken)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncQueryingEnumerable`1.AsyncEnumerator.MoveNext(CancellationToken cancellationToken)
+   at System.Linq.AsyncEnumerable.FirstOrDefault_[TSource](IAsyncEnumerable`1 source, CancellationToken cancellationToken) in D:\a\1\s\Ix.NET\Source\System.Interactive.Async\First.cs:line 144
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.TaskResultAsyncEnumerable`1.Enumerator.MoveNext(CancellationToken cancellationToken)
+   at System.Linq.AsyncEnumerable.SelectEnumerableAsyncIterator`2.MoveNextCore(CancellationToken cancellationToken) in D:\a\1\s\Ix.NET\Source\System.Interactive.Async\Select.cs:line 106
+   at System.Linq.AsyncEnumerable.AsyncIterator`1.MoveNext(CancellationToken cancellationToken) in D:\a\1\s\Ix.NET\Source\System.Interactive.Async\AsyncIterator.cs:line 98
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.MoveNext(CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.ExecuteSingletonAsyncQuery[TResult](QueryContext queryContext, Func`2 compiledQuery, IDiagnosticsLogger`1 logger, Type contextType)
+   at Microsoft.AspNetCore.Identity.UserManager`1.FindByNameAsync(String userName)
+   at Microsoft.AspNetCore.Identity.SignInManager`1.PasswordSignInAsync(String userName, String password, Boolean isPersistent, Boolean lockoutOnFailure)
+   at BeYeuBookstore.Controllers.AccountController.Login(LoginViewModel model, String returnUrl) in D:\Documents\ThuongMai\ERPWebApp\Controllers\AccountController.cs:line 76
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at WebMarkupMin.AspNetCore2.WebMarkupMinMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.MigrationsEndPointMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.DatabaseErrorPageMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.DatabaseErrorPageMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2019-04-19T17:21:33.4455607+07:00 0HLM4M1C0J0EB:00000004 [INF] Request finished in 6617.5869ms 500 text/html; charset=utf-8 (791a596a)
+2019-04-19T17:22:04.9129631+07:00 0HLM4M1C0J0EB:00000005 [INF] Request starting HTTP/1.1 GET http://localhost:59754/   (ca22a1cb)
+2019-04-19T17:22:04.9217538+07:00 0HLM4M1C0J0EB:00000005 [INF] Route matched with "{action = \"Login\", controller = \"Account\", area = \"\"}". Executing action "BeYeuBookstore.Controllers.AccountController.Login (BeYeuBookstore)" (a44c0341)
+2019-04-19T17:22:04.9867867+07:00 0HLM4M1C0J0EB:00000005 [INF] Executing action method "BeYeuBookstore.Controllers.AccountController.Login (BeYeuBookstore)" with arguments ([""]) - Validation state: Valid (4e3479ed)
+2019-04-19T17:22:04.9999073+07:00 0HLM4M1C0J0EB:00000005 [INF] AuthenticationScheme: "Identity.External" signed out. (d3f50c8d)
+2019-04-19T17:22:05.0087786+07:00 0HLM4M1C0J0EB:00000005 [INF] Executed action method "BeYeuBookstore.Controllers.AccountController.Login (BeYeuBookstore)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 13.1031ms. (50a9e262)
+2019-04-19T17:22:05.0169540+07:00 0HLM4M1C0J0EB:00000005 [INF] Executing ViewResult, running view "Login". (c83d0e25)
+2019-04-19T17:22:05.0283586+07:00 0HLM4M1C0J0EB:00000005 [INF] Executed ViewResult - view "Login" executed in 11.42ms. (f66409e9)
+2019-04-19T17:22:05.0360060+07:00 0HLM4M1C0J0EB:00000005 [INF] Executed action "BeYeuBookstore.Controllers.AccountController.Login (BeYeuBookstore)" in 106.7291ms (afa2e885)
+2019-04-19T17:22:05.0626063+07:00 0HLM4M1C0J0EB:00000005 [INF] Request finished in 149.7338ms 200 text/html; charset=utf-8 (791a596a)
+2019-04-19T17:22:05.1654777+07:00 0HLM4M1C0J0EB:00000006 [INF] Request starting HTTP/1.1 GET http://localhost:59754/lib/font-awesome/css/font-awesome.css   (ca22a1cb)
+2019-04-19T17:22:05.1820692+07:00 0HLM4M1C0J0EB:00000006 [INF] Request finished in 15.4847ms 404  (791a596a)
+2019-04-19T17:22:05.3984661+07:00 0HLM4M1C0J0EB:00000007 [INF] Request starting HTTP/1.1 GET http://localhost:59754/lib/font-awesome/css/font-awesome.css   (ca22a1cb)
+2019-04-19T17:22:05.4335310+07:00 0HLM4M1C0J0EB:00000007 [INF] Request finished in 31.5454ms 404  (791a596a)
+2019-04-19T17:22:07.1236240+07:00 0HLM4M1C0J0EB:00000008 [INF] Request starting HTTP/1.1 POST http://localhost:59754/ application/x-www-form-urlencoded 263 (ca22a1cb)
+2019-04-19T17:22:07.1326387+07:00 0HLM4M1C0J0EB:00000008 [INF] Route matched with "{action = \"Login\", controller = \"Account\", area = \"\"}". Executing action "BeYeuBookstore.Controllers.AccountController.Login (BeYeuBookstore)" (a44c0341)
+2019-04-19T17:22:07.1933035+07:00 0HLM4M1C0J0EB:00000008 [INF] Executing action method "BeYeuBookstore.Controllers.AccountController.Login (BeYeuBookstore)" with arguments (["BeYeuBookstore.Models.AccountViewModels.LoginViewModel", ""]) - Validation state: Valid (4e3479ed)
+2019-04-19T17:22:07.2031395+07:00 0HLM4M1C0J0EB:00000008 [INF] Entity Framework Core "2.2.0-preview1-35029" initialized '"ERPDbContext"' using provider '"Pomelo.EntityFrameworkCore.MySql"' with options: "ServerVersion 8.0.13 MySql " (9958f5bb)
+2019-04-19T17:22:07.8887333+07:00 0HLM4M1C0J0EB:00000008 [INF] Executed DbCommand ("172"ms) [Parameters=["@__normalizedUserName_0='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SELECT `u`.`Id`, `u`.`AccessFailedCount`, `u`.`Address`, `u`.`Avatar`, `u`.`ConcurrencyStamp`, `u`.`DateCreated`, `u`.`DateModified`, `u`.`Email`, `u`.`EmailConfirmed`, `u`.`FullName`, `u`.`LastupdatedFk`, `u`.`LockoutEnabled`, `u`.`LockoutEnd`, `u`.`NormalizedEmail`, `u`.`NormalizedUserName`, `u`.`PasswordHash`, `u`.`PhoneNumber`, `u`.`PhoneNumberConfirmed`, `u`.`SecurityStamp`, `u`.`Status`, `u`.`TwoFactorEnabled`, `u`.`UserName`, `u`.`UserTypeFK`, `u`.`UserTypeFKNavigationKeyId`
+FROM `User` AS `u`
+WHERE `u`.`NormalizedUserName` = @__normalizedUserName_0
+LIMIT 1" (0723d8ff)
+2019-04-19T17:22:09.1875113+07:00 0HLM4M1C0J0EB:00000008 [INF] Executed DbCommand ("16"ms) [Parameters=["@__user_Id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT `uc`.`Id`, `uc`.`ClaimType`, `uc`.`ClaimValue`, `uc`.`UserId`
+FROM `AppUserClaims` AS `uc`
+WHERE `uc`.`UserId` = @__user_Id_0" (0723d8ff)
+2019-04-19T17:22:09.3934525+07:00 0HLM4M1C0J0EB:00000008 [INF] Executed DbCommand ("34"ms) [Parameters=["@__userId_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT `role`.`Name`
+FROM `AppUserRoles` AS `userRole`
+INNER JOIN `Roles` AS `role` ON `userRole`.`RoleId` = `role`.`Id`
+WHERE `userRole`.`UserId` = @__userId_0" (0723d8ff)
+2019-04-19T17:22:09.4592997+07:00 0HLM4M1C0J0EB:00000008 [INF] Executed DbCommand ("1"ms) [Parameters=["@__normalizedName_0='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SELECT `r`.`Id`, `r`.`ConcurrencyStamp`, `r`.`Description`, `r`.`Name`, `r`.`NormalizedName`
+FROM `Roles` AS `r`
+WHERE `r`.`NormalizedName` = @__normalizedName_0
+LIMIT 1" (0723d8ff)
+2019-04-19T17:22:09.5417210+07:00 0HLM4M1C0J0EB:00000008 [INF] Executed DbCommand ("4"ms) [Parameters=["@__role_Id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT `rc`.`ClaimType`, `rc`.`ClaimValue`
+FROM `AppRoleClaims` AS `rc`
+WHERE `rc`.`RoleId` = @__role_Id_0" (0723d8ff)
+2019-04-19T17:22:09.5718361+07:00 0HLM4M1C0J0EB:00000008 [INF] Executed DbCommand ("1"ms) [Parameters=["@__userId_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT `role`.`Name`
+FROM `AppUserRoles` AS `userRole`
+INNER JOIN `Roles` AS `role` ON `userRole`.`RoleId` = `role`.`Id`
+WHERE `userRole`.`UserId` = @__userId_0" (0723d8ff)
+2019-04-19T17:22:09.6547829+07:00 0HLM4M1C0J0EB:00000008 [INF] AuthenticationScheme: "Identity.Application" signed in. (c66dd7e7)
+2019-04-19T17:22:09.6817509+07:00 0HLM4M1C0J0EB:00000008 [INF] User đăng nhập thành công . (a79f9d02)
+2019-04-19T17:22:09.6957819+07:00 0HLM4M1C0J0EB:00000008 [INF] Executed action method "BeYeuBookstore.Controllers.AccountController.Login (BeYeuBookstore)", returned result "Microsoft.AspNetCore.Mvc.RedirectToActionResult" in 2490.6495ms. (50a9e262)
+2019-04-19T17:22:09.7076699+07:00 0HLM4M1C0J0EB:00000008 [INF] Executing RedirectResult, redirecting to "/Home/Index". (d98d540e)
+2019-04-19T17:22:09.7188412+07:00 0HLM4M1C0J0EB:00000008 [INF] Executed action "BeYeuBookstore.Controllers.AccountController.Login (BeYeuBookstore)" in 2577.8113ms (afa2e885)
+2019-04-19T17:22:09.7344035+07:00 0HLM4M1C0J0EB:00000008 [INF] Request finished in 2605.1819ms 302  (791a596a)
+2019-04-19T17:22:09.7489154+07:00 0HLM4M1C0J0EB:00000009 [INF] Request starting HTTP/1.1 GET http://localhost:59754/Home/Index   (ca22a1cb)
+2019-04-19T17:22:09.7960771+07:00 0HLM4M1C0J0EB:00000009 [INF] Route matched with "{action = \"Index\", controller = \"Home\", area = \"\"}". Executing action "BeYeuBookstore.Controllers.HomeController.Index (BeYeuBookstore)" (a44c0341)
+2019-04-19T17:22:09.8245551+07:00 0HLM4M1C0J0EB:00000009 [INF] Authorization was successful. (0d575a54)
+2019-04-19T17:22:10.0878616+07:00 0HLM4M1C0J0EB:00000009 [INF] Executing action method "BeYeuBookstore.Controllers.HomeController.Index (BeYeuBookstore)" - Validation state: Valid (dad538d7)
+2019-04-19T17:22:10.1016640+07:00 0HLM4M1C0J0EB:00000009 [INF] Executed action method "BeYeuBookstore.Controllers.HomeController.Index (BeYeuBookstore)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 2.6457ms. (50a9e262)
+2019-04-19T17:22:10.1472059+07:00 0HLM4M1C0J0EB:00000009 [INF] Executing ViewResult, running view "Index". (c83d0e25)
+2019-04-19T17:22:10.3177975+07:00 0HLM4M1C0J0EB:00000009 [INF] Entity Framework Core "2.2.0-preview1-35029" initialized '"ERPDbContext"' using provider '"Pomelo.EntityFrameworkCore.MySql"' with options: "ServerVersion 8.0.13 MySql " (9958f5bb)
+2019-04-19T17:22:10.4626974+07:00 0HLM4M1C0J0EB:00000009 [INF] Executed DbCommand ("5"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT `x`.`KeyId`, `x`.`Name`, `x`.`URL`, `x`.`ParentId`, `x`.`IconCss`, `x`.`SortOrder`, `x`.`Status`
+FROM `Functions` AS `x`
+WHERE `x`.`Status` = 1
+ORDER BY `x`.`SortOrder`, `x`.`ParentId`" (0723d8ff)
+2019-04-19T17:22:10.8964026+07:00 0HLM4M1C0J0EB:00000009 [INF] Executed ViewResult - view "Index" executed in 746.3989ms. (f66409e9)
+2019-04-19T17:22:10.9264572+07:00 0HLM4M1C0J0EB:00000009 [INF] Executed action "BeYeuBookstore.Controllers.HomeController.Index (BeYeuBookstore)" in 1115.3659ms (afa2e885)
+2019-04-19T17:22:11.1143435+07:00 0HLM4M1C0J0EB:00000009 [INF] Request finished in 1215.7668ms 200 text/html; charset=utf-8 (791a596a)
+2019-04-19T17:22:11.1842293+07:00 0HLM4M1C0J0EG:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:59754/lib/font-awesome/css/regular.css   (ca22a1cb)
+2019-04-19T17:22:11.2043215+07:00 0HLM4M1C0J0EF:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:59754/lib/font-awesome/css/svg-with-js.css   (ca22a1cb)
+2019-04-19T17:22:11.2249374+07:00 0HLM4M1C0J0EE:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:59754/lib/font-awesome/css/all.css   (ca22a1cb)
+2019-04-19T17:22:11.2322074+07:00 0HLM4M1C0J0ED:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:59754/lib/font-awesome/css/fontawesome.css   (ca22a1cb)
+2019-04-19T17:22:11.2532351+07:00 0HLM4M1C0J0EC:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:59754/lib/font-awesome/css/brands.css   (ca22a1cb)
+2019-04-19T17:22:11.2613496+07:00 0HLM4M1C0J0EB:0000000A [INF] Request starting HTTP/1.1 GET http://localhost:59754/lib/font-awesome/css/solid.css   (ca22a1cb)
+2019-04-19T17:22:11.3143283+07:00 0HLM4M1C0J0EF:00000001 [INF] The file "/lib/font-awesome/css/svg-with-js.css" was not modified (f1f8d725)
+2019-04-19T17:22:11.3287574+07:00 0HLM4M1C0J0EG:00000001 [INF] The file "/lib/font-awesome/css/regular.css" was not modified (f1f8d725)
+2019-04-19T17:22:11.4978352+07:00 0HLM4M1C0J0EF:00000001 [INF] Request finished in 187.8604ms 304 text/css (791a596a)
+2019-04-19T17:22:11.5030045+07:00 0HLM4M1C0J0EG:00000001 [INF] Request finished in 188.2267ms 304 text/css (791a596a)
+2019-04-19T17:22:11.5327422+07:00 0HLM4M1C0J0EE:00000001 [INF] The file "/lib/font-awesome/css/all.css" was not modified (f1f8d725)
+2019-04-19T17:22:11.5541771+07:00 0HLM4M1C0J0EF:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:59754/lib/font-awesome/css/v4-shims.css   (ca22a1cb)
+2019-04-19T17:22:11.5605089+07:00 0HLM4M1C0J0EG:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:59754/lib/jquery-ui/themes/flick/jquery-ui.css   (ca22a1cb)
+2019-04-19T17:22:11.5892743+07:00 0HLM4M1C0J0EF:00000002 [INF] The file "/lib/font-awesome/css/v4-shims.css" was not modified (f1f8d725)
+2019-04-19T17:22:11.5978133+07:00 0HLM4M1C0J0EG:00000002 [INF] The file "/lib/jquery-ui/themes/flick/jquery-ui.css" was not modified (f1f8d725)
+2019-04-19T17:22:11.6224531+07:00 0HLM4M1C0J0EF:00000002 [INF] Request finished in 76.156ms 304 text/css (791a596a)
+2019-04-19T17:22:11.6278211+07:00 0HLM4M1C0J0EG:00000002 [INF] Request finished in 74.5581ms 304 text/css (791a596a)
+2019-04-19T17:22:11.6432300+07:00 0HLM4M1C0J0EE:00000001 [INF] Request finished in 389.5511ms 304 text/css (791a596a)
+2019-04-19T17:22:11.6689635+07:00 0HLM4M1C0J0EF:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:59754/lib/ckeditor/skins/moono/editor.css   (ca22a1cb)
+2019-04-19T17:22:11.6789028+07:00 0HLM4M1C0J0EG:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:59754/lib/jquery-ui/jquery-ui.js   (ca22a1cb)
+2019-04-19T17:22:11.6993539+07:00 0HLM4M1C0J0EF:00000003 [INF] The file "/lib/ckeditor/skins/moono/editor.css" was not modified (f1f8d725)
+2019-04-19T17:22:11.7055083+07:00 0HLM4M1C0J0EG:00000003 [INF] The file "/lib/jquery-ui/jquery-ui.js" was not modified (f1f8d725)
+2019-04-19T17:22:11.7482161+07:00 0HLM4M1C0J0EF:00000003 [INF] Request finished in 60.8807ms 304 text/css (791a596a)
+2019-04-19T17:22:11.7542347+07:00 0HLM4M1C0J0EG:00000003 [INF] Request finished in 52.3452ms 304 application/javascript (791a596a)
+2019-04-19T17:22:11.7894383+07:00 0HLM4M1C0J0EF:00000004 [INF] Request starting HTTP/1.1 GET http://localhost:59754/lib/bootstrap/dist/js/bootstrap.js   (ca22a1cb)
+2019-04-19T17:22:11.7972639+07:00 0HLM4M1C0J0EG:00000004 [INF] Request starting HTTP/1.1 GET http://localhost:59754/lib/fastclick/lib/fastclick.js   (ca22a1cb)
+2019-04-19T17:22:11.8165360+07:00 0HLM4M1C0J0EF:00000004 [INF] The file "/lib/bootstrap/dist/js/bootstrap.js" was not modified (f1f8d725)
+2019-04-19T17:22:11.8337331+07:00 0HLM4M1C0J0EE:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:59754/lib/bootstrap-datepicker/dist/css/bootstrap-datepicker3.css   (ca22a1cb)
+2019-04-19T17:22:11.8393482+07:00 0HLM4M1C0J0EG:00000004 [INF] The file "/lib/fastclick/lib/fastclick.js" was not modified (f1f8d725)
+2019-04-19T17:22:11.8571932+07:00 0HLM4M1C0J0EF:00000004 [INF] Request finished in 57.5343ms 304 application/javascript (791a596a)
+2019-04-19T17:22:11.8662804+07:00 0HLM4M1C0J0EG:00000004 [INF] Request finished in 70.0097ms 304 application/javascript (791a596a)
+2019-04-19T17:22:11.8914147+07:00 0HLM4M1C0J0EE:00000002 [INF] The file "/lib/bootstrap-datepicker/dist/css/bootstrap-datepicker3.css" was not modified (f1f8d725)
+2019-04-19T17:22:11.9058714+07:00 0HLM4M1C0J0EF:00000005 [INF] Request starting HTTP/1.1 GET http://localhost:59754/lib/nprogress/nprogress.js   (ca22a1cb)
+2019-04-19T17:22:11.9106877+07:00 0HLM4M1C0J0EG:00000005 [INF] Request starting HTTP/1.1 GET http://localhost:59754/lib/mustache/mustache.js   (ca22a1cb)
+2019-04-19T17:22:11.9282046+07:00 0HLM4M1C0J0EF:00000005 [INF] The file "/lib/nprogress/nprogress.js" was not modified (f1f8d725)
+2019-04-19T17:22:11.9323311+07:00 0HLM4M1C0J0EE:00000002 [INF] Request finished in 231.7737ms 304 text/css (791a596a)
+2019-04-19T17:22:11.9417370+07:00 0HLM4M1C0J0EG:00000005 [INF] The file "/lib/mustache/mustache.js" was not modified (f1f8d725)
+2019-04-19T17:22:11.9622216+07:00 0HLM4M1C0J0EF:00000005 [INF] Request finished in 51.6251ms 304 application/javascript (791a596a)
+2019-04-19T17:22:11.9744789+07:00 0HLM4M1C0J0EG:00000005 [INF] Request finished in 58.8975ms 304 application/javascript (791a596a)
+2019-04-19T17:22:12.0182414+07:00 0HLM4M1C0J0EF:00000006 [INF] Request starting HTTP/1.1 GET http://localhost:59754/lib/chart.js/dist/Chart.js   (ca22a1cb)
+2019-04-19T17:22:12.0259066+07:00 0HLM4M1C0J0EG:00000006 [INF] Request starting HTTP/1.1 GET http://localhost:59754/lib/jquery-sparkline/dist/jquery.sparkline.js   (ca22a1cb)
+2019-04-19T17:22:12.0646099+07:00 0HLM4M1C0J0EG:00000006 [INF] The file "/lib/jquery-sparkline/dist/jquery.sparkline.js" was not modified (f1f8d725)
+2019-04-19T17:22:12.0859005+07:00 0HLM4M1C0J0EF:00000006 [INF] The file "/lib/chart.js/dist/Chart.js" was not modified (f1f8d725)
+2019-04-19T17:22:12.1122933+07:00 0HLM4M1C0J0EG:00000006 [INF] Request finished in 71.6644ms 304 application/javascript (791a596a)
+2019-04-19T17:22:12.1212979+07:00 0HLM4M1C0J0EF:00000006 [INF] Request finished in 104.2172ms 304 application/javascript (791a596a)
+2019-04-19T17:22:12.1334116+07:00 0HLM4M1C0J0EE:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:59754/lib/twbs-pagination/jquery.twbsPagination.js   (ca22a1cb)
+2019-04-19T17:22:12.1570882+07:00 0HLM4M1C0J0EG:00000007 [INF] Request starting HTTP/1.1 GET http://localhost:59754/lib/moment/moment.js   (ca22a1cb)
+2019-04-19T17:22:12.1644026+07:00 0HLM4M1C0J0EF:00000007 [INF] Request starting HTTP/1.1 GET http://localhost:59754/lib/bootstrap-datetimepicker-master/js/bootstrap-datetimepicker.js   (ca22a1cb)
+2019-04-19T17:22:12.1822365+07:00 0HLM4M1C0J0EG:00000007 [INF] The file "/lib/moment/moment.js" was not modified (f1f8d725)
+2019-04-19T17:22:12.1985840+07:00 0HLM4M1C0J0EF:00000007 [INF] The file "/lib/bootstrap-datetimepicker-master/js/bootstrap-datetimepicker.js" was not modified (f1f8d725)
+2019-04-19T17:22:12.2157408+07:00 0HLM4M1C0J0EG:00000007 [INF] Request finished in 51.6393ms 304 application/javascript (791a596a)
+2019-04-19T17:22:12.2335398+07:00 0HLM4M1C0J0EE:00000003 [INF] The file "/lib/twbs-pagination/jquery.twbsPagination.js" was not modified (f1f8d725)
+2019-04-19T17:22:12.2466186+07:00 0HLM4M1C0J0EF:00000007 [INF] Request finished in 63.8405ms 304 application/javascript (791a596a)
+2019-04-19T17:22:12.2764555+07:00 0HLM4M1C0J0EG:00000008 [INF] Request starting HTTP/1.1 GET http://localhost:59754/lib/bootstrap-datetimepicker-master/js/locales/bootstrap-datetimepicker.vi.js   (ca22a1cb)
+2019-04-19T17:22:12.2965092+07:00 0HLM4M1C0J0EF:00000008 [INF] Request starting HTTP/1.1 GET http://localhost:59754/lib/bootstrap-datepicker/dist/js/bootstrap-datepicker.js   (ca22a1cb)
+2019-04-19T17:22:12.3037705+07:00 0HLM4M1C0J0EG:00000008 [INF] The file "/lib/bootstrap-datetimepicker-master/js/locales/bootstrap-datetimepicker.vi.js" was not modified (f1f8d725)
+2019-04-19T17:22:12.3283929+07:00 0HLM4M1C0J0EF:00000008 [INF] The file "/lib/bootstrap-datepicker/dist/js/bootstrap-datepicker.js" was not modified (f1f8d725)
+2019-04-19T17:22:12.3372844+07:00 0HLM4M1C0J0EG:00000008 [INF] Request finished in 74.0744ms 304 application/javascript (791a596a)
+2019-04-19T17:22:12.3581417+07:00 0HLM4M1C0J0EF:00000008 [INF] Request finished in 58.3578ms 304 application/javascript (791a596a)
+2019-04-19T17:22:12.3787997+07:00 0HLM4M1C0J0EG:00000009 [INF] Request starting HTTP/1.1 GET http://localhost:59754/lib/bootbox/bootbox.js   (ca22a1cb)
+2019-04-19T17:22:12.3923671+07:00 0HLM4M1C0J0EE:00000003 [INF] Request finished in 264.0726ms 304 application/javascript (791a596a)
+2019-04-19T17:22:12.4107932+07:00 0HLM4M1C0J0EG:00000009 [INF] The file "/lib/bootbox/bootbox.js" was not modified (f1f8d725)
+2019-04-19T17:22:12.4240912+07:00 0HLM4M1C0J0EF:00000009 [INF] Request starting HTTP/1.1 GET http://localhost:59754/lib/ckeditor/ckeditor.js   (ca22a1cb)
+2019-04-19T17:22:12.4607766+07:00 0HLM4M1C0J0EG:00000009 [INF] Request finished in 57.848ms 304 application/javascript (791a596a)
+2019-04-19T17:22:12.4756200+07:00 0HLM4M1C0J0EF:00000009 [INF] The file "/lib/ckeditor/ckeditor.js" was not modified (f1f8d725)
+2019-04-19T17:22:12.5385153+07:00 0HLM4M1C0J0EF:00000009 [INF] Request finished in 89.2724ms 304 application/javascript (791a596a)
+2019-04-19T17:22:12.5456130+07:00 0HLM4M1C0J0EG:0000000A [INF] Request starting HTTP/1.1 GET http://localhost:59754/app/shared/general.js   (ca22a1cb)
+2019-04-19T17:22:12.5760812+07:00 0HLM4M1C0J0EG:0000000A [INF] The file "/app/shared/general.js" was not modified (f1f8d725)
+2019-04-19T17:22:12.6058832+07:00 0HLM4M1C0J0EF:0000000A [INF] Request starting HTTP/1.1 GET http://localhost:59754/admin-side/js/custom.js   (ca22a1cb)
+2019-04-19T17:22:12.6105766+07:00 0HLM4M1C0J0EG:0000000A [INF] Request finished in 63.9413ms 304 application/javascript (791a596a)
+2019-04-19T17:22:12.6303849+07:00 0HLM4M1C0J0EF:0000000A [INF] The file "/admin-side/js/custom.js" was not modified (f1f8d725)
+2019-04-19T17:22:12.8949281+07:00 0HLM4M1C0J0EG:0000000B [INF] Request starting HTTP/1.1 GET http://localhost:59754/app/shared/BeYeuTheme.js   (ca22a1cb)
+2019-04-19T17:22:12.9221162+07:00 0HLM4M1C0J0EF:0000000A [INF] Request finished in 71.0822ms 304 application/javascript (791a596a)
+2019-04-19T17:22:12.9542571+07:00 0HLM4M1C0J0EG:0000000B [INF] The file "/app/shared/BeYeuTheme.js" was not modified (f1f8d725)
+2019-04-19T17:22:13.0058323+07:00 0HLM4M1C0J0EF:0000000B [INF] Request starting HTTP/1.1 GET http://localhost:59754/app/shared/notificationgeneral.js   (ca22a1cb)
+2019-04-19T17:22:13.0114975+07:00 0HLM4M1C0J0EG:0000000B [INF] Request finished in 329.2467ms 304 application/javascript (791a596a)
+2019-04-19T17:22:13.0203639+07:00 0HLM4M1C0J0EE:00000004 [INF] Request starting HTTP/1.1 GET http://localhost:59754/lib/bootstrap-datepicker/dist/locales/bootstrap-datepicker.vi.min.js   (ca22a1cb)
+2019-04-19T17:22:13.0577526+07:00 0HLM4M1C0J0EF:0000000B [INF] The file "/app/shared/notificationgeneral.js" was not modified (f1f8d725)
+2019-04-19T17:22:13.0730635+07:00 0HLM4M1C0J0EG:0000000C [INF] Request starting HTTP/1.1 GET http://localhost:59754/admin-side/images/user.png   (ca22a1cb)
+2019-04-19T17:22:13.0840244+07:00 0HLM4M1C0J0EE:00000004 [INF] The file "/lib/bootstrap-datepicker/dist/locales/bootstrap-datepicker.vi.min.js" was not modified (f1f8d725)
+2019-04-19T17:22:13.1096856+07:00 0HLM4M1C0J0EF:0000000B [INF] Request finished in 115.9041ms 304 application/javascript (791a596a)
+2019-04-19T17:22:13.1182859+07:00 0HLM4M1C0J0EG:0000000C [INF] The file "/admin-side/images/user.png" was not modified (f1f8d725)
+2019-04-19T17:22:13.1619759+07:00 0HLM4M1C0J0EG:0000000C [INF] Request finished in 91.553ms 304 image/png (791a596a)
+2019-04-19T17:22:13.1864376+07:00 0HLM4M1C0J0EE:00000004 [INF] Request finished in 515.916ms 304 application/javascript (791a596a)
+2019-04-19T17:22:13.2276904+07:00 0HLM4M1C0J0ED:00000001 [INF] The file "/lib/font-awesome/css/fontawesome.css" was not modified (f1f8d725)
+2019-04-19T17:22:13.2362847+07:00 0HLM4M1C0J0EC:00000001 [INF] The file "/lib/font-awesome/css/brands.css" was not modified (f1f8d725)
+2019-04-19T17:22:13.2702037+07:00 0HLM4M1C0J0ED:00000001 [INF] Request finished in 2087.7043ms 304 text/css (791a596a)
+2019-04-19T17:22:13.2763177+07:00 0HLM4M1C0J0EC:00000001 [INF] Request finished in 2090.1345ms 304 text/css (791a596a)
+2019-04-19T17:22:13.2985470+07:00 0HLM4M1C0J0EB:0000000A [INF] The file "/lib/font-awesome/css/solid.css" was not modified (f1f8d725)
+2019-04-19T17:22:13.3201702+07:00 0HLM4M1C0J0EB:0000000A [INF] Request finished in 2141.5788ms 304 text/css (791a596a)
+2019-04-19T17:22:13.6087226+07:00 0HLM4M1C0J0EF:0000000C [INF] Request starting HTTP/1.1 GET http://localhost:59754/lib/font-awesome/webfonts/fa-solid-900.woff2   (ca22a1cb)
+2019-04-19T17:22:13.6143726+07:00 0HLM4M1C0J0EE:00000005 [INF] Request starting HTTP/1.1 GET http://localhost:59754/lib/font-awesome/webfonts/fa-regular-400.woff2   (ca22a1cb)
+2019-04-19T17:22:13.6554237+07:00 0HLM4M1C0J0EF:0000000C [INF] The file "/lib/font-awesome/webfonts/fa-solid-900.woff2" was not modified (f1f8d725)
+2019-04-19T17:22:13.6791190+07:00 0HLM4M1C0J0EE:00000005 [INF] The file "/lib/font-awesome/webfonts/fa-regular-400.woff2" was not modified (f1f8d725)
+2019-04-19T17:22:13.7191279+07:00 0HLM4M1C0J0EF:0000000C [INF] Request finished in 183.2813ms 304 font/woff2 (791a596a)
+2019-04-19T17:22:13.7412363+07:00 0HLM4M1C0J0EE:00000005 [INF] Request finished in 169.9481ms 304 font/woff2 (791a596a)
+2019-04-19T17:22:13.9915748+07:00 0HLM4M1C0J0EG:0000000D [INF] Request starting HTTP/1.1 GET http://localhost:59754/Notification/GetByUserId   (ca22a1cb)
+2019-04-19T17:22:14.0158156+07:00 0HLM4M1C0J0EG:0000000D [INF] Route matched with "{action = \"GetByUserId\", controller = \"Notification\", area = \"\"}". Executing action "BeYeuBookstore.Controllers.Construction.NotificationController.GetByUserId (BeYeuBookstore)" (a44c0341)
+2019-04-19T17:22:14.0896797+07:00 0HLM4M1C0J0EG:0000000D [INF] Executing action method "BeYeuBookstore.Controllers.Construction.NotificationController.GetByUserId (BeYeuBookstore)" - Validation state: Valid (dad538d7)
+2019-04-19T17:22:14.1172124+07:00 0HLM4M1C0J0EG:0000000D [INF] Entity Framework Core "2.2.0-preview1-35029" initialized '"ERPDbContext"' using provider '"Pomelo.EntityFrameworkCore.MySql"' with options: "ServerVersion 8.0.13 MySql " (9958f5bb)
+2019-04-19T17:22:14.2725722+07:00 0HLM4M1C0J0EG:0000000D [INF] Executed DbCommand ("9"ms) [Parameters=["@__userId_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT `p`.`NotificationFkNavigationKeyId` AS `KeyId`, `p.NotificationFkNavigation`.`NotificationContent`, `p.NotificationFkNavigation`.`DateCreated` AS `NotificationTime`, `p`.`Status`
+FROM `SoNotificationGeneralDetail` AS `p`
+INNER JOIN `SoNotificationGeneral` AS `p.NotificationFkNavigation` ON `p`.`NotificationFkNavigationKeyId` = `p.NotificationFkNavigation`.`KeyId`
+WHERE `p`.`UserFk` = @__userId_0" (0723d8ff)
+2019-04-19T17:22:14.2863720+07:00 0HLM4M1C0J0EG:0000000D [INF] Executed action method "BeYeuBookstore.Controllers.Construction.NotificationController.GetByUserId (BeYeuBookstore)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult" in 186.7636ms. (50a9e262)
+2019-04-19T17:22:14.3044117+07:00 0HLM4M1C0J0EG:0000000D [INF] Executing ObjectResult, writing value of type '"System.Collections.Generic.List`1[[BeYeuBookstore.Utilities.DTOs.Boq.SO_NotificationGeneralDTO, BeYeuBookstore.Utilities, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'. (8a1b66c8)
+2019-04-19T17:22:14.4626365+07:00 0HLM4M1C0J0EG:0000000D [INF] Executed action "BeYeuBookstore.Controllers.Construction.NotificationController.GetByUserId (BeYeuBookstore)" in 430.745ms (afa2e885)
+2019-04-19T17:22:14.4902939+07:00 0HLM4M1C0J0EG:0000000D [INF] Request finished in 510.9361ms 200 application/json; charset=utf-8 (791a596a)
+2019-04-19T17:24:01.6713218+07:00 0HLM4M1C0J0EH:00000001 [INF] Request starting HTTP/1.1 POST http://localhost:59754/Account/Logout application/x-www-form-urlencoded 225 (ca22a1cb)
+2019-04-19T17:24:01.7061729+07:00 0HLM4M1C0J0EH:00000001 [INF] Entity Framework Core "2.2.0-preview1-35029" initialized '"ERPDbContext"' using provider '"Pomelo.EntityFrameworkCore.MySql"' with options: "ServerVersion 8.0.13 MySql " (9958f5bb)
+2019-04-19T17:24:01.7763388+07:00 0HLM4M1C0J0EH:00000001 [INF] Executed DbCommand ("3"ms) [Parameters=["@__get_Item_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT `e`.`Id`, `e`.`AccessFailedCount`, `e`.`Address`, `e`.`Avatar`, `e`.`ConcurrencyStamp`, `e`.`DateCreated`, `e`.`DateModified`, `e`.`Email`, `e`.`EmailConfirmed`, `e`.`FullName`, `e`.`LastupdatedFk`, `e`.`LockoutEnabled`, `e`.`LockoutEnd`, `e`.`NormalizedEmail`, `e`.`NormalizedUserName`, `e`.`PasswordHash`, `e`.`PhoneNumber`, `e`.`PhoneNumberConfirmed`, `e`.`SecurityStamp`, `e`.`Status`, `e`.`TwoFactorEnabled`, `e`.`UserName`, `e`.`UserTypeFK`, `e`.`UserTypeFKNavigationKeyId`
+FROM `User` AS `e`
+WHERE `e`.`Id` = @__get_Item_0
+LIMIT 1" (0723d8ff)
+2019-04-19T17:24:01.8161311+07:00 0HLM4M1C0J0EH:00000001 [INF] Executed DbCommand ("1"ms) [Parameters=["@__user_Id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT `uc`.`Id`, `uc`.`ClaimType`, `uc`.`ClaimValue`, `uc`.`UserId`
+FROM `AppUserClaims` AS `uc`
+WHERE `uc`.`UserId` = @__user_Id_0" (0723d8ff)
+2019-04-19T17:24:01.8437295+07:00 0HLM4M1C0J0EH:00000001 [INF] Executed DbCommand ("16"ms) [Parameters=["@__userId_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT `role`.`Name`
+FROM `AppUserRoles` AS `userRole`
+INNER JOIN `Roles` AS `role` ON `userRole`.`RoleId` = `role`.`Id`
+WHERE `userRole`.`UserId` = @__userId_0" (0723d8ff)
+2019-04-19T17:24:01.8634135+07:00 0HLM4M1C0J0EH:00000001 [INF] Executed DbCommand ("2"ms) [Parameters=["@__normalizedName_0='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SELECT `r`.`Id`, `r`.`ConcurrencyStamp`, `r`.`Description`, `r`.`Name`, `r`.`NormalizedName`
+FROM `Roles` AS `r`
+WHERE `r`.`NormalizedName` = @__normalizedName_0
+LIMIT 1" (0723d8ff)
+2019-04-19T17:24:01.8777186+07:00 0HLM4M1C0J0EH:00000001 [INF] Executed DbCommand ("1"ms) [Parameters=["@__role_Id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT `rc`.`ClaimType`, `rc`.`ClaimValue`
+FROM `AppRoleClaims` AS `rc`
+WHERE `rc`.`RoleId` = @__role_Id_0" (0723d8ff)
+2019-04-19T17:24:01.8999739+07:00 0HLM4M1C0J0EH:00000001 [INF] Executed DbCommand ("2"ms) [Parameters=["@__userId_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT `role`.`Name`
+FROM `AppUserRoles` AS `userRole`
+INNER JOIN `Roles` AS `role` ON `userRole`.`RoleId` = `role`.`Id`
+WHERE `userRole`.`UserId` = @__userId_0" (0723d8ff)
+2019-04-19T17:24:01.9478502+07:00 0HLM4M1C0J0EH:00000001 [INF] Route matched with "{action = \"Logout\", controller = \"Account\", area = \"\"}". Executing action "BeYeuBookstore.Controllers.AccountController.Logout (BeYeuBookstore)" (a44c0341)
+2019-04-19T17:24:01.9659008+07:00 0HLM4M1C0J0EH:00000001 [INF] Authorization was successful. (0d575a54)
+2019-04-19T17:24:02.1105482+07:00 0HLM4M1C0J0EH:00000001 [INF] Executing action method "BeYeuBookstore.Controllers.AccountController.Logout (BeYeuBookstore)" - Validation state: Valid (dad538d7)
+2019-04-19T17:24:02.1436050+07:00 0HLM4M1C0J0EH:00000001 [INF] AuthenticationScheme: "Identity.Application" signed out. (d3f50c8d)
+2019-04-19T17:24:02.1554295+07:00 0HLM4M1C0J0EH:00000001 [INF] AuthenticationScheme: "Identity.External" signed out. (d3f50c8d)
+2019-04-19T17:24:02.1693889+07:00 0HLM4M1C0J0EH:00000001 [INF] AuthenticationScheme: "Identity.TwoFactorUserId" signed out. (d3f50c8d)
+2019-04-19T17:24:02.1806773+07:00 0HLM4M1C0J0EH:00000001 [INF] AuthenticationScheme: "Identity.External" signed out. (d3f50c8d)
+2019-04-19T17:24:02.1910742+07:00 0HLM4M1C0J0EH:00000001 [INF] User logged out. (f9c27106)
+2019-04-19T17:24:02.2035663+07:00 0HLM4M1C0J0EH:00000001 [INF] Executed action method "BeYeuBookstore.Controllers.AccountController.Logout (BeYeuBookstore)", returned result "Microsoft.AspNetCore.Mvc.RedirectToActionResult" in 80.3151ms. (50a9e262)
+2019-04-19T17:24:02.2156886+07:00 0HLM4M1C0J0EH:00000001 [INF] Executing RedirectResult, redirecting to "/". (d98d540e)
+2019-04-19T17:24:02.2270810+07:00 0HLM4M1C0J0EH:00000001 [INF] Executed action "BeYeuBookstore.Controllers.AccountController.Logout (BeYeuBookstore)" in 268.1197ms (afa2e885)
+2019-04-19T17:24:02.2462675+07:00 0HLM4M1C0J0EH:00000001 [INF] Request finished in 569.0441ms 302  (791a596a)
+2019-04-19T17:24:02.2674073+07:00 0HLM4M1C0J0EH:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:59754/   (ca22a1cb)
+2019-04-19T17:24:02.2837371+07:00 0HLM4M1C0J0EH:00000002 [INF] Route matched with "{action = \"Login\", controller = \"Account\", area = \"\"}". Executing action "BeYeuBookstore.Controllers.AccountController.Login (BeYeuBookstore)" (a44c0341)
+2019-04-19T17:24:02.4841108+07:00 0HLM4M1C0J0EH:00000002 [INF] Executing action method "BeYeuBookstore.Controllers.AccountController.Login (BeYeuBookstore)" with arguments ([""]) - Validation state: Valid (4e3479ed)
+2019-04-19T17:24:02.4963985+07:00 0HLM4M1C0J0EH:00000002 [INF] AuthenticationScheme: "Identity.External" signed out. (d3f50c8d)
+2019-04-19T17:24:02.5084391+07:00 0HLM4M1C0J0EH:00000002 [INF] Executed action method "BeYeuBookstore.Controllers.AccountController.Login (BeYeuBookstore)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 12.2058ms. (50a9e262)
+2019-04-19T17:24:02.5212424+07:00 0HLM4M1C0J0EH:00000002 [INF] Executing ViewResult, running view "Login". (c83d0e25)
+2019-04-19T17:24:02.5426633+07:00 0HLM4M1C0J0EH:00000002 [INF] Executed ViewResult - view "Login" executed in 18.0814ms. (f66409e9)
+2019-04-19T17:24:02.5627248+07:00 0HLM4M1C0J0EH:00000002 [INF] Executed action "BeYeuBookstore.Controllers.AccountController.Login (BeYeuBookstore)" in 259.0994ms (afa2e885)
+2019-04-19T17:24:03.1065010+07:00 0HLM4M1C0J0EH:00000002 [INF] Request finished in 322.2017ms 200 text/html; charset=utf-8 (791a596a)
+2019-04-19T17:24:03.4522197+07:00 0HLM4M1C0J0EH:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:59754/lib/font-awesome/css/font-awesome.css   (ca22a1cb)
+2019-04-19T17:24:03.4757832+07:00 0HLM4M1C0J0EH:00000003 [INF] Request finished in 142.7618ms 404  (791a596a)
+2019-04-19T17:24:03.5739733+07:00 0HLM4M1C0J0EH:00000004 [INF] Request starting HTTP/1.1 GET http://localhost:59754/lib/font-awesome/css/font-awesome.css   (ca22a1cb)
+2019-04-19T17:24:03.6056826+07:00 0HLM4M1C0J0EH:00000004 [INF] Request finished in 29.8187ms 404  (791a596a)
