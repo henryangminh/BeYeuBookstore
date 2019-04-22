@@ -26,6 +26,7 @@ namespace BeYeuBookstore.Controllers
             return View();
         }
 
+        #region AJAX API
         [HttpPost]
         public IActionResult SaveEntity(BookCategoryViewModel bookCategoryVm)
         {
@@ -80,8 +81,7 @@ namespace BeYeuBookstore.Controllers
                 return new OkObjectResult(id);
 
             }
-
-
         }
+        #endregion
     }
 }
