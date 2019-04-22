@@ -165,6 +165,8 @@ namespace BeYeuBookstore.Data.EF.Migrations
 
                     b.Property<int>("RatingNumber");
 
+                    b.Property<int>("Status");
+
                     b.Property<decimal>("UnitPrice");
 
                     b.Property<int?>("Width");
@@ -186,6 +188,8 @@ namespace BeYeuBookstore.Data.EF.Migrations
                         .ValueGeneratedOnAdd();
 
                     b.Property<string>("BookCategoryName");
+
+                    b.Property<int>("Status");
 
                     b.HasKey("KeyId");
 

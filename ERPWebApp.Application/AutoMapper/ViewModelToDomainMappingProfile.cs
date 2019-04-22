@@ -24,9 +24,9 @@ namespace BeYeuBookstore.Application.AutoMapper
                 c.CanRead, c.CanUpdate, c.CanDelete, c.CanConfirm));
 
             CreateMap<BookViewModel, Book>().ConstructUsing(c => new Book(c.KeyId , c.BookTitle, c.Author, c.BookCategoryFK, c.MerchantFK,c.isPaperback,
-                c.UnitPrice, c.Length, c.Height, c.Width, c.PageNumber, c.Description,c.Quantity, c.DateCreated, c.DateModified));
+                c.UnitPrice, c.Length, c.Height, c.Width, c.PageNumber, c.Description,c.Quantity,c.RatingNumber,c.Rating, c.Status,c.DateCreated, c.DateModified));
 
-            CreateMap<BookCategoryViewModel, BookCategory>().ConstructUsing(c => new BookCategory(c.KeyId,c.BookCategoryName));
+            CreateMap<BookCategoryViewModel, BookCategory>().ConstructUsing(c => new BookCategory(c.KeyId,c.Status,c.BookCategoryName));
 
             CreateMap<AdvertiseContractViewModel, AdvertiseContract>().ConstructUsing(c => new AdvertiseContract(c.KeyId,c.AdvertisementContentFK,c.DateStart,
                 c.DateFinish, c.ContractValue, c.Paid, c.Status, c.DateCreated, c.DateModified));

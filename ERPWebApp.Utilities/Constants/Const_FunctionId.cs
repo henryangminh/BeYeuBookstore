@@ -6,7 +6,8 @@ namespace BeYeuBookstore.Utilities.Constants
 {
    public class Const_FunctionId
     {
-		public const string Acceptance = "AcceptanceItem";
+        #region ERP
+        public const string Acceptance = "AcceptanceItem";
 		public const string Addressbook = "AddressBookItem";
 		public const string Bom = "BomItem";
 		public const string FeedbackChild = "FeedbackChildItem";
@@ -25,15 +26,25 @@ namespace BeYeuBookstore.Utilities.Constants
 
 		public const string User = "UserRoleItem";
         public const string SOBoq1Search = "SOBoq1SearchItem";
-        public const string Contract = "ContractItem";
         public const string SOBoq2Search = "SalesOrderBOQ2Item";
        
-        public const string Customer = "CustomerItem";
         public const string Vendor = "Vendoritem";
         public const string Employee = "EmployeeItem";
         public const string Unit = "UnitItem";
 		public const string Warehouse = "WarehouseItem";
-
-
-	}
+        #endregion
+        public const string Advertiser = "AdvertiserItem";
+        public const string Customer = "CustomerItem";
+        public const string Merchant = "MerchantItem";
+        public const string WebMaster = "WebMasterItem";
+        public const string Permission = "PermissionItem";
+        public const string Book = "BookItem";
+        public const string BookCategory = "BookCategoryItem";
+        public const string AdvertisementContent = "AdvertisementContentItem";
+        public const string Receipt = "ReceiptItem";
+        public const string Delivery = "DeliveryItem";
+        public const string Contract = "ContractItem";
+        public const string MerchantContract = "MerchantContractItem";
+        public const string AdvertiseContract = "AdvertiseContractItem";
+    }
 }

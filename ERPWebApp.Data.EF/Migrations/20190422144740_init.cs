@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace BeYeuBookstore.Data.EF.Migrations
 {
-    public partial class initblablabla : Migration
+    public partial class init : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -102,7 +102,8 @@ namespace BeYeuBookstore.Data.EF.Migrations
                 {
                     KeyId = table.Column<int>(nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    BookCategoryName = table.Column<string>(nullable: true)
+                    BookCategoryName = table.Column<string>(nullable: true),
+                    Status = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -466,6 +467,7 @@ namespace BeYeuBookstore.Data.EF.Migrations
                     Quantity = table.Column<int>(nullable: false),
                     RatingNumber = table.Column<int>(nullable: false),
                     Rating = table.Column<double>(nullable: false),
+                    Status = table.Column<int>(nullable: false),
                     DateCreated = table.Column<DateTime>(nullable: true),
                     DateModified = table.Column<DateTime>(nullable: true)
                 },

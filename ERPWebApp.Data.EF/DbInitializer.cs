@@ -139,10 +139,10 @@ namespace BeYeuBookstore.Data.EF
             {
                 _context.BookCategorys.AddRange(new List<BookCategory>()
                 {
-                    new BookCategory(){BookCategoryName="Kinh dị"},
-                    new BookCategory(){BookCategoryName="Học thuật"},
-                    new BookCategory(){BookCategoryName="Truyện"},
-                    new BookCategory(){BookCategoryName="Loại khác"},
+                    new BookCategory(){Status=Status.Active,BookCategoryName="Kinh dị"},
+                    new BookCategory(){Status=Status.Active,BookCategoryName="Học thuật"},
+                    new BookCategory(){Status=Status.Active,BookCategoryName="Truyện"},
+                    new BookCategory(){Status=Status.Active,BookCategoryName="Loại khác"},
 
                 });
 
@@ -280,11 +280,33 @@ namespace BeYeuBookstore.Data.EF
                     DateCreated = DateTime.Now,
                     DateModified = DateTime.Now,
                     UserTypeFK = Const_UserType.Customer,
-                    Status = Status.Active
+                    Status = Status.Active,
+                    PhoneNumber="09000000002",
+                    Address = "Chung cư HaDo Q.10",
                 }, CommonConstants.DefaultPW).Result;
                 if (result.Succeeded)
                 {
                     var user = await _userManager.FindByNameAsync("cucmo_cuaca@gmail.com"); // tim user 
+                    await _userManager.AddToRoleAsync(user, "Customer"); // add vao role 
+                    _context.Customers.Add(new Customer() { UserFK = user.Id });
+                }
+
+                //tạo user customer
+                result = _userManager.CreateAsync(new User()
+                {
+                    UserName = "conca_cuamo@gmail.com",
+                    FullName = "Cá Mập Heo",
+                    Email = "conca_cuamo@gmail.com",
+                    DateCreated = DateTime.Now,
+                    DateModified = DateTime.Now,
+                    UserTypeFK = Const_UserType.Customer,
+                    Status = Status.Active,
+                    PhoneNumber = "0900000001",
+                    Address = "289 Bình Đông F14 Q8",
+                }, CommonConstants.DefaultPW).Result;
+                if (result.Succeeded)
+                {
+                    var user = await _userManager.FindByNameAsync("conca_cuamo@gmail.com"); // tim user 
                     await _userManager.AddToRoleAsync(user, "Customer"); // add vao role 
                     _context.Customers.Add(new Customer() { UserFK = user.Id });
                 }
@@ -398,9 +420,9 @@ namespace BeYeuBookstore.Data.EF
 
                 result = _userManager.CreateAsync(new User()
                 {
-                    UserName = "blackpigkun@gmail.com",
-                    FullName = "Cá Mập Heo",
-                    Email = "blackpigkun@gmail.com",
+                    UserName = "phongzu@gmail.com",
+                    FullName = "Anh Zũ",
+                    Email = "phongzu@gmail.com",
                     DateCreated = DateTime.Now,
                     DateModified = DateTime.Now,
                     UserTypeFK = Const_UserType.Advertiser, //Webmaster
@@ -408,7 +430,7 @@ namespace BeYeuBookstore.Data.EF
                 }, CommonConstants.DefaultPW).Result;
                 if (result.Succeeded)
                 {
-                    var user = await _userManager.FindByNameAsync("blackpigkun@gmail.com"); // tim user 
+                    var user = await _userManager.FindByNameAsync("phongzu@gmail.com"); // tim user 
                     await _userManager.AddToRoleAsync(user, "Advertiser"); // add vao role 
                     _context.Advertisers.Add(new Advertiser() { UserFK = user.Id, BrandName = "Phong Vũ", UrlToBrand = "phongvu.com.vn" });
                 }
@@ -435,17 +457,17 @@ namespace BeYeuBookstore.Data.EF
                 {
                     _context.Books.AddRange(new List<Book>()
                 {
-                    new Book(){BookTitle="Đắc Nhân Tâm",Author="Dale Carnegie",BookCategoryFK=4,MerchantFK=1,isPaperback=false,UnitPrice=45000, Length=21, Height=200, Width=12,PageNumber=320,Description="Đắc Nhân Tâm nằm trong top bán chạy nhất thế giới",Quantity=50},
-                    new Book(){BookTitle="Đời ngắn đừng ngủ dài",Author="Robins Sharma",BookCategoryFK=4,MerchantFK=2,isPaperback=true,UnitPrice=46000, Length=21, Height=150, Width=13,PageNumber=239,Description="Bằng những lời chia sẻ thật ngắn gọn, dễ hiểu về những trải nghiệm và suy ngẫm trong đời, Robin Sharma tiếp tục phong cách viết của ông từ cuốn sách Điều vĩ đại đời thường để mang đến cho độc giả những bài viết như lời tâm sự, vừa chân thành vừa sâu sắc.",Quantity=50},
-                    new Book(){BookTitle="Nếu tôi biết khi còn 20",Author="Tina Seelig",BookCategoryFK=4,MerchantFK=1,isPaperback=true,UnitPrice=44000, Length=21, Height=270, Width=14,PageNumber=252,Description="Thông qua quyển sách, tác giả còn muốn các độc giả, đặc biệt là độc giả trẻ, sẽ được  bị đủ sự tự tin để biến căng thẳng thành sự hào hứng, biến thử thách thành các cơ hội, và cứ sau mỗi lần vấp ngã lại đứng lên trưởng thành hơn.",Quantity=50},
-                    new Book(){BookTitle="Café sáng cùng Tony",Author="Tony",BookCategoryFK=4,MerchantFK=1,isPaperback=false,UnitPrice=55000, Length=21, Height=340, Width=15,PageNumber=323,Description="Chúng tôi tin rằng những người trẻ tuổi luôn mang trong mình khát khao vươn lên và tấm lòng hướng thiện, và có nhiều cách để động viên họ biến điều đó thành hành động. Nếu như tập sách nhỏ này có thể khơi gợi trong lòng bạn đọc trẻ một cảm hứng tốt đẹp, như tách cà phê thơm vào đầu ngày nắng mới, thì đó là niềm vui lớn của tác giả Tony Buổi Sáng.",Quantity=46},
-                    new Book(){BookTitle="Tuổi trẻ đáng giá bao nhiêu ?",Author="Chi",BookCategoryFK=4,MerchantFK=2,isPaperback=true,UnitPrice=65000, Length=21, Height=155, Width=16,PageNumber=234,Description="Hãy đọc sách, nếu bạn đọc sách một cách bền bỉ, sẽ đến lúc bạn bị thôi thúc không ngừng bởi ý muốn viết nên cuốn sách của riêng mình. Nếu tôi còn ở tuổi đôi mươi, hẳn là tôi sẽ đọc Tuổi trẻ đáng giá bao nhiêu? nhiều hơn một lần.",Quantity=45},
-                    new Book(){BookTitle="Tokyo Hoàng Đạo Án",Author="Soji Shimada",BookCategoryFK=1,MerchantFK=1,isPaperback=false,UnitPrice=45000, Length=21, Height=157, Width=17,PageNumber=332,Description="Tiểu thuyết trinh thám kinh dị",Quantity=47},
-                    new Book(){BookTitle="Athoner",Author="Yukito Ayatsuji",BookCategoryFK=1,MerchantFK=2,isPaperback=true,UnitPrice=40000, Length=21, Height=247, Width=18,PageNumber=231,Description="Hai mươi sáu năm về trước có một học sinh hoàn thiện hoàn mĩ. Rất đẹp, rất giỏi, rất hòa đồng, ai cũng yêu quý, những lời tán tụng người ấy được truyền mãi qua các thế hệ học sinh của trường. Nhưng tên đầy đủ là gì, chết đi thế nào, thậm chí giới tính ra sao lại không một ai hay biết. Người ta chỉ rỉ tai nhau, bỗng nhiên giữa năm bạn ấy chết, trường lớp không sao thoát được nỗi buồn nhớ thương, họ bèn cư xử như thể học sinh này còn tồn tại. Bàn ghế để nguyên, bạn cùng lớp vẫn giả vờ nói chuyện với người đã khuất.",Quantity=34},
-                    new Book(){BookTitle="Kỹ Thuật Làm Bánh Ngọt - Cuốn Sách Cho Người Bắt Đầu Học Làm Bánh",Author="Thảo",BookCategoryFK=2,MerchantFK=1,isPaperback=true,UnitPrice=20000, Length=32, Height=450, Width=19,PageNumber=332,Description="Cuốn Sách Cho Người Bắt Đầu Học Làm Bánh là những kiến thức cơ bản nhất mà một người bắt đầu làm quen với bột, lò nướng cần có: Gồm các kiến thức chung về nguyên liệu, dụng cụ làm bánh, các kỹ năng làm bánh cơ bản. Cuốn sách còn cung cấp các công thức làm bánh Cookies. Muffin, Cream Cake, Tart đơn giản, dễ làm nhưng cũng rất hấp dẫn, ngon miệng.",Quantity=43},
-                    new Book(){BookTitle="150 Thuật Ngữ Văn Học",Author="Lại Nguyên Ân",BookCategoryFK=2,MerchantFK=2,isPaperback=false,UnitPrice=10000, Length=7, Height=643, Width=20,PageNumber=588,Description="150 Thuật Ngữ Văn Học - Với khoảng trên 150 mục từ THUẬT NGỮ VĂN HỌC, cuốnsách nhỏ này chưa thể bao quát toàn bộ các bình diện, cấp độ, sắc thái của một loại hiện tượng văn hoá nhân bản đặc sắc và vô cùng phong phú là văn học và các chuyên ngành nghiên cứu nó…",Quantity=42},
-                    new Book(){BookTitle="Truyện ngụ ngôn Êdốp",Author="êdop",BookCategoryFK=3,MerchantFK=1,isPaperback=true,UnitPrice=36000, Length=13, Height=342, Width=21,PageNumber=46,Description="Truyện tranh thiếu nhi",Quantity=46},
-                    new Book(){BookTitle="Alixơ ở xứ sở diệu kỳ",Author="Hàn Thuyên",BookCategoryFK=3,MerchantFK=2,isPaperback=false,UnitPrice=120000, Length=21, Height=222, Width=22,PageNumber=132,Description="Truyện tranh thiếu nhi",Quantity=46},
+                    new Book(){Status=Status.Active, BookTitle="Đắc Nhân Tâm",Author="Dale Carnegie",BookCategoryFK=4,MerchantFK=1,isPaperback=false,UnitPrice=45000, Length=21, Height=200, Width=12,PageNumber=320,Description="Đắc Nhân Tâm nằm trong top bán chạy nhất thế giới",Quantity=50},
+                    new Book(){Status=Status.Active, BookTitle="Đời ngắn đừng ngủ dài",Author="Robins Sharma",BookCategoryFK=4,MerchantFK=2,isPaperback=true,UnitPrice=46000, Length=21, Height=150, Width=13,PageNumber=239,Description="Bằng những lời chia sẻ thật ngắn gọn, dễ hiểu về những trải nghiệm và suy ngẫm trong đời, Robin Sharma tiếp tục phong cách viết của ông từ cuốn sách Điều vĩ đại đời thường để mang đến cho độc giả những bài viết như lời tâm sự, vừa chân thành vừa sâu sắc.",Quantity=50},
+                    new Book(){Status=Status.Active, BookTitle="Nếu tôi biết khi còn 20",Author="Tina Seelig",BookCategoryFK=4,MerchantFK=1,isPaperback=true,UnitPrice=44000, Length=21, Height=270, Width=14,PageNumber=252,Description="Thông qua quyển sách, tác giả còn muốn các độc giả, đặc biệt là độc giả trẻ, sẽ được  bị đủ sự tự tin để biến căng thẳng thành sự hào hứng, biến thử thách thành các cơ hội, và cứ sau mỗi lần vấp ngã lại đứng lên trưởng thành hơn.",Quantity=50},
+                    new Book(){Status=Status.Active, BookTitle="Café sáng cùng Tony",Author="Tony",BookCategoryFK=4,MerchantFK=1,isPaperback=false,UnitPrice=55000, Length=21, Height=340, Width=15,PageNumber=323,Description="Chúng tôi tin rằng những người trẻ tuổi luôn mang trong mình khát khao vươn lên và tấm lòng hướng thiện, và có nhiều cách để động viên họ biến điều đó thành hành động. Nếu như tập sách nhỏ này có thể khơi gợi trong lòng bạn đọc trẻ một cảm hứng tốt đẹp, như tách cà phê thơm vào đầu ngày nắng mới, thì đó là niềm vui lớn của tác giả Tony Buổi Sáng.",Quantity=46},
+                    new Book(){Status=Status.Active, BookTitle="Tuổi trẻ đáng giá bao nhiêu ?",Author="Chi",BookCategoryFK=4,MerchantFK=2,isPaperback=true,UnitPrice=65000, Length=21, Height=155, Width=16,PageNumber=234,Description="Hãy đọc sách, nếu bạn đọc sách một cách bền bỉ, sẽ đến lúc bạn bị thôi thúc không ngừng bởi ý muốn viết nên cuốn sách của riêng mình. Nếu tôi còn ở tuổi đôi mươi, hẳn là tôi sẽ đọc Tuổi trẻ đáng giá bao nhiêu? nhiều hơn một lần.",Quantity=45},
+                    new Book(){Status=Status.Active, BookTitle="Tokyo Hoàng Đạo Án",Author="Soji Shimada",BookCategoryFK=1,MerchantFK=1,isPaperback=false,UnitPrice=45000, Length=21, Height=157, Width=17,PageNumber=332,Description="Tiểu thuyết trinh thám kinh dị",Quantity=47},
+                    new Book(){Status=Status.Active, BookTitle="Athoner",Author="Yukito Ayatsuji",BookCategoryFK=1,MerchantFK=2,isPaperback=true,UnitPrice=40000, Length=21, Height=247, Width=18,PageNumber=231,Description="Hai mươi sáu năm về trước có một học sinh hoàn thiện hoàn mĩ. Rất đẹp, rất giỏi, rất hòa đồng, ai cũng yêu quý, những lời tán tụng người ấy được truyền mãi qua các thế hệ học sinh của trường. Nhưng tên đầy đủ là gì, chết đi thế nào, thậm chí giới tính ra sao lại không một ai hay biết. Người ta chỉ rỉ tai nhau, bỗng nhiên giữa năm bạn ấy chết, trường lớp không sao thoát được nỗi buồn nhớ thương, họ bèn cư xử như thể học sinh này còn tồn tại. Bàn ghế để nguyên, bạn cùng lớp vẫn giả vờ nói chuyện với người đã khuất.",Quantity=34},
+                    new Book(){Status=Status.Active, BookTitle="Kỹ Thuật Làm Bánh Ngọt - Cuốn Sách Cho Người Bắt Đầu Học Làm Bánh",Author="Thảo",BookCategoryFK=2,MerchantFK=1,isPaperback=true,UnitPrice=20000, Length=32, Height=450, Width=19,PageNumber=332,Description="Cuốn Sách Cho Người Bắt Đầu Học Làm Bánh là những kiến thức cơ bản nhất mà một người bắt đầu làm quen với bột, lò nướng cần có: Gồm các kiến thức chung về nguyên liệu, dụng cụ làm bánh, các kỹ năng làm bánh cơ bản. Cuốn sách còn cung cấp các công thức làm bánh Cookies. Muffin, Cream Cake, Tart đơn giản, dễ làm nhưng cũng rất hấp dẫn, ngon miệng.",Quantity=43},
+                    new Book(){Status=Status.Active, BookTitle="150 Thuật Ngữ Văn Học",Author="Lại Nguyên Ân",BookCategoryFK=2,MerchantFK=2,isPaperback=false,UnitPrice=10000, Length=7, Height=643, Width=20,PageNumber=588,Description="150 Thuật Ngữ Văn Học - Với khoảng trên 150 mục từ THUẬT NGỮ VĂN HỌC, cuốnsách nhỏ này chưa thể bao quát toàn bộ các bình diện, cấp độ, sắc thái của một loại hiện tượng văn hoá nhân bản đặc sắc và vô cùng phong phú là văn học và các chuyên ngành nghiên cứu nó…",Quantity=42},
+                    new Book(){Status=Status.Active, BookTitle="Truyện ngụ ngôn Êdốp",Author="êdop",BookCategoryFK=3,MerchantFK=1,isPaperback=true,UnitPrice=36000, Length=13, Height=342, Width=21,PageNumber=46,Description="Truyện tranh thiếu nhi",Quantity=46},
+                    new Book(){Status=Status.Active, BookTitle="Alixơ ở xứ sở diệu kỳ",Author="Hàn Thuyên",BookCategoryFK=3,MerchantFK=2,isPaperback=false,UnitPrice=120000, Length=21, Height=222, Width=22,PageNumber=132,Description="Truyện tranh thiếu nhi",Quantity=46},
 
                     });
 
@@ -480,8 +502,8 @@ namespace BeYeuBookstore.Data.EF
                 {
                         _context.Invoices.AddRange(new List<Invoice>()
                     {
-                            new Invoice(){ CustomerFK=1,TotalPrice=0},
-                            new Invoice(){ CustomerFK=1,TotalPrice=0}
+                            new Invoice(){ CustomerFK=1,TotalPrice=0,DeliAddress="Lầu 19 Landmark 81 Q.Bình Thạnh", DeliContactName="Mỡ's Má", DeliContactHotline="0908468188"},
+                            new Invoice(){ CustomerFK=1,TotalPrice=0,DeliAddress="Lầu 19 Landmark 81 Q.Bình Thạnh", DeliContactName="Mỡ's Ba", DeliContactHotline="0908466048"}
                     });
              
                 }

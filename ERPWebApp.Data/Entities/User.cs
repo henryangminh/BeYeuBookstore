@@ -53,7 +53,6 @@ namespace BeYeuBookstore.Data.Entities
 
         public DateTime? DateCreated { get; set; }
         public DateTime? DateModified { get; set; }
-
         public int UserTypeFK { get; set; }
         //Kiểm duyệt theo nhiều trường hợp
         public Status Status { get; set; }

@@ -4,13 +4,13 @@
 @inject IAuthorizationService AuthorizationService
 @{
     //kiểm tra quyền tạo đối với nut create cho hiểu thị nut
-    var result_edit = await AuthorizationService.AuthorizeAsync(User, Const_FunctionId.AllowedVacation, Operations.Create);
+    var result_edit = await AuthorizationService.AuthorizeAsync(User, Const_FunctionId.Advertiser, Operations.Create);
     //kiểm tra quyền tạo đối với nut delete cho hiểu thị nut
-    var result_delete = await AuthorizationService.AuthorizeAsync(User, Const_FunctionId.AllowedVacation, Operations.Delete);
+    var result_delete = await AuthorizationService.AuthorizeAsync(User, Const_FunctionId.Advertiser, Operations.Delete);
     //kiểm tra quyền tạo đối với nut update cho hiểu thị nut
-    var result_create = await AuthorizationService.AuthorizeAsync(User, Const_FunctionId.AllowedVacation, Operations.Update);
+    var result_create = await AuthorizationService.AuthorizeAsync(User, Const_FunctionId.Advertiser, Operations.Update);
     //kiểm tra quyền tạo đối với nut delete cho hiểu thị nut
-    var result_confirm = await AuthorizationService.AuthorizeAsync(User, Const_FunctionId.AllowedVacation, Operations.Confirm);
+    var result_confirm = await AuthorizationService.AuthorizeAsync(User, Const_FunctionId.Advertiser, Operations.Confirm);
 }
 @{
     ViewData["Title"] = "Index";

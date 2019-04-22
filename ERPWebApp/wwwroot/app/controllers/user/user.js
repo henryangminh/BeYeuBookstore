@@ -262,6 +262,7 @@
                 general.startLoading();
             },
             success: function (response) {
+                console.log("user", response);
                 var template = $('#table-template').html();
                 var render = "";
                 if (response.RowCount > 0) {
@@ -270,6 +271,7 @@
                             FullName: item.FullName,
                             Id: item.Id,
                             Email: item.Email,
+                            //UserType: item.UserTypeFK.UserTypeName,
                             Avatar: item.Avatar === null ? '<img src="/images/user/user.png" width=25 />' : '<img src="' + item.Avatar + '" width=25 />',
                             DateModify: general.dateTimeFormatJson(item.DateModified),
                             Status: general.getStatus(item.Status)

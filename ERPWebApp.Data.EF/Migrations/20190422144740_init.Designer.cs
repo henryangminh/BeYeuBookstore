@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BeYeuBookstore.Data.EF.Migrations
 {
     [DbContext(typeof(ERPDbContext))]
-    [Migration("20190420144706_initblablabla")]
-    partial class initblablabla
+    [Migration("20190422144740_init")]
+    partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -167,6 +167,8 @@ namespace BeYeuBookstore.Data.EF.Migrations
 
                     b.Property<int>("RatingNumber");
 
+                    b.Property<int>("Status");
+
                     b.Property<decimal>("UnitPrice");
 
                     b.Property<int?>("Width");
@@ -188,6 +190,8 @@ namespace BeYeuBookstore.Data.EF.Migrations
                         .ValueGeneratedOnAdd();
 
                     b.Property<string>("BookCategoryName");
+
+                    b.Property<int>("Status");
 
                     b.HasKey("KeyId");
 

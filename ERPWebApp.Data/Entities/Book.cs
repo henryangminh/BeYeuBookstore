@@ -1,4 +1,5 @@
-﻿using BeYeuBookstore.Data.Interfaces;
+﻿using BeYeuBookstore.Data.Enums;
+using BeYeuBookstore.Data.Interfaces;
 using BeYeuBookstore.Infrastructure.SharedKernel;
 using System;
 using System.Collections.Generic;
@@ -10,7 +11,7 @@ namespace BeYeuBookstore.Data.Entities
     {
         public Book() { }
 
-        public Book(int keyId, string bookTitle, string author, int bookCategoryFK, int merchantFK, bool isPaperback, decimal unitPrice, int? length, int? height, int? width, int pageNumber, string description, int quantity, DateTime? dateCreated, DateTime? dateModified)
+        public Book(int keyId, string bookTitle, string author, int bookCategoryFK, int merchantFK, bool isPaperback, decimal unitPrice, int? length, int? height, int? width, int pageNumber, string description, int quantity,int ratingNumber, double rating, Status status ,DateTime? dateCreated, DateTime? dateModified)
         {
             KeyId = keyId;
             BookTitle = bookTitle;
@@ -26,6 +27,9 @@ namespace BeYeuBookstore.Data.Entities
             Description = description;
             DateCreated = dateCreated;
             Quantity = quantity;
+            RatingNumber = ratingNumber;
+            Rating = rating;
+            Status = status;
             DateModified = dateModified;
         }
 
@@ -52,7 +56,7 @@ namespace BeYeuBookstore.Data.Entities
         /// </summary>
         public int RatingNumber { get; set; }
         public double Rating { get; set; }
-
+        public Status Status { get; set; } 
         public DateTime? DateCreated { get; set; }
         public DateTime? DateModified { get; set; }
         //

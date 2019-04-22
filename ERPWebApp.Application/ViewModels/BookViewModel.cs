@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BeYeuBookstore.Data.Enums;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -25,6 +26,12 @@ namespace BeYeuBookstore.Application.ViewModels
         public int PageNumber { get; set; }
         public string Description { get; set; }
         public int Quantity { get; set; }
+        /// <summary>
+        /// Đánh giá
+        /// </summary>
+        public int RatingNumber { get; set; }
+        public double Rating { get; set; }
+        public Status Status { get; set; }
         public DateTime? DateCreated { get; set; }
         public DateTime? DateModified { get; set; }
         //
