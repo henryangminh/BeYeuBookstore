@@ -30,7 +30,7 @@ namespace BeYeuBookstore.Controllers
         public IActionResult GetAll(int quantity)
         {
             var model = _bookService.GetAll(quantity);
-            return model;
+            return new OkObjectResult(model);
         }
         #endregion
     }
