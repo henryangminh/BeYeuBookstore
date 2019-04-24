@@ -1,4 +1,5 @@
-﻿using BeYeuBookstore.Data.IRepositories;
+﻿using BeYeuBookstore.Data.Entities;
+using BeYeuBookstore.Data.IRepositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,5 +29,6 @@ namespace BeYeuBookstore.Data.EF.Repositories
             foreach (var item in roles)
                 Remove(userid, item);
         }
+
     }
 }
