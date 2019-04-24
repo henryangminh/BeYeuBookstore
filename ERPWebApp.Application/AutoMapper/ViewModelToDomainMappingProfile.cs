@@ -55,7 +55,7 @@ namespace BeYeuBookstore.Application.AutoMapper
 
             CreateMap<InvoiceDetailViewModel, InvoiceDetail>().ConstructUsing(c => new InvoiceDetail(c.KeyId,c.BookFK,c.Qty,c.UnitPrice,c.SubTotal,c.DateCreated,c.DateModified));
 
-            CreateMap<DeliveryViewModel, Delivery>().ConstructUsing(c => new Delivery(c.KeyId,c.InvoiceFK,c.DeliveryStatus,c.MerchantFK,c.TotalPrice,c.DateCreated,c.DateModified));
+            CreateMap<DeliveryViewModel, Delivery>().ConstructUsing(c => new Delivery(c.KeyId,c.InvoiceFK,c.DeliveryStatus,c.MerchantFK,c.OrderPrice,c.ShipPrice,c.DateCreated,c.DateModified));
 
             CreateMap<RatingDetailViewModel, RatingDetail>().ConstructUsing(c => new RatingDetail(c.KeyId, c.BookFK, c.CustomerFK, c.Rating, c.Comment, c.DateCreated, c.DateModified));
 

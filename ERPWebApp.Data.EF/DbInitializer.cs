@@ -540,10 +540,10 @@ namespace BeYeuBookstore.Data.EF
                 {
                     _context.Deliveries.AddRange(new List<Delivery>()
                     {
-                            new Delivery(){ InvoiceFK=1,MerchantFK=1,DeliveryStatus=1, TotalPrice=0},
-                            new Delivery(){ InvoiceFK=1,MerchantFK=2,DeliveryStatus=1, TotalPrice=0},
-                            new Delivery(){ InvoiceFK=2,MerchantFK=1,DeliveryStatus=1, TotalPrice=0},
-                            new Delivery(){ InvoiceFK=2,MerchantFK=2,DeliveryStatus=1, TotalPrice=0},
+                            new Delivery(){ InvoiceFK=1,MerchantFK=1,DeliveryStatus=1, OrderPrice=0},
+                            new Delivery(){ InvoiceFK=1,MerchantFK=2,DeliveryStatus=1, OrderPrice=0},
+                            new Delivery(){ InvoiceFK=2,MerchantFK=1,DeliveryStatus=1, OrderPrice=0},
+                            new Delivery(){ InvoiceFK=2,MerchantFK=2,DeliveryStatus=1, OrderPrice=0},
                     });
 
                 }

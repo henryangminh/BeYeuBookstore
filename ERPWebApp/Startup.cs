@@ -175,7 +175,7 @@ namespace BeYeuBookstore
             services.AddTransient<IWebMasterService, WebMasterService>();
             services.AddTransient<IWebMasterTypeService, WebMasterTypeService>();
             services.AddTransient<IFunctionService, FunctionService>();
-           // services.AddTransient<IPermissionService, PermissionService>();
+            //services.AddTransient<IPermissionService, PermissionService>();
             services.AddTransient<IUserService,UserService>();
             services.AddTransient<IRoleService, RoleService>();
 

@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BeYeuBookstore.Data.EF.Migrations
 {
     [DbContext(typeof(ERPDbContext))]
-    [Migration("20190424051554_intitnitninit")]
-    partial class intitnitninit
+    [Migration("20190424174518_init")]
+    partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -232,7 +232,9 @@ namespace BeYeuBookstore.Data.EF.Migrations
 
                     b.Property<int>("MerchantFK");
 
-                    b.Property<decimal>("TotalPrice");
+                    b.Property<decimal>("OrderPrice");
+
+                    b.Property<decimal>("ShipPrice");
 
                     b.HasKey("KeyId");
 
