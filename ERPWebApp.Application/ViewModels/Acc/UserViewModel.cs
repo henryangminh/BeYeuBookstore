@@ -58,5 +58,10 @@ namespace BeYeuBookstore.Application.ViewModels.System
         public string LastupdatedName { get; set; }
 
         public List<string> Roles { get; set; }
+        public virtual UserTypeViewModel UserTypeFKNavigation { get; set; }
+        public virtual CustomerViewModel CustomerFKNavigation { get; set; }
+        public virtual AdvertiserViewModel AdvertiserFKNavigation { get; set; }
+        public virtual MerchantViewModel MerchantFKNavigation { get; set; }
+        public virtual WebMasterViewModel WebMasterFKNavigation { get; set; }
     }
 }
