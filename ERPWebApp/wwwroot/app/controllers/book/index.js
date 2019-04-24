@@ -148,7 +148,7 @@
 
         $('#btnSave').on('click', function (e) {
             if ($('#txtMerchantStatus').val() == 0) {
-                general.notify('Tài khoản của bạn đã bị Khóa, vui lòng liên hệ Webmaster để biết thêm chi tiết!', 'error');
+                general.notify('Nhà cung cấp đã bị Khóa, vui lòng liên hệ Webmaster để biết thêm chi tiết!', 'error');
                 return false;
             }
             else {
@@ -179,7 +179,7 @@
                     var price = $('#txtPrice').val();
                     var description = $('#txtDescription').val();
                     var quantity = 0;
-
+                    var status = $('#selStatus option:selected').val();
                     $.ajax({
                         type: 'POST',
                         url: '/Book/SaveEntity',
@@ -197,6 +197,7 @@
                             UnitPrice: price,
                             Description: description,
                             Quantity: quantity,
+                            Status: status,
                         },
                         dataType: "json",
                         beforeSend: function () {
@@ -259,7 +260,7 @@
                 general.startLoading();
             },
             success: function (response) {
-                console.log("loaddetail", response);
+                console.log("loaddetailbook", response);
                 var data = response;
                 
                 $('#txtId').val(data.KeyId);
@@ -267,6 +268,7 @@
                 $('#dtDateCreated').val(moment(data.DateCreated).format("DD/MM/YYYY"));
                 $('#dtDateModified').val(moment(data.DateModified).format("DD/MM/YYYY"));
                 $('#txtMerchantKeyId').val(data.MerchantFKNavigation.KeyId);
+                $('#txtMerchantStatus').val(data.MerchantFKNavigation.Status);
                 $('#txtBooktitle').val(data.BookTitle);
                 $('#txtAuthor').val(data.Author);
                 $('#selBookcategory').val(data.BookCategoryFK);
@@ -282,7 +284,9 @@
                 $('#txtPageNumber').val(data.PageNumber);
                 $('#txtPrice').val(data.UnitPrice);
                 $('#txtDescription').val(data.Description);
+                $('#selStatus').val(data.Status);
                 $('#modal-add-edit').modal('show');
+
                 general.stopLoading();
 
             },
@@ -317,7 +321,18 @@ function loadData(isPageChanged) {
             console.log("data", response);
             var order = 1;
             $.each(response.Results, function (i, item) {
-                
+                var _color = '';
+                var _statusName = '';
+                switch (item.Status) {
+                    case general.status.Active:
+                        _color = 'green';
+                        _statusName = 'Kích hoạt';
+                        break;
+                    case general.status.InActive:
+                        _color = 'red'
+                        _statusName = 'Khóa';
+                        break;
+                }
                 render += Mustache.render(template, {
                     
                     KeyId: item.KeyId,
@@ -327,6 +342,7 @@ function loadData(isPageChanged) {
                     BookType: item.BookCategoryFKNavigation.BookCategoryName,
                     UnitPrice: item.UnitPrice,
                     Qty: item.Quantity,
+                    Status: '<span class="badge bg-' + _color + '">' + _statusName + '</span>',
                     Description: item.Description,
                     
                 });
@@ -339,7 +355,7 @@ function loadData(isPageChanged) {
                 loadData();
             }, isPageChanged);
         },
-        error: function (status) {
+        error: function (XMLHttpRequest,textStatus,errorThrown) {
             console.log(status);
             general.notify('Không thể load dữ liệu', 'error');
         }

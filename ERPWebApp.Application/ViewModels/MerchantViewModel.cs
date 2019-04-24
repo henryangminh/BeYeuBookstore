@@ -51,7 +51,10 @@ namespace BeYeuBookstore.Application.ViewModels
         public Status Status { get; set; }
         //Quy mô của Merchant
         public Scale Scales { get; set; }
-        //Ngày thành lập
+
+        /// <summary>
+        /// Ngày thành lập
+        /// </summary>
         public DateTime EstablishDate { get; set; }
 
         public DateTime? DateCreated { get; set; }
