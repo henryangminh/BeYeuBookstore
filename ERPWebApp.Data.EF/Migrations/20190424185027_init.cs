@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace BeYeuBookstore.Data.EF.Migrations
 {
-    public partial class beyeubookstore : Migration
+    public partial class init : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -563,7 +563,9 @@ namespace BeYeuBookstore.Data.EF.Migrations
                     InvoiceFK = table.Column<int>(nullable: false),
                     DeliveryStatus = table.Column<int>(nullable: false),
                     MerchantFK = table.Column<int>(nullable: false),
-                    TotalPrice = table.Column<decimal>(nullable: false),
+                    OrderPrice = table.Column<decimal>(nullable: false),
+                    ShipPrice = table.Column<decimal>(nullable: false),
+                    Note = table.Column<string>(nullable: true),
                     DateCreated = table.Column<DateTime>(nullable: true),
                     DateModified = table.Column<DateTime>(nullable: true)
                 },

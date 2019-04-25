@@ -186,6 +186,24 @@ namespace BeYeuBookstore.Application.Implementation.Acc
             }
             return false;
         }
+
+        public async Task<bool> UpdateByCustomer(UserViewModel userVm)
+        {
+            var user = await _userManager.FindByIdAsync(userVm.Id.ToString());
+            if (user != null)
+            {
+                user.FullName = userVm.FullName;
+                user.Address = userVm.Address;
+                user.PhoneNumber = userVm.PhoneNumber;
+                user.Gender = userVm.Gender;
+                user.Status = userVm.Status;
+                var result = await _userManager.UpdateAsync(user);
+
+                return result.Succeeded;
+            }
+                return false;
+        }
+
         public async Task<bool> UpdateAddressBookAsync(UserViewModel userVm)
         {
             var user = await _userManager.FindByIdAsync(userVm.Id.ToString());

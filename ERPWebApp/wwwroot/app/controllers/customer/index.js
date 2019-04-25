@@ -87,21 +87,19 @@
             ignore: [],
             lang: 'vi',
             rules: {
-                selRequestTo:
+                txtFullName:
                 {
                     required: true
                 },
-                seldetailTimeKeepingType:
-                {
+            
+                seldetailStatus: {
                     required: true
                 },
-                txtFromdate: {
-                    required: true
+                txtPhoneNumber: {
+                    required: true,
+                    number: true,
                 },
-                txtTodate: {
-                    required: true
-                },
-                txtReason: {
+                txtAddress: {
                     required: true
                 }
             }
@@ -111,21 +109,23 @@
         $('#btnSave').on('click', function (e) {
             if ($('#frmMaintainance').valid()) {
                 e.preventDefault();
-                var keyId;
-                if ($('#txtId').val() == "") {
-                    keyId = 0;
-                }
-                else {
-                    keyId = parseInt($('#txtId').val());
-                }
-                var statusFK;
-                var name = $('#txtName').val();
+                var keyId = $('#txtGuidId').val();
+                var fullName = $('#txtFullName').val();
+                var phoneNumber = $('#txtPhoneNumber').val();
+                var address = $('#txtAddress').val();
+                var gender = $('#selGender option:selected').val();
+                var status = $('#seldetailStatus option:selected').val();
+
                 $.ajax({
                     type: 'POST',
                     url: '/Customer/SaveEntity',
                     data: {
-                        KeyId: keyId,
-                        BookCategoryName: name,
+                        Id: keyId,
+                        FullName: fullName,
+                        PhoneNumber: phoneNumber,
+                        Address: address,
+                        Gender: gender,
+                        Status: status,
                     },
                     dataType: "json",
                     beforeSend: function () {
@@ -177,12 +177,15 @@
                 var data = response;
 
                 $('#txtId').val(data.KeyId);
+                $('#txtGuidId').val(data.UserBy.Id);
                 $('#txtUserName').val(data.UserBy.UserName);
-                $('#dtDateCreated').val(data.DateCreated);
-                $('#dtDateModified').val(data.DateModified);
-                $('#txtBrandName').val(data.BrandName);
-                $('#txtUrlToBrand').val(data.UrlToBrand);
-                $('#selStatus').val(data.Status);
+                $('#dtDateCreated').val(moment(data.DateCreated).format("DD/MM/YYYY"));
+                $('#dtDateModified').val(moment(data.DateModified).format("DD/MM/YYYY"));
+                $('#txtFullName').val(data.UserBy.FullName);
+                $('#selGender').val(data.UserBy.Gender);
+                $('#seldetailStatus').val(data.UserBy.Status);
+                $('#txtPhoneNumber').val(data.UserBy.PhoneNumber);
+                $('#txtAddress').val(data.UserBy.Address);
                 $('#modal-add-edit').modal('show');
                 general.stopLoading();
 

@@ -116,5 +116,17 @@ namespace BeYeuBookstore.Application.Implementation
                 temp.DeliveryStatus = DeliveryViewModel.DeliveryStatus;
             }
         }
+
+        public void UpdateStatus(DeliveryViewModel DeliveryViewModel)
+        {
+            var temp = _deliveryRepository.FindById(DeliveryViewModel.KeyId);
+            if (temp != null)
+            {
+                temp.DeliveryStatus = DeliveryViewModel.DeliveryStatus;
+                temp.OrderPrice = DeliveryViewModel.OrderPrice;
+                temp.ShipPrice = DeliveryViewModel.ShipPrice;
+                temp.Note = DeliveryViewModel.Note;
+            }
+        }
     }
 }

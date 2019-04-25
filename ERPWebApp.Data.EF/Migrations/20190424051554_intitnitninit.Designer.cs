@@ -3,14 +3,16 @@ using System;
 using BeYeuBookstore.Data.EF;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace BeYeuBookstore.Data.EF.Migrations
 {
     [DbContext(typeof(ERPDbContext))]
-    partial class ERPDbContextModelSnapshot : ModelSnapshot
+    [Migration("20190424051554_intitnitninit")]
+    partial class intitnitninit
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -230,11 +232,7 @@ namespace BeYeuBookstore.Data.EF.Migrations
 
                     b.Property<int>("MerchantFK");
 
-                    b.Property<string>("Note");
-
-                    b.Property<decimal>("OrderPrice");
-
-                    b.Property<decimal>("ShipPrice");
+                    b.Property<decimal>("TotalPrice");
 
                     b.HasKey("KeyId");
 

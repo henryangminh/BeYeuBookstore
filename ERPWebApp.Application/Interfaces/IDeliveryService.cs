@@ -19,6 +19,9 @@ namespace BeYeuBookstore.Application.Interfaces
 
         List<DeliveryViewModel> GetAll(int id);
 
+        void UpdateStatus(DeliveryViewModel DeliveryViewModel);
+
+
         DeliveryViewModel GetById(int id);
 
         bool Save();
