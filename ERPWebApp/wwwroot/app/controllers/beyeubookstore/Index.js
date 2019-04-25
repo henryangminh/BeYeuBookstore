@@ -97,10 +97,9 @@ function loadData(isPageChanged) {
         success: function (response) {
             console.log("data", response);
             //var order = 1;
-            $.each(response.Results, function (i, item) {
+            $.each(response, function (i, item) {
 
                 render += Mustache.render(template, {
-
                     BookImage: '/images/img/product/10.jpg', //để tạm thời
                     BookRating: 5.0, //item.BookRating, //Rating //Để tạm thời thôi
                     BookTitle: item.BookTitle,
@@ -109,8 +108,8 @@ function loadData(isPageChanged) {
                 });
                 //order++;
             });
-            $('#lblTotalRecords').text(response.RowCount);
-            $('#tbl-content').html(render);
+            //$('#lblTotalRecords').text(response.RowCount);
+            $('#book-content').html(render);
             wrapPaging(response.RowCount, function () {
                 loadData();
             }, isPageChanged);
