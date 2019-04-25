@@ -230,6 +230,8 @@ namespace BeYeuBookstore.Data.EF.Migrations
 
                     b.Property<int>("MerchantFK");
 
+                    b.Property<string>("Note");
+
                     b.Property<decimal>("OrderPrice");
 
                     b.Property<decimal>("ShipPrice");

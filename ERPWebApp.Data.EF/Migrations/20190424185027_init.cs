@@ -565,6 +565,7 @@ namespace BeYeuBookstore.Data.EF.Migrations
                     MerchantFK = table.Column<int>(nullable: false),
                     OrderPrice = table.Column<decimal>(nullable: false),
                     ShipPrice = table.Column<decimal>(nullable: false),
+                    Note = table.Column<string>(nullable: true),
                     DateCreated = table.Column<DateTime>(nullable: true),
                     DateModified = table.Column<DateTime>(nullable: true)
                 },

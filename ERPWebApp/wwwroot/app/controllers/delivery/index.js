@@ -121,6 +121,7 @@
                 var status = $('#selDeliStatus option:selected').val();
                 var orderPrice = parseInt($('#txtOrderPrice').val());
                 var shipPrice = $('#txtShip').val();
+                var note = $('#txtNote').val();
                 $.ajax({
                     type: 'POST',
                     url: '/Delivery/UpdateStatus',
@@ -129,6 +130,7 @@
                         DeliveryStatus: status,
                         OrderPrice: orderPrice,
                         ShipPrice: shipPrice,
+                        Note: note,
                     },
                     dataType: "json",
                     beforeSend: function () {
@@ -247,6 +249,7 @@
                 $('#txtDeliAddress').val(response.InvoiceFKNavigation.DeliAddress);
                 $('#txtOrderPrice').val(response.OrderPrice);
                 $('#txtShip').val(response.ShipPrice);
+                $('#txtNote').val(response.Note);
                
                 $('#selDeliStatus').val(response.DeliveryStatus);
                 $.ajax({

@@ -11,7 +11,7 @@ namespace BeYeuBookstore.Data.Entities
     {
         public Delivery() { }
 
-        public Delivery(int keyId, int invoiceFK, int deliveryStatus, int merchantFK, decimal totalPrice,decimal shipPrice, DateTime? dateCreated, DateTime? dateModified)
+        public Delivery(int keyId, int invoiceFK, int deliveryStatus, int merchantFK, decimal totalPrice,decimal shipPrice,string note, DateTime? dateCreated, DateTime? dateModified)
         {
             KeyId = keyId;
             InvoiceFK = invoiceFK;
@@ -19,6 +19,7 @@ namespace BeYeuBookstore.Data.Entities
             MerchantFK = merchantFK;
             OrderPrice = totalPrice;
             ShipPrice = shipPrice;
+            Note = note;
             DateCreated = dateCreated;
             DateModified = dateModified;
         }
@@ -28,6 +29,7 @@ namespace BeYeuBookstore.Data.Entities
         public int MerchantFK { get; set; }
         public decimal OrderPrice { get; set; }
         public decimal ShipPrice { get; set; }
+        public string Note { get; set; }
         public DateTime? DateCreated { get; set; }
         public DateTime? DateModified { get; set; }
         //

@@ -125,6 +125,7 @@ namespace BeYeuBookstore.Application.Implementation
                 temp.DeliveryStatus = DeliveryViewModel.DeliveryStatus;
                 temp.OrderPrice = DeliveryViewModel.OrderPrice;
                 temp.ShipPrice = DeliveryViewModel.ShipPrice;
+                temp.Note = DeliveryViewModel.Note;
             }
         }
     }
