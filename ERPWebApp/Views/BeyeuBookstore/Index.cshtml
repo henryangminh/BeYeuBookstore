@@ -283,6 +283,13 @@
                     </div>
                 </div>
                 <!-- banner-area-5-end -->
+                <div class="new-book-area ptb-50">
+                    <div class="section-title-2 mb-30">
+                        <h3>Sách mới</h3>
+                    </div>
+                    <div id="LoadBook">
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -308,55 +315,34 @@
 
 <!-- script -->
 <script id="bookcase" type="x-tmpl-mustache">
-    <div class="tab-content">
-        <div class="tab-pane active" id="Audiobooks">
-            <div class="tab-active owl-carousel">
-                <div class="product-wrapper">
-                    <div class="product-img">
-                        <a href="#">
-                            <img src="{{BookImage}}" alt="book" class="primary" />
-                        </a>
-                        <div class="quick-view">
-                            <a class="action-view" href="#" data-target="#productModal" data-toggle="modal" title="Quick View">
-                                <i class="fa fa-search-plus"></i>
-                            </a>
-                        </div>
-                        <div class="product-flag">
-                            <ul>
-                                <li><span class="sale">new</span></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="product-details text-center">
-                        <div class="product-rating">
-                            <ul>
-                                <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                <li><a href="#"><i class="fa fa-star"></i></a></li>
-                            </ul>
-                        </div>
-                        <h4><a href="#">{{BookTitle}}</a></h4>
-                        <div class="product-price">
-                            <ul>
-                                <li>{{BookPrice}}</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="product-link">
-                        <div class="product-button">
-                            <a href="#" title="Add to cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-                        </div>
-                        <div class="add-to-link">
-                            <ul>
-                                <li><a href="product-details.html" title="Details"><i class="fa fa-external-link"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
+    <div class="col-lg-3 col-md-5 col-sm-5 col-xs-12">
+        <!-- single-product-start -->
+        <div class="product-wrapper mb-40">
+            <div class="product-img">
+                <a href="{{LinkBook}}">
+                    <img src="{{BookImage}}" alt="book" class="primary" />
+                </a>
+                <div class="quick-view">
+                    <a class="action-view" href="#" data-target="#productModal" data-toggle="modal" title="Xem">
+                        <i class="fa fa-search-plus"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="product-details text-center">
+                <h4><a href="{{LinkBook}}" style="font-family: Verdana; font-size: 14px; font-weight: normal">{{BookTitle}}</a></h4>
+                <div class="product-price">
+                    <ul>
+                        <li>{{BookPrice}}</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="product-link">
+                <div class="product-button">
+                    <a href="#" title="Thêm vào giỏ hàng"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</a>
                 </div>
             </div>
         </div>
+        <!-- single-product-end -->
     </div>
 </script>
 <!--- end script -->

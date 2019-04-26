@@ -85,31 +85,27 @@ function loadData(isPageChanged) {
     $.ajax({
         type: 'GET',
         data: {
-            /*
-            bookcategoryid: $('#selBookCategory').val(),
-            page: general.configs.pageIndex,
-            pageSize: general.configs.pageSize,
-            */
-            quantity: 10,
+            quantity: 8,
         },
-        url: '/BeyeuBookstore/GetAll',
+        url: '/BeyeuBookstore/GetAllQuantity',
         dataType: 'json',
         success: function (response) {
             console.log("data", response);
             //var order = 1;
             $.each(response, function (i, item) {
-
+                if (i % 4 == 0) render += '<div class="col-lg-12 col-md-12 col-xs-12">';
                 render += Mustache.render(template, {
                     BookImage: '/images/img/product/10.jpg', //để tạm thời
-                    BookRating: 5.0, //item.BookRating, //Rating //Để tạm thời thôi
+                    //BookRating: 5.0, //item.BookRating, //Rating //Để tạm thời thôi
                     BookTitle: item.BookTitle,
-                    BookPrice: item.BookPrice,
-
+                    BookPrice: item.UnitPrice,
+                    LinkBook: '#',
                 });
+                if ((i + 1) % 4 == 0) render += '</div>';
                 //order++;
             });
             //$('#lblTotalRecords').text(response.RowCount);
-            $('#book-content').html(render);
+            $('#LoadBook').html(render);
             wrapPaging(response.RowCount, function () {
                 loadData();
             }, isPageChanged);

@@ -27,7 +27,8 @@ namespace BeYeuBookstore.Controllers
             return new OkObjectResult(model);
         }
 
-        public IActionResult GetAll(int quantity)
+        [HttpGet]
+        public IActionResult GetAllQuantity(int quantity)
         {
             var model = _bookService.GetAll(quantity);
             return new OkObjectResult(model);
