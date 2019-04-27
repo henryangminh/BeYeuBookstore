@@ -3,6 +3,32 @@
         pageSize: 10,
         pageIndex: 1
     },
+    systemParameterGroup: {
+        InfoCompany : 1,
+        Salary : 2,
+        Deduction : 3,
+        ForDeduction : 4,
+    },
+    systemParaCode:{
+        HolidaysInYear : "S0007",
+        CompanyEntryTime : "S0008",
+        CompanyTimeOut : "S0009",
+        TimeStartLunch : "S0010",
+        TimeEndLunch : "S0011",
+        Offset : "S0012",
+        CoefficientOfNight : "S0013",
+        CoefficientsOvertimeHolidays : "S0027",
+        CoefficientOfSundayShift : "S0014",
+        CorporateSocialInsurance : "S0015",
+        EmployeeSocialInsurance : "S0016",
+        CorporateMedicalInsurance : "S0017",
+        EmployeeMedicalInsurance : "S0018",
+        CorparateUnemploymentInsurance : "S0019",
+        EmployeeUnemploymentInsurance : "S0020",
+        CorparateUnionFee : "S0021",
+        EmployeeUnionFee : "S0022",
+        TotalSalaryFund : "S0023",
+    },
     addressBookType: {
         max_length: 5,
         Employee : "P",
@@ -94,12 +120,27 @@
         Active: 1,
         InActive:0
     },
+    salaryTableStatus: {
+        create: 1,
+        requireconfirm: 2,
+        confirm: 3
+    },
     roleName: {
         BoardOfDirectors:"BoardOfDirectors"
     },
     timeKeepingType: {
         SundayOff: 5,
-        WorkDay: 1
+        WorkDay: 1,
+        Holiday: 10,
+        AnualLeave: 15
+    },
+    formStatus: {
+        
+        Typing: 1,
+        RequestConfirmation: 2,
+        Approved: 3,
+        Denied: 4
+        
     },
     deliStatus: {
         UnConfirm: 1,
@@ -107,7 +148,14 @@
         Packaged: 3,
         OnDelivery: 4,
         Success: 5,
-        Fail:6,
+        Fail: 6,
+    }, 
+    userType: {
+        Merchant: 1,
+        Advertiser: 2,
+        Customer: 3,
+        Webmaster: 4,
+        
     },
     notify: function (message, type) {
         $.notify(message, {
@@ -162,7 +210,7 @@
             }
         });
     },
-    dateFormatJson: function (datetime,isDMY) {
+    dateFormatJson: function (datetime,isDMY=true) {
         if (datetime == null || datetime == '')
             return '';
         var newdate = new Date(datetime);
@@ -206,24 +254,21 @@
             ss = "0" + ss;
         return day + "/" + month + "/" + year + " " + hh + ":" + mm + ":" + ss;
     },
-    getDateTimePicker: function (control) {
-        if (control.data('date') != '') // co chon tg
-            return general.dateFormatJson(control.data("datetimepicker").getDate(), false);
-        else
-            return '';
+    getDatePicker: function (control) {
+        return this.dateFormatJson(control.datepicker('getDate'), false);
     },
-    setDateTimePicker: function (control, date) {
+    setDatePicker: function (control, date) {
         if (date != null) {
             var temp = new Date(date);
-            control.data('datetimepicker').setDate(temp);
+            control.datepicker('setDate', temp);;
         }
         else {
             // set rổng ? có nên ko 
-            control.data('datetimepicker').reset();
+            control.datepicker('clearDates');
         }
     },
-    resetDateTimePicker: function (control) {
-        control.data('datetimepicker').reset();
+    resetDatePicker: function (control) {
+        control.datepicker('clearDates');
     },
     addDays: function (date, days) {
         var result = new Date(date);
@@ -356,18 +401,18 @@
         }
         return 0;
     },
-    addComma: function (id) {
-        $('body').on('keyup', id, function (event) {
-            if (event.which >= 37 && event.which <= 40) return;
+    //addComma: function (id) {
+    //    $('body').on('keyup', id, function (event) {
+    //        if (event.which >= 37 && event.which <= 40) return;
 
-            $(this).val(function (index, value) {
-                return value
-                    .replace(/\D/g, "")
-                    .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-                    ;
-            });
-        });
-    },
+    //        $(this).val(function (index, value) {
+    //            return value
+    //                .replace(/\D/g, "")
+    //                .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+    //                ;
+    //        });
+    //    });
+    //},
     toRound: function (val, r) {
         // làm tròn val, lấy sau đấu phẩu r chữ số
         return this.toFloat(val).toFixed(r);
@@ -396,3 +441,4 @@ $(document).ajaxSend(function (e, xhr, options) {
         xhr.setRequestHeader("RequestVerificationToken", token); // đẩy vào header của request để verify
     }
 });
+$('.money').mask('000,000,000,000,000', { reverse: true });

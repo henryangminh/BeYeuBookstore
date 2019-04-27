@@ -29,7 +29,7 @@ namespace BeYeuBookstore.Application.ViewModels.System
 
 
         //public int? City_FK { get; set; }
-        
+        public int UserTypeFK { get; set; }
         public DateTime? DateCreated { get; set; }
         public DateTime? DateModified { get; set; }
         public Gender? Gender { get; set; }

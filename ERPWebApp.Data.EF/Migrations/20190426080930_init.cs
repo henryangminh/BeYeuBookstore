@@ -296,18 +296,17 @@ namespace BeYeuBookstore.Data.EF.Migrations
                     DateModified = table.Column<DateTime>(type: "datetime", nullable: true),
                     UserTypeFK = table.Column<int>(nullable: false),
                     Status = table.Column<int>(nullable: false),
-                    LastupdatedFk = table.Column<Guid>(nullable: true),
-                    UserTypeFKNavigationKeyId = table.Column<int>(nullable: true)
+                    LastupdatedFk = table.Column<Guid>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_User", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_User_UserTypes_UserTypeFKNavigationKeyId",
-                        column: x => x.UserTypeFKNavigationKeyId,
+                        name: "FK_dbo.Users.UserTypeFK",
+                        column: x => x.UserTypeFK,
                         principalTable: "UserTypes",
                         principalColumn: "KeyId",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -779,9 +778,9 @@ namespace BeYeuBookstore.Data.EF.Migrations
                 column: "NotificationFkNavigationKeyId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_User_UserTypeFKNavigationKeyId",
+                name: "IX_User_UserTypeFK",
                 table: "User",
-                column: "UserTypeFKNavigationKeyId");
+                column: "UserTypeFK");
 
             migrationBuilder.CreateIndex(
                 name: "IX_WebMasters_UserFK",

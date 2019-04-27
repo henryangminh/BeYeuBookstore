@@ -14,7 +14,7 @@ namespace BeYeuBookstore.Application.AutoMapper
         public ViewModelToDomainMappingProfile()
         {
             CreateMap<UserViewModel, User>()
-                .ConstructUsing(c => new User(c.Id.GetValueOrDefault(Guid.Empty), c.FullName, c.Avatar, c.Address, c.DateCreated, c.DateModified, c.Status, c.LastupdatedFk,c.Email));
+                .ConstructUsing(c => new User(c.Id.GetValueOrDefault(Guid.Empty), c.FullName, c.Avatar, c.Address, c.DateCreated, c.DateModified, c.Status, c.LastupdatedFk,c.Email, c.UserTypeFK));
 
 
             CreateMap<FunctionViewModel, Function>().ConstructUsing(c => new Function(c.KeyId,c.Name,c.URL,c.ParentId,c.IconCss,

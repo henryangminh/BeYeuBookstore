@@ -267,11 +267,27 @@
                 var render = "";
                 if (response.RowCount > 0) {
                     $.each(response.Results, function (i, item) {
+                        var _userType="";
+                        switch (item.UserTypeFK) {
+                            case general.userType.Merchant:
+                               _userType='Nhà cung cấp'
+                                break;
+                            case general.userType.Advertiser:
+                               _userType='Quảng cáo'
+                                break;
+                            case general.userType.Customer:
+                               _userType='Khách hàng'
+                                break;
+                            case general.userType.Webmaster:
+                               _userType='Webmaster'
+                                break;
+                            
+                        }
                         render += Mustache.render(template, {
                             FullName: item.FullName,
                             Id: item.Id,
                             Email: item.Email,
-                            //UserType: item.UserTypeFK.UserTypeName,
+                            UserType: _userType,
                             Avatar: item.Avatar === null ? '<img src="/images/user/user.png" width=25 />' : '<img src="' + item.Avatar + '" width=25 />',
                             DateModify: general.dateTimeFormatJson(item.DateModified),
                             Status: general.getStatus(item.Status)

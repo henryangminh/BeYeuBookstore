@@ -88,7 +88,7 @@ namespace BeYeuBookstore.Application.Implementation.Acc
         public PagedResult<UserViewModel> GetAllPagingAsync(string keyword, int page, int pageSize)
         {
             var query = _userManager.Users;
-            
+            query = query.Include(x => x.UserTypeFKNavigation);
             if (!string.IsNullOrEmpty(keyword))
             {
                 var keysearch = keyword.Trim().ToUpper();
@@ -97,7 +97,6 @@ namespace BeYeuBookstore.Application.Implementation.Acc
             int totalRow = query.Count();
             query = query.Skip((page - 1) * pageSize)
                .Take(pageSize);
-
             var data = query.Select(x => new UserViewModel()
             {
                 
@@ -112,7 +111,8 @@ namespace BeYeuBookstore.Application.Implementation.Acc
                 PhoneNumber = x.PhoneNumber,
                 Status = x.Status,
                 DateModified = x.DateModified,
-//                UserTypeFKNavigation = x.UserTypeFKNavigation,
+                UserTypeFK = x.UserTypeFK,
+ //             UserTypeFKNavigation = x.UserTypeFKNavigation,
             }).ToList();
             var paginationSet = new PagedResult<UserViewModel>()
             {
