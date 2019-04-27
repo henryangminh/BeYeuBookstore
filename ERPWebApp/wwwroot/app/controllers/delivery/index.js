@@ -247,8 +247,8 @@
                 $('#txtDeliName').val(response.InvoiceFKNavigation.DeliContactName);
                 $('#txtDeliHotline').val(response.InvoiceFKNavigation.DeliContactHotline);    
                 $('#txtDeliAddress').val(response.InvoiceFKNavigation.DeliAddress);
-                $('#txtOrderPrice').val(response.OrderPrice);
-                $('#txtShip').val(response.ShipPrice);
+                $('#txtOrderPrice').val(general.toMoney(response.OrderPrice));
+                $('#txtShip').val(general.toMoney(response.ShipPrice));
                 $('#txtNote').val(response.Note);
                
                 $('#selDeliStatus').val(response.DeliveryStatus);
@@ -302,7 +302,7 @@
 }
 function loadTotalPrice()
 {
-    var _delitotal = parseInt($('#txtOrderPrice').val()) + parseInt($('#txtShip').val());
+    var _delitotal = general.toInt($('#txtOrderPrice').val()) + general.toInt($('#txtShip').val());
     var template = $('#DeliTotal-template').html();
     var renderDetail = "";
     renderDetail += Mustache.render(template, {
@@ -310,7 +310,7 @@ function loadTotalPrice()
         DeliTotal: _delitotal,
 
     });
-    $('#txtDeliTotal').html(renderDetail);
+    $('#txtDeliTotal').html(general.toMoney(renderDetail));
 
 }
 function loadData(isPageChanged) {
