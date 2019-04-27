@@ -220,10 +220,11 @@
     <script>
         var notification = new ngeneralController();
         notification.initialize();
-    </script>
+        </script>
+    @RenderSection("Scripts", required: false)
     <!--Select 2-->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
-    @RenderSection("Scripts", required: false)
+    
 </body>
 </html>
