@@ -261,10 +261,7 @@
                 <div class="block-newsletter">
                     <h2>Đăng ký để gửi quảng cáo</h2>
                     <p>Bạn có thể đưa những tin tức mới nhất về sản phẩm của mình đến với mọi người!</p>
-                    <form action="#">
-                        <input type="text" placeholder="Vui lòng nhập email" />
-                    </form>
-                    <a href="#">Gửi</a>
+                    <a href="#">Đăng ký</a>
                 </div>
                 <!-- block-newsletter-area-end -->
             </div>
@@ -312,7 +309,6 @@
     </div>
 </div>
 <!-- banner-area-end -->
-
 <!-- script -->
 <script id="bookcase" type="x-tmpl-mustache">
     <div class="col-lg-3 col-md-5 col-sm-5 col-xs-12">
@@ -322,8 +318,9 @@
                 <a href="{{LinkBook}}">
                     <img src="{{BookImage}}" alt="book" class="primary" />
                 </a>
+                <input type="hidden" id="txtBookKeyId" value="{{KeyId}}" />
                 <div class="quick-view">
-                    <a class="action-view" href="#" data-target="#productModal" data-toggle="modal" title="Xem">
+                    <a class="action-view" href="#" data-target="#productModal" data-toggle="modal" title="Xem" id="ShowDetail">
                         <i class="fa fa-search-plus"></i>
                     </a>
                 </div>
@@ -346,3 +343,5 @@
     </div>
 </script>
 <!--- end script -->
+
+@await Html.PartialAsync("_LoadBookDetailModal.cshtml")
