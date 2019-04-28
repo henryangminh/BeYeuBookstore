@@ -5,7 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace BeYeuBookstore.Data.Entities
+namespace BeYeuBookstore.Application.ViewModels
 {
     public class RatingDetailViewModel : DomainEntity<int>, IDateTracking
     {

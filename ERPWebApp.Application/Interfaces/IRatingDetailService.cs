@@ -1,8 +1,7 @@
-﻿using BeYeuBookstore.Data.Entities;
+﻿using BeYeuBookstore.Application.ViewModels;
 using BeYeuBookstore.Utilities.DTOs;
 using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace BeYeuBookstore.Application.Interfaces
 {

@@ -45,7 +45,8 @@ namespace BeYeuBookstore.Data.EF
 
                       new Function() {KeyId = "BookItem",Name = "Sách",ParentId = "ProductItem",SortOrder = 1,Status = Status.Active,URL = "/Book",IconCss = "fa-chevron-down"  },
                       new Function() {KeyId = "BookCategoryItem",Name = "Loại sách",ParentId = "ProductItem",SortOrder = 2,Status = Status.Active,URL = "/BookCategory",IconCss = "fa-clone"  },
-                      new Function() {KeyId = "AdvertisementContentItem",Name = "Nội dung quảng cáo",ParentId = "ProductItem",SortOrder = 3,Status = Status.Active,URL = "/UnitCategory",IconCss = "fa-clone"  },
+                      new Function() {KeyId = "AdvertisementContentItem",Name = "Nội dung quảng cáo",ParentId = "ProductItem",SortOrder = 3,Status = Status.Active,URL = "/AdvertisementContent",IconCss = "fa-clone"  },
+                      new Function() {KeyId = "AdvertisementPositionItem",Name = "Vị trí quảng cáo",ParentId = "ProductItem",SortOrder = 4,Status = Status.Active,URL = "/AdvertisementPosition",IconCss = "fa-clone"  },
 
                       new Function() {KeyId = "ReceiptandDelivery",Name = "Hóa đơn & Giao hàng",ParentId = null,SortOrder = 3,Status = Status.Active,URL = "/",IconCss = "fa-receipt"  },
                       new Function() {KeyId = "ReceiptItem",Name = "Hóa đơn",ParentId = "ReceiptandDelivery",SortOrder = 1,Status = Status.Active,URL = "/Invoice",IconCss = "fa-home"  },
@@ -134,7 +135,28 @@ namespace BeYeuBookstore.Data.EF
 
             }
             #endregion
+            if (_context.AdvertisementPositions.Count() == 0)
+            {
+                _context.AdvertisementPositions.AddRange(new List<AdvertisementPosition>()
+                {
+                    new AdvertisementPosition(){PageUrl="/beyeubookstore", IdOfPosition="AdPosition1", AdvertisePrice=10000000,Height=223,Width=263,Status=Status.Active},
+                    new AdvertisementPosition(){PageUrl="/beyeubookstore", IdOfPosition="AdPosition2", AdvertisePrice=9000000,Height=185,Width=460,Status=Status.Active},
+                    new AdvertisementPosition(){PageUrl="/beyeubookstore", IdOfPosition="AdPosition3", AdvertisePrice=9000000,Height=183,Width=385,Status=Status.Active},
+                    new AdvertisementPosition(){PageUrl="/beyeubookstore", IdOfPosition="AdPosition4", AdvertisePrice=80000000,Height=396,Width=263,Status=Status.Active},
+                    new AdvertisementPosition(){PageUrl="/beyeubookstore", IdOfPosition="AdPosition5", AdvertisePrice=50000000,Height=138,Width=1140,Status=Status.Active},
+                  
 
+                });
+
+            }
+            try
+            {
+                _context.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                string a = ex.ToString();
+            };
             if (_context.BookCategorys.Count() == 0)
             {
                 _context.BookCategorys.AddRange(new List<BookCategory>()
