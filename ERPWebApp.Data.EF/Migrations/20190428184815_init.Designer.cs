@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BeYeuBookstore.Data.EF.Migrations
 {
     [DbContext(typeof(ERPDbContext))]
-    [Migration("20190427110032_init")]
+    [Migration("20190428184815_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -95,6 +95,10 @@ namespace BeYeuBookstore.Data.EF.Migrations
                         .ValueGeneratedOnAdd();
 
                     b.Property<int>("AdvertisePrice");
+
+                    b.Property<DateTime?>("DateCreated");
+
+                    b.Property<DateTime?>("DateModified");
 
                     b.Property<int>("Height");
 

@@ -17,7 +17,7 @@ namespace BeYeuBookstore.Application.Interfaces
 
         List<AdvertisementPositionViewModel> GetAll();
 
-        PagedResult<AdvertisementPositionViewModel> GetAllPaging(int status, string keyword, int page, int pageSize);
+        PagedResult<AdvertisementPositionViewModel> GetAllPaging(int? status, string keyword, int page, int pageSize);
 
         List<AdvertisementPositionViewModel> GetAll(int id);
 

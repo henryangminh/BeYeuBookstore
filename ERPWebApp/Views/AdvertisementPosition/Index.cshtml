@@ -20,22 +20,18 @@
     <h3>Vị trí quảng cáo</h3>
 </div>
 <div class="form-group row">
-    <div class="form-inline pull-left col-lg-4">
-        <div class="input-daterange input-group" id="range-work-picker">
-            <input id="dtBegin" type="text" placeholder="dd/mm/yyyy" name="start" class="form-control" />
-            <span class="input-group-addon">đến</span>
-            <input id="dtEnd" type="text" placeholder="dd/mm/yyyy" name="end" class="form-control" />
-        </div>
+    <div class="col-sm-4 form-group">
+        <input type="text" id="txtKeyword" class="form-control" placeholder="Gõ từ khóa...">
     </div>
     <div class="col-lg-2">
         <select class="form-control" id="selStatus">
             <option value="">Chọn trạng thái</option>
-            <option value="1">Còn trống</option>
-            <option value="2">Đang sử dụng</option>
+            <option value="0">Khóa</option>
+            <option value="1">Kích hoạt</option>
         </select>
     </div>
     <div class="col-sm-4 form-group">
-        <input type="text" id="txtKeyword" class="form-control" placeholder="Gõ từ khóa...">
+        
     </div>
     <div class="col-sm-1 form-group">
         <button id="btnCreate" class="btn btn-success"><i class="fa fa-plus"></i> Thêm mới</button>
@@ -52,9 +48,8 @@
                             <th width="3%">Mã </th>
                             <th>Mã vị trí</th>
                             <th width="10%">Đường dẫn</th>
-                            <th>Chiều cao<br>(px)</th>
-                            <th >Chiều rộng<br>(px)</th>
-                            <th width="20%">Giá(/24 giờ)<br>(VNĐ)</th>
+                            <th>Chiều dài x Chiều cao<br>(px x px)</th>
+                            <th width="20%">Giá(/ngày)<br>(VNĐ)</th>
                             <th>Trạng thái</th>
                             <th width="8%">#</th>
                         </tr>
@@ -91,8 +86,7 @@
         <td>{{KeyId}}</td>
         <td>{{Id}}</td>
         <td>{{PageUrl}}</td>
-        <td>{{Height}}</td>
-        <td>{{Width}}</td>
+        <td style="text-align:center">{{WidthxHeight}}</td>
         <td>{{Price}}</td>
         <td>{{{Status}}}</td>
         <td scope="row">

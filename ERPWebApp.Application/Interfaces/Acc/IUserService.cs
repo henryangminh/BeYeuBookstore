@@ -18,7 +18,7 @@ namespace BeYeuBookstore.Application.Interfaces.Acc
 
         Task<List<UserViewModel>> GetAllAsync();
 
-        PagedResult<UserViewModel> GetAllPagingAsync(int type, string keyword, int page, int pageSize);
+        PagedResult<UserViewModel> GetAllPagingAsync(string keyword, int page, int pageSize);
 
         Task<UserViewModel> GetById(string id);
         Task<List<string>> GetAllRolesById(string Id);

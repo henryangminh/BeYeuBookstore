@@ -19,7 +19,9 @@ namespace BeYeuBookstore.Data.EF.Migrations
                     AdvertisePrice = table.Column<int>(nullable: false),
                     Height = table.Column<int>(nullable: false),
                     Width = table.Column<int>(nullable: false),
-                    Status = table.Column<int>(nullable: false)
+                    Status = table.Column<int>(nullable: false),
+                    DateCreated = table.Column<DateTime>(nullable: true),
+                    DateModified = table.Column<DateTime>(nullable: true)
                 },
                 constraints: table =>
                 {

@@ -98,7 +98,7 @@ namespace BeYeuBookstore.Data.EF
                 {
                     Name = "WebMaster",
                     NormalizedName = "Full quyền WebMaster",
-                    Description = "Thằng full quyền khi test"
+                    Description = "Thằng WM full quyền"
                 });
                 await _roleManager.CreateAsync(new Role()
                 {
@@ -361,7 +361,7 @@ namespace BeYeuBookstore.Data.EF
                     Email = "khang_merchant@gmail.com",
                     DateCreated = DateTime.Now,
                     DateModified = DateTime.Now,
-                    UserTypeFK = Const_UserType.Customer, 
+                    UserTypeFK = Const_UserType.Merchant, 
                     Status = Status.Active
                 }, CommonConstants.DefaultPW).Result;
                 if (result.Succeeded)
@@ -397,7 +397,7 @@ namespace BeYeuBookstore.Data.EF
                     Email = "tram_merchant@gmail.com",
                     DateCreated = DateTime.Now,
                     DateModified = DateTime.Now,
-                    UserTypeFK = Const_UserType.Customer,
+                    UserTypeFK = Const_UserType.Merchant,
                     Status = Status.Active
                 }, CommonConstants.DefaultPW).Result;
                 if (result.Succeeded)

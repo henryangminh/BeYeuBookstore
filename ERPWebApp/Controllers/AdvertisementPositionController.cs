@@ -48,7 +48,7 @@ namespace BeYeuBookstore.Controllers
         }
 
         [HttpGet]
-        public IActionResult GetAllPaging(int status, string keyword, int page, int pageSize)
+        public IActionResult GetAllPaging(int? status, string keyword, int page, int pageSize)
         {
             var model = _advertisementPositionService.GetAllPaging(status, keyword, page, pageSize);
             return new OkObjectResult(model);

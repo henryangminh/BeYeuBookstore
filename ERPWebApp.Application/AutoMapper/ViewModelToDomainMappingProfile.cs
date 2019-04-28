@@ -35,7 +35,7 @@ namespace BeYeuBookstore.Application.AutoMapper
                 c.ImageLink,c.Title,c.Description,c.UrlToAdvertisement,c.Deposite,c.PaidDeposite,c.CensorStatus,c.DateCreated,c.DateModified));
 
             CreateMap<AdvertisementPositionViewModel, AdvertisementPosition>().ConstructUsing(c => new AdvertisementPosition(c.KeyId, c.PageUrl,
-                c.IdOfPosition,c.AdvertisePrice,c.Height,c.Width,c.Status));
+                c.IdOfPosition,c.AdvertisePrice,c.Height,c.Width,c.Status,c.DateCreated,c.DateModified));
 
             CreateMap<AdvertiserViewModel, Advertiser>().ConstructUsing(c => new Advertiser(c.KeyId, c.UserFK,c.BrandName,c.UrlToBrand,c.DateCreated,c.DateModified));
 

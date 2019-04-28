@@ -107,35 +107,29 @@
             ignore: [],
             lang: 'vi',
             rules: {
-                txtBooktitle:
+         
+                txtAdId:
                 {
                     required: true
                 },
-                txtAuthor:
+                txtPageUrl:
                 {
                     required: true
                 },
-                txtLength:
-                {
-                    number: true,
-                },
+      
                 txtWidth:
                 {
-                    number: true,
-                },
-                txtHeight:
-                {
-                    number: true,
-                },
-                selBookcategory: {
-                    required: true
-                },
-                selisPaperback: {
-                    required: true
-                },
-                txtPageNumber: {
                     required: true,
                     number: true,
+                },
+     
+                txtHeight: {
+                    required: true,
+                    number: true
+                },
+                selEditStatus: {
+                    required: true,
+                  
                 },
                 txtPrice: {
                     required: true,
@@ -161,42 +155,22 @@
                     else {
                         keyId = parseInt($('#txtId').val());
                     }
-                    var bookTitle = $('#txtBooktitle').val();
-                    var merchantFK = $('#txtMerchantKeyId').val();
-                    var author = $('#txtAuthor').val();
-                    var bookCategoryFK = $('#selBookcategory option:selected').val();
-                    var ispaperback = $('#selisPaperback option:selected').val();
-                    if (ispaperback == 0) {
-                        ispaperback = true;
-                    }
-                    else {
-                        ispaperback = false;
-                    }
-                    var length = $('#txtLength').val();
+                    var adId = $('#txtAdId').val();
                     var width = $('#txtWidth').val();
                     var height = $('#txtHeight').val();
-                    var pageNo = $('#txtPageNumber').val();
-                    var price = $('#txtPrice').val();
-                    var description = $('#txtDescription').val();
-                    var quantity = 0;
-                    var status = $('#selStatus option:selected').val();
+                    var price = general.toFloat($('#txtPrice').val());
+                    var status = $('#selEditStatus option:selected').val();
+                    var pageurl = $('#txtPageUrl').val();
                     $.ajax({
                         type: 'POST',
-                        url: '/Book/SaveEntity',
+                        url: '/AdvertisementPosition/SaveEntity',
                         data: {
                             KeyId: keyId,
-                            BookTitle: bookTitle,
-                            MerchantFK: merchantFK,
-                            Author: author,
-                            BookCategoryFK: bookCategoryFK,
-                            isPaperback: ispaperback,
-                            Length: length,
+                            PageUrl: pageurl,
+                            IdOfPosition: adId,
                             Width: width,
                             Height: height,
-                            PageNumber: pageNo,
-                            UnitPrice: price,
-                            Description: description,
-                            Quantity: quantity,
+                            AdvertisePrice: price,
                             Status: status,
                         },
                         dataType: "json",
@@ -253,7 +227,7 @@
 
         $.ajax({
             type: "GET",
-            url: "/Book/GetById",
+            url: "/AdvertisementPosition/GetById",
             data: { id: that },
             dataType: "json",
             beforeSend: function () {
@@ -264,27 +238,14 @@
                 var data = response;
 
                 $('#txtId').val(data.KeyId);
-                $('#txtMerchant').val(data.MerchantFKNavigation.MerchantCompanyName);
+                $('#txtAdId').val(data.IdOfPosition);
                 $('#dtDateCreated').val(moment(data.DateCreated).format("DD/MM/YYYY"));
                 $('#dtDateModified').val(moment(data.DateModified).format("DD/MM/YYYY"));
-                $('#txtMerchantKeyId').val(data.MerchantFKNavigation.KeyId);
-                $('#txtMerchantStatus').val(data.MerchantFKNavigation.Status);
-                $('#txtBooktitle').val(data.BookTitle);
-                $('#txtAuthor').val(data.Author);
-                $('#selBookcategory').val(data.BookCategoryFK);
-                if (data.isPaperback) {
-                    $('#selisPaperback').val(0);
-                }
-                else {
-                    $('#selisPaperback').val(1);
-                }
-                $('#txtLength').val(data.Length);
                 $('#txtWidth').val(data.Width);
                 $('#txtHeight').val(data.Height);
-                $('#txtPageNumber').val(data.PageNumber);
-                $('#txtPrice').val(data.UnitPrice);
-                $('#txtDescription').val(data.Description);
-                $('#selStatus').val(data.Status);
+                $('#txtPrice').val(general.toMoney(data.AdvertisePrice));
+                $('#selEditStatus').val(data.Status);
+                $('#txtPageUrl').val(data.PageUrl);
                 $('#modal-add-edit').modal('show');
 
                 general.stopLoading();
@@ -308,10 +269,9 @@ function loadData(isPageChanged) {
         type: 'GET',
         data: {
 
-            fromdate: $('#dtBegin').val(),
-            todate: $('#dtEnd').val(),
+           
             keyword: $('#txtKeyword').val(),
-            bookcategoryid: $('#selBookCategory').val(),
+            status: $('#selStatus').val(),
             page: general.configs.pageIndex,
             pageSize: general.configs.pageSize,
         },
@@ -338,8 +298,7 @@ function loadData(isPageChanged) {
                     KeyId: item.KeyId,
                     Id: item.IdOfPosition,
                     PageUrl: item.PageUrl,
-                    Height: item.Height,
-                    Width: item.Width,
+                    WidthxHeight: item.Width+'x'+item.Height,
                     Price: general.toMoney(item.AdvertisePrice),
                     Status: '<span class="badge bg-' + _color + '">' + _statusName + '</span>',
                   

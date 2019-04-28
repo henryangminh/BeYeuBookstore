@@ -56,7 +56,7 @@ namespace BeYeuBookstore.Application.Implementation
             throw new NotImplementedException();
         }
 
-        public PagedResult<AdvertisementPositionViewModel> GetAllPaging(int status, string keyword, int page, int pageSize)
+        public PagedResult<AdvertisementPositionViewModel> GetAllPaging(int? status, string keyword, int page, int pageSize)
         {
             var query = _advertisementPositionRepository.FindAll();
             query = query.OrderBy(x => x.KeyId);
@@ -67,7 +67,7 @@ namespace BeYeuBookstore.Application.Implementation
                 query = query.OrderBy(x => x.KeyId).Where(x => (x.PageUrl.ToUpper().Contains(keysearch)));
 
             }
-            if (status != 0)
+            if (status.HasValue)
             {
                 query = query.Where(x => int.Parse(x.Status.ToString()) == status);
             }
