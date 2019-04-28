@@ -85,10 +85,9 @@ namespace BeYeuBookstore.Application.Implementation.Acc
             return await _userManager.Users.ProjectTo<UserViewModel>().ToListAsync();
         }
 
-        public PagedResult<UserViewModel> GetAllPagingAsync(int type, string keyword, int page, int pageSize)
+        public PagedResult<UserViewModel> GetAllPagingAsync(string keyword, int page, int pageSize)
         {
             var query = _userManager.Users;
-
             if (!string.IsNullOrEmpty(keyword))
             {
                 var keysearch = keyword.Trim().ToUpper();
@@ -100,21 +99,22 @@ namespace BeYeuBookstore.Application.Implementation.Acc
                .Take(pageSize);
             var data = query.Select(x => new UserViewModel()
             {
-                
+
                 UserName = x.UserName,
                 Avatar = x.Avatar,
                 Email = x.Email,
                 FullName = x.FullName,
                 IdNumber = x.IdNumber,
-                Gender=x.Gender,
-                Dob=x.Dob,
+                Gender = x.Gender,
+                Dob = x.Dob,
                 Id = x.Id,
                 PhoneNumber = x.PhoneNumber,
                 Status = x.Status,
                 DateModified = x.DateModified,
                 UserTypeFK = x.UserTypeFK,
- //               UserTypeFKNavigation = x.UserTypeFKNavigation,
-            }).ToList();
+                UserTypeName = x.UserTypeFKNavigation.UserTypeName,
+            })
+            .ToList();
             var paginationSet = new PagedResult<UserViewModel>()
             {
                 Results = data,

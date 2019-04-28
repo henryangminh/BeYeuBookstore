@@ -39,6 +39,7 @@ namespace BeYeuBookstore.Application.ViewModels.System
 
         public Guid? LastupdatedFk { get; set; }
         public string LastupdatedName { get; set; }
+        public string UserTypeName { get; set; }
 
         public List<string> Roles { get; set; }
         public virtual UserTypeViewModel UserTypeFKNavigation { get; set; }
