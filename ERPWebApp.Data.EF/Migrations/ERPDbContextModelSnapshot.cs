@@ -157,6 +157,8 @@ namespace BeYeuBookstore.Data.EF.Migrations
 
                     b.Property<int?>("Height");
 
+                    b.Property<string>("Img");
+
                     b.Property<int?>("Length");
 
                     b.Property<int>("MerchantFK");

@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BeYeuBookstore.Data.EF.Migrations
 {
     [DbContext(typeof(ERPDbContext))]
-    [Migration("20190428184815_init")]
+    [Migration("20190429064533_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -158,6 +158,8 @@ namespace BeYeuBookstore.Data.EF.Migrations
                     b.Property<string>("Description");
 
                     b.Property<int?>("Height");
+
+                    b.Property<string>("Img");
 
                     b.Property<int?>("Length");
 

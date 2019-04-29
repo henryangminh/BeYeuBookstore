@@ -465,6 +465,7 @@ namespace BeYeuBookstore.Data.EF.Migrations
                     Width = table.Column<int>(nullable: true),
                     PageNumber = table.Column<int>(nullable: false),
                     Description = table.Column<string>(nullable: true),
+                    Img = table.Column<string>(nullable: true),
                     Quantity = table.Column<int>(nullable: false),
                     RatingNumber = table.Column<int>(nullable: false),
                     Rating = table.Column<double>(nullable: false),
