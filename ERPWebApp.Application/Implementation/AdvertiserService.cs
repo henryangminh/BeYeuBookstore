@@ -2,6 +2,7 @@
 using BeYeuBookstore.Application.Interfaces;
 using BeYeuBookstore.Application.ViewModels;
 using BeYeuBookstore.Data.Entities;
+using BeYeuBookstore.Data.Enums;
 using BeYeuBookstore.Infrastructure.Interfaces;
 using BeYeuBookstore.Utilities.DTOs;
 using System;
@@ -57,7 +58,7 @@ namespace BeYeuBookstore.Application.Implementation
             throw new NotImplementedException();
         }
 
-        public PagedResult<AdvertiserViewModel> GetAllPaging(int status, string keyword, int page, int pageSize)
+        public PagedResult<AdvertiserViewModel> GetAllPaging(int? status, string keyword, int page, int pageSize)
         {
             var query = _advertiserRepository.FindAll(x=>x.UserBy);
             query = query.OrderBy(x => x.KeyId);
@@ -68,9 +69,9 @@ namespace BeYeuBookstore.Application.Implementation
                 query = query.OrderBy(x => x.KeyId).Where(x => (x.BrandName.ToUpper().Contains(keysearch)));
 
             }
-            if(status!=0)
+            if(status.HasValue)
             {
-                query = query.Where(x => int.Parse(x.Status.ToString()) == status);
+                query = query.Where(x => x.Status == (Status)status);
             }
             int totalRow = query.Count();
 

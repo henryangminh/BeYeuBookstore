@@ -120,6 +120,11 @@
         Active: 1,
         InActive:0
     },
+    merchantScale: {
+        Large:0,
+        Medium:1,
+        Small:2,
+    },
     salaryTableStatus: {
         create: 1,
         requireconfirm: 2,

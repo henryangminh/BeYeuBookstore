@@ -72,7 +72,7 @@ namespace BeYeuBookstore.Application.Implementation
             throw new NotImplementedException();
         }
 
-        public PagedResult<MerchantViewModel> GetAllPaging(Status status, Scale scale, string fromdate, string todate, string keyword, int page, int pageSize)
+        public PagedResult<MerchantViewModel> GetAllPaging(int? status, int? scale, string fromdate, string todate, string keyword, int page, int pageSize)
         {
             var query = _merchantRepository.FindAll(p => p.UserBy);
             query = query.OrderBy(x => x.KeyId);
@@ -98,14 +98,14 @@ namespace BeYeuBookstore.Application.Implementation
                 query = query.Where(x => x.DateCreated <= _todate);
 
             }
-            if (status != 0)
+            if (status.HasValue)
             {
-                query = query.Where(x => x.Status == status);
+                query = query.Where(x => x.Status == (Status)status);
             }
 
-            if (scale != 0)
+            if (scale.HasValue)
             {
-                query = query.Where(x => x.Scales == scale);
+                query = query.Where(x => x.Scales == (Scale)scale);
             }
 
             int totalRow = query.Count();
