@@ -24,7 +24,7 @@ namespace BeYeuBookstore.Controllers
         }
 
         [HttpGet]
-        public IActionResult GetAllPaging(int type, Status status, string fromdate, string todate, string keyword, int page, int pageSize)
+        public IActionResult GetAllPaging(int? type, int? status, string fromdate, string todate, string keyword, int page, int pageSize)
         {
             var model = _webMasterService.GetAllPaging(type, status, fromdate, todate, keyword, page, pageSize);
             return new OkObjectResult(model);
