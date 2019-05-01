@@ -2,6 +2,7 @@
 using BeYeuBookstore.Application.Interfaces;
 using BeYeuBookstore.Application.ViewModels;
 using BeYeuBookstore.Data.Entities;
+using BeYeuBookstore.Data.Enums;
 using BeYeuBookstore.Infrastructure.Interfaces;
 using BeYeuBookstore.Utilities.DTOs;
 using System;
@@ -69,7 +70,7 @@ namespace BeYeuBookstore.Application.Implementation
             }
             if (status.HasValue)
             {
-                query = query.Where(x => int.Parse(x.Status.ToString()) == status);
+                query = query.Where(x => x.Status == (Status)status);
             }
             int totalRow = query.Count();
 
@@ -111,6 +112,7 @@ namespace BeYeuBookstore.Application.Implementation
                 temp.Width = AdvertisementPositionViewModel.Width;
                 temp.PageUrl = AdvertisementPositionViewModel.PageUrl;
                 temp.IdOfPosition = AdvertisementPositionViewModel.IdOfPosition;
+                temp.Status = AdvertisementPositionViewModel.Status;
             }
         }
     }
