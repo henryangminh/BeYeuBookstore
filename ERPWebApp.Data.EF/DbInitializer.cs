@@ -183,10 +183,10 @@ namespace BeYeuBookstore.Data.EF
                 _context.WebMasterTypes.AddRange(new List<WebMasterType>()
                 {
                     new WebMasterType(){WebMasterTypeName="WebMaster"},
-                    new WebMasterType(){WebMasterTypeName="Accountant"},
-                    new WebMasterType(){WebMasterTypeName="Adcensor"},
-                    new WebMasterType(){WebMasterTypeName="Merchantcensor"},
-                    new WebMasterType(){WebMasterTypeName="Admin"},
+                    new WebMasterType(){WebMasterTypeName="Kế toán"},
+                    new WebMasterType(){WebMasterTypeName="Kiểm duyệt quảng cáo"},
+                    new WebMasterType(){WebMasterTypeName="Kiểm duyệt nhà cung cấp"},
+                    new WebMasterType(){WebMasterTypeName="Hành chính kinh doanh"},
 
                 });
 
@@ -203,9 +203,9 @@ namespace BeYeuBookstore.Data.EF
             {
                 _context.UserTypes.AddRange(new List<UserType>()
                 {
-                    new UserType(){UserTypeName="Merchant"},
-                    new UserType(){UserTypeName="Advertiser"},
-                    new UserType(){UserTypeName="Customer"},
+                    new UserType(){UserTypeName="Nhà cung cấp"},
+                    new UserType(){UserTypeName="Quảng cáo"},
+                    new UserType(){UserTypeName="Khách hàng"},
                     new UserType(){UserTypeName="Webmaster"},
                                 
                 });
