@@ -12,10 +12,12 @@ namespace BeYeuBookstore.Controllers
     public class WebMasterController : Controller
     {
         IWebMasterService _webMasterService;
+        IWebMasterTypeService _webMasterTypeService;
         IUnitOfWork _unitOfWork;
-        public WebMasterController(IWebMasterService webMasterService, IUnitOfWork unitOfWork)
+        public WebMasterController(IWebMasterTypeService webMasterTypeService, IWebMasterService webMasterService, IUnitOfWork unitOfWork)
         {
             _webMasterService = webMasterService;
+            _webMasterTypeService = webMasterTypeService;
             _unitOfWork = unitOfWork;
         }
         public IActionResult Index()
@@ -27,6 +29,12 @@ namespace BeYeuBookstore.Controllers
         public IActionResult GetAllPaging(int? type, int? status, string fromdate, string todate, string keyword, int page, int pageSize)
         {
             var model = _webMasterService.GetAllPaging(type, status, fromdate, todate, keyword, page, pageSize);
+            return new OkObjectResult(model);
+        }
+        [HttpGet]
+        public IActionResult GetAllWebMasterPosition()
+        {
+            var model = _webMasterTypeService.GetAll();
             return new OkObjectResult(model);
         }
     }
