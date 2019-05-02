@@ -11,7 +11,7 @@ namespace BeYeuBookstore.Data.Entities
     {
         public Book() { }
 
-        public Book(int keyId, string bookTitle, string author, int bookCategoryFK, int merchantFK, bool isPaperback, decimal unitPrice, int? length, int? height, int? width, int pageNumber, string description, int quantity,int ratingNumber, double rating, Status status ,DateTime? dateCreated, DateTime? dateModified)
+        public Book(int keyId, string bookTitle, string author, int bookCategoryFK, int merchantFK, bool isPaperback, decimal unitPrice, int? length, int? height, int? width, int pageNumber, string description, string img ,int quantity,int ratingNumber, double rating, Status status ,DateTime? dateCreated, DateTime? dateModified)
         {
             KeyId = keyId;
             BookTitle = bookTitle;
@@ -25,6 +25,7 @@ namespace BeYeuBookstore.Data.Entities
             Width = width;
             PageNumber = pageNumber;
             Description = description;
+            Img = img;
             DateCreated = dateCreated;
             Quantity = quantity;
             RatingNumber = ratingNumber;
@@ -50,6 +51,7 @@ namespace BeYeuBookstore.Data.Entities
         public int? Width { get; set; }
         public int PageNumber { get; set; }
         public string Description { get; set; }
+        public string Img { get; set; }
         public int Quantity { get; set; }
         /// <summary>
         /// Đánh giá

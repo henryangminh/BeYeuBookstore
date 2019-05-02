@@ -142,7 +142,22 @@
                 else {
                     keyId = parseInt($('#txtId').val());
                 }
-               
+                
+                var directContactName = $('#txtDirectContactName').val();
+                var hotline = $('#txtHotline').val();
+                var contactAddress = $('#txtContactAddress').val();
+                //var merchantCompanyName =;
+                //var address = ;
+                //var bussinessRegisterId = ;
+                //var taxId = ;
+                //var website = ;
+                //var legalRepresentative = ;
+                //var merchantBankingName = ;
+                //var bank = ;
+                //var bankBranch = ;
+                //var status = ;
+                //var scale = ;
+                //var establishDate = ;
                 $.ajax({
                     type: 'POST',
                     url: '/Merchant/SaveEntity',
@@ -225,8 +240,8 @@
                 $('#txtBussinessRegisterId').val(response.BussinessRegisterId);
                 $('#txtTaxId').val(response.TaxId);
                 $('#txtWebsite').val(response.Website);
-                $('#selStatus').val(response.Status+'');
-                $('#selScale').val(response.Scales+'');
+                $('#selDetailStatus').val(response.Status+'');
+                $('#selDetailScale').val(response.Scales+'');
                 $('#txtDirectContactName').val(response.DirectContactName);
                 $('#txtHotline').val(response.Hotline);
                 $('#txtContactAddress').val(response.ContactAddress);
@@ -278,10 +293,23 @@ function loadData(isPageChanged) {
                         _statusName = 'Khóa';
                         break;
                 }
+                var _scale = '';
+                switch (item.Scales) {
+                    case general.merchantScale.Large:
+                        _scale = 'Lớn';
+                        break;
+                    case general.merchantScale.Medium:
+                        _scale = 'Vừa';
+                        break;
+                    case general.merchantScale.Small:
+                        _scale = 'Nhỏ';
+                        break;
+                }
                 render += Mustache.render(template, {
 
                     KeyId: item.KeyId,
                     MerchantCompanyName: item.MerchantCompanyName,
+                    Scale: _scale,
                     Hotline: item.Hotline,
                     Website: item.Website,
                     Status: '<span class="badge bg-' + _color + '">' + _statusName + '</span>',

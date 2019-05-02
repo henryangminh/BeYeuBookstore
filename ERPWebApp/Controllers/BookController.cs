@@ -1,11 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using BeYeuBookstore.Application.Interfaces;
 using BeYeuBookstore.Application.ViewModels;
 using BeYeuBookstore.Infrastructure.Interfaces;
 using BeYeuBookstore.Utilities.Constants;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 
@@ -16,19 +20,21 @@ namespace BeYeuBookstore.Controllers
         IBookService _bookService;
         IBookCategoryService _bookCategoryService;
         IMerchantService _merchantService;
+        private readonly IHostingEnvironment _hostingEnvironment;
         IUnitOfWork _unitOfWork;
-        public BookController(IMerchantService merchantService ,IBookCategoryService bookCategoryService, IBookService bookService, IUnitOfWork unitOfWork)
+        public BookController(IHostingEnvironment hostingEnvironment,IMerchantService merchantService ,IBookCategoryService bookCategoryService, IBookService bookService, IUnitOfWork unitOfWork)
         {
             _bookService = bookService;
             _bookCategoryService = bookCategoryService;
             _unitOfWork =unitOfWork;
             _merchantService = merchantService;
+            _hostingEnvironment = hostingEnvironment;
         }
         public IActionResult Index()
         {
             return View();
         }
-
+        #region AJAX API
         [HttpPost]
         public IActionResult SaveEntity(BookViewModel bookVm)
         {
@@ -104,6 +110,47 @@ namespace BeYeuBookstore.Controllers
         }
 
         [HttpPost]
+        public IActionResult ImportFiles(IList<IFormFile> files)
+        {
+            var userid = _generalFunctionController.Instance.getClaimType(User, CommonConstants.UserClaims.Key);
+            var merchant = new MerchantViewModel();
+            if (Guid.TryParse(userid, out var guid))
+            {
+                merchant = _merchantService.GetBysId(userid);
+            }
+          
+            if (files != null && files.Count > 0)
+            {
+                List<string> fileName = new List<string>();
+                for (int i = 0; i < files.Count; i++)
+                {
+                    var file = files[i];
+                    var filename = ContentDispositionHeaderValue
+                                       .Parse(file.ContentDisposition)
+                                       .FileName
+                                       .Trim('"');
+
+                    string folder = _hostingEnvironment.WebRootPath + $@"\images\"+merchant.MerchantCompanyName+"\\books";
+                    if (!Directory.Exists(folder))
+                    {
+                        Directory.CreateDirectory(folder);
+                    }
+                    string filePath = Path.Combine(folder, filename);
+                    fileName.Add(Path.Combine($@"\images\"+merchant.MerchantCompanyName +"\\books", filename).Replace($@"\", $@"/"));
+
+                    using (FileStream fs = System.IO.File.Create(filePath))
+                    {
+                        file.CopyTo(fs);
+                        fs.Flush();
+                    }
+                }
+                _bookService.Save();
+                return new OkObjectResult(fileName);
+            }
+            return new NoContentResult();
+        }
+
+        [HttpPost]
         public IActionResult Delete(int id)
         {
             if (id == 0)
@@ -122,3 +169,4 @@ namespace BeYeuBookstore.Controllers
         }
     }
 }
+#endregion

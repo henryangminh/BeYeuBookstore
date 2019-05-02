@@ -19,6 +19,11 @@
             loadData();
         });
 
+        $('#selStatus').on('change', function () {
+            loadData();
+        });
+
+
         //$('#modal-add-edit').on('hide', function () {
         //    resetForm();
         //});
@@ -211,7 +216,7 @@ function loadData(isPageChanged) {
             fromdate: $('#dtBegin').val(),
             todate: $('#dtEnd').val(),
             keyword: $('#txtKeyword').val(),
-            status: $('#selStatus').val(),
+            status: $('#selStatus option:selected').val(),
             page: general.configs.pageIndex,
             pageSize: general.configs.pageSize,
         },

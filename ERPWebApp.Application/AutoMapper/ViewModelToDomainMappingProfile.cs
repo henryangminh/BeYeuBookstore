@@ -24,7 +24,7 @@ namespace BeYeuBookstore.Application.AutoMapper
                 c.CanRead, c.CanUpdate, c.CanDelete, c.CanConfirm));
 
             CreateMap<BookViewModel, Book>().ConstructUsing(c => new Book(c.KeyId , c.BookTitle, c.Author, c.BookCategoryFK, c.MerchantFK,c.isPaperback,
-                c.UnitPrice, c.Length, c.Height, c.Width, c.PageNumber, c.Description,c.Quantity,c.RatingNumber,c.Rating, c.Status,c.DateCreated, c.DateModified));
+                c.UnitPrice, c.Length, c.Height, c.Width, c.PageNumber, c.Description,c.Img,c.Quantity,c.RatingNumber,c.Rating, c.Status,c.DateCreated, c.DateModified));
 
             CreateMap<BookCategoryViewModel, BookCategory>().ConstructUsing(c => new BookCategory(c.KeyId,c.Status,c.BookCategoryName));
 
@@ -35,7 +35,7 @@ namespace BeYeuBookstore.Application.AutoMapper
                 c.ImageLink,c.Title,c.Description,c.UrlToAdvertisement,c.Deposite,c.PaidDeposite,c.CensorStatus,c.DateCreated,c.DateModified));
 
             CreateMap<AdvertisementPositionViewModel, AdvertisementPosition>().ConstructUsing(c => new AdvertisementPosition(c.KeyId, c.PageUrl,
-                c.IdOfPosition,c.AdvertisePrice,c.Height,c.Width,c.Status));
+                c.IdOfPosition,c.AdvertisePrice,c.Height,c.Width,c.Status,c.DateCreated,c.DateModified));
 
             CreateMap<AdvertiserViewModel, Advertiser>().ConstructUsing(c => new Advertiser(c.KeyId, c.UserFK,c.BrandName,c.UrlToBrand,c.DateCreated,c.DateModified));
 

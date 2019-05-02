@@ -56,7 +56,7 @@ namespace BeYeuBookstore.Application.Implementation
             throw new NotImplementedException();
         }
 
-        public PagedResult<WebMasterViewModel> GetAllPaging(int type, Status status, string fromdate, string todate, string keyword, int page, int pageSize)
+        public PagedResult<WebMasterViewModel> GetAllPaging(int? type, int? status, string fromdate, string todate, string keyword, int page, int pageSize)
         {
             var query = _webMasterRepository.FindAll(p => p.UserBy, x=>x.WebMasterTypeFKNavigation);
             query = query.OrderBy(x => x.KeyId);
@@ -83,15 +83,15 @@ namespace BeYeuBookstore.Application.Implementation
                 query = query.Where(x => x.DateCreated <= _todate);
 
             }
-            if (type != 0)
+            if (type.HasValue)
             {
                 query = query.Where(x => x.WebMasterTypeFK == type);
             }
 
-            //if (status != null)
-            //{
-            //    query = query.Where(x => x.UserBy.Status == status);
-            //}
+            if (status.HasValue)
+            {
+                query = query.Where(x => x.UserBy.Status == (Status)status);
+            }
 
             int totalRow = query.Count();
 

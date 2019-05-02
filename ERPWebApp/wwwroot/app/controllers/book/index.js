@@ -152,8 +152,17 @@
                 return false;
             }
             else {
+
+
                 if ($('#frmMaintainance').valid()) {
                     e.preventDefault();
+                    var data = new FormData();
+
+                    fileUpload = $('#fileBookImg').get(0);
+                    files = fileUpload.files;
+                    data.append("files", files[0]);
+
+                    var linkImg = '';
                     var keyId;
                     if ($('#txtId').val() == "") {
                         keyId = 0;
@@ -176,52 +185,71 @@
                     var width = $('#txtWidth').val();
                     var height = $('#txtHeight').val();
                     var pageNo = $('#txtPageNumber').val();
-                    var price = $('#txtPrice').val();
+                    var price = general.toFloat(('#txtPrice').val());
                     var description = $('#txtDescription').val();
                     var quantity = 0;
                     var status = $('#selStatus option:selected').val();
                     $.ajax({
                         type: 'POST',
-                        url: '/Book/SaveEntity',
-                        data: {
-                            KeyId: keyId,
-                            BookTitle: bookTitle,
-                            MerchantFK: merchantFK,
-                            Author: author,
-                            BookCategoryFK: bookCategoryFK,
-                            isPaperback: ispaperback,
-                            Length: length,
-                            Width: width,
-                            Height: height,
-                            PageNumber: pageNo,
-                            UnitPrice: price,
-                            Description: description,
-                            Quantity: quantity,
-                            Status: status,
-                        },
-                        dataType: "json",
-                        beforeSend: function () {
-                            general.startLoading();
-                        },
-                        success: function (response) {
+                        url: '/Book/ImportFiles',
+                        data: data,
+                        contentType: false,
+                        processData: false,
+                        success: function (e) {
+                            console.log(e);
+                            if ($('#fileBookImg').val() != '') {
+                                linkImg = e[0];
+                                e.shift();
+                            }
+                            $.ajax({
+                                type: 'POST',
+                                url: '/Book/SaveEntity',
+                                data: {
+                                    KeyId: keyId,
+                                    BookTitle: bookTitle,
+                                    MerchantFK: merchantFK,
+                                    Author: author,
+                                    BookCategoryFK: bookCategoryFK,
+                                    isPaperback: ispaperback,
+                                    Length: length,
+                                    Width: width,
+                                    Height: height,
+                                    PageNumber: pageNo,
+                                    UnitPrice: price,
+                                    Description: description,
+                                    Quantity: quantity,
+                                    Status: status,
+                                    Img: linkImg,
+                                },
+                                dataType: "json",
+                                beforeSend: function () {
+                                    general.startLoading();
+                                },
+                                success: function (response) {
 
-                            $('#modal-add-edit').modal('hide');
-                            general.notify('Ghi thành công!', 'success');
-                            resetForm();
-                            $('#frmMaintainance').trigger('reset');
-                            general.stopLoading();
-                            loadData();
+                                    $('#modal-add-edit').modal('hide');
+                                    general.notify('Ghi thành công!', 'success');
+                                    resetForm();
+                                    $('#frmMaintainance').trigger('reset');
+                                    general.stopLoading();
+                                    loadData();
+                                },
+                                error: function (err) {
+                                    general.notify('Có lỗi trong khi ghi !', 'error');
+                                    general.stopLoading();
+
+                                },
+                            });
+                            return false;
                         },
-                        error: function (err) {
+                        error: function (e) {
                             general.notify('Có lỗi trong khi ghi !', 'error');
-                            general.stopLoading();
-
-                        },
+                            console.log(e);
+                        }
                     });
-                    return false;
                 }
             }
-        });
+        })
 
 
 
@@ -282,7 +310,7 @@
                 $('#txtWidth').val(data.Width);
                 $('#txtHeight').val(data.Height);
                 $('#txtPageNumber').val(data.PageNumber);
-                $('#txtPrice').val(data.UnitPrice);
+                $('#txtPrice').val(general.toMoney(data.UnitPrice));
                 $('#txtDescription').val(data.Description);
                 $('#selStatus').val(data.Status);
                 $('#modal-add-edit').modal('show');
@@ -333,6 +361,7 @@ function loadData(isPageChanged) {
                         _statusName = 'Khóa';
                         break;
                 }
+                var _price = general.toMoney(item.UnitPrice);
                 render += Mustache.render(template, {
                     
                     KeyId: item.KeyId,
@@ -340,7 +369,7 @@ function loadData(isPageChanged) {
                     BookTitle: item.BookTitle,
                     Author: item.Author,
                     BookType: item.BookCategoryFKNavigation.BookCategoryName,
-                    UnitPrice: item.UnitPrice,
+                    UnitPrice: _price,
                     Qty: item.Quantity,
                     Status: '<span class="badge bg-' + _color + '">' + _statusName + '</span>',
                     Description: item.Description,
