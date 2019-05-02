@@ -24,6 +24,28 @@ var beyeubookstoreController = function () {
             loadData();
         });
 
+        $('body').on('click', '#ShowDetail', function () {
+            //var BookId = $('#txtBookKeyId').val();
+            var BookId = $(this).parent().siblings('input').val();
+
+            $.ajax({
+                type: 'GET',
+                url: "/BeyeuBookstore/GetById",
+                data: { id: BookId },
+                dataType: "json",
+                beforeSend: function () {
+                    general.startLoading();
+                },
+                success: function (response) {
+                    console.log('BookDetail', response);
+
+                    $('#txtBookNameModal').text(response.BookTitle);
+                    $('#txtPriceModal').text(general.toMoney(response.UnitPrice));
+                    $('#txtDescriptionModal').text(response.Description);
+                }
+            })
+        })
+
         //$('#modal-add-edit').on('hide', function () {
         //    resetForm();
         //});
@@ -95,10 +117,11 @@ function loadData(isPageChanged) {
             $.each(response, function (i, item) {
                 if (i % 4 == 0) render += '<div class="col-lg-12 col-md-12 col-xs-12">';
                 render += Mustache.render(template, {
+                    KeyId: item.KeyId,
                     BookImage: '/images/img/product/10.jpg', //để tạm thời
                     //BookRating: 5.0, //item.BookRating, //Rating //Để tạm thời thôi
                     BookTitle: item.BookTitle,
-                    BookPrice: item.UnitPrice,
+                    BookPrice: general.toMoney(item.UnitPrice),
                     LinkBook: '#',
                 });
                 if ((i + 1) % 4 == 0) render += '</div>';

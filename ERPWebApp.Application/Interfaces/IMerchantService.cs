@@ -18,7 +18,7 @@ namespace BeYeuBookstore.Application.Interfaces
 
         List<MerchantViewModel> GetAll();
 
-        PagedResult<MerchantViewModel> GetAllPaging(Status status, Scale scale, string fromdate, string todate, string keyword, int page, int pageSize);
+        PagedResult<MerchantViewModel> GetAllPaging(int? status, int? scale, string fromdate, string todate, string keyword, int page, int pageSize);
 
         List<MerchantViewModel> GetAll(int id);
 

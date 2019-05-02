@@ -14,5 +14,7 @@ namespace BeYeuBookstore.Application.ViewModels
         public int Height { get; set; }
         public int Width { get; set; }
         public Status Status { get; set; }
+        public DateTime? DateCreated { get; set; }
+        public DateTime? DateModified { get; set; }
     }
 }

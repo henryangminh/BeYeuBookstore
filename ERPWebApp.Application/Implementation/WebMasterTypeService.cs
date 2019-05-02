@@ -39,11 +39,6 @@ namespace BeYeuBookstore.Application.Implementation
 
         public List<WebMasterTypeViewModel> GetAll()
         {
-            throw new NotImplementedException();
-        }
-
-        public List<WebMasterTypeViewModel> GetAll(int id)
-        {
             var query = _webMasterTypeRepository.FindAll();
             var data = new List<WebMasterTypeViewModel>();
             foreach (var item in query)
@@ -52,6 +47,12 @@ namespace BeYeuBookstore.Application.Implementation
                 data.Add(_data);
             }
             return data;
+         
+        }
+
+        public List<WebMasterTypeViewModel> GetAll(int id)
+        {
+            throw new NotImplementedException();
         }
 
         public PagedResult<WebMasterTypeViewModel> GetAllPaging(string keyword, int page, int pageSize)

@@ -45,7 +45,8 @@ namespace BeYeuBookstore.Data.EF
 
                       new Function() {KeyId = "BookItem",Name = "Sách",ParentId = "ProductItem",SortOrder = 1,Status = Status.Active,URL = "/Book",IconCss = "fa-chevron-down"  },
                       new Function() {KeyId = "BookCategoryItem",Name = "Loại sách",ParentId = "ProductItem",SortOrder = 2,Status = Status.Active,URL = "/BookCategory",IconCss = "fa-clone"  },
-                      new Function() {KeyId = "AdvertisementContentItem",Name = "Nội dung quảng cáo",ParentId = "ProductItem",SortOrder = 3,Status = Status.Active,URL = "/UnitCategory",IconCss = "fa-clone"  },
+                      new Function() {KeyId = "AdvertisementContentItem",Name = "Nội dung quảng cáo",ParentId = "ProductItem",SortOrder = 3,Status = Status.Active,URL = "/AdvertisementContent",IconCss = "fa-clone"  },
+                      new Function() {KeyId = "AdvertisementPositionItem",Name = "Vị trí quảng cáo",ParentId = "ProductItem",SortOrder = 4,Status = Status.Active,URL = "/AdvertisementPosition",IconCss = "fa-clone"  },
 
                       new Function() {KeyId = "ReceiptandDelivery",Name = "Hóa đơn & Giao hàng",ParentId = null,SortOrder = 3,Status = Status.Active,URL = "/",IconCss = "fa-receipt"  },
                       new Function() {KeyId = "ReceiptItem",Name = "Hóa đơn",ParentId = "ReceiptandDelivery",SortOrder = 1,Status = Status.Active,URL = "/Invoice",IconCss = "fa-home"  },
@@ -97,7 +98,7 @@ namespace BeYeuBookstore.Data.EF
                 {
                     Name = "WebMaster",
                     NormalizedName = "Full quyền WebMaster",
-                    Description = "Thằng full quyền khi test"
+                    Description = "Thằng WM full quyền"
                 });
                 await _roleManager.CreateAsync(new Role()
                 {
@@ -134,7 +135,28 @@ namespace BeYeuBookstore.Data.EF
 
             }
             #endregion
+            if (_context.AdvertisementPositions.Count() == 0)
+            {
+                _context.AdvertisementPositions.AddRange(new List<AdvertisementPosition>()
+                {
+                    new AdvertisementPosition(){PageUrl="/beyeubookstore", IdOfPosition="AdPosition1", AdvertisePrice=10000000,Height=223,Width=263,Status=Status.Active},
+                    new AdvertisementPosition(){PageUrl="/beyeubookstore", IdOfPosition="AdPosition2", AdvertisePrice=9000000,Height=185,Width=460,Status=Status.Active},
+                    new AdvertisementPosition(){PageUrl="/beyeubookstore", IdOfPosition="AdPosition3", AdvertisePrice=9000000,Height=183,Width=385,Status=Status.Active},
+                    new AdvertisementPosition(){PageUrl="/beyeubookstore", IdOfPosition="AdPosition4", AdvertisePrice=80000000,Height=396,Width=263,Status=Status.Active},
+                    new AdvertisementPosition(){PageUrl="/beyeubookstore", IdOfPosition="AdPosition5", AdvertisePrice=50000000,Height=138,Width=1140,Status=Status.Active},
+                  
 
+                });
+
+            }
+            try
+            {
+                _context.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                string a = ex.ToString();
+            };
             if (_context.BookCategorys.Count() == 0)
             {
                 _context.BookCategorys.AddRange(new List<BookCategory>()
@@ -161,10 +183,10 @@ namespace BeYeuBookstore.Data.EF
                 _context.WebMasterTypes.AddRange(new List<WebMasterType>()
                 {
                     new WebMasterType(){WebMasterTypeName="WebMaster"},
-                    new WebMasterType(){WebMasterTypeName="Accountant"},
-                    new WebMasterType(){WebMasterTypeName="Adcensor"},
-                    new WebMasterType(){WebMasterTypeName="Merchantcensor"},
-                    new WebMasterType(){WebMasterTypeName="Admin"},
+                    new WebMasterType(){WebMasterTypeName="Kế toán"},
+                    new WebMasterType(){WebMasterTypeName="Kiểm duyệt quảng cáo"},
+                    new WebMasterType(){WebMasterTypeName="Kiểm duyệt nhà cung cấp"},
+                    new WebMasterType(){WebMasterTypeName="Hành chính kinh doanh"},
 
                 });
 
@@ -181,9 +203,9 @@ namespace BeYeuBookstore.Data.EF
             {
                 _context.UserTypes.AddRange(new List<UserType>()
                 {
-                    new UserType(){UserTypeName="Merchant"},
-                    new UserType(){UserTypeName="Advertiser"},
-                    new UserType(){UserTypeName="Customer"},
+                    new UserType(){UserTypeName="Nhà cung cấp"},
+                    new UserType(){UserTypeName="Quảng cáo"},
+                    new UserType(){UserTypeName="Khách hàng"},
                     new UserType(){UserTypeName="Webmaster"},
                                 
                 });
@@ -210,7 +232,8 @@ namespace BeYeuBookstore.Data.EF
                     DateCreated = DateTime.Now,
                     DateModified = DateTime.Now,
                     UserTypeFK = Const_UserType.Webmaster, //Webmaster
-                    Status = Status.Active
+                    Status = Status.Active,
+                    Gender = Gender.Other
                 }, CommonConstants.DefaultPW).Result;
                 if (result.Succeeded)
                 {
@@ -227,7 +250,8 @@ namespace BeYeuBookstore.Data.EF
                     DateCreated = DateTime.Now,
                     DateModified = DateTime.Now,
                     UserTypeFK = Const_UserType.Webmaster, //Webmaster
-                    Status = Status.Active
+                    Status = Status.Active,
+                    Gender = Gender.Other
                 }, CommonConstants.DefaultPW).Result;
                 if (result.Succeeded)
                 {
@@ -245,7 +269,8 @@ namespace BeYeuBookstore.Data.EF
                     DateCreated = DateTime.Now,
                     DateModified = DateTime.Now,
                     UserTypeFK = Const_UserType.Webmaster, //Webmaster
-                    Status = Status.Active
+                    Status = Status.Active,
+                    Gender = Gender.Other
                 }, CommonConstants.DefaultPW).Result;
                 if (result.Succeeded)
                 {
@@ -263,7 +288,8 @@ namespace BeYeuBookstore.Data.EF
                     DateCreated = DateTime.Now,
                     DateModified = DateTime.Now,
                     UserTypeFK = Const_UserType.Webmaster, //Webmaster
-                    Status = Status.Active
+                    Status = Status.Active,
+                    Gender = Gender.Other
                 }, CommonConstants.DefaultPW).Result;
                 if (result.Succeeded)
                 {
@@ -281,7 +307,8 @@ namespace BeYeuBookstore.Data.EF
                     DateCreated = DateTime.Now,
                     DateModified = DateTime.Now,
                     UserTypeFK = Const_UserType.Webmaster, //Webmaster
-                    Status = Status.Active
+                    Status = Status.Active,
+                    Gender = Gender.Other
                 }, CommonConstants.DefaultPW).Result;
                 if (result.Succeeded)
                 {
@@ -303,6 +330,7 @@ namespace BeYeuBookstore.Data.EF
                     Status = Status.Active,
                     PhoneNumber="09000000002",
                     Address = "Chung cư HaDo Q.10",
+                    Gender = Gender.Male,
                 }, CommonConstants.DefaultPW).Result;
                 if (result.Succeeded)
                 {
@@ -323,6 +351,7 @@ namespace BeYeuBookstore.Data.EF
                     Status = Status.Active,
                     PhoneNumber = "0900000001",
                     Address = "289 Bình Đông F14 Q8",
+                    Gender = Gender.Female,
                 }, CommonConstants.DefaultPW).Result;
                 if (result.Succeeded)
                 {
@@ -339,8 +368,9 @@ namespace BeYeuBookstore.Data.EF
                     Email = "khang_merchant@gmail.com",
                     DateCreated = DateTime.Now,
                     DateModified = DateTime.Now,
-                    UserTypeFK = Const_UserType.Customer, 
-                    Status = Status.Active
+                    UserTypeFK = Const_UserType.Merchant, 
+                    Status = Status.Active,
+                    Gender = Gender.Male
                 }, CommonConstants.DefaultPW).Result;
                 if (result.Succeeded)
                 {
@@ -361,8 +391,8 @@ namespace BeYeuBookstore.Data.EF
                         MerchantBankingName = "Đào Bảo Khang",
                         Bank = "ACB",
                         BankBranch = "An Đông",
-                        Status = 0,
-                        Scales = 0,
+                        Status = Status.Active,
+                        Scales = Scale.Large,
                         EstablishDate = DateTime.Parse("2018-05-03")
                     });
                 }
@@ -375,8 +405,9 @@ namespace BeYeuBookstore.Data.EF
                     Email = "tram_merchant@gmail.com",
                     DateCreated = DateTime.Now,
                     DateModified = DateTime.Now,
-                    UserTypeFK = Const_UserType.Customer,
-                    Status = Status.Active
+                    UserTypeFK = Const_UserType.Merchant,
+                    Status = Status.Active,
+                    Gender = Gender.Female,
                 }, CommonConstants.DefaultPW).Result;
                 if (result.Succeeded)
                 {
@@ -397,8 +428,8 @@ namespace BeYeuBookstore.Data.EF
                         MerchantBankingName = "Hà Thị Bích Trâm",
                         Bank = "Agribank",
                         BankBranch = "An Lộc",
-                        Status = 0,
-                        Scales = (Scale)1,
+                        Status = Status.Active,
+                        Scales = Scale.Large,
                         EstablishDate = DateTime.Parse("2016-04-01")
                     });
                 }
@@ -412,7 +443,8 @@ namespace BeYeuBookstore.Data.EF
                     DateCreated = DateTime.Now,
                     DateModified = DateTime.Now,
                     UserTypeFK = Const_UserType.Advertiser, //Webmaster
-                    Status = Status.Active
+                    Status = Status.Active,
+                    Gender = Gender.Other
                 }, CommonConstants.DefaultPW).Result;
                 if (result.Succeeded)
                 {
@@ -429,7 +461,8 @@ namespace BeYeuBookstore.Data.EF
                     DateCreated = DateTime.Now,
                     DateModified = DateTime.Now,
                     UserTypeFK = Const_UserType.Advertiser, //Webmaster
-                    Status = Status.Active
+                    Status = Status.Active,
+                    Gender = Gender.Other
                 }, CommonConstants.DefaultPW).Result;
                 if (result.Succeeded)
                 {
@@ -446,7 +479,8 @@ namespace BeYeuBookstore.Data.EF
                     DateCreated = DateTime.Now,
                     DateModified = DateTime.Now,
                     UserTypeFK = Const_UserType.Advertiser, //Webmaster
-                    Status = Status.Active
+                    Status = Status.Active,
+                    Gender = Gender.Other
                 }, CommonConstants.DefaultPW).Result;
                 if (result.Succeeded)
                 {
@@ -463,7 +497,8 @@ namespace BeYeuBookstore.Data.EF
                     DateCreated = DateTime.Now,
                     DateModified = DateTime.Now,
                     UserTypeFK = Const_UserType.Advertiser, //Webmaster
-                    Status = Status.Active
+                    Status = Status.Active,
+                    Gender = Gender.Other
                 }, CommonConstants.DefaultPW).Result;
                 if (result.Succeeded)
                 {

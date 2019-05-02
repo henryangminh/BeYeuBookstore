@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace BeYeuBookstore.Data.EF.Migrations
 {
-    public partial class beyeubookstore : Migration
+    public partial class init : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -19,7 +19,9 @@ namespace BeYeuBookstore.Data.EF.Migrations
                     AdvertisePrice = table.Column<int>(nullable: false),
                     Height = table.Column<int>(nullable: false),
                     Width = table.Column<int>(nullable: false),
-                    Status = table.Column<int>(nullable: false)
+                    Status = table.Column<int>(nullable: false),
+                    DateCreated = table.Column<DateTime>(nullable: true),
+                    DateModified = table.Column<DateTime>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -463,6 +465,7 @@ namespace BeYeuBookstore.Data.EF.Migrations
                     Width = table.Column<int>(nullable: true),
                     PageNumber = table.Column<int>(nullable: false),
                     Description = table.Column<string>(nullable: true),
+                    Img = table.Column<string>(nullable: true),
                     Quantity = table.Column<int>(nullable: false),
                     RatingNumber = table.Column<int>(nullable: false),
                     Rating = table.Column<double>(nullable: false),

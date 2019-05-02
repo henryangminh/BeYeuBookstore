@@ -94,6 +94,10 @@ namespace BeYeuBookstore.Data.EF.Migrations
 
                     b.Property<int>("AdvertisePrice");
 
+                    b.Property<DateTime?>("DateCreated");
+
+                    b.Property<DateTime?>("DateModified");
+
                     b.Property<int>("Height");
 
                     b.Property<string>("IdOfPosition");
@@ -152,6 +156,8 @@ namespace BeYeuBookstore.Data.EF.Migrations
                     b.Property<string>("Description");
 
                     b.Property<int?>("Height");
+
+                    b.Property<string>("Img");
 
                     b.Property<int?>("Length");
 

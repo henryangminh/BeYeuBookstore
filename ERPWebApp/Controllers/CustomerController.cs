@@ -52,9 +52,9 @@ namespace BeYeuBookstore.Controllers
         }
 
         [HttpGet]
-        public IActionResult GetAllPaging(string keyword, int page, int pageSize)
+        public IActionResult GetAllPaging(int? status, string keyword, int page, int pageSize)
         {
-            var model = _customerService.GetAllPaging(keyword, page, pageSize);
+            var model = _customerService.GetAllPaging(status,keyword, page, pageSize);
             return new OkObjectResult(model);
         }
 

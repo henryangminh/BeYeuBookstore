@@ -33,6 +33,13 @@ namespace BeYeuBookstore.Controllers
             var model = _bookService.GetAll(quantity);
             return new OkObjectResult(model);
         }
+
+        [HttpGet]
+        public IActionResult GetById(int id)
+        {
+            var model = _bookService.GetById(id);
+            return new OkObjectResult(model);
+        }
         #endregion
     }
 }

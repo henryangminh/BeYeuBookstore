@@ -1,17 +1,4 @@
-﻿@using BeYeuBookstore.Utilities.Constants
-@using Microsoft.AspNetCore.Authorization
-@using BeYeuBookstore.Authorization
-@inject IAuthorizationService AuthorizationService
-@{
-    //kiểm tra quyền tạo đối với nut create cho hiểu thị nut
-    var result_edit = await AuthorizationService.AuthorizeAsync(User, Const_FunctionId.AllowedVacation, Operations.Create);
-    //kiểm tra quyền tạo đối với nut delete cho hiểu thị nut
-    var result_delete = await AuthorizationService.AuthorizeAsync(User, Const_FunctionId.AllowedVacation, Operations.Delete);
-    //kiểm tra quyền tạo đối với nut update cho hiểu thị nut
-    var result_create = await AuthorizationService.AuthorizeAsync(User, Const_FunctionId.AllowedVacation, Operations.Update);
-    //kiểm tra quyền tạo đối với nut delete cho hiểu thị nut
-    var result_confirm = await AuthorizationService.AuthorizeAsync(User, Const_FunctionId.AllowedVacation, Operations.Confirm);
-}
+﻿
 <div id="modal-add-edit" class="bootbox modal fade modal-darkorange in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog  modal-lg">
         <div class="modal-content">
@@ -71,7 +58,7 @@
                         <div class="form-group row">
                             <label for="selStatus" class="col-sm-2 col-form-label">Trạng thái<span class="star">*</span></label>
                             <div class="col-sm-4">
-                                <select id="selStatus" class="form-control" name="selStatus">
+                                <select id="selDetailStatus" class="form-control" name="selDetailStatus">
                                     <option value="">Chọn trạng thái</option>
                                     <option value="1">Kích hoạt</option>
                                     <option value="0">Khóa</option>
@@ -80,7 +67,7 @@
                             </div>
                             <label for="selScale" class="col-sm-2 col-form-label">Quy mô<span class="star">*</span></label>
                             <div class="col-sm-4">
-                                <select id="selScale" class="form-control" name="selScale">
+                                <select id="selDetailScale" class="form-control" name="selDetailScale">
                                     <option value="">Chọn quy mô</option>
                                     <option value="0">Lớn</option>
                                     <option value="1">Vừa </option>
@@ -134,13 +121,13 @@
             </div>
             <div class="modal-footer">
 
-                <div class="form-group row">
+           
                     <div class="col-sm-6">
                         <button type="button" id="btnSave" class="btn btn-success">Ghi</button>
                         <button type="button" id="btnCancel" data-dismiss="modal" class="btn btn-danger">Hủy</button>
                     </div>
 
-                </div>
+                
             </div>
         </div>
 

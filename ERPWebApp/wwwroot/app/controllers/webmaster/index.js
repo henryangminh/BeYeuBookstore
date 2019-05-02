@@ -1,6 +1,7 @@
 ﻿var webmasterController = function () {
     this.initialize = function () {
         loadData();
+        loadWebmasterPosition();
         registerEvents();
     }
     function registerEvents() {
@@ -10,7 +11,7 @@
             loadData(true);
         });
 
-        $('#selWebmasterType').on('change', function () {
+        $('#selWebmasterPosition').on('change', function () {
             loadData();
         });
 
@@ -114,12 +115,7 @@
             }
         });
         //Save 
-        $('#txtTodate').on('change', function (e) {
-            $('#txtNOdate').val(countDateWithoutSunday($('#txtFromdate').val(), $('#txtTodate').val()));
-        });
-        $('#txtFromdate').on('change', function (e) {
-            $('#txtNOdate').val(countDateWithoutSunday($('#txtFromdate').val(), $('#txtTodate').val()));
-        });
+
         $('#btnSave').on('click', function (e) {
             if ($('#frmMaintainance').valid()) {
                 e.preventDefault();
@@ -130,68 +126,13 @@
                 else {
                     keyId = parseInt($('#txtId').val());
                 }
-                var statusFK;
-                var timeKeepingTypeFK = $('#seldetailTimeKeepingType option:selected').val();
-                if (timeKeepingTypeFK == '0') {
-                    general.notify('Vui lòng chọn loại nghỉ !', 'error');
-                    return false;
-                }
-                var fromDate = $('#txtFromdate').val();
-                if (fromDate == '') {
-                    general.notify('Vui lòng điền ngày bắt đầu !', 'error');
-                    return false;
-                }
-                var toDate = $('#txtTodate').val();
-                if (toDate == '') {
-                    general.notify('Vui lòng điền ngày kết thúc !', 'error');
-                    return false;
-                }
-                if (moment(toDate, "DD/MM/YYYY") < moment(fromDate, "DD/MM/YYYY")) {
-                    general.notify('Ngày kết thúc phải lớn hơn hoặc bằng ngày bắt đầu!', 'error');
-                    return false;
-                }
-
-
-                var nODate = $('#txtNOdate').val();
-                if (nODate > parseInt($('#txtNODaysRemain').val()) && timeKeepingTypeFK == '15') {
-                    general.notify('Số ngày phép năm không đủ hoặc đã hết!', 'error');
-                    return false;
-                }
-                var percentSalary = $('#txtPercentSalary').val();
-                var reason = $('#txtReason').val();
-                var note = $('#txtNote').val();
-                var handOverTo = $('#selHandoverTo option:selected').val();
-                var requestTo = $('#selRequestTo option:selected').val();
-                //var permitDaysID = $('#txtPermitDaysId').val();
-                var commitBackToWork;
-                if ($('#chkCommitBackToWork').is(":checked")) {
-                    commitBackToWork = true;
-                }
-                else {
-                    commitBackToWork = false;
-                }
-                if ($('#txtStatusFK').val() == "") {
-                    statusFK = general.formStatus.Typing
-                }
-                else {
-                    statusFK = $('#txtStatusFK').val();
-                }
+              
                 $.ajax({
                     type: 'POST',
                     url: '/AllowedVacation/SaveEntity',
                     data: {
                         KeyId: keyId,
-                        TimeKeepingTypeFK: timeKeepingTypeFK,
-                        FromDate: fromDate,
-                        ToDate: toDate,
-                        NODate: nODate,
-                        PercentSalary: percentSalary,
-                        Reason: reason,
-                        Note: note,
-                        StatusFK: statusFK,
-                        HandoverToFK: handOverTo,
-                        CommitBackToWork: commitBackToWork,
-                        RequestToFK: requestTo,
+                       
                     },
                     dataType: "json",
                     beforeSend: function () {
@@ -233,13 +174,7 @@
         $('#dtDateModified').val('');
         $('#chkCommitBackToWork').prop('checked', false);
         $('#txtStatus').empty();
-        $('#selRequestTo')
-            .find('option')
-            .remove()
-            .end()
-            .append('<option value="">Chọn người yêu cầu xác nhận</option>')
-            ;
-        loadRequestTo();
+
 
 
     }
@@ -260,26 +195,6 @@
                 console.log("loaddetail", response);
                 var data = response;
 
-                $('#txtId').val(data.KeyId);
-                $('#txtEmployeeKeyId').val(data.EmployeeFK);
-                $('#txtEmplyeeFullName').val(data.EmployeeFKNavigation.UserBy.FullName);
-                $('#txtDepartment').val(data.EmployeeFKNavigation.DepartmentFkNavigation.DepartmentName);
-                $('#seldetailTimeKeepingType').val(data.TimeKeepingTypeFK);
-                $('#txtPosition').val(data.EmployeeFKNavigation.PositionFkNavigation.PositionName);
-                var _FromDate = data.FromDate.split("T");
-                $('#txtFromdate').val(_FromDate[0]);
-                var _ToDate = data.ToDate.split("T");
-                $('#txtTodate').val(_ToDate[0]);
-                $('#txtNOdate').val(data.NODate);
-                $('#txtPercentSalary').val(data.PercentSalary);
-                $('#txtReason').val(data.Reason);
-                $('#txtNote').val(data.Note);
-                $('#dtDateCreated').val(moment(data.DateCreated).format("DD/MM/YYYY"));
-                $('#dtDateModified').val(moment(data.DateModified).format("DD/MM/YYYY"));
-                $('#selHandoverTo').val(data.HandoverToFK);
-                //loadRequestToById(data.RequestToFK);
-                //$('#txtRequestToId').val(data.RequestToFK);
-                $('#txtStatusFK').val(data.StatusFK);
                 switch (data.StatusFK) {
                     case general.formStatus.Typing:
                         $('#btnRequest').removeClass('hidden');
@@ -362,8 +277,8 @@ function loadData(isPageChanged) {
             fromdate: $('#dtBegin').val(),
             todate: $('#dtEnd').val(),
             keyword: $('#txtKeyword').val(),
-            type: $('#selWebmaster').val(),
-            status: $('#selStatus').val(),
+            type: $('#selWebmasterPosition option:selected').val(),
+            status: $('#selStatus option:selected').val(),
             page: general.configs.pageIndex,
             pageSize: general.configs.pageSize,
         },
@@ -435,19 +350,17 @@ function wrapPaging(recordCount, callBack, changePageSize) {
         });
 }
 
-function loadBookCategory() {
+function loadWebmasterPosition() {
     $.ajax({
         type: 'GET',
-        url: '/Book/GetAllBookCategory',
+        url: '/WebMaster/GetAllWebMasterPosition',
 
         dataType: "json",
 
         success: function (response) {
 
             $.each(response, function (i, item) {
-                $('#selBookCategory').append("<option value='" + item.KeyId + "'>" + item.BookCategoryName + "</option>");
-
-
+                $('#selWebmasterPosition').append("<option value='" + item.KeyId + "'>" + item.WebMasterTypeName + "</option>");
             });
         },
         error: function (err) {
