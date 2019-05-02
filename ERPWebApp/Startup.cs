@@ -175,7 +175,7 @@ namespace BeYeuBookstore
             services.AddTransient<IWebMasterService, WebMasterService>();
             services.AddTransient<IWebMasterTypeService, WebMasterTypeService>();
             services.AddTransient<IFunctionService, FunctionService>();
-           // services.AddTransient<IPermissionService, PermissionService>();
+            //services.AddTransient<IPermissionService, PermissionService>();
             services.AddTransient<IUserService,UserService>();
             services.AddTransient<IRoleService, RoleService>();
 
@@ -249,11 +249,11 @@ namespace BeYeuBookstore
             {
                 routes.MapRoute(
                    name: "default",
-                   template: "{controller=Account}/{action=Login}");
+                   template: "{controller=BeyeuBookstore}/{action=Index}");
 
                 routes.MapRoute(
                 name: "Home",
-                 template: "{controller=Home}/{action=Index}/{id?}");
+                 template: "{controller=BeyeuBookstore}/{action=Index}/{id?}");
 
                 //routes.MapRoute(
                 //    name: "RouteAdmin",

@@ -118,14 +118,19 @@
                 else {
                     keyId = parseInt($('#txtId').val());
                 }
-                var statusFK;
-                var name = $('#txtName').val();
+                var status = $('#selDeliStatus option:selected').val();
+                var orderPrice = parseInt($('#txtOrderPrice').val());
+                var shipPrice = $('#txtShip').val();
+                var note = $('#txtNote').val();
                 $.ajax({
                     type: 'POST',
-                    url: '/Customer/SaveEntity',
+                    url: '/Delivery/UpdateStatus',
                     data: {
                         KeyId: keyId,
-                        BookCategoryName: name,
+                        DeliveryStatus: status,
+                        OrderPrice: orderPrice,
+                        ShipPrice: shipPrice,
+                        Note: note,
                     },
                     dataType: "json",
                     beforeSend: function () {
@@ -149,17 +154,9 @@
                 return false;
             }
         });
+
         $('#txtShip').on('keyup change', function (e) {
-            var _delitotal = parseInt($('#txtTotalPrice').val()) + parseInt($('#txtShip').val());
-            var template = $('#DeliTotal-template').html();
-            var renderDetail = "";
-            renderDetail += Mustache.render(template, {
-
-              DeliTotal:_delitotal,
-              
-            });
-            $('#txtDeliTotal').html(renderDetail);
-
+            loadTotalPrice();
         }); 
 
 
@@ -167,6 +164,9 @@
     }
 
     function resetForm() {
+
+        $('#frmMaintainance').trigger('reset');
+        $('#txtDeliTotal').text('');
         $('#txtId').val('');
         $('#txtName').val('')
 
@@ -174,6 +174,7 @@
     }
 
     function loadDetail(that) {
+        resetForm();
         var template = $('#InvoiceDetail-table-template').html();
         var renderDetail = "";
         $.ajax({
@@ -185,6 +186,56 @@
                 general.startLoading();
             },
             success: function (response) {
+                switch (response.DeliveryStatus) {
+                    case general.deliStatus.UnConfirm:
+                        $('#selDeliStatus')
+                            .find('option')
+                            .remove()
+                            .end()
+                            .append('<option value="1">Chưa xác nhận</option><option value="2">Xác nhận</option><option value = "6" > Thất bại</option >');
+                        $('#txtShip').removeAttr("readonly");
+                        break;
+                    case general.deliStatus.Confirm:
+                        $('#selDeliStatus')
+                            .find('option')
+                            .remove()
+                            .end()
+                            .append('<option value="2">Xác nhận</option><option value="3">Đang đóng gói</option><option value = "6" > Thất bại</option >');
+                        $('#txtShip').removeAttr("readonly");
+                        break;
+                    case general.deliStatus.Packaged:
+                        $('#selDeliStatus')
+                            .find('option')
+                            .remove()
+                            .end()
+                            .append('<option value="3">Đang đóng gói</option><option value="4">Đang vận chuyển</option><option value = "6" > Thất bại</option >');
+                        $('#txtShip').attr("readonly", "readonly");
+                        break;
+                    case general.deliStatus.OnDelivery:
+                        $('#selDeliStatus')
+                            .find('option')
+                            .remove()
+                            .end()
+                            .append('<option value="4">Đang vận chuyển</option><option value="5">Giao thành công</option><option value = "6" >Thất bại</option >');
+                        $('#txtShip').attr("readonly", "readonly");
+                        break;
+                    case general.deliStatus.Success:
+                        $('#selDeliStatus')
+                            .find('option')
+                            .remove()
+                            .end()
+                            .append('<option value="5">Giao thành công</option>');
+                        $('#txtShip').attr("readonly", "readonly");
+                        break;
+                    case general.deliStatus.Fail:
+                        $('#selDeliStatus')
+                            .find('option')
+                            .remove()
+                            .end()
+                            .append('<option value="6">Thất bại</option>');
+                        $('#txtShip').attr("readonly", "readonly");
+                        break;
+                }
                 console.log("loaddetail", response);
                  
 
@@ -196,8 +247,11 @@
                 $('#txtDeliName').val(response.InvoiceFKNavigation.DeliContactName);
                 $('#txtDeliHotline').val(response.InvoiceFKNavigation.DeliContactHotline);    
                 $('#txtDeliAddress').val(response.InvoiceFKNavigation.DeliAddress);
+                $('#txtOrderPrice').val(general.toMoney(response.OrderPrice));
+                $('#txtShip').val(general.toMoney(response.ShipPrice));
+                $('#txtNote').val(response.Note);
+               
                 $('#selDeliStatus').val(response.DeliveryStatus);
-                $('#txtTotalPrice').val(response.TotalPrice);
                 $.ajax({
                     type: "GET",
                     url: "/Delivery/GetInvoiceDetailByInvoiceId",
@@ -221,8 +275,9 @@
 
                         });
                   
-                        console.log(renderDetail);
+                        
                         $('#Delivery-tbl-content').html(renderDetail);
+                        loadTotalPrice();
                         $('#modal-add-edit').modal('show');
                         general.stopLoading();
 
@@ -244,6 +299,19 @@
 
 
     }
+}
+function loadTotalPrice()
+{
+    var _delitotal = general.toInt($('#txtOrderPrice').val()) + general.toInt($('#txtShip').val());
+    var template = $('#DeliTotal-template').html();
+    var renderDetail = "";
+    renderDetail += Mustache.render(template, {
+
+        DeliTotal: _delitotal,
+
+    });
+    $('#txtDeliTotal').html(general.toMoney(renderDetail));
+
 }
 function loadData(isPageChanged) {
 

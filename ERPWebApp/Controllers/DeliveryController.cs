@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using BeYeuBookstore.Application.Interfaces;
+using BeYeuBookstore.Application.ViewModels;
 using BeYeuBookstore.Infrastructure.Interfaces;
 using BeYeuBookstore.Utilities.Constants;
 using Microsoft.AspNetCore.Mvc;
@@ -54,6 +55,18 @@ namespace BeYeuBookstore.Controllers
             return new OkObjectResult(model);
         }
 
+        [HttpPost]
+        public IActionResult UpdateStatus(DeliveryViewModel deliVm )
+        {
+            if(deliVm!=null)
+            {
+                _deliveryService.UpdateStatus(deliVm);
+                _deliveryService.Save();
+                return new OkObjectResult(deliVm);
+            }
+            return new BadRequestResult();
+
+        }
 
         [HttpPost]
         public IActionResult Delete(int id)

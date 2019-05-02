@@ -14,7 +14,7 @@ namespace BeYeuBookstore.Application.AutoMapper
         public ViewModelToDomainMappingProfile()
         {
             CreateMap<UserViewModel, User>()
-                .ConstructUsing(c => new User(c.Id.GetValueOrDefault(Guid.Empty), c.FullName, c.Avatar, c.Address, c.DateCreated, c.DateModified, c.Status, c.LastupdatedFk,c.Email));
+                .ConstructUsing(c => new User(c.Id.GetValueOrDefault(Guid.Empty), c.FullName, c.Avatar, c.Address, c.DateCreated, c.DateModified, c.Status, c.LastupdatedFk,c.Email, c.UserTypeFK));
 
 
             CreateMap<FunctionViewModel, Function>().ConstructUsing(c => new Function(c.KeyId,c.Name,c.URL,c.ParentId,c.IconCss,
@@ -55,7 +55,7 @@ namespace BeYeuBookstore.Application.AutoMapper
 
             CreateMap<InvoiceDetailViewModel, InvoiceDetail>().ConstructUsing(c => new InvoiceDetail(c.KeyId,c.BookFK,c.Qty,c.UnitPrice,c.SubTotal,c.DateCreated,c.DateModified));
 
-            CreateMap<DeliveryViewModel, Delivery>().ConstructUsing(c => new Delivery(c.KeyId,c.InvoiceFK,c.DeliveryStatus,c.MerchantFK,c.TotalPrice,c.DateCreated,c.DateModified));
+            CreateMap<DeliveryViewModel, Delivery>().ConstructUsing(c => new Delivery(c.KeyId,c.InvoiceFK,c.DeliveryStatus,c.MerchantFK,c.OrderPrice,c.ShipPrice,c.Note,c.DateCreated,c.DateModified));
 
             CreateMap<RatingDetailViewModel, RatingDetail>().ConstructUsing(c => new RatingDetail(c.KeyId, c.BookFK, c.CustomerFK, c.Rating, c.Comment, c.DateCreated, c.DateModified));
 

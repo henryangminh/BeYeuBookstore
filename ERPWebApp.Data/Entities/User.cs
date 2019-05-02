@@ -28,7 +28,7 @@ namespace BeYeuBookstore.Data.Entities
         //    Status = status;
         //}
 
-        public User(Guid id, string fullName, string avatar, string address, DateTime? dateCreated, DateTime? dateModified, Status status, Guid? lastupdatedFk, string email)
+        public User(Guid id, string fullName, string avatar, string address, DateTime? dateCreated, DateTime? dateModified, Status status, Guid? lastupdatedFk, string email, int userTypeFK)
         {
             Id = id;
             FullName = fullName;
@@ -39,6 +39,7 @@ namespace BeYeuBookstore.Data.Entities
             Status = status;
             LastupdatedFk = lastupdatedFk;
             Email = email;
+            UserTypeFK = userTypeFK;
         }
 
         public string FullName { get; set; }

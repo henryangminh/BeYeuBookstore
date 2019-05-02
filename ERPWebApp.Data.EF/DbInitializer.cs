@@ -177,6 +177,26 @@ namespace BeYeuBookstore.Data.EF
             {
                 string a = ex.ToString();
             };
+            if (_context.UserTypes.Count() == 0)
+            {
+                _context.UserTypes.AddRange(new List<UserType>()
+                {
+                    new UserType(){UserTypeName="Merchant"},
+                    new UserType(){UserTypeName="Advertiser"},
+                    new UserType(){UserTypeName="Customer"},
+                    new UserType(){UserTypeName="Webmaster"},
+                                
+                });
+
+            }
+            try
+            {
+                _context.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                string a = ex.ToString();
+            };
             #region AddUser
             //tao user Webmaster full quyền (pass word phai lon hon 6 ktu
             if (_userManager.Users.Count() == 0)
@@ -540,10 +560,10 @@ namespace BeYeuBookstore.Data.EF
                 {
                     _context.Deliveries.AddRange(new List<Delivery>()
                     {
-                            new Delivery(){ InvoiceFK=1,MerchantFK=1,DeliveryStatus=1, TotalPrice=0},
-                            new Delivery(){ InvoiceFK=1,MerchantFK=2,DeliveryStatus=1, TotalPrice=0},
-                            new Delivery(){ InvoiceFK=2,MerchantFK=1,DeliveryStatus=1, TotalPrice=0},
-                            new Delivery(){ InvoiceFK=2,MerchantFK=2,DeliveryStatus=1, TotalPrice=0},
+                            new Delivery(){ InvoiceFK=1,MerchantFK=1,DeliveryStatus=1, OrderPrice=0},
+                            new Delivery(){ InvoiceFK=1,MerchantFK=2,DeliveryStatus=1, OrderPrice=0},
+                            new Delivery(){ InvoiceFK=2,MerchantFK=1,DeliveryStatus=1, OrderPrice=0},
+                            new Delivery(){ InvoiceFK=2,MerchantFK=2,DeliveryStatus=1, OrderPrice=0},
                     });
 
                 }

@@ -271,7 +271,7 @@
                             FullName: item.FullName,
                             Id: item.Id,
                             Email: item.Email,
-                            //UserType: item.UserTypeFK.UserTypeName,
+                            UserType: item.UserTypeName,
                             Avatar: item.Avatar === null ? '<img src="/images/user/user.png" width=25 />' : '<img src="' + item.Avatar + '" width=25 />',
                             DateModify: general.dateTimeFormatJson(item.DateModified),
                             Status: general.getStatus(item.Status)

@@ -286,6 +286,11 @@ namespace BeYeuBookstore.Data.EF
                 entity.HasOne(d => d.WebMasterFKNavigation)
                  .WithOne(p => p.UserBy)
                  .HasForeignKey<WebMaster>(d => d.UserFK);
+
+                entity.HasOne(d => d.UserTypeFKNavigation)
+             .WithMany(p => p.Users)
+             .HasForeignKey(d => d.UserTypeFK)
+             .HasConstraintName("FK_dbo.Users.UserTypeFK");
             });
 
 

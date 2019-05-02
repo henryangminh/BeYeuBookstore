@@ -89,7 +89,7 @@ namespace BeYeuBookstore.Application.Implementation
 
         public CustomerViewModel GetById(int id)
         {
-            return Mapper.Map<Customer, CustomerViewModel>(_customerRepository.FindById(id));
+            return Mapper.Map<Customer, CustomerViewModel>(_customerRepository.FindById(id, x=>x.UserBy));
         }
 
         public bool Save()

@@ -230,7 +230,11 @@ namespace BeYeuBookstore.Data.EF.Migrations
 
                     b.Property<int>("MerchantFK");
 
-                    b.Property<decimal>("TotalPrice");
+                    b.Property<string>("Note");
+
+                    b.Property<decimal>("OrderPrice");
+
+                    b.Property<decimal>("ShipPrice");
 
                     b.HasKey("KeyId");
 
@@ -618,11 +622,9 @@ namespace BeYeuBookstore.Data.EF.Migrations
 
                     b.Property<int>("UserTypeFK");
 
-                    b.Property<int?>("UserTypeFKNavigationKeyId");
-
                     b.HasKey("Id");
 
-                    b.HasIndex("UserTypeFKNavigationKeyId");
+                    b.HasIndex("UserTypeFK");
 
                     b.ToTable("User");
                 });
@@ -912,7 +914,9 @@ namespace BeYeuBookstore.Data.EF.Migrations
                 {
                     b.HasOne("BeYeuBookstore.Data.Entities.UserType", "UserTypeFKNavigation")
                         .WithMany("Users")
-                        .HasForeignKey("UserTypeFKNavigationKeyId");
+                        .HasForeignKey("UserTypeFK")
+                        .HasConstraintName("FK_dbo.Users.UserTypeFK")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("BeYeuBookstore.Data.Entities.WebMaster", b =>

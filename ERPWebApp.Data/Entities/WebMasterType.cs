@@ -21,6 +21,6 @@ namespace BeYeuBookstore.Data.Entities
         public DateTime? DateCreated { get; set; }
         public DateTime? DateModified { get; set; }
         //
-        public ICollection<WebMaster> WebMasters { get; set; }
+        public virtual ICollection<WebMaster> WebMasters { get; set; }
     }
 }

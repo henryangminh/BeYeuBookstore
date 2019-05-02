@@ -64,7 +64,7 @@ namespace BeYeuBookstore.Application.Implementation
 
         public PagedResult<BookViewModel> GetAllPaging(int? merchantId, string fromdate, string todate, string keyword, int bookcategoryid, int page, int pageSize)
         {
-            var query = _bookRepository.FindAll(p => p.BookCategoryFKNavigation, p=>p.MerchantFKNavigation);
+            var query = _bookRepository.FindAll(x=>x.BookCategoryFKNavigation, x=>x.MerchantFKNavigation);
             query = query.OrderBy(x => x.KeyId);
             if (!string.IsNullOrEmpty(keyword))
             {
@@ -145,6 +145,8 @@ namespace BeYeuBookstore.Application.Implementation
                 temp.isPaperback = BookViewModel.isPaperback;
                 temp.UnitPrice = BookViewModel.UnitPrice;
                 temp.Quantity = BookViewModel.Quantity;
+                temp.Status = BookViewModel.Status;
+
             }
         }
     }
