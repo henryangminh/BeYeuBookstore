@@ -163,7 +163,7 @@
         
     },
     maxSizeAllowed: {
-        BookImg: 1048576,
+        BookImg: 2097152,
 
     },
     notify: function (message, type) {
