@@ -162,6 +162,10 @@
         Webmaster: 4,
         
     },
+    maxSizeAllowed: {
+        BookImg: 1048576,
+
+    },
     notify: function (message, type) {
         $.notify(message, {
             // whether to hide the notification on click

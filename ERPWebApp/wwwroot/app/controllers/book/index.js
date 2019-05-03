@@ -144,8 +144,8 @@
                 },
             }
         });
-        //Save 
 
+        //Save
         $('#btnSave').on('click', function (e) {
             if ($('#txtMerchantStatus').val() == 0) {
                 general.notify('Nhà cung cấp đã bị Khóa, vui lòng liên hệ Webmaster để biết thêm chi tiết!', 'error');
@@ -192,14 +192,16 @@
                         var status = $('#selStatus option:selected').val();
                         if ($('#fileBookImg').val() != "")
                         {
-                            alert($('#fileBookImg').files[0].size);
                             var filename = $('#fileBookImg').val().split('\\').pop();
                             var extension = filename.substr((filename.lastIndexOf('.') + 1));
                             if (extension.toUpperCase() != "JPG" && extension.toUpperCase() != "PNG") {
                                 general.notify('File ảnh phải ở định dạng JPG hoặc PNG !', 'error');
                                 return false;
                             }
-                            
+                            if ($('#fileBookImg')[0].files[0].size > general.maxSizeAllowed.BookImg) {
+                                general.notify('Kích thước ảnh phải nhỏ hơn 2Mb !', 'error');
+                                return false;
+                            }
                             else {
                                 $.ajax({
                                     type: 'POST',
