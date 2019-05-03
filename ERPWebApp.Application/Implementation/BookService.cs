@@ -146,6 +146,7 @@ namespace BeYeuBookstore.Application.Implementation
                 temp.UnitPrice = BookViewModel.UnitPrice;
                 temp.Quantity = BookViewModel.Quantity;
                 temp.Status = BookViewModel.Status;
+                temp.Img = BookViewModel.Img;
 
             }
         }

@@ -84,6 +84,7 @@
     <Folder Include="wwwroot\app\shared\beyeubookstore\" />
     <Folder Include="wwwroot\export-files\" />
     <Folder Include="wwwroot\images\img\" />
+    <Folder Include="wwwroot\images\Khang Book\books\" />
     <Folder Include="wwwroot\images\user\" />
   </ItemGroup>
 

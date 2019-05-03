@@ -151,56 +151,124 @@
                 general.notify('Nhà cung cấp đã bị Khóa, vui lòng liên hệ Webmaster để biết thêm chi tiết!', 'error');
                 return false;
             }
+
             else {
+                
+                    if ($('#frmMaintainance').valid()) {
+                        e.preventDefault();
 
+                        var linkImg = '';
+                        var keyId;
+                        if ($('#txtId').val() == "") {
+                            keyId = 0;
+                        }
+                        else {
+                            keyId = parseInt($('#txtId').val());
+                        }
+                        var data = new FormData();
 
-                if ($('#frmMaintainance').valid()) {
-                    e.preventDefault();
-                    var data = new FormData();
+                        fileUpload = $('#fileBookImg').get(0);
+                        files = fileUpload.files;
+                        data.append("files", files[0]);
 
-                    fileUpload = $('#fileBookImg').get(0);
-                    files = fileUpload.files;
-                    data.append("files", files[0]);
-
-                    var linkImg = '';
-                    var keyId;
-                    if ($('#txtId').val() == "") {
-                        keyId = 0;
-                    }
-                    else {
-                        keyId = parseInt($('#txtId').val());
-                    }
-                    var bookTitle = $('#txtBooktitle').val();
-                    var merchantFK = $('#txtMerchantKeyId').val();
-                    var author = $('#txtAuthor').val();
-                    var bookCategoryFK = $('#selBookcategory option:selected').val();
-                    var ispaperback = $('#selisPaperback option:selected').val();
-                    if (ispaperback == 0) {
-                        ispaperback = true;
-                    }
-                    else {
-                        ispaperback = false;
-                    }
-                    var length = $('#txtLength').val();
-                    var width = $('#txtWidth').val();
-                    var height = $('#txtHeight').val();
-                    var pageNo = $('#txtPageNumber').val();
-                    var price = general.toFloat(('#txtPrice').val());
-                    var description = $('#txtDescription').val();
-                    var quantity = 0;
-                    var status = $('#selStatus option:selected').val();
-                    $.ajax({
-                        type: 'POST',
-                        url: '/Book/ImportFiles',
-                        data: data,
-                        contentType: false,
-                        processData: false,
-                        success: function (e) {
-                            console.log(e);
-                            if ($('#fileBookImg').val() != '') {
-                                linkImg = e[0];
-                                e.shift();
+                        var bookTitle = $('#txtBooktitle').val();
+                        var merchantFK = $('#txtMerchantKeyId').val();
+                        var author = $('#txtAuthor').val();
+                        var bookCategoryFK = $('#selBookcategory option:selected').val();
+                        var ispaperback = $('#selisPaperback option:selected').val();
+                        if (ispaperback == 0) {
+                            ispaperback = true;
+                        }
+                        else {
+                            ispaperback = false;
+                        }
+                        var length = $('#txtLength').val();
+                        var width = $('#txtWidth').val();
+                        var height = $('#txtHeight').val();
+                        var pageNo = $('#txtPageNumber').val();
+                        var price = general.toFloat($('#txtPrice').val());
+                        var description = $('#txtDescription').val();
+                        var quantity = 0;
+                        var status = $('#selStatus option:selected').val();
+                        if ($('#fileBookImg').val() != "")
+                        {
+                            alert($('#fileBookImg').files[0].size);
+                            var filename = $('#fileBookImg').val().split('\\').pop();
+                            var extension = filename.substr((filename.lastIndexOf('.') + 1));
+                            if (extension.toUpperCase() != "JPG" && extension.toUpperCase() != "PNG") {
+                                general.notify('File ảnh phải ở định dạng JPG hoặc PNG !', 'error');
+                                return false;
                             }
+                            
+                            else {
+                                $.ajax({
+                                    type: 'POST',
+                                    url: '/Book/ImportFiles',
+                                    data: data,
+                                    contentType: false,
+                                    processData: false,
+                                    success: function (e) {
+                                        console.log(e);
+                                        if ($('#fileBookImg').val() != '') {
+
+                                            linkImg = e[0];
+
+                                            e.shift();
+
+                                        }
+                                        $.ajax({
+                                            type: 'POST',
+                                            url: '/Book/SaveEntity',
+                                            data: {
+                                                KeyId: keyId,
+                                                BookTitle: bookTitle,
+                                                MerchantFK: merchantFK,
+                                                Author: author,
+                                                BookCategoryFK: bookCategoryFK,
+                                                isPaperback: ispaperback,
+                                                Length: length,
+                                                Width: width,
+                                                Height: height,
+                                                PageNumber: pageNo,
+                                                UnitPrice: price,
+                                                Description: description,
+                                                Quantity: quantity,
+                                                Status: status,
+                                                Img: linkImg,
+                                            },
+                                            dataType: "json",
+                                            beforeSend: function () {
+                                                general.startLoading();
+                                            },
+                                            success: function (response) {
+
+                                                $('#modal-add-edit').modal('hide');
+                                                general.notify('Ghi thành công!', 'success');
+                                                resetForm();
+                                                $('#frmMaintainance').trigger('reset');
+                                                general.stopLoading();
+                                                loadData();
+                                            },
+                                            error: function (err) {
+                                                general.notify('Có lỗi trong khi ghi !', 'error');
+                                                general.stopLoading();
+
+                                            },
+                                        });
+
+                                        return false;
+
+                                    },
+                                    error: function (e) {
+                                        general.notify('Có lỗi trong khi ghi !', 'error');
+                                        console.log(e);
+                                    }
+
+                                });
+                            }
+                        }
+                        else {
+                            var linkImg = $('#BookImg').val();
                             $.ajax({
                                 type: 'POST',
                                 url: '/Book/SaveEntity',
@@ -240,20 +308,10 @@
 
                                 },
                             });
-                            return false;
-                        },
-                        error: function (e) {
-                            general.notify('Có lỗi trong khi ghi !', 'error');
-                            console.log(e);
                         }
-                    });
-                }
+                    }               
             }
         })
-
-
-
-
     }
 
     function resetForm() {
@@ -299,6 +357,7 @@
                 $('#txtMerchantStatus').val(data.MerchantFKNavigation.Status);
                 $('#txtBooktitle').val(data.BookTitle);
                 $('#txtAuthor').val(data.Author);
+                $('#BookImg').val(data.Img);
                 $('#selBookcategory').val(data.BookCategoryFK);
                 if (data.isPaperback) {
                     $('#selisPaperback').val(0);
@@ -368,6 +427,7 @@ function loadData(isPageChanged) {
                     Merchant: item.MerchantFKNavigation.MerchantCompanyName,
                     BookTitle: item.BookTitle,
                     Author: item.Author,
+                    Img: '<img src="'+item.Img+'" width="100">',
                     BookType: item.BookCategoryFKNavigation.BookCategoryName,
                     UnitPrice: _price,
                     Qty: item.Quantity,

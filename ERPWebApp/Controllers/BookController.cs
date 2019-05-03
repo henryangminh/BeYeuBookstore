@@ -125,11 +125,9 @@ namespace BeYeuBookstore.Controllers
                 for (int i = 0; i < files.Count; i++)
                 {
                     var file = files[i];
-                    var filename = ContentDispositionHeaderValue
-                                       .Parse(file.ContentDisposition)
-                                       .FileName
-                                       .Trim('"');
-
+                    var extension = Path.GetExtension(file.FileName);
+                    var filename = DateTime.Now.ToString("yyyyMMddHHmmss");
+                    filename = (filename + extension).ToString();
                     string folder = _hostingEnvironment.WebRootPath + $@"\images\"+merchant.MerchantCompanyName+"\\books";
                     if (!Directory.Exists(folder))
                     {
