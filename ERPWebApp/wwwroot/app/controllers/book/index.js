@@ -76,31 +76,7 @@
         });
 
 
-        //Delete
-        $('body').on('click', '.btn-delete', function (e) {
-            var that = $(this).data('id');
-            $.ajax({
-                type: 'POST',
-                url: '/Book/Delete',
-                data: { id: that },
-                dataType: 'json',
-                beforeSend: function () {
-                    general.startLoading();
-                },
-                success: function (response) {
-
-                    general.notify('Xóa thành công!', 'success');
-                    loadData();
-                    general.stopLoading();
-
-                },
-                error: function (status) {
-                    general.notify('Có lỗi trong khi xóa !', 'error');
-                    general.stopLoading();
-                },
-            });
-
-        });
+        
         //Validate
         $('#frmMaintainance').validate({
             errorClass: 'red',
@@ -331,10 +307,6 @@
         $('#txtPageNumber').val('');
         $('#txtPrice').val('');
         $('#txtDescription').val('');
-
-        
-
-
     }
 
     function loadDetail(that) {
@@ -434,7 +406,7 @@ function loadData(isPageChanged) {
                     UnitPrice: _price,
                     Qty: item.Quantity,
                     Status: '<span class="badge bg-' + _color + '">' + _statusName + '</span>',
-                    Description: item.Description,
+
                     
                 });
                 order++;

@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace BeYeuBookstore.Data.EF.Migrations
 {
-    public partial class init : Migration
+    public partial class i : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -16,6 +16,8 @@ namespace BeYeuBookstore.Data.EF.Migrations
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     PageUrl = table.Column<string>(nullable: true),
                     IdOfPosition = table.Column<string>(nullable: true),
+                    Title = table.Column<string>(nullable: true),
+                    Img = table.Column<string>(nullable: true),
                     AdvertisePrice = table.Column<int>(nullable: false),
                     Height = table.Column<int>(nullable: false),
                     Width = table.Column<int>(nullable: false),
@@ -528,8 +530,9 @@ namespace BeYeuBookstore.Data.EF.Migrations
                     UrlToAdvertisement = table.Column<string>(nullable: true),
                     Deposite = table.Column<decimal>(nullable: false),
                     PaidDeposite = table.Column<bool>(nullable: true),
-                    CensorStatus = table.Column<bool>(nullable: true),
-                    CensorFK = table.Column<int>(nullable: false),
+                    CensorStatus = table.Column<int>(nullable: false),
+                    CensorFK = table.Column<int>(nullable: true),
+                    Note = table.Column<string>(nullable: true),
                     DateCreated = table.Column<DateTime>(nullable: true),
                     DateModified = table.Column<DateTime>(nullable: true)
                 },
@@ -549,11 +552,11 @@ namespace BeYeuBookstore.Data.EF.Migrations
                         principalColumn: "KeyId",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_AdvertisementContents_WebMasters_CensorFK",
+                        name: "FK_dbo.AdvertisementContent.WebMaster_CensorFK_FK",
                         column: x => x.CensorFK,
                         principalTable: "WebMasters",
                         principalColumn: "KeyId",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -694,8 +697,7 @@ namespace BeYeuBookstore.Data.EF.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_AdvertisementContents_CensorFK",
                 table: "AdvertisementContents",
-                column: "CensorFK",
-                unique: true);
+                column: "CensorFK");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Advertisers_UserFK",

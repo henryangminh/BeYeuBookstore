@@ -11,10 +11,11 @@ namespace BeYeuBookstore.Data.Entities
     {
         public AdvertisementContent() { }
 
-        public AdvertisementContent(int keyId, int advertiserFK, string imageLink, string title, string description, string urlToAdvertisement, decimal deposite, bool? paidDeposite, bool? censorStatus,  DateTime? dateCreated, DateTime? dateModified)
+        public AdvertisementContent(int keyId, int advertiserFK, int advertisementPositionFK, string imageLink, string title, string description, string urlToAdvertisement, decimal deposite, bool? paidDeposite, CensorStatus censorStatus, int? censorFK ,string note,DateTime? dateCreated, DateTime? dateModified)
         {
             KeyId = keyId;
             AdvertiserFK = advertiserFK;
+            AdvertisementPositionFK = advertisementPositionFK;
             ImageLink = imageLink;
             Title = title;
             Description = description;
@@ -22,6 +23,8 @@ namespace BeYeuBookstore.Data.Entities
             Deposite = deposite;
             PaidDeposite = paidDeposite;
             CensorStatus = censorStatus;
+            CensorFK = censorFK;
+            Note=note;
             DateCreated = dateCreated;
             DateModified = dateModified;
         }
@@ -29,6 +32,7 @@ namespace BeYeuBookstore.Data.Entities
         public int AdvertisementPositionFK { get; set; }
         // Khóa ngoại đến người Quảng cáo
         public int AdvertiserFK { get; set; }
+
         //Link hình ảnh
         public string ImageLink { get; set; }
         //Tên
@@ -42,11 +46,15 @@ namespace BeYeuBookstore.Data.Entities
         //Có trả tiền chưa?
         public bool? PaidDeposite { get; set; }
         //Kiểm duyệt chưa?
-        public bool? CensorStatus { get; set; }
+        public CensorStatus CensorStatus { get; set; }
         /// <summary>
         /// Người duyệt bài
         /// </summary>
-        public int CensorFK { get; set; }
+        public int? CensorFK { get; set; }
+        /// <summary>
+        /// Ghi chú
+        /// </summary>
+        public string Note { get; set; }
         public DateTime? DateCreated { get; set; }
         public DateTime? DateModified { get; set; }
     

@@ -10,6 +10,14 @@ namespace BeYeuBookstore.Application.ViewModels
         public int KeyId { get; set; }
         public string PageUrl { get; set; }
         public string IdOfPosition { get; set; }
+        /// <summary>
+        /// Tiêu đề vị trí
+        /// </summary>
+        public string Title { get; set; }
+        /// <summary>
+        /// Ảnh minh họa
+        /// </summary>
+        public string Img { get; set; }
         public int AdvertisePrice { get; set; }
         public int Height { get; set; }
         public int Width { get; set; }

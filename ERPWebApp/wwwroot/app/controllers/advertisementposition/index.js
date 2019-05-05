@@ -29,26 +29,7 @@
 
         $('#btnCreate').on('click', function () {
             resetForm();
-            $.ajax({
-                type: 'GET',
-                url: '/Book/GetMerchantInfo',
-
-                dataType: "json",
-
-                success: function (response) {
-                    console.log("loadInfo", response);
-                    $('#txtMerchantKeyId').val(response.KeyId);
-                    $('#txtMerchantStatus').val(response.Status);
-                    $('#txtMerchant').val(response.MerchantCompanyName);
-                    $('#modal-add-edit').modal('show');
-
-                },
-                error: function (err) {
-                    general.notify('Có lỗi trong khi load thông tin nhà cung cấp!', 'error');
-
-                },
-            });
-
+           
 
         });
 
@@ -71,36 +52,11 @@
             var that = $(this).data('id');
             loadDetail(that);
 
-
-            //document.getElementById("btnSave").style.display = "block";
+            
         });
 
 
-        //Delete
-        //$('body').on('click', '.btn-delete', function (e) {
-        //    var that = $(this).data('id');
-        //    $.ajax({
-        //        type: 'POST',
-        //        url: '//Delete',
-        //        data: { id: that },
-        //        dataType: 'json',
-        //        beforeSend: function () {
-        //            general.startLoading();
-        //        },
-        //        success: function (response) {
-
-        //            general.notify('Xóa thành công!', 'success');
-        //            loadData();
-        //            general.stopLoading();
-
-        //        },
-        //        error: function (status) {
-        //            general.notify('Có lỗi trong khi xóa !', 'error');
-        //            general.stopLoading();
-        //        },
-        //    });
-
-        //});
+   
         //Validate
         $('#frmMaintainance').validate({
             errorClass: 'red',

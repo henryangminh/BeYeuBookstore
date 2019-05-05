@@ -2,10 +2,12 @@
 using BeYeuBookstore.Application.Interfaces;
 using BeYeuBookstore.Application.ViewModels;
 using BeYeuBookstore.Data.Entities;
+using BeYeuBookstore.Data.Enums;
 using BeYeuBookstore.Infrastructure.Interfaces;
 using BeYeuBookstore.Utilities.DTOs;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace BeYeuBookstore.Application.Implementation
@@ -55,14 +57,48 @@ namespace BeYeuBookstore.Application.Implementation
             throw new NotImplementedException();
         }
 
-        public PagedResult<AdvertisementContentViewModel> GetAllPaging(string keyword, int page, int pageSize)
+        public PagedResult<AdvertisementContentViewModel> GetAllPaging(int? advertiserId, int? status, string keyword, int page, int pageSize)
         {
-            throw new NotImplementedException();
+            var query = _advertisementContentRepository.FindAll(x=>x.AdvertisementPositionFKNavigation, x=>x.AdvertiserFKNavigation, x=>x.WebMasterCensorFKNavigation.UserBy);
+            query = query.OrderBy(x => x.KeyId);
+            if (!string.IsNullOrEmpty(keyword))
+            {
+                var keysearch = keyword.Trim().ToUpper();
+
+                query = query.OrderBy(x => x.KeyId).Where(x => (x.Title.ToUpper().Contains(keysearch)|| x.AdvertiserFKNavigation.BrandName.ToUpper().Contains(keysearch) || x.Description.ToUpper().Contains(keysearch)));
+
+            }
+            if (status.HasValue)
+            {
+                query = query.Where(x => x.CensorStatus == (CensorStatus)status);
+            }
+            if (advertiserId!=0)
+            {
+                query = query.Where(x => x.AdvertiserFK == advertiserId);
+            }
+            int totalRow = query.Count();
+
+            query = query.Skip((page - 1) * pageSize).Take(pageSize);
+            var data = new List<AdvertisementContentViewModel>();
+            foreach (var item in query)
+            {
+                var _data = Mapper.Map<AdvertisementContent, AdvertisementContentViewModel>(item);
+                data.Add(_data);
+            }
+
+            var paginationSet = new PagedResult<AdvertisementContentViewModel>()
+            {
+                Results = data,
+                CurrentPage = page,
+                RowCount = totalRow,
+                PageSize = pageSize
+            };
+            return paginationSet;
         }
 
         public AdvertisementContentViewModel GetById(int id)
         {
-            return Mapper.Map<AdvertisementContent, AdvertisementContentViewModel>(_advertisementContentRepository.FindById(id));
+            return Mapper.Map<AdvertisementContent, AdvertisementContentViewModel>(_advertisementContentRepository.FindById(id, x => x.AdvertisementPositionFKNavigation, x => x.AdvertiserFKNavigation, x => x.WebMasterCensorFKNavigation.UserBy));
         }
 
         public bool Save()
@@ -84,6 +120,16 @@ namespace BeYeuBookstore.Application.Implementation
                 temp.Deposite = AdvertisementContentViewModel.Deposite;
                 temp.CensorStatus = AdvertisementContentViewModel.CensorStatus;
             }
+        }
+        public void UpdateStatus(int id, int censorFK, int status)
+        {
+            var temp = _advertisementContentRepository.FindById(id);
+            if (temp != null)
+            {
+                temp.CensorStatus = (CensorStatus)status;
+                temp.CensorFK = censorFK;
+            }
+
         }
     }
 }

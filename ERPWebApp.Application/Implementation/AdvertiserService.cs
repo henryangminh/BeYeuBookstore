@@ -41,6 +41,20 @@ namespace BeYeuBookstore.Application.Implementation
             GC.SuppressFinalize(this);
         }
 
+        public AdvertiserViewModel GetBysId(string id)
+        {
+            var query = _advertiserRepository.FindAll(p => p.UserBy);
+            var _data = new AdvertiserViewModel();
+            foreach (var item in query)
+            {
+                if ((item.UserFK.ToString()) == id)
+                {
+                    _data = Mapper.Map<Advertiser, AdvertiserViewModel>(item);
+                }
+            }
+            return _data;
+        }
+
         public List<AdvertiserViewModel> GetAll()
         {
             var query = _advertiserRepository.FindAll();
@@ -73,6 +87,7 @@ namespace BeYeuBookstore.Application.Implementation
             {
                 query = query.Where(x => x.Status == (Status)status);
             }
+          
             int totalRow = query.Count();
 
             query = query.Skip((page - 1) * pageSize).Take(pageSize);

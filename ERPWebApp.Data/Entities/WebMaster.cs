@@ -31,6 +31,6 @@ namespace BeYeuBookstore.Data.Entities
         //
         public virtual WebMasterType WebMasterTypeFKNavigation { get; set; }
 
-        public virtual AdvertisementContent AdvertisementContentFKNavigation { get; set; }
+        public virtual ICollection<AdvertisementContent> AdvertisementContents { get; set; }
     }
 }

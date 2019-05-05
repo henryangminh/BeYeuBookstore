@@ -19,12 +19,13 @@ namespace BeYeuBookstore.Application.Interfaces
 
         List<AdvertisementContentViewModel> GetAll();
 
-        PagedResult<AdvertisementContentViewModel> GetAllPaging(string keyword, int page, int pageSize);
+        PagedResult<AdvertisementContentViewModel> GetAllPaging(int? advertiserId, int? status, string keyword, int page, int pageSize);
 
         List<AdvertisementContentViewModel> GetAll(int id);
 
         AdvertisementContentViewModel GetById(int id);
 
+        void UpdateStatus(int id, int censorFK, int status);
         bool Save();
     }
 }

@@ -131,5 +131,19 @@ namespace BeYeuBookstore.Application.Implementation
                 temp.WebMasterTypeFK = WebMasterViewModel.WebMasterTypeFK;
             }
         }
+
+        public WebMasterViewModel GetBysId(string id)
+        {
+            var query = _webMasterRepository.FindAll(p => p.UserBy );
+            var _data = new WebMasterViewModel();
+            foreach (var item in query)
+            {
+                if ((item.UserFK.ToString()) == id)
+                {
+                    _data = Mapper.Map<WebMaster, WebMasterViewModel>(item);
+                }
+            }
+            return _data;
+        }
     }
 }

@@ -128,13 +128,13 @@ namespace BeYeuBookstore.Controllers
                     var extension = Path.GetExtension(file.FileName);
                     var filename = DateTime.Now.ToString("yyyyMMddHHmmss");
                     filename = (filename + extension).ToString();
-                    string folder = _hostingEnvironment.WebRootPath + $@"\images\"+merchant.MerchantCompanyName+"\\books";
+                    string folder = _hostingEnvironment.WebRootPath + $@"\images\merchant\"+merchant.MerchantCompanyName+"\\books";
                     if (!Directory.Exists(folder))
                     {
                         Directory.CreateDirectory(folder);
                     }
                     string filePath = Path.Combine(folder, filename);
-                    fileName.Add(Path.Combine($@"\images\"+merchant.MerchantCompanyName +"\\books", filename).Replace($@"\", $@"/"));
+                    fileName.Add(Path.Combine($@"\images\merchant\"+merchant.MerchantCompanyName +"\\books", filename).Replace($@"\", $@"/"));
 
                     using (FileStream fs = System.IO.File.Create(filePath))
                     {

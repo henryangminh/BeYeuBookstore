@@ -23,6 +23,14 @@ namespace BeYeuBookstore.Controllers
         {
             return View();
         }
+
+        [HttpGet]
+        public IActionResult GetAll()
+        {
+            var model = _advertisementPositionService.GetAll();
+            return new OkObjectResult(model);
+        }
+
         [HttpPost]
         public IActionResult SaveEntity(AdvertisementPositionViewModel advertisementPositionVm)
         {

@@ -250,28 +250,28 @@ namespace BeYeuBookstore.Application.Implementation.Acc
             return false;
         }
 
-        public async Task<List<IdAndName>> GetListIdAndFullName(bool status, string type)
-        {
-            throw new Exception();
-            /*
-            var query = _userManager.Users.AsNoTracking();
-            if(type == const_AddressbookType.Customer)
-                query= query.Where(x => x.IsCustomer == status);
-            else
-                 if (type == const_AddressbookType.Employee)
-                query= query.Where(x => x.IsEmployee == status);
-            else
-                query= query.Where(x => x.IsVendor == status);
+        //public async Task<List<IdAndName>> GetListIdAndFullName(bool status, string type)
+        //{
+        //    throw new Exception();
+        //    /*
+        //    var query = _userManager.Users.AsNoTracking();
+        //    if(type == const_AddressbookType.Customer)
+        //        query= query.Where(x => x.IsCustomer == status);
+        //    else
+        //         if (type == const_AddressbookType.Employee)
+        //        query= query.Where(x => x.IsEmployee == status);
+        //    else
+        //        query= query.Where(x => x.IsVendor == status);
 
-            return await query.Select(p => new IdAndName
-            {
+        //    return await query.Select(p => new IdAndName
+        //    {
                
-                sId = p.Id.ToString(),
-                Name = p.FullName
-            }
-             ).ToListAsync();
-             */
-        }
+        //        sId = p.Id.ToString(),
+        //        Name = p.FullName
+        //    }
+        //     ).ToListAsync();
+        //     */
+        //}
 
         private string createUserName(string FullName)
         {

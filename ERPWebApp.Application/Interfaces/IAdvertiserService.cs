@@ -21,6 +21,7 @@ namespace BeYeuBookstore.Application.Interfaces
 
         AdvertiserViewModel GetById(int id);
 
+        AdvertiserViewModel GetBysId(string id);
         bool Save();
     }
 }

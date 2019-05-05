@@ -15,7 +15,7 @@ namespace BeYeuBookstore.Application.ViewModels
 
         public virtual UserViewModel UserBy { get; set; }
         public virtual WebMasterTypeViewModel WebMasterTypeFKNavigation { get; set; }
-        public virtual AdvertisementContentViewModel AdvertisementContentFKNavigation { get; set; }
+       
 
     }
 }

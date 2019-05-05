@@ -23,6 +23,7 @@ namespace BeYeuBookstore.Application.Interfaces
         List<WebMasterViewModel> GetAll(int id);
 
         WebMasterViewModel GetById(int id);
+        WebMasterViewModel GetBysId(string id);
 
         bool Save();
     }

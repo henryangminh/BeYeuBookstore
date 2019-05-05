@@ -23,7 +23,7 @@ namespace BeYeuBookstore.Application.Interfaces.Acc
         Task<UserViewModel> GetById(string id);
         Task<List<string>> GetAllRolesById(string Id);
         Task<UserViewModel> GetByIdAddressbook(string id);
-        Task<List<IdAndName>> GetListIdAndFullName(bool status, string type);
+        //Task<List<IdAndName>> GetListIdAndFullName(bool status, string type);
         Task<bool> UpdateAsync(UserViewModel userVm);
         Task<bool> UpdateByCustomer(UserViewModel userVm);
         Task<bool> UpdateAddressBookAsync(UserViewModel userVm);

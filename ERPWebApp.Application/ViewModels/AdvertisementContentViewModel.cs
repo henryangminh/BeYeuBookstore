@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BeYeuBookstore.Data.Enums;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -24,11 +25,15 @@ namespace BeYeuBookstore.Application.ViewModels
         //Có trả tiền chưa?
         public bool? PaidDeposite { get; set; }
         //Kiểm duyệt chưa?
-        public bool? CensorStatus { get; set; }
+        public CensorStatus CensorStatus { get; set; }
         /// <summary>
         /// Người duyệt bài
         /// </summary>
-
+        public int? CensorFK { get; set; }
+        /// <summary>
+        /// Ghi chú
+        /// </summary>
+        public string Note { get; set; }
         public DateTime? DateCreated { get; set; }
         public DateTime? DateModified { get; set; }
 

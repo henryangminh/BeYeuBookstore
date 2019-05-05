@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BeYeuBookstore.Data.EF.Migrations
 {
     [DbContext(typeof(ERPDbContext))]
-    [Migration("20190502083339_init")]
-    partial class init
+    [Migration("20190505011858_i")]
+    partial class i
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -57,9 +57,9 @@ namespace BeYeuBookstore.Data.EF.Migrations
 
                     b.Property<int>("AdvertiserFK");
 
-                    b.Property<int>("CensorFK");
+                    b.Property<int?>("CensorFK");
 
-                    b.Property<bool?>("CensorStatus");
+                    b.Property<int>("CensorStatus");
 
                     b.Property<DateTime?>("DateCreated");
 
@@ -70,6 +70,8 @@ namespace BeYeuBookstore.Data.EF.Migrations
                     b.Property<string>("Description");
 
                     b.Property<string>("ImageLink");
+
+                    b.Property<string>("Note");
 
                     b.Property<bool?>("PaidDeposite");
 
@@ -83,8 +85,7 @@ namespace BeYeuBookstore.Data.EF.Migrations
 
                     b.HasIndex("AdvertiserFK");
 
-                    b.HasIndex("CensorFK")
-                        .IsUnique();
+                    b.HasIndex("CensorFK");
 
                     b.ToTable("AdvertisementContents");
                 });
@@ -104,9 +105,13 @@ namespace BeYeuBookstore.Data.EF.Migrations
 
                     b.Property<string>("IdOfPosition");
 
+                    b.Property<string>("Img");
+
                     b.Property<string>("PageUrl");
 
                     b.Property<int>("Status");
+
+                    b.Property<string>("Title");
 
                     b.Property<int>("Width");
 
@@ -790,9 +795,9 @@ namespace BeYeuBookstore.Data.EF.Migrations
                         .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("BeYeuBookstore.Data.Entities.WebMaster", "WebMasterCensorFKNavigation")
-                        .WithOne("AdvertisementContentFKNavigation")
-                        .HasForeignKey("BeYeuBookstore.Data.Entities.AdvertisementContent", "CensorFK")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .WithMany("AdvertisementContents")
+                        .HasForeignKey("CensorFK")
+                        .HasConstraintName("FK_dbo.AdvertisementContent.WebMaster_CensorFK_FK");
                 });
 
             modelBuilder.Entity("BeYeuBookstore.Data.Entities.Advertiser", b =>

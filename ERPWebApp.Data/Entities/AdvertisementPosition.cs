@@ -11,11 +11,13 @@ namespace BeYeuBookstore.Data.Entities
     {
         public AdvertisementPosition() { }
 
-        public AdvertisementPosition(int keyId, string pageUrl, string idOfPosition, int advertisePrice, int height, int width ,Status status, DateTime? dateCreated, DateTime? dateModified)
+        public AdvertisementPosition(int keyId, string pageUrl, string idOfPosition, string title, string img,int advertisePrice, int height, int width ,Status status, DateTime? dateCreated, DateTime? dateModified)
         {
             KeyId = keyId;
             PageUrl = pageUrl;
             IdOfPosition = idOfPosition;
+            Title = title;
+            Img = img;
             AdvertisePrice = advertisePrice;
             Height = height;
             Width = width;
@@ -24,6 +26,14 @@ namespace BeYeuBookstore.Data.Entities
 
         public string PageUrl { get; set; }
         public string IdOfPosition { get; set; }
+        /// <summary>
+        /// Tiêu đề vị trí
+        /// </summary>
+        public string Title { get; set; }
+        /// <summary>
+        /// Ảnh minh họa
+        /// </summary>
+        public string Img { get; set; }
         public int AdvertisePrice { get; set; }
         public int Height { get; set; }
         public int Width { get; set; }

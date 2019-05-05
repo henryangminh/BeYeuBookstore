@@ -1,0 +1,144 @@
+﻿@using BeYeuBookstore.Utilities.Constants
+@using Microsoft.AspNetCore.Authorization
+@using BeYeuBookstore.Authorization
+@inject IAuthorizationService AuthorizationService
+@{
+    //kiểm tra quyền tạo đối với nut create cho hiểu thị nut
+    var result_edit = await AuthorizationService.AuthorizeAsync(User, Const_FunctionId.AdvertisementContent, Operations.Create);
+    //kiểm tra quyền tạo đối với nut delete cho hiểu thị nut
+    var result_delete = await AuthorizationService.AuthorizeAsync(User, Const_FunctionId.AdvertisementContent, Operations.Delete);
+    //kiểm tra quyền tạo đối với nut update cho hiểu thị nut
+    var result_create = await AuthorizationService.AuthorizeAsync(User, Const_FunctionId.AdvertisementContent, Operations.Update);
+    //kiểm tra quyền tạo đối với nut delete cho hiểu thị nut
+    var result_confirm = await AuthorizationService.AuthorizeAsync(User, Const_FunctionId.AdvertisementContent, Operations.Confirm);
+}
+<div id="modal-add-edit" class="bootbox modal fade modal-darkorange in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog  modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+
+                <button type="button" class="bootbox-close-button close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title">Thêm</h4>
+            </div>
+            <div class="modal-body">
+                <div id="horizontal-form">
+                    <form class="form-horizontal" role="form" id="frmMaintainance">
+                        <div class="form-group row">
+                            <label for="txtId" class="col-sm-2 col-form-label">Mã</label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" id="txtId" readonly />
+                            </div>
+                            <label for="txtAdvertiser" class="col-sm-2 col-form-label">Người quảng cáo</label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" id="txtAdvertiser" name="txtAdvertiser" readonly />
+                                <input type="hidden" id="txtAdvertiserId" name="txtAdvertiserId" readonly />
+                                <input type="hidden" id="txtAdvertiserStatus" name="txtAdvertiserStatus" readonly />
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="dtDateModified" class="col-sm-2 col-form-label">Ngày tạo</label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" id="dtDateCreated" readonly />
+                            </div>
+                            <label for="dtDateModified" class="col-sm-2 col-form-label">Ngày chỉnh sửa</label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" id="dtDateModified" readonly />
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="selAdPosition" class="col-sm-2 col-form-label">Vị trí<span class="star">*</span></label>
+                            <div class="col-sm-4">
+                                <select id="selAdPosition" class="form-control" name="selAdPosition">
+                                    <option value="">Chọn vị trí</option>
+                                </select>
+                            </div>
+                            <label for="txtAdPositionPrice" class="col-sm-2 col-form-label">Giá (VNĐ/ngày)</label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" id="txtAdPositionPrice" name="txtAdPositionPrice" readonly />
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="txtHeight" class="col-sm-2 col-form-label">Chiều cao (px)</label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control money" id="txtHeight" name="txtHeight" readonly />
+                            </div>
+                            <label for="txtWidth" class="col-sm-2 col-form-label">Chiều dài (px)</label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control money" id="txtWidth" name="txtWidth" readonly />
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="ImgAdPosition" class="col-sm-2 col-form-label">Ảnh mô tả</label>
+                            <div class="col-sm-10" id="ImgAdPosition">
+
+                            </div>
+
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="txtTitle" class="col-sm-2 col-form-label">Tiêu đề<span class="star">*</span></label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" id="txtTitle" name="txtTitle" />
+                            </div>
+                            <label for="txtLink" class="col-sm-2 col-form-label">Đường dẫn<span class="star">*</span></label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" id="txtLink" name="txtLink" />
+                            </div>
+
+                        </div>
+
+
+
+                        <div class="form-group row">
+                            <label for="txtDescription" class="col-sm-2 col-form-label">Mô tả</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="txtDescription" name="txtDescription" />
+                            </div>
+
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="txtNote" class="col-sm-2 col-form-label">Ghi chú</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="txtNote" name="txtNote" />
+                            </div>
+
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="txtFileImg" class="col-sm-2 col-form-label">Hình ảnh<span class="star">*</span></label>
+                            <div class="col-sm-10">
+                                <div>
+                                    <input type="file" id="fileAdImg" name="fileAdImg">
+                                </div>
+                            </div>
+
+
+                        </div>
+
+
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+
+                <div class="col-sm-6" id="formCreate">
+                    <button type="button" id="btnSave" class="btn btn-success">Ghi</button>
+                    <button type="button" id="btnCancel" data-dismiss="modal" class="btn btn-danger">Hủy</button>
+                </div>
+                @if (result_confirm.Succeeded)
+                {
+                    <div class="col-sm-6" id="formCensor">
+                        <button type="button" id="btnCensored" class="btn btn-success">Đã kiểm duyệt</button>
+                        <button type="button" id="btnUnqualified" class="btn btn-danger">Không đủ tiêu chuẩn</button>
+                    </div>
+                }
+            </div>
+        </div>
+
+    </div>
+</div>

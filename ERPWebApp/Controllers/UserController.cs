@@ -123,13 +123,13 @@ namespace BeYeuBookstore.Controllers
         //    return new OkResult();
         //}
 
-        [HttpGet]
-        public IActionResult GetListFullName(bool status, string type)
-        {
-            var model = _userService.GetListIdAndFullName(status, type);
+        //[HttpGet]
+        //public IActionResult GetListFullName(bool status, string type)
+        //{
+        //    var model = _userService.GetListIdAndFullName(status, type);
 
-            return new OkObjectResult(model);
-        }
+        //    return new OkObjectResult(model);
+        //}
 
         [HttpGet]
         public IActionResult GetListUserId(string roleName)

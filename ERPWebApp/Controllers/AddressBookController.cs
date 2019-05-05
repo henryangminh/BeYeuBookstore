@@ -115,13 +115,13 @@ namespace BeYeuBookstore.Controllers
 
 
 
-        [HttpGet]
-        public IActionResult GetListFullName(bool status, string type)
-        {
-            var model = _userService.GetListIdAndFullName(status, type);
-            model.Wait();
-            return new OkObjectResult(model.Result);
-        }
+        //[HttpGet]
+        //public IActionResult GetListFullName(bool status, string type)
+        //{
+        //    var model = _userService.GetListIdAndFullName(status, type);
+        //    model.Wait();
+        //    return new OkObjectResult(model.Result);
+        //}
        [HttpGet]
        public IActionResult CheckExistEmail(string email)
         {

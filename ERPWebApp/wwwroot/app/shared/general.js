@@ -120,6 +120,13 @@
         Active: 1,
         InActive:0
     },
+
+    censorStatus: {
+        Uncensored: 0,
+        Censored: 1,
+        Unqualified: 2,
+    },
+
     merchantScale: {
         Large:0,
         Medium:1,
