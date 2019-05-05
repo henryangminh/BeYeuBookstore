@@ -212,7 +212,7 @@
                     var description = $('#txtDescription').val();
                     var note = $('#txtNote').val();
                     var censorStatus = general.censorStatus.Uncensored;
-                    var deposits = $('#txtDeposits').val();
+                    var deposits = general.toFloat($('#txtDeposits').val());
                     var paidDeposite;
                     if ($('#chkPaidDeposits').is(":checked")) {
                         paidDeposite = true;
