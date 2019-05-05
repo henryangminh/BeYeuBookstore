@@ -10,14 +10,14 @@
                 <li>
                     @if (Model.Any(x => x.ParentId == item.KeyId))
                     {
-                        <a><i class="fas @item.IconCss"></i> @item.Name <span class="fa fa-chevron-down"></span></a>
+                        <a><i class="fas @item.IconCss fa-2x"></i> @item.Name <span class="fas fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
                             @foreach (var jitem in Model.Where(x => x.ParentId == item.KeyId))
                             {
                                 @if (Model.Any(x => x.ParentId == jitem.KeyId))
                                 {
                                     <li>
-                                        <a><i class="fas @jitem.IconCss"></i> @jitem.Name <span class="fa fa-chevron-down"></span></a>
+                                        <a><i class="fas @jitem.IconCss"></i> @jitem.Name <span class="fas fa-chevron-down"></span></a>
                                         <ul class="nav child_menu">
                                             @foreach (var zjitem in Model.Where(x => x.ParentId == jitem.KeyId))
                                             {

@@ -36,7 +36,7 @@ namespace BeYeuBookstore.Data.EF
                       new Function() {KeyId = "MerchantItem", Name = "Nhà cung cấp",ParentId = "UsersItem",SortOrder =3,Status = Status.Active,URL = "/Merchant",IconCss = "fa-home"  },
                       new Function() {KeyId = "WebMasterItem", Name = "WebMaster",ParentId = "UsersItem",SortOrder = 4,Status = Status.Active,URL = "/WebMaster",IconCss = "fa-home"  },
 
-                      new Function() {KeyId = "PermissionItem", Name = "Phân quyền",ParentId = "UsersItem",SortOrder = 5,Status = Status.Active,URL = "/",IconCss = "fa-chevron-down"  },
+                      new Function() {KeyId = "PermissionItem", Name = "Phân quyền",ParentId = "UsersItem",SortOrder = 5,Status = Status.Active,URL = "/",IconCss = "fa-divide"  },
                       new Function() {KeyId = "RoleItem", Name = "Nhập liệu nhóm quyền",ParentId = "PermissionItem",SortOrder = 1,Status = Status.Active,URL = "/Role",IconCss = "fa-home"  },
                       new Function() {KeyId = "UserRoleItem",Name = "User vào nhóm quyền",ParentId = "PermissionItem",SortOrder = 2,Status = Status.Active,URL = "/User",IconCss = "fa-home"  },
 

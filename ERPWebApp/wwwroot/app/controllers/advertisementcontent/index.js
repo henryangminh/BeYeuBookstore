@@ -35,6 +35,7 @@
 
                 success: function (response) {
                     $('#txtAdPositionPrice').val(general.toMoney(response.AdvertisePrice));
+                    $('#txtDeposits').val(general.toMoney(response.AdvertisePrice));
                     $('#txtHeight').val(response.Height);
                     $('#txtWidth').val(response.Width);
                 },
@@ -48,6 +49,8 @@
         $('#btnCreate').on('click', function () {
             resetForm();
             $('#formCreate').removeClass('hidden');
+            $('#btnSave').attr('disabled', true);
+            $('#txtCensorStatus').html('<span class="badge bg-black" style="font-size:15px;">Chưa kiểm duyệt</span>');
             $.ajax({
                 type: 'GET',
                 url: '/AdvertisementContent/GetAdvertiserInfo',
@@ -209,7 +212,15 @@
                     var description = $('#txtDescription').val();
                     var note = $('#txtNote').val();
                     var censorStatus = general.censorStatus.Uncensored;
-                    var paidDeposite = false;
+                    var deposits = $('#txtDeposits').val();
+                    var paidDeposite;
+                    if ($('#chkPaidDeposits').is(":checked")) {
+                        paidDeposite = true;
+                    }
+                    else {
+                        paidDeposite = false;
+                    }
+                    
                     var filename = $('#fileAdImg').val().split('\\').pop();
                     var extension = filename.substr((filename.lastIndexOf('.') + 1));
                     if (extension.toUpperCase() != "JPG" && extension.toUpperCase() != "PNG") {
@@ -246,6 +257,7 @@
                                         Title: title,
                                         Description: description,
                                         UrlToAdvertisement: link,
+                                        Deposite: deposits,
                                         PaidDeposite: paidDeposite,
                                         CensorStatus: censorStatus,
                                         Note: note,
@@ -315,19 +327,32 @@
                 $('#txtWidth').val(data.AdvertisementPositionFKNavigation.Width);
                 $('#txtHeight').val(data.AdvertisementPositionFKNavigation.Height);
                 $('#txtAdPositionPrice').val(general.toMoney(data.AdvertisementPositionFKNavigation.AdvertisePrice));
+                $('#txtDeposits').val(general.toMoney(data.AdvertisementPositionFKNavigation.AdvertisePrice));
                 $('#selAdPosition').val(data.AdvertisementPositionFK);
                 $('#txtTitle').val(data.Title);
                 $('#txtLink').val(data.UrlToAdvertisement);
                 $('#txtDescription').val(data.Description);
                 $('#txtNote').val(data.Note);
+                var _color = '';
+                var _status = '';
                 switch (data.CensorStatus) {
+                    case general.censorStatus.Uncensored:
+                        _color = 'black';
+                        _status = 'Chưa kiểm duyệt';
+                        break;
                     case general.censorStatus.Censored:
+                        _color = 'green';
+                        _status = 'Đã kiểm duyệt';
+                        $('#formCensor').addClass('hidden');
+                        break;
                     case general.censorStatus.Unqualified:
+                        _color = 'red';
+                        _status = 'Không đủ tiêu chuẩn';
                         $('#formCensor').addClass('hidden');
                         break;
                 }
-                
-         
+                $('#txtCensorStatus').html('<span class="badge bg-' + _color + '" style="font-size:15px;">' + _status + '</span>');
+                $('#chkPaidDeposits').prop('checked', true);
                 $('#modal-add-edit').modal('show');
 
                 general.stopLoading();
