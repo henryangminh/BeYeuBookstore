@@ -1,0 +1,641 @@
+2019-05-02T15:39:50.2262916+07:00 0HLMER6UKA7DV:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:59754/   (ca22a1cb)
+2019-05-02T15:39:50.2262914+07:00 0HLMER6UKA7E0:00000001 [INF] Request starting HTTP/1.1 DEBUG http://localhost:59754/  0 (ca22a1cb)
+2019-05-02T15:39:50.4489301+07:00 0HLMER6UKA7E0:00000001 [INF] Request finished in 309.5874ms 200  (791a596a)
+2019-05-02T15:39:52.6211958+07:00 0HLMER6UKA7DV:00000001 [INF] Route matched with "{action = \"Index\", controller = \"BeyeuBookstore\", area = \"\"}". Executing action "BeYeuBookstore.Controllers.BeyeuBookstoreController.Index (BeYeuBookstore)" (a44c0341)
+2019-05-02T15:39:53.2370975+07:00 0HLMER6UKA7DV:00000001 [INF] Executing action method "BeYeuBookstore.Controllers.BeyeuBookstoreController.Index (BeYeuBookstore)" - Validation state: Valid (dad538d7)
+2019-05-02T15:39:53.2618350+07:00 0HLMER6UKA7DV:00000001 [INF] Executed action method "BeYeuBookstore.Controllers.BeyeuBookstoreController.Index (BeYeuBookstore)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 2.0695ms. (50a9e262)
+2019-05-02T15:39:53.3775293+07:00 0HLMER6UKA7DV:00000001 [INF] Executing ViewResult, running view "Index". (c83d0e25)
+2019-05-02T15:39:53.8828167+07:00 0HLMER6UKA7DV:00000001 [INF] Executed ViewResult - view "Index" executed in 576.6704ms. (f66409e9)
+2019-05-02T15:39:53.8963975+07:00 0HLMER6UKA7DV:00000001 [INF] Executed action "BeYeuBookstore.Controllers.BeyeuBookstoreController.Index (BeYeuBookstore)" in 1261.0769ms (afa2e885)
+2019-05-02T15:39:55.3203156+07:00 0HLMER6UKA7DV:00000001 [INF] Request finished in 5156.1461ms 200 text/html; charset=utf-8 (791a596a)
+2019-05-02T15:39:55.3323115+07:00 0HLMER6UKA7E1:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:59754/beyeubookstore/css/bootstrap.min.css   (ca22a1cb)
+2019-05-02T15:39:55.3368169+07:00 0HLMER6UKA7E3:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:59754/beyeubookstore/css/flexslider.css   (ca22a1cb)
+2019-05-02T15:39:55.3590158+07:00 0HLMER6UKA7E2:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:59754/beyeubookstore/css/animate.css   (ca22a1cb)
+2019-05-02T15:39:55.3662067+07:00 0HLMER6UKA7DV:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:59754/beyeubookstore/css/owl.carousel.css   (ca22a1cb)
+2019-05-02T15:39:55.4441631+07:00 0HLMER6UKA7E3:00000001 [INF] The file "/beyeubookstore/css/flexslider.css" was not modified (f1f8d725)
+2019-05-02T15:39:55.4524544+07:00 0HLMER6UKA7DV:00000002 [INF] The file "/beyeubookstore/css/owl.carousel.css" was not modified (f1f8d725)
+2019-05-02T15:39:55.4597106+07:00 0HLMER6UKA7E1:00000001 [INF] The file "/beyeubookstore/css/bootstrap.min.css" was not modified (f1f8d725)
+2019-05-02T15:39:55.4974829+07:00 0HLMER6UKA7E2:00000001 [INF] The file "/beyeubookstore/css/animate.css" was not modified (f1f8d725)
+2019-05-02T15:39:55.5482832+07:00 0HLMER6UKA7E3:00000001 [INF] Request finished in 175.249ms 304 text/css (791a596a)
+2019-05-02T15:39:55.5572609+07:00 0HLMER6UKA7DV:00000002 [INF] Request finished in 142.4876ms 304 text/css (791a596a)
+2019-05-02T15:39:55.5792642+07:00 0HLMER6UKA7E1:00000001 [INF] Request finished in 171.7976ms 304 text/css (791a596a)
+2019-05-02T15:39:55.6355926+07:00 0HLMER6UKA7E4:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:59754/beyeubookstore/css/font-awesome.min.css   (ca22a1cb)
+2019-05-02T15:39:55.6432380+07:00 0HLMER6UKA7E0:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:59754/beyeubookstore/css/meanmenu.min.css   (ca22a1cb)
+2019-05-02T15:39:55.6896534+07:00 0HLMER6UKA7E4:00000001 [INF] The file "/beyeubookstore/css/font-awesome.min.css" was not modified (f1f8d725)
+2019-05-02T15:39:55.7097364+07:00 0HLMER6UKA7E0:00000002 [INF] The file "/beyeubookstore/css/meanmenu.min.css" was not modified (f1f8d725)
+2019-05-02T15:39:55.7997471+07:00 0HLMER6UKA7E4:00000001 [INF] Request finished in 120.4166ms 304 text/css (791a596a)
+2019-05-02T15:39:55.9812808+07:00 0HLMER6UKA7E0:00000002 [INF] Request finished in 130.6715ms 304 text/css (791a596a)
+2019-05-02T15:39:56.3743950+07:00 0HLMER6UKA7DV:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:59754/beyeubookstore/css/responsive.css   (ca22a1cb)
+2019-05-02T15:39:56.4136592+07:00 0HLMER6UKA7E3:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:59754/beyeubookstore/js/vendor/jquery-1.12.0.min.js   (ca22a1cb)
+2019-05-02T15:39:56.4792489+07:00 0HLMER6UKA7DV:00000003 [INF] The file "/beyeubookstore/css/responsive.css" was not modified (f1f8d725)
+2019-05-02T15:39:56.4949766+07:00 0HLMER6UKA7E1:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:59754/beyeubookstore/css/style.css   (ca22a1cb)
+2019-05-02T15:39:56.5514560+07:00 0HLMER6UKA7DV:00000003 [INF] Request finished in 187.1872ms 304 text/css (791a596a)
+2019-05-02T15:39:56.5669639+07:00 0HLMER6UKA7E1:00000002 [INF] The file "/beyeubookstore/css/style.css" was not modified (f1f8d725)
+2019-05-02T15:39:56.6015122+07:00 0HLMER6UKA7E2:00000001 [INF] Request finished in 194.9752ms 304 text/css (791a596a)
+2019-05-02T15:39:56.6246975+07:00 0HLMER6UKA7E4:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:59754/beyeubookstore/css/chosen.min.css   (ca22a1cb)
+2019-05-02T15:39:56.6318631+07:00 0HLMER6UKA7E1:00000002 [INF] Request finished in 265.0151ms 304 text/css (791a596a)
+2019-05-02T15:39:56.6374175+07:00 0HLMER6UKA7E0:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:59754/beyeubookstore/js/bootstrap.min.js   (ca22a1cb)
+2019-05-02T15:39:56.6629761+07:00 0HLMER6UKA7E4:00000002 [INF] The file "/beyeubookstore/css/chosen.min.css" was not modified (f1f8d725)
+2019-05-02T15:39:56.7322932+07:00 0HLMER6UKA7E4:00000002 [INF] Request finished in 72.4327ms 304 text/css (791a596a)
+2019-05-02T15:39:56.7433808+07:00 0HLMER6UKA7E0:00000003 [INF] Sending file. Request path: '"/beyeubookstore/js/bootstrap.min.js"'. Physical path: '"D:\Documents\ThuongMai\ERPWebApp\wwwroot\beyeubookstore\js\bootstrap.min.js"' (27b0a520)
+2019-05-02T15:39:56.8835140+07:00 0HLMER6UKA7E0:00000003 [INF] Request finished in 152.7238ms 200 application/javascript (791a596a)
+2019-05-02T15:39:56.8922249+07:00 0HLMER6UKA7E4:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:59754/beyeubookstore/js/jquery.parallax-1.1.3.js   (ca22a1cb)
+2019-05-02T15:39:56.9923570+07:00 0HLMER6UKA7E1:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:59754/beyeubookstore/js/wow.min.js   (ca22a1cb)
+2019-05-02T15:39:57.0118933+07:00 0HLMER6UKA7E4:00000003 [INF] Sending file. Request path: '"/beyeubookstore/js/jquery.parallax-1.1.3.js"'. Physical path: '"D:\Documents\ThuongMai\ERPWebApp\wwwroot\beyeubookstore\js\jquery.parallax-1.1.3.js"' (27b0a520)
+2019-05-02T15:39:57.0189575+07:00 0HLMER6UKA7DV:00000004 [INF] Request starting HTTP/1.1 GET http://localhost:59754/beyeubookstore/js/jquery.meanmenu.js   (ca22a1cb)
+2019-05-02T15:39:57.0976280+07:00 0HLMER6UKA7E2:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:59754/beyeubookstore/js/owl.carousel.min.js   (ca22a1cb)
+2019-05-02T15:39:57.1371526+07:00 0HLMER6UKA7E4:00000003 [INF] Request finished in 226.0848ms 200 application/javascript (791a596a)
+2019-05-02T15:39:57.1824438+07:00 0HLMER6UKA7E0:00000004 [INF] Request starting HTTP/1.1 GET http://localhost:59754/beyeubookstore/js/jquery.countdown.min.js   (ca22a1cb)
+2019-05-02T15:39:57.2246964+07:00 0HLMER6UKA7DV:00000004 [INF] Sending file. Request path: '"/beyeubookstore/js/jquery.meanmenu.js"'. Physical path: '"D:\Documents\ThuongMai\ERPWebApp\wwwroot\beyeubookstore\js\jquery.meanmenu.js"' (27b0a520)
+2019-05-02T15:39:57.2771177+07:00 0HLMER6UKA7E1:00000003 [INF] Sending file. Request path: '"/beyeubookstore/js/wow.min.js"'. Physical path: '"D:\Documents\ThuongMai\ERPWebApp\wwwroot\beyeubookstore\js\wow.min.js"' (27b0a520)
+2019-05-02T15:39:57.3638721+07:00 0HLMER6UKA7E1:00000003 [INF] Request finished in 335.6478ms 200 application/javascript (791a596a)
+2019-05-02T15:39:57.3816567+07:00 0HLMER6UKA7E0:00000004 [INF] Sending file. Request path: '"/beyeubookstore/js/jquery.countdown.min.js"'. Physical path: '"D:\Documents\ThuongMai\ERPWebApp\wwwroot\beyeubookstore\js\jquery.countdown.min.js"' (27b0a520)
+2019-05-02T15:39:57.4173257+07:00 0HLMER6UKA7DV:00000004 [INF] Request finished in 439.1791ms 200 application/javascript (791a596a)
+2019-05-02T15:39:57.4565381+07:00 0HLMER6UKA7E0:00000004 [INF] Request finished in 293.1402ms 200 application/javascript (791a596a)
+2019-05-02T15:39:57.5139134+07:00 0HLMER6UKA7E3:00000002 [INF] Sending file. Request path: '"/beyeubookstore/js/vendor/jquery-1.12.0.min.js"'. Physical path: '"D:\Documents\ThuongMai\ERPWebApp\wwwroot\beyeubookstore\js\vendor\jquery-1.12.0.min.js"' (27b0a520)
+2019-05-02T15:39:57.6093782+07:00 0HLMER6UKA7E3:00000002 [INF] Request finished in 1223.2124ms 200 application/javascript (791a596a)
+2019-05-02T15:39:57.7961080+07:00 0HLMER6UKA7E4:00000004 [INF] Request starting HTTP/1.1 GET http://localhost:59754/beyeubookstore/js/jquery.flexslider.js   (ca22a1cb)
+2019-05-02T15:39:57.9488096+07:00 0HLMER6UKA7DV:00000005 [INF] Request starting HTTP/1.1 GET http://localhost:59754/beyeubookstore/js/chosen.jquery.min.js   (ca22a1cb)
+2019-05-02T15:39:58.0991370+07:00 0HLMER6UKA7E0:00000005 [INF] Request starting HTTP/1.1 GET http://localhost:59754/beyeubookstore/fonts/fontawesome-webfont3295.woff2?v=4.5.0   (ca22a1cb)
+2019-05-02T15:39:58.1209877+07:00 0HLMER6UKA7E4:00000004 [INF] Sending file. Request path: '"/beyeubookstore/js/jquery.flexslider.js"'. Physical path: '"D:\Documents\ThuongMai\ERPWebApp\wwwroot\beyeubookstore\js\jquery.flexslider.js"' (27b0a520)
+2019-05-02T15:39:58.2114678+07:00 0HLMER6UKA7E2:00000002 [INF] Sending file. Request path: '"/beyeubookstore/js/owl.carousel.min.js"'. Physical path: '"D:\Documents\ThuongMai\ERPWebApp\wwwroot\beyeubookstore\js\owl.carousel.min.js"' (27b0a520)
+2019-05-02T15:39:58.2323429+07:00 0HLMER6UKA7E4:00000004 [INF] Request finished in 544.473ms 200 application/javascript (791a596a)
+2019-05-02T15:39:58.2437323+07:00 0HLMER6UKA7E1:00000004 [INF] Request starting HTTP/1.1 GET http://localhost:59754/images/img/icon-img/service-2.png   (ca22a1cb)
+2019-05-02T15:39:58.2824502+07:00 0HLMER6UKA7E2:00000002 [INF] Request finished in 1522.4625ms 200 application/javascript (791a596a)
+2019-05-02T15:39:58.3865787+07:00 0HLMER6UKA7E3:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:59754/images/img/banner/24.jpg   (ca22a1cb)
+2019-05-02T15:39:58.3955180+07:00 0HLMER6UKA7DV:00000005 [INF] Sending file. Request path: '"/beyeubookstore/js/chosen.jquery.min.js"'. Physical path: '"D:\Documents\ThuongMai\ERPWebApp\wwwroot\beyeubookstore\js\chosen.jquery.min.js"' (27b0a520)
+2019-05-02T15:39:58.4390703+07:00 0HLMER6UKA7DV:00000005 [INF] Request finished in 864.8942ms 200 application/javascript (791a596a)
+2019-05-02T15:39:58.4416385+07:00 0HLMER6UKA7E2:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:59754/images/img/icon-img/service-3.png   (ca22a1cb)
+2019-05-02T15:39:58.4854371+07:00 0HLMER6UKA7E1:00000004 [INF] Sending file. Request path: '"/images/img/icon-img/service-2.png"'. Physical path: '"D:\Documents\ThuongMai\ERPWebApp\wwwroot\images\img\icon-img\service-2.png"' (27b0a520)
+2019-05-02T15:39:58.5044173+07:00 0HLMER6UKA7E3:00000003 [INF] Sending file. Request path: '"/images/img/banner/24.jpg"'. Physical path: '"D:\Documents\ThuongMai\ERPWebApp\wwwroot\images\img\banner\24.jpg"' (27b0a520)
+2019-05-02T15:39:58.5092144+07:00 0HLMER6UKA7E1:00000004 [INF] Request finished in 304.2469ms 200 image/png (791a596a)
+2019-05-02T15:39:58.5257377+07:00 0HLMER6UKA7E3:00000003 [INF] Request finished in 245.8466ms 200 image/jpeg (791a596a)
+2019-05-02T15:39:58.5721230+07:00 0HLMER6UKA7E2:00000003 [INF] Sending file. Request path: '"/images/img/icon-img/service-3.png"'. Physical path: '"D:\Documents\ThuongMai\ERPWebApp\wwwroot\images\img\icon-img\service-3.png"' (27b0a520)
+2019-05-02T15:39:58.5934386+07:00 0HLMER6UKA7E4:00000005 [INF] Request starting HTTP/1.1 GET http://localhost:59754/images/img/icon-img/service-1.png   (ca22a1cb)
+2019-05-02T15:39:58.6393053+07:00 0HLMER6UKA7E2:00000003 [INF] Request finished in 160.7715ms 200 image/png (791a596a)
+2019-05-02T15:39:58.6601534+07:00 0HLMER6UKA7DV:00000006 [INF] Request starting HTTP/1.1 GET http://localhost:59754/images/img/banner/23.jpg   (ca22a1cb)
+2019-05-02T15:39:58.6715028+07:00 0HLMER6UKA7E4:00000005 [INF] Sending file. Request path: '"/images/img/icon-img/service-1.png"'. Physical path: '"D:\Documents\ThuongMai\ERPWebApp\wwwroot\images\img\icon-img\service-1.png"' (27b0a520)
+2019-05-02T15:39:58.6972031+07:00 0HLMER6UKA7E0:00000005 [INF] Sending file. Request path: '"/beyeubookstore/fonts/fontawesome-webfont3295.woff2"'. Physical path: '"D:\Documents\ThuongMai\ERPWebApp\wwwroot\beyeubookstore\fonts\fontawesome-webfont3295.woff2"' (27b0a520)
+2019-05-02T15:39:58.7130688+07:00 0HLMER6UKA7E4:00000005 [INF] Request finished in 142.1056ms 200 image/png (791a596a)
+2019-05-02T15:39:58.7180513+07:00 0HLMER6UKA7E1:00000005 [INF] Request starting HTTP/1.1 GET http://localhost:59754/images/img/logo/3.png   (ca22a1cb)
+2019-05-02T15:39:58.7809668+07:00 0HLMER6UKA7E0:00000005 [INF] Request finished in 941.6119ms 200 font/woff2 (791a596a)
+2019-05-02T15:39:58.8263675+07:00 0HLMER6UKA7E3:00000004 [INF] Request starting HTTP/1.1 GET http://localhost:59754/images/img/banner/20.jpg   (ca22a1cb)
+2019-05-02T15:39:58.8499520+07:00 0HLMER6UKA7DV:00000006 [INF] Sending file. Request path: '"/images/img/banner/23.jpg"'. Physical path: '"D:\Documents\ThuongMai\ERPWebApp\wwwroot\images\img\banner\23.jpg"' (27b0a520)
+2019-05-02T15:39:58.9167235+07:00 0HLMER6UKA7DV:00000006 [INF] Request finished in 222.2244ms 200 image/jpeg (791a596a)
+2019-05-02T15:39:58.9252141+07:00 0HLMER6UKA7E3:00000004 [INF] Sending file. Request path: '"/images/img/banner/20.jpg"'. Physical path: '"D:\Documents\ThuongMai\ERPWebApp\wwwroot\images\img\banner\20.jpg"' (27b0a520)
+2019-05-02T15:39:59.0228986+07:00 0HLMER6UKA7E3:00000004 [INF] Request finished in 195.5371ms 200 image/jpeg (791a596a)
+2019-05-02T15:39:59.0422316+07:00 0HLMER6UKA7E2:00000004 [INF] Request starting HTTP/1.1 GET http://localhost:59754/beyeubookstore/js/jquery.counterup.min.js   (ca22a1cb)
+2019-05-02T15:39:59.0858745+07:00 0HLMER6UKA7E1:00000005 [INF] Sending file. Request path: '"/images/img/logo/3.png"'. Physical path: '"D:\Documents\ThuongMai\ERPWebApp\wwwroot\images\img\logo\3.png"' (27b0a520)
+2019-05-02T15:39:59.1099515+07:00 0HLMER6UKA7E4:00000006 [INF] Request starting HTTP/1.1 GET http://localhost:59754/beyeubookstore/js/waypoints.min.js   (ca22a1cb)
+2019-05-02T15:39:59.1209336+07:00 0HLMER6UKA7E1:00000005 [INF] Request finished in 401.204ms 200 image/png (791a596a)
+2019-05-02T15:39:59.1476372+07:00 0HLMER6UKA7E0:00000006 [INF] Request starting HTTP/1.1 GET http://localhost:59754/beyeubookstore/js/plugins.js   (ca22a1cb)
+2019-05-02T15:39:59.2020825+07:00 0HLMER6UKA7E2:00000004 [INF] Sending file. Request path: '"/beyeubookstore/js/jquery.counterup.min.js"'. Physical path: '"D:\Documents\ThuongMai\ERPWebApp\wwwroot\beyeubookstore\js\jquery.counterup.min.js"' (27b0a520)
+2019-05-02T15:39:59.2284107+07:00 0HLMER6UKA7E4:00000006 [INF] Sending file. Request path: '"/beyeubookstore/js/waypoints.min.js"'. Physical path: '"D:\Documents\ThuongMai\ERPWebApp\wwwroot\beyeubookstore\js\waypoints.min.js"' (27b0a520)
+2019-05-02T15:39:59.2908397+07:00 0HLMER6UKA7E2:00000004 [INF] Request finished in 302.3415ms 200 application/javascript (791a596a)
+2019-05-02T15:39:59.3037750+07:00 0HLMER6UKA7E4:00000006 [INF] Request finished in 145.4015ms 200 application/javascript (791a596a)
+2019-05-02T15:39:59.3785370+07:00 0HLMER6UKA7DV:00000007 [INF] Request starting HTTP/1.1 GET http://localhost:59754/beyeubookstore/js/main.js   (ca22a1cb)
+2019-05-02T15:39:59.3849851+07:00 0HLMER6UKA7E0:00000006 [INF] Sending file. Request path: '"/beyeubookstore/js/plugins.js"'. Physical path: '"D:\Documents\ThuongMai\ERPWebApp\wwwroot\beyeubookstore\js\plugins.js"' (27b0a520)
+2019-05-02T15:39:59.4274387+07:00 0HLMER6UKA7E3:00000005 [INF] Request starting HTTP/1.1 GET http://localhost:59754/lib/jquery/dist/jquery.js   (ca22a1cb)
+2019-05-02T15:39:59.4886437+07:00 0HLMER6UKA7E0:00000006 [INF] Request finished in 299.3086ms 200 application/javascript (791a596a)
+2019-05-02T15:39:59.4983032+07:00 0HLMER6UKA7DV:00000007 [INF] Sending file. Request path: '"/beyeubookstore/js/main.js"'. Physical path: '"D:\Documents\ThuongMai\ERPWebApp\wwwroot\beyeubookstore\js\main.js"' (27b0a520)
+2019-05-02T15:39:59.9015206+07:00 0HLMER6UKA7DV:00000007 [INF] Request finished in 161.6187ms 200 application/javascript (791a596a)
+2019-05-02T15:39:59.9115784+07:00 0HLMER6UKA7E1:00000006 [INF] Request starting HTTP/1.1 GET http://localhost:59754/lib/jquery-ui/jquery-ui.js   (ca22a1cb)
+2019-05-02T15:39:59.9543932+07:00 0HLMER6UKA7E0:00000007 [INF] Request starting HTTP/1.1 GET http://localhost:59754/lib/fastclick/lib/fastclick.js   (ca22a1cb)
+2019-05-02T15:39:59.9759007+07:00 0HLMER6UKA7DV:00000008 [INF] Request starting HTTP/1.1 GET http://localhost:59754/lib/nprogress/nprogress.js   (ca22a1cb)
+2019-05-02T15:39:59.9822973+07:00 0HLMER6UKA7E2:00000005 [INF] Request starting HTTP/1.1 GET http://localhost:59754/lib/bootstrap/dist/js/bootstrap.js   (ca22a1cb)
+2019-05-02T15:40:00.0804201+07:00 0HLMER6UKA7E4:00000007 [INF] Request starting HTTP/1.1 GET http://localhost:59754/lib/jQuery-Mask-Plugin/src/jquery.mask.js   (ca22a1cb)
+2019-05-02T15:40:00.1049628+07:00 0HLMER6UKA7E0:00000007 [INF] Sending file. Request path: '"/lib/fastclick/lib/fastclick.js"'. Physical path: '"D:\Documents\ThuongMai\ERPWebApp\wwwroot\lib\fastclick\lib\fastclick.js"' (27b0a520)
+2019-05-02T15:40:00.1496518+07:00 0HLMER6UKA7E0:00000007 [INF] Request finished in 202.7457ms 200 application/javascript (791a596a)
+2019-05-02T15:40:00.1579586+07:00 0HLMER6UKA7E4:00000007 [INF] Sending file. Request path: '"/lib/jQuery-Mask-Plugin/src/jquery.mask.js"'. Physical path: '"D:\Documents\ThuongMai\ERPWebApp\wwwroot\lib\jQuery-Mask-Plugin\src\jquery.mask.js"' (27b0a520)
+2019-05-02T15:40:00.2042625+07:00 0HLMER6UKA7E4:00000007 [INF] Request finished in 196.3419ms 200 application/javascript (791a596a)
+2019-05-02T15:40:00.2120537+07:00 0HLMER6UKA7E0:00000008 [INF] Request starting HTTP/1.1 GET http://localhost:59754/wwwroot/images/img/slider/8.jpg   (ca22a1cb)
+2019-05-02T15:40:00.2122178+07:00 0HLMER6UKA7DV:00000008 [INF] Sending file. Request path: '"/lib/nprogress/nprogress.js"'. Physical path: '"D:\Documents\ThuongMai\ERPWebApp\wwwroot\lib\nprogress\nprogress.js"' (27b0a520)
+2019-05-02T15:40:00.2410881+07:00 0HLMER6UKA7DV:00000008 [INF] Request finished in 271.9558ms 200 application/javascript (791a596a)
+2019-05-02T15:40:00.2602840+07:00 0HLMER6UKA7E3:00000005 [INF] Sending file. Request path: '"/lib/jquery/dist/jquery.js"'. Physical path: '"D:\Documents\ThuongMai\ERPWebApp\wwwroot\lib\jquery\dist\jquery.js"' (27b0a520)
+2019-05-02T15:40:00.2957029+07:00 0HLMER6UKA7E0:00000008 [INF] Request finished in 64.7758ms 404  (791a596a)
+2019-05-02T15:40:00.3033145+07:00 0HLMER6UKA7E4:00000008 [INF] Request starting HTTP/1.1 GET http://localhost:59754/lib/mustache/mustache.js   (ca22a1cb)
+2019-05-02T15:40:00.4068307+07:00 0HLMER6UKA7E4:00000008 [INF] Sending file. Request path: '"/lib/mustache/mustache.js"'. Physical path: '"D:\Documents\ThuongMai\ERPWebApp\wwwroot\lib\mustache\mustache.js"' (27b0a520)
+2019-05-02T15:40:00.4120563+07:00 0HLMER6UKA7E2:00000005 [INF] Sending file. Request path: '"/lib/bootstrap/dist/js/bootstrap.js"'. Physical path: '"D:\Documents\ThuongMai\ERPWebApp\wwwroot\lib\bootstrap\dist\js\bootstrap.js"' (27b0a520)
+2019-05-02T15:40:00.4218286+07:00 0HLMER6UKA7DV:00000009 [INF] Request starting HTTP/1.1 GET http://localhost:59754/wwwroot/images/img/slider/7.jpg   (ca22a1cb)
+2019-05-02T15:40:00.4399021+07:00 0HLMER6UKA7E2:00000005 [INF] Request finished in 518.3636ms 200 application/javascript (791a596a)
+2019-05-02T15:40:00.4456572+07:00 0HLMER6UKA7E4:00000008 [INF] Request finished in 165.8229ms 200 application/javascript (791a596a)
+2019-05-02T15:40:00.4834665+07:00 0HLMER6UKA7DV:00000009 [INF] Request finished in 113.86ms 404  (791a596a)
+2019-05-02T15:40:00.5089105+07:00 0HLMER6UKA7E0:00000009 [INF] Request starting HTTP/1.1 GET http://localhost:59754/lib/chart.js/dist/Chart.js   (ca22a1cb)
+2019-05-02T15:40:00.5232474+07:00 0HLMER6UKA7E4:00000009 [INF] Request starting HTTP/1.1 GET http://localhost:59754/lib/jquery-sparkline/dist/jquery.sparkline.js   (ca22a1cb)
+2019-05-02T15:40:00.5267585+07:00 0HLMER6UKA7E3:00000005 [INF] Request finished in 915.4209ms 200 application/javascript (791a596a)
+2019-05-02T15:40:00.5776725+07:00 0HLMER6UKA7DV:0000000A [INF] Request starting HTTP/1.1 GET http://localhost:59754/lib/jquery-validation/dist/additional-methods.js   (ca22a1cb)
+2019-05-02T15:40:00.6066017+07:00 0HLMER6UKA7E2:00000006 [INF] Request starting HTTP/1.1 GET http://localhost:59754/lib/jquery-validation/dist/jquery.validate.js   (ca22a1cb)
+2019-05-02T15:40:00.6453630+07:00 0HLMER6UKA7E3:00000006 [INF] Request starting HTTP/1.1 GET http://localhost:59754/lib/twbs-pagination/jquery.twbsPagination.js   (ca22a1cb)
+2019-05-02T15:40:00.6757582+07:00 0HLMER6UKA7DV:0000000A [INF] Sending file. Request path: '"/lib/jquery-validation/dist/additional-methods.js"'. Physical path: '"D:\Documents\ThuongMai\ERPWebApp\wwwroot\lib\jquery-validation\dist\additional-methods.js"' (27b0a520)
+2019-05-02T15:40:00.6921287+07:00 0HLMER6UKA7E4:00000009 [INF] Sending file. Request path: '"/lib/jquery-sparkline/dist/jquery.sparkline.js"'. Physical path: '"D:\Documents\ThuongMai\ERPWebApp\wwwroot\lib\jquery-sparkline\dist\jquery.sparkline.js"' (27b0a520)
+2019-05-02T15:40:00.7476651+07:00 0HLMER6UKA7DV:0000000A [INF] Request finished in 148.5444ms 200 application/javascript (791a596a)
+2019-05-02T15:40:00.7706611+07:00 0HLMER6UKA7E4:00000009 [INF] Request finished in 208.9456ms 200 application/javascript (791a596a)
+2019-05-02T15:40:00.8467867+07:00 0HLMER6UKA7E2:00000006 [INF] Sending file. Request path: '"/lib/jquery-validation/dist/jquery.validate.js"'. Physical path: '"D:\Documents\ThuongMai\ERPWebApp\wwwroot\lib\jquery-validation\dist\jquery.validate.js"' (27b0a520)
+2019-05-02T15:40:00.8661487+07:00 0HLMER6UKA7E3:00000006 [INF] Sending file. Request path: '"/lib/twbs-pagination/jquery.twbsPagination.js"'. Physical path: '"D:\Documents\ThuongMai\ERPWebApp\wwwroot\lib\twbs-pagination\jquery.twbsPagination.js"' (27b0a520)
+2019-05-02T15:40:00.8926026+07:00 0HLMER6UKA7DV:0000000B [INF] Request starting HTTP/1.1 GET http://localhost:59754/lib/jquery-validation/dist/Localization/messages_vi.js   (ca22a1cb)
+2019-05-02T15:40:00.9110030+07:00 0HLMER6UKA7E2:00000006 [INF] Request finished in 316.6471ms 200 application/javascript (791a596a)
+2019-05-02T15:40:00.9212118+07:00 0HLMER6UKA7E3:00000006 [INF] Request finished in 323.8284ms 200 application/javascript (791a596a)
+2019-05-02T15:40:00.9630339+07:00 0HLMER6UKA7E4:0000000A [INF] Request starting HTTP/1.1 GET http://localhost:59754/lib/moment/moment.js   (ca22a1cb)
+2019-05-02T15:40:00.9713530+07:00 0HLMER6UKA7E2:00000007 [INF] Request starting HTTP/1.1 GET http://localhost:59754/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js   (ca22a1cb)
+2019-05-02T15:40:01.0062022+07:00 0HLMER6UKA7DV:0000000B [INF] Sending file. Request path: '"/lib/jquery-validation/dist/Localization/messages_vi.js"'. Physical path: '"D:\Documents\ThuongMai\ERPWebApp\wwwroot\lib\jquery-validation\dist\Localization\messages_vi.js"' (27b0a520)
+2019-05-02T15:40:01.0421068+07:00 0HLMER6UKA7E3:00000007 [INF] Request starting HTTP/1.1 GET http://localhost:59754/lib/bootstrap-datetimepicker-master/js/bootstrap-datetimepicker.js   (ca22a1cb)
+2019-05-02T15:40:01.0619080+07:00 0HLMER6UKA7E2:00000007 [INF] Sending file. Request path: '"/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"'. Physical path: '"D:\Documents\ThuongMai\ERPWebApp\wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.js"' (27b0a520)
+2019-05-02T15:40:01.0759598+07:00 0HLMER6UKA7DV:0000000B [INF] Request finished in 196.8072ms 200 application/javascript (791a596a)
+2019-05-02T15:40:01.1076929+07:00 0HLMER6UKA7E2:00000007 [INF] Request finished in 134.9764ms 200 application/javascript (791a596a)
+2019-05-02T15:40:01.1129826+07:00 0HLMER6UKA7E1:00000006 [INF] Sending file. Request path: '"/lib/jquery-ui/jquery-ui.js"'. Physical path: '"D:\Documents\ThuongMai\ERPWebApp\wwwroot\lib\jquery-ui\jquery-ui.js"' (27b0a520)
+2019-05-02T15:40:01.2108879+07:00 0HLMER6UKA7E1:00000006 [INF] Request finished in 1606.474ms 200 application/javascript (791a596a)
+2019-05-02T15:40:01.2280886+07:00 0HLMER6UKA7DV:0000000C [INF] Request starting HTTP/1.1 GET http://localhost:59754/images/img/banner/21.jpg   (ca22a1cb)
+2019-05-02T15:40:01.3971417+07:00 0HLMER6UKA7E4:0000000A [INF] Sending file. Request path: '"/lib/moment/moment.js"'. Physical path: '"D:\Documents\ThuongMai\ERPWebApp\wwwroot\lib\moment\moment.js"' (27b0a520)
+2019-05-02T15:40:01.7132186+07:00 0HLMER6UKA7E3:00000007 [INF] Sending file. Request path: '"/lib/bootstrap-datetimepicker-master/js/bootstrap-datetimepicker.js"'. Physical path: '"D:\Documents\ThuongMai\ERPWebApp\wwwroot\lib\bootstrap-datetimepicker-master\js\bootstrap-datetimepicker.js"' (27b0a520)
+2019-05-02T15:40:01.7377475+07:00 0HLMER6UKA7DV:0000000C [INF] Sending file. Request path: '"/images/img/banner/21.jpg"'. Physical path: '"D:\Documents\ThuongMai\ERPWebApp\wwwroot\images\img\banner\21.jpg"' (27b0a520)
+2019-05-02T15:40:01.7931217+07:00 0HLMER6UKA7E3:00000007 [INF] Request finished in 729.092ms 200 application/javascript (791a596a)
+2019-05-02T15:40:01.8134890+07:00 0HLMER6UKA7DV:0000000C [INF] Request finished in 611.3563ms 200 image/jpeg (791a596a)
+2019-05-02T15:40:01.9698942+07:00 0HLMER6UKA7E4:0000000A [INF] Request finished in 470.4636ms 200 application/javascript (791a596a)
+2019-05-02T15:40:01.9749863+07:00 0HLMER6UKA7E2:00000008 [INF] Request starting HTTP/1.1 GET http://localhost:59754/lib/bootstrap-datepicker/dist/js/bootstrap-datepicker.js   (ca22a1cb)
+2019-05-02T15:40:01.9797847+07:00 0HLMER6UKA7E1:00000007 [INF] Request starting HTTP/1.1 GET http://localhost:59754/lib/bootstrap-datetimepicker-master/js/locales/bootstrap-datetimepicker.vi.js   (ca22a1cb)
+2019-05-02T15:40:02.0697838+07:00 0HLMER6UKA7E3:00000008 [INF] Request starting HTTP/1.1 GET http://localhost:59754/lib/notifyjs/dist/notify.js   (ca22a1cb)
+2019-05-02T15:40:02.0781839+07:00 0HLMER6UKA7E4:0000000B [INF] Request starting HTTP/1.1 GET http://localhost:59754/lib/bootstrap-datepicker/dist/locales/bootstrap-datepicker.vi.min.js   (ca22a1cb)
+2019-05-02T15:40:02.0940316+07:00 0HLMER6UKA7DV:0000000D [INF] Request starting HTTP/1.1 GET http://localhost:59754/images/img/banner/5.jpg   (ca22a1cb)
+2019-05-02T15:40:02.4590314+07:00 0HLMER6UKA7E3:00000008 [INF] Sending file. Request path: '"/lib/notifyjs/dist/notify.js"'. Physical path: '"D:\Documents\ThuongMai\ERPWebApp\wwwroot\lib\notifyjs\dist\notify.js"' (27b0a520)
+2019-05-02T15:40:02.5433002+07:00 0HLMER6UKA7E4:0000000B [INF] Sending file. Request path: '"/lib/bootstrap-datepicker/dist/locales/bootstrap-datepicker.vi.min.js"'. Physical path: '"D:\Documents\ThuongMai\ERPWebApp\wwwroot\lib\bootstrap-datepicker\dist\locales\bootstrap-datepicker.vi.min.js"' (27b0a520)
+2019-05-02T15:40:02.5567918+07:00 0HLMER6UKA7DV:0000000D [INF] Sending file. Request path: '"/images/img/banner/5.jpg"'. Physical path: '"D:\Documents\ThuongMai\ERPWebApp\wwwroot\images\img\banner\5.jpg"' (27b0a520)
+2019-05-02T15:40:02.5707145+07:00 0HLMER6UKA7E3:00000008 [INF] Request finished in 444.9595ms 200 application/javascript (791a596a)
+2019-05-02T15:40:02.5752109+07:00 0HLMER6UKA7E4:0000000B [INF] Request finished in 529.2445ms 200 application/javascript (791a596a)
+2019-05-02T15:40:02.6005412+07:00 0HLMER6UKA7DV:0000000D [INF] Request finished in 537.8651ms 200 image/jpeg (791a596a)
+2019-05-02T15:40:02.6209823+07:00 0HLMER6UKA7E4:0000000C [INF] Request starting HTTP/1.1 GET http://localhost:59754/app/shared/general.js   (ca22a1cb)
+2019-05-02T15:40:02.6261310+07:00 0HLMER6UKA7E3:00000009 [INF] Request starting HTTP/1.1 GET http://localhost:59754/lib/notifyjs/dist/styles/metro/notify-metro.js   (ca22a1cb)
+2019-05-02T15:40:02.6511872+07:00 0HLMER6UKA7DV:0000000E [INF] Request starting HTTP/1.1 GET http://localhost:59754/lib/bootbox/bootbox.js   (ca22a1cb)
+2019-05-02T15:40:02.6566878+07:00 0HLMER6UKA7E2:00000008 [INF] Sending file. Request path: '"/lib/bootstrap-datepicker/dist/js/bootstrap-datepicker.js"'. Physical path: '"D:\Documents\ThuongMai\ERPWebApp\wwwroot\lib\bootstrap-datepicker\dist\js\bootstrap-datepicker.js"' (27b0a520)
+2019-05-02T15:40:02.6777250+07:00 0HLMER6UKA7E1:00000007 [INF] Sending file. Request path: '"/lib/bootstrap-datetimepicker-master/js/locales/bootstrap-datetimepicker.vi.js"'. Physical path: '"D:\Documents\ThuongMai\ERPWebApp\wwwroot\lib\bootstrap-datetimepicker-master\js\locales\bootstrap-datetimepicker.vi.js"' (27b0a520)
+2019-05-02T15:40:02.6834676+07:00 0HLMER6UKA7E2:00000008 [INF] Request finished in 743.5056ms 200 application/javascript (791a596a)
+2019-05-02T15:40:02.7269083+07:00 0HLMER6UKA7DV:0000000E [INF] Sending file. Request path: '"/lib/bootbox/bootbox.js"'. Physical path: '"D:\Documents\ThuongMai\ERPWebApp\wwwroot\lib\bootbox\bootbox.js"' (27b0a520)
+2019-05-02T15:40:02.7404017+07:00 0HLMER6UKA7E1:00000007 [INF] Request finished in 824.5878ms 200 application/javascript (791a596a)
+2019-05-02T15:40:02.7608413+07:00 0HLMER6UKA7E2:00000009 [INF] Request starting HTTP/1.1 GET http://localhost:59754/lib/ckeditor/ckeditor.js   (ca22a1cb)
+2019-05-02T15:40:02.7695120+07:00 0HLMER6UKA7DV:0000000E [INF] Request finished in 113.1669ms 200 application/javascript (791a596a)
+2019-05-02T15:40:02.8308373+07:00 0HLMER6UKA7E1:00000008 [INF] Request starting HTTP/1.1 GET http://localhost:59754/admin-side/js/custom.js   (ca22a1cb)
+2019-05-02T15:40:02.8462050+07:00 0HLMER6UKA7DV:0000000F [INF] Request starting HTTP/1.1 GET http://localhost:59754/app/shared/beyeubookstore/vendor/modernizr-2.8.3.min.js   (ca22a1cb)
+2019-05-02T15:40:02.9251202+07:00 0HLMER6UKA7E0:00000009 [INF] Sending file. Request path: '"/lib/chart.js/dist/Chart.js"'. Physical path: '"D:\Documents\ThuongMai\ERPWebApp\wwwroot\lib\chart.js\dist\Chart.js"' (27b0a520)
+2019-05-02T15:40:03.0011135+07:00 0HLMER6UKA7E1:00000008 [INF] Sending file. Request path: '"/admin-side/js/custom.js"'. Physical path: '"D:\Documents\ThuongMai\ERPWebApp\wwwroot\admin-side\js\custom.js"' (27b0a520)
+2019-05-02T15:40:03.0387835+07:00 0HLMER6UKA7E0:00000009 [INF] Request finished in 2459.7578ms 200 application/javascript (791a596a)
+2019-05-02T15:40:03.0475105+07:00 0HLMER6UKA7E3:00000009 [INF] Sending file. Request path: '"/lib/notifyjs/dist/styles/metro/notify-metro.js"'. Physical path: '"D:\Documents\ThuongMai\ERPWebApp\wwwroot\lib\notifyjs\dist\styles\metro\notify-metro.js"' (27b0a520)
+2019-05-02T15:40:03.1182035+07:00 0HLMER6UKA7E1:00000008 [INF] Request finished in 259.2205ms 200 application/javascript (791a596a)
+2019-05-02T15:40:03.2654601+07:00 0HLMER6UKA7E0:0000000A [INF] Request starting HTTP/1.1 GET http://localhost:59754/beyeubookstore/css/img/banner/22.jpg   (ca22a1cb)
+2019-05-02T15:40:03.3178314+07:00 0HLMER6UKA7E1:00000009 [INF] Request starting HTTP/1.1 GET http://localhost:59754/app/controllers/beyeubookstore/Index.js   (ca22a1cb)
+2019-05-02T15:40:03.3273875+07:00 0HLMER6UKA7E0:0000000A [INF] Request finished in 187.7635ms 404  (791a596a)
+2019-05-02T15:40:03.3690380+07:00 0HLMER6UKA7E3:00000009 [INF] Request finished in 458.0934ms 200 application/javascript (791a596a)
+2019-05-02T15:40:03.3827576+07:00 0HLMER6UKA7E1:00000009 [INF] Sending file. Request path: '"/app/controllers/beyeubookstore/Index.js"'. Physical path: '"D:\Documents\ThuongMai\ERPWebApp\wwwroot\app\controllers\beyeubookstore\Index.js"' (27b0a520)
+2019-05-02T15:40:03.3923984+07:00 0HLMER6UKA7E0:0000000B [INF] Request starting HTTP/1.1 GET http://localhost:59754/images/img/icon-img/service-3-white.png   (ca22a1cb)
+2019-05-02T15:40:03.6546827+07:00 0HLMER6UKA7E1:00000009 [INF] Request finished in 124.0291ms 200 application/javascript (791a596a)
+2019-05-02T15:40:03.6900849+07:00 0HLMER6UKA7E0:0000000B [INF] Sending file. Request path: '"/images/img/icon-img/service-3-white.png"'. Physical path: '"D:\Documents\ThuongMai\ERPWebApp\wwwroot\images\img\icon-img\service-3-white.png"' (27b0a520)
+2019-05-02T15:40:03.7406774+07:00 0HLMER6UKA7E0:0000000B [INF] Request finished in 334.2011ms 200 image/png (791a596a)
+2019-05-02T15:40:03.7469835+07:00 0HLMER6UKA7E1:0000000A [INF] Request starting HTTP/1.1 GET http://localhost:59754/img/product/quickview-l4.jpg   (ca22a1cb)
+2019-05-02T15:40:03.8341634+07:00 0HLMER6UKA7E0:0000000C [INF] Request starting HTTP/1.1 GET http://localhost:59754/img/product/quickview-l2.jpg   (ca22a1cb)
+2019-05-02T15:40:03.8830478+07:00 0HLMER6UKA7E1:0000000A [INF] Request finished in 44.5648ms 404  (791a596a)
+2019-05-02T15:40:03.9601576+07:00 0HLMER6UKA7E3:0000000A [INF] Request starting HTTP/1.1 GET http://localhost:59754/app/shared/notificationgeneral.js   (ca22a1cb)
+2019-05-02T15:40:03.9889825+07:00 0HLMER6UKA7E0:0000000C [INF] Request finished in 78.8255ms 404  (791a596a)
+2019-05-02T15:40:04.0168911+07:00 0HLMER6UKA7E1:0000000B [INF] Request starting HTTP/1.1 GET http://localhost:59754/img/product/quickview-l3.jpg   (ca22a1cb)
+2019-05-02T15:40:04.0564016+07:00 0HLMER6UKA7E0:0000000D [INF] Request starting HTTP/1.1 GET http://localhost:59754/img/product/quickview-l5.jpg   (ca22a1cb)
+2019-05-02T15:40:04.0649753+07:00 0HLMER6UKA7E1:0000000B [INF] Request finished in 119.4916ms 404  (791a596a)
+2019-05-02T15:40:04.0852435+07:00 0HLMER6UKA7E4:0000000C [INF] Sending file. Request path: '"/app/shared/general.js"'. Physical path: '"D:\Documents\ThuongMai\ERPWebApp\wwwroot\app\shared\general.js"' (27b0a520)
+2019-05-02T15:40:04.0940908+07:00 0HLMER6UKA7E0:0000000D [INF] Request finished in 45.2234ms 404  (791a596a)
+2019-05-02T15:40:04.1248505+07:00 0HLMER6UKA7E4:0000000C [INF] Request finished in 1493.1812ms 200 application/javascript (791a596a)
+2019-05-02T15:40:04.1513124+07:00 0HLMER6UKA7E3:0000000A [INF] Sending file. Request path: '"/app/shared/notificationgeneral.js"'. Physical path: '"D:\Documents\ThuongMai\ERPWebApp\wwwroot\app\shared\notificationgeneral.js"' (27b0a520)
+2019-05-02T15:40:04.1686142+07:00 0HLMER6UKA7E4:0000000D [INF] Request starting HTTP/1.1 GET http://localhost:59754/app/shared/BeYeuTheme.js   (ca22a1cb)
+2019-05-02T15:40:04.1733986+07:00 0HLMER6UKA7E3:0000000A [INF] Request finished in 727.9491ms 200 application/javascript (791a596a)
+2019-05-02T15:40:04.2092550+07:00 0HLMER6UKA7DV:0000000F [INF] Sending file. Request path: '"/app/shared/beyeubookstore/vendor/modernizr-2.8.3.min.js"'. Physical path: '"D:\Documents\ThuongMai\ERPWebApp\wwwroot\app\shared\beyeubookstore\vendor\modernizr-2.8.3.min.js"' (27b0a520)
+2019-05-02T15:40:04.2296353+07:00 0HLMER6UKA7E4:0000000D [INF] Sending file. Request path: '"/app/shared/BeYeuTheme.js"'. Physical path: '"D:\Documents\ThuongMai\ERPWebApp\wwwroot\app\shared\BeYeuTheme.js"' (27b0a520)
+2019-05-02T15:40:04.2380561+07:00 0HLMER6UKA7DV:0000000F [INF] Request finished in 1413.7933ms 200 application/javascript (791a596a)
+2019-05-02T15:40:04.2588353+07:00 0HLMER6UKA7E4:0000000D [INF] Request finished in 91.2373ms 200 application/javascript (791a596a)
+2019-05-02T15:40:04.3165476+07:00 0HLMER6UKA7E3:0000000B [INF] Request starting HTTP/1.1 GET http://localhost:59754/Notification/GetByUserId   (ca22a1cb)
+2019-05-02T15:40:04.3321379+07:00 0HLMER6UKA7E1:0000000C [INF] Request starting HTTP/1.1 GET http://localhost:59754/BeyeuBookstore/GetAllQuantity?quantity=8   (ca22a1cb)
+2019-05-02T15:40:04.3648978+07:00 0HLMER6UKA7DV:00000010 [INF] Request starting HTTP/1.1 GET http://localhost:59754/images/img/icon-img/service-1-white.png   (ca22a1cb)
+2019-05-02T15:40:04.4355251+07:00 0HLMER6UKA7E0:0000000E [INF] Request starting HTTP/1.1 GET http://localhost:59754/BeyeuBookstore/GetAllBookCategory   (ca22a1cb)
+2019-05-02T15:40:04.4572958+07:00 0HLMER6UKA7E1:0000000C [INF] Route matched with "{action = \"GetAllQuantity\", controller = \"BeyeuBookstore\", area = \"\"}". Executing action "BeYeuBookstore.Controllers.BeyeuBookstoreController.GetAllQuantity (BeYeuBookstore)" (a44c0341)
+2019-05-02T15:40:04.4788060+07:00 0HLMER6UKA7DV:00000010 [INF] Sending file. Request path: '"/images/img/icon-img/service-1-white.png"'. Physical path: '"D:\Documents\ThuongMai\ERPWebApp\wwwroot\images\img\icon-img\service-1-white.png"' (27b0a520)
+2019-05-02T15:40:04.4901023+07:00 0HLMER6UKA7E3:0000000B [INF] Route matched with "{action = \"GetByUserId\", controller = \"Notification\", area = \"\"}". Executing action "BeYeuBookstore.Controllers.Construction.NotificationController.GetByUserId (BeYeuBookstore)" (a44c0341)
+2019-05-02T15:40:04.6283027+07:00 0HLMER6UKA7DV:00000010 [INF] Request finished in 225.6413ms 200 image/png (791a596a)
+2019-05-02T15:40:04.6572160+07:00 0HLMER6UKA7E3:0000000B [INF] Executing action method "BeYeuBookstore.Controllers.Construction.NotificationController.GetByUserId (BeYeuBookstore)" - Validation state: Valid (dad538d7)
+2019-05-02T15:40:04.6626615+07:00 0HLMER6UKA7E0:0000000E [INF] Request finished in 144.947ms 404  (791a596a)
+2019-05-02T15:40:04.6909479+07:00 0HLMER6UKA7E2:00000009 [INF] Sending file. Request path: '"/lib/ckeditor/ckeditor.js"'. Physical path: '"D:\Documents\ThuongMai\ERPWebApp\wwwroot\lib\ckeditor\ckeditor.js"' (27b0a520)
+2019-05-02T15:40:04.7479187+07:00 0HLMER6UKA7E2:00000009 [INF] Request finished in 1969.6808ms 200 application/javascript (791a596a)
+2019-05-02T15:40:04.8466231+07:00 0HLMER6UKA7E3:0000000B [INF] Entity Framework Core "2.2.0-preview1-35029" initialized '"ERPDbContext"' using provider '"Pomelo.EntityFrameworkCore.MySql"' with options: "ServerVersion 8.0.13 MySql " (9958f5bb)
+2019-05-02T15:40:04.9121541+07:00 0HLMER6UKA7E2:0000000A [INF] Request starting HTTP/1.1 GET http://localhost:59754/images/img/icon-img/service-2-white.png   (ca22a1cb)
+2019-05-02T15:40:04.9222286+07:00 0HLMER6UKA7E1:0000000C [INF] Executing action method "BeYeuBookstore.Controllers.BeyeuBookstoreController.GetAllQuantity (BeYeuBookstore)" with arguments (["8"]) - Validation state: Valid (4e3479ed)
+2019-05-02T15:40:05.0382379+07:00 0HLMER6UKA7E1:0000000C [INF] Entity Framework Core "2.2.0-preview1-35029" initialized '"ERPDbContext"' using provider '"Pomelo.EntityFrameworkCore.MySql"' with options: "ServerVersion 8.0.13 MySql " (9958f5bb)
+2019-05-02T15:40:05.0758751+07:00 0HLMER6UKA7E2:0000000A [INF] Sending file. Request path: '"/images/img/icon-img/service-2-white.png"'. Physical path: '"D:\Documents\ThuongMai\ERPWebApp\wwwroot\images\img\icon-img\service-2-white.png"' (27b0a520)
+2019-05-02T15:40:05.0861488+07:00 0HLMER6UKA7E4:0000000E [INF] Request starting HTTP/1.1 GET http://localhost:59754/images/img/favicon.png   (ca22a1cb)
+2019-05-02T15:40:05.1073785+07:00 0HLMER6UKA7E2:0000000A [INF] Request finished in 194.7056ms 200 image/png (791a596a)
+2019-05-02T15:40:05.2941623+07:00 0HLMER6UKA7E4:0000000E [INF] Sending file. Request path: '"/images/img/favicon.png"'. Physical path: '"D:\Documents\ThuongMai\ERPWebApp\wwwroot\images\img\favicon.png"' (27b0a520)
+2019-05-02T15:40:05.3778347+07:00 0HLMER6UKA7E4:0000000E [INF] Request finished in 300.2614ms 200 image/png (791a596a)
+2019-05-02T15:40:07.6680456+07:00 0HLMER6UKA7E1:0000000C [ERR] An error occurred using the connection to database '"BeYeuBookstore"' on server '"localhost"'. (5fc3407c)
+MySql.Data.MySqlClient.MySqlException (0x80004005): Unable to connect to any of the specified MySQL hosts.
+   at MySqlConnector.Core.ServerSession.ConnectAsync(ConnectionSettings cs, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ServerSession.cs:line 322
+   at MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ConnectionPool.cs:line 112
+   at MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ConnectionPool.cs:line 141
+   at MySql.Data.MySqlClient.MySqlConnection.CreateSessionAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 405
+   at MySql.Data.MySqlClient.MySqlConnection.OpenAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 175
+   at MySql.Data.MySqlClient.MySqlConnection.Open() in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 161
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnection(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.BufferlessMoveNext(DbContext _, Boolean buffer)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.MoveNext()
+   at Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider._TrackEntities[TOut,TIn](IEnumerable`1 results, QueryContext queryContext, IList`1 entityTrackingInfos, IList`1 entityAccessors)+MoveNext()
+   at Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.MoveNext()
+2019-05-02T15:40:07.8229378+07:00 0HLMER6UKA7E1:0000000C [ERR] An exception occurred in the database while iterating the results of a query for context type '"BeYeuBookstore.Data.EF.ERPDbContext"'."
+""MySql.Data.MySqlClient.MySqlException (0x80004005): Unable to connect to any of the specified MySQL hosts.
+   at MySqlConnector.Core.ServerSession.ConnectAsync(ConnectionSettings cs, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ServerSession.cs:line 322
+   at MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ConnectionPool.cs:line 112
+   at MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ConnectionPool.cs:line 141
+   at MySql.Data.MySqlClient.MySqlConnection.CreateSessionAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 405
+   at MySql.Data.MySqlClient.MySqlConnection.OpenAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 175
+   at MySql.Data.MySqlClient.MySqlConnection.Open() in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 161
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnection(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.BufferlessMoveNext(DbContext _, Boolean buffer)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.MoveNext()
+   at Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider._TrackEntities[TOut,TIn](IEnumerable`1 results, QueryContext queryContext, IList`1 entityTrackingInfos, IList`1 entityAccessors)+MoveNext()
+   at Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.MoveNext()" (64e2593c)
+MySql.Data.MySqlClient.MySqlException (0x80004005): Unable to connect to any of the specified MySQL hosts.
+   at MySqlConnector.Core.ServerSession.ConnectAsync(ConnectionSettings cs, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ServerSession.cs:line 322
+   at MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ConnectionPool.cs:line 112
+   at MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ConnectionPool.cs:line 141
+   at MySql.Data.MySqlClient.MySqlConnection.CreateSessionAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 405
+   at MySql.Data.MySqlClient.MySqlConnection.OpenAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 175
+   at MySql.Data.MySqlClient.MySqlConnection.Open() in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 161
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnection(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.BufferlessMoveNext(DbContext _, Boolean buffer)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.MoveNext()
+   at Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider._TrackEntities[TOut,TIn](IEnumerable`1 results, QueryContext queryContext, IList`1 entityTrackingInfos, IList`1 entityAccessors)+MoveNext()
+   at Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.MoveNext()
+   at BeYeuBookstore.Application.Implementation.BookService.GetAll(Int32 quantity) in D:\Documents\ThuongMai\ERPWebApp.Application\Implementation\BookService.cs:line 57
+2019-05-02T15:43:06.4055953+07:00 0HLMER8P2LRUV:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:59754/   (ca22a1cb)
+2019-05-02T15:43:06.4055956+07:00 0HLMER8P2LRUU:00000001 [INF] Request starting HTTP/1.1 DEBUG http://localhost:59754/  0 (ca22a1cb)
+2019-05-02T15:43:06.5280881+07:00 0HLMER8P2LRUU:00000001 [INF] Request finished in 287.4856ms 200  (791a596a)
+2019-05-02T15:43:07.8856690+07:00 0HLMER8P2LRUV:00000001 [INF] Route matched with "{action = \"Index\", controller = \"BeyeuBookstore\", area = \"\"}". Executing action "BeYeuBookstore.Controllers.BeyeuBookstoreController.Index (BeYeuBookstore)" (a44c0341)
+2019-05-02T15:43:08.0744510+07:00 0HLMER8P2LRUV:00000001 [INF] Executing action method "BeYeuBookstore.Controllers.BeyeuBookstoreController.Index (BeYeuBookstore)" - Validation state: Valid (dad538d7)
+2019-05-02T15:43:08.0929101+07:00 0HLMER8P2LRUV:00000001 [INF] Executed action method "BeYeuBookstore.Controllers.BeyeuBookstoreController.Index (BeYeuBookstore)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 1.9491ms. (50a9e262)
+2019-05-02T15:43:08.1714615+07:00 0HLMER8P2LRUV:00000001 [INF] Executing ViewResult, running view "Index". (c83d0e25)
+2019-05-02T15:43:08.5989735+07:00 0HLMER8P2LRUV:00000001 [INF] Executed ViewResult - view "Index" executed in 476.5522ms. (f66409e9)
+2019-05-02T15:43:08.6095004+07:00 0HLMER8P2LRUV:00000001 [INF] Executed action "BeYeuBookstore.Controllers.BeyeuBookstoreController.Index (BeYeuBookstore)" in 714.548ms (afa2e885)
+2019-05-02T15:43:09.5619212+07:00 0HLMER8P2LRUV:00000001 [INF] Request finished in 3291.2042ms 200 text/html; charset=utf-8 (791a596a)
+2019-05-02T15:43:10.5866037+07:00 0HLMER8P2LRUV:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:59754/app/controllers/beyeubookstore/Index.js   (ca22a1cb)
+2019-05-02T15:43:10.5928961+07:00 0HLMER8P2LRUU:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:59754/app/shared/general.js   (ca22a1cb)
+2019-05-02T15:43:10.6261187+07:00 0HLMER8P2LRV0:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:59754/img/product/quickview-l4.jpg   (ca22a1cb)
+2019-05-02T15:43:10.6575702+07:00 0HLMER8P2LRV0:00000001 [INF] Request finished in 33.6662ms 404  (791a596a)
+2019-05-02T15:43:10.7247181+07:00 0HLMER8P2LRUV:00000002 [INF] The file "/app/controllers/beyeubookstore/Index.js" was not modified (f1f8d725)
+2019-05-02T15:43:10.7306019+07:00 0HLMER8P2LRUU:00000002 [INF] The file "/app/shared/general.js" was not modified (f1f8d725)
+2019-05-02T15:43:10.7341837+07:00 0HLMER8P2LRV1:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:59754/img/product/quickview-l2.jpg   (ca22a1cb)
+2019-05-02T15:43:10.7668083+07:00 0HLMER8P2LRV1:00000001 [INF] Request finished in 45.3606ms 404  (791a596a)
+2019-05-02T15:43:10.7731660+07:00 0HLMER8P2LRUV:00000002 [INF] Request finished in 218.3337ms 304 application/javascript (791a596a)
+2019-05-02T15:43:10.7828127+07:00 0HLMER8P2LRUU:00000002 [INF] Request finished in 218.441ms 304 application/javascript (791a596a)
+2019-05-02T15:43:10.8801090+07:00 0HLMER8P2LRV2:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:59754/img/product/quickview-l3.jpg   (ca22a1cb)
+2019-05-02T15:43:10.8917679+07:00 0HLMER8P2LRV3:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:59754/img/product/quickview-l5.jpg   (ca22a1cb)
+2019-05-02T15:43:10.9461488+07:00 0HLMER8P2LRV3:00000001 [INF] Request finished in 78.0506ms 404  (791a596a)
+2019-05-02T15:43:10.9546851+07:00 0HLMER8P2LRV0:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:59754/beyeubookstore/css/img/banner/22.jpg   (ca22a1cb)
+2019-05-02T15:43:10.9915687+07:00 0HLMER8P2LRV2:00000001 [INF] Request finished in 74.8833ms 404  (791a596a)
+2019-05-02T15:43:10.9992961+07:00 0HLMER8P2LRV0:00000002 [INF] Request finished in 63.1539ms 404  (791a596a)
+2019-05-02T15:43:11.9849769+07:00 0HLMER8P2LRV1:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:59754/wwwroot/images/img/slider/8.jpg   (ca22a1cb)
+2019-05-02T15:43:12.0192264+07:00 0HLMER8P2LRUV:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:59754/wwwroot/images/img/slider/7.jpg   (ca22a1cb)
+2019-05-02T15:43:12.0598327+07:00 0HLMER8P2LRV1:00000002 [INF] Request finished in 70.3846ms 404  (791a596a)
+2019-05-02T15:43:12.0675203+07:00 0HLMER8P2LRUV:00000003 [INF] Request finished in 88.9924ms 404  (791a596a)
+2019-05-02T15:43:12.7512585+07:00 0HLMER8P2LRUU:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:59754/Notification/GetByUserId   (ca22a1cb)
+2019-05-02T15:43:12.7685633+07:00 0HLMER8P2LRV2:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:59754/BeyeuBookstore/GetAllBookCategory   (ca22a1cb)
+2019-05-02T15:43:12.7843468+07:00 0HLMER8P2LRV2:00000002 [INF] Request finished in 17.6814ms 404  (791a596a)
+2019-05-02T15:43:12.8416332+07:00 0HLMER8P2LRUU:00000003 [INF] Route matched with "{action = \"GetByUserId\", controller = \"Notification\", area = \"\"}". Executing action "BeYeuBookstore.Controllers.Construction.NotificationController.GetByUserId (BeYeuBookstore)" (a44c0341)
+2019-05-02T15:43:12.9117067+07:00 0HLMER8P2LRV3:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:59754/BeyeuBookstore/GetAllQuantity?quantity=8   (ca22a1cb)
+2019-05-02T15:43:12.9223564+07:00 0HLMER8P2LRUU:00000003 [INF] Executing action method "BeYeuBookstore.Controllers.Construction.NotificationController.GetByUserId (BeYeuBookstore)" - Validation state: Valid (dad538d7)
+2019-05-02T15:43:12.9673136+07:00 0HLMER8P2LRV3:00000002 [INF] Route matched with "{action = \"GetAllQuantity\", controller = \"BeyeuBookstore\", area = \"\"}". Executing action "BeYeuBookstore.Controllers.BeyeuBookstoreController.GetAllQuantity (BeYeuBookstore)" (a44c0341)
+2019-05-02T15:43:12.9760788+07:00 0HLMER8P2LRUU:00000003 [INF] Entity Framework Core "2.2.0-preview1-35029" initialized '"ERPDbContext"' using provider '"Pomelo.EntityFrameworkCore.MySql"' with options: "ServerVersion 8.0.13 MySql " (9958f5bb)
+2019-05-02T15:43:13.1268943+07:00 0HLMER8P2LRV3:00000002 [INF] Executing action method "BeYeuBookstore.Controllers.BeyeuBookstoreController.GetAllQuantity (BeYeuBookstore)" with arguments (["8"]) - Validation state: Valid (4e3479ed)
+2019-05-02T15:43:13.1481657+07:00 0HLMER8P2LRV3:00000002 [INF] Entity Framework Core "2.2.0-preview1-35029" initialized '"ERPDbContext"' using provider '"Pomelo.EntityFrameworkCore.MySql"' with options: "ServerVersion 8.0.13 MySql " (9958f5bb)
+2019-05-02T15:43:13.5643567+07:00 0HLMER8P2LRV3:00000002 [ERR] An error occurred using the connection to database '"BeYeuBookstore"' on server '"localhost"'. (5fc3407c)
+MySql.Data.MySqlClient.MySqlException (0x80004005): Access denied for user 'root'@'localhost' (using password: YES)
+   at MySqlConnector.Core.ServerSession.ConnectAsync(ConnectionSettings cs, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ServerSession.cs:line 356
+   at MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ConnectionPool.cs:line 112
+   at MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ConnectionPool.cs:line 141
+   at MySql.Data.MySqlClient.MySqlConnection.CreateSessionAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 405
+   at MySql.Data.MySqlClient.MySqlConnection.OpenAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 175
+   at MySql.Data.MySqlClient.MySqlConnection.Open() in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 161
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnection(Boolean errorsExpected)
+2019-05-02T15:43:13.7122374+07:00 0HLMER8P2LRUU:00000003 [ERR] An error occurred using the connection to database '"BeYeuBookstore"' on server '"localhost"'. (5fc3407c)
+MySql.Data.MySqlClient.MySqlException (0x80004005): Access denied for user 'root'@'localhost' (using password: YES)
+   at MySqlConnector.Core.ServerSession.ConnectAsync(ConnectionSettings cs, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ServerSession.cs:line 356
+   at MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ConnectionPool.cs:line 112
+   at MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ConnectionPool.cs:line 141
+   at MySql.Data.MySqlClient.MySqlConnection.CreateSessionAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 405
+   at MySql.Data.MySqlClient.MySqlConnection.OpenAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 175
+   at MySql.Data.MySqlClient.MySqlConnection.Open() in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 161
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnection(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.BufferlessMoveNext(DbContext _, Boolean buffer)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.MoveNext()
+   at Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.MoveNext()
+2019-05-02T15:43:13.7969663+07:00 0HLMER8P2LRV3:00000002 [ERR] An exception occurred in the database while iterating the results of a query for context type '"BeYeuBookstore.Data.EF.ERPDbContext"'."
+""MySql.Data.MySqlClient.MySqlException (0x80004005): Access denied for user 'root'@'localhost' (using password: YES)
+   at MySqlConnector.Core.ServerSession.ConnectAsync(ConnectionSettings cs, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ServerSession.cs:line 356
+   at MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ConnectionPool.cs:line 112
+   at MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ConnectionPool.cs:line 141
+   at MySql.Data.MySqlClient.MySqlConnection.CreateSessionAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 405
+   at MySql.Data.MySqlClient.MySqlConnection.OpenAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 175
+   at MySql.Data.MySqlClient.MySqlConnection.Open() in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 161
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnection(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.BufferlessMoveNext(DbContext _, Boolean buffer)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.MoveNext()
+   at Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider._TrackEntities[TOut,TIn](IEnumerable`1 results, QueryContext queryContext, IList`1 entityTrackingInfos, IList`1 entityAccessors)+MoveNext()
+   at Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.MoveNext()" (64e2593c)
+MySql.Data.MySqlClient.MySqlException (0x80004005): Access denied for user 'root'@'localhost' (using password: YES)
+   at MySqlConnector.Core.ServerSession.ConnectAsync(ConnectionSettings cs, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ServerSession.cs:line 356
+   at MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ConnectionPool.cs:line 112
+   at MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ConnectionPool.cs:line 141
+   at MySql.Data.MySqlClient.MySqlConnection.CreateSessionAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 405
+   at MySql.Data.MySqlClient.MySqlConnection.OpenAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 175
+   at MySql.Data.MySqlClient.MySqlConnection.Open() in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 161
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnection(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.BufferlessMoveNext(DbContext _, Boolean buffer)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.MoveNext()
+   at Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider._TrackEntities[TOut,TIn](IEnumerable`1 results, QueryContext queryContext, IList`1 entityTrackingInfos, IList`1 entityAccessors)+MoveNext()
+   at Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.MoveNext()
+   at BeYeuBookstore.Application.Implementation.BookService.GetAll(Int32 quantity) in D:\Documents\ThuongMai\ERPWebApp.Application\Implementation\BookService.cs:line 57
+2019-05-02T15:43:23.3609847+07:00 0HLMER8P2LRV3:00000002 [INF] Executed action "BeYeuBookstore.Controllers.BeyeuBookstoreController.GetAllQuantity (BeYeuBookstore)" in 10360.0848ms (afa2e885)
+2019-05-02T15:43:23.3662313+07:00 0HLMER8P2LRUU:00000003 [ERR] An exception occurred in the database while iterating the results of a query for context type '"BeYeuBookstore.Data.EF.ERPDbContext"'."
+""MySql.Data.MySqlClient.MySqlException (0x80004005): Access denied for user 'root'@'localhost' (using password: YES)
+   at MySqlConnector.Core.ServerSession.ConnectAsync(ConnectionSettings cs, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ServerSession.cs:line 356
+   at MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ConnectionPool.cs:line 112
+   at MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ConnectionPool.cs:line 141
+   at MySql.Data.MySqlClient.MySqlConnection.CreateSessionAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 405
+   at MySql.Data.MySqlClient.MySqlConnection.OpenAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 175
+   at MySql.Data.MySqlClient.MySqlConnection.Open() in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 161
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnection(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.BufferlessMoveNext(DbContext _, Boolean buffer)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.MoveNext()
+   at Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.MoveNext()" (64e2593c)
+MySql.Data.MySqlClient.MySqlException (0x80004005): Access denied for user 'root'@'localhost' (using password: YES)
+   at MySqlConnector.Core.ServerSession.ConnectAsync(ConnectionSettings cs, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ServerSession.cs:line 356
+   at MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ConnectionPool.cs:line 112
+   at MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ConnectionPool.cs:line 141
+   at MySql.Data.MySqlClient.MySqlConnection.CreateSessionAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 405
+   at MySql.Data.MySqlClient.MySqlConnection.OpenAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 175
+   at MySql.Data.MySqlClient.MySqlConnection.Open() in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 161
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnection(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.BufferlessMoveNext(DbContext _, Boolean buffer)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.MoveNext()
+   at Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.MoveNext()
+   at System.Collections.Generic.List`1.AddEnumerable(IEnumerable`1 enumerable)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at BeYeuBookstore.Application.Implementation.Boq.SO_NotificationGeneralDetailService.getNotitficationByUserId(Guid userId) in D:\Documents\ThuongMai\ERPWebApp\Boq\SO_NotificationGeneralDetailService.cs:line 90
+   at BeYeuBookstore.Controllers.Construction.NotificationController.GetByUserId() in D:\Documents\ThuongMai\ERPWebApp\Controllers\Construction\NotificationController.cs:line 80
+   at lambda_method(Closure , Object , Object[] )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutor.Execute(Object target, Object[] parameters)
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+2019-05-02T15:43:26.7556027+07:00 0HLMER8P2LRUU:00000003 [INF] Executed action "BeYeuBookstore.Controllers.Construction.NotificationController.GetByUserId (BeYeuBookstore)" in 13870.3225ms (afa2e885)
+2019-05-02T15:43:27.3156206+07:00 0HLMER8P2LRV3:00000002 [ERR] An error occurred using the connection to database '""' on server '"localhost"'. (5fc3407c)
+MySql.Data.MySqlClient.MySqlException (0x80004005): Access denied for user 'root'@'localhost' (using password: YES)
+   at MySqlConnector.Core.ServerSession.TryAsyncContinuation(Task`1 task) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ServerSession.cs:line 1245
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+--- End of stack trace from previous location where exception was thrown ---
+   at MySqlConnector.Core.ServerSession.ConnectAsync(ConnectionSettings cs, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ServerSession.cs:line 356
+   at MySql.Data.MySqlClient.MySqlConnection.CreateSessionAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 416
+   at MySql.Data.MySqlClient.MySqlConnection.OpenAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 175
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnectionAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+2019-05-02T15:43:27.4551680+07:00 0HLMER8P2LRUU:00000003 [ERR] An error occurred using the connection to database '""' on server '"localhost"'. (5fc3407c)
+MySql.Data.MySqlClient.MySqlException (0x80004005): Access denied for user 'root'@'localhost' (using password: YES)
+   at MySqlConnector.Core.ServerSession.TryAsyncContinuation(Task`1 task) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ServerSession.cs:line 1245
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+--- End of stack trace from previous location where exception was thrown ---
+   at MySqlConnector.Core.ServerSession.ConnectAsync(ConnectionSettings cs, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ServerSession.cs:line 356
+   at MySql.Data.MySqlClient.MySqlConnection.CreateSessionAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 416
+   at MySql.Data.MySqlClient.MySqlConnection.OpenAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 175
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnectionAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlDatabaseCreator.<>c__DisplayClass20_0.<<ExistsAsync>b__0>d.MoveNext()
+2019-05-02T15:43:27.6354444+07:00 0HLMER8P2LRUU:00000003 [ERR] An exception occurred while calculating the database error page content. Skipping display of the database error page. (3f43c218)
+MySql.Data.MySqlClient.MySqlException (0x80004005): Access denied for user 'root'@'localhost' (using password: YES)
+   at MySqlConnector.Core.ServerSession.ConnectAsync(ConnectionSettings cs, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ServerSession.cs:line 356
+   at MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ConnectionPool.cs:line 112
+   at MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ConnectionPool.cs:line 141
+   at MySql.Data.MySqlClient.MySqlConnection.CreateSessionAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 405
+   at MySql.Data.MySqlClient.MySqlConnection.OpenAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 175
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnectionAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlDatabaseCreator.<>c__DisplayClass20_0.<<ExistsAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlDatabaseCreator.<>c__DisplayClass20_0.<<ExistsAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.DatabaseErrorPageMiddleware.Invoke(HttpContext httpContext)
+2019-05-02T15:43:27.6972629+07:00 0HLMER8P2LRV3:00000002 [ERR] An exception occurred while calculating the database error page content. Skipping display of the database error page. (3f43c218)
+MySql.Data.MySqlClient.MySqlException (0x80004005): Access denied for user 'root'@'localhost' (using password: YES)
+   at MySqlConnector.Core.ServerSession.TryAsyncContinuation(Task`1 task) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ServerSession.cs:line 1245
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+--- End of stack trace from previous location where exception was thrown ---
+   at MySqlConnector.Core.ServerSession.ConnectAsync(ConnectionSettings cs, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ServerSession.cs:line 356
+   at MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ConnectionPool.cs:line 112
+   at MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ConnectionPool.cs:line 141
+   at MySql.Data.MySqlClient.MySqlConnection.CreateSessionAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 405
+   at MySql.Data.MySqlClient.MySqlConnection.OpenAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 175
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnectionAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlDatabaseCreator.<>c__DisplayClass20_0.<<ExistsAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlDatabaseCreator.<>c__DisplayClass20_0.<<ExistsAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.DatabaseErrorPageMiddleware.Invoke(HttpContext httpContext)
+2019-05-02T15:43:27.8777598+07:00 0HLMER8P2LRUU:00000003 [ERR] An unhandled exception has occurred while executing the request. (48a46595)
+MySql.Data.MySqlClient.MySqlException (0x80004005): Access denied for user 'root'@'localhost' (using password: YES)
+   at MySqlConnector.Core.ServerSession.ConnectAsync(ConnectionSettings cs, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ServerSession.cs:line 356
+   at MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ConnectionPool.cs:line 112
+   at MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ConnectionPool.cs:line 141
+   at MySql.Data.MySqlClient.MySqlConnection.CreateSessionAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 405
+   at MySql.Data.MySqlClient.MySqlConnection.OpenAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 175
+   at MySql.Data.MySqlClient.MySqlConnection.Open() in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 161
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnection(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.BufferlessMoveNext(DbContext _, Boolean buffer)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.MoveNext()
+   at Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.MoveNext()
+   at System.Collections.Generic.List`1.AddEnumerable(IEnumerable`1 enumerable)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at BeYeuBookstore.Application.Implementation.Boq.SO_NotificationGeneralDetailService.getNotitficationByUserId(Guid userId) in D:\Documents\ThuongMai\ERPWebApp\Boq\SO_NotificationGeneralDetailService.cs:line 90
+   at BeYeuBookstore.Controllers.Construction.NotificationController.GetByUserId() in D:\Documents\ThuongMai\ERPWebApp\Controllers\Construction\NotificationController.cs:line 80
+   at lambda_method(Closure , Object , Object[] )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutor.Execute(Object target, Object[] parameters)
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at WebMarkupMin.AspNetCore2.WebMarkupMinMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.MigrationsEndPointMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.DatabaseErrorPageMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.DatabaseErrorPageMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2019-05-02T15:43:28.0440221+07:00 0HLMER8P2LRV3:00000002 [ERR] An unhandled exception has occurred while executing the request. (48a46595)
+MySql.Data.MySqlClient.MySqlException (0x80004005): Access denied for user 'root'@'localhost' (using password: YES)
+   at MySqlConnector.Core.ServerSession.ConnectAsync(ConnectionSettings cs, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ServerSession.cs:line 356
+   at MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ConnectionPool.cs:line 112
+   at MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ConnectionPool.cs:line 141
+   at MySql.Data.MySqlClient.MySqlConnection.CreateSessionAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 405
+   at MySql.Data.MySqlClient.MySqlConnection.OpenAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 175
+   at MySql.Data.MySqlClient.MySqlConnection.Open() in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 161
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnection(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.BufferlessMoveNext(DbContext _, Boolean buffer)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.MoveNext()
+   at Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider._TrackEntities[TOut,TIn](IEnumerable`1 results, QueryContext queryContext, IList`1 entityTrackingInfos, IList`1 entityAccessors)+MoveNext()
+   at Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.MoveNext()
+   at BeYeuBookstore.Application.Implementation.BookService.GetAll(Int32 quantity) in D:\Documents\ThuongMai\ERPWebApp.Application\Implementation\BookService.cs:line 57
+   at BeYeuBookstore.Controllers.BeyeuBookstoreController.GetAllQuantity(Int32 quantity) in D:\Documents\ThuongMai\ERPWebApp\Controllers\BeyeuBookstoreController.cs:line 33
+   at lambda_method(Closure , Object , Object[] )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutor.Execute(Object target, Object[] parameters)
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at WebMarkupMin.AspNetCore2.WebMarkupMinMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.MigrationsEndPointMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.DatabaseErrorPageMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.DatabaseErrorPageMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2019-05-02T15:43:28.2704312+07:00 0HLMER8P2LRUU:00000003 [INF] Request finished in 15448.439ms 500 text/html; charset=utf-8 (791a596a)
+2019-05-02T15:43:28.2917220+07:00 0HLMER8P2LRV3:00000002 [INF] Request finished in 15423.7441ms 500 text/html; charset=utf-8 (791a596a)
+2019-05-02T15:49:30.6408279+07:00 0HLMERCBJTQ0F:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:59754/   (ca22a1cb)
+2019-05-02T15:49:30.6408275+07:00 0HLMERCBJTQ0G:00000001 [INF] Request starting HTTP/1.1 DEBUG http://localhost:59754/  0 (ca22a1cb)
+2019-05-02T15:49:30.7313355+07:00 0HLMERCBJTQ0G:00000001 [INF] Request finished in 236.6106ms 200  (791a596a)
+2019-05-02T15:49:32.0694307+07:00 0HLMERCBJTQ0F:00000001 [INF] Route matched with "{action = \"Index\", controller = \"BeyeuBookstore\", area = \"\"}". Executing action "BeYeuBookstore.Controllers.BeyeuBookstoreController.Index (BeYeuBookstore)" (a44c0341)
+2019-05-02T15:49:32.2733583+07:00 0HLMERCBJTQ0F:00000001 [INF] Executing action method "BeYeuBookstore.Controllers.BeyeuBookstoreController.Index (BeYeuBookstore)" - Validation state: Valid (dad538d7)
+2019-05-02T15:49:32.2927706+07:00 0HLMERCBJTQ0F:00000001 [INF] Executed action method "BeYeuBookstore.Controllers.BeyeuBookstoreController.Index (BeYeuBookstore)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 2.1815ms. (50a9e262)
+2019-05-02T15:49:32.3795023+07:00 0HLMERCBJTQ0F:00000001 [INF] Executing ViewResult, running view "Index". (c83d0e25)
+2019-05-02T15:49:32.8405218+07:00 0HLMERCBJTQ0F:00000001 [INF] Executed ViewResult - view "Index" executed in 515.6161ms. (f66409e9)
+2019-05-02T15:49:32.8505770+07:00 0HLMERCBJTQ0F:00000001 [INF] Executed action "BeYeuBookstore.Controllers.BeyeuBookstoreController.Index (BeYeuBookstore)" in 771.6012ms (afa2e885)
+2019-05-02T15:49:33.7198121+07:00 0HLMERCBJTQ0F:00000001 [INF] Request finished in 3223.0459ms 200 text/html; charset=utf-8 (791a596a)
+2019-05-02T15:49:34.9262271+07:00 0HLMERCBJTQ0G:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:59754/lib/jQuery-Mask-Plugin/src/jquery.mask.js   (ca22a1cb)
+2019-05-02T15:49:34.9852663+07:00 0HLMERCBJTQ0F:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:59754/app/shared/general.js   (ca22a1cb)
+2019-05-02T15:49:35.0257548+07:00 0HLMERCBJTQ0H:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:59754/app/controllers/beyeubookstore/Index.js   (ca22a1cb)
+2019-05-02T15:49:35.0420178+07:00 0HLMERCBJTQ0J:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:59754/img/product/quickview-l2.jpg   (ca22a1cb)
+2019-05-02T15:49:35.0603655+07:00 0HLMERCBJTQ0K:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:59754/img/product/quickview-l3.jpg   (ca22a1cb)
+2019-05-02T15:49:35.1869078+07:00 0HLMERCBJTQ0K:00000001 [INF] Request finished in 52.5974ms 404  (791a596a)
+2019-05-02T15:49:35.2838728+07:00 0HLMERCBJTQ0G:00000002 [INF] The file "/lib/jQuery-Mask-Plugin/src/jquery.mask.js" was not modified (f1f8d725)
+2019-05-02T15:49:35.3796693+07:00 0HLMERCBJTQ0F:00000002 [INF] The file "/app/shared/general.js" was not modified (f1f8d725)
+2019-05-02T15:49:35.4782342+07:00 0HLMERCBJTQ0G:00000002 [INF] Request finished in 562.4433ms 304 application/javascript (791a596a)
+2019-05-02T15:49:35.4917054+07:00 0HLMERCBJTQ0F:00000002 [INF] Request finished in 505.0507ms 304 application/javascript (791a596a)
+2019-05-02T15:49:35.5871956+07:00 0HLMERCBJTQ0H:00000001 [INF] The file "/app/controllers/beyeubookstore/Index.js" was not modified (f1f8d725)
+2019-05-02T15:49:35.6750840+07:00 0HLMERCBJTQ0K:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:59754/beyeubookstore/css/img/banner/22.jpg   (ca22a1cb)
+2019-05-02T15:49:35.7428304+07:00 0HLMERCBJTQ0H:00000001 [INF] Request finished in 712.5283ms 304 application/javascript (791a596a)
+2019-05-02T15:49:35.8034989+07:00 0HLMERCBJTQ0K:00000002 [INF] Request finished in 134.7035ms 404  (791a596a)
+2019-05-02T15:49:35.8458812+07:00 0HLMERCBJTQ0J:00000001 [INF] Request finished in 73.8051ms 404  (791a596a)
+2019-05-02T15:49:36.3828576+07:00 0HLMERCBJTQ0F:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:59754/wwwroot/images/img/slider/7.jpg   (ca22a1cb)
+2019-05-02T15:49:36.4184026+07:00 0HLMERCBJTQ0G:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:59754/wwwroot/images/img/slider/8.jpg   (ca22a1cb)
+2019-05-02T15:49:36.4665203+07:00 0HLMERCBJTQ0F:00000003 [INF] Request finished in 196.4286ms 404  (791a596a)
+2019-05-02T15:49:36.4738261+07:00 0HLMERCBJTQ0G:00000003 [INF] Request finished in 231.8463ms 404  (791a596a)
+2019-05-02T15:49:36.5104017+07:00 0HLMERCBJTQ0I:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:59754/img/product/quickview-l4.jpg   (ca22a1cb)
+2019-05-02T15:49:36.5266463+07:00 0HLMERCBJTQ0J:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:59754/img/product/quickview-l5.jpg   (ca22a1cb)
+2019-05-02T15:49:36.5649668+07:00 0HLMERCBJTQ0I:00000001 [INF] Request finished in 1543.1041ms 404  (791a596a)
+2019-05-02T15:49:36.5866786+07:00 0HLMERCBJTQ0J:00000002 [INF] Request finished in 288.4026ms 404  (791a596a)
+2019-05-02T15:49:36.7350897+07:00 0HLMERCBJTQ0H:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:59754/Notification/GetByUserId   (ca22a1cb)
+2019-05-02T15:49:36.7439714+07:00 0HLMERCBJTQ0F:00000004 [INF] Request starting HTTP/1.1 GET http://localhost:59754/BeyeuBookstore/GetAllQuantity?quantity=8   (ca22a1cb)
+2019-05-02T15:49:36.7920209+07:00 0HLMERCBJTQ0K:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:59754/BeyeuBookstore/GetAllBookCategory   (ca22a1cb)
+2019-05-02T15:49:36.8917582+07:00 0HLMERCBJTQ0H:00000002 [INF] Route matched with "{action = \"GetByUserId\", controller = \"Notification\", area = \"\"}". Executing action "BeYeuBookstore.Controllers.Construction.NotificationController.GetByUserId (BeYeuBookstore)" (a44c0341)
+2019-05-02T15:49:36.9355257+07:00 0HLMERCBJTQ0F:00000004 [INF] Route matched with "{action = \"GetAllQuantity\", controller = \"BeyeuBookstore\", area = \"\"}". Executing action "BeYeuBookstore.Controllers.BeyeuBookstoreController.GetAllQuantity (BeYeuBookstore)" (a44c0341)
+2019-05-02T15:49:37.0462377+07:00 0HLMERCBJTQ0K:00000003 [INF] Request finished in 82.328ms 404  (791a596a)
+2019-05-02T15:49:37.0552072+07:00 0HLMERCBJTQ0H:00000002 [INF] Executing action method "BeYeuBookstore.Controllers.Construction.NotificationController.GetByUserId (BeYeuBookstore)" - Validation state: Valid (dad538d7)
+2019-05-02T15:49:37.2232651+07:00 0HLMERCBJTQ0H:00000002 [INF] Entity Framework Core "2.2.0-preview1-35029" initialized '"ERPDbContext"' using provider '"Pomelo.EntityFrameworkCore.MySql"' with options: "ServerVersion 8.0.13 MySql " (9958f5bb)
+2019-05-02T15:49:37.2940551+07:00 0HLMERCBJTQ0F:00000004 [INF] Executing action method "BeYeuBookstore.Controllers.BeyeuBookstoreController.GetAllQuantity (BeYeuBookstore)" with arguments (["8"]) - Validation state: Valid (4e3479ed)
+2019-05-02T15:49:37.3615170+07:00 0HLMERCBJTQ0F:00000004 [INF] Entity Framework Core "2.2.0-preview1-35029" initialized '"ERPDbContext"' using provider '"Pomelo.EntityFrameworkCore.MySql"' with options: "ServerVersion 8.0.13 MySql " (9958f5bb)
+2019-05-02T15:49:37.4914643+07:00 0HLMERCBJTQ0F:00000004 [INF] Executed DbCommand ("1"ms) [Parameters=["@__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT `x`.`KeyId`, `x`.`Author`, `x`.`BookCategoryFK`, `x`.`BookTitle`, `x`.`DateCreated`, `x`.`DateModified`, `x`.`Description`, `x`.`Height`, `x`.`Img`, `x`.`Length`, `x`.`MerchantFK`, `x`.`PageNumber`, `x`.`Quantity`, `x`.`Rating`, `x`.`RatingNumber`, `x`.`Status`, `x`.`UnitPrice`, `x`.`Width`, `x`.`isPaperback`
+FROM `Books` AS `x`
+ORDER BY `x`.`KeyId`
+LIMIT @__p_0" (0723d8ff)
+2019-05-02T15:49:37.5788218+07:00 0HLMERCBJTQ0H:00000002 [INF] Executed DbCommand ("3"ms) [Parameters=["@__userId_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT `p`.`NotificationFkNavigationKeyId` AS `KeyId`, `p.NotificationFkNavigation`.`NotificationContent`, `p.NotificationFkNavigation`.`DateCreated` AS `NotificationTime`, `p`.`Status`
+FROM `SoNotificationGeneralDetail` AS `p`
+INNER JOIN `SoNotificationGeneral` AS `p.NotificationFkNavigation` ON `p`.`NotificationFkNavigationKeyId` = `p.NotificationFkNavigation`.`KeyId`
+WHERE `p`.`UserFk` = @__userId_0" (0723d8ff)
+2019-05-02T15:49:37.6032350+07:00 0HLMERCBJTQ0H:00000002 [INF] Executed action method "BeYeuBookstore.Controllers.Construction.NotificationController.GetByUserId (BeYeuBookstore)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult" in 530.0785ms. (50a9e262)
+2019-05-02T15:49:37.6915073+07:00 0HLMERCBJTQ0H:00000002 [INF] Executing ObjectResult, writing value of type '"System.Collections.Generic.List`1[[BeYeuBookstore.Utilities.DTOs.Boq.SO_NotificationGeneralDTO, BeYeuBookstore.Utilities, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'. (8a1b66c8)
+2019-05-02T15:49:37.7822563+07:00 0HLMERCBJTQ0F:00000004 [INF] Executed action method "BeYeuBookstore.Controllers.BeyeuBookstoreController.GetAllQuantity (BeYeuBookstore)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult" in 440.0261ms. (50a9e262)
+2019-05-02T15:49:37.8031981+07:00 0HLMERCBJTQ0F:00000004 [INF] Executing ObjectResult, writing value of type '"System.Collections.Generic.List`1[[BeYeuBookstore.Application.ViewModels.BookViewModel, BeYeuBookstore.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'. (8a1b66c8)
+2019-05-02T15:49:38.0992409+07:00 0HLMERCBJTQ0H:00000002 [INF] Executed action "BeYeuBookstore.Controllers.Construction.NotificationController.GetByUserId (BeYeuBookstore)" in 1008.0611ms (afa2e885)
+2019-05-02T15:49:38.1327624+07:00 0HLMERCBJTQ0F:00000004 [INF] Executed action "BeYeuBookstore.Controllers.BeyeuBookstoreController.GetAllQuantity (BeYeuBookstore)" in 1149.0688ms (afa2e885)
+2019-05-02T15:49:38.1403144+07:00 0HLMERCBJTQ0H:00000002 [INF] Request finished in 1424.2076ms 200 application/json; charset=utf-8 (791a596a)
+2019-05-02T15:49:38.1750348+07:00 0HLMERCBJTQ0F:00000004 [INF] Request finished in 1423.6853ms 200 application/json; charset=utf-8 (791a596a)
+2019-05-02T15:49:38.1970332+07:00 0HLMERCBJTQ0G:00000004 [INF] Request starting HTTP/1.1 GET http://localhost:59754/images/img/product/10.jpg   (ca22a1cb)
+2019-05-02T15:49:38.3499137+07:00 0HLMERCBJTQ0G:00000004 [INF] Sending file. Request path: '"/images/img/product/10.jpg"'. Physical path: '"D:\Documents\ThuongMai\ERPWebApp\wwwroot\images\img\product\10.jpg"' (27b0a520)
+2019-05-02T15:49:38.3765223+07:00 0HLMERCBJTQ0G:00000004 [INF] Request finished in 185.2511ms 200 image/jpeg (791a596a)
+2019-05-02T15:50:15.1108345+07:00 0HLMERCBJTQ0I:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:59754/BeyeuBookstore/GetById?id=6   (ca22a1cb)
+2019-05-02T15:50:15.1260891+07:00 0HLMERCBJTQ0I:00000002 [INF] Route matched with "{action = \"GetById\", controller = \"BeyeuBookstore\", area = \"\"}". Executing action "BeYeuBookstore.Controllers.BeyeuBookstoreController.GetById (BeYeuBookstore)" (a44c0341)
+2019-05-02T15:50:15.1932894+07:00 0HLMERCBJTQ0I:00000002 [INF] Executing action method "BeYeuBookstore.Controllers.BeyeuBookstoreController.GetById (BeYeuBookstore)" with arguments (["6"]) - Validation state: Valid (4e3479ed)
+2019-05-02T15:50:15.2072080+07:00 0HLMERCBJTQ0I:00000002 [INF] Entity Framework Core "2.2.0-preview1-35029" initialized '"ERPDbContext"' using provider '"Pomelo.EntityFrameworkCore.MySql"' with options: "ServerVersion 8.0.13 MySql " (9958f5bb)
+2019-05-02T15:50:15.5414760+07:00 0HLMERCBJTQ0I:00000002 [INF] Executed DbCommand ("2"ms) [Parameters=["@__id_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT `p`.`KeyId`, `p`.`Author`, `p`.`BookCategoryFK`, `p`.`BookTitle`, `p`.`DateCreated`, `p`.`DateModified`, `p`.`Description`, `p`.`Height`, `p`.`Img`, `p`.`Length`, `p`.`MerchantFK`, `p`.`PageNumber`, `p`.`Quantity`, `p`.`Rating`, `p`.`RatingNumber`, `p`.`Status`, `p`.`UnitPrice`, `p`.`Width`, `p`.`isPaperback`, `p.MerchantFKNavigation`.`KeyId`, `p.MerchantFKNavigation`.`Address`, `p.MerchantFKNavigation`.`Bank`, `p.MerchantFKNavigation`.`BankAccountNotificationLinkImg`, `p.MerchantFKNavigation`.`BankBranch`, `p.MerchantFKNavigation`.`BussinessRegisterId`, `p.MerchantFKNavigation`.`BussinessRegisterLinkImg`, `p.MerchantFKNavigation`.`ContactAddress`, `p.MerchantFKNavigation`.`DateCreated`, `p.MerchantFKNavigation`.`DateModified`, `p.MerchantFKNavigation`.`DirectContactName`, `p.MerchantFKNavigation`.`EstablishDate`, `p.MerchantFKNavigation`.`Hotline`, `p.MerchantFKNavigation`.`LegalRepresentative`, `p.MerchantFKNavigation`.`MerchantBankingName`, `p.MerchantFKNavigation`.`MerchantCompanyName`, `p.MerchantFKNavigation`.`Scales`, `p.MerchantFKNavigation`.`Status`, `p.MerchantFKNavigation`.`TaxId`, `p.MerchantFKNavigation`.`TaxRegisterLinkImg`, `p.MerchantFKNavigation`.`UserFK`, `p.MerchantFKNavigation`.`Website`, `p.BookCategoryFKNavigation`.`KeyId`, `p.BookCategoryFKNavigation`.`BookCategoryName`, `p.BookCategoryFKNavigation`.`Status`
+FROM `Books` AS `p`
+INNER JOIN `Merchants` AS `p.MerchantFKNavigation` ON `p`.`MerchantFK` = `p.MerchantFKNavigation`.`KeyId`
+INNER JOIN `BookCategorys` AS `p.BookCategoryFKNavigation` ON `p`.`BookCategoryFK` = `p.BookCategoryFKNavigation`.`KeyId`
+WHERE `p`.`KeyId` = @__id_0
+LIMIT 2" (0723d8ff)
+2019-05-02T15:50:16.0318987+07:00 0HLMERCBJTQ0I:00000002 [INF] Executed action method "BeYeuBookstore.Controllers.BeyeuBookstoreController.GetById (BeYeuBookstore)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult" in 603.9739ms. (50a9e262)
+2019-05-02T15:50:16.0451644+07:00 0HLMERCBJTQ0I:00000002 [INF] Executing ObjectResult, writing value of type '"BeYeuBookstore.Application.ViewModels.BookViewModel"'. (8a1b66c8)
+2019-05-02T15:50:16.0935645+07:00 0HLMERCBJTQ0I:00000002 [INF] Executed action "BeYeuBookstore.Controllers.BeyeuBookstoreController.GetById (BeYeuBookstore)" in 953.3653ms (afa2e885)
+2019-05-02T15:50:16.1138623+07:00 0HLMERCBJTQ0I:00000002 [INF] Request finished in 997.7332ms 200 application/json; charset=utf-8 (791a596a)
+2019-05-02T15:50:21.9489599+07:00 0HLMERCBJTQ0J:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:59754/BeyeuBookstore/GetById?id=5   (ca22a1cb)
+2019-05-02T15:50:21.9576344+07:00 0HLMERCBJTQ0J:00000003 [INF] Route matched with "{action = \"GetById\", controller = \"BeyeuBookstore\", area = \"\"}". Executing action "BeYeuBookstore.Controllers.BeyeuBookstoreController.GetById (BeYeuBookstore)" (a44c0341)
+2019-05-02T15:50:22.0269976+07:00 0HLMERCBJTQ0J:00000003 [INF] Executing action method "BeYeuBookstore.Controllers.BeyeuBookstoreController.GetById (BeYeuBookstore)" with arguments (["5"]) - Validation state: Valid (4e3479ed)
+2019-05-02T15:50:22.0368646+07:00 0HLMERCBJTQ0J:00000003 [INF] Entity Framework Core "2.2.0-preview1-35029" initialized '"ERPDbContext"' using provider '"Pomelo.EntityFrameworkCore.MySql"' with options: "ServerVersion 8.0.13 MySql " (9958f5bb)
+2019-05-02T15:50:22.0681037+07:00 0HLMERCBJTQ0J:00000003 [INF] Executed DbCommand ("1"ms) [Parameters=["@__id_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT `p`.`KeyId`, `p`.`Author`, `p`.`BookCategoryFK`, `p`.`BookTitle`, `p`.`DateCreated`, `p`.`DateModified`, `p`.`Description`, `p`.`Height`, `p`.`Img`, `p`.`Length`, `p`.`MerchantFK`, `p`.`PageNumber`, `p`.`Quantity`, `p`.`Rating`, `p`.`RatingNumber`, `p`.`Status`, `p`.`UnitPrice`, `p`.`Width`, `p`.`isPaperback`, `p.MerchantFKNavigation`.`KeyId`, `p.MerchantFKNavigation`.`Address`, `p.MerchantFKNavigation`.`Bank`, `p.MerchantFKNavigation`.`BankAccountNotificationLinkImg`, `p.MerchantFKNavigation`.`BankBranch`, `p.MerchantFKNavigation`.`BussinessRegisterId`, `p.MerchantFKNavigation`.`BussinessRegisterLinkImg`, `p.MerchantFKNavigation`.`ContactAddress`, `p.MerchantFKNavigation`.`DateCreated`, `p.MerchantFKNavigation`.`DateModified`, `p.MerchantFKNavigation`.`DirectContactName`, `p.MerchantFKNavigation`.`EstablishDate`, `p.MerchantFKNavigation`.`Hotline`, `p.MerchantFKNavigation`.`LegalRepresentative`, `p.MerchantFKNavigation`.`MerchantBankingName`, `p.MerchantFKNavigation`.`MerchantCompanyName`, `p.MerchantFKNavigation`.`Scales`, `p.MerchantFKNavigation`.`Status`, `p.MerchantFKNavigation`.`TaxId`, `p.MerchantFKNavigation`.`TaxRegisterLinkImg`, `p.MerchantFKNavigation`.`UserFK`, `p.MerchantFKNavigation`.`Website`, `p.BookCategoryFKNavigation`.`KeyId`, `p.BookCategoryFKNavigation`.`BookCategoryName`, `p.BookCategoryFKNavigation`.`Status`
+FROM `Books` AS `p`
+INNER JOIN `Merchants` AS `p.MerchantFKNavigation` ON `p`.`MerchantFK` = `p.MerchantFKNavigation`.`KeyId`
+INNER JOIN `BookCategorys` AS `p.BookCategoryFKNavigation` ON `p`.`BookCategoryFK` = `p.BookCategoryFKNavigation`.`KeyId`
+WHERE `p`.`KeyId` = @__id_0
+LIMIT 2" (0723d8ff)
+2019-05-02T15:50:22.0826953+07:00 0HLMERCBJTQ0J:00000003 [INF] Executed action method "BeYeuBookstore.Controllers.BeyeuBookstoreController.GetById (BeYeuBookstore)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult" in 43.3157ms. (50a9e262)
+2019-05-02T15:50:22.0956886+07:00 0HLMERCBJTQ0J:00000003 [INF] Executing ObjectResult, writing value of type '"BeYeuBookstore.Application.ViewModels.BookViewModel"'. (8a1b66c8)
+2019-05-02T15:50:22.1275361+07:00 0HLMERCBJTQ0J:00000003 [INF] Executed action "BeYeuBookstore.Controllers.BeyeuBookstoreController.GetById (BeYeuBookstore)" in 138.8021ms (afa2e885)
+2019-05-02T15:50:22.1595917+07:00 0HLMERCBJTQ0J:00000003 [INF] Request finished in 188.795ms 200 application/json; charset=utf-8 (791a596a)
+2019-05-02T15:50:30.0802148+07:00 0HLMERCBJTQ0K:00000004 [INF] Request starting HTTP/1.1 GET http://localhost:59754/cart.html   (ca22a1cb)
+2019-05-02T15:50:30.0914006+07:00 0HLMERCBJTQ0K:00000004 [INF] Request finished in 10.4181ms 404  (791a596a)
