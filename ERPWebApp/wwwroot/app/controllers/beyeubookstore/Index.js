@@ -1,5 +1,4 @@
-﻿
-var beyeubookstoreController = function () {
+﻿var beyeubookstoreController = function () {
     this.initialize = function () {
         loadData();
         registerEvents();
@@ -26,7 +25,7 @@ var beyeubookstoreController = function () {
 
         $('body').on('click', '#ShowDetail', function () {
             //var BookId = $('#txtBookKeyId').val();
-            var BookId = $(this).parent().siblings('input').val();
+            var BookId = $(this).parent().parent().siblings('input').val();
 
             $.ajax({
                 type: 'GET',

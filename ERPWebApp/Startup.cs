@@ -223,6 +223,11 @@ namespace BeYeuBookstore
                   // UI strings that we have localized.
                   opts.SupportedUICultures = supportedCultures;
               });
+
+            services.AddSession(options =>
+            {
+                options.Cookie.HttpOnly = true;
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -244,6 +249,8 @@ namespace BeYeuBookstore
             app.UseMinResponse();
 
             app.UseAuthentication();
+
+            app.UseSession();
           
             app.UseMvc(routes =>
             {

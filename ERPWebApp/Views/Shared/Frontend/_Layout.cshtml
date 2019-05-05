@@ -38,7 +38,22 @@
     <script src="~/app/shared/notificationgeneral.js"></script>
         -->
     <title>Bé Yêu Bookstore</title>
-
+    <script id="LoadCart" type="x-tmpl-mustache">
+        <div class="single-cart">
+            <input type="hidden" id="txtBookId" />
+            <div class="cart-img">
+                <a href="{{LinkToProduct}}"><img src="{{LinkImage}}" alt="book" /></a>
+            </div>
+            <div class="cart-info">
+                <h5><a href="#">{{BookName}}</a></h5>
+                <p>{{Quantity}} x {{UnitPrice}}</p>
+                <p>Thành tiền: {{SubTotal}}</p>
+            </div>
+            <div class="cart-icon">
+                <a href="#" id="RemoveBookFromCart"><i class="fa fa-remove"></i></a>
+            </div>
+        </div>
+    </script>
 </head>
 
 <body class="home-4">
@@ -89,22 +104,18 @@
                             <ul>
                                 <li>
                                     <a href="#"><i class="fa fa-shopping-cart"></i>Giỏ hàng</a>
-                                    <span>2</span>
+                                    <span id="txtTotalItemCart">0</span>
                                     <div class="mini-cart-sub">
-                                        <div class="cart-product">
-                                            <div class="single-cart">
-
-                                            </div>
-                                            <div class="single-cart">
-
-                                            </div>
+                                        <div class="cart-product" id="CartDetail">
+                                            
                                         </div>
                                         <div class="cart-totals">
-                                            <h5>Total <span>£12.00</span></h5>
+                                            <h5>Tổng cộng <span id="txtTotalPriceCart"></span></h5>
                                         </div>
                                         <div class="cart-bottom">
-                                            <a class="view-cart" href="cart.html">view cart</a>
-                                            <a href="checkout.html">Check out</a>
+                                            <a class="view-cart">Xem giỏ hàng</a>
+                                            <a class="view-cart">Xóa hết</a>
+                                            <a>Thanh toán</a>
                                         </div>
                                     </div>
                                 </li>
@@ -374,6 +385,11 @@
     <script>
         var notification = new ngeneralController();
         notification.initialize();
+    </script>
+    <script src="~/client-side/Cart/cart.js"></script>
+    <script>
+        var cartController = new cartController();
+        cartController.initialize();
     </script>
     @RenderSection("Scripts", required: false)
     <!--Select 2-->
