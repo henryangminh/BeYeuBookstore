@@ -22,17 +22,19 @@ namespace BeYeuBookstore.Controllers
             _unitOfWork = unitOfWork;
         }
 
-        [Route("Cart.chtml", Name ="Cart")]
+        //[Route("Cart.chtml", Name ="Cart")]
         public IActionResult Index()
         {
             return View();
         }
 
-        [Route("Checkout.chtml", Name = "Cart")]
+        //[Route("Checkout.chtml", Name = "Cart")]
+        /*
         public IActionResult CheckOut()
         {
             return View();
         }
+        */
 
         #region AJAX API
         /// <summary>
@@ -64,7 +66,7 @@ namespace BeYeuBookstore.Controllers
         /// </summary>
         /// <param name="BookId"></param>
         /// <param name="quantity"></param>
-        /// <param name="update">if true -> quantity += quantity, else quantity = quantity</param>
+        /// <param name="update">if true -> quantity = quantity, else quantity += quantity </param>
         /// <returns></returns>
         [HttpPost]
         public IActionResult AddToCart(int BookId, int quantity, bool update)
@@ -87,9 +89,9 @@ namespace BeYeuBookstore.Controllers
                         if (item.Book.KeyId == BookId)
                         {
                             if (update)
-                                item.Quantity += quantity;
-                            else
                                 item.Quantity = quantity;
+                            else
+                                item.Quantity += quantity;
                             item.UnitPrice = item.Book.UnitPrice;
                             hasChanged = true;
                         }
@@ -122,7 +124,7 @@ namespace BeYeuBookstore.Controllers
                     Quantity = quantity,
                     UnitPrice = book.UnitPrice
                 });
-                 
+                HttpContext.Session.Set("CartSession", cart);
             }
 
             return new OkObjectResult(BookId);
