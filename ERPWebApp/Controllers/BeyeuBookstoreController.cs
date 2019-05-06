@@ -19,6 +19,21 @@ namespace BeYeuBookstore.Controllers
         {
             return View();
         }
+
+        public IActionResult SignUp()
+        {
+            return View();
+        }
+
+        public IActionResult Shopping()
+        {
+            return View();
+        }
+
+        public IActionResult SignIn()
+        {
+            return View();
+        }
         #region AJAX API
         [HttpGet]
         public IActionResult GetAll()
