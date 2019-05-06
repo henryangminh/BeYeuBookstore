@@ -41,6 +41,7 @@
                     $('#txtBookNameModal').text(response.BookTitle);
                     $('#txtPriceModal').text(general.toMoney(response.UnitPrice));
                     $('#txtDescriptionModal').text(response.Description);
+                    $('#imgDetail').attr('src',response.Img)
                 }
             })
         })
@@ -117,7 +118,7 @@ function loadData(isPageChanged) {
                 if (i % 4 == 0) render += '<div class="col-lg-12 col-md-12 col-xs-12">';
                 render += Mustache.render(template, {
                     KeyId: item.KeyId,
-                    BookImage: '/images/img/product/10.jpg', //để tạm thời
+                    BookImage: item.Img, //'/images/img/product/10.jpg', //để tạm thời
                     //BookRating: 5.0, //item.BookRating, //Rating //Để tạm thời thôi
                     BookTitle: item.BookTitle,
                     BookPrice: general.toMoney(item.UnitPrice),
@@ -184,7 +185,20 @@ function loadBookCategory() {
 
         },
     });
-
 }
-
-
+/*
+$(document).ready(function () {
+    $('.modal').on('show.bs.modal', function () {
+        if ($(document).height() > $(window).height()) {
+            // no-scroll
+            $('body').addClass("modal-open-noscroll");
+        }
+        else {
+            $('body').removeClass("modal-open-noscroll");
+        }
+    });
+    $('.modal').on('hide.bs.modal', function () {
+        $('body').removeClass("modal-open-noscroll");
+    });
+})
+*/

@@ -1,0 +1,8 @@
+2019-05-05T23:18:31.4041464+07:00 0HLMHEL88LIVF:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:59754/   (ca22a1cb)
+2019-05-05T23:18:32.5646709+07:00 0HLMHEL88LIVF:00000001 [INF] Route matched with "{action = \"Index\", controller = \"BeyeuBookstore\", area = \"\"}". Executing action "BeYeuBookstore.Controllers.BeyeuBookstoreController.Index (BeYeuBookstore)" (a44c0341)
+2019-05-05T23:18:32.5959218+07:00 0HLMHEL88LIVF:00000001 [INF] Executing action method "BeYeuBookstore.Controllers.BeyeuBookstoreController.Index (BeYeuBookstore)" - Validation state: Valid (dad538d7)
+2019-05-05T23:18:32.6075437+07:00 0HLMHEL88LIVF:00000001 [INF] Executed action method "BeYeuBookstore.Controllers.BeyeuBookstoreController.Index (BeYeuBookstore)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 1.262ms. (50a9e262)
+2019-05-05T23:18:32.6659536+07:00 0HLMHEL88LIVF:00000001 [INF] Executing ViewResult, running view "Index". (c83d0e25)
+2019-05-05T23:18:33.0117775+07:00 0HLMHEL88LIVF:00000001 [INF] Executed ViewResult - view "Index" executed in 382.8362ms. (f66409e9)
+2019-05-05T23:18:33.0124511+07:00 0HLMHEL88LIVF:00000001 [INF] Executed action "BeYeuBookstore.Controllers.BeyeuBookstoreController.Index (BeYeuBookstore)" in 447.0195ms (afa2e885)
+2019-05-05T23:18:34.0971754+07:00 0HLMHEL88LIVF:00000001 [INF] Request finished in 2724.1616ms 200 text/html; charset=utf-8 (791a596a)

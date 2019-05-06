@@ -1,0 +1,11 @@
+﻿<script id="CartPageDetailTemplate" type="x-tmpl-mustache">
+    <tr>
+        <input type="hidden" id="txtBookId" value="{{KeyId}}" />
+        <td class="product-thumbnail"><a href="{{LinkToProduct}}"><img src="{{LinkImage}}" alt="{{BookName}}" /></a></td>
+        <td class="product-name"><a href="#">{{BookName}}</a></td>
+        <td class="product-price"><span class="amount">{{UnitPrice}}</span></td>
+        <td class="product-quantity"><input type="number" id="txtQuantity" value="{{Quantity}}" min="1"></td>
+        <td class="product-subtotal">{{SubTotal}}</td>
+        <td class="product-remove"><a href="#" id="RemoveBookFromCart"><i class="fa fa-times"></i></a></td>
+    </tr>
+</script>
