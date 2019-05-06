@@ -45,7 +45,7 @@ function loadCart() {
                 total += subtotal;
                 render += Mustache.render(template, {
                     LinkToProduct: '#',
-                    LinkImage: '/images/img/product/10.jpg', //để tạm thời
+                    LinkImage: item.Book.Img, //'/images/img/product/10.jpg', //để tạm thời
                     BookName: item.Book.BookTitle,
                     Quantity: item.Quantity,
                     UnitPrice: general.toMoney(item.UnitPrice),
