@@ -6,11 +6,13 @@ using BeYeuBookstore.Application.Interfaces;
 using BeYeuBookstore.Application.Interfaces.Acc;
 using BeYeuBookstore.Application.ViewModels.System;
 using BeYeuBookstore.Infrastructure.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 
 namespace BeYeuBookstore.Controllers
 {
+    [Authorize]
     public class CustomerController : Controller
     {
         ICustomerService _customerService;

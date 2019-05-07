@@ -52,12 +52,20 @@ namespace BeYeuBookstore.Application.Implementation
             return data;
         }
 
-        public List<AdvertisementContentViewModel> GetAll(int id)
+        public List<AdvertisementContentViewModel> GetAllCensoredAdContentByAdvertiserId(int id)
         {
-            throw new NotImplementedException();
+
+            var query = _advertisementContentRepository.FindAll(x=>(x.AdvertiserFK==id && x.CensorStatus == CensorStatus.ContentCensored));
+            var data = new List<AdvertisementContentViewModel>();
+            foreach (var item in query)
+            {
+                var _data = Mapper.Map<AdvertisementContent, AdvertisementContentViewModel>(item);
+                data.Add(_data);
+            }
+            return data;
         }
 
-        public PagedResult<AdvertisementContentViewModel> GetAllPaging(int? advertiserId, int? status, string keyword, int page, int pageSize)
+        public PagedResult<AdvertisementContentViewModel> GetAllPaging(bool? isAdCensor, int? advertiserId, int? status, string keyword, int page, int pageSize)
         {
             var query = _advertisementContentRepository.FindAll(x=>x.AdvertisementPositionFKNavigation, x=>x.AdvertiserFKNavigation, x=>x.WebMasterCensorFKNavigation.UserBy);
             query = query.OrderBy(x => x.KeyId);
@@ -75,6 +83,10 @@ namespace BeYeuBookstore.Application.Implementation
             if (advertiserId!=0)
             {
                 query = query.Where(x => x.AdvertiserFK == advertiserId);
+            }
+            if (isAdCensor == true)
+            {
+                query = query.Where(x => x.CensorStatus != CensorStatus.Uncensored);
             }
             int totalRow = query.Count();
 
@@ -101,6 +113,7 @@ namespace BeYeuBookstore.Application.Implementation
             return Mapper.Map<AdvertisementContent, AdvertisementContentViewModel>(_advertisementContentRepository.FindById(id, x => x.AdvertisementPositionFKNavigation, x => x.AdvertiserFKNavigation, x => x.WebMasterCensorFKNavigation.UserBy));
         }
 
+
         public bool Save()
         {
             return _unitOfWork.Commit();
@@ -114,20 +127,20 @@ namespace BeYeuBookstore.Application.Implementation
 
                 temp.UrlToAdvertisement = AdvertisementContentViewModel.UrlToAdvertisement;
                 temp.Title = AdvertisementContentViewModel.Title;
-                temp.ImageLink = AdvertisementContentViewModel.ImageLink;
-                temp.PaidDeposite = AdvertisementContentViewModel.PaidDeposite;
+                temp.ImageLink = AdvertisementContentViewModel.ImageLink;               
                 temp.Description = AdvertisementContentViewModel.Description;
                 temp.Deposite = AdvertisementContentViewModel.Deposite;
-                temp.CensorStatus = AdvertisementContentViewModel.CensorStatus;
+                
             }
         }
-        public void UpdateStatus(int id, int censorFK, int status)
+        public void UpdateStatus(int id, int censorFK, int status, string note)
         {
             var temp = _advertisementContentRepository.FindById(id);
             if (temp != null)
             {
                 temp.CensorStatus = (CensorStatus)status;
                 temp.CensorFK = censorFK;
+                temp.Note = note;
             }
 
         }

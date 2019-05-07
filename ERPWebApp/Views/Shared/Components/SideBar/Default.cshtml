@@ -17,7 +17,7 @@
                                 @if (Model.Any(x => x.ParentId == jitem.KeyId))
                                 {
                                     <li>
-                                        <a><i class="fas @jitem.IconCss"></i> @jitem.Name <span class="fas fa-chevron-down"></span></a>
+                                        <a><i class="fas @jitem.IconCss big-icon"></i> @jitem.Name <span class="fas fa-chevron-down"></span></a>
                                         <ul class="nav child_menu">
                                             @foreach (var zjitem in Model.Where(x => x.ParentId == jitem.KeyId))
                                             {

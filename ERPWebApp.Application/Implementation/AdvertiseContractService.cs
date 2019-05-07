@@ -2,10 +2,12 @@
 using BeYeuBookstore.Application.Interfaces;
 using BeYeuBookstore.Application.ViewModels;
 using BeYeuBookstore.Data.Entities;
+using BeYeuBookstore.Data.Enums;
 using BeYeuBookstore.Infrastructure.Interfaces;
 using BeYeuBookstore.Utilities.DTOs;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace BeYeuBookstore.Application.Implementation
@@ -55,9 +57,44 @@ namespace BeYeuBookstore.Application.Implementation
             throw new NotImplementedException();
         }
 
-        public PagedResult<AdvertiseContractViewModel> GetAllPaging(string keyword, int page, int pageSize)
+        public PagedResult<AdvertiseContractViewModel> GetAllPaging(int advertiserId, int? status, string keyword, int page, int pageSize)
         {
-            throw new NotImplementedException();
+            var query = _advertiseContractRepository.FindAll(x => x.AdvertisementContentFKNavigation, x=>x.AdvertisementContentFKNavigation.AdvertiserFKNavigation);
+            query = query.OrderBy(x => x.KeyId);
+            if (!string.IsNullOrEmpty(keyword))
+            {
+                var keysearch = keyword.Trim().ToUpper();
+
+                query = query.OrderBy(x => x.KeyId).Where(x => (x.AdvertisementContentFKNavigation.AdvertiserFKNavigation.BrandName.ToUpper().Contains(keysearch) || x.AdvertisementContentFKNavigation.Title.ToUpper().Contains(keysearch)));
+
+            }
+            if (status.HasValue)
+            {
+                query = query.Where(x => x.Status == (ContractStatus)status);
+            }
+            if (advertiserId != 0)
+            {
+                query = query.Where(x => x.AdvertisementContentFKNavigation.AdvertiserFK == advertiserId);
+            }
+         
+            int totalRow = query.Count();
+
+            query = query.Skip((page - 1) * pageSize).Take(pageSize);
+            var data = new List<AdvertiseContractViewModel>();
+            foreach (var item in query)
+            {
+                var _data = Mapper.Map<AdvertiseContract, AdvertiseContractViewModel>(item);
+                data.Add(_data);
+            }
+
+            var paginationSet = new PagedResult<AdvertiseContractViewModel>()
+            {
+                Results = data,
+                CurrentPage = page,
+                RowCount = totalRow,
+                PageSize = pageSize
+            };
+            return paginationSet;
         }
 
         public AdvertiseContractViewModel GetById(int id)
@@ -69,6 +106,8 @@ namespace BeYeuBookstore.Application.Implementation
         {
             return _unitOfWork.Commit();
         }
+
+
 
         public void Update(AdvertiseContractViewModel advertiseContractViewModel)
         {

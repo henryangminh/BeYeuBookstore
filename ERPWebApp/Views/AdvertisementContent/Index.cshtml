@@ -1,4 +1,17 @@
-﻿
+﻿@using BeYeuBookstore.Utilities.Constants
+@using Microsoft.AspNetCore.Authorization
+@using BeYeuBookstore.Authorization
+@inject IAuthorizationService AuthorizationService
+@{
+    //kiểm tra quyền tạo đối với nut create cho hiểu thị nut
+    var result_create = await AuthorizationService.AuthorizeAsync(User, Const_FunctionId.AdvertisementContent, Operations.Create);
+    //kiểm tra quyền tạo đối với nut delete cho hiểu thị nut
+    var result_delete = await AuthorizationService.AuthorizeAsync(User, Const_FunctionId.AdvertisementContent, Operations.Delete);
+    //kiểm tra quyền tạo đối với nut update cho hiểu thị nut
+    var result_edit = await AuthorizationService.AuthorizeAsync(User, Const_FunctionId.AdvertisementContent, Operations.Update);
+    //kiểm tra quyền tạo đối với nut delete cho hiểu thị nut
+    var result_confirm = await AuthorizationService.AuthorizeAsync(User, Const_FunctionId.AdvertisementContent, Operations.Confirm);
+}
 @{
     ViewData["Title"] = "Index";
 }
@@ -27,17 +40,21 @@
         <select class="form-control" id="selStatus">
             <option value="">Chọn trạng thái</option>
             <option value="0">Chưa kiểm duyệt</option>
-            <option value="1">Đã kiểm duyệt</option>
-            <option value="2">Không đủ tiêu chuẩn</option>
+            <option value="1">Kế toán đã kiểm duyệt</option>
+            <option value="2">Đã kiểm duyệt nội dung</option>
+            <option value="3">Không đủ tiêu chuẩn</option>
         </select>
     </div>
     <div class="col-sm-4 form-group">
 
     </div>
-    <div class="col-sm-1 form-group">
-        <button id="btnCreate" class="btn btn-success"><i class="fa fa-plus"></i> Thêm mới</button>
+    @if (result_create.Succeeded)
+     {
+        <div class="col-sm-1 form-group">
+            <button id="btnCreate" class="btn btn-success"><i class="fa fa-plus"></i> Thêm mới</button>
+        </div>
+     }
     </div>
-</div>
 
 <div class="row">
     <div class="col-md-12 col-sm-12 col-xs-12">
@@ -47,9 +64,10 @@
                     <thead>
                         <tr>
                             <th width="3%">Mã </th>
-                            <th>Vị trí</th>
                             <th width="10%">Người quảng cáo</th>
-                            <th>Hình ảnh</th>
+                            <th>Tiêu đề quảng cáo</th>
+                            <th >Vị trí</th>
+                            <th width="15%">Hình ảnh</th>
                             <th>Đường dẫn</th>
                             <th>Trạng thái</th>
                             <th>Người kiểm duyệt</th>
@@ -86,8 +104,9 @@
 <script id="table-template" type="x-tmpl-mustache">
     <tr>
         <td>{{KeyId}}</td>
-        <td>{{Id}}</td>
         <td>{{Advertiser}}</td>
+        <td>{{Title}}</td>
+        <td>{{Id}}</td>
         <td>{{{Img}}}</td>
         <td>{{PageUrl}}</td>
         <td>{{{Status}}}</td>

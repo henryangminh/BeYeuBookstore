@@ -4,11 +4,10 @@ using System.Text;
 
 namespace BeYeuBookstore.Data.Enums
 {
-    public enum CensorStatus
+    public enum ContractStatus
     {
-        Uncensored,
-        AccountingCensored,
-        ContentCensored,
+        Requesting,
         Unqualified,
+        Success,
     }
 }

@@ -6,10 +6,12 @@ using BeYeuBookstore.Application.Interfaces;
 using BeYeuBookstore.Application.ViewModels;
 using BeYeuBookstore.Infrastructure.Interfaces;
 using BeYeuBookstore.Utilities.Constants;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BeYeuBookstore.Controllers
 {
+    [Authorize]
     public class DeliveryController : Controller
     {
 
