@@ -73,8 +73,8 @@
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                         <div class="account-area text-right">
                             <ul>
-                                <li><a href="Account/Login">Đăng ký</a></li>
-                                <li><a href="Account/Login">Đăng nhập</a></li>
+                                <li><a href="@Url.Action("SignUp","BeyeuBookstore")">Đăng ký</a></li>
+                                <li><a href="@Url.Action("SignIn","BeyeuBookstore")">Đăng nhập</a></li>
                             </ul>
                         </div>
                     </div>
@@ -88,14 +88,14 @@
                 <div class="row">
                     <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12">
                         <div class="logo-area">
-                            <a href="index.html"><img src="~/images/img/logo/3.png" alt="logo" /></a>
+                            <a href="@Url.Action("Index","BeyeuBookstore")"><img src="~/images/img/logo/3.png" alt="logo" /></a>
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-5 col-xs-12">
                         <div class="header-search">
-                            <form action="#">
-                                <input type="text" placeholder="Tìm kiếm" />
-                                <a href="#"><i class="fa fa-search"></i></a>
+                            <form id="frmSearch" name="frmSearch" method="get" action="@Url.Action("Shopping","BeyeuBookstore")">
+                                <input type="text" placeholder="Tìm kiếm" id="txtSearch" name="txtSearch" value="@Context.Request.Query["txtSearch"]"/>
+                                <a href="javascript: document.frmSearch.submit();"><i class="fa fa-search"></i></a>
                             </form>
                         </div>
                     </div>
@@ -103,7 +103,7 @@
                         <div class="my-cart">
                             <ul>
                                 <li>
-                                    <a href="#"><i class="fa fa-shopping-cart"></i>Giỏ hàng</a>
+                                    <a href="@Url.Action("Index","Cart")"><i class="fa fa-shopping-cart"></i>Giỏ hàng</a>
                                     <span id="txtTotalItemCart">0</span>
                                     <div class="mini-cart-sub">
                                         <div class="cart-product overflow-auto" style="height:200px; overflow-y:auto" id="CartDetail">
@@ -113,7 +113,7 @@
                                             <h5>Tổng cộng <span id="txtTotalPriceCart"></span></h5>
                                         </div>
                                         <div class="cart-bottom">
-                                            <a class="view-cart" id="ViewCart">Xem giỏ hàng</a>
+                                            <a href="@Url.Action("Index","Cart")" class="view-cart" id="ViewCart">Xem giỏ hàng</a>
                                             <a class="view-cart" id="DeleteCart">Xóa hết</a>
                                             <a id="Checkout">Thanh toán</a>
                                         </div>
@@ -135,7 +135,7 @@
                             <nav>
                                 <ul>
                                     <li class="active">
-                                        <a href="index.html">Trang chủ<i class="fa fa-angle-down"></i></a>
+                                        <a href="@Url.Action("Index","BeyeuBookstore")">Trang chủ<i class="fa fa-angle-down"></i></a>
                                         <div class="sub-menu">
                                             <ul>
                                                 <li><a href="index-2.html">Home-2</a></li>
@@ -147,7 +147,7 @@
                                         </div>
                                     </li>
                                     <li>
-                                        <a href="product-details.html">Sách<i class="fa fa-angle-down"></i></a>
+                                        <a href="@Url.Action("Shopping","BeyeuBookstore")">Sách<i class="fa fa-angle-down"></i></a>
                                         <div class="mega-menu">
                                             <span>
                                                 <a href="#" class="title">Jackets</a>

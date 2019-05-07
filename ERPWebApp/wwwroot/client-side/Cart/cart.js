@@ -10,7 +10,7 @@
             $.ajax({
                 type: 'POST',
                 dataType: 'json',
-                url: 'Cart/AddToCart',
+                url: '/Cart/AddToCart',
                 data: {
                     BookId: Id,
                     quantity: 1,
@@ -31,7 +31,7 @@
             var Id = $(this).parent().siblings('input').val();
 
             $.ajax({
-                url: 'Cart/ClearCart',
+                url: '/Cart/ClearCart',
                 success: function (respond) {
                     console.log('clearCart',respond);
                     loadCart();
@@ -48,7 +48,7 @@
             $.ajax({
                 type: 'POST',
                 dataType: 'json',
-                url: 'Cart/RemoveFromCart',
+                url: '/Cart/RemoveFromCart',
                 data: {
                     BookId: Id
                 },
@@ -73,7 +73,7 @@ function loadCart() {
     var itemCount = 0;
 
     $.ajax({
-        url: 'Cart/GetCart',
+        url: '/Cart/GetCart',
         dataType: 'json',
         success: function (respond) {
             itemCount = respond.length;
