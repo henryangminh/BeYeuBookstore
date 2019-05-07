@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.Mvc.ModelBinding;
 
 namespace BeYeuBookstore.Controllers
 {
-    [Authorize]
+    
     public class BookCategoryController : Controller
     {
 
@@ -23,12 +23,15 @@ namespace BeYeuBookstore.Controllers
             _bookCategoryService = bookCategoryService;
             _unitOfWork = unitOfWork;
         }
+
+        [Authorize]
         public IActionResult Index()
         {
             return View();
         }
 
         #region AJAX API
+        [Authorize]
         [HttpPost]
         public IActionResult SaveEntity(BookCategoryViewModel bookCategoryVm)
         {
@@ -75,7 +78,7 @@ namespace BeYeuBookstore.Controllers
             return new OkObjectResult(model);
         }
 
-
+        [Authorize]
         [HttpPost]
         public IActionResult Delete(int id)
         {
