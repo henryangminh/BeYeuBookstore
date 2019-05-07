@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using BeYeuBookstore.Application.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BeYeuBookstore.Controllers
 {
+
     public class BeyeuBookstoreController : Controller
     {
         IBookService _bookService;

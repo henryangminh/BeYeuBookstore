@@ -4,11 +4,11 @@
 @inject IAuthorizationService AuthorizationService
 @{
     //kiểm tra quyền tạo đối với nut create cho hiểu thị nut
-    var result_edit = await AuthorizationService.AuthorizeAsync(User, Const_FunctionId.AdvertisementContent, Operations.Create);
+    var result_create = await AuthorizationService.AuthorizeAsync(User, Const_FunctionId.AdvertisementContent, Operations.Create);
     //kiểm tra quyền tạo đối với nut delete cho hiểu thị nut
     var result_delete = await AuthorizationService.AuthorizeAsync(User, Const_FunctionId.AdvertisementContent, Operations.Delete);
     //kiểm tra quyền tạo đối với nut update cho hiểu thị nut
-    var result_create = await AuthorizationService.AuthorizeAsync(User, Const_FunctionId.AdvertisementContent, Operations.Update);
+    var result_edit = await AuthorizationService.AuthorizeAsync(User, Const_FunctionId.AdvertisementContent, Operations.Update);
     //kiểm tra quyền tạo đối với nut delete cho hiểu thị nut
     var result_confirm = await AuthorizationService.AuthorizeAsync(User, Const_FunctionId.AdvertisementContent, Operations.Confirm);
 }
@@ -99,7 +99,6 @@
                             <div class="col-sm-4">
                                 <input type="text" class="form-control" id="txtLink" name="txtLink" />
                             </div>
-
                         </div>
 
 
@@ -122,10 +121,13 @@
 
                         <div class="form-group row">
                             <label for="txtFileImg" class="col-sm-2 col-form-label">Hình ảnh<span class="star">*</span></label>
-                            <div class="col-sm-10">
+                            <div class="col-sm-10" id="UploadFile">
                                 <div>
                                     <input type="file" id="fileAdImg" name="fileAdImg">
                                 </div>
+                            </div>
+                            <div class="col-sm-10 hidden" id="AdImg">
+                               
                             </div>
                         </div>
 
@@ -147,6 +149,9 @@
                 </div>
                 @if (result_confirm.Succeeded)
                 {
+                    <div class="col-sm-6" id="formAccountingCensor">
+                        <button type="button" id="btnAccountingCensored" class="btn btn-warning">Đã đóng tiền cọc</button>
+                    </div>
                     <div class="col-sm-6" id="formCensor">
                         <button type="button" id="btnCensored" class="btn btn-success">Đã kiểm duyệt</button>
                         <button type="button" id="btnUnqualified" class="btn btn-danger">Không đủ tiêu chuẩn</button>

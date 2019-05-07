@@ -8,6 +8,7 @@ using BeYeuBookstore.Application.Interfaces;
 using BeYeuBookstore.Application.ViewModels;
 using BeYeuBookstore.Infrastructure.Interfaces;
 using BeYeuBookstore.Utilities.Constants;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -15,6 +16,7 @@ using Microsoft.AspNetCore.Mvc.ModelBinding;
 
 namespace BeYeuBookstore.Controllers
 {
+    [Authorize]
     public class BookController : Controller
     {
         IBookService _bookService;

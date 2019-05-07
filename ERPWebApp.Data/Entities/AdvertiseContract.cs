@@ -12,7 +12,7 @@ namespace BeYeuBookstore.Data.Entities
     {
         public AdvertiseContract() { }
 
-        public AdvertiseContract(int keyId, int advertisementContentFK, DateTime dateStart, DateTime dateFinish, decimal contractValue, bool paid, Status status, DateTime? dateCreated, DateTime? dateModified)
+        public AdvertiseContract(int keyId, int advertisementContentFK, DateTime dateStart, DateTime dateFinish, decimal contractValue, bool paid, ContractStatus status, DateTime? dateCreated, DateTime? dateModified)
         {
             keyId = KeyId;
             AdvertisementContentFK = advertisementContentFK;
@@ -31,7 +31,7 @@ namespace BeYeuBookstore.Data.Entities
         public decimal ContractValue { get; set; }
         [DefaultValue(false)]
         public bool Paid { get; set; }
-        public Status Status { get; set; }
+        public ContractStatus Status { get; set; }
         public DateTime? DateCreated { get; set; }
         public DateTime? DateModified { get; set; }
 

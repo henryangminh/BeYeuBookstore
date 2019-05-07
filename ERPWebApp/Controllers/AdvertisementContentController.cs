@@ -7,6 +7,7 @@ using BeYeuBookstore.Application.Interfaces;
 using BeYeuBookstore.Application.ViewModels;
 using BeYeuBookstore.Infrastructure.Interfaces;
 using BeYeuBookstore.Utilities.Constants;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -14,6 +15,7 @@ using Microsoft.AspNetCore.Mvc.ModelBinding;
 
 namespace BeYeuBookstore.Controllers
 {
+    [Authorize]
     public class AdvertisementContentController : Controller
     {
 
@@ -67,7 +69,16 @@ namespace BeYeuBookstore.Controllers
         {
             var userid = _generalFunctionController.Instance.getClaimType(User, CommonConstants.UserClaims.Key);
             var A = _advertiserService.GetBysId(userid);
-            var model = _advertisementContentService.GetAllPaging(A.KeyId, status, keyword, page, pageSize);
+            var WM = _webMasterService.GetBysId(userid);
+            bool? isAdCensor=false;
+            if (WM != null)
+            {
+                if (WM.WebMasterTypeFK == Const_WebmasterType.AdCensor)
+                {
+                    isAdCensor = true;
+                }
+            }
+            var model = _advertisementContentService.GetAllPaging(isAdCensor, A.KeyId, status, keyword, page, pageSize);
             return new OkObjectResult(model);
         }
 
@@ -101,11 +112,11 @@ namespace BeYeuBookstore.Controllers
         }
 
         [HttpPost]
-        public IActionResult UpdateStatus(int id, int status)
+        public IActionResult UpdateStatus(int id, int status, string note)
         {
             var userid = _generalFunctionController.Instance.getClaimType(User, CommonConstants.UserClaims.Key);
             var WM = _webMasterService.GetBysId(userid);
-            _advertisementContentService.UpdateStatus(id,WM.KeyId,status);
+            _advertisementContentService.UpdateStatus(id,WM.KeyId,status, note);
             _advertisementContentService.Save();
             return new OkObjectResult("true");
         }

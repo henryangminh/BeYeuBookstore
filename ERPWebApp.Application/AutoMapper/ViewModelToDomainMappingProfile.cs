@@ -32,7 +32,7 @@ namespace BeYeuBookstore.Application.AutoMapper
                 c.DateFinish, c.ContractValue, c.Paid, c.Status, c.DateCreated, c.DateModified));
 
             CreateMap<AdvertisementContentViewModel, AdvertisementContent>().ConstructUsing(c => new AdvertisementContent(c.KeyId, c.AdvertiserFK, c.AdvertisementPositionFK,
-                c.ImageLink,c.Title,c.Description,c.UrlToAdvertisement,c.Deposite,c.PaidDeposite,c.CensorStatus,c.CensorFK,c.Note,c.DateCreated,c.DateModified));
+                c.ImageLink,c.Title,c.Description,c.UrlToAdvertisement,c.Deposite,c.CensorStatus,c.CensorFK,c.Note,c.DateCreated,c.DateModified));
 
             CreateMap<AdvertisementPositionViewModel, AdvertisementPosition>().ConstructUsing(c => new AdvertisementPosition(c.KeyId, c.PageUrl,
                 c.IdOfPosition,c.Title,c.Img, c.AdvertisePrice,c.Height,c.Width,c.Status,c.DateCreated,c.DateModified));

@@ -5,10 +5,12 @@ using System.Threading.Tasks;
 using BeYeuBookstore.Application.Interfaces;
 using BeYeuBookstore.Data.Enums;
 using BeYeuBookstore.Infrastructure.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BeYeuBookstore.Controllers
 {
+    [Authorize]
     public class MerchantController : Controller
     {
         IMerchantService _merchantService;

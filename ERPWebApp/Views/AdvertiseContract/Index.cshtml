@@ -1,4 +1,17 @@
-﻿
+﻿@using BeYeuBookstore.Utilities.Constants
+@using Microsoft.AspNetCore.Authorization
+@using BeYeuBookstore.Authorization
+@inject IAuthorizationService AuthorizationService
+@{
+    //kiểm tra quyền tạo đối với nut create cho hiểu thị nut
+    var result_create = await AuthorizationService.AuthorizeAsync(User, Const_FunctionId.AdvertiseContract, Operations.Create);
+    //kiểm tra quyền tạo đối với nut delete cho hiểu thị nut
+    var result_delete = await AuthorizationService.AuthorizeAsync(User, Const_FunctionId.AdvertiseContract, Operations.Delete);
+    //kiểm tra quyền tạo đối với nut update cho hiểu thị nut
+    var result_edit = await AuthorizationService.AuthorizeAsync(User, Const_FunctionId.AdvertiseContract, Operations.Update);
+    //kiểm tra quyền tạo đối với nut delete cho hiểu thị nut
+    var result_confirm = await AuthorizationService.AuthorizeAsync(User, Const_FunctionId.AdvertiseContract, Operations.Confirm);
+}
 @{
     ViewData["Title"] = "Index";
 }
@@ -27,16 +40,20 @@
         <select class="form-control" id="selStatus">
             <option value="">Chọn trạng thái</option>
             <option value="0">Chưa kiểm duyệt</option>
-            <option value="1">Đã kiểm duyệt</option>
-            <option value="2">Không đủ tiêu chuẩn</option>
+            <option value="1">Kế toán đã kiểm duyệt</option>
+            <option value="2">Đã kiểm duyệt</option>
+            <option value="3">Không đủ tiêu chuẩn</option>
         </select>
     </div>
     <div class="col-sm-4 form-group">
 
     </div>
-    <div class="col-sm-1 form-group">
-        <button id="btnCreate" class="btn btn-success"><i class="fa fa-plus"></i> Thêm mới</button>
-    </div>
+    @if (result_create.Succeeded)
+    {
+        <div class="col-sm-1 form-group">
+            <button id="btnCreate" class="btn btn-success"><i class="fa fa-plus"></i> Thêm mới</button>
+        </div>
+    }
 </div>
 
 <div class="row">

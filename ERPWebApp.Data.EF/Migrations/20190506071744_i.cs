@@ -529,7 +529,6 @@ namespace BeYeuBookstore.Data.EF.Migrations
                     Description = table.Column<string>(nullable: true),
                     UrlToAdvertisement = table.Column<string>(nullable: true),
                     Deposite = table.Column<decimal>(nullable: false),
-                    PaidDeposite = table.Column<bool>(nullable: true),
                     CensorStatus = table.Column<int>(nullable: false),
                     CensorFK = table.Column<int>(nullable: true),
                     Note = table.Column<string>(nullable: true),

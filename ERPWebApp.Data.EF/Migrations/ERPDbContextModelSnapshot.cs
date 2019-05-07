@@ -71,8 +71,6 @@ namespace BeYeuBookstore.Data.EF.Migrations
 
                     b.Property<string>("Note");
 
-                    b.Property<bool?>("PaidDeposite");
-
                     b.Property<string>("Title");
 
                     b.Property<string>("UrlToAdvertisement");

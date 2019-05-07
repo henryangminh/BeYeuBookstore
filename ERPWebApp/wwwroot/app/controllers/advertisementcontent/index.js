@@ -49,6 +49,8 @@
         $('#btnCreate').on('click', function () {
             resetForm();
             $('#formCreate').removeClass('hidden');
+            $('#UploadFile').removeClass('hidden');
+            $('#AdImg').addClass('hidden');
             $('#btnSave').attr('disabled', true);
             $('#txtCensorStatus').html('<span class="badge bg-black" style="font-size:15px;">Chưa kiểm duyệt</span>');
             $.ajax({
@@ -78,12 +80,14 @@
         $('#btnUnqualified').on('click', function (e) {
             e.preventDefault();
             var keyId = parseInt($('#txtId').val());
+            var noteAdContent = $('#txtNote').val();
             $.ajax({
                 type: 'POST',
                 url: '/AdvertisementContent/UpdateStatus',
                 data: {
                     id: keyId,
                     status: general.censorStatus.Unqualified,
+                    note: noteAdContent,
                 },
                 dataType: "json",
 
@@ -109,7 +113,33 @@
                 url: '/AdvertisementContent/UpdateStatus',
                 data: {
                     id: keyId,
-                    status: general.censorStatus.Censored,
+                    status: general.censorStatus.ContentCensored,
+                },
+                dataType: "json",
+
+                success: function (response) {
+
+                    $('#modal-add-edit').modal('hide');
+                    general.notify('Kiểm duyệt thành công!', 'success');
+                    resetForm();
+                    loadData();
+                },
+                error: function (err) {
+                    general.notify('Có lỗi trong khi ghi !', 'error');
+
+                },
+            });
+        });
+
+        $('#btnAccountingCensored').on('click', function (e) {
+            e.preventDefault();
+            var keyId = parseInt($('#txtId').val());
+            $.ajax({
+                type: 'POST',
+                url: '/AdvertisementContent/UpdateStatus',
+                data: {
+                    id: keyId,
+                    status: general.censorStatus.AccountingCensored,
                 },
                 dataType: "json",
 
@@ -144,10 +174,12 @@
 
         $('body').on('click', '.btn-edit', function (e) {
             e.preventDefault();
+            $('#formCreate').addClass('hidden');
+            $('#UploadFile').addClass('hidden');
+            $('#AdImg').removeClass('hidden');
             var that = $(this).data('id');
             loadDetail(that);
-            $('#formCreate').addClass('hidden');
-
+            
             //document.getElementById("btnSave").style.display = "block";
         });
 
@@ -213,22 +245,14 @@
                     var note = $('#txtNote').val();
                     var censorStatus = general.censorStatus.Uncensored;
                     var deposits = general.toFloat($('#txtDeposits').val());
-                    var paidDeposite;
-                    if ($('#chkPaidDeposits').is(":checked")) {
-                        paidDeposite = true;
-                    }
-                    else {
-                        paidDeposite = false;
-                    }
-                    
                     var filename = $('#fileAdImg').val().split('\\').pop();
                     var extension = filename.substr((filename.lastIndexOf('.') + 1));
                     if (extension.toUpperCase() != "JPG" && extension.toUpperCase() != "PNG") {
                         general.notify('File ảnh phải ở định dạng JPG hoặc PNG !', 'error');
                         return false;
                     }
-                    if ($('#fileAdImg')[0].files[0].size > general.maxSizeAllowed.BookImg) {
-                        general.notify('Kích thước ảnh phải nhỏ hơn 2Mb !', 'error');
+                    if ($('#fileAdImg')[0].files[0].size > general.maxSizeAllowed.AdContentImg) {
+                        general.notify('Kích thước ảnh phải nhỏ hơn 3Mb !', 'error');
                         return false;
                     }
                     $.ajax({
@@ -258,7 +282,6 @@
                                         Description: description,
                                         UrlToAdvertisement: link,
                                         Deposite: deposits,
-                                        PaidDeposite: paidDeposite,
                                         CensorStatus: censorStatus,
                                         Note: note,
                                         
@@ -316,6 +339,7 @@
                 general.startLoading();
             },
             success: function (response) {
+                $('#AdImg').empty();
                 console.log("loaddetailbook", response);
                 var data = response;
                 $('#formCensor').removeClass('hidden');
@@ -339,19 +363,29 @@
                     case general.censorStatus.Uncensored:
                         _color = 'black';
                         _status = 'Chưa kiểm duyệt';
-                        break;
-                    case general.censorStatus.Censored:
-                        _color = 'green';
-                        _status = 'Đã kiểm duyệt';
                         $('#formCensor').addClass('hidden');
+                        break;
+                    case general.censorStatus.AccountingCensored:
+                        _color = 'orange';
+                        _status = 'Kế toán đã kiểm duyệt';
+                        $('#formAccountingCensor').addClass('hidden');
+                        $('#formCensor').removeClass('hidden');
+                        break;
+                    case general.censorStatus.ContentCensored:
+                        _color = 'green';
+                        _status = 'Đã kiểm duyệt nội dung';
+                        $('#formCensor').addClass('hidden');
+                        $('#formAccountingCensor').addClass('hidden');
                         break;
                     case general.censorStatus.Unqualified:
                         _color = 'red';
                         _status = 'Không đủ tiêu chuẩn';
                         $('#formCensor').addClass('hidden');
+                        $('#formAccountingCensor').addClass('hidden');
                         break;
                 }
                 $('#txtCensorStatus').html('<span class="badge bg-' + _color + '" style="font-size:15px;">' + _status + '</span>');
+                $('#AdImg').append('<img src="' + data.ImageLink + '" style="width:100%">');
                 $('#chkPaidDeposits').prop('checked', true);
                 $('#modal-add-edit').modal('show');
 
@@ -395,9 +429,13 @@ function loadData(isPageChanged) {
                         _color = 'black';
                         _statusName = 'Chưa kiểm duyệt';
                         break;
-                    case general.censorStatus.Censored:
+                    case general.censorStatus.AccountingCensored:
+                        _color = 'orange';
+                        _statusName = 'Kế toán đã kiểm duyệt';
+                        break;
+                    case general.censorStatus.ContentCensored:
                         _color = 'green';
-                        _statusName = 'Đã kiểm duyệt';
+                        _statusName = 'Đã kiểm duyệt nội dung';
                         break;
                     case general.censorStatus.Unqualified:
                         _color = 'red';
@@ -409,7 +447,8 @@ function loadData(isPageChanged) {
                     KeyId: item.KeyId,
                     Id: item.AdvertisementPositionFKNavigation.Title,
                     Advertiser: item.AdvertiserFKNavigation.BrandName,
-                    Img: '<img src="' + item.ImageLink + '" width="100">',
+                    Title: item.Title,
+                    Img: '<img src="' + item.ImageLink + '" width="100%">',
                     PageUrl: item.UrlToAdvertisement,
                     Status: '<span class="badge bg-' + _color + '">' + _statusName + '</span>',
                     Censor: _webmasterCensor,

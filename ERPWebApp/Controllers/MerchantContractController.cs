@@ -4,10 +4,12 @@ using System.Linq;
 using System.Threading.Tasks;
 using BeYeuBookstore.Application.Interfaces;
 using BeYeuBookstore.Infrastructure.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BeYeuBookstore.Controllers
 {
+    [Authorize]
     public class MerchantContractController : Controller
     {
         IMerchantContractService _merchantContractService;

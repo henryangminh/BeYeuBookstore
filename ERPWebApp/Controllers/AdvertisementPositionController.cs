@@ -5,11 +5,13 @@ using System.Threading.Tasks;
 using BeYeuBookstore.Application.Interfaces;
 using BeYeuBookstore.Application.ViewModels;
 using BeYeuBookstore.Infrastructure.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 
 namespace BeYeuBookstore.Controllers
 {
+    [Authorize]
     public class AdvertisementPositionController : Controller
     {
         IAdvertisementPositionService _advertisementPositionService;

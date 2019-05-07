@@ -123,8 +123,15 @@
 
     censorStatus: {
         Uncensored: 0,
-        Censored: 1,
-        Unqualified: 2,
+        AccountingCensored: 1,
+        ContentCensored: 2,
+        Unqualified: 3,
+    },
+    
+    contractStatus: {
+        Requesting: 0,
+        Unqualified: 1,
+        Success: 2,
     },
 
     merchantScale: {
@@ -140,20 +147,7 @@
     roleName: {
         BoardOfDirectors:"BoardOfDirectors"
     },
-    timeKeepingType: {
-        SundayOff: 5,
-        WorkDay: 1,
-        Holiday: 10,
-        AnualLeave: 15
-    },
-    formStatus: {
-        
-        Typing: 1,
-        RequestConfirmation: 2,
-        Approved: 3,
-        Denied: 4
-        
-    },
+
     deliStatus: {
         UnConfirm: 1,
         Confirm: 2,
@@ -170,7 +164,8 @@
         
     },
     maxSizeAllowed: {
-        BookImg: 2097152,
+        BookImg: 2097152, //2Mb
+        AdContentImg: 3145728, //3Mb
 
     },
     notify: function (message, type) {
