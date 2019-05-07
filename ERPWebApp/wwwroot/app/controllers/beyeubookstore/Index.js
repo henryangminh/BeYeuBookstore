@@ -165,19 +165,15 @@ function wrapPaging(recordCount, callBack, changePageSize) {
 }
 
 function loadBookCategory() {
+    var template = $('#bookcategory').html();
+
     $.ajax({
         type: 'GET',
-        url: '/BeyeuBookstore/GetAllBookCategory',
-
+        url: '/BookCategory/GetAll',
         dataType: "json",
-
         success: function (response) {
-
             $.each(response, function (i, item) {
-                $('#selBookCategory').append("<option value='" + item.KeyId + "'>" + item.BookCategoryName + "</option>");
-                $('#selBookcategory').append("<option value='" + item.KeyId + "'>" + item.BookCategoryName + "</option>");
-
-
+            
             });
         },
         error: function (err) {

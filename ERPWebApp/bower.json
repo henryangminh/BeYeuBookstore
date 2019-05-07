@@ -32,7 +32,8 @@
     "select2": "~4.0",
     "uxsolutions/bootstrap-datepicker": "~1.8.0",
     "jQuery-Mask-Plugin": "~1.14.15",
-    "bootbox.js": "bootbox#v5.1.1"
+    "bootbox.js": "bootbox#v5.1.1",
+    "popper.js": "v1.15.0"
   },
   "resolutions": {
     "bootstrap": "v4.3.1"
