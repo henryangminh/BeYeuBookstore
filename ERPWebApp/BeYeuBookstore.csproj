@@ -37,7 +37,6 @@
  
   <ItemGroup>
     <ProjectReference Include="..\ERPWebApp.Application\BeYeuBookstore.Application.csproj" />
-    <ProjectReference Include="..\ERPWebApp.Data.EF\BeYeuBookstore.Data.EF.csproj" />
     <ProjectReference Include="..\ERPWebApp.Data\BeYeuBookstore.Data.csproj" />
     <ProjectReference Include="..\ERPWebApp.Infrastructure\BeYeuBookstore.Infrastructure.csproj" />
     <ProjectReference Include="..\ERPWebApp.Utilities\BeYeuBookstore.Utilities.csproj" />

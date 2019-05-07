@@ -10,7 +10,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ERPWebApp.Data.EF\BeYeuBookstore.Data.EF.csproj" />
     <ProjectReference Include="..\ERPWebApp.Data\BeYeuBookstore.Data.csproj" />
     <ProjectReference Include="..\ERPWebApp.Utilities\BeYeuBookstore.Utilities.csproj" />
   </ItemGroup>
