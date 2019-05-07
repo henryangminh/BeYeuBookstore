@@ -21,6 +21,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BeYeuBookstore.Infrastructu
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BeYeuBookstore.Utilities", "ERPWebApp.Utilities\BeYeuBookstore.Utilities.csproj", "{25661F31-7CF2-44B7-9CD0-9B128593C992}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BeYeuBookstore.Data.EF", "ERPWebApp.Data.EF\BeYeuBookstore.Data.EF.csproj", "{B66E7013-AA6A-43F1-AAE4-F05FEE91688C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,6 +49,10 @@ Global
 		{25661F31-7CF2-44B7-9CD0-9B128593C992}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{25661F31-7CF2-44B7-9CD0-9B128593C992}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{25661F31-7CF2-44B7-9CD0-9B128593C992}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B66E7013-AA6A-43F1-AAE4-F05FEE91688C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B66E7013-AA6A-43F1-AAE4-F05FEE91688C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B66E7013-AA6A-43F1-AAE4-F05FEE91688C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B66E7013-AA6A-43F1-AAE4-F05FEE91688C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -57,6 +63,7 @@ Global
 		{4D21984A-7E1B-4EEE-BC9F-19DEB37107E8} = {76D0E36F-D4FB-4353-9D13-90CBBB84DC3E}
 		{A32D8453-D74D-45A0-A4FE-AE2B0DDA6414} = {6F34C7DE-AD28-4BFE-8597-6CBFC842074A}
 		{25661F31-7CF2-44B7-9CD0-9B128593C992} = {6F34C7DE-AD28-4BFE-8597-6CBFC842074A}
+		{B66E7013-AA6A-43F1-AAE4-F05FEE91688C} = {76D0E36F-D4FB-4353-9D13-90CBBB84DC3E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C268B809-E72F-43DA-875D-EB39028A83AC}
