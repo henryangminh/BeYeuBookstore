@@ -173,6 +173,7 @@ function loadBookCategory() {
         url: '/BookCategory/GetAll',
         dataType: "json",
         success: function (response) {
+            console.log('BookCategory', response);
             $.each(response, function (i, item) {
                 render += Mustache.render(template, {
                     LinkCategoryShop: '#',
