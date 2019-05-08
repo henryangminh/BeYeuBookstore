@@ -30,5 +30,7 @@ namespace BeYeuBookstore.Application.Interfaces.Acc
         Task<List<Guid>> getListUserId(string roleName);
         bool checkUserInRole(string userid, string roleName);
         bool checkExistEmail(string email);
+
+        Task<User> GetByEmailAsync(string email);
     }
 }

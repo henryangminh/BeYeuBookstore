@@ -39,7 +39,7 @@ function loadData() {
                 $('#rsNone').text('Không có kết quả')
             }
             else {
-                $('#rsCount').text(response.Results.length+' kết quả')
+                $('#rsCount').text(response.Results.length + ' kết quả trong số ' + response.RowCount + ' kết quả')
                 $.each(response.Results, function (i, item) {
                     if (i % 4 == 0) render += '<div class="col-lg-12 col-md-12 col-xs-12">';
                     render += Mustache.render(template, {
@@ -70,16 +70,16 @@ function loadData() {
     });
 }
 
-function GetLinkPaging(i) {
+function GetLinkPaging(index) {
     var a = window.location.search.substring(1).split('&');
     for (var i = 0; i < a.length; i++) {
         if (a.includes('page'))
             a.splice(i, 1);
     }
     if (window.location.href.includes('?')) {
-        return window.location.href + "&page=" + i;
+        return window.location.href + "&page=" + index;
     }
-    return window.location.href + "?page=" + i
+    return window.location.href + "?page=" + index;
 }
 
 function registerEvents() {
