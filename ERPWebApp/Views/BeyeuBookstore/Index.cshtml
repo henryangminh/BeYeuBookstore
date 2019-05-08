@@ -174,40 +174,6 @@
     </div>
 </div>
 <!-- banner-area-end -->
-<!-- script -->
-<script id="bookcase" type="x-tmpl-mustache">
-    <div class="col-lg-3 col-md-5 col-sm-5 col-xs-12">
-        <!-- single-product-start -->
-        <div class="product-wrapper mb-40">
-            <input type="hidden" id="txtBookKeyId" value="{{KeyId}}" />
-            <div class="product-img">
-                <a href="{{LinkBook}}">
-                    <img src="{{BookImage}}" alt="book" class="primary" />
-                </a>
-                <div class="quick-view">
-                    <a class="action-view" href="#" data-target="#productModal" data-toggle="modal" title="Xem" id="ShowDetail">
-                        <i class="fa fa-search-plus"></i>
-                    </a>
-                </div>
-            </div>
-            <div class="product-details text-center">
-                <h4><a href="{{LinkBook}}" style="font-family: Verdana; font-size: 14px; font-weight: normal">{{BookTitle}}</a></h4>
-                <div class="product-price">
-                    <ul>
-                        <li>{{BookPrice}}</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="product-link">
-                <div class="product-button">
-                    <a title="Thêm vào giỏ hàng" id="AddToCart" style="cursor:pointer;"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</a>
-                </div>
-            </div>
-        </div>
-        <!-- single-product-end -->
-    </div>
-</script>
-<!--- end script -->
 
 <script id="bookcategory" type="x-tmpl-mustache">
     <li class="cr-dropdown">
@@ -216,3 +182,4 @@
 </script>
 
 @await Html.PartialAsync("_LoadBookDetailModal.cshtml")
+@await Html.PartialAsync("_BookCase.cshtml")

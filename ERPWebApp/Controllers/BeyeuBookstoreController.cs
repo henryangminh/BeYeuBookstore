@@ -45,6 +45,13 @@ namespace BeYeuBookstore.Controllers
         }
 
         [HttpGet]
+        public IActionResult GetAllPaging(string txtSearch, int BookCategoryId, int? From, int? To, int page, int pageSize)
+        {
+            var model = _bookService.GetAllPaging(txtSearch, BookCategoryId, From, To, page, pageSize);
+            return new OkObjectResult(model);
+        }
+
+        [HttpGet]
         public IActionResult GetAllQuantity(int quantity)
         {
             var model = _bookService.GetAll(quantity);
