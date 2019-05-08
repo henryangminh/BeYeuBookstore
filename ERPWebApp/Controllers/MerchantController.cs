@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace BeYeuBookstore.Controllers
 {
-    [Authorize]
+    
     public class MerchantController : Controller
     {
         IMerchantService _merchantService;
@@ -20,7 +20,12 @@ namespace BeYeuBookstore.Controllers
             _merchantService = merchantService;
             _unitOfWork = unitOfWork;
         }
+        [Authorize]
         public IActionResult Index()
+        {
+            return View();
+        }
+        public IActionResult SignUp()
         {
             return View();
         }
