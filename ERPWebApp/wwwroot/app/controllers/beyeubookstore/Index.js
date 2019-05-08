@@ -166,15 +166,21 @@ function wrapPaging(recordCount, callBack, changePageSize) {
 
 function loadBookCategory() {
     var template = $('#bookcategory').html();
+    var render = "";
 
     $.ajax({
         type: 'GET',
         url: '/BookCategory/GetAll',
         dataType: "json",
         success: function (response) {
+            console.log('BookCategory', response);
             $.each(response, function (i, item) {
-            
+                render += Mustache.render(template, {
+                    LinkCategoryShop: '#',
+                    BookCategoryName: item.BookCategoryName,
+                });
             });
+            $('#BookCategory').html(render);
         },
         error: function (err) {
             general.notify('Có lỗi trong khi load loại sách !', 'error');

@@ -1,7 +1,14 @@
-﻿
-@{
+﻿@{
     ViewData["Title"] = "Shopping";
     Layout = "~/Views/Shared/Frontend/_Layout.cshtml";
+}
+
+@section Scripts{
+    <script src="~/app/controllers/shopping/index.js"></script>
+    <script>
+        var shopController = new shopController();
+        shopController.initialize();
+    </script>
 }
 
 <!-- shop-main-area-start -->
@@ -16,32 +23,30 @@
                     <div class="left-title mb-20">
                         <h4>Thể loại</h4>
                     </div>
-                    <div class="left-menu mb-30">
-                        <ul>
-                            <li><a href="#">Jackets<span>(15)</span></a></li>
-                            <li><a href="#">weaters<span>(9)</span></a></li>
-                            <li><a href="#">Bottoms<span>(12)</span></a></li>
-                            <li><a href="#">Jeans Pants<span>(6)</span></a></li>
-                        </ul>
-                    </div>
-                    <div class="left-title mb-20">
-                        <h4>Giá</h4>
-                    </div>
-                    <div class="left-menu mb-30">
-                        <div class="col-lg-12" style="margin-bottom:15px;">
-                            <div class="col-lg-6">
-                                <input class="form-control money" type="text" min="0" placeholder="Từ" />
-                            </div>
-                            <div class="col-lg-6">
-                                <input class="form-control money" type="text" min="0" placeholder="Đến" />
+                    <form id="frmAdvanceSearch" action="?" method="GET">
+                        <div class="left-menu mb-30">
+                            <ul id="BookCategory" name="txtBookCategoryId">
+                                
+                            </ul>
+                        </div>
+                        <div class="left-title mb-20">
+                            <h4>Giá</h4>
+                        </div>
+                        <div class="left-menu mb-30">
+                            <div class="col-lg-12" style="margin-bottom:15px;">
+                                <div class="col-lg-6">
+                                    <input class="form-control money" type="text" min="0" id="txtFrom" name="txtFrom" placeholder="Từ" value="@Context.Request.Query["txtFrom"]" />
+                                </div>
+                                <div class="col-lg-6">
+                                    <input class="form-control money" type="text" min="0" id="txtTo" name="txtTo" placeholder="Đến" value="@Context.Request.Query["txtTo"]" />
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    
-                    <div class="col-lg-12" style="margin-bottom:15px;">
-                        <button class="btn btn-primary" style="width:100%">Tìm</button>
-                    </div>
 
+                        <div class="col-lg-12" style="margin-bottom:15px;">
+                            <button type="submit" class="btn btn-primary" style="width:100%">Tìm</button>
+                        </div>
+                    </form>
                     <div class="banner-area mb-30">
                         <div class="banner-img-2">
                             <a href="#"><img src="img/banner/31.jpg" alt="banner" /></a>
@@ -1139,3 +1144,7 @@
     </div>
 </div>
 <!-- shop-main-area-end -->
+
+<script id="bookcategory" type="x-tmpl-mustache">
+    <li><a>{{BookCategoryName}} <span><input type="radio" name="radBookCategory" value="{{KeyId}}" {{#checked}} checked="checked" {{/checked}} /></span></a></li>
+</script>
