@@ -27,7 +27,7 @@ namespace BeYeuBookstore.Controllers
             var Namefull = User.GetSpecificClaim("FullName");
             var userid = _generalFunctionController.Instance.getClaimType(User, CommonConstants.UserClaims.Key);
             var C = _customerService.GetBysId(userid);
-            if(C!=null)
+            if(C.KeyId!=0)
             {
                 return new RedirectResult("/Beyeubookstore");
             }
