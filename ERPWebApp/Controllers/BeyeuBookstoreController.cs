@@ -46,6 +46,11 @@ namespace BeYeuBookstore.Controllers
         {
             return View();
         }
+
+        public IActionResult CheckOut()
+        {
+            return View();
+        }
         #region AJAX API
         [HttpGet]
         public IActionResult GetAll()
@@ -102,6 +107,15 @@ namespace BeYeuBookstore.Controllers
                 return new OkObjectResult("failed");
             }
             return new OkObjectResult("invalid");
+        }
+
+        [HttpPost]
+        public IActionResult LogOut()
+        {
+            HttpContext.Session.Remove("IsLogin");
+            HttpContext.Session.Remove("User");
+            HttpContext.Session.Remove("CartSession");
+            return new OkObjectResult(Url.Action("Index","BeyeuBookstore"));
         }
         #endregion
     }
