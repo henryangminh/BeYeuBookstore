@@ -50,6 +50,19 @@ namespace BeYeuBookstore.Application.Implementation
             return data;
         }
 
+        public List<InvoiceViewModel> GetAllInvoiceByCustomerId(int id)
+        {
+            var query = _invoiceRepository.FindAll(x=>x.CustomerFK==id);
+            var data = new List<InvoiceViewModel>();
+            foreach (var item in query)
+            {
+                var _data = Mapper.Map<Invoice, InvoiceViewModel>(item);
+                data.Add(_data);
+            }
+            return data;
+        }
+
+
         public List<InvoiceViewModel> GetAll(int id)
         {
             throw new NotImplementedException();
