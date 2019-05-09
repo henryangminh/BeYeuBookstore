@@ -49,7 +49,7 @@
         $('body').on('click', '#LogOut', function () {
             $.ajax({
                 type: 'POST',
-                url: '/BeyeuBookstore/LogOut',
+                url: '/BeyeuBookstore/LogOutAsync',
                 success: function (respond) {
                     window.location.href = respond;
                 }

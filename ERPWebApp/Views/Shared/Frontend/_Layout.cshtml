@@ -1,5 +1,6 @@
 ﻿@using BeYeuBookstore.Extensions;
 @using BeYeuBookstore.Data.Entities;
+@using System.Web
 @inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
 
 <!DOCTYPE html>
@@ -88,7 +89,7 @@
                                         Write(a.FullName);
                                     }
                                     </li>
-                                    <li><a href="">Xem trang cá nhân</a></li>
+                                    <li><a href="">Tài khoản của tôi</a></li>
                                     <li><a id="LogOut">Đăng xuất</a></li>
                                 }
                             </ul>

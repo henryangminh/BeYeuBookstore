@@ -68,101 +68,110 @@ else
 {
     @if (HttpContextAccessor.HttpContext.Session.Get<User>("User").UserTypeFK == 3)
     {
-        <!-- checkout-area-start -->
-        <div class="checkout-area mb-70">
-            <div class="container">
-                <div class="row">
-                    <form action="#">
-                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                            <div class="checkbox-form">
-                                <h3>Thông tin giao hàng</h3>
-                                <div class="row">
-                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
-                                        <div class="checkout-form-list">
-                                            <label>Tên người nhận hàng <span class="required">*</span></label>
-                                            <input type="text" placeholder="Tên người nhận hàng">
+        
+        var Total = 0;
+        var Cart = HttpContextAccessor.HttpContext.Session.Get<List<CartViewModel>>("CartSession");
+        @if (Cart != null && Cart.Count > 0)
+        {
+            <!-- checkout-area-start -->
+            <div class="checkout-area mb-70">
+                <div class="container">
+                    <div class="row">
+                        <form action="#">
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                <div class="checkbox-form">
+                                    <h3>Thông tin giao hàng</h3>
+                                    <div class="row">
+                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+                                            <div class="checkout-form-list">
+                                                <label>Tên người nhận hàng <span class="required">*</span></label>
+                                                <input type="text" placeholder="Tên người nhận hàng">
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                        <div class="checkout-form-list">
-                                            <label>Địa chỉ nhận hàng <span class="required">*</span></label>
-                                            <input type="text" placeholder="Địa chỉ nhận hàng">
+                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                            <div class="checkout-form-list">
+                                                <label>Địa chỉ nhận hàng <span class="required">*</span></label>
+                                                <input type="text" placeholder="Địa chỉ nhận hàng">
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                        <div class="checkout-form-list">
-                                            <label>Số điện thoại <span class="required">*</span></label>
-                                            <input type="text" placeholder="Số điện thoại">
+                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                            <div class="checkout-form-list">
+                                                <label>Số điện thoại <span class="required">*</span></label>
+                                                <input type="text" placeholder="Số điện thoại">
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                            <div class="your-order">
-                                <h3>Chi tiết đơn hàng</h3>
-                                <div class="your-order-table table-responsive">
-                                    <table>
-                                        <thead>
-                                            <tr>
-                                                <th class="product-name">Sách</th>
-                                                <th class="product-total">Tổng tiền</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody id="tblCartItem">
-                                            @{
-                                                var Total = 0;
-                                                var Cart = HttpContextAccessor.HttpContext.Session.Get<List<CartViewModel>>("CartSession");
-                                            }
-                                            @for (int i = 0; i < Cart.Count; i++)
-                                            {
-                                                <tr class="cart_item">
-                                                    <td class="product-name">
-                                                        @Cart[i].Book.BookTitle <strong class="product-quantity"> × @Cart[i].Quantity</strong>
-                                                    </td>
-                                                    <td class="product-total">
-                                                        <span class="amount money">
-                                                        @{
-                                                            var unitPrice = Convert.ToInt32(@Cart[i].UnitPrice);
-                                                            var subtotal = Cart[i].Quantity * unitPrice;
-                                                            Total += subtotal;
-                                                            Write(subtotal);
-                                                        }
-                                                        </span>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                <div class="your-order">
+                                    <h3>Chi tiết đơn hàng</h3>
+                                    <div class="your-order-table table-responsive">
+                                        <table>
+                                            <thead>
+                                                <tr>
+                                                    <th class="product-name">Sách</th>
+                                                    <th class="product-total">Tổng tiền</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="tblCartItem">
+                                                @for (int i = 0; i < Cart.Count; i++)
+                                                {
+                                                    <tr class="cart_item">
+                                                        <td class="product-name">
+                                                            @Cart[i].Book.BookTitle <strong class="product-quantity"> × @Cart[i].Quantity</strong>
+                                                        </td>
+                                                        <td class="product-total">
+                                                            <span class="amount money">
+                                                                @{
+                                                                    var unitPrice = Convert.ToInt32(@Cart[i].UnitPrice);
+                                                                    var subtotal = Cart[i].Quantity * unitPrice;
+                                                                    Total += subtotal;
+                                                                    Write(subtotal);
+                                                                }
+                                                            </span>
+                                                        </td>
+                                                    </tr>
+                                                }
+                                            </tbody>
+                                            <tfoot>
+                                                <tr class="cart-subtotal">
+                                                    <th>Tổng tiền</th>
+                                                    <td><span class="amount money" id="Total">@Total</span></td>
+                                                </tr>
+                                                <tr class="shipping">
+                                                    <th>Phí vận chuyển</th>
+                                                    <td>
+                                                        <span class="amount money" id="Shipping"></span>
                                                     </td>
                                                 </tr>
-                                             }
-                                        </tbody>
-                                        <tfoot>
-                                            <tr class="cart-subtotal">
-                                                <th>Tổng tiền</th>
-                                                <td><span class="amount money" id="Total">@Total</span></td>
-                                            </tr>
-                                            <tr class="shipping">
-                                                <th>Phí vận chuyển</th>
-                                                <td>
-                                                    <span class="amount money" id="Shipping"></span>
-                                                </td>
-                                            </tr>
-                                            <tr class="order-total">
-                                                <th>Thành tiền</th>
-                                                <td>
-                                                    <strong><span class="amount money"></span></strong>
-                                                </td>
-                                            </tr>
-                                        </tfoot>
-                                    </table>
-                                </div>
-                                <div class="order-button-payment">
-                                    <input type="submit" value="Đặt hàng">
+                                                <tr class="order-total">
+                                                    <th>Thành tiền</th>
+                                                    <td>
+                                                        <strong><span class="amount money"></span></strong>
+                                                    </td>
+                                                </tr>
+                                            </tfoot>
+                                        </table>
+                                    </div>
+                                    <div class="order-button-payment">
+                                        <input type="submit" value="Đặt hàng">
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </form>
+                        </form>
+                    </div>
                 </div>
             </div>
-        </div>
-        <!-- checkout-area-end -->
+            <!-- checkout-area-end -->
+        }
+        else{
+            <div class="checkout-area mb-70">
+                <div class="container">
+                    <p>Giỏ hàng của bé đang trống, hãy quay lại <a href="@Url.Action("Shopping","BeyeuBookstore")">cửa hàng</a> để đặt hàng nhé</p>
+                </div>
+            </div>
+        }
     }
     else
     {

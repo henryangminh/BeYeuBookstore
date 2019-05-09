@@ -7,6 +7,7 @@ using BeYeuBookstore.Application.Interfaces.Acc;
 using BeYeuBookstore.Data.Entities;
 using BeYeuBookstore.Extensions;
 using BeYeuBookstore.Models.AccountViewModels;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -110,11 +111,14 @@ namespace BeYeuBookstore.Controllers
         }
 
         [HttpPost]
-        public IActionResult LogOut()
+        public async Task<IActionResult> LogOutAsync()
         {
             HttpContext.Session.Remove("IsLogin");
             HttpContext.Session.Remove("User");
             HttpContext.Session.Remove("CartSession");
+            await _signInManager.SignOutAsync();
+            ////  Clear the existing external cookie to ensure a clean login process
+            await HttpContext.SignOutAsync(IdentityConstants.ExternalScheme);
             return new OkObjectResult(Url.Action("Index","BeyeuBookstore"));
         }
         #endregion
