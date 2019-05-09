@@ -52,9 +52,9 @@ namespace BeYeuBookstore.Application.Implementation
             return data;
         }
 
-        public List<AdvertiseContractViewModel> GetAllFutureSuccessContract()
+        public List<AdvertiseContractViewModel> GetAllFutureContractByPositionId(int id)
         {
-            var query = _advertiseContractRepository.FindAll(x=>(x.Status == ContractStatus.Success && x.DateFinish >= DateTime.Now));
+            var query = _advertiseContractRepository.FindAll(x=>(x.Status == ContractStatus.Unqualified && x.DateFinish >= DateTime.Now));
             var data = new List<AdvertiseContractViewModel>();
             foreach (var item in query)
             {

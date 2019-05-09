@@ -1,24 +1,36 @@
-﻿var advertisementContractController = function () {
+﻿var gDisabledDates = [];
+var advertiseContractController = function () {
     this.initialize = function () {
+
         loadData();
         loadAllFutureSuccessContract();
         registerEvents();
     }
     function registerEvents() {
-        var dateDisabled = ["2019-5-9", "2019-5-10"];
-        $(function () {
-            $('#txtFromdate').datepicker(
-                {
-                    format: 'yyyy-mm-dd',
-                    beforeShowDay: function (date) {
-                        if ($.inArray(date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate(), dateDisabled) !== -1) {
-                            return;
-                        }
+        
+        function DisableSpecificDates(date) {
 
-                        return false;
-                    }
-                });
+            
+            var currentdate = moment(date).format("DD/MM/YYYY");
+
+            // We will now check if the date belongs to disableddates array 
+            for (var i = 0; i < gDisabledDates.length; i++) {
+
+                // Now check if the current date is in disabled dates array. 
+                if ($.inArray(currentdate, gDisabledDates) != -1) {
+                    return false;
+                }
+            }
+        }
+        $('.datepicker').datepicker({
+            format: "dd/mm/yyyy",
+            language: "vi",
+            clearBtn: true,
+            todayHighlight: true,
+            beforeShowDay: DisableSpecificDates
         });
+    
+       
         $('#ddlShowPage').on('change', function () {
             general.configs.pageSize = $(this).val();
             general.configs.pageIndex = 1;
@@ -63,6 +75,7 @@
         $('#btnCreate').on('click', function () {
             resetForm();
             $('#addview').removeClass('hidden');
+            $('#formCreate').removeClass('hidden');
             $('#TermsOfUse').removeClass('hidden');
             $('#btnSave').attr('disabled', 'disabled');
             $('#watchview').addClass('hidden');
@@ -215,23 +228,19 @@
             lang: 'vi',
             rules: {
 
-                selAdPosition:
+                selAdContent:
                 {
                     required: true
                 },
-                txtTitle:
+                txtFromdate:
                 {
                     required: true
                 },
-                txtLink:
+                txtTodate:
                 {
                     required: true
                 },
 
-                fileAdImg:
-                {
-                    required: true
-                },
 
             }
         });
@@ -260,7 +269,7 @@
                     var note = $('#txtNote').val();
                     var contractStatus = general.contractStatus.Requesting;
 
-                    if (moment(dateStart, "YYYY-MM-DD").diff(moment()) < 2) {
+                    if (moment(dateStart, "YYYY-MM-DD").diff(moment()) < 3) {
                         general.notify('Ngày bắt đầu phải lớn hơn ngày hôm nay ít nhất hai ngày !', 'error');
                         return false;
                     }
@@ -313,6 +322,10 @@
     function resetForm() {
         $('#frmMaintainance').trigger('reset');
         $('#ImgAdPosition').empty();
+        $('#txtNodate').val('');
+        $('#txtMustPay').val('');
+        $('#txtNote').val('');
+
    
     }
 
@@ -524,7 +537,15 @@ function loadAllFutureSuccessContract() {
         dataType: "json",
 
         success: function (response) {
-            console.log("Contract",response);
+            console.log("Contract", response);
+            $.each(response, function (i, item) {
+                var _fromdate = moment(item.DateFinish);
+                var temp = moment(item.DateStart);
+                while (temp <= _fromdate) {
+                    gDisabledDates.push(temp.format("DD/MM/YYYY"));
+                    temp = temp.add(1, 'days');
+                }
+            });
         },
         error: function (err) {
             general.notify('Có lỗi trong khi load nội dung quảng cáo !', 'error');

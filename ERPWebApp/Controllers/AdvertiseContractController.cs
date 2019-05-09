@@ -38,7 +38,7 @@ namespace BeYeuBookstore.Controllers
             temp.Wait();
             //check truy cập
             if (temp.Result.Succeeded == false)
-                return new RedirectResult("/Home/Index");
+                return new RedirectResult("/Beyeubookstore");
             return View();
           
         }
@@ -101,9 +101,9 @@ namespace BeYeuBookstore.Controllers
         }
 
         [HttpGet]
-        public IActionResult GetAllFutureSuccessContract()
+        public IActionResult GetAllFutureSuccessContract(int id)
         {
-            var model = _advertiseContractService.GetAllFutureSuccessContract();
+            var model = _advertiseContractService.GetAllFutureContractByPositionId(id);
             return new OkObjectResult(model);
         }
 

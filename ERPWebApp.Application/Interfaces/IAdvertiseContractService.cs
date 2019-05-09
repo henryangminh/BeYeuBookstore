@@ -22,7 +22,7 @@ namespace BeYeuBookstore.Application.Interfaces
 
         PagedResult<AdvertiseContractViewModel> GetAllPaging(bool? isSaleAdmin, bool? isAccountant, int advertiserId, int? status, string keyword, int page, int pageSize);
 
-        List<AdvertiseContractViewModel> GetAllFutureSuccessContract();
+        List<AdvertiseContractViewModel> GetAllFutureContractByPositionId(int id);
 
         AdvertiseContractViewModel GetById(int id);
 
