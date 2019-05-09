@@ -91,6 +91,9 @@ img {
 p {
     margin: 0 0 15px;
 }
+a {
+    cursor: pointer;
+}
 h1,
 h2,
 h3,
@@ -623,7 +626,7 @@ body {
     display: block;
     font-size: 15px;
     font-weight: 400;
-    font-family: Rufina;
+    font-family: 'Open Sans', sans-serif;
     margin: 0;
     text-transform: uppercase;
 }
@@ -1316,7 +1319,7 @@ body {
     padding: 0;
     text-transform: capitalize;
     transition: .3s;
-    font-family: 'Rufina', serif;
+    font-family: 'Open Sans', sans-serif;
 }
 .product-details h4 a:hover,
 .product-link .product-button a:hover,
@@ -3697,7 +3700,7 @@ nav.menu .cr-dropdown ul {
     position: relative;
     text-transform: capitalize;
     text-decoration: none;
-    font-family: 'Rufina', serif;
+    font-family: 'Open Sans', sans-serif;
     font-weight: 400;
 }
 .left-menu ul li a:hover {
@@ -3909,7 +3912,7 @@ nav.menu .cr-dropdown ul {
     padding-right: 10px;
 }
 .pagination-area {
-    border-top: 1px solid #ccc;
+    /*border-top: 1px solid #ccc;*/
     padding: 15px 0;
 }
 .pagination-area .list-page p {
@@ -4863,7 +4866,7 @@ nav.menu .cr-dropdown ul {
     font-weight: 400;
     margin: 0;
     line-height: 1.6em;
-    font-family: 'Rufina', serif;
+    font-family: 'Open Sans', sans-serif;
     font-weight: 400;
     color: #333;
 }
@@ -4951,7 +4954,7 @@ nav.menu .cr-dropdown ul {
     font-size: 16px;
     font-weight: 400;
     margin-top: 7px;
-    font-family: 'Rufina', serif;
+    font-family: 'Open Sans', sans-serif;
     font-weight: 400;
 }
 .single-register form input {
@@ -4963,7 +4966,7 @@ nav.menu .cr-dropdown ul {
     height: 45px;
     padding-left: 10px;
     width: 100%;
-    font-family: 'Rufina', serif;
+    font-family: 'Open Sans', sans-serif;
     font-weight: 400;
 }
 .single-register .chosen-select {
@@ -4976,7 +4979,7 @@ nav.menu .cr-dropdown ul {
     padding-left: 10px;
     box-shadow: none;
     text-align: left;
-    font-family: 'Rufina', serif;
+    font-family: 'Open Sans', sans-serif;
     font-weight: 400;
 }
 .single-register input#billing_address_2 {
@@ -5418,7 +5421,7 @@ nav.menu .cr-dropdown ul {
     font-size: 13px;
     padding: 20px 10px;
     vertical-align: middle;
-    font-family: 'Rufina', serif;
+    font-family: 'Open Sans', sans-serif;
     font-weight: 400;
 }
 .table-content table td.product-thumbnail {
@@ -5544,7 +5547,7 @@ nav.menu .cr-dropdown ul {
 .cart_totals h2 {
   border-bottom: 2px solid #333;
   display: inline-block;
-  font-family: "Rufina",serif;
+  font-family: 'Open Sans', sans-serif;
   font-size: 30px;
   font-weight: 400;
   margin: 0 0 35px;
@@ -5918,7 +5921,7 @@ p.lost-password a:hover {
     padding: 15px 0;
     text-align: center;
     color: #333;
-    font-family: 'Rufina', serif;
+    font-family: 'Open Sans', sans-serif;
     font-weight: 400;
 }
 .your-order-table table .shipping ul li input {

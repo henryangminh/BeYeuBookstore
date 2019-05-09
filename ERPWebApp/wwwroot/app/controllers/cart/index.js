@@ -16,7 +16,7 @@ function registerEvents() {
         $.ajax({
             type: 'POST',
             dataType: 'json',
-            url: 'Cart/AddToCart',
+            url: '/Cart/AddToCart',
             data: {
                 BookId: Id,
                 quantity: qty,

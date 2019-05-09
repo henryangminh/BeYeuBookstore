@@ -17,7 +17,6 @@ using Microsoft.AspNetCore.Mvc.ModelBinding;
 
 namespace BeYeuBookstore.Controllers
 {
-    [Authorize]
     public class BookController : Controller
     {
         IBookService _bookService;
@@ -35,6 +34,7 @@ namespace BeYeuBookstore.Controllers
             _merchantService = merchantService;
             _hostingEnvironment = hostingEnvironment;
         }
+        [Authorize]
         public IActionResult Index()
         {
             var temp = Task.Run(() => _authorizationService.AuthorizeAsync(User, Const_FunctionId.Book, Operations.Read));
@@ -45,6 +45,7 @@ namespace BeYeuBookstore.Controllers
             return View();
         }
         #region AJAX API
+        [Authorize]
         [HttpPost]
         public IActionResult SaveEntity(BookViewModel bookVm)
         {
@@ -119,6 +120,7 @@ namespace BeYeuBookstore.Controllers
             return new BadRequestResult();
         }
 
+        [Authorize]
         [HttpPost]
         public IActionResult ImportFiles(IList<IFormFile> files)
         {
@@ -158,6 +160,7 @@ namespace BeYeuBookstore.Controllers
             return new NoContentResult();
         }
 
+        [Authorize]
         [HttpPost]
         public IActionResult Delete(int id)
         {

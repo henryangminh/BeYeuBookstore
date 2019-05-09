@@ -46,6 +46,16 @@
             })
         })
 
+        $('body').on('click', '#LogOut', function () {
+            $.ajax({
+                type: 'POST',
+                url: '/BeyeuBookstore/LogOutAsync',
+                success: function (respond) {
+                    window.location.href = respond;
+                }
+            })
+        })
+
         //$('#modal-add-edit').on('hide', function () {
         //    resetForm();
         //});
@@ -173,6 +183,7 @@ function loadBookCategory() {
         url: '/BookCategory/GetAll',
         dataType: "json",
         success: function (response) {
+            console.log('BookCategory', response);
             $.each(response, function (i, item) {
                 render += Mustache.render(template, {
                     LinkCategoryShop: '#',
@@ -187,19 +198,3 @@ function loadBookCategory() {
         },
     });
 }
-/*
-$(document).ready(function () {
-    $('.modal').on('show.bs.modal', function () {
-        if ($(document).height() > $(window).height()) {
-            // no-scroll
-            $('body').addClass("modal-open-noscroll");
-        }
-        else {
-            $('body').removeClass("modal-open-noscroll");
-        }
-    });
-    $('.modal').on('hide.bs.modal', function () {
-        $('body').removeClass("modal-open-noscroll");
-    });
-})
-*/

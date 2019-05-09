@@ -119,6 +119,50 @@ namespace BeYeuBookstore.Application.Implementation
             return paginationSet;
         }
 
+        public PagedResult<BookViewModel> GetAllPaging(string txtSearch, int BookCategoryId, int? From, int? To, int page, int pageSize)
+        {
+            var query = _bookRepository.FindAll(x => x.BookCategoryFKNavigation, x => x.MerchantFKNavigation);
+            query = query.OrderBy(x => x.KeyId);
+
+            if (txtSearch != "" && txtSearch != null)
+            {
+                query = query.Where(x => x.BookTitle.Contains(txtSearch) || x.Description.Contains(txtSearch));
+            }
+            if (BookCategoryId != 0)
+            {
+                query = query.Where(x => x.BookCategoryFK == BookCategoryId);
+            }
+
+            if (From != null)
+            {
+                query = query.Where(x => x.UnitPrice >= From);
+            }
+
+            if (To != null)
+            {
+                query = query.Where(x => x.UnitPrice <= To);
+            }
+
+            int totalRow = query.Count();
+
+            query = query.Skip((page - 1) * pageSize).Take(pageSize);
+            var data = new List<BookViewModel>();
+            foreach (var item in query)
+            {
+                var _data = Mapper.Map<Book, BookViewModel>(item);
+                data.Add(_data);
+            }
+
+            var paginationSet = new PagedResult<BookViewModel>()
+            {
+                Results = data,
+                CurrentPage = page,
+                RowCount = totalRow,
+                PageSize = pageSize
+            };
+            return paginationSet;
+        }
+
         public BookViewModel GetById(int id)
         {
             return Mapper.Map<Book, BookViewModel>(_bookRepository.FindById(id, p => p.BookCategoryFKNavigation, p => p.MerchantFKNavigation));

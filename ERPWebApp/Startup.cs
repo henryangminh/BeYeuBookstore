@@ -33,6 +33,7 @@ using BeYeuBookstore.Application.Interfaces;
 using BeYeuBookstore.Application.Implementation;
 using BeYeuBookstore.Application.Interfaces.Boq;
 using BeYeuBookstore.Application.Implementation.Boq;
+using Microsoft.AspNetCore.Http;
 
 namespace BeYeuBookstore
 {
@@ -228,6 +229,7 @@ namespace BeYeuBookstore
             {
                 options.Cookie.HttpOnly = true;
             });
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

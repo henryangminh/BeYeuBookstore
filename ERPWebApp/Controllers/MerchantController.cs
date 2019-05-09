@@ -12,7 +12,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace BeYeuBookstore.Controllers
 {
-    [Authorize]
+    
     public class MerchantController : Controller
     {
         IMerchantService _merchantService;
@@ -24,6 +24,7 @@ namespace BeYeuBookstore.Controllers
             _merchantService = merchantService;
             _unitOfWork = unitOfWork;
         }
+        [Authorize]
         public IActionResult Index()
         {
             var temp = Task.Run(() => _authorizationService.AuthorizeAsync(User, Const_FunctionId.Merchant, Operations.Read));
@@ -31,6 +32,10 @@ namespace BeYeuBookstore.Controllers
             //check truy cập
             if (temp.Result.Succeeded == false)
                 return new RedirectResult("/Home/Index");
+            return View();
+        }
+        public IActionResult SignUp()
+        {
             return View();
         }
 
