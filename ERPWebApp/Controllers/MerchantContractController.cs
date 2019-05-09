@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using BeYeuBookstore.Application.Interfaces;
+using BeYeuBookstore.Authorization;
 using BeYeuBookstore.Infrastructure.Interfaces;
+using BeYeuBookstore.Utilities.Constants;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -14,14 +16,21 @@ namespace BeYeuBookstore.Controllers
     {
         IMerchantContractService _merchantContractService;
         IUnitOfWork _unitOfWork;
-        public MerchantContractController(IMerchantContractService merchantContractService, IUnitOfWork unitOfWork)
+        IAuthorizationService _authorizationService;
+        public MerchantContractController(IAuthorizationService authorizationService ,IMerchantContractService merchantContractService, IUnitOfWork unitOfWork)
         {
+            _authorizationService = authorizationService;
             _merchantContractService = merchantContractService;
             _unitOfWork = unitOfWork;
         }
 
         public IActionResult Index()
         {
+            var temp = Task.Run(() => _authorizationService.AuthorizeAsync(User, Const_FunctionId.MerchantContract, Operations.Read));
+            temp.Wait();
+            //check truy cập
+            if (temp.Result.Succeeded == false)
+                return new RedirectResult("/Home/Index");
             return View();
         }
 

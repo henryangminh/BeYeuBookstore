@@ -6,6 +6,7 @@ using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using BeYeuBookstore.Application.Interfaces;
 using BeYeuBookstore.Application.ViewModels;
+using BeYeuBookstore.Authorization;
 using BeYeuBookstore.Infrastructure.Interfaces;
 using BeYeuBookstore.Utilities.Constants;
 using Microsoft.AspNetCore.Authorization;
@@ -20,11 +21,13 @@ namespace BeYeuBookstore.Controllers
     {
         IBookService _bookService;
         IBookCategoryService _bookCategoryService;
+        IAuthorizationService _authorizationService;
         IMerchantService _merchantService;
         private readonly IHostingEnvironment _hostingEnvironment;
         IUnitOfWork _unitOfWork;
-        public BookController(IHostingEnvironment hostingEnvironment,IMerchantService merchantService ,IBookCategoryService bookCategoryService, IBookService bookService, IUnitOfWork unitOfWork)
+        public BookController(IAuthorizationService authorizationService,IHostingEnvironment hostingEnvironment,IMerchantService merchantService ,IBookCategoryService bookCategoryService, IBookService bookService, IUnitOfWork unitOfWork)
         {
+            _authorizationService = authorizationService;
             _bookService = bookService;
             _bookCategoryService = bookCategoryService;
             _unitOfWork =unitOfWork;
@@ -34,6 +37,11 @@ namespace BeYeuBookstore.Controllers
         [Authorize]
         public IActionResult Index()
         {
+            var temp = Task.Run(() => _authorizationService.AuthorizeAsync(User, Const_FunctionId.Book, Operations.Read));
+            temp.Wait();
+            //check truy cập
+            if (temp.Result.Succeeded == false)
+                return new RedirectResult("/Home/Index");
             return View();
         }
         #region AJAX API
