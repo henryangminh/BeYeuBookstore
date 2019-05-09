@@ -1,4 +1,7 @@
 ﻿@using BeYeuBookstore.Extensions;
+@using BeYeuBookstore.Data.Entities;
+@using System.Web
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
 
 <!DOCTYPE html>
 <html lang="en">
@@ -40,7 +43,7 @@
     <title>Bé Yêu Bookstore</title>
     <script id="LoadCart" type="x-tmpl-mustache">
         <div class="single-cart">
-            <input type="hidden" id="txtBookId" value="{{KeyId}}"/>
+            <input type="hidden" id="txtBookId" value="{{KeyId}}" />
             <div class="cart-img">
                 <a href="{{LinkToProduct}}"><img src="{{LinkImage}}" alt="book" /></a>
             </div>
@@ -73,8 +76,22 @@
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                         <div class="account-area text-right">
                             <ul>
-                                <li><a href="@Url.Action("SignUp","BeyeuBookstore")">Đăng ký</a></li>
-                                <li><a href="@Url.Action("SignIn","BeyeuBookstore")">Đăng nhập</a></li>
+                                @if (!HttpContextAccessor.HttpContext.Session.Get<Boolean>("IsLogin"))
+                                {
+                                    <li><a href="@Url.Action("SignUp", "BeyeuBookstore")">Đăng ký</a></li>
+                                    <li><a href="@Url.Action("SignIn", "BeyeuBookstore")">Đăng nhập</a></li>
+                                }
+                                else
+                                {
+                                    <li>Chào bé 
+                                    @{ 
+                                        var a = HttpContextAccessor.HttpContext.Session.Get<User>("User");
+                                        Write(a.FullName);
+                                    }
+                                    </li>
+                                    <li><a href="">Tài khoản của tôi</a></li>
+                                    <li><a id="LogOut">Đăng xuất</a></li>
+                                }
                             </ul>
                         </div>
                     </div>
@@ -115,7 +132,7 @@
                                         <div class="cart-bottom">
                                             <a href="@Url.Action("Index","Cart")" class="view-cart" id="ViewCart">Xem giỏ hàng</a>
                                             <a class="view-cart" id="DeleteCart">Xóa hết</a>
-                                            <a id="Checkout">Thanh toán</a>
+                                            <a href="@Url.Action("CheckOut","BeyeuBookstore")" id="Checkout">Thanh toán</a>
                                         </div>
                                     </div>
                                 </li>

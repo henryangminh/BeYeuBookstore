@@ -335,6 +335,12 @@ namespace BeYeuBookstore.Application.Implementation.Acc
             return user.Result == null;
         }
 
+        public async Task<User> GetByEmailAsync(string email)
+        {
+            User user = await _userManager.FindByEmailAsync(email);
+            return user;
+        }
+
         public void Dispose()
         {
             GC.SuppressFinalize(this);
