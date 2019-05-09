@@ -25,7 +25,7 @@ function loadData() {
         type: 'GET',
         url: '/BeyeuBookstore/GetAllPaging',
         data: {
-            "txtSearch": ($.urlParam('txtSearch') != null) ? $.urlParam('txtSearch'):'',
+            "txtSearch": ($.urlParam('txtSearch') != null) ? decodeURI($.urlParam('txtSearch')):'',
             "BookCategoryId": $.urlParam('radBookCategory'),
             "From": ($.urlParam('txtFrom') != null) ? $.urlParam('txtFrom') : null,
             "To": ($.urlParam('txtTo') != null) ? $.urlParam('txtTo') : null,
@@ -39,7 +39,7 @@ function loadData() {
                 $('#rsNone').text('Không có kết quả')
             }
             else {
-                $('#rsCount').text(response.Results.length + ' kết quả trong số ' + response.RowCount + ' kết quả')
+                $('#rsCount').text(response.Results.length + ' trong số ' + response.RowCount + ' kết quả')
                 $.each(response.Results, function (i, item) {
                     if (i % 4 == 0) render += '<div class="col-lg-12 col-md-12 col-xs-12">';
                     render += Mustache.render(template, {
@@ -71,15 +71,14 @@ function loadData() {
 }
 
 function GetLinkPaging(index) {
-    var a = window.location.search.substring(1).split('&');
-    for (var i = 0; i < a.length; i++) {
-        if (a.includes('page'))
-            a.splice(i, 1);
+    var url = window.location.href.split('?')[0];
+    var query = window.location.search.substring(1).split('&');
+    for (var i = 0; i < query.length; i++) {
+        if (query[i].includes('page'))
+            query.splice(i, 1);
     }
-    if (window.location.href.includes('?')) {
-        return window.location.href + "&page=" + index;
-    }
-    return window.location.href + "?page=" + index;
+    query = query.join('&');
+    return url + '?' + query + '&page=' + index;
 }
 
 function registerEvents() {
