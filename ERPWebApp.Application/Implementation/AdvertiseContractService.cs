@@ -52,12 +52,19 @@ namespace BeYeuBookstore.Application.Implementation
             return data;
         }
 
-        public List<AdvertiseContractViewModel> GetAll(int id)
+        public List<AdvertiseContractViewModel> GetAllFutureSuccessContract()
         {
-            throw new NotImplementedException();
+            var query = _advertiseContractRepository.FindAll(x=>(x.Status == ContractStatus.Success && x.DateFinish >= DateTime.Now));
+            var data = new List<AdvertiseContractViewModel>();
+            foreach (var item in query)
+            {
+                var _data = Mapper.Map<AdvertiseContract, AdvertiseContractViewModel>(item);
+                data.Add(_data);
+            }
+            return data;
         }
 
-        public PagedResult<AdvertiseContractViewModel> GetAllPaging(int advertiserId, int? status, string keyword, int page, int pageSize)
+        public PagedResult<AdvertiseContractViewModel> GetAllPaging(bool? isSaleAdmin, bool? isAccountant, int advertiserId, int? status, string keyword, int page, int pageSize)
         {
             var query = _advertiseContractRepository.FindAll(x => x.AdvertisementContentFKNavigation, x=>x.AdvertisementContentFKNavigation.AdvertiserFKNavigation);
             query = query.OrderBy(x => x.KeyId);
@@ -76,7 +83,14 @@ namespace BeYeuBookstore.Application.Implementation
             {
                 query = query.Where(x => x.AdvertisementContentFKNavigation.AdvertiserFK == advertiserId);
             }
-         
+            if (isAccountant == true)
+            {
+                query = query.Where(x => (x.Status == ContractStatus.Success || x.Status == ContractStatus.AccountingCensored));
+            }
+            if (isSaleAdmin == true)
+            {
+                query = query.Where(x => (x.Status == ContractStatus.Requesting || x.Status == ContractStatus.Unqualified));
+            }
             int totalRow = query.Count();
 
             query = query.Skip((page - 1) * pageSize).Take(pageSize);
@@ -99,7 +113,7 @@ namespace BeYeuBookstore.Application.Implementation
 
         public AdvertiseContractViewModel GetById(int id)
         {
-            return Mapper.Map<AdvertiseContract, AdvertiseContractViewModel>(_advertiseContractRepository.FindById(id));
+            return Mapper.Map<AdvertiseContract, AdvertiseContractViewModel>(_advertiseContractRepository.FindById(id, x => x.AdvertisementContentFKNavigation, x => x.AdvertisementContentFKNavigation.AdvertiserFKNavigation, x=>x.AdvertisementContentFKNavigation.AdvertisementPositionFKNavigation));
         }
 
         public bool Save()
@@ -120,6 +134,17 @@ namespace BeYeuBookstore.Application.Implementation
                 temp.Paid = advertiseContractViewModel.Paid;
                 temp.Status = advertiseContractViewModel.Status;
             }
+        }
+
+        public void UpdateStatus(int id, int status, string note)
+        {
+            var temp = _advertiseContractRepository.FindById(id);
+            if (temp != null)
+            {
+                temp.Status = (ContractStatus)status;
+                temp.Note = note;
+            }
+
         }
     }
 }

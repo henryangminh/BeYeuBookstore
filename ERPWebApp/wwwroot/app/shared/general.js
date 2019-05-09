@@ -132,6 +132,7 @@
         Requesting: 0,
         Unqualified: 1,
         Success: 2,
+        AccountingCensored: 3,
     },
 
     merchantScale: {

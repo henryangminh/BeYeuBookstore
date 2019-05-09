@@ -34,6 +34,8 @@ namespace BeYeuBookstore.Data.EF.Migrations
 
                     b.Property<DateTime>("DateStart");
 
+                    b.Property<string>("Note");
+
                     b.Property<bool>("Paid");
 
                     b.Property<int>("Status");

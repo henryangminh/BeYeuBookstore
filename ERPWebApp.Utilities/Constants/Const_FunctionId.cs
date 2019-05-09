@@ -46,5 +46,6 @@ namespace BeYeuBookstore.Utilities.Constants
         public const string Contract = "ContractItem";
         public const string MerchantContract = "MerchantContractItem";
         public const string AdvertiseContract = "AdvertiseContractItem";
+        public const string AdvertisementPosition = "AdvertisementPositionItem";
     }
 }

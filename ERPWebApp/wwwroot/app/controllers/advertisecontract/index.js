@@ -1,10 +1,24 @@
 ﻿var advertisementContractController = function () {
     this.initialize = function () {
         loadData();
+        loadAllFutureSuccessContract();
         registerEvents();
     }
     function registerEvents() {
+        var dateDisabled = ["2019-5-9", "2019-5-10"];
+        $(function () {
+            $('#txtFromdate').datepicker(
+                {
+                    format: 'yyyy-mm-dd',
+                    beforeShowDay: function (date) {
+                        if ($.inArray(date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate(), dateDisabled) !== -1) {
+                            return;
+                        }
 
+                        return false;
+                    }
+                });
+        });
         $('#ddlShowPage').on('change', function () {
             general.configs.pageSize = $(this).val();
             general.configs.pageIndex = 1;
@@ -35,17 +49,23 @@
         });
         
         $('#txtFromdate').on('change', function () {
-            $('#txtNodate').val(countDate($('#txtFromdate').val(), $('#txtTodate').val()));
+            $('#txtNodate').val(countDate(moment($('#txtFromdate').val(),"DD/MM/YYYY"), moment($('#txtTodate').val(),"DD/MM/YYYY")));
             $('#txtTotalPrice').val(general.toMoney(general.toInt($('#txtAdPositionPrice').val()) * parseInt($('#txtNodate').val())));
+            $('#txtMustPay').val(general.toMoney(general.toInt($('#txtTotalPrice').val()) - general.toInt($('#txtAdPositionPrice').val())));
         });
         
         $('#txtTodate').on('change', function () {
-            $('#txtNodate').val(countDate($('#txtFromdate').val(), $('#txtTodate').val()));
+            $('#txtNodate').val(countDate(moment($('#txtFromdate').val(),"DD/MM/YYYY"), moment($('#txtTodate').val(),"DD/MM/YYYY")));
             $('#txtTotalPrice').val(general.toMoney(general.toInt($('#txtAdPositionPrice').val()) * parseInt($('#txtNodate').val())));
+            $('#txtMustPay').val(general.toMoney(general.toInt($('#txtTotalPrice').val()) - general.toInt($('#txtAdPositionPrice').val())));
         });
 
         $('#btnCreate').on('click', function () {
             resetForm();
+            $('#addview').removeClass('hidden');
+            $('#TermsOfUse').removeClass('hidden');
+            $('#btnSave').attr('disabled', 'disabled');
+            $('#watchview').addClass('hidden');
             $('#txtCensorStatus').html('<span class="badge bg-black" style="font-size:15px;">Chưa kiểm duyệt</span>');
             $.ajax({
                 type: 'GET',
@@ -72,17 +92,17 @@
             });
         });
 
-        $('#btnUnqualified').on('click', function (e) {
+        $('#btnFail').on('click', function (e) {
             e.preventDefault();
             var keyId = parseInt($('#txtId').val());
-            var noteAdContent = $('#txtNote').val();
+            var noteAdContract = $('#txtNote').val();
             $.ajax({
                 type: 'POST',
-                url: '/AdvertisementContent/UpdateStatus',
+                url: '/AdvertiseContract/UpdateStatus',
                 data: {
                     id: keyId,
-                    status: general.censorStatus.Unqualified,
-                    note: noteAdContent,
+                    status: general.contractStatus.Unqualified,
+                    note: noteAdContract,
                 },
                 dataType: "json",
 
@@ -100,15 +120,19 @@
             });
         });
 
-        $('#btnCensored').on('click', function (e) {
+        $('#btnSuccess').on('click', function (e) {
             e.preventDefault();
             var keyId = parseInt($('#txtId').val());
+            var noteAdContract = $('#txtNote').val();
+
             $.ajax({
                 type: 'POST',
                 url: '/AdvertiseContract/UpdateStatus',
                 data: {
                     id: keyId,
-                    status: general.censorStatus.ContentCensored,
+                    status: general.contractStatus.Success,
+                    note: noteAdContract,
+
                 },
                 dataType: "json",
 
@@ -129,12 +153,16 @@
         $('#btnAccountingCensored').on('click', function (e) {
             e.preventDefault();
             var keyId = parseInt($('#txtId').val());
+            var noteAdContract = $('#txtNote').val();
+
             $.ajax({
                 type: 'POST',
                 url: '/AdvertiseContract/UpdateStatus',
                 data: {
                     id: keyId,
-                    status: general.censorStatus.AccountingCensored,
+                    status: general.contractStatus.AccountingCensored,
+                    note: noteAdContract,
+
                 },
                 dataType: "json",
 
@@ -152,7 +180,6 @@
             });
         });
 
-
         $('#txtKeyword').on('keyup', function (e) {
             if (e.keyCode === 13) {
                 loadData();
@@ -169,6 +196,8 @@
 
         $('body').on('click', '.btn-edit', function (e) {
             e.preventDefault();
+            $('#addview').addClass('hidden');
+            $('#watchview').removeClass('hidden');
             $('#formCreate').addClass('hidden');
             $('#UploadFile').addClass('hidden');
             $('#AdImg').removeClass('hidden');
@@ -225,95 +254,70 @@
                     }
                     var adContentId = $('#selAdContent option:selected').val();
                     var dateStart = moment($('#txtFromdate').val(),"DD/MM/YYYY").format("YYYY-MM-DD");
-                    var dateFinish = moment($('#txtTodate').val(), "DD/MM/YYYY").format("YYYY-MM-DD");
-                    var noDate = countDate(dateStart, dateFinish);
+                    var dateFinish = moment($('#txtTodate').val()+'23:59:59', "DD/MM/YYYY HH:mm:ss").format("YYYY-MM-DD HH:mm:ss");
+                    var noDate = $('#txtNodate').val();
                     var contractValue = general.toFloat($('#txtTotalPrice').val());
                     var note = $('#txtNote').val();
                     var contractStatus = general.contractStatus.Requesting;
 
-                    if (extension.toUpperCase() != "JPG" && extension.toUpperCase() != "PNG") {
-                        general.notify('File ảnh phải ở định dạng JPG hoặc PNG !', 'error');
+                    if (moment(dateStart, "YYYY-MM-DD").diff(moment()) < 2) {
+                        general.notify('Ngày bắt đầu phải lớn hơn ngày hôm nay ít nhất hai ngày !', 'error');
                         return false;
                     }
-                    if ($('#fileAdImg')[0].files[0].size > general.maxSizeAllowed.BookImg) {
-                        general.notify('Kích thước ảnh phải nhỏ hơn 2Mb !', 'error');
+
+                    if (parseInt(noDate)<1) {
+                        general.notify('Ngày kết thúc phải lớn hơn hoặc bằng ngày bắt đầu !', 'error');
                         return false;
                     }
+
+
                     $.ajax({
                         type: 'POST',
-                        url: '/AdvertisementContent/ImportFiles',
-                        data: data,
-                        contentType: false,
-                        processData: false,
-                        success: function (e) {
-                            console.log(e);
-                            if ($('#fileAdImg').val() != '') {
-
-                                linkImg = e[0];
-
-                                e.shift();
-
-                            }
-                            $.ajax({
-                                type: 'POST',
-                                url: '/AdvertisementContent/SaveEntity',
-                                data: {
-                                    KeyId: keyId,
-                                    AdvertisementPositionFK: adPosId,
-                                    AdvertiserFK: advertiserId,
-                                    ImageLink: linkImg,
-                                    Title: title,
-                                    Description: description,
-                                    UrlToAdvertisement: link,
-                                    Deposite: deposits,
-                                    CensorStatus: censorStatus,
-                                    Note: note,
-
-                                },
-                                dataType: "json",
-                                beforeSend: function () {
-                                    general.startLoading();
-                                },
-                                success: function (response) {
-
-                                    $('#modal-add-edit').modal('hide');
-                                    general.notify('Ghi thành công!', 'success');
-                                    resetForm();
-                                    general.stopLoading();
-                                    loadData();
-                                },
-                                error: function (err) {
-                                    general.notify('Có lỗi trong khi ghi !', 'error');
-                                    general.stopLoading();
-
-                                },
-                            });
-
-                            return false;
+                        url: '/AdvertiseContract/SaveEntity',
+                        data: {
+                            KeyId: keyId,
+                            AdvertisementContentFK: adContentId,
+                            DateStart: dateStart,
+                            DateFinish: dateFinish,
+                            ContractValue: contractValue,
+                            Status: contractStatus,
+                            Note: note,
 
                         },
-                        error: function (e) {
-                            general.notify('Có lỗi trong khi ghi !', 'error');
-                            console.log(e);
-                        }
+                        dataType: "json",
+                        beforeSend: function () {
+                            general.startLoading();
+                        },
+                        success: function (response) {
 
+                            $('#modal-add-edit').modal('hide');
+                            general.notify('Ghi thành công!', 'success');
+                            resetForm();
+                            general.stopLoading();
+                            loadData();
+                        },
+                        error: function (err) {
+                            general.notify('Có lỗi trong khi ghi !', 'error');
+                            general.stopLoading();
+
+                        },
                     });
 
+                    return false;
+                    
                 }
             }
         });
-
-
-
-
-    }
+   }
 
     function resetForm() {
         $('#frmMaintainance').trigger('reset');
+        $('#ImgAdPosition').empty();
+   
     }
 
     function loadDetail(that) {
-
+        $('#selAdContent').empty();
         $.ajax({
             type: "GET",
             url: "/AdvertiseContract/GetById",
@@ -323,54 +327,57 @@
                 general.startLoading();
             },
             success: function (response) {
-                $('#AdImg').empty();
-                console.log("loaddetailbook", response);
+                $('#ImgAdPosition').empty(); 
+                console.log("loaddetailAdContract", response);
                 var data = response;
                 $('#formCensor').removeClass('hidden');
+                $('#TermsOfUse').addClass('hidden');
                 $('#txtId').val(data.KeyId);
-                $('#txtAdvertiser').val(data.AdvertiserFKNavigation.BrandName);
-                $('#txtAdvertiserStatus').val(data.AdvertiserFKNavigation.Status);
+                $('#txtAdvertiser').val(data.AdvertisementContentFKNavigation.AdvertiserFKNavigation.BrandName);
+                $('#txtAdvertiserId').val(data.AdvertisementContentFKNavigation.AdvertiserFKNavigation.KeyId);
+                $('#txtAdvertiserStatus').val(data.AdvertisementContentFKNavigation.AdvertiserFKNavigation.Status);
                 $('#dtDateCreated').val(moment(data.DateCreated).format("DD/MM/YYYY"));
                 $('#dtDateModified').val(moment(data.DateModified).format("DD/MM/YYYY"));
-                $('#txtWidth').val(data.AdvertisementPositionFKNavigation.Width);
-                $('#txtHeight').val(data.AdvertisementPositionFKNavigation.Height);
-                $('#txtAdPositionPrice').val(general.toMoney(data.AdvertisementPositionFKNavigation.AdvertisePrice));
-                $('#txtDeposits').val(general.toMoney(data.AdvertisementPositionFKNavigation.AdvertisePrice));
-                $('#selAdPosition').val(data.AdvertisementPositionFK);
-                $('#txtTitle').val(data.Title);
-                $('#txtLink').val(data.UrlToAdvertisement);
-                $('#txtDescription').val(data.Description);
+                $('#selAdContent').append("<option value='" + data.AdvertisementContentFKNavigation.KeyId + "'>" + data.AdvertisementContentFKNavigation.Title + "</option>");
+                $('#txtAdPosition').val(data.AdvertisementContentFKNavigation.AdvertisementPositionFKNavigation.Title);
+                $('#txtAdPositionPrice').val(general.toMoney(data.AdvertisementContentFKNavigation.AdvertisementPositionFKNavigation.AdvertisePrice));
+                $('#ImgAdPosition').append('<img src="' + data.AdvertisementContentFKNavigation.ImageLink + '" style="width:100%"> ');
+                $('#txtFromdate').val(moment(data.DateStart).format("DD/MM/YYYY"));
+                $('#txtTodate').val(moment(data.DateFinish).format("DD/MM/YYYY"));
+                var _dateFinish = data.DateFinish.split("T");
+                $('#txtNodate').val(countDate(data.DateStart, _dateFinish[0]));
+                $('#txtTotalPrice').val(general.toMoney(data.ContractValue));
+                $('#txtMustPay').val(general.toMoney(data.ContractValue-data.AdvertisementContentFKNavigation.AdvertisementPositionFKNavigation.AdvertisePrice));
                 $('#txtNote').val(data.Note);
                 var _color = '';
                 var _status = '';
-                switch (data.CensorStatus) {
-                    case general.censorStatus.Uncensored:
+                switch (data.Status) {
+                    case general.contractStatus.Requesting:
                         _color = 'black';
                         _status = 'Chưa kiểm duyệt';
-                        $('#formCensor').addClass('hidden');
-                        break;
-                    case general.censorStatus.AccountingCensored:
-                        _color = 'orange';
-                        _status = 'Kế toán đã kiểm duyệt';
                         $('#formAccountingCensor').addClass('hidden');
                         $('#formCensor').removeClass('hidden');
                         break;
-                    case general.censorStatus.ContentCensored:
+                    case general.contractStatus.Success:
                         _color = 'green';
-                        _status = 'Đã kiểm duyệt nội dung';
+                        _status = 'Thành công';
                         $('#formCensor').addClass('hidden');
-                        $('#formAccountingCensor').addClass('hidden');
+                        $('#formAccountingCensor').removeClass('hidden');
                         break;
-                    case general.censorStatus.Unqualified:
+                    case general.contractStatus.Unqualified:
                         _color = 'red';
                         _status = 'Không đủ tiêu chuẩn';
+                        $('#formCensor').removeClass('hidden');
+                        $('#formAccountingCensor').removeClass('hidden');
+                        break;
+                    case general.contractStatus.AccountingCensored:
+                        _color = 'orange';
+                        _status = 'Kê toán đã kiểm duyệt';
                         $('#formCensor').addClass('hidden');
                         $('#formAccountingCensor').addClass('hidden');
                         break;
                 }
                 $('#txtCensorStatus').html('<span class="badge bg-' + _color + '" style="font-size:15px;">' + _status + '</span>');
-                $('#AdImg').append('<img src="' + data.ImageLink + '">');
-                $('#chkPaidDeposits').prop('checked', true);
                 $('#modal-add-edit').modal('show');
 
                 general.stopLoading();
@@ -407,27 +414,40 @@ function loadData(isPageChanged) {
             $.each(response.Results, function (i, item) {
                 var _color = "";
                 var _statusName = '';
-                switch (item.CensorStatus) {
+                switch (item.Status) {
                     case general.contractStatus.Requesting:
                         _color = 'black';
                         _statusName = 'Chưa kiểm duyệt';
                         break;
-                    
+
                     case general.contractStatus.Success:
                         _color = 'green';
-                        _statusName = 'Đã kiểm duyệt nội dung';
+                        _statusName = 'Thành công';
                         break;
 
                     case general.contractStatus.Unqualified:
                         _color = 'red';
                         _statusName = 'Không đủ tiêu chuẩn';
                         break;
+
+                    case general.contractStatus.AccountingCensored:
+                        _color = 'orange';
+                        _statusName = 'Kế toán đã kiểm duyệt';
+                        break;
                 }
+                var _fromdate = moment(item.DateStart).format("DD/MM/YYYY HH:mm:ss");
+                var _todate = moment(item.DateFinish).format("DD/MM/YYYY HH:mm:ss");
+                var _contract = general.toMoney(item.ContractValue);
+                var _dateCreated = moment(item.DateCreated).format("DD/MM/YYYY");
                 render += Mustache.render(template, {
 
                     KeyId: item.KeyId,
-                   
-
+                    BrandName: item.AdvertisementContentFKNavigation.AdvertiserFKNavigation.BrandName,
+                    Fromdate: _fromdate,
+                    Todate: _todate,
+                    ContractValue: _contract,
+                    Status: '<span class="badge bg-' + _color + '">' + _statusName   + '</span>',
+                    DateCreated: _dateCreated,
                 });
 
             });
@@ -436,12 +456,14 @@ function loadData(isPageChanged) {
             wrapPaging(response.RowCount, function () {
                 loadData();
             }, isPageChanged);
+
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
             console.log(status);
             general.notify('Không thể load dữ liệu', 'error');
         }
     });
+    
 }
 
 function wrapPaging(recordCount, callBack, changePageSize) {
@@ -480,8 +502,29 @@ function loadAdContentById(that) {
             $('#ImgAdPosition').empty();
             $('#txtAdPosition').val(response.AdvertisementPositionFKNavigation.Title);
             $('#txtAdPositionPrice').val(general.toMoney(response.AdvertisementPositionFKNavigation.AdvertisePrice));
+            $('#txtFromdate').val('');
+            $('#txtTodate').val('');
+            $('#txtTotalPrice').val('');
+            $('#txtNodate').val('');
             $('#ImgAdPosition').append('<img src="' + response.ImageLink + '" style="width:100%"> ');
 
+        },
+        error: function (err) {
+            general.notify('Có lỗi trong khi load nội dung quảng cáo !', 'error');
+
+        },
+    });
+
+}
+function loadAllFutureSuccessContract() {
+    $.ajax({
+        type: 'GET',
+        url: '/AdvertiseContract/GetAllFutureSuccessContract',
+
+        dataType: "json",
+
+        success: function (response) {
+            console.log("Contract",response);
         },
         error: function (err) {
             general.notify('Có lỗi trong khi load nội dung quảng cáo !', 'error');
@@ -498,7 +541,8 @@ function loadAllAdContent() {
         dataType: "json",
 
         success: function (response) {
-
+            $('#selAdContent').empty();
+            $('#selAdContent').append("<option value=''>Chọn nội dung quảng cáo</option>");
             $.each(response, function (i, item) {
                 $('#selAdContent').append("<option value='" + item.KeyId + "'>" + item.Title + "</option>");
             });
@@ -512,8 +556,8 @@ function loadAllAdContent() {
 }
 
 function countDate(dateStart, dateFinish) {
-    var start = moment(dateFinish, "DD/MM/YYYY");
-    var end = moment(dateStart, "DD/MM/YYYY");
+    var start = moment(dateFinish);
+    var end = moment(dateStart);
     return moment.duration(start.diff(end)).asDays() + 1;
 }
 

@@ -68,17 +68,24 @@ namespace BeYeuBookstore.Controllers
         public IActionResult GetAllPaging(int? status, string keyword, int page, int pageSize)
         {
             var userid = _generalFunctionController.Instance.getClaimType(User, CommonConstants.UserClaims.Key);
+           
             var A = _advertiserService.GetBysId(userid);
             var WM = _webMasterService.GetBysId(userid);
+            bool? isAccountant=false;
             bool? isAdCensor=false;
             if (WM != null)
             {
+                if (WM.WebMasterTypeFK == Const_WebmasterType.Accountant)
+                {
+                    isAccountant = true;
+                }
                 if (WM.WebMasterTypeFK == Const_WebmasterType.AdCensor)
                 {
                     isAdCensor = true;
                 }
             }
-            var model = _advertisementContentService.GetAllPaging(isAdCensor, A.KeyId, status, keyword, page, pageSize);
+     
+            var model = _advertisementContentService.GetAllPaging(isAdCensor, isAccountant, A.KeyId, status, keyword, page, pageSize);
             return new OkObjectResult(model);
         }
 

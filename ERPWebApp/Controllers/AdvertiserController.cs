@@ -4,7 +4,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using BeYeuBookstore.Application.Interfaces;
 using BeYeuBookstore.Application.ViewModels;
+using BeYeuBookstore.Authorization;
 using BeYeuBookstore.Infrastructure.Interfaces;
+using BeYeuBookstore.Utilities.Constants;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
@@ -15,14 +17,20 @@ namespace BeYeuBookstore.Controllers
     public class AdvertiserController : Controller
     {
         IAdvertiserService _advertiserService;
+        IAuthorizationService _authorizationService;
         IUnitOfWork _unitOfWork;
-        public AdvertiserController(IAdvertiserService advertiserService, IUnitOfWork unitOfWork)
+        public AdvertiserController(IAuthorizationService authorizationService ,IAdvertiserService advertiserService, IUnitOfWork unitOfWork)
         {
             _advertiserService = advertiserService;
             _unitOfWork = unitOfWork;
         }
         public IActionResult Index()
         {
+            var temp = Task.Run(() => _authorizationService.AuthorizeAsync(User, Const_FunctionId.Advertiser, Operations.Read));
+            temp.Wait();
+            //check truy cập
+            if (temp.Result.Succeeded == false)
+                return new RedirectResult("/Home/Index");
             return View();
         }
 

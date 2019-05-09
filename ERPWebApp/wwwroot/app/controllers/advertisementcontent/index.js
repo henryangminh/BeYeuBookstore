@@ -51,7 +51,6 @@
             $('#formCreate').removeClass('hidden');
             $('#UploadFile').removeClass('hidden');
             $('#AdImg').addClass('hidden');
-            $('#btnSave').attr('disabled', true);
             $('#txtCensorStatus').html('<span class="badge bg-black" style="font-size:15px;">Chưa kiểm duyệt</span>');
             $.ajax({
                 type: 'GET',
@@ -363,19 +362,20 @@
                     case general.censorStatus.Uncensored:
                         _color = 'black';
                         _status = 'Chưa kiểm duyệt';
-                        $('#formCensor').addClass('hidden');
+                        $('#formCensor').removeClass('hidden');
+                        $('#formAccountingCensor').addClass('hidden');
                         break;
                     case general.censorStatus.AccountingCensored:
                         _color = 'orange';
                         _status = 'Kế toán đã kiểm duyệt';
                         $('#formAccountingCensor').addClass('hidden');
-                        $('#formCensor').removeClass('hidden');
+                        $('#formCensor').addClass('hidden');
                         break;
                     case general.censorStatus.ContentCensored:
                         _color = 'green';
                         _status = 'Đã kiểm duyệt nội dung';
                         $('#formCensor').addClass('hidden');
-                        $('#formAccountingCensor').addClass('hidden');
+                        $('#formAccountingCensor').removeClass('hidden');
                         break;
                     case general.censorStatus.Unqualified:
                         _color = 'red';

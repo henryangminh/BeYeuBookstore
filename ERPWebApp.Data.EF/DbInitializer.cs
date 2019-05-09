@@ -56,7 +56,7 @@ namespace BeYeuBookstore.Data.EF
 
                       new Function() {KeyId = "MerchantContractItem",Name = "Hợp đồng với nhà cung cấp",ParentId = "ContractItem",SortOrder = 1,Status = Status.Active,URL = "/MerchantContract",IconCss = "fa-chevron-down"  },
                       new Function() {KeyId = "AdvertiseContractItem",Name = "Hợp đồng quảng cáo",ParentId = "ContractItem",SortOrder = 2,Status = Status.Active,URL = "/AdvertiseContract",IconCss = "fa-clone"  },
-
+    
                 });
             }
             try
@@ -86,50 +86,50 @@ namespace BeYeuBookstore.Data.EF
                 {
                     Name = "Merchant",
                     NormalizedName = "Nhà bán sách",
-                    Description = "Thằng bán sách"
+                    Description = "Nhà cung cấp sách"
                 });
                 await _roleManager.CreateAsync(new Role()
                 {
                     Name = "Advertiser",
                     NormalizedName = "Người quảng cáo",
-                    Description = "Thằng đăng quảng cáo"
+                    Description = "Bên đăng ký quảng cáo"
                 });
                 await _roleManager.CreateAsync(new Role()
                 {
                     Name = "WebMaster",
                     NormalizedName = "Full quyền WebMaster",
-                    Description = "Thằng WM full quyền"
+                    Description = "Thằng full quyền"
                 });
                 await _roleManager.CreateAsync(new Role()
                 {
                     Name = "WebMaster_Accountant",
                     NormalizedName = "Kế toán_WebMaster",
-                    Description = "Thằng kế toán trong WM"
+                    Description = "Thằng kế toán"
                 });
                 await _roleManager.CreateAsync(new Role()
                 {
                     Name = "test",
                     NormalizedName = "nhóm test ",
-                    Description = "full chức năng tiện cho qua trình test. sẽ bị xóa trước khi chạy thực tế."
+                    Description = "full chức năng tiện cho quá trình test. sẽ bị xóa trước khi chạy thực tế."
                 });
                 await _roleManager.CreateAsync(new Role()
                 {
                     Name = "WebMaster_AdvertiserCensor",
                     NormalizedName = "Kiểm duyệt Advertiser_WebMaster",
-                    Description = "Thằng kiểm duyệt quảng cáo trong WM"
+                    Description = "Thằng kiểm duyệt quảng cáo"
                 });
                 await _roleManager.CreateAsync(new Role()
                 {
                     Name = "WebMaster_Admin",
                     NormalizedName = "Admin_WebMaster",
-                    Description = "Thằng Admin ký hợp đồng với bên Merchant"
+                    Description = "Thằng Admin quản lý hợp đồng"
                 });
              
                 await _roleManager.CreateAsync(new Role()
                 {
                     Name = "WebMaster_MerchantCensor",
                     NormalizedName = "Kiểm duyệt Merchant_WebMaster",
-                    Description = "Thằng kiểm duyệt merchant trong WM"
+                    Description = "Thằng kiểm duyệt Merchant"
                 });
                 
 
@@ -244,7 +244,7 @@ namespace BeYeuBookstore.Data.EF
                 //tạo user kế toán bên webmaster
                 result = _userManager.CreateAsync(new User()
                 {
-                    UserName = "hippore115@gmail.com",
+                    UserName = "accountant@gmail.com",
                     FullName = "Bé Yêu Accountant",
                     Email = "hippore115@gmail.com",
                     DateCreated = DateTime.Now,
@@ -255,7 +255,7 @@ namespace BeYeuBookstore.Data.EF
                 }, CommonConstants.DefaultPW).Result;
                 if (result.Succeeded)
                 {
-                    var user = await _userManager.FindByNameAsync("hippore115@gmail.com"); // tim user 
+                    var user = await _userManager.FindByNameAsync("accountant@gmail.com"); // tim user 
                     await _userManager.AddToRoleAsync(user, "WebMaster_Accountant"); // add vao role accountant
                     _context.WebMasters.Add(new WebMaster(){ UserFK = user.Id, WebMasterTypeFK = Const_WebmasterType.Accountant });
                 }
@@ -263,7 +263,7 @@ namespace BeYeuBookstore.Data.EF
                 //tạo user kiểm duyệt quảng cáo
                 result = _userManager.CreateAsync(new User()
                 {
-                    UserName = "hippore116@gmail.com",
+                    UserName = "adcensor@gmail.com",
                     FullName = "Bé Yêu AdCensor",
                     Email = "hippore116@gmail.com",
                     DateCreated = DateTime.Now,
@@ -274,7 +274,7 @@ namespace BeYeuBookstore.Data.EF
                 }, CommonConstants.DefaultPW).Result;
                 if (result.Succeeded)
                 {
-                    var user = await _userManager.FindByNameAsync("hippore116@gmail.com"); // tim user 
+                    var user = await _userManager.FindByNameAsync("adcensor@gmail.com"); // tim user 
                     await _userManager.AddToRoleAsync(user, "WebMaster_AdvertiserCensor"); // add vao role 
                     _context.WebMasters.Add(new WebMaster() { WebMasterTypeFK = Const_WebmasterType.AdCensor, UserFK = user.Id });
                 }
@@ -282,7 +282,7 @@ namespace BeYeuBookstore.Data.EF
                 //tạo user Admin bên webmaster
                 result = _userManager.CreateAsync(new User()
                 {
-                    UserName = "hippore117@gmail.com",
+                    UserName = "saleadmin@gmail.com",
                     FullName = "Bé Yêu Admin",
                     Email = "hippore117@gmail.com",
                     DateCreated = DateTime.Now,
@@ -293,7 +293,7 @@ namespace BeYeuBookstore.Data.EF
                 }, CommonConstants.DefaultPW).Result;
                 if (result.Succeeded)
                 {
-                    var user = await _userManager.FindByNameAsync("hippore117@gmail.com"); // tim user 
+                    var user = await _userManager.FindByNameAsync("saleadmin@gmail.com"); // tim user 
                     await _userManager.AddToRoleAsync(user, "WebMaster_Admin"); // add vao role 
                     _context.WebMasters.Add(new WebMaster() { WebMasterTypeFK = Const_WebmasterType.Admin, UserFK = user.Id });
                 }
@@ -301,7 +301,7 @@ namespace BeYeuBookstore.Data.EF
                 //tạo user kiểm duyệt merchant bên webmaster
                 result = _userManager.CreateAsync(new User()
                 {
-                    UserName = "hippore118@gmail.com",
+                    UserName = "merchantcensor@gmail.com",
                     FullName = "Bé Yêu MerchantCensor",
                     Email = "hippore118@gmail.com",
                     DateCreated = DateTime.Now,
@@ -312,7 +312,7 @@ namespace BeYeuBookstore.Data.EF
                 }, CommonConstants.DefaultPW).Result;
                 if (result.Succeeded)
                 {
-                    var user = await _userManager.FindByNameAsync("hippore118@gmail.com"); // tim user 
+                    var user = await _userManager.FindByNameAsync("merchantcensor@gmail.com"); // tim user 
                     await _userManager.AddToRoleAsync(user, "WebMaster_MerchantCensor"); // add vao role 
                     _context.WebMasters.Add(new WebMaster() { WebMasterTypeFK = Const_WebmasterType.MerchantCensor, UserFK = user.Id });
                 }
@@ -450,7 +450,7 @@ namespace BeYeuBookstore.Data.EF
                 {
                     var user = await _userManager.FindByNameAsync("butkimlong@gmail.com"); // tim user 
                     await _userManager.AddToRoleAsync(user, "Advertiser"); // add vao role 
-                    _context.Advertisers.Add(new Advertiser() { UserFK = user.Id, BrandName = "Bút Kim Long", UrlToBrand = "butkimlong.com.vn" });
+                    _context.Advertisers.Add(new Advertiser() { UserFK = user.Id, BrandName = "Bút Kim Long", UrlToBrand = "butkimlong.com.vn", Status = Status.Active });
                 }
 
                 result = _userManager.CreateAsync(new User()
@@ -468,7 +468,7 @@ namespace BeYeuBookstore.Data.EF
                 {
                     var user = await _userManager.FindByNameAsync("viethung@gmail.com"); // tim user 
                     await _userManager.AddToRoleAsync(user, "Advertiser"); // add vao role 
-                    _context.Advertisers.Add(new Advertiser() { UserFK = user.Id, BrandName = "Bao Sách Viết Hưng", UrlToBrand = "bsviethung.com.vn" });
+                    _context.Advertisers.Add(new Advertiser() { UserFK = user.Id, BrandName = "Bao Sách Viết Hưng", UrlToBrand = "bsviethung.com.vn", Status = Status.InActive });
                 }
 
                 result = _userManager.CreateAsync(new User()
@@ -486,7 +486,7 @@ namespace BeYeuBookstore.Data.EF
                 {
                     var user = await _userManager.FindByNameAsync("phongzu@gmail.com"); // tim user 
                     await _userManager.AddToRoleAsync(user, "Advertiser"); // add vao role 
-                    _context.Advertisers.Add(new Advertiser() { UserFK = user.Id, BrandName = "Phong Vũ", UrlToBrand = "phongvu.com.vn" });
+                    _context.Advertisers.Add(new Advertiser() { UserFK = user.Id, BrandName = "Phong Vũ", UrlToBrand = "phongvu.com.vn",  Status = Status.Active });
                 }
 
                 result = _userManager.CreateAsync(new User()
@@ -504,7 +504,7 @@ namespace BeYeuBookstore.Data.EF
                 {
                     var user = await _userManager.FindByNameAsync("tiki@gmail.com"); // tim user 
                     await _userManager.AddToRoleAsync(user, "Advertiser"); // add vao role 
-                    _context.Advertisers.Add(new Advertiser() { UserFK = user.Id, BrandName = "Tiki", UrlToBrand = "tiki.vn" });
+                    _context.Advertisers.Add(new Advertiser() { UserFK = user.Id, BrandName = "Tiki", UrlToBrand = "tiki.vn", Status = Status.Active });
                 }
                 #endregion
 

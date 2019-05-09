@@ -4,7 +4,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using BeYeuBookstore.Application.Interfaces;
 using BeYeuBookstore.Application.ViewModels;
+using BeYeuBookstore.Authorization;
 using BeYeuBookstore.Infrastructure.Interfaces;
+using BeYeuBookstore.Utilities.Constants;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
@@ -16,10 +18,11 @@ namespace BeYeuBookstore.Controllers
     {
 
         IBookCategoryService _bookCategoryService;
+        IAuthorizationService _authorizationService;
         IUnitOfWork _unitOfWork;
-        public BookCategoryController(IBookCategoryService bookCategoryService, IUnitOfWork unitOfWork)
+        public BookCategoryController(IAuthorizationService authorizationService, IBookCategoryService bookCategoryService, IUnitOfWork unitOfWork)
         {
-
+            _authorizationService = authorizationService;
             _bookCategoryService = bookCategoryService;
             _unitOfWork = unitOfWork;
         }
@@ -27,6 +30,11 @@ namespace BeYeuBookstore.Controllers
         [Authorize]
         public IActionResult Index()
         {
+            var temp = Task.Run(() => _authorizationService.AuthorizeAsync(User, Const_FunctionId.BookCategory, Operations.Read));
+            temp.Wait();
+            //check truy cập
+            if (temp.Result.Succeeded == false)
+                return new RedirectResult("/Home/Index");
             return View();
         }
 
