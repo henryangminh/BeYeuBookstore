@@ -1,0 +1,864 @@
+2019-05-09T19:18:22.7413229+07:00 0HLMKF1MRE75G:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:55735/   (ca22a1cb)
+2019-05-09T19:18:22.7413223+07:00 0HLMKF1MRE75H:00000001 [INF] Request starting HTTP/1.1 DEBUG http://localhost:55735/  0 (ca22a1cb)
+2019-05-09T19:18:22.9713981+07:00 0HLMKF1MRE75H:00000001 [INF] Request finished in 391.8239ms 200  (791a596a)
+2019-05-09T19:18:24.7149072+07:00 0HLMKF1MRE75G:00000001 [INF] Route matched with "{action = \"Index\", controller = \"BeyeuBookstore\", area = \"\"}". Executing action "BeYeuBookstore.Controllers.BeyeuBookstoreController.Index (BeYeuBookstore)" (a44c0341)
+2019-05-09T19:18:24.9529316+07:00 0HLMKF1MRE75G:00000001 [INF] Executing action method "BeYeuBookstore.Controllers.BeyeuBookstoreController.Index (BeYeuBookstore)" - Validation state: Valid (dad538d7)
+2019-05-09T19:18:24.9748635+07:00 0HLMKF1MRE75G:00000001 [INF] Executed action method "BeYeuBookstore.Controllers.BeyeuBookstoreController.Index (BeYeuBookstore)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 2.4564ms. (50a9e262)
+2019-05-09T19:18:25.0684873+07:00 0HLMKF1MRE75G:00000001 [INF] Executing ViewResult, running view "Index". (c83d0e25)
+2019-05-09T19:18:25.7664804+07:00 0HLMKF1MRE75G:00000001 [INF] Executed ViewResult - view "Index" executed in 747.6981ms. (f66409e9)
+2019-05-09T19:18:25.7812796+07:00 0HLMKF1MRE75G:00000001 [INF] Executed action "BeYeuBookstore.Controllers.BeyeuBookstoreController.Index (BeYeuBookstore)" in 1052.0895ms (afa2e885)
+2019-05-09T19:18:27.1228205+07:00 0HLMKF1MRE75G:00000001 [INF] Request finished in 4537.2856ms 200 text/html; charset=utf-8 (791a596a)
+2019-05-09T19:18:27.1635363+07:00 0HLMKF1MRE75K:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:55735/beyeubookstore/css/meanmenu.min.css   (ca22a1cb)
+2019-05-09T19:18:27.2070828+07:00 0HLMKF1MRE75G:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:55735/beyeubookstore/css/flexslider.css   (ca22a1cb)
+2019-05-09T19:18:27.2256858+07:00 0HLMKF1MRE75L:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:55735/beyeubookstore/css/owl.carousel.css   (ca22a1cb)
+2019-05-09T19:18:27.2474167+07:00 0HLMKF1MRE75I:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:55735/beyeubookstore/css/animate.css   (ca22a1cb)
+2019-05-09T19:18:27.2556940+07:00 0HLMKF1MRE75J:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:55735/beyeubookstore/css/font-awesome.min.css   (ca22a1cb)
+2019-05-09T19:18:27.3079536+07:00 0HLMKF1MRE75G:00000002 [INF] The file "/beyeubookstore/css/flexslider.css" was not modified (f1f8d725)
+2019-05-09T19:18:27.3245517+07:00 0HLMKF1MRE75K:00000001 [INF] The file "/beyeubookstore/css/meanmenu.min.css" was not modified (f1f8d725)
+2019-05-09T19:18:27.3496242+07:00 0HLMKF1MRE75G:00000002 [INF] Request finished in 177.9178ms 304 text/css (791a596a)
+2019-05-09T19:18:27.3570789+07:00 0HLMKF1MRE75K:00000001 [INF] Request finished in 206.3373ms 304 text/css (791a596a)
+2019-05-09T19:18:27.3974323+07:00 0HLMKF1MRE75L:00000001 [INF] The file "/beyeubookstore/css/owl.carousel.css" was not modified (f1f8d725)
+2019-05-09T19:18:27.4114742+07:00 0HLMKF1MRE75H:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:55735/beyeubookstore/css/bootstrap.min.css   (ca22a1cb)
+2019-05-09T19:18:27.4260219+07:00 0HLMKF1MRE75J:00000001 [INF] The file "/beyeubookstore/css/font-awesome.min.css" was not modified (f1f8d725)
+2019-05-09T19:18:27.5445623+07:00 0HLMKF1MRE75L:00000001 [INF] Request finished in 278.7646ms 304 text/css (791a596a)
+2019-05-09T19:18:27.6496849+07:00 0HLMKF1MRE75H:00000002 [INF] The file "/beyeubookstore/css/bootstrap.min.css" was not modified (f1f8d725)
+2019-05-09T19:18:28.2274314+07:00 0HLMKF1MRE75G:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:55735/beyeubookstore/css/chosen.min.css   (ca22a1cb)
+2019-05-09T19:18:28.2429588+07:00 0HLMKF1MRE75H:00000002 [INF] Request finished in 272.2229ms 304 text/css (791a596a)
+2019-05-09T19:18:28.2684916+07:00 0HLMKF1MRE75G:00000003 [INF] The file "/beyeubookstore/css/chosen.min.css" was not modified (f1f8d725)
+2019-05-09T19:18:28.3178778+07:00 0HLMKF1MRE75G:00000003 [INF] Request finished in 656.291ms 304 text/css (791a596a)
+2019-05-09T19:18:28.3300275+07:00 0HLMKF1MRE75L:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:55735/beyeubookstore/css/responsive.css   (ca22a1cb)
+2019-05-09T19:18:28.3491787+07:00 0HLMKF1MRE75K:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:55735/beyeubookstore/css/style.css   (ca22a1cb)
+2019-05-09T19:18:28.3565692+07:00 0HLMKF1MRE75L:00000002 [INF] The file "/beyeubookstore/css/responsive.css" was not modified (f1f8d725)
+2019-05-09T19:18:28.3774043+07:00 0HLMKF1MRE75H:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:55735/beyeubookstore/js/vendor/jquery-1.12.0.min.js   (ca22a1cb)
+2019-05-09T19:18:28.3909885+07:00 0HLMKF1MRE75K:00000002 [INF] The file "/beyeubookstore/css/style.css" was not modified (f1f8d725)
+2019-05-09T19:18:28.4085560+07:00 0HLMKF1MRE75H:00000003 [INF] The file "/beyeubookstore/js/vendor/jquery-1.12.0.min.js" was not modified (f1f8d725)
+2019-05-09T19:18:28.4139648+07:00 0HLMKF1MRE75L:00000002 [INF] Request finished in 71.6905ms 304 text/css (791a596a)
+2019-05-09T19:18:28.4507284+07:00 0HLMKF1MRE75K:00000002 [INF] Request finished in 79.1299ms 304 text/css (791a596a)
+2019-05-09T19:18:28.4562463+07:00 0HLMKF1MRE75H:00000003 [INF] Request finished in 59.3445ms 304 application/javascript (791a596a)
+2019-05-09T19:18:28.5558433+07:00 0HLMKF1MRE75G:00000004 [INF] Request starting HTTP/1.1 GET http://localhost:55735/beyeubookstore/js/bootstrap.min.js   (ca22a1cb)
+2019-05-09T19:18:28.5618202+07:00 0HLMKF1MRE75H:00000004 [INF] Request starting HTTP/1.1 GET http://localhost:55735/beyeubookstore/js/wow.min.js   (ca22a1cb)
+2019-05-09T19:18:28.5678168+07:00 0HLMKF1MRE75L:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:55735/beyeubookstore/js/owl.carousel.min.js   (ca22a1cb)
+2019-05-09T19:18:28.5930030+07:00 0HLMKF1MRE75G:00000004 [INF] The file "/beyeubookstore/js/bootstrap.min.js" was not modified (f1f8d725)
+2019-05-09T19:18:28.5997865+07:00 0HLMKF1MRE75H:00000004 [INF] The file "/beyeubookstore/js/wow.min.js" was not modified (f1f8d725)
+2019-05-09T19:18:28.6077527+07:00 0HLMKF1MRE75L:00000003 [INF] The file "/beyeubookstore/js/owl.carousel.min.js" was not modified (f1f8d725)
+2019-05-09T19:18:28.6301712+07:00 0HLMKF1MRE75H:00000004 [INF] Request finished in 73.2717ms 304 application/javascript (791a596a)
+2019-05-09T19:18:28.6535337+07:00 0HLMKF1MRE75L:00000003 [INF] Request finished in 75.4087ms 304 application/javascript (791a596a)
+2019-05-09T19:18:28.6623346+07:00 0HLMKF1MRE75G:00000004 [INF] Request finished in 123.0054ms 304 application/javascript (791a596a)
+2019-05-09T19:18:28.7143844+07:00 0HLMKF1MRE75K:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:55735/beyeubookstore/js/jquery.meanmenu.js   (ca22a1cb)
+2019-05-09T19:18:28.7252940+07:00 0HLMKF1MRE75J:00000001 [INF] Request finished in 310.1004ms 304 text/css (791a596a)
+2019-05-09T19:18:28.7465081+07:00 0HLMKF1MRE75K:00000003 [INF] The file "/beyeubookstore/js/jquery.meanmenu.js" was not modified (f1f8d725)
+2019-05-09T19:18:28.7699682+07:00 0HLMKF1MRE75G:00000005 [INF] Request starting HTTP/1.1 GET http://localhost:55735/beyeubookstore/js/jquery.parallax-1.1.3.js   (ca22a1cb)
+2019-05-09T19:18:28.7757501+07:00 0HLMKF1MRE75K:00000003 [INF] Request finished in 96.1889ms 304 application/javascript (791a596a)
+2019-05-09T19:18:28.8093473+07:00 0HLMKF1MRE75G:00000005 [INF] The file "/beyeubookstore/js/jquery.parallax-1.1.3.js" was not modified (f1f8d725)
+2019-05-09T19:18:28.8147296+07:00 0HLMKF1MRE75J:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:55735/images/img/logo/3.png   (ca22a1cb)
+2019-05-09T19:18:28.8219107+07:00 0HLMKF1MRE75H:00000005 [INF] Request starting HTTP/1.1 GET http://localhost:55735/beyeubookstore/js/jquery.countdown.min.js   (ca22a1cb)
+2019-05-09T19:18:28.8462832+07:00 0HLMKF1MRE75G:00000005 [INF] Request finished in 94.4745ms 304 application/javascript (791a596a)
+2019-05-09T19:18:28.8540489+07:00 0HLMKF1MRE75H:00000005 [INF] The file "/beyeubookstore/js/jquery.countdown.min.js" was not modified (f1f8d725)
+2019-05-09T19:18:28.8607257+07:00 0HLMKF1MRE75J:00000002 [INF] The file "/images/img/logo/3.png" was not modified (f1f8d725)
+2019-05-09T19:18:28.8780412+07:00 0HLMKF1MRE75H:00000005 [INF] Request finished in 65.3225ms 304 application/javascript (791a596a)
+2019-05-09T19:18:28.9475327+07:00 0HLMKF1MRE75J:00000002 [INF] Request finished in 107.8221ms 304 image/png (791a596a)
+2019-05-09T19:18:28.9831707+07:00 0HLMKF1MRE75L:00000004 [INF] Request starting HTTP/1.1 GET http://localhost:55735/beyeubookstore/js/jquery.flexslider.js   (ca22a1cb)
+2019-05-09T19:18:29.0195918+07:00 0HLMKF1MRE75K:00000004 [INF] Request starting HTTP/1.1 GET http://localhost:55735/beyeubookstore/js/jquery.counterup.min.js   (ca22a1cb)
+2019-05-09T19:18:29.0247597+07:00 0HLMKF1MRE75L:00000004 [INF] The file "/beyeubookstore/js/jquery.flexslider.js" was not modified (f1f8d725)
+2019-05-09T19:18:29.0323380+07:00 0HLMKF1MRE75J:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:55735/beyeubookstore/js/plugins.js   (ca22a1cb)
+2019-05-09T19:18:29.0528893+07:00 0HLMKF1MRE75L:00000004 [INF] Request finished in 146.664ms 304 application/javascript (791a596a)
+2019-05-09T19:18:29.0563475+07:00 0HLMKF1MRE75I:00000001 [INF] The file "/beyeubookstore/css/animate.css" was not modified (f1f8d725)
+2019-05-09T19:18:29.0834859+07:00 0HLMKF1MRE75I:00000001 [INF] Request finished in 1943.3305ms 304 text/css (791a596a)
+2019-05-09T19:18:29.1000498+07:00 0HLMKF1MRE75G:00000006 [INF] Request starting HTTP/1.1 GET http://localhost:55735/beyeubookstore/js/chosen.jquery.min.js   (ca22a1cb)
+2019-05-09T19:18:29.1530418+07:00 0HLMKF1MRE75G:00000006 [INF] The file "/beyeubookstore/js/chosen.jquery.min.js" was not modified (f1f8d725)
+2019-05-09T19:18:29.1611872+07:00 0HLMKF1MRE75H:00000006 [INF] Request starting HTTP/1.1 GET http://localhost:55735/beyeubookstore/js/waypoints.min.js   (ca22a1cb)
+2019-05-09T19:18:29.1855194+07:00 0HLMKF1MRE75G:00000006 [INF] Request finished in 81.5728ms 304 application/javascript (791a596a)
+2019-05-09T19:18:29.1933957+07:00 0HLMKF1MRE75H:00000006 [INF] The file "/beyeubookstore/js/waypoints.min.js" was not modified (f1f8d725)
+2019-05-09T19:18:29.2768276+07:00 0HLMKF1MRE75H:00000006 [INF] Request finished in 71.7663ms 304 application/javascript (791a596a)
+2019-05-09T19:18:29.3409014+07:00 0HLMKF1MRE75K:00000004 [INF] Sending file. Request path: '"/beyeubookstore/js/jquery.counterup.min.js"'. Physical path: '"D:\Documents\TM\ERPWebApp\wwwroot\beyeubookstore\js\jquery.counterup.min.js"' (27b0a520)
+2019-05-09T19:18:29.3863007+07:00 0HLMKF1MRE75J:00000003 [INF] Sending file. Request path: '"/beyeubookstore/js/plugins.js"'. Physical path: '"D:\Documents\TM\ERPWebApp\wwwroot\beyeubookstore\js\plugins.js"' (27b0a520)
+2019-05-09T19:18:29.4061057+07:00 0HLMKF1MRE75K:00000004 [INF] Request finished in 363.3456ms 200 application/javascript (791a596a)
+2019-05-09T19:18:29.4120572+07:00 0HLMKF1MRE75I:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:55735/lib/jQuery-Mask-Plugin/src/jquery.mask.js   (ca22a1cb)
+2019-05-09T19:18:29.4425435+07:00 0HLMKF1MRE75J:00000003 [INF] Request finished in 403.3701ms 200 application/javascript (791a596a)
+2019-05-09T19:18:29.4674492+07:00 0HLMKF1MRE75K:00000005 [INF] Request starting HTTP/1.1 GET http://localhost:55735/beyeubookstore/js/main.js   (ca22a1cb)
+2019-05-09T19:18:29.5020993+07:00 0HLMKF1MRE75J:00000004 [INF] Request starting HTTP/1.1 GET http://localhost:55735/lib/popper.js/dist/umd/popper.js   (ca22a1cb)
+2019-05-09T19:18:29.5652082+07:00 0HLMKF1MRE75K:00000005 [INF] The file "/beyeubookstore/js/main.js" was not modified (f1f8d725)
+2019-05-09T19:18:29.5766255+07:00 0HLMKF1MRE75G:00000007 [INF] Request starting HTTP/1.1 GET http://localhost:55735/lib/jquery-ui/jquery-ui.js   (ca22a1cb)
+2019-05-09T19:18:29.8645348+07:00 0HLMKF1MRE75L:00000005 [INF] Request starting HTTP/1.1 GET http://localhost:55735/lib/jquery/dist/jquery.js   (ca22a1cb)
+2019-05-09T19:18:29.9484738+07:00 0HLMKF1MRE75K:00000005 [INF] Request finished in 145.4212ms 304 application/javascript (791a596a)
+2019-05-09T19:18:30.2406458+07:00 0HLMKF1MRE75I:00000002 [INF] Sending file. Request path: '"/lib/jQuery-Mask-Plugin/src/jquery.mask.js"'. Physical path: '"D:\Documents\TM\ERPWebApp\wwwroot\lib\jQuery-Mask-Plugin\src\jquery.mask.js"' (27b0a520)
+2019-05-09T19:18:30.3762062+07:00 0HLMKF1MRE75I:00000002 [INF] Request finished in 867.4109ms 200 application/javascript (791a596a)
+2019-05-09T19:18:30.3908931+07:00 0HLMKF1MRE75K:00000006 [INF] Request starting HTTP/1.1 GET http://localhost:55735/beyeubookstore/fonts/fontawesome-webfont3295.woff2?v=4.5.0   (ca22a1cb)
+2019-05-09T19:18:30.4421884+07:00 0HLMKF1MRE75K:00000006 [INF] The file "/beyeubookstore/fonts/fontawesome-webfont3295.woff2" was not modified (f1f8d725)
+2019-05-09T19:18:30.4474474+07:00 0HLMKF1MRE75I:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:55735/images/img/icon-img/service-2.png   (ca22a1cb)
+2019-05-09T19:18:30.4751489+07:00 0HLMKF1MRE75J:00000004 [INF] Sending file. Request path: '"/lib/popper.js/dist/umd/popper.js"'. Physical path: '"D:\Documents\TM\ERPWebApp\wwwroot\lib\popper.js\dist\umd\popper.js"' (27b0a520)
+2019-05-09T19:18:30.5100890+07:00 0HLMKF1MRE75K:00000006 [INF] Request finished in 220.9707ms 304 font/woff2 (791a596a)
+2019-05-09T19:18:30.5227152+07:00 0HLMKF1MRE75J:00000004 [INF] Request finished in 1017.8297ms 200 application/javascript (791a596a)
+2019-05-09T19:18:30.5630608+07:00 0HLMKF1MRE75I:00000003 [INF] Sending file. Request path: '"/images/img/icon-img/service-2.png"'. Physical path: '"D:\Documents\TM\ERPWebApp\wwwroot\images\img\icon-img\service-2.png"' (27b0a520)
+2019-05-09T19:18:30.5708852+07:00 0HLMKF1MRE75K:00000007 [INF] Request starting HTTP/1.1 GET http://localhost:55735/images/img/icon-img/service-3.png   (ca22a1cb)
+2019-05-09T19:18:30.5920383+07:00 0HLMKF1MRE75I:00000003 [INF] Request finished in 161.0201ms 200 image/png (791a596a)
+2019-05-09T19:18:30.5998943+07:00 0HLMKF1MRE75K:00000007 [INF] The file "/images/img/icon-img/service-3.png" was not modified (f1f8d725)
+2019-05-09T19:18:30.6332271+07:00 0HLMKF1MRE75K:00000007 [INF] Request finished in 64.2101ms 304 image/png (791a596a)
+2019-05-09T19:18:30.6410734+07:00 0HLMKF1MRE75G:00000007 [INF] Sending file. Request path: '"/lib/jquery-ui/jquery-ui.js"'. Physical path: '"D:\Documents\TM\ERPWebApp\wwwroot\lib\jquery-ui\jquery-ui.js"' (27b0a520)
+2019-05-09T19:18:30.6474100+07:00 0HLMKF1MRE75I:00000004 [INF] Request starting HTTP/1.1 GET http://localhost:55735/images/img/banner/20.jpg   (ca22a1cb)
+2019-05-09T19:18:30.6918517+07:00 0HLMKF1MRE75I:00000004 [INF] The file "/images/img/banner/20.jpg" was not modified (f1f8d725)
+2019-05-09T19:18:30.7052180+07:00 0HLMKF1MRE75G:00000007 [INF] Request finished in 1164.0502ms 200 application/javascript (791a596a)
+2019-05-09T19:18:30.7317891+07:00 0HLMKF1MRE75I:00000004 [INF] Request finished in 81.0074ms 304 image/jpeg (791a596a)
+2019-05-09T19:18:30.7386398+07:00 0HLMKF1MRE75K:00000008 [INF] Request starting HTTP/1.1 GET http://localhost:55735/images/img/banner/23.jpg   (ca22a1cb)
+2019-05-09T19:18:30.7795264+07:00 0HLMKF1MRE75G:00000008 [INF] Request starting HTTP/1.1 GET http://localhost:55735/images/img/banner/24.jpg   (ca22a1cb)
+2019-05-09T19:18:30.7882683+07:00 0HLMKF1MRE75L:00000005 [INF] Sending file. Request path: '"/lib/jquery/dist/jquery.js"'. Physical path: '"D:\Documents\TM\ERPWebApp\wwwroot\lib\jquery\dist\jquery.js"' (27b0a520)
+2019-05-09T19:18:30.7943957+07:00 0HLMKF1MRE75K:00000008 [INF] The file "/images/img/banner/23.jpg" was not modified (f1f8d725)
+2019-05-09T19:18:30.8163925+07:00 0HLMKF1MRE75L:00000005 [INF] Request finished in 1225.5574ms 200 application/javascript (791a596a)
+2019-05-09T19:18:30.8253040+07:00 0HLMKF1MRE75K:00000008 [INF] Request finished in 101.3962ms 304 image/jpeg (791a596a)
+2019-05-09T19:18:30.8916438+07:00 0HLMKF1MRE75G:00000008 [INF] The file "/images/img/banner/24.jpg" was not modified (f1f8d725)
+2019-05-09T19:18:30.9054183+07:00 0HLMKF1MRE75I:00000005 [INF] Request starting HTTP/1.1 GET http://localhost:55735/wwwroot/images/img/slider/8.jpg   (ca22a1cb)
+2019-05-09T19:18:30.9746136+07:00 0HLMKF1MRE75L:00000006 [INF] Request starting HTTP/1.1 GET http://localhost:55735/wwwroot/images/img/slider/7.jpg   (ca22a1cb)
+2019-05-09T19:18:30.9944915+07:00 0HLMKF1MRE75I:00000005 [INF] Request finished in 72.8472ms 404  (791a596a)
+2019-05-09T19:18:31.0109147+07:00 0HLMKF1MRE75G:00000008 [INF] Request finished in 165.0469ms 304 image/jpeg (791a596a)
+2019-05-09T19:18:31.0303676+07:00 0HLMKF1MRE75L:00000006 [INF] Request finished in 89.8709ms 404  (791a596a)
+2019-05-09T19:18:31.0785570+07:00 0HLMKF1MRE75J:00000005 [INF] Request starting HTTP/1.1 GET http://localhost:55735/images/img/icon-img/service-1.png   (ca22a1cb)
+2019-05-09T19:18:31.1101663+07:00 0HLMKF1MRE75K:00000009 [INF] Request starting HTTP/1.1 GET http://localhost:55735/lib/fastclick/lib/fastclick.js   (ca22a1cb)
+2019-05-09T19:18:31.1169723+07:00 0HLMKF1MRE75J:00000005 [INF] The file "/images/img/icon-img/service-1.png" was not modified (f1f8d725)
+2019-05-09T19:18:31.1269350+07:00 0HLMKF1MRE75I:00000006 [INF] Request starting HTTP/1.1 GET http://localhost:55735/lib/mustache/mustache.js   (ca22a1cb)
+2019-05-09T19:18:31.1499518+07:00 0HLMKF1MRE75K:00000009 [INF] The file "/lib/fastclick/lib/fastclick.js" was not modified (f1f8d725)
+2019-05-09T19:18:31.1782040+07:00 0HLMKF1MRE75J:00000005 [INF] Request finished in 435.3112ms 304 image/png (791a596a)
+2019-05-09T19:18:31.1898933+07:00 0HLMKF1MRE75I:00000006 [INF] The file "/lib/mustache/mustache.js" was not modified (f1f8d725)
+2019-05-09T19:18:31.1965914+07:00 0HLMKF1MRE75K:00000009 [INF] Request finished in 103.3649ms 304 application/javascript (791a596a)
+2019-05-09T19:18:31.2160686+07:00 0HLMKF1MRE75I:00000006 [INF] Request finished in 102.0032ms 304 application/javascript (791a596a)
+2019-05-09T19:18:31.2818021+07:00 0HLMKF1MRE75G:00000009 [INF] Request starting HTTP/1.1 GET http://localhost:55735/lib/twbs-pagination/jquery.twbsPagination.js   (ca22a1cb)
+2019-05-09T19:18:31.2949424+07:00 0HLMKF1MRE75L:00000007 [INF] Request starting HTTP/1.1 GET http://localhost:55735/lib/nprogress/nprogress.js   (ca22a1cb)
+2019-05-09T19:18:31.3214276+07:00 0HLMKF1MRE75G:00000009 [INF] The file "/lib/twbs-pagination/jquery.twbsPagination.js" was not modified (f1f8d725)
+2019-05-09T19:18:31.3271340+07:00 0HLMKF1MRE75L:00000007 [INF] The file "/lib/nprogress/nprogress.js" was not modified (f1f8d725)
+2019-05-09T19:18:31.3500196+07:00 0HLMKF1MRE75H:00000007 [INF] Request starting HTTP/1.1 GET http://localhost:55735/lib/bootstrap/dist/js/bootstrap.js   (ca22a1cb)
+2019-05-09T19:18:31.3750362+07:00 0HLMKF1MRE75G:00000009 [INF] Request finished in 105.4562ms 304 application/javascript (791a596a)
+2019-05-09T19:18:31.3865919+07:00 0HLMKF1MRE75L:00000007 [INF] Request finished in 96.781ms 304 application/javascript (791a596a)
+2019-05-09T19:18:31.4003115+07:00 0HLMKF1MRE75K:0000000A [INF] Request starting HTTP/1.1 GET http://localhost:55735/lib/chart.js/dist/Chart.js   (ca22a1cb)
+2019-05-09T19:18:31.4405134+07:00 0HLMKF1MRE75J:00000006 [INF] Request starting HTTP/1.1 GET http://localhost:55735/lib/jquery-sparkline/dist/jquery.sparkline.js   (ca22a1cb)
+2019-05-09T19:18:31.4459949+07:00 0HLMKF1MRE75K:0000000A [INF] The file "/lib/chart.js/dist/Chart.js" was not modified (f1f8d725)
+2019-05-09T19:18:31.4526085+07:00 0HLMKF1MRE75I:00000007 [INF] Request starting HTTP/1.1 GET http://localhost:55735/lib/jquery-validation/dist/jquery.validate.js   (ca22a1cb)
+2019-05-09T19:18:31.4813849+07:00 0HLMKF1MRE75J:00000006 [INF] The file "/lib/jquery-sparkline/dist/jquery.sparkline.js" was not modified (f1f8d725)
+2019-05-09T19:18:31.4884957+07:00 0HLMKF1MRE75K:0000000A [INF] Request finished in 96.0277ms 304 application/javascript (791a596a)
+2019-05-09T19:18:31.4995169+07:00 0HLMKF1MRE75I:00000007 [INF] The file "/lib/jquery-validation/dist/jquery.validate.js" was not modified (f1f8d725)
+2019-05-09T19:18:31.5073219+07:00 0HLMKF1MRE75J:00000006 [INF] Request finished in 84.2312ms 304 application/javascript (791a596a)
+2019-05-09T19:18:31.5410363+07:00 0HLMKF1MRE75I:00000007 [INF] Request finished in 86.5827ms 304 application/javascript (791a596a)
+2019-05-09T19:18:31.5726806+07:00 0HLMKF1MRE75H:00000007 [INF] The file "/lib/bootstrap/dist/js/bootstrap.js" was not modified (f1f8d725)
+2019-05-09T19:18:31.5844132+07:00 0HLMKF1MRE75G:0000000A [INF] Request starting HTTP/1.1 GET http://localhost:55735/lib/jquery-validation/dist/Localization/messages_vi.js   (ca22a1cb)
+2019-05-09T19:18:31.5962182+07:00 0HLMKF1MRE75L:00000008 [INF] Request starting HTTP/1.1 GET http://localhost:55735/lib/jquery-validation/dist/additional-methods.js   (ca22a1cb)
+2019-05-09T19:18:31.6084223+07:00 0HLMKF1MRE75K:0000000B [INF] Request starting HTTP/1.1 GET http://localhost:55735/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js   (ca22a1cb)
+2019-05-09T19:18:31.6352281+07:00 0HLMKF1MRE75G:0000000A [INF] The file "/lib/jquery-validation/dist/Localization/messages_vi.js" was not modified (f1f8d725)
+2019-05-09T19:18:31.6408010+07:00 0HLMKF1MRE75L:00000008 [INF] The file "/lib/jquery-validation/dist/additional-methods.js" was not modified (f1f8d725)
+2019-05-09T19:18:31.6463341+07:00 0HLMKF1MRE75K:0000000B [INF] The file "/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js" was not modified (f1f8d725)
+2019-05-09T19:18:31.6699384+07:00 0HLMKF1MRE75G:0000000A [INF] Request finished in 112.9251ms 304 application/javascript (791a596a)
+2019-05-09T19:18:31.6770398+07:00 0HLMKF1MRE75K:0000000B [INF] Request finished in 81.1425ms 304 application/javascript (791a596a)
+2019-05-09T19:18:31.6816797+07:00 0HLMKF1MRE75L:00000008 [INF] Request finished in 83.8389ms 304 application/javascript (791a596a)
+2019-05-09T19:18:31.7315887+07:00 0HLMKF1MRE75H:00000007 [INF] Request finished in 2094.4388ms 304 application/javascript (791a596a)
+2019-05-09T19:18:31.7949747+07:00 0HLMKF1MRE75I:00000008 [INF] Request starting HTTP/1.1 GET http://localhost:55735/lib/bootstrap-datetimepicker-master/js/bootstrap-datetimepicker.js   (ca22a1cb)
+2019-05-09T19:18:31.8030543+07:00 0HLMKF1MRE75J:00000007 [INF] Request starting HTTP/1.1 GET http://localhost:55735/lib/moment/moment.js   (ca22a1cb)
+2019-05-09T19:18:31.8358260+07:00 0HLMKF1MRE75L:00000009 [INF] Request starting HTTP/1.1 GET http://localhost:55735/lib/bootstrap-datetimepicker-master/js/locales/bootstrap-datetimepicker.vi.js   (ca22a1cb)
+2019-05-09T19:18:31.8426930+07:00 0HLMKF1MRE75I:00000008 [INF] The file "/lib/bootstrap-datetimepicker-master/js/bootstrap-datetimepicker.js" was not modified (f1f8d725)
+2019-05-09T19:18:31.8489841+07:00 0HLMKF1MRE75J:00000007 [INF] The file "/lib/moment/moment.js" was not modified (f1f8d725)
+2019-05-09T19:18:31.9012854+07:00 0HLMKF1MRE75L:00000009 [INF] The file "/lib/bootstrap-datetimepicker-master/js/locales/bootstrap-datetimepicker.vi.js" was not modified (f1f8d725)
+2019-05-09T19:18:31.9119074+07:00 0HLMKF1MRE75I:00000008 [INF] Request finished in 142.1107ms 304 application/javascript (791a596a)
+2019-05-09T19:18:31.9177107+07:00 0HLMKF1MRE75J:00000007 [INF] Request finished in 148.236ms 304 application/javascript (791a596a)
+2019-05-09T19:18:31.9459526+07:00 0HLMKF1MRE75L:00000009 [INF] Request finished in 133.111ms 304 application/javascript (791a596a)
+2019-05-09T19:18:32.0145029+07:00 0HLMKF1MRE75H:00000008 [INF] Request starting HTTP/1.1 GET http://localhost:55735/lib/bootstrap-datepicker/dist/locales/bootstrap-datepicker.vi.min.js   (ca22a1cb)
+2019-05-09T19:18:32.0527550+07:00 0HLMKF1MRE75G:0000000B [INF] Request starting HTTP/1.1 GET http://localhost:55735/lib/bootstrap-datepicker/dist/js/bootstrap-datepicker.js   (ca22a1cb)
+2019-05-09T19:18:32.0673794+07:00 0HLMKF1MRE75K:0000000C [INF] Request starting HTTP/1.1 GET http://localhost:55735/lib/notifyjs/dist/notify.js   (ca22a1cb)
+2019-05-09T19:18:32.0925288+07:00 0HLMKF1MRE75G:0000000B [INF] The file "/lib/bootstrap-datepicker/dist/js/bootstrap-datepicker.js" was not modified (f1f8d725)
+2019-05-09T19:18:32.1100632+07:00 0HLMKF1MRE75K:0000000C [INF] The file "/lib/notifyjs/dist/notify.js" was not modified (f1f8d725)
+2019-05-09T19:18:32.1188624+07:00 0HLMKF1MRE75L:0000000A [INF] Request starting HTTP/1.1 GET http://localhost:55735/lib/notifyjs/dist/styles/metro/notify-metro.js   (ca22a1cb)
+2019-05-09T19:18:32.1251632+07:00 0HLMKF1MRE75G:0000000B [INF] Request finished in 152.5334ms 304 application/javascript (791a596a)
+2019-05-09T19:18:32.1520980+07:00 0HLMKF1MRE75K:0000000C [INF] Request finished in 166.5196ms 304 application/javascript (791a596a)
+2019-05-09T19:18:32.1617131+07:00 0HLMKF1MRE75L:0000000A [INF] The file "/lib/notifyjs/dist/styles/metro/notify-metro.js" was not modified (f1f8d725)
+2019-05-09T19:18:32.3304383+07:00 0HLMKF1MRE75J:00000008 [INF] Request starting HTTP/1.1 GET http://localhost:55735/lib/bootbox/bootbox.js   (ca22a1cb)
+2019-05-09T19:18:32.3427733+07:00 0HLMKF1MRE75I:00000009 [INF] Request starting HTTP/1.1 GET http://localhost:55735/lib/ckeditor/ckeditor.js   (ca22a1cb)
+2019-05-09T19:18:32.3704918+07:00 0HLMKF1MRE75J:00000008 [INF] The file "/lib/bootbox/bootbox.js" was not modified (f1f8d725)
+2019-05-09T19:18:32.3767270+07:00 0HLMKF1MRE75L:0000000A [INF] Request finished in 147.3495ms 304 application/javascript (791a596a)
+2019-05-09T19:18:32.3856711+07:00 0HLMKF1MRE75I:00000009 [INF] The file "/lib/ckeditor/ckeditor.js" was not modified (f1f8d725)
+2019-05-09T19:18:32.4468385+07:00 0HLMKF1MRE75J:00000008 [INF] Request finished in 228.1384ms 304 application/javascript (791a596a)
+2019-05-09T19:18:32.4550259+07:00 0HLMKF1MRE75I:00000009 [INF] Request finished in 197.3125ms 304 application/javascript (791a596a)
+2019-05-09T19:18:32.4894777+07:00 0HLMKF1MRE75L:0000000B [INF] Request starting HTTP/1.1 GET http://localhost:55735/app/shared/general.js   (ca22a1cb)
+2019-05-09T19:18:32.5015667+07:00 0HLMKF1MRE75I:0000000A [INF] Request starting HTTP/1.1 GET http://localhost:55735/app/shared/beyeubookstore/vendor/modernizr-2.8.3.min.js   (ca22a1cb)
+2019-05-09T19:18:32.5153861+07:00 0HLMKF1MRE75J:00000009 [INF] Request starting HTTP/1.1 GET http://localhost:55735/app/shared/notificationgeneral.js   (ca22a1cb)
+2019-05-09T19:18:32.5228761+07:00 0HLMKF1MRE75H:00000008 [INF] The file "/lib/bootstrap-datepicker/dist/locales/bootstrap-datepicker.vi.min.js" was not modified (f1f8d725)
+2019-05-09T19:18:32.5429779+07:00 0HLMKF1MRE75L:0000000B [INF] The file "/app/shared/general.js" was not modified (f1f8d725)
+2019-05-09T19:18:32.5765340+07:00 0HLMKF1MRE75I:0000000A [INF] The file "/app/shared/beyeubookstore/vendor/modernizr-2.8.3.min.js" was not modified (f1f8d725)
+2019-05-09T19:18:32.5765785+07:00 0HLMKF1MRE75J:00000009 [INF] The file "/app/shared/notificationgeneral.js" was not modified (f1f8d725)
+2019-05-09T19:18:32.6464500+07:00 0HLMKF1MRE75J:00000009 [INF] Request finished in 97.1172ms 304 application/javascript (791a596a)
+2019-05-09T19:18:32.6532965+07:00 0HLMKF1MRE75I:0000000A [INF] Request finished in 107.0938ms 304 application/javascript (791a596a)
+2019-05-09T19:18:32.6903025+07:00 0HLMKF1MRE75L:0000000B [INF] Request finished in 105.3208ms 304 application/javascript (791a596a)
+2019-05-09T19:18:32.7040147+07:00 0HLMKF1MRE75I:0000000B [INF] Request starting HTTP/1.1 GET http://localhost:55735/images/img/icon-img/service-1-white.png   (ca22a1cb)
+2019-05-09T19:18:32.7105098+07:00 0HLMKF1MRE75J:0000000A [INF] Request starting HTTP/1.1 GET http://localhost:55735/images/img/icon-img/service-2-white.png   (ca22a1cb)
+2019-05-09T19:18:32.7307741+07:00 0HLMKF1MRE75I:0000000B [INF] The file "/images/img/icon-img/service-1-white.png" was not modified (f1f8d725)
+2019-05-09T19:18:32.7671919+07:00 0HLMKF1MRE75J:0000000A [INF] The file "/images/img/icon-img/service-2-white.png" was not modified (f1f8d725)
+2019-05-09T19:18:32.7946241+07:00 0HLMKF1MRE75I:0000000B [INF] Request finished in 62.11ms 304 image/png (791a596a)
+2019-05-09T19:18:32.8367595+07:00 0HLMKF1MRE75J:0000000A [INF] Request finished in 84.5234ms 304 image/png (791a596a)
+2019-05-09T19:18:32.8463728+07:00 0HLMKF1MRE75I:0000000C [INF] Request starting HTTP/1.1 GET http://localhost:55735/images/img/icon-img/service-3-white.png   (ca22a1cb)
+2019-05-09T19:18:32.8739771+07:00 0HLMKF1MRE75L:0000000C [INF] Request starting HTTP/1.1 GET http://localhost:55735/app/controllers/beyeubookstore/Index.js   (ca22a1cb)
+2019-05-09T19:18:32.8798147+07:00 0HLMKF1MRE75I:0000000C [INF] The file "/images/img/icon-img/service-3-white.png" was not modified (f1f8d725)
+2019-05-09T19:18:32.8899412+07:00 0HLMKF1MRE75J:0000000B [INF] Request starting HTTP/1.1 GET http://localhost:55735/images/img/banner/21.jpg   (ca22a1cb)
+2019-05-09T19:18:32.9320831+07:00 0HLMKF1MRE75I:0000000C [INF] Request finished in 71.141ms 304 image/png (791a596a)
+2019-05-09T19:18:32.9447012+07:00 0HLMKF1MRE75J:0000000B [INF] The file "/images/img/banner/21.jpg" was not modified (f1f8d725)
+2019-05-09T19:18:32.9666333+07:00 0HLMKF1MRE75L:0000000C [INF] Sending file. Request path: '"/app/controllers/beyeubookstore/Index.js"'. Physical path: '"D:\Documents\TM\ERPWebApp\wwwroot\app\controllers\beyeubookstore\Index.js"' (27b0a520)
+2019-05-09T19:18:32.9940228+07:00 0HLMKF1MRE75I:0000000D [INF] Request starting HTTP/1.1 GET http://localhost:55735/images/img/banner/5.jpg   (ca22a1cb)
+2019-05-09T19:18:33.0000868+07:00 0HLMKF1MRE75J:0000000B [INF] Request finished in 95.5073ms 304 image/jpeg (791a596a)
+2019-05-09T19:18:33.0066711+07:00 0HLMKF1MRE75L:0000000C [INF] Request finished in 235.9457ms 200 application/javascript (791a596a)
+2019-05-09T19:18:33.0135195+07:00 0HLMKF1MRE75H:00000008 [INF] Request finished in 738.7311ms 304 application/javascript (791a596a)
+2019-05-09T19:18:33.0313114+07:00 0HLMKF1MRE75I:0000000D [INF] The file "/images/img/banner/5.jpg" was not modified (f1f8d725)
+2019-05-09T19:18:33.0729875+07:00 0HLMKF1MRE75I:0000000D [INF] Request finished in 77.2229ms 304 image/jpeg (791a596a)
+2019-05-09T19:18:33.0798478+07:00 0HLMKF1MRE75L:0000000D [INF] Request starting HTTP/1.1 GET http://localhost:55735/beyeubookstore/css/img/banner/22.jpg   (ca22a1cb)
+2019-05-09T19:18:33.0964974+07:00 0HLMKF1MRE75H:00000009 [INF] Request starting HTTP/1.1 GET http://localhost:55735/client-side/Cart/cart.js   (ca22a1cb)
+2019-05-09T19:18:33.1310501+07:00 0HLMKF1MRE75L:0000000D [INF] Request finished in 39.9514ms 404  (791a596a)
+2019-05-09T19:18:33.1376509+07:00 0HLMKF1MRE75H:00000009 [INF] The file "/client-side/Cart/cart.js" was not modified (f1f8d725)
+2019-05-09T19:18:33.1468730+07:00 0HLMKF1MRE75G:0000000C [INF] Request starting HTTP/1.1 GET http://localhost:55735/admin-side/js/custom.js   (ca22a1cb)
+2019-05-09T19:18:33.1780933+07:00 0HLMKF1MRE75H:00000009 [INF] Request finished in 90.7677ms 304 application/javascript (791a596a)
+2019-05-09T19:18:33.1837837+07:00 0HLMKF1MRE75G:0000000C [INF] The file "/admin-side/js/custom.js" was not modified (f1f8d725)
+2019-05-09T19:18:33.2262142+07:00 0HLMKF1MRE75G:0000000C [INF] Request finished in 855.0956ms 304 application/javascript (791a596a)
+2019-05-09T19:18:33.2332398+07:00 0HLMKF1MRE75K:0000000D [INF] Request starting HTTP/1.1 GET http://localhost:55735/app/shared/BeYeuTheme.js   (ca22a1cb)
+2019-05-09T19:18:33.2507666+07:00 0HLMKF1MRE75K:0000000D [INF] The file "/app/shared/BeYeuTheme.js" was not modified (f1f8d725)
+2019-05-09T19:18:33.2740543+07:00 0HLMKF1MRE75K:0000000D [INF] Request finished in 941.8943ms 304 application/javascript (791a596a)
+2019-05-09T19:18:33.3905387+07:00 0HLMKF1MRE75J:0000000C [INF] Request starting HTTP/1.1 GET http://localhost:55735/Notification/GetByUserId   (ca22a1cb)
+2019-05-09T19:18:33.4755334+07:00 0HLMKF1MRE75L:0000000E [INF] Request starting HTTP/1.1 GET http://localhost:55735/BeyeuBookstore/GetAllQuantity?quantity=8   (ca22a1cb)
+2019-05-09T19:18:33.4823497+07:00 0HLMKF1MRE75I:0000000E [INF] Request starting HTTP/1.1 GET http://localhost:55735/Cart/GetCart   (ca22a1cb)
+2019-05-09T19:18:33.6391643+07:00 0HLMKF1MRE75I:0000000E [INF] Route matched with "{action = \"GetCart\", controller = \"Cart\", area = \"\"}". Executing action "BeYeuBookstore.Controllers.CartController.GetCart (BeYeuBookstore)" (a44c0341)
+2019-05-09T19:18:33.6511453+07:00 0HLMKF1MRE75L:0000000E [INF] Route matched with "{action = \"GetAllQuantity\", controller = \"BeyeuBookstore\", area = \"\"}". Executing action "BeYeuBookstore.Controllers.BeyeuBookstoreController.GetAllQuantity (BeYeuBookstore)" (a44c0341)
+2019-05-09T19:18:33.7330522+07:00 0HLMKF1MRE75J:0000000C [INF] Route matched with "{action = \"GetByUserId\", controller = \"Notification\", area = \"\"}". Executing action "BeYeuBookstore.Controllers.Construction.NotificationController.GetByUserId (BeYeuBookstore)" (a44c0341)
+2019-05-09T19:18:33.8166032+07:00 0HLMKF1MRE75H:0000000A [INF] Request starting HTTP/1.1 GET http://localhost:55735/BookCategory/GetAll   (ca22a1cb)
+2019-05-09T19:18:33.8350277+07:00 0HLMKF1MRE75I:0000000E [INF] Executing action method "BeYeuBookstore.Controllers.CartController.GetCart (BeYeuBookstore)" - Validation state: Valid (dad538d7)
+2019-05-09T19:18:33.8431440+07:00 0HLMKF1MRE75J:0000000C [INF] Executing action method "BeYeuBookstore.Controllers.Construction.NotificationController.GetByUserId (BeYeuBookstore)" - Validation state: Valid (dad538d7)
+2019-05-09T19:18:33.8721082+07:00 0HLMKF1MRE75H:0000000A [INF] Route matched with "{action = \"GetAll\", controller = \"BookCategory\", area = \"\"}". Executing action "BeYeuBookstore.Controllers.BookCategoryController.GetAll (BeYeuBookstore)" (a44c0341)
+2019-05-09T19:18:33.9710028+07:00 0HLMKF1MRE75I:0000000E [INF] Executed action method "BeYeuBookstore.Controllers.CartController.GetCart (BeYeuBookstore)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult" in 26.8383ms. (50a9e262)
+2019-05-09T19:18:33.9854059+07:00 0HLMKF1MRE75H:0000000A [INF] Executing action method "BeYeuBookstore.Controllers.BookCategoryController.GetAll (BeYeuBookstore)" - Validation state: Valid (dad538d7)
+2019-05-09T19:18:34.0000162+07:00 0HLMKF1MRE75J:0000000C [INF] Entity Framework Core "2.2.0-preview1-35029" initialized '"ERPDbContext"' using provider '"Pomelo.EntityFrameworkCore.MySql"' with options: "ServerVersion 8.0.13 MySql " (9958f5bb)
+2019-05-09T19:18:34.0325870+07:00 0HLMKF1MRE75H:0000000A [INF] Entity Framework Core "2.2.0-preview1-35029" initialized '"ERPDbContext"' using provider '"Pomelo.EntityFrameworkCore.MySql"' with options: "ServerVersion 8.0.13 MySql " (9958f5bb)
+2019-05-09T19:18:34.0828109+07:00 0HLMKF1MRE75I:0000000E [INF] Executing ObjectResult, writing value of type '"System.Collections.Generic.List`1[[BeYeuBookstore.Application.ViewModels.CartViewModel, BeYeuBookstore.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'. (8a1b66c8)
+2019-05-09T19:18:34.3121291+07:00 0HLMKF1MRE75L:0000000E [INF] Executing action method "BeYeuBookstore.Controllers.BeyeuBookstoreController.GetAllQuantity (BeYeuBookstore)" with arguments (["8"]) - Validation state: Valid (4e3479ed)
+2019-05-09T19:18:34.3703652+07:00 0HLMKF1MRE75I:0000000E [INF] Executed action "BeYeuBookstore.Controllers.CartController.GetCart (BeYeuBookstore)" in 677.1945ms (afa2e885)
+2019-05-09T19:18:34.3965065+07:00 0HLMKF1MRE75L:0000000E [INF] Entity Framework Core "2.2.0-preview1-35029" initialized '"ERPDbContext"' using provider '"Pomelo.EntityFrameworkCore.MySql"' with options: "ServerVersion 8.0.13 MySql " (9958f5bb)
+2019-05-09T19:18:34.4423165+07:00 0HLMKF1MRE75I:0000000E [INF] Request finished in 995.109ms 200 application/json; charset=utf-8 (791a596a)
+2019-05-09T19:18:36.8457678+07:00 0HLMKF1MRE75H:0000000A [ERR] An error occurred using the connection to database '"BeYeuBookstore"' on server '"localhost"'. (5fc3407c)
+MySql.Data.MySqlClient.MySqlException (0x80004005): Unable to connect to any of the specified MySQL hosts.
+   at MySqlConnector.Core.ServerSession.ConnectAsync(ConnectionSettings cs, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ServerSession.cs:line 322
+   at MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ConnectionPool.cs:line 112
+   at MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ConnectionPool.cs:line 141
+   at MySql.Data.MySqlClient.MySqlConnection.CreateSessionAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 405
+   at MySql.Data.MySqlClient.MySqlConnection.OpenAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 175
+   at MySql.Data.MySqlClient.MySqlConnection.Open() in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 161
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnection(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.BufferlessMoveNext(DbContext _, Boolean buffer)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.MoveNext()
+   at Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider._TrackEntities[TOut,TIn](IEnumerable`1 results, QueryContext queryContext, IList`1 entityTrackingInfos, IList`1 entityAccessors)+MoveNext()
+   at Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.MoveNext()
+2019-05-09T19:18:36.8866314+07:00 0HLMKF1MRE75L:0000000E [ERR] An error occurred using the connection to database '"BeYeuBookstore"' on server '"localhost"'. (5fc3407c)
+MySql.Data.MySqlClient.MySqlException (0x80004005): Unable to connect to any of the specified MySQL hosts.
+   at MySqlConnector.Core.ServerSession.ConnectAsync(ConnectionSettings cs, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ServerSession.cs:line 322
+   at MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ConnectionPool.cs:line 112
+   at MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ConnectionPool.cs:line 141
+   at MySql.Data.MySqlClient.MySqlConnection.CreateSessionAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 405
+   at MySql.Data.MySqlClient.MySqlConnection.OpenAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 175
+   at MySql.Data.MySqlClient.MySqlConnection.Open() in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 161
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnection(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.BufferlessMoveNext(DbContext _, Boolean buffer)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.MoveNext()
+   at Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider._TrackEntities[TOut,TIn](IEnumerable`1 results, QueryContext queryContext, IList`1 entityTrackingInfos, IList`1 entityAccessors)+MoveNext()
+   at Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.MoveNext()
+2019-05-09T19:18:37.0771560+07:00 0HLMKF1MRE75H:0000000A [ERR] An exception occurred in the database while iterating the results of a query for context type '"BeYeuBookstore.Data.EF.ERPDbContext"'."
+""MySql.Data.MySqlClient.MySqlException (0x80004005): Unable to connect to any of the specified MySQL hosts.
+   at MySqlConnector.Core.ServerSession.ConnectAsync(ConnectionSettings cs, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ServerSession.cs:line 322
+   at MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ConnectionPool.cs:line 112
+   at MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ConnectionPool.cs:line 141
+   at MySql.Data.MySqlClient.MySqlConnection.CreateSessionAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 405
+   at MySql.Data.MySqlClient.MySqlConnection.OpenAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 175
+   at MySql.Data.MySqlClient.MySqlConnection.Open() in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 161
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnection(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.BufferlessMoveNext(DbContext _, Boolean buffer)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.MoveNext()
+   at Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider._TrackEntities[TOut,TIn](IEnumerable`1 results, QueryContext queryContext, IList`1 entityTrackingInfos, IList`1 entityAccessors)+MoveNext()
+   at Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.MoveNext()" (64e2593c)
+MySql.Data.MySqlClient.MySqlException (0x80004005): Unable to connect to any of the specified MySQL hosts.
+   at MySqlConnector.Core.ServerSession.ConnectAsync(ConnectionSettings cs, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ServerSession.cs:line 322
+   at MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ConnectionPool.cs:line 112
+   at MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ConnectionPool.cs:line 141
+   at MySql.Data.MySqlClient.MySqlConnection.CreateSessionAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 405
+   at MySql.Data.MySqlClient.MySqlConnection.OpenAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 175
+   at MySql.Data.MySqlClient.MySqlConnection.Open() in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 161
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnection(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.BufferlessMoveNext(DbContext _, Boolean buffer)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.MoveNext()
+   at Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider._TrackEntities[TOut,TIn](IEnumerable`1 results, QueryContext queryContext, IList`1 entityTrackingInfos, IList`1 entityAccessors)+MoveNext()
+   at Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.MoveNext()
+   at BeYeuBookstore.Application.Implementation.BookCategoryService.GetAll() in D:\Documents\TM\ERPWebApp.Application\Implementation\BookCategoryService.cs:line 46
+2019-05-09T19:18:37.0825663+07:00 0HLMKF1MRE75L:0000000E [ERR] An exception occurred in the database while iterating the results of a query for context type '"BeYeuBookstore.Data.EF.ERPDbContext"'."
+""MySql.Data.MySqlClient.MySqlException (0x80004005): Unable to connect to any of the specified MySQL hosts.
+   at MySqlConnector.Core.ServerSession.ConnectAsync(ConnectionSettings cs, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ServerSession.cs:line 322
+   at MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ConnectionPool.cs:line 112
+   at MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ConnectionPool.cs:line 141
+   at MySql.Data.MySqlClient.MySqlConnection.CreateSessionAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 405
+   at MySql.Data.MySqlClient.MySqlConnection.OpenAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 175
+   at MySql.Data.MySqlClient.MySqlConnection.Open() in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 161
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnection(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.BufferlessMoveNext(DbContext _, Boolean buffer)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.MoveNext()
+   at Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider._TrackEntities[TOut,TIn](IEnumerable`1 results, QueryContext queryContext, IList`1 entityTrackingInfos, IList`1 entityAccessors)+MoveNext()
+   at Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.MoveNext()" (64e2593c)
+MySql.Data.MySqlClient.MySqlException (0x80004005): Unable to connect to any of the specified MySQL hosts.
+   at MySqlConnector.Core.ServerSession.ConnectAsync(ConnectionSettings cs, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ServerSession.cs:line 322
+   at MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ConnectionPool.cs:line 112
+   at MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ConnectionPool.cs:line 141
+   at MySql.Data.MySqlClient.MySqlConnection.CreateSessionAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 405
+   at MySql.Data.MySqlClient.MySqlConnection.OpenAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 175
+   at MySql.Data.MySqlClient.MySqlConnection.Open() in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 161
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnection(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.BufferlessMoveNext(DbContext _, Boolean buffer)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.MoveNext()
+   at Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider._TrackEntities[TOut,TIn](IEnumerable`1 results, QueryContext queryContext, IList`1 entityTrackingInfos, IList`1 entityAccessors)+MoveNext()
+   at Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.MoveNext()
+   at BeYeuBookstore.Application.Implementation.BookService.GetAll(Int32 quantity) in D:\Documents\TM\ERPWebApp.Application\Implementation\BookService.cs:line 57
+   at BeYeuBookstore.Controllers.BeyeuBookstoreController.GetAllQuantity(Int32 quantity) in D:\Documents\TM\ERPWebApp\Controllers\BeyeuBookstoreController.cs:line 50
+   at lambda_method(Closure , Object , Object[] )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutor.Execute(Object target, Object[] parameters)
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+2019-05-09T19:22:50.9922473+07:00 0HLMKF1MRE75J:0000000C [ERR] An error occurred using the connection to database '"BeYeuBookstore"' on server '"localhost"'. (5fc3407c)
+MySql.Data.MySqlClient.MySqlException (0x80004005): Unable to connect to any of the specified MySQL hosts.
+   at MySqlConnector.Core.ServerSession.ConnectAsync(ConnectionSettings cs, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ServerSession.cs:line 322
+   at MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ConnectionPool.cs:line 112
+   at MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ConnectionPool.cs:line 141
+   at MySql.Data.MySqlClient.MySqlConnection.CreateSessionAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 405
+   at MySql.Data.MySqlClient.MySqlConnection.OpenAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 175
+   at MySql.Data.MySqlClient.MySqlConnection.Open() in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 161
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnection(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.BufferlessMoveNext(DbContext _, Boolean buffer)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.MoveNext()
+   at Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.MoveNext()
+2019-05-09T19:22:51.0800165+07:00 0HLMKF1MRE75L:0000000E [INF] Executed action "BeYeuBookstore.Controllers.BeyeuBookstoreController.GetAllQuantity (BeYeuBookstore)" in 257313.6276ms (afa2e885)
+2019-05-09T19:22:51.0840329+07:00 0HLMKF1MRE75H:0000000A [INF] Executed action "BeYeuBookstore.Controllers.BookCategoryController.GetAll (BeYeuBookstore)" in 257171.4952ms (afa2e885)
+2019-05-09T19:22:51.4758147+07:00 0HLMKF1MRE75J:0000000C [ERR] An exception occurred in the database while iterating the results of a query for context type '"BeYeuBookstore.Data.EF.ERPDbContext"'."
+""MySql.Data.MySqlClient.MySqlException (0x80004005): Unable to connect to any of the specified MySQL hosts.
+   at MySqlConnector.Core.ServerSession.ConnectAsync(ConnectionSettings cs, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ServerSession.cs:line 322
+   at MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ConnectionPool.cs:line 112
+   at MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ConnectionPool.cs:line 141
+   at MySql.Data.MySqlClient.MySqlConnection.CreateSessionAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 405
+   at MySql.Data.MySqlClient.MySqlConnection.OpenAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 175
+   at MySql.Data.MySqlClient.MySqlConnection.Open() in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 161
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnection(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.BufferlessMoveNext(DbContext _, Boolean buffer)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.MoveNext()
+   at Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.MoveNext()" (64e2593c)
+MySql.Data.MySqlClient.MySqlException (0x80004005): Unable to connect to any of the specified MySQL hosts.
+   at MySqlConnector.Core.ServerSession.ConnectAsync(ConnectionSettings cs, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ServerSession.cs:line 322
+   at MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ConnectionPool.cs:line 112
+   at MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ConnectionPool.cs:line 141
+   at MySql.Data.MySqlClient.MySqlConnection.CreateSessionAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 405
+   at MySql.Data.MySqlClient.MySqlConnection.OpenAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 175
+   at MySql.Data.MySqlClient.MySqlConnection.Open() in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 161
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnection(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.BufferlessMoveNext(DbContext _, Boolean buffer)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.MoveNext()
+   at Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.MoveNext()
+   at System.Collections.Generic.List`1.AddEnumerable(IEnumerable`1 enumerable)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at BeYeuBookstore.Application.Implementation.Boq.SO_NotificationGeneralDetailService.getNotitficationByUserId(Guid userId) in D:\Documents\TM\ERPWebApp\Boq\SO_NotificationGeneralDetailService.cs:line 90
+2019-05-09T19:22:54.0177783+07:00 0HLMKF1MRE75M:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:55735/BeyeuBookstore/SignUp   (ca22a1cb)
+2019-05-09T19:22:54.0533842+07:00 0HLMKF1MRE75J:0000000C [INF] Executed action "BeYeuBookstore.Controllers.Construction.NotificationController.GetByUserId (BeYeuBookstore)" in 260277.5338ms (afa2e885)
+2019-05-09T19:22:54.0724546+07:00 0HLMKF1MRE75M:00000001 [INF] Route matched with "{action = \"SignUp\", controller = \"BeyeuBookstore\", area = \"\"}". Executing action "BeYeuBookstore.Controllers.BeyeuBookstoreController.SignUp (BeYeuBookstore)" (a44c0341)
+2019-05-09T19:22:54.1660802+07:00 0HLMKF1MRE75M:00000001 [INF] Executing action method "BeYeuBookstore.Controllers.BeyeuBookstoreController.SignUp (BeYeuBookstore)" - Validation state: Valid (dad538d7)
+2019-05-09T19:22:54.1803919+07:00 0HLMKF1MRE75M:00000001 [INF] Executed action method "BeYeuBookstore.Controllers.BeyeuBookstoreController.SignUp (BeYeuBookstore)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 0.5975ms. (50a9e262)
+2019-05-09T19:22:54.2169179+07:00 0HLMKF1MRE75M:00000001 [INF] Executing ViewResult, running view "SignUp". (c83d0e25)
+2019-05-09T19:22:54.2639819+07:00 0HLMKF1MRE75M:00000001 [INF] Executed ViewResult - view "SignUp" executed in 72.0827ms. (f66409e9)
+2019-05-09T19:22:54.2762686+07:00 0HLMKF1MRE75M:00000001 [INF] Executed action "BeYeuBookstore.Controllers.BeyeuBookstoreController.SignUp (BeYeuBookstore)" in 191.5803ms (afa2e885)
+2019-05-09T19:22:54.3494101+07:00 0HLMKF1MRE75M:00000001 [INF] Request finished in 2734.4464ms 200 text/html; charset=utf-8 (791a596a)
+2019-05-09T19:22:56.4154579+07:00 0HLMKF1MRE75M:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:55735/Cart/GetCart   (ca22a1cb)
+2019-05-09T19:22:56.4214085+07:00 0HLMKF1MRE75N:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:55735/Notification/GetByUserId   (ca22a1cb)
+2019-05-09T19:22:56.4480979+07:00 0HLMKF1MRE75M:00000002 [INF] Route matched with "{action = \"GetCart\", controller = \"Cart\", area = \"\"}". Executing action "BeYeuBookstore.Controllers.CartController.GetCart (BeYeuBookstore)" (a44c0341)
+2019-05-09T19:22:56.7592941+07:00 0HLMKF1MRE75H:0000000A [ERR] An error occurred using the connection to database '""' on server '"localhost"'. (5fc3407c)
+MySql.Data.MySqlClient.MySqlException (0x80004005): Unable to connect to any of the specified MySQL hosts.
+   at MySqlConnector.Core.ServerSession.ConnectAsync(ConnectionSettings cs, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ServerSession.cs:line 322
+   at MySql.Data.MySqlClient.MySqlConnection.CreateSessionAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 416
+   at MySql.Data.MySqlClient.MySqlConnection.OpenAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 175
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnectionAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+2019-05-09T19:22:56.7809723+07:00 0HLMKF1MRE75N:00000001 [INF] Route matched with "{action = \"GetByUserId\", controller = \"Notification\", area = \"\"}". Executing action "BeYeuBookstore.Controllers.Construction.NotificationController.GetByUserId (BeYeuBookstore)" (a44c0341)
+2019-05-09T19:22:56.7983918+07:00 0HLMKF1MRE75M:00000002 [INF] Executing action method "BeYeuBookstore.Controllers.CartController.GetCart (BeYeuBookstore)" - Validation state: Valid (dad538d7)
+2019-05-09T19:22:56.9584993+07:00 0HLMKF1MRE75J:0000000C [ERR] An error occurred using the connection to database '""' on server '"localhost"'. (5fc3407c)
+MySql.Data.MySqlClient.MySqlException (0x80004005): Unable to connect to any of the specified MySQL hosts.
+   at MySqlConnector.Core.ServerSession.ConnectAsync(ConnectionSettings cs, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ServerSession.cs:line 322
+   at MySql.Data.MySqlClient.MySqlConnection.CreateSessionAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 416
+   at MySql.Data.MySqlClient.MySqlConnection.OpenAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 175
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnectionAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlDatabaseCreator.<>c__DisplayClass20_0.<<ExistsAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlDatabaseCreator.<>c__DisplayClass20_0.<<ExistsAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlDatabaseCreator.<>c__DisplayClass20_0.<<ExistsAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.DatabaseErrorPageMiddleware.Invoke(HttpContext httpContext)
+2019-05-09T19:22:57.0302444+07:00 0HLMKF1MRE75M:00000002 [INF] Executed action method "BeYeuBookstore.Controllers.CartController.GetCart (BeYeuBookstore)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult" in 0.1822ms. (50a9e262)
+2019-05-09T19:22:57.0355914+07:00 0HLMKF1MRE75N:00000001 [INF] Executing action method "BeYeuBookstore.Controllers.Construction.NotificationController.GetByUserId (BeYeuBookstore)" - Validation state: Valid (dad538d7)
+2019-05-09T19:22:57.0575982+07:00 0HLMKF1MRE75M:00000002 [INF] Executing ObjectResult, writing value of type '"System.Collections.Generic.List`1[[BeYeuBookstore.Application.ViewModels.CartViewModel, BeYeuBookstore.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'. (8a1b66c8)
+2019-05-09T19:22:57.0784558+07:00 0HLMKF1MRE75N:00000001 [INF] Entity Framework Core "2.2.0-preview1-35029" initialized '"ERPDbContext"' using provider '"Pomelo.EntityFrameworkCore.MySql"' with options: "ServerVersion 8.0.13 MySql " (9958f5bb)
+2019-05-09T19:22:57.0961858+07:00 0HLMKF1MRE75M:00000002 [INF] Executed action "BeYeuBookstore.Controllers.CartController.GetCart (BeYeuBookstore)" in 606.7734ms (afa2e885)
+2019-05-09T19:22:57.1257618+07:00 0HLMKF1MRE75L:0000000E [ERR] An error occurred using the connection to database '""' on server '"localhost"'. (5fc3407c)
+MySql.Data.MySqlClient.MySqlException (0x80004005): Unable to connect to any of the specified MySQL hosts.
+   at MySqlConnector.Core.ServerSession.ConnectAsync(ConnectionSettings cs, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ServerSession.cs:line 322
+   at MySql.Data.MySqlClient.MySqlConnection.CreateSessionAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 416
+   at MySql.Data.MySqlClient.MySqlConnection.OpenAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 175
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnectionAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlDatabaseCreator.<>c__DisplayClass20_0.<<ExistsAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlDatabaseCreator.<>c__DisplayClass20_0.<<ExistsAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlDatabaseCreator.<>c__DisplayClass20_0.<<ExistsAsync>b__0>d.MoveNext()
+2019-05-09T19:22:57.1334755+07:00 0HLMKF1MRE75M:00000002 [INF] Request finished in 849.7983ms 200 application/json; charset=utf-8 (791a596a)
+2019-05-09T19:22:57.1505432+07:00 0HLMKF1MRE75H:0000000A [ERR] An exception occurred while calculating the database error page content. Skipping display of the database error page. (3f43c218)
+MySql.Data.MySqlClient.MySqlException (0x80004005): Unable to connect to any of the specified MySQL hosts.
+   at MySqlConnector.Core.ServerSession.ConnectAsync(ConnectionSettings cs, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ServerSession.cs:line 322
+   at MySql.Data.MySqlClient.MySqlConnection.CreateSessionAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 416
+   at MySql.Data.MySqlClient.MySqlConnection.OpenAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 175
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnectionAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlDatabaseCreator.<>c__DisplayClass20_0.<<ExistsAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlDatabaseCreator.<>c__DisplayClass20_0.<<ExistsAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlDatabaseCreator.<>c__DisplayClass20_0.<<ExistsAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.DatabaseErrorPageMiddleware.Invoke(HttpContext httpContext)
+2019-05-09T19:22:57.1903753+07:00 0HLMKF1MRE75J:0000000C [ERR] An exception occurred while calculating the database error page content. Skipping display of the database error page. (3f43c218)
+MySql.Data.MySqlClient.MySqlException (0x80004005): Unable to connect to any of the specified MySQL hosts.
+   at MySqlConnector.Core.ServerSession.ConnectAsync(ConnectionSettings cs, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ServerSession.cs:line 322
+   at MySql.Data.MySqlClient.MySqlConnection.CreateSessionAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 416
+   at MySql.Data.MySqlClient.MySqlConnection.OpenAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 175
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnectionAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlDatabaseCreator.<>c__DisplayClass20_0.<<ExistsAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlDatabaseCreator.<>c__DisplayClass20_0.<<ExistsAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlDatabaseCreator.<>c__DisplayClass20_0.<<ExistsAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.DatabaseErrorPageMiddleware.Invoke(HttpContext httpContext)
+2019-05-09T19:22:57.2497488+07:00 0HLMKF1MRE75L:0000000E [ERR] An exception occurred while calculating the database error page content. Skipping display of the database error page. (3f43c218)
+MySql.Data.MySqlClient.MySqlException (0x80004005): Unable to connect to any of the specified MySQL hosts.
+   at MySqlConnector.Core.ServerSession.ConnectAsync(ConnectionSettings cs, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ServerSession.cs:line 322
+   at MySql.Data.MySqlClient.MySqlConnection.CreateSessionAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 416
+   at MySql.Data.MySqlClient.MySqlConnection.OpenAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 175
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnectionAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlDatabaseCreator.<>c__DisplayClass20_0.<<ExistsAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlDatabaseCreator.<>c__DisplayClass20_0.<<ExistsAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlDatabaseCreator.<>c__DisplayClass20_0.<<ExistsAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.DatabaseErrorPageMiddleware.Invoke(HttpContext httpContext)
+2019-05-09T19:22:57.4045368+07:00 0HLMKF1MRE75J:0000000C [ERR] An unhandled exception has occurred while executing the request. (48a46595)
+MySql.Data.MySqlClient.MySqlException (0x80004005): Unable to connect to any of the specified MySQL hosts.
+   at MySqlConnector.Core.ServerSession.ConnectAsync(ConnectionSettings cs, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ServerSession.cs:line 322
+   at MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ConnectionPool.cs:line 112
+   at MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ConnectionPool.cs:line 141
+   at MySql.Data.MySqlClient.MySqlConnection.CreateSessionAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 405
+   at MySql.Data.MySqlClient.MySqlConnection.OpenAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 175
+   at MySql.Data.MySqlClient.MySqlConnection.Open() in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 161
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnection(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.BufferlessMoveNext(DbContext _, Boolean buffer)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.MoveNext()
+   at Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.MoveNext()
+   at System.Collections.Generic.List`1.AddEnumerable(IEnumerable`1 enumerable)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at BeYeuBookstore.Application.Implementation.Boq.SO_NotificationGeneralDetailService.getNotitficationByUserId(Guid userId) in D:\Documents\TM\ERPWebApp\Boq\SO_NotificationGeneralDetailService.cs:line 90
+   at BeYeuBookstore.Controllers.Construction.NotificationController.GetByUserId() in D:\Documents\TM\ERPWebApp\Controllers\Construction\NotificationController.cs:line 80
+   at lambda_method(Closure , Object , Object[] )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutor.Execute(Object target, Object[] parameters)
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at WebMarkupMin.AspNetCore2.WebMarkupMinMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.MigrationsEndPointMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.DatabaseErrorPageMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.DatabaseErrorPageMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2019-05-09T19:22:57.4836867+07:00 0HLMKF1MRE75H:0000000A [ERR] An unhandled exception has occurred while executing the request. (48a46595)
+MySql.Data.MySqlClient.MySqlException (0x80004005): Unable to connect to any of the specified MySQL hosts.
+   at MySqlConnector.Core.ServerSession.ConnectAsync(ConnectionSettings cs, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ServerSession.cs:line 322
+   at MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ConnectionPool.cs:line 112
+   at MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ConnectionPool.cs:line 141
+   at MySql.Data.MySqlClient.MySqlConnection.CreateSessionAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 405
+   at MySql.Data.MySqlClient.MySqlConnection.OpenAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 175
+   at MySql.Data.MySqlClient.MySqlConnection.Open() in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 161
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnection(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.BufferlessMoveNext(DbContext _, Boolean buffer)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.MoveNext()
+   at Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider._TrackEntities[TOut,TIn](IEnumerable`1 results, QueryContext queryContext, IList`1 entityTrackingInfos, IList`1 entityAccessors)+MoveNext()
+   at Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.MoveNext()
+   at BeYeuBookstore.Application.Implementation.BookCategoryService.GetAll() in D:\Documents\TM\ERPWebApp.Application\Implementation\BookCategoryService.cs:line 46
+   at BeYeuBookstore.Controllers.BookCategoryController.GetAll() in D:\Documents\TM\ERPWebApp\Controllers\BookCategoryController.cs:line 62
+   at lambda_method(Closure , Object , Object[] )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutor.Execute(Object target, Object[] parameters)
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at WebMarkupMin.AspNetCore2.WebMarkupMinMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.MigrationsEndPointMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.DatabaseErrorPageMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.DatabaseErrorPageMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2019-05-09T19:22:57.5791199+07:00 0HLMKF1MRE75L:0000000E [ERR] An unhandled exception has occurred while executing the request. (48a46595)
+MySql.Data.MySqlClient.MySqlException (0x80004005): Unable to connect to any of the specified MySQL hosts.
+   at MySqlConnector.Core.ServerSession.ConnectAsync(ConnectionSettings cs, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ServerSession.cs:line 322
+   at MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ConnectionPool.cs:line 112
+   at MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ConnectionPool.cs:line 141
+   at MySql.Data.MySqlClient.MySqlConnection.CreateSessionAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 405
+   at MySql.Data.MySqlClient.MySqlConnection.OpenAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 175
+   at MySql.Data.MySqlClient.MySqlConnection.Open() in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 161
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnection(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.BufferlessMoveNext(DbContext _, Boolean buffer)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.MoveNext()
+   at Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider._TrackEntities[TOut,TIn](IEnumerable`1 results, QueryContext queryContext, IList`1 entityTrackingInfos, IList`1 entityAccessors)+MoveNext()
+   at Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.MoveNext()
+   at BeYeuBookstore.Application.Implementation.BookService.GetAll(Int32 quantity) in D:\Documents\TM\ERPWebApp.Application\Implementation\BookService.cs:line 57
+   at BeYeuBookstore.Controllers.BeyeuBookstoreController.GetAllQuantity(Int32 quantity) in D:\Documents\TM\ERPWebApp\Controllers\BeyeuBookstoreController.cs:line 50
+   at lambda_method(Closure , Object , Object[] )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutor.Execute(Object target, Object[] parameters)
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at WebMarkupMin.AspNetCore2.WebMarkupMinMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.MigrationsEndPointMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.DatabaseErrorPageMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.DatabaseErrorPageMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2019-05-09T19:22:57.7567643+07:00 0HLMKF1MRE75J:0000000C [INF] Request finished in 264320.8926ms 500 text/html; charset=utf-8 (791a596a)
+2019-05-09T19:22:57.7648007+07:00 0HLMKF1MRE75L:0000000E [INF] Request finished in 264358.9924ms 500 text/html; charset=utf-8 (791a596a)
+2019-05-09T19:22:57.7721529+07:00 0HLMKF1MRE75H:0000000A [INF] Request finished in 264340.6413ms 500 text/html; charset=utf-8 (791a596a)
+2019-05-09T19:22:59.2728473+07:00 0HLMKF1MRE75N:00000001 [ERR] An error occurred using the connection to database '"BeYeuBookstore"' on server '"localhost"'. (5fc3407c)
+MySql.Data.MySqlClient.MySqlException (0x80004005): Unable to connect to any of the specified MySQL hosts.
+   at MySqlConnector.Core.ServerSession.ConnectAsync(ConnectionSettings cs, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ServerSession.cs:line 322
+   at MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ConnectionPool.cs:line 112
+   at MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ConnectionPool.cs:line 141
+   at MySql.Data.MySqlClient.MySqlConnection.CreateSessionAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 405
+   at MySql.Data.MySqlClient.MySqlConnection.OpenAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 175
+   at MySql.Data.MySqlClient.MySqlConnection.Open() in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 161
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnection(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.BufferlessMoveNext(DbContext _, Boolean buffer)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.MoveNext()
+   at Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.MoveNext()
+2019-05-09T19:22:59.3396410+07:00 0HLMKF1MRE75N:00000001 [ERR] An exception occurred in the database while iterating the results of a query for context type '"BeYeuBookstore.Data.EF.ERPDbContext"'."
+""MySql.Data.MySqlClient.MySqlException (0x80004005): Unable to connect to any of the specified MySQL hosts.
+   at MySqlConnector.Core.ServerSession.ConnectAsync(ConnectionSettings cs, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ServerSession.cs:line 322
+   at MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ConnectionPool.cs:line 112
+   at MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ConnectionPool.cs:line 141
+   at MySql.Data.MySqlClient.MySqlConnection.CreateSessionAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 405
+   at MySql.Data.MySqlClient.MySqlConnection.OpenAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 175
+   at MySql.Data.MySqlClient.MySqlConnection.Open() in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 161
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnection(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.BufferlessMoveNext(DbContext _, Boolean buffer)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.MoveNext()
+   at Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.MoveNext()" (64e2593c)
+MySql.Data.MySqlClient.MySqlException (0x80004005): Unable to connect to any of the specified MySQL hosts.
+   at MySqlConnector.Core.ServerSession.ConnectAsync(ConnectionSettings cs, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ServerSession.cs:line 322
+   at MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ConnectionPool.cs:line 112
+   at MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ConnectionPool.cs:line 141
+   at MySql.Data.MySqlClient.MySqlConnection.CreateSessionAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 405
+   at MySql.Data.MySqlClient.MySqlConnection.OpenAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 175
+   at MySql.Data.MySqlClient.MySqlConnection.Open() in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 161
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnection(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.BufferlessMoveNext(DbContext _, Boolean buffer)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.MoveNext()
+   at Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.MoveNext()
+   at System.Collections.Generic.List`1.AddEnumerable(IEnumerable`1 enumerable)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at BeYeuBookstore.Application.Implementation.Boq.SO_NotificationGeneralDetailService.getNotitficationByUserId(Guid userId) in D:\Documents\TM\ERPWebApp\Boq\SO_NotificationGeneralDetailService.cs:line 90
+   at BeYeuBookstore.Controllers.Construction.NotificationController.GetByUserId() in D:\Documents\TM\ERPWebApp\Controllers\Construction\NotificationController.cs:line 80
+   at lambda_method(Closure , Object , Object[] )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutor.Execute(Object target, Object[] parameters)
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+2019-05-09T19:23:06.3769681+07:00 0HLMKF1MRE75N:00000001 [INF] Executed action "BeYeuBookstore.Controllers.Construction.NotificationController.GetByUserId (BeYeuBookstore)" in 9585.3931ms (afa2e885)
+2019-05-09T19:23:08.4640269+07:00 0HLMKF1MRE75N:00000001 [ERR] An error occurred using the connection to database '""' on server '"localhost"'. (5fc3407c)
+MySql.Data.MySqlClient.MySqlException (0x80004005): Unable to connect to any of the specified MySQL hosts.
+   at MySqlConnector.Core.ServerSession.ConnectAsync(ConnectionSettings cs, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ServerSession.cs:line 322
+   at MySql.Data.MySqlClient.MySqlConnection.CreateSessionAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 416
+   at MySql.Data.MySqlClient.MySqlConnection.OpenAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 175
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnectionAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlDatabaseCreator.<>c__DisplayClass20_0.<<ExistsAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlDatabaseCreator.<>c__DisplayClass20_0.<<ExistsAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlDatabaseCreator.<>c__DisplayClass20_0.<<ExistsAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.DatabaseErrorPageMiddleware.Invoke(HttpContext httpContext)
+2019-05-09T19:23:08.5005305+07:00 0HLMKF1MRE75N:00000001 [ERR] An exception occurred while calculating the database error page content. Skipping display of the database error page. (3f43c218)
+MySql.Data.MySqlClient.MySqlException (0x80004005): Unable to connect to any of the specified MySQL hosts.
+   at MySqlConnector.Core.ServerSession.ConnectAsync(ConnectionSettings cs, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ServerSession.cs:line 322
+   at MySql.Data.MySqlClient.MySqlConnection.CreateSessionAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 416
+   at MySql.Data.MySqlClient.MySqlConnection.OpenAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 175
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnectionAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlDatabaseCreator.<>c__DisplayClass20_0.<<ExistsAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlDatabaseCreator.<>c__DisplayClass20_0.<<ExistsAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlDatabaseCreator.<>c__DisplayClass20_0.<<ExistsAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.DatabaseErrorPageMiddleware.Invoke(HttpContext httpContext)
+2019-05-09T19:23:08.5666082+07:00 0HLMKF1MRE75N:00000001 [ERR] An unhandled exception has occurred while executing the request. (48a46595)
+MySql.Data.MySqlClient.MySqlException (0x80004005): Unable to connect to any of the specified MySQL hosts.
+   at MySqlConnector.Core.ServerSession.ConnectAsync(ConnectionSettings cs, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ServerSession.cs:line 322
+   at MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ConnectionPool.cs:line 112
+   at MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ConnectionPool.cs:line 141
+   at MySql.Data.MySqlClient.MySqlConnection.CreateSessionAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 405
+   at MySql.Data.MySqlClient.MySqlConnection.OpenAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 175
+   at MySql.Data.MySqlClient.MySqlConnection.Open() in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 161
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnection(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.BufferlessMoveNext(DbContext _, Boolean buffer)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.MoveNext()
+   at Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.MoveNext()
+   at System.Collections.Generic.List`1.AddEnumerable(IEnumerable`1 enumerable)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at BeYeuBookstore.Application.Implementation.Boq.SO_NotificationGeneralDetailService.getNotitficationByUserId(Guid userId) in D:\Documents\TM\ERPWebApp\Boq\SO_NotificationGeneralDetailService.cs:line 90
+   at BeYeuBookstore.Controllers.Construction.NotificationController.GetByUserId() in D:\Documents\TM\ERPWebApp\Controllers\Construction\NotificationController.cs:line 80
+   at lambda_method(Closure , Object , Object[] )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutor.Execute(Object target, Object[] parameters)
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at WebMarkupMin.AspNetCore2.WebMarkupMinMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.MigrationsEndPointMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.DatabaseErrorPageMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.DatabaseErrorPageMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2019-05-09T19:23:08.6804945+07:00 0HLMKF1MRE75N:00000001 [INF] Request finished in 12311.5144ms 500 text/html; charset=utf-8 (791a596a)
+2019-05-09T19:25:36.3918279+07:00 0HLMKF1MRE75O:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:55735/Merchant/SignUp   (ca22a1cb)
+2019-05-09T19:25:36.4103955+07:00 0HLMKF1MRE75O:00000001 [INF] Route matched with "{action = \"SignUp\", controller = \"Merchant\", area = \"\"}". Executing action "BeYeuBookstore.Controllers.MerchantController.SignUp (BeYeuBookstore)" (a44c0341)
+2019-05-09T19:25:36.4632967+07:00 0HLMKF1MRE75O:00000001 [INF] Executing action method "BeYeuBookstore.Controllers.MerchantController.SignUp (BeYeuBookstore)" - Validation state: Valid (dad538d7)
+2019-05-09T19:25:36.4729300+07:00 0HLMKF1MRE75O:00000001 [INF] Executed action method "BeYeuBookstore.Controllers.MerchantController.SignUp (BeYeuBookstore)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 0.5214ms. (50a9e262)
+2019-05-09T19:25:36.5224275+07:00 0HLMKF1MRE75O:00000001 [INF] Executing ViewResult, running view "SignUp". (c83d0e25)
+2019-05-09T19:25:36.5771594+07:00 0HLMKF1MRE75O:00000001 [INF] Executed ViewResult - view "SignUp" executed in 95.3154ms. (f66409e9)
+2019-05-09T19:25:36.5917059+07:00 0HLMKF1MRE75O:00000001 [INF] Executed action "BeYeuBookstore.Controllers.MerchantController.SignUp (BeYeuBookstore)" in 168.54ms (afa2e885)
+2019-05-09T19:25:36.6290615+07:00 0HLMKF1MRE75O:00000001 [INF] Request finished in 234.63ms 200 text/html; charset=utf-8 (791a596a)
+2019-05-09T19:25:37.5112613+07:00 0HLMKF1MRE75O:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:55735/Cart/GetCart   (ca22a1cb)
+2019-05-09T19:25:37.5144027+07:00 0HLMKF1MRE75P:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:55735/Notification/GetByUserId   (ca22a1cb)
+2019-05-09T19:25:37.5391636+07:00 0HLMKF1MRE75O:00000002 [INF] Route matched with "{action = \"GetCart\", controller = \"Cart\", area = \"\"}". Executing action "BeYeuBookstore.Controllers.CartController.GetCart (BeYeuBookstore)" (a44c0341)
+2019-05-09T19:25:37.5438159+07:00 0HLMKF1MRE75P:00000001 [INF] Route matched with "{action = \"GetByUserId\", controller = \"Notification\", area = \"\"}". Executing action "BeYeuBookstore.Controllers.Construction.NotificationController.GetByUserId (BeYeuBookstore)" (a44c0341)
+2019-05-09T19:25:37.6572979+07:00 0HLMKF1MRE75O:00000002 [INF] Executing action method "BeYeuBookstore.Controllers.CartController.GetCart (BeYeuBookstore)" - Validation state: Valid (dad538d7)
+2019-05-09T19:25:37.6660908+07:00 0HLMKF1MRE75P:00000001 [INF] Executing action method "BeYeuBookstore.Controllers.Construction.NotificationController.GetByUserId (BeYeuBookstore)" - Validation state: Valid (dad538d7)
+2019-05-09T19:25:37.6847593+07:00 0HLMKF1MRE75O:00000002 [INF] Executed action method "BeYeuBookstore.Controllers.CartController.GetCart (BeYeuBookstore)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult" in 0.0292ms. (50a9e262)
+2019-05-09T19:25:37.6897633+07:00 0HLMKF1MRE75P:00000001 [INF] Entity Framework Core "2.2.0-preview1-35029" initialized '"ERPDbContext"' using provider '"Pomelo.EntityFrameworkCore.MySql"' with options: "ServerVersion 8.0.13 MySql " (9958f5bb)
+2019-05-09T19:25:37.7003442+07:00 0HLMKF1MRE75O:00000002 [INF] Executing ObjectResult, writing value of type '"System.Collections.Generic.List`1[[BeYeuBookstore.Application.ViewModels.CartViewModel, BeYeuBookstore.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'. (8a1b66c8)
+2019-05-09T19:25:37.7124766+07:00 0HLMKF1MRE75O:00000002 [INF] Executed action "BeYeuBookstore.Controllers.CartController.GetCart (BeYeuBookstore)" in 159.7947ms (afa2e885)
+2019-05-09T19:25:37.7291617+07:00 0HLMKF1MRE75O:00000002 [INF] Request finished in 222.1217ms 200 application/json; charset=utf-8 (791a596a)
+2019-05-09T19:25:39.7330167+07:00 0HLMKF1MRE75P:00000001 [ERR] An error occurred using the connection to database '"BeYeuBookstore"' on server '"localhost"'. (5fc3407c)
+MySql.Data.MySqlClient.MySqlException (0x80004005): Unable to connect to any of the specified MySQL hosts.
+   at MySqlConnector.Core.ServerSession.ConnectAsync(ConnectionSettings cs, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ServerSession.cs:line 322
+   at MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ConnectionPool.cs:line 112
+   at MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ConnectionPool.cs:line 141
+   at MySql.Data.MySqlClient.MySqlConnection.CreateSessionAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 405
+   at MySql.Data.MySqlClient.MySqlConnection.OpenAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 175
+   at MySql.Data.MySqlClient.MySqlConnection.Open() in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 161
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnection(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.BufferlessMoveNext(DbContext _, Boolean buffer)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.MoveNext()
+   at Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.MoveNext()
+2019-05-09T19:25:39.8156501+07:00 0HLMKF1MRE75P:00000001 [ERR] An exception occurred in the database while iterating the results of a query for context type '"BeYeuBookstore.Data.EF.ERPDbContext"'."
+""MySql.Data.MySqlClient.MySqlException (0x80004005): Unable to connect to any of the specified MySQL hosts.
+   at MySqlConnector.Core.ServerSession.ConnectAsync(ConnectionSettings cs, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ServerSession.cs:line 322
+   at MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ConnectionPool.cs:line 112
+   at MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ConnectionPool.cs:line 141
+   at MySql.Data.MySqlClient.MySqlConnection.CreateSessionAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 405
+   at MySql.Data.MySqlClient.MySqlConnection.OpenAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 175
+   at MySql.Data.MySqlClient.MySqlConnection.Open() in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 161
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnection(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.BufferlessMoveNext(DbContext _, Boolean buffer)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.MoveNext()
+   at Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.MoveNext()" (64e2593c)
+MySql.Data.MySqlClient.MySqlException (0x80004005): Unable to connect to any of the specified MySQL hosts.
+   at MySqlConnector.Core.ServerSession.ConnectAsync(ConnectionSettings cs, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ServerSession.cs:line 322
+   at MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ConnectionPool.cs:line 112
+   at MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ConnectionPool.cs:line 141
+   at MySql.Data.MySqlClient.MySqlConnection.CreateSessionAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 405
+   at MySql.Data.MySqlClient.MySqlConnection.OpenAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 175
+   at MySql.Data.MySqlClient.MySqlConnection.Open() in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 161
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnection(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.BufferlessMoveNext(DbContext _, Boolean buffer)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.MoveNext()
+   at Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.MoveNext()
+   at System.Collections.Generic.List`1.AddEnumerable(IEnumerable`1 enumerable)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at BeYeuBookstore.Application.Implementation.Boq.SO_NotificationGeneralDetailService.getNotitficationByUserId(Guid userId) in D:\Documents\TM\ERPWebApp\Boq\SO_NotificationGeneralDetailService.cs:line 90
+   at BeYeuBookstore.Controllers.Construction.NotificationController.GetByUserId() in D:\Documents\TM\ERPWebApp\Controllers\Construction\NotificationController.cs:line 80
+   at lambda_method(Closure , Object , Object[] )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutor.Execute(Object target, Object[] parameters)
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+2019-05-09T19:25:42.5241248+07:00 0HLMKF1MRE75P:00000001 [INF] Executed action "BeYeuBookstore.Controllers.Construction.NotificationController.GetByUserId (BeYeuBookstore)" in 4941.7262ms (afa2e885)
+2019-05-09T19:25:45.0447496+07:00 0HLMKF1MRE75P:00000001 [ERR] An error occurred using the connection to database '""' on server '"localhost"'. (5fc3407c)
+MySql.Data.MySqlClient.MySqlException (0x80004005): Unable to connect to any of the specified MySQL hosts.
+   at MySqlConnector.Core.ServerSession.ConnectAsync(ConnectionSettings cs, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ServerSession.cs:line 322
+   at MySql.Data.MySqlClient.MySqlConnection.CreateSessionAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 416
+   at MySql.Data.MySqlClient.MySqlConnection.OpenAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 175
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnectionAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlDatabaseCreator.<>c__DisplayClass20_0.<<ExistsAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlDatabaseCreator.<>c__DisplayClass20_0.<<ExistsAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlDatabaseCreator.<>c__DisplayClass20_0.<<ExistsAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.DatabaseErrorPageMiddleware.Invoke(HttpContext httpContext)
+2019-05-09T19:25:45.2273606+07:00 0HLMKF1MRE75P:00000001 [ERR] An exception occurred while calculating the database error page content. Skipping display of the database error page. (3f43c218)
+MySql.Data.MySqlClient.MySqlException (0x80004005): Unable to connect to any of the specified MySQL hosts.
+   at MySqlConnector.Core.ServerSession.ConnectAsync(ConnectionSettings cs, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ServerSession.cs:line 322
+   at MySql.Data.MySqlClient.MySqlConnection.CreateSessionAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 416
+   at MySql.Data.MySqlClient.MySqlConnection.OpenAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 175
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnectionAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlDatabaseCreator.<>c__DisplayClass20_0.<<ExistsAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlDatabaseCreator.<>c__DisplayClass20_0.<<ExistsAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlDatabaseCreator.<>c__DisplayClass20_0.<<ExistsAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.DatabaseErrorPageMiddleware.Invoke(HttpContext httpContext)
+2019-05-09T19:25:45.3180389+07:00 0HLMKF1MRE75P:00000001 [ERR] An unhandled exception has occurred while executing the request. (48a46595)
+MySql.Data.MySqlClient.MySqlException (0x80004005): Unable to connect to any of the specified MySQL hosts.
+   at MySqlConnector.Core.ServerSession.ConnectAsync(ConnectionSettings cs, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ServerSession.cs:line 322
+   at MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ConnectionPool.cs:line 112
+   at MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ConnectionPool.cs:line 141
+   at MySql.Data.MySqlClient.MySqlConnection.CreateSessionAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 405
+   at MySql.Data.MySqlClient.MySqlConnection.OpenAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 175
+   at MySql.Data.MySqlClient.MySqlConnection.Open() in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 161
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnection(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.BufferlessMoveNext(DbContext _, Boolean buffer)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.MoveNext()
+   at Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.MoveNext()
+   at System.Collections.Generic.List`1.AddEnumerable(IEnumerable`1 enumerable)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at BeYeuBookstore.Application.Implementation.Boq.SO_NotificationGeneralDetailService.getNotitficationByUserId(Guid userId) in D:\Documents\TM\ERPWebApp\Boq\SO_NotificationGeneralDetailService.cs:line 90
+   at BeYeuBookstore.Controllers.Construction.NotificationController.GetByUserId() in D:\Documents\TM\ERPWebApp\Controllers\Construction\NotificationController.cs:line 80
+   at lambda_method(Closure , Object , Object[] )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutor.Execute(Object target, Object[] parameters)
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at WebMarkupMin.AspNetCore2.WebMarkupMinMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.MigrationsEndPointMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.DatabaseErrorPageMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.DatabaseErrorPageMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2019-05-09T19:25:45.4830652+07:00 0HLMKF1MRE75P:00000001 [INF] Request finished in 7961.6831ms 500 text/html; charset=utf-8 (791a596a)

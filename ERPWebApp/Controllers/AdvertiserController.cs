@@ -11,7 +11,6 @@ using Microsoft.AspNetCore.Mvc.ModelBinding;
 
 namespace BeYeuBookstore.Controllers
 {
-    [Authorize]
     public class AdvertiserController : Controller
     {
         IAdvertiserService _advertiserService;
@@ -21,7 +20,12 @@ namespace BeYeuBookstore.Controllers
             _advertiserService = advertiserService;
             _unitOfWork = unitOfWork;
         }
+        [Authorize]
         public IActionResult Index()
+        {
+            return View();
+        }
+        public IActionResult SignUp()
         {
             return View();
         }
