@@ -39,10 +39,10 @@
     <div class="col-lg-2">
         <select class="form-control" id="selStatus">
             <option value="">Chọn trạng thái</option>
-            <option value="0">Chưa kiểm duyệt</option>
-            <option value="1">Kế toán đã kiểm duyệt</option>
-            <option value="2">Đã kiểm duyệt</option>
-            <option value="3">Không đủ tiêu chuẩn</option>
+            <option value="0">Đang chờ duyệt</option>
+            <option value="3">Đã thanh toán</option>
+            <option value="2">Thành công</option>
+            <option value="1">Không thành công</option>
         </select>
     </div>
     <div class="col-sm-4 form-group">
@@ -65,6 +65,7 @@
                         <tr>
                             <th width="3%">Mã </th>
                             <th width="10%">Người quảng cáo</th>
+                            <th width="10%">Tiêu đề quảng cáo</th>
                             <th>Từ ngày</th>
                             <th>Đến ngày</th>
                             <th>Giá trị hợp đồng</th>
@@ -104,6 +105,7 @@
     <tr>
         <td>{{KeyId}}</td>
         <td>{{BrandName}}</td>
+        <td>{{AdTitle}}</td>
         <td>{{{Fromdate}}}</td>
         <td>{{{Todate}}}</td>
         <td>{{ContractValue}}</td>

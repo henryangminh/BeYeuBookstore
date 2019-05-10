@@ -21,6 +21,7 @@ namespace BeYeuBookstore.Controllers
         IUnitOfWork _unitOfWork;
         public AdvertiserController(IAuthorizationService authorizationService ,IAdvertiserService advertiserService, IUnitOfWork unitOfWork)
         {
+            _authorizationService = authorizationService;
             _advertiserService = advertiserService;
             _unitOfWork = unitOfWork;
         }

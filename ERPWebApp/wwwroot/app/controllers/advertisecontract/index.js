@@ -1,36 +1,47 @@
 ﻿var gDisabledDates = [];
+function DisableSpecificDates(date) {
+
+
+    var currentdate = moment(date).format("DD/MM/YYYY");
+
+    // We will now check if the date belongs to disableddates array 
+    for (var i = 0; i < gDisabledDates.length; i++) {
+
+        // Now check if the current date is in disabled dates array. 
+        if ($.inArray(currentdate, gDisabledDates) != -1) {
+            return false;
+        }
+    }
+    general.stopLoad();
+}
+
+
 var advertiseContractController = function () {
     this.initialize = function () {
 
         loadData();
-        loadAllFutureSuccessContract();
         registerEvents();
+
     }
     function registerEvents() {
         
-        function DisableSpecificDates(date) {
-
-            
-            var currentdate = moment(date).format("DD/MM/YYYY");
-
-            // We will now check if the date belongs to disableddates array 
-            for (var i = 0; i < gDisabledDates.length; i++) {
-
-                // Now check if the current date is in disabled dates array. 
-                if ($.inArray(currentdate, gDisabledDates) != -1) {
-                    return false;
-                }
+        $('#txtFromdate').on('keydown', function (e) {
+            e.preventDefault();
+            if (e.keyCode >= 37 && e.keyCode <= 40 || e.keyCode == 13) {
+                e.stopImmediatePropagation();
+                return;
             }
-        }
-        $('.datepicker').datepicker({
-            format: "dd/mm/yyyy",
-            language: "vi",
-            clearBtn: true,
-            todayHighlight: true,
-            beforeShowDay: DisableSpecificDates
+         
         });
-    
-       
+
+        $('#txtTodate').on('keydown', function (e) {
+            e.preventDefault();
+            if (e.keyCode >= 37 && e.keyCode <= 40 || e.keyCode == 13) {
+                e.stopImmediatePropagation();
+                return;
+            }
+        });
+   
         $('#ddlShowPage').on('change', function () {
             general.configs.pageSize = $(this).val();
             general.configs.pageIndex = 1;
@@ -76,6 +87,8 @@ var advertiseContractController = function () {
             resetForm();
             $('#addview').removeClass('hidden');
             $('#formCreate').removeClass('hidden');
+            $('#formAccountingCensor').addClass('hidden');
+            $('#formCensor').addClass('hidden');
             $('#TermsOfUse').removeClass('hidden');
             $('#btnSave').attr('disabled', 'disabled');
             $('#watchview').addClass('hidden');
@@ -325,8 +338,17 @@ var advertiseContractController = function () {
         $('#txtNodate').val('');
         $('#txtMustPay').val('');
         $('#txtNote').val('');
+        gDisabledDates.length = 0;
 
-   
+        $('#txtFromdate').datepicker("destroy");
+        $('#txtTodate').datepicker("destroy");
+        $('.datepicker').datepicker({
+            format: "dd/mm/yyyy",
+            language: "vi",
+            clearBtn: true,
+            todayHighlight: true,
+            beforeShowDay: DisableSpecificDates
+        });
     }
 
     function loadDetail(that) {
@@ -343,7 +365,7 @@ var advertiseContractController = function () {
                 $('#ImgAdPosition').empty(); 
                 console.log("loaddetailAdContract", response);
                 var data = response;
-                $('#formCensor').removeClass('hidden');
+                //$('#formCensor').removeClass('hidden');
                 $('#TermsOfUse').addClass('hidden');
                 $('#txtId').val(data.KeyId);
                 $('#txtAdvertiser').val(data.AdvertisementContentFKNavigation.AdvertiserFKNavigation.BrandName);
@@ -368,25 +390,25 @@ var advertiseContractController = function () {
                     case general.contractStatus.Requesting:
                         _color = 'black';
                         _status = 'Chưa kiểm duyệt';
-                        $('#formAccountingCensor').addClass('hidden');
-                        $('#formCensor').removeClass('hidden');
+                        $('#formAccountingCensor').removeClass('hidden');
+                        $('#formCensor').addClass('hidden');
                         break;
                     case general.contractStatus.Success:
                         _color = 'green';
                         _status = 'Thành công';
                         $('#formCensor').addClass('hidden');
-                        $('#formAccountingCensor').removeClass('hidden');
+                        $('#formAccountingCensor').addClass('hidden');
                         break;
                     case general.contractStatus.Unqualified:
                         _color = 'red';
-                        _status = 'Không đủ tiêu chuẩn';
-                        $('#formCensor').removeClass('hidden');
-                        $('#formAccountingCensor').removeClass('hidden');
+                        _status = 'Không thành công';
+                        $('#formCensor').addClass('hidden');
+                        $('#formAccountingCensor').addClass('hidden');
                         break;
                     case general.contractStatus.AccountingCensored:
                         _color = 'orange';
                         _status = 'Kê toán đã kiểm duyệt';
-                        $('#formCensor').addClass('hidden');
+                        $('#formCensor').removeClass('hidden');
                         $('#formAccountingCensor').addClass('hidden');
                         break;
                 }
@@ -440,12 +462,12 @@ function loadData(isPageChanged) {
 
                     case general.contractStatus.Unqualified:
                         _color = 'red';
-                        _statusName = 'Không đủ tiêu chuẩn';
+                        _statusName = 'Không thành công';
                         break;
 
                     case general.contractStatus.AccountingCensored:
                         _color = 'orange';
-                        _statusName = 'Kế toán đã kiểm duyệt';
+                        _statusName = 'Đã thanh toán';
                         break;
                 }
                 var _fromdate = moment(item.DateStart).format("DD/MM/YYYY HH:mm:ss");
@@ -456,6 +478,7 @@ function loadData(isPageChanged) {
 
                     KeyId: item.KeyId,
                     BrandName: item.AdvertisementContentFKNavigation.AdvertiserFKNavigation.BrandName,
+                    AdTitle: item.AdvertisementContentFKNavigation.Title,
                     Fromdate: _fromdate,
                     Todate: _todate,
                     ContractValue: _contract,
@@ -509,9 +532,12 @@ function loadAdContentById(that) {
         url: '/AdvertiseContract/GetAdContentById',
         data: {id:that},
         dataType: "json",
-
+        beforeSend: function () {
+            general.startLoad();
+        },
         success: function (response) {
-
+            console.log("AdContent", response);
+            loadAllFutureSuccessContract(response.AdvertisementPositionFK);
             $('#ImgAdPosition').empty();
             $('#txtAdPosition').val(response.AdvertisementPositionFKNavigation.Title);
             $('#txtAdPositionPrice').val(general.toMoney(response.AdvertisementPositionFKNavigation.AdvertisePrice));
@@ -520,21 +546,25 @@ function loadAdContentById(that) {
             $('#txtTotalPrice').val('');
             $('#txtNodate').val('');
             $('#ImgAdPosition').append('<img src="' + response.ImageLink + '" style="width:100%"> ');
-
+            general.stopLoad();
         },
         error: function (err) {
+            general.stopLoad();
             general.notify('Có lỗi trong khi load nội dung quảng cáo !', 'error');
 
         },
     });
 
 }
-function loadAllFutureSuccessContract() {
+function loadAllFutureSuccessContract(that) {
     $.ajax({
         type: 'GET',
         url: '/AdvertiseContract/GetAllFutureSuccessContract',
-
+        beforeSend: function () {
+            general.startLoad();
+        },
         dataType: "json",
+        data: { id: that },
 
         success: function (response) {
             console.log("Contract", response);
@@ -546,10 +576,21 @@ function loadAllFutureSuccessContract() {
                     temp = temp.add(1, 'days');
                 }
             });
+            $('#txtFromdate').datepicker("destroy");
+            $('#txtTodate').datepicker("destroy");
+            $('.datepicker').datepicker({
+                format: "dd/mm/yyyy",
+                language: "vi",
+                clearBtn: true,
+                todayHighlight: true,
+                beforeShowDay: DisableSpecificDates
+            });
+          
+            
         },
         error: function (err) {
             general.notify('Có lỗi trong khi load nội dung quảng cáo !', 'error');
-
+            general.stopLoad();
         },
     });
 

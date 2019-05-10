@@ -55,7 +55,7 @@ namespace BeYeuBookstore.Application.Implementation
         public List<AdvertisementContentViewModel> GetAllCensoredAdContentByAdvertiserId(int id)
         {
 
-            var query = _advertisementContentRepository.FindAll(x=>(x.AdvertiserFK==id && x.CensorStatus == CensorStatus.AccountingCensored));
+            var query = _advertisementContentRepository.FindAll(x=>(x.AdvertiserFK==id && x.CensorStatus == CensorStatus.AccountingCensored && x.AdvertiseContract==null ));
             var data = new List<AdvertisementContentViewModel>();
             foreach (var item in query)
             {
