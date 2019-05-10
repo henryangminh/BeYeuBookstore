@@ -636,6 +636,24 @@ namespace BeYeuBookstore.Data.EF
                 {
                     string a = ex.ToString();
                 };
+                
+                if (_context.RatingDetails.Count() == 0)
+                {
+                    _context.RatingDetails.AddRange(new List<RatingDetail>()
+                    {
+                            new RatingDetail(){ BookFK = 1, CustomerFK = 1, Rating = 5,Comment = "good"},
+                            new RatingDetail(){ BookFK = 2, CustomerFK = 1, Rating = 4,Comment = "blabla"},
+                    });
+
+                }
+                try
+                {
+                    _context.SaveChanges();
+                }
+                catch (Exception ex)
+                {
+                    string a = ex.ToString();
+                };
 
             }
         }

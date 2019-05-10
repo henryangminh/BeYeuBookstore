@@ -20,7 +20,7 @@ namespace BeYeuBookstore.Application.Interfaces
         List<RatingDetailViewModel> GetAll(int id);
 
         RatingDetailViewModel GetById(int id);
-
+        double CalculateBookRatingByBookId(int id);
         bool Save();
     }
 }

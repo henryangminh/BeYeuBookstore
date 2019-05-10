@@ -172,7 +172,7 @@ namespace BeYeuBookstore.Application.Implementation
         {
             return _unitOfWork.Commit();
         }
-
+        
         public void Update(BookViewModel BookViewModel)
         {
             var temp = _bookRepository.FindById(BookViewModel.KeyId);
@@ -188,10 +188,19 @@ namespace BeYeuBookstore.Application.Implementation
                 temp.PageNumber = BookViewModel.PageNumber;
                 temp.isPaperback = BookViewModel.isPaperback;
                 temp.UnitPrice = BookViewModel.UnitPrice;
-                temp.Quantity = BookViewModel.Quantity;
+               
                 temp.Status = BookViewModel.Status;
                 temp.Img = BookViewModel.Img;
 
+            }
+        }
+
+        public void UpdateBookRating(double rating, int id)
+        {
+            var temp = _bookRepository.FindById(id);
+            if (temp != null)
+            {
+                temp.Rating = rating;
             }
         }
     }

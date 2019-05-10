@@ -1,6 +1,8 @@
-﻿using BeYeuBookstore.Application.Interfaces;
+﻿using AutoMapper;
+using BeYeuBookstore.Application.Interfaces;
 using BeYeuBookstore.Application.ViewModels;
 using BeYeuBookstore.Data.Entities;
+using BeYeuBookstore.Infrastructure.Interfaces;
 using BeYeuBookstore.Utilities.DTOs;
 using System;
 using System.Collections.Generic;
@@ -10,9 +12,19 @@ namespace BeYeuBookstore.Application.Implementation
 {
     public class RatingDetailService : IRatingDetailService
     {
+        private IRepository<RatingDetail, int> _ratingDetailRepository;
+        private readonly IUnitOfWork _unitOfWork;
+        public RatingDetailService(IRepository<RatingDetail, int> ratingDetailRepository, IUnitOfWork unitOfWork)
+        {
+            _ratingDetailRepository = ratingDetailRepository;
+            _unitOfWork = unitOfWork;
+        }
         public RatingDetailViewModel Add(RatingDetailViewModel ratingDetailViewModel)
         {
-            throw new NotImplementedException();
+            var ratingDetail = Mapper.Map<RatingDetailViewModel, RatingDetail>(ratingDetailViewModel);
+            _ratingDetailRepository.Add(ratingDetail);
+            _unitOfWork.Commit();
+            return ratingDetailViewModel;
         }
 
         public void Delete(int id)
@@ -22,12 +34,19 @@ namespace BeYeuBookstore.Application.Implementation
 
         public void Dispose()
         {
-            throw new NotImplementedException();
+            GC.SuppressFinalize(this);
         }
 
         public List<RatingDetailViewModel> GetAll()
         {
-            throw new NotImplementedException();
+            var query = _ratingDetailRepository.FindAll();
+            var data = new List<RatingDetailViewModel>();
+            foreach (var item in query)
+            {
+                var _data = Mapper.Map<RatingDetail, RatingDetailViewModel>(item);
+                data.Add(_data);
+            }
+            return data;
         }
 
         public List<RatingDetailViewModel> GetAll(int id)
@@ -50,9 +69,29 @@ namespace BeYeuBookstore.Application.Implementation
             throw new NotImplementedException();
         }
 
+
         public void Update(RatingDetailViewModel ratingDetailViewModel)
         {
-            throw new NotImplementedException();
+            var temp = _ratingDetailRepository.FindById(ratingDetailViewModel.KeyId);
+            if (temp != null)
+            {
+                temp.Rating = ratingDetailViewModel.Rating;
+                temp.Comment = ratingDetailViewModel.Comment;
+            }
+        }
+
+        public double CalculateBookRatingByBookId(int id)
+        {
+            double rating=0;
+            int count = 0;
+            var query = _ratingDetailRepository.FindAll(x => x.BookFK == id);
+            foreach (var item in query)
+            {
+                rating = rating + item.Rating;
+                count++;
+            }
+            rating = rating / count;
+            return rating;
         }
     }
 }

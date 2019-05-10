@@ -1,6 +1,7 @@
 ﻿var bookController = function () {
     this.initialize = function () {
         loadData();
+        sendMail();
         registerEvents();
     }
     function registerEvents() {
@@ -473,3 +474,24 @@ function loadBookCategory() {
 
 }
 
+function sendMail() {
+    $.ajax({
+        type: 'POST',
+        url: '/Book/UpdateBookRatingById',
+        data: {
+            id: 1,
+        },
+        dataType: "json",
+
+        success: function (response) {
+            
+            general.notify('Gửi mail thành công', 'success');
+            
+        },
+        error: function (err) {
+            console.log(err);
+            general.notify('Có lỗi trong khi gửi mail', 'error');
+
+        },
+    });
+}

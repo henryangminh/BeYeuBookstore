@@ -470,7 +470,7 @@ namespace BeYeuBookstore.Data.EF.Migrations
 
                     b.HasIndex("CustomerFK");
 
-                    b.ToTable("RatingDetail");
+                    b.ToTable("RatingDetails");
                 });
 
             modelBuilder.Entity("BeYeuBookstore.Data.Entities.Role", b =>
