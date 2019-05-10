@@ -1,7 +1,21 @@
-﻿@{
+﻿@using BeYeuBookstore.Extensions;
+@using BeYeuBookstore.Data.Entities;
+@using System.Web
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+
+@{
     ViewData["Title"] = "MyAccount";
     Layout = "~/Views/Shared/Frontend/_Layout.cshtml";
 }
 
-
-
+@{
+    var user = HttpContextAccessor.HttpContext.Session.Get<User>("User");
+}
+<div class="breadcrumbs">
+    <div class="container">
+        <ul class="breadcrumb">
+            <li><a href="@Url.Action("MyAccount","BeyeuBookstore")">Thông tin cá nhân</a></li>
+            <li><a href="@Url.Action("OrderHistory","BeyeuBookstore")">Lịch sử mua hàng</a></li>
+        </ul>
+    </div>
+</div>

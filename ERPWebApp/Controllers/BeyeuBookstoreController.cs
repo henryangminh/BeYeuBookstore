@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using BeYeuBookstore.Application.Interfaces;
 using BeYeuBookstore.Application.Interfaces.Acc;
+using BeYeuBookstore.Application.ViewModels;
 using BeYeuBookstore.Data.Entities;
 using BeYeuBookstore.Extensions;
 using BeYeuBookstore.Models.AccountViewModels;
@@ -19,13 +20,19 @@ namespace BeYeuBookstore.Controllers
     public class BeyeuBookstoreController : Controller
     {
         IBookService _bookService;
+        IInvoiceService _invoiceService;
+        ICustomerService _customerService;
+        IInvoiceDetailService _invoiceDetailService;
         private readonly SignInManager<User> _signInManager;
         private readonly IUserService _userService;
-        public BeyeuBookstoreController(IBookService bookService, SignInManager<User> signInManager, IUserService userService)
+        public BeyeuBookstoreController(IBookService bookService, SignInManager<User> signInManager, IUserService userService, IInvoiceService invoiceService, ICustomerService customerService, IInvoiceDetailService invoiceDetailService)
         {
             _bookService = bookService;
             _signInManager = signInManager;
             _userService = userService;
+            _invoiceService = invoiceService;
+            _customerService = customerService;
+            _invoiceDetailService = invoiceDetailService;
         }
         
         public IActionResult Index()
@@ -35,7 +42,9 @@ namespace BeYeuBookstore.Controllers
 
         public IActionResult SignUp()
         {
-            return View();
+            if (!HttpContext.Session.Get<Boolean>("IsLogin"))
+                return View();
+            return new RedirectResult(Url.Action("Index", "BeyeuBookstore"));
         }
 
         public IActionResult Shopping()
@@ -45,12 +54,41 @@ namespace BeYeuBookstore.Controllers
 
         public IActionResult SignIn()
         {
-            return View();
+            if (!HttpContext.Session.Get<Boolean>("IsLogin"))
+                return View();
+            return new RedirectResult(Url.Action("Index", "BeyeuBookstore"));
         }
 
         public IActionResult CheckOut()
         {
             return View();
+        }
+
+        public IActionResult MyAccount()
+        {
+            if(HttpContext.Session.Get<Boolean>("IsLogin"))
+                return View();
+            return new RedirectResult(Url.Action("Index", "BeyeuBookstore"));
+        }
+
+        public IActionResult OrderHistory()
+        {
+            if (HttpContext.Session.Get<Boolean>("IsLogin"))
+                return View(GetAllInvoiceByCustomerId(_customerService.GetBysId(HttpContext.Session.Get<User>("User").Id.ToString()).KeyId));
+            return new RedirectResult(Url.Action("Index", "BeyeuBookstore"));
+        }
+
+        public IActionResult OrderDetails(int? id)
+        {
+            if (HttpContext.Session.Get<Boolean>("IsLogin"))
+            {
+                if (id == null)
+                    return View();
+                InvoiceViewModel invoiceViewModel = _invoiceService.GetById((int)id);
+                List<InvoiceDetailViewModel> invoiceDetailViewModel = _invoiceDetailService.GetAll((int)id);
+                return View(new Tuple<InvoiceViewModel, List<InvoiceDetailViewModel>>(invoiceViewModel, invoiceDetailViewModel));
+            }
+            return new RedirectResult(Url.Action("Index", "BeyeuBookstore"));
         }
         #region AJAX API
         [HttpGet]
@@ -120,6 +158,11 @@ namespace BeYeuBookstore.Controllers
             ////  Clear the existing external cookie to ensure a clean login process
             await HttpContext.SignOutAsync(IdentityConstants.ExternalScheme);
             return new OkObjectResult(Url.Action("Index","BeyeuBookstore"));
+        }
+
+        public List<InvoiceViewModel> GetAllInvoiceByCustomerId(int id)
+        {
+            return _invoiceService.GetAllInvoiceByCustomerId(id);
         }
         #endregion
     }
