@@ -18,10 +18,10 @@ function DisableSpecificDates(date) {
 
 var advertiseContractController = function () {
     this.initialize = function () {
-
+        
         loadData();
         registerEvents();
-
+        autoUpdateContractStatus();
     }
     function registerEvents() {
         
@@ -332,24 +332,7 @@ var advertiseContractController = function () {
         });
    }
 
-    function resetForm() {
-        $('#frmMaintainance').trigger('reset');
-        $('#ImgAdPosition').empty();
-        $('#txtNodate').val('');
-        $('#txtMustPay').val('');
-        $('#txtNote').val('');
-        gDisabledDates.length = 0;
-
-        $('#txtFromdate').datepicker("destroy");
-        $('#txtTodate').datepicker("destroy");
-        $('.datepicker').datepicker({
-            format: "dd/mm/yyyy",
-            language: "vi",
-            clearBtn: true,
-            todayHighlight: true,
-            beforeShowDay: DisableSpecificDates
-        });
-    }
+   
 
     function loadDetail(that) {
         $('#selAdContent').empty();
@@ -428,14 +411,16 @@ var advertiseContractController = function () {
     }
 }
 function loadData(isPageChanged) {
-
+    resetForm();
     var template = $('#table-template').html();
     var render = "";
-
+   
     $.ajax({
         type: 'GET',
         data: {
 
+            fromdate: $('#dtBegin').val(),
+            todate: $('#dtEnd').val(),
             keyword: $('#txtKeyword').val(),
             status: $('#selStatus').val(),
             page: general.configs.pageIndex,
@@ -578,7 +563,14 @@ function loadAllFutureSuccessContract(that) {
             });
             $('#txtFromdate').datepicker("destroy");
             $('#txtTodate').datepicker("destroy");
-            $('.datepicker').datepicker({
+            $('#txtFromdate').datepicker({
+                format: "dd/mm/yyyy",
+                language: "vi",
+                clearBtn: true,
+                todayHighlight: true,
+                beforeShowDay: DisableSpecificDates
+            });
+            $('#txtTodate').datepicker({
                 format: "dd/mm/yyyy",
                 language: "vi",
                 clearBtn: true,
@@ -623,3 +615,97 @@ function countDate(dateStart, dateFinish) {
     return moment.duration(start.diff(end)).asDays() + 1;
 }
 
+function autoUpdateContractStatus() {
+    $.ajax({
+        type: 'GET',
+        url: '/AdvertiseContract/GetAllRequestingNPaidContract',
+
+        dataType: "json",
+
+        success: function (response) {
+            $.each(response, function (i, item) {
+                if ((moment(item.DateFinish) < moment()) && (item.Status == general.contractStatus.AccountingCensored)) {
+                    $.ajax({
+                        type: 'POST',
+                        url: '/AdvertiseContract/UpdateStatus',
+                        data: {
+                            id: item.KeyId,
+                            status: general.contractStatus.Success,
+                            note: 'Hệ thống tự cập nhật trạng thái',
+
+                        },
+                        dataType: "json",
+
+                        success: function (response) {
+
+                            $('#modal-add-edit').modal('hide');
+                            general.notify('Tự động cập nhật hợp đồng quảng cáo mã: '+item.KeyId+' thành công!', 'success');
+                           
+                            loadData();
+                        },
+                        error: function (err) {
+                            general.notify('Có lỗi trong khi tự động cập nhật trạng thái hợp đồng '+item.KeyId+'!', 'error');
+
+                        },
+                    });
+                }
+                if ((moment(item.DateFinish) < moment()) && (item.Status == general.contractStatus.Requesting)) {
+                    $.ajax({
+                        type: 'POST',
+                        url: '/AdvertiseContract/UpdateStatus',
+                        data: {
+                            id: item.KeyId,
+                            status: general.contractStatus.Unqualified,
+                            note: 'Hệ thống tự cập nhật trạng thái không thành công do không thanh toán đúng hạn!',
+
+                        },
+                        dataType: "json",
+
+                        success: function (response) {
+
+                            $('#modal-add-edit').modal('hide');
+                            general.notify('Tự động cập nhật hợp đồng quảng cáo mã: ' + item.KeyId + 'thành công!', 'success');
+                      
+                            loadData();
+                        },
+                        error: function (err) {
+                            general.notify('Có lỗi trong khi tự động cập nhật trạng thái hợp đồng '+item.KeyId+'!', 'error');
+
+                        },
+                    });
+                }
+            });
+            
+        },
+        error: function (err) {
+            general.notify('Có lỗi trong khi tự động cập nhật trạng thái hợp đồng !', 'error');
+
+        },
+    });
+
+}
+function resetForm() {
+    $('#frmMaintainance').trigger('reset');
+    $('#ImgAdPosition').empty();
+    $('#txtNodate').val('');
+    $('#txtMustPay').val('');
+    $('#txtNote').val('');
+    gDisabledDates.length = 0;
+
+    $('#txtFromdate').datepicker("destroy");
+    $('#txtTodate').datepicker("destroy");
+    $('#txtFromdate').datepicker({
+        format: "dd/mm/yyyy",
+        language: "vi",
+        clearBtn: true,
+        todayHighlight: true,
+        beforeShowDay: DisableSpecificDates
+    });
+    $('#txtTodate').datepicker({
+        format: "dd/mm/yyyy",
+        language: "vi",
+        clearBtn: true,
+        todayHighlight: true,
+        beforeShowDay: DisableSpecificDates
+    });
+}

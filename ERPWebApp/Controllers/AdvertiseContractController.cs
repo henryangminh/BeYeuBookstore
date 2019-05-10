@@ -44,7 +44,7 @@ namespace BeYeuBookstore.Controllers
         }
 
         [HttpGet]
-        public IActionResult GetAllPaging(int? status, string keyword, int page, int pageSize)
+        public IActionResult GetAllPaging(string fromdate, string todate, int? status, string keyword, int page, int pageSize)
         {
             var userid = _generalFunctionController.Instance.getClaimType(User, CommonConstants.UserClaims.Key);
             var A = _advertiserService.GetBysId(userid);
@@ -63,7 +63,7 @@ namespace BeYeuBookstore.Controllers
                 }
             }
 
-            var model = _advertiseContractService.GetAllPaging(isSaleAdmin, isAccountant,A.KeyId, status, keyword, page, pageSize);
+            var model = _advertiseContractService.GetAllPaging(fromdate, todate, isSaleAdmin, isAccountant,A.KeyId, status, keyword, page, pageSize);
             return new OkObjectResult(model);
         }
 
@@ -89,6 +89,13 @@ namespace BeYeuBookstore.Controllers
                 _advertiseContractService.Save();
                 return new OkObjectResult(advertiseContractVm);
             }
+        }
+
+        [HttpGet]
+        public IActionResult GetAllRequestingNPaidContract()
+        {
+            var model = _advertiseContractService.GetAllRequestingNPaidContract();
+            return new OkObjectResult(model);
         }
 
         [HttpGet]

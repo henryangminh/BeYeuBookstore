@@ -52,6 +52,18 @@ namespace BeYeuBookstore.Application.Implementation
             return data;
         }
 
+        public List<AdvertiseContractViewModel> GetAllRequestingNPaidContract()
+        {
+            var query = _advertiseContractRepository.FindAll(x=>(x.Status==ContractStatus.Requesting|| x.Status == ContractStatus.AccountingCensored));
+            var data = new List<AdvertiseContractViewModel>();
+            foreach (var item in query)
+            {
+                var _data = Mapper.Map<AdvertiseContract, AdvertiseContractViewModel>(item);
+                data.Add(_data);
+            }
+            return data;
+        }
+
         public List<AdvertiseContractViewModel> GetAllFutureContractByPositionId(int id)
         {
             var query = _advertiseContractRepository.FindAll(x=>(x.Status == ContractStatus.Requesting && x.DateFinish >= DateTime.Now && x.AdvertisementContentFKNavigation.AdvertisementPositionFK==id));
@@ -64,7 +76,7 @@ namespace BeYeuBookstore.Application.Implementation
             return data;
         }
 
-        public PagedResult<AdvertiseContractViewModel> GetAllPaging(bool? isSaleAdmin, bool? isAccountant, int advertiserId, int? status, string keyword, int page, int pageSize)
+        public PagedResult<AdvertiseContractViewModel> GetAllPaging(string fromdate, string todate, bool? isSaleAdmin, bool? isAccountant, int advertiserId, int? status, string keyword, int page, int pageSize)
         {
             var query = _advertiseContractRepository.FindAll(x => x.AdvertisementContentFKNavigation, x=>x.AdvertisementContentFKNavigation.AdvertiserFKNavigation);
             query = query.OrderBy(x => x.KeyId);
@@ -73,6 +85,23 @@ namespace BeYeuBookstore.Application.Implementation
                 var keysearch = keyword.Trim().ToUpper();
 
                 query = query.OrderBy(x => x.KeyId).Where(x => (x.AdvertisementContentFKNavigation.AdvertiserFKNavigation.BrandName.ToUpper().Contains(keysearch) || x.AdvertisementContentFKNavigation.Title.ToUpper().Contains(keysearch)));
+
+            }
+
+            if (!string.IsNullOrEmpty(fromdate))
+            {
+                var date = DateTime.Parse(fromdate);
+                TimeSpan ts = new TimeSpan(0, 0, 0);
+                DateTime _fromdate = date.Date + ts;
+                query = query.Where(x => x.DateCreated >= _fromdate);
+
+            }
+            if (!string.IsNullOrEmpty(todate))
+            {
+                var date = DateTime.Parse(todate);
+                TimeSpan ts = new TimeSpan(23, 59, 59);
+                DateTime _todate = date.Date + ts;
+                query = query.Where(x => x.DateCreated <= _todate);
 
             }
             if (status.HasValue)

@@ -20,7 +20,9 @@ namespace BeYeuBookstore.Application.Interfaces
 
         List<AdvertiseContractViewModel> GetAll();
 
-        PagedResult<AdvertiseContractViewModel> GetAllPaging(bool? isSaleAdmin, bool? isAccountant, int advertiserId, int? status, string keyword, int page, int pageSize);
+        List<AdvertiseContractViewModel> GetAllRequestingNPaidContract();
+
+        PagedResult<AdvertiseContractViewModel> GetAllPaging(string fromdate, string todate, bool? isSaleAdmin, bool? isAccountant, int advertiserId, int? status, string keyword, int page, int pageSize);
 
         List<AdvertiseContractViewModel> GetAllFutureContractByPositionId(int id);
 
