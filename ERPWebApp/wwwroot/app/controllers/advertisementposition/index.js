@@ -72,7 +72,10 @@
                 {
                     required: true
                 },
-      
+                selBookcategoryDetail:
+                {
+                    required: true
+                },
                 txtWidth:
                 {
                     required: true,
@@ -252,7 +255,7 @@ function loadData(isPageChanged) {
                 render += Mustache.render(template, {
 
                     KeyId: item.KeyId,
-                    Id: item.IdOfPosition,
+                    Title: item.Title,
                     PageUrl: item.PageUrl,
                     WidthxHeight: item.Width+'x'+item.Height,
                     Price: general.toMoney(item.AdvertisePrice),
@@ -310,7 +313,7 @@ function loadBookCategory() {
 
             $.each(response, function (i, item) {
                 $('#selBookCategory').append("<option value='" + item.KeyId + "'>" + item.BookCategoryName + "</option>");
-                $('#selBookcategory').append("<option value='" + item.KeyId + "'>" + item.BookCategoryName + "</option>");
+                $('#selBookcategoryDetail').append("<option value='" + item.KeyId + "'>" + item.BookCategoryName + "</option>");
 
 
             });

@@ -140,6 +140,53 @@ namespace BeYeuBookstore.Application.Implementation
             return paginationSet;
         }
 
+        public PagedResult<AdvertiseContractViewModel> GetAllStatisticPaging(string frommonth, int advertiserId, int page, int pageSize)
+        {
+            var query = _advertiseContractRepository.FindAll(x => x.AdvertisementContentFKNavigation, x => x.AdvertisementContentFKNavigation.AdvertiserFKNavigation);
+            query = query.OrderBy(x => x.KeyId);
+
+            //if (!string.IsNullOrEmpty(fromdate))
+            //{
+            //    var date = DateTime.Parse(fromdate);
+            //    TimeSpan ts = new TimeSpan(0, 0, 0);
+            //    DateTime _fromdate = date.Date + ts;
+            //    query = query.Where(x => x.DateCreated >= _fromdate);
+
+            //}
+            //if (!string.IsNullOrEmpty(todate))
+            //{
+            //    var date = DateTime.Parse(todate);
+            //    TimeSpan ts = new TimeSpan(23, 59, 59);
+            //    DateTime _todate = date.Date + ts;
+            //    query = query.Where(x => x.DateCreated <= _todate);
+
+            //}
+           
+            if (advertiserId != 0)
+            {
+                query = query.Where(x => x.AdvertisementContentFKNavigation.AdvertiserFK == advertiserId);
+            }
+           
+            int totalRow = query.Count();
+
+            query = query.Skip((page - 1) * pageSize).Take(pageSize);
+            var data = new List<AdvertiseContractViewModel>();
+            foreach (var item in query)
+            {
+                var _data = Mapper.Map<AdvertiseContract, AdvertiseContractViewModel>(item);
+                data.Add(_data);
+            }
+
+            var paginationSet = new PagedResult<AdvertiseContractViewModel>()
+            {
+                Results = data,
+                CurrentPage = page,
+                RowCount = totalRow,
+                PageSize = pageSize
+            };
+            return paginationSet;
+        }
+
         public AdvertiseContractViewModel GetById(int id)
         {
             return Mapper.Map<AdvertiseContract, AdvertiseContractViewModel>(_advertiseContractRepository.FindById(id, x => x.AdvertisementContentFKNavigation, x => x.AdvertisementContentFKNavigation.AdvertiserFKNavigation, x=>x.AdvertisementContentFKNavigation.AdvertisementPositionFKNavigation));

@@ -38,7 +38,18 @@ namespace BeYeuBookstore.Controllers
             temp.Wait();
             //check truy cập
             if (temp.Result.Succeeded == false)
-                return new RedirectResult("/Beyeubookstore");
+                return new RedirectResult("/Home/Index");
+            return View();
+          
+        }
+        public IActionResult Statistic()
+        {
+
+            var temp = Task.Run(() => _authorizationService.AuthorizeAsync(User, Const_FunctionId.AdStatistic, Operations.Read));
+            temp.Wait();
+            //check truy cập
+            if (temp.Result.Succeeded == false)
+                return new RedirectResult("/Home/Index");
             return View();
           
         }
@@ -64,6 +75,17 @@ namespace BeYeuBookstore.Controllers
             }
 
             var model = _advertiseContractService.GetAllPaging(fromdate, todate, isSaleAdmin, isAccountant,A.KeyId, status, keyword, page, pageSize);
+            return new OkObjectResult(model);
+        }
+
+
+        [HttpGet]
+        public IActionResult GetAllStatisticPaging(string frommonth, int page, int pageSize)
+        {
+
+            var userid = _generalFunctionController.Instance.getClaimType(User, CommonConstants.UserClaims.Key);
+            var A = _advertiserService.GetBysId(userid);
+            var model = _advertiseContractService.GetAllStatisticPaging(frommonth, A.KeyId, page, pageSize);
             return new OkObjectResult(model);
         }
 
@@ -104,6 +126,15 @@ namespace BeYeuBookstore.Controllers
             var userid = _generalFunctionController.Instance.getClaimType(User, CommonConstants.UserClaims.Key);
             var A = _advertiserService.GetBysId(userid);
             var model = _advertisementContentService.GetAllCensoredAdContentByAdvertiserId(A.KeyId);
+            return new OkObjectResult(model);
+        }
+        
+        [HttpGet]
+        public IActionResult GetAdvertiserByStatistic()
+        {
+            var userid = _generalFunctionController.Instance.getClaimType(User, CommonConstants.UserClaims.Key);
+            var A = _advertiserService.GetBysId(userid);
+            var model = _advertiserService.GetAdvertiserByStatistic(A.KeyId);
             return new OkObjectResult(model);
         }
 

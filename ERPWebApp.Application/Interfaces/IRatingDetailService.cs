@@ -17,7 +17,7 @@ namespace BeYeuBookstore.Application.Interfaces
 
         PagedResult<RatingDetailViewModel> GetAllPaging(string fromdate, string todate, string keyword, int page, int pageSize);
 
-        List<RatingDetailViewModel> GetAll(int id);
+        List<RatingDetailViewModel> GetAllByBookId(int id);
 
         RatingDetailViewModel GetById(int id);
         double CalculateBookRatingByBookId(int id);

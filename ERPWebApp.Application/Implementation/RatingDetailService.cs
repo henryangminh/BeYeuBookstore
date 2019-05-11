@@ -49,9 +49,16 @@ namespace BeYeuBookstore.Application.Implementation
             return data;
         }
 
-        public List<RatingDetailViewModel> GetAll(int id)
+        public List<RatingDetailViewModel> GetAllByBookId(int id)
         {
-            throw new NotImplementedException();
+            var query = _ratingDetailRepository.FindAll(x=>x.BookFK==id);
+            var data = new List<RatingDetailViewModel>();
+            foreach (var item in query)
+            {
+                var _data = Mapper.Map<RatingDetail, RatingDetailViewModel>(item);
+                data.Add(_data);
+            }
+            return data;
         }
 
         public PagedResult<RatingDetailViewModel> GetAllPaging(string fromdate, string todate, string keyword, int page, int pageSize)

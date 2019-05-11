@@ -67,9 +67,20 @@ namespace BeYeuBookstore.Application.Implementation
             return data;
         }
 
-        public List<AdvertiserViewModel> GetAll(int id)
+        public List<AdvertiserViewModel> GetAdvertiserByStatistic(int id)
         {
-            throw new NotImplementedException();
+            var query = _advertiserRepository.FindAll();
+            if (id != 0)
+            {
+                query = query.Where(x => x.KeyId == id);
+            }
+            var data = new List<AdvertiserViewModel>();
+            foreach (var item in query)
+            {
+                var _data = Mapper.Map<Advertiser, AdvertiserViewModel>(item);
+                data.Add(_data);
+            }
+            return data;
         }
 
         public PagedResult<AdvertiserViewModel> GetAllPaging(int? status, string keyword, int page, int pageSize)

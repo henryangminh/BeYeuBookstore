@@ -291,7 +291,21 @@ var advertiseContractController = function () {
                         general.notify('Ngày kết thúc phải lớn hơn hoặc bằng ngày bắt đầu !', 'error');
                         return false;
                     }
+                    var flag;
+                    for (var i = 0; i < parseInt(note); i++)
+                    {
+                        var _dateStart = moment(dateStart, "YYYY-MM-DD");
+                        var _curday = _dateStart.format("DD/MM/YYYY");
+                        if ($.inArray(_curday, gDisabledDates) != -1) {
+                            flag = false;
+                        }
+                        _dateStart = _dateStart.add(1, 'days');
+                    }
 
+                    if (flag==false) {
+                        general.notify('Chuỗi ngày bạn chọn có những ngày không còn trống !', 'error');
+                        return false;
+                    }
 
                     $.ajax({
                         type: 'POST',

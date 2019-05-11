@@ -57,13 +57,16 @@ namespace BeYeuBookstore.Data.EF
                       new Function() {KeyId = "MerchantContractItem",Name = "Hợp đồng với nhà cung cấp",ParentId = "ContractItem",SortOrder = 1,Status = Status.Active,URL = "/MerchantContract",IconCss = "fa-chevron-down"  },
                       new Function() {KeyId = "AdvertiseContractItem",Name = "Hợp đồng quảng cáo",ParentId = "ContractItem",SortOrder = 2,Status = Status.Active,URL = "/AdvertiseContract",IconCss = "fa-clone"  },
    
-                      new Function() {KeyId = "TermItem",Name = "Điều khoản dịch vụ, quy trình",ParentId = null,SortOrder = 5,Status = Status.Active,URL = "/",IconCss = "fa-handshake"  },
+                      new Function() {KeyId = "TermItem",Name = "Điều khoản dịch vụ, quy trình",ParentId = null,SortOrder = 6,Status = Status.Active,URL = "/",IconCss = "fa-handshake"  },
 
                       new Function() {KeyId = "MerchantTermItem",Name = "Đối với Nhà cung cấp",ParentId = "TermItem",SortOrder = 3,Status = Status.Active,URL = "/Process/Merchant",IconCss = "fa-chevron-down"  },
                       new Function() {KeyId = "AdvertiserTermItem",Name = "Đối với bên quảng cáo",ParentId = "TermItem",SortOrder = 2,Status = Status.Active,URL = "/Process/Advertiser",IconCss = "fa-clone"  },
                       new Function() {KeyId = "GeneralTermItem",Name = "Điều khoản và dịch vụ",ParentId = "TermItem",SortOrder = 1,Status = Status.Active,URL = "/Process/GeneralTerm",IconCss = "fa-clone"  },
-    
-                });
+
+                      new Function() {KeyId = "StatisticsItem",Name = "Thống kê",ParentId = null,SortOrder = 5,Status = Status.Active,URL = "/",IconCss = "fa-chart-line"  },
+
+                      new Function() {KeyId = "AdStatisticsItem",Name = "Quảng cáo", ParentId = "StatisticsItem",SortOrder = 1,Status = Status.Active,URL = "/AdvertiseContract/Statistic",IconCss = "fa-chevron-down"  },
+                 });
             }
             try
             {

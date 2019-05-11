@@ -1,40 +1,30 @@
 ﻿
 @{
-    ViewData["Title"] = "Index";
-}
-@section Styles{
-    <link href="~/lib/bootstrap-datepicker/dist/css/bootstrap-datepicker3.css" rel="stylesheet" />
+    ViewData["Title"] = "Statistic";
 }
 @section Scripts{
 
 
     <script src="~/lib/bootstrap-datepicker/dist/js/bootstrap-datepicker.js" asp-append-version="true"></script>
     <script src="~/lib/bootstrap-datepicker/dist/locales/bootstrap-datepicker.vi.min.js" asp-append-version="true"></script>
-    <script src="~/app/controllers/advertisementposition/index.js" asp-append-version="true"></script>
+    <script src="~/app/controllers/advertisecontract/statistic.js" asp-append-version="true"></script>
 
     <script>
-        var advertisementPosition = new advertisementPositionController();
-        advertisementPosition.initialize();</script>
+        var advertiseContractStatistic = new advertiseContractStatisticController();
+        advertiseContractStatistic.initialize();</script>
 }
 <div class="title_left">
-    <h3>Vị trí quảng cáo</h3>
+    <h3>Thống kê</h3>
 </div>
 <div class="form-group row">
-    <div class="col-sm-4 form-group">
-        <input type="text" id="txtKeyword" class="form-control" placeholder="Gõ từ khóa...">
-    </div>
-    <div class="col-lg-2">
-        <select class="form-control" id="selStatus">
-            <option value="">Chọn trạng thái</option>
-            <option value="0">Khóa</option>
-            <option value="1">Kích hoạt</option>
+
+    <div class="col-lg-4">
+        <select class="form-control" id="selAdvertiser">
+            <option value="">Chọn hãng quảng cáo</option>
         </select>
     </div>
-    <div class="col-sm-4 form-group">
-        
-    </div>
-    <div class="col-sm-1 form-group">
-        <button id="btnCreate" class="btn btn-success"><i class="fa fa-plus"></i> Thêm mới</button>
+    <div class="col-sm-2">
+        <input type="text" id="mthFromMonth" autocomplete="off" class="form-control monthpicker" placeholder="Chọn tháng" />
     </div>
 </div>
 
@@ -45,13 +35,13 @@
                 <table class="table table-striped table-bordered table-fix-header">
                     <thead>
                         <tr>
-                            <th width="3%">Mã </th>
-                            <th>Tên vị trí</th>
-                            <th width="10%">Đường dẫn</th>
-                            <th>Chiều dài x Chiều cao<br>(px x px)</th>
-                            <th width="20%">Giá(/ngày)<br>(VNĐ)</th>
-                            <th>Trạng thái</th>
-                            <th width="8%">#</th>
+                            <th>Người quảng cáo</th>     
+                            <th>Tháng thống kê</th>     
+                            <th>Số hợp đồng đăng ký</th>
+                            <th>Số hợp đồng thành công</th>
+                            <th>Tổng giá trị hợp đồng<br>đã thanh toán trong tháng</th>
+                            <th>Tổng giá trị hợp đồng<br>đã thanh toán</th>
+ 
                         </tr>
                     </thead>
                     <tbody id="tbl-content"></tbody>
@@ -83,15 +73,11 @@
 </div>
 <script id="table-template" type="x-tmpl-mustache">
     <tr>
-        <td>{{KeyId}}</td>
-        <td>{{Title}}</td>
-        <td>{{PageUrl}}</td>
-        <td style="text-align:center">{{WidthxHeight}}</td>
-        <td>{{Price}}</td>
-        <td>{{{Status}}}</td>
-        <td scope="row">
-            <a class="btn btn-xs btn-default btn-edit {{{Prop}}}" {{{Prop}}} data-id="{{KeyId}}"><i class="fa fa-pencil"></i></a>
-        </td>
+        <td>{{Advertiser}}</td>
+        <td>{{Month}}</td>
+        <td>{{NoContract}}</td>
+        <td>{{NoSuccessContract}}</td>
+        <td>{{TotalContractValueInMonth}}</td>
+        <td>{{TotalContractValue}}</td>
     </tr>
 </script>
-@await Html.PartialAsync("_AddEditAdPosition.cshtml")
