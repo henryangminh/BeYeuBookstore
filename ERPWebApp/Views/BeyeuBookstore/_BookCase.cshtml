@@ -5,7 +5,7 @@
         <div class="product-wrapper mb-40">
             <input type="hidden" id="txtBookKeyId" value="{{KeyId}}" />
             <div class="product-img">
-                <a href="{{LinkBook}}">
+                <a target="_blank" href="@{Write(Url.Action("BookDetail", "BeyeuBookstore"));}{{LinkBook}}">
                     <img src="{{BookImage}}" alt="book" class="primary" />
                 </a>
                 <div class="quick-view">
@@ -15,7 +15,7 @@
                 </div>
             </div>
             <div class="product-details text-center">
-                <h4><a href="{{LinkBook}}" style="font-family: Verdana; font-size: 14px; font-weight: normal">{{BookTitle}}</a></h4>
+                <h4><a target="_blank" href="@{Write(Url.Action("BookDetail", "BeyeuBookstore"));}{{LinkBook}}" style="font-family: Verdana; font-size: 14px; font-weight: normal">{{BookTitle}}</a></h4>
                 <div class="product-price">
                     <ul>
                         <li>{{BookPrice}}</li>
