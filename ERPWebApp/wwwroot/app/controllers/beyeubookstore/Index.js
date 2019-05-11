@@ -38,7 +38,7 @@
                     console.log('BookDetail', response);
                     var size = response.Width + "x" + response.Length;
                     if (response.Height != null) size += "x" + response.Height;
-                    size += "(cm)";
+                    size += " (cm)";
                     $('#BookId').val(response.KeyId);
                     $('#txtPaperback').text((response.isPaperback) ? "Bìa mềm" : "Bìa cứng");
                     $('#txtBookNameModal').text(response.BookTitle);
@@ -130,7 +130,7 @@ function loadData(isPageChanged) {
     $.ajax({
         type: 'GET',
         data: {
-            quantity: 8,
+            quantity: 12,
         },
         url: '/BeyeuBookstore/GetAllQuantity',
         dataType: 'json',
@@ -199,10 +199,14 @@ function loadBookCategory() {
             console.log('BookCategory', response);
             $.each(response, function (i, item) {
                 render += Mustache.render(template, {
-                    LinkCategoryShop: '#',
+                    LinkCategoryShop: '?radBookCategory=' + item.KeyId,
                     BookCategoryName: item.BookCategoryName,
+                    More: (i > 10) ? true : false,
                 });
             });
+            if (response.length > 10) {
+                render += '<li class="rx-parent"><a class="rx-default" ><span class="cat-thumb fa fa-plus"></span>Thêm</a><a class="rx-show"><span class="cat-thumb fa fa-minus"></span>Đóng</a></li>';
+            }
             $('#BookCategory').html(render);
         },
         error: function (err) {

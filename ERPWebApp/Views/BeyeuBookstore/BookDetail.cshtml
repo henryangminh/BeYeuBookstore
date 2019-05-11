@@ -1,4 +1,4 @@
-﻿@model BeYeuBookstore.Application.ViewModels.BookViewModel
+﻿@model Tuple<BeYeuBookstore.Application.ViewModels.BookViewModel, List<BeYeuBookstore.Application.ViewModels.RatingDetailViewModel>>
 @using BeYeuBookstore.Extensions;
 @inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
 
@@ -19,7 +19,7 @@
                             <div class="flexslider">
                                 <ul class="slides">
                                     <li data-thumb="img/thum-2/1.jpg">
-                                        <img src="@Model.Img" alt="@Model.BookTitle" />
+                                        <img src="@Model.Item1.Img" alt="@Model.Item1.BookTitle" />
                                     </li>
                                 </ul>
                             </div>
@@ -27,32 +27,32 @@
                         <div class="col-lg-7 col-md-7 col-sm-6 col-xs-12">
                             <div class="product-info-main">
                                 <div class="page-title">
-                                    <h1>@Model.BookTitle</h1>
+                                    <h1>@Model.Item1.BookTitle</h1>
                                 </div>
                                 <div class="product-info-stock-sku">
                                     <span>
                                         @{
-                                            var quantity = Model.Quantity;
+                                            var quantity = Model.Item1.Quantity;
                                             Write((quantity > 0) ? "Còn hàng" : "Hết hàng");
                                         }
                                     </span>
                                     <div class="product-attribute">
-                                        <p>Tác giả: @Model.Author</p>
+                                        <p>Tác giả: @Model.Item1.Author</p>
                                     </div>
                                 </div>
                                 <div class="product-reviews-summary">
                                     <div class="rating-summary">
-                                        <a href="#">@Model.Rating<i class="fa fa-star"></i></a>
+                                        <a href="#">@Model.Item1.Rating<i class="fa fa-star"></i></a>
                                     </div>
                                     <div class="reviews-actions">
-                                        <a href="#">@Model.RatingNumber Nhận xét</a>
+                                        <a href="#">@Model.Item1.RatingNumber Nhận xét</a>
                                     </div>
                                 </div>
                                 <div class="product-info-price">
                                     <div class="price-final">
                                         <span class="money">
                                             @{
-                                                var unitPrice = Convert.ToInt32(Model.UnitPrice);
+                                                var unitPrice = Convert.ToInt32(Model.Item1.UnitPrice);
                                                 Write(unitPrice);
                                         }
                                     </span>
@@ -73,7 +73,7 @@
 
                             <div class="product-social-links">
                                 <div class="product-addto-links-text">
-                                    <p>@Model.Description</p>
+                                    <p>@Model.Item1.Description</p>
                                 </div>
                             </div>
                         </div>
@@ -92,21 +92,21 @@
                     <div class="tab-pane active" id="Details">
                         <div class="valu">
                             <ul>
-                                <li><i class="fa fa-circle"></i>Số trang: @Model.PageNumber</li>
+                                <li><i class="fa fa-circle"></i>Số trang: @Model.Item1.PageNumber</li>
                                 <li>
                                     <i class="fa fa-circle"></i>Loại bìa: @{
-                                        Write((Model.isPaperback) ? "Bìa mềm" : "Bìa cứng");
+                                        Write((Model.Item1.isPaperback) ? "Bìa mềm" : "Bìa cứng");
                                     }
                                 </li>
                                 <li>
                                     <i class="fa fa-circle"></i>Kích thước: @{
-                                        var size = Model.Width.ToString() + "x" + Model.Length.ToString();
-                                        size += (Model.Height != null) ? ("x" + Model.Height.ToString()) : "";
+                                        var size = Model.Item1.Width.ToString() + "x" + Model.Item1.Length.ToString();
+                                        size += (Model.Item1.Height != null) ? ("x" + Model.Item1.Height.ToString()) : "";
                                         size += " (cm)";
                                         Write(size);
                                     }
                                 </li>
-                                <li><i class="fa fa-circle"></i>Công ty phát hành: @Model.MerchantFKNavigation.MerchantCompanyName</li>
+                                <li><i class="fa fa-circle"></i>Công ty phát hành: @Model.Item1.MerchantFKNavigation.MerchantCompanyName</li>
                             </ul>
                         </div>
                     </div>
@@ -117,35 +117,37 @@
                             </div>
                             <div class="product-reviews-summary mt-20 mb-20" style="border-top:none; margin-top:0;">
                                 <div class="rating-summary">
-                                    <a href="#">@Model.Rating<i class="fa fa-star"></i></a> trong tổng số @Model.RatingNumber nhận xét
+                                    <a href="#">@Model.Item1.Rating<i class="fa fa-star"></i></a> trong tổng số @Model.Item1.RatingNumber nhận xét
                                 </div>
                             </div>
-                            @if (Model.RatingNumber > 0)
+                            @if (Model.Item1.RatingNumber > 0)
                             {
-                                <ul>
-                                    <li>
-                                        <div class="review-left col-lg-12">
-                                            <div class="review-details">
-                                                <p class="review-author">Người đăng<a href="#">Bé Yêu</a></p>
-                                                <p class="review-date">Ngày đăng <span>12/9/16</span></p>
-                                            </div>
-                                        </div>
-                                        <div class="review-left col-lg-12" style="margin-top:10px;">
-                                            <div class="review-rating">
-                                                <div class="rating-result">
-                                                    <a href="#"><i class="fa fa-star"></i></a>
-                                                    <a href="#"><i class="fa fa-star"></i></a>
-                                                    <a href="#"><i class="fa fa-star"></i></a>
-                                                    <a href="#"><i class="fa fa-star"></i></a>
-                                                    <a href="#"><i class="fa fa-star"></i></a>
+                                @foreach (var item in Model.Item2)
+                                {
+                                    <ul>
+                                        <li>
+                                            <div class="review-left col-lg-12">
+                                                <div class="review-details">
+                                                    <p class="review-author">Người đăng<a href="#">@item.CustomerFKNavigation.UserBy.FullName</a></p>
+                                                    <p class="review-date">Ngày đăng <span>@item.DateCreated</span></p>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="review-content col-lg-12">
-                                            <h4>themes</h4>
-                                        </div>
-                                    </li>
-                                </ul>
+                                            <div class="review-left col-lg-12" style="margin-top:10px; height:15px;">
+                                                <div class="review-rating">
+                                                    <div class="rating-result">
+                                                        @for (int i = 0; i < item.Rating; i++)
+			                                            {
+                                                        <a><i class="fa fa-star"></i></a>
+			                                            }
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="review-content col-lg-12">
+                                                <h4>@item.Comment</h4>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                }
                             }
                             else
                             {
@@ -200,7 +202,9 @@
             <div class="shop-left">
                 <div class="banner-area mb-30">
                     <div class="banner-img-2">
-                        <a href="#"><img src="img/banner/33.jpg" alt="banner" /></a>
+                        <a href="#">
+                            <img src="~/beyeubookstore/img/banner/33.jpg" />
+                        </a>
                     </div>
                 </div>
             </div>

@@ -8,6 +8,7 @@ using BeYeuBookstore.Application.ViewModels;
 using BeYeuBookstore.Data.Entities;
 using BeYeuBookstore.Extensions;
 using BeYeuBookstore.Models.AccountViewModels;
+using BeYeuBookstore.Services;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -16,16 +17,18 @@ using Microsoft.AspNetCore.Routing;
 
 namespace BeYeuBookstore.Controllers
 {
-
     public class BeyeuBookstoreController : Controller
     {
         IBookService _bookService;
         IInvoiceService _invoiceService;
         ICustomerService _customerService;
         IInvoiceDetailService _invoiceDetailService;
+        IRatingDetailService _ratingDetailService;
+        private readonly UserManager<User> _userManager;
         private readonly SignInManager<User> _signInManager;
         private readonly IUserService _userService;
-        public BeyeuBookstoreController(IBookService bookService, SignInManager<User> signInManager, IUserService userService, IInvoiceService invoiceService, ICustomerService customerService, IInvoiceDetailService invoiceDetailService)
+        private readonly IEmailSender _emailSender;
+        public BeyeuBookstoreController(IBookService bookService, SignInManager<User> signInManager, IUserService userService, IInvoiceService invoiceService, ICustomerService customerService, IInvoiceDetailService invoiceDetailService, IRatingDetailService ratingDetailService, UserManager<User> userManager, IEmailSender emailSender)
         {
             _bookService = bookService;
             _signInManager = signInManager;
@@ -33,8 +36,11 @@ namespace BeYeuBookstore.Controllers
             _invoiceService = invoiceService;
             _customerService = customerService;
             _invoiceDetailService = invoiceDetailService;
+            _ratingDetailService = ratingDetailService;
+            _userManager = userManager;
+            _emailSender = emailSender;
         }
-        
+
         public IActionResult Index()
         {
             return View();
@@ -66,7 +72,7 @@ namespace BeYeuBookstore.Controllers
 
         public IActionResult MyAccount()
         {
-            if(HttpContext.Session.Get<Boolean>("IsLogin"))
+            if (HttpContext.Session.Get<Boolean>("IsLogin"))
                 return View();
             return new RedirectResult(Url.Action("Index", "BeyeuBookstore"));
         }
@@ -96,7 +102,10 @@ namespace BeYeuBookstore.Controllers
             if (id == null)
                 return View();
             var book = _bookService.GetById((int)id);
-            return View(book);
+            if (book == null)
+                return View();
+            var rating = _ratingDetailService.GetAllByBookId(book.KeyId);
+            return View(new Tuple<BookViewModel, List<RatingDetailViewModel>>(book, rating));
         }
         #region AJAX API
         [HttpGet]
@@ -165,13 +174,40 @@ namespace BeYeuBookstore.Controllers
             await _signInManager.SignOutAsync();
             ////  Clear the existing external cookie to ensure a clean login process
             await HttpContext.SignOutAsync(IdentityConstants.ExternalScheme);
-            return new OkObjectResult(Url.Action("Index","BeyeuBookstore"));
+            return new OkObjectResult(Url.Action("Index", "BeyeuBookstore"));
         }
 
         public List<InvoiceViewModel> GetAllInvoiceByCustomerId(int id)
         {
             return _invoiceService.GetAllInvoiceByCustomerId(id);
         }
+        
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> SignUp(RegisterViewModel model, string returnUrl = null)
+        {
+            ViewData["ReturnUrl"] = returnUrl;
+            if (ModelState.IsValid)
+            {
+                var user = new Data.Entities.User { UserName = model.Email, Email = model.Email };
+                var result = await _userManager.CreateAsync(user, model.Password);
+                if (result.Succeeded)
+                {
+
+                    var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
+                    var callbackUrl = Url.EmailConfirmationLink(user.Id, code, Request.Scheme);
+                    await _emailSender.SendEmailConfirmationAsync(model.Email, callbackUrl);
+
+                    await _signInManager.SignInAsync(user, isPersistent: false);
+                    return new RedirectResult(Url.Action("WaitingConfirmation", "BeyeuBookstore"));
+                }
+            }
+
+            // If we got this far, something failed, redisplay form
+            return View(model);
+        }
+        
         #endregion
     }
 }

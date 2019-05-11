@@ -110,6 +110,7 @@ function registerEvents() {
                 console.log('BookDetail', response);
                 var size = response.Width + "x" + response.Length;
                 if (response.Height != null) size += "x" + response.Height;
+                size += " (cm)";
                 $('#BookId').val(response.KeyId);
                 $('#txtPaperback').text((response.isPaperback) ? "Bìa mềm" : "Bìa cứng");
                 $('#txtBookNameModal').text(response.BookTitle);

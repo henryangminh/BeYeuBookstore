@@ -442,7 +442,13 @@
     });
     
     /*Category accordion*/
+    /*
     $('.rx-parent').on('click', function() {
+        $('.rx-child').slideToggle();
+        $(this).toggleClass('rx-change');
+    });
+    */
+    $(document).on('click', ".rx-parent", function () {
         $('.rx-child').slideToggle();
         $(this).toggleClass('rx-change');
     });
