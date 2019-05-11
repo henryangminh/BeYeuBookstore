@@ -21,6 +21,8 @@ namespace BeYeuBookstore.Application.Interfaces
 
         InvoiceViewModel GetById(int id);
 
+        List<InvoiceViewModel> GetAllInvoiceByCustomerId(int id);
+
         bool Save();
     }
 }

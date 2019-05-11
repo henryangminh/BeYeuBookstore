@@ -4115,7 +4115,7 @@ nav.menu .cr-dropdown ul {
     padding-left: 12px;
 }
 .review-details {
-    margin-top: 20px;
+    
 }
 .valu-2 ul li {
     border-bottom: 1px solid #c9c9c9;
@@ -6268,7 +6268,6 @@ p.lost-password a:hover {
     height: 49px;
     letter-spacing: 0.025em;
     line-height: 49px;
-    margin-left: 45px;
     padding: 0 30px;
     text-transform: uppercase;
 }

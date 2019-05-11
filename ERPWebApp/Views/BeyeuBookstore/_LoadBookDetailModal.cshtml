@@ -18,24 +18,28 @@
                     </div>
                     <div class="col-md-7 col-sm-7 col-xs-12">
                         <div class="modal-pro-content">
+                            <input type="hidden" id="BookId" value="" />
                             <h3 id="txtBookNameModal"></h3>
                             <div class="price">
                                 <span id="txtPriceModal"></span>
                             </div>
-                            <p id="txtDescriptionModal"></p>
-                            <div class="quick-view-select">
-                                <div class="select-option-part">
-
-                                </div>
-                                <div class="quickview-color-wrap">
-
-                                </div>
+                            <div class="row">
+                                <p id="txtDescriptionModal"></p>
                             </div>
-                            <form action="#">
-                                <input type="number" value="1" min="1"/>
-                                <button>Thêm vào giỏ hàng</button>
-                            </form>
+                            <div class="row">
+                                <p id="txtSize"></p>
+                            </div>
+                            <div class="row">
+                                <p id="txtPaperback"></p>
+                            </div>
+                            <div class="row">
+                                <form onsubmit="return false">
+                                    <button id="AddToCart">Thêm vào giỏ hàng</button>
+                                </form>
+                            </div>
                             <span><i class="fa fa-check"></i>Còn hàng</span>
+                            <span>-</span>
+                            <span><a href="">Xem chi tiết</a></span>
                         </div>
                     </div>
                 </div>
