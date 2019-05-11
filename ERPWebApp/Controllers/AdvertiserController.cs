@@ -13,7 +13,6 @@ using Microsoft.AspNetCore.Mvc.ModelBinding;
 
 namespace BeYeuBookstore.Controllers
 {
-    [Authorize]
     public class AdvertiserController : Controller
     {
         IAdvertiserService _advertiserService;
@@ -25,6 +24,7 @@ namespace BeYeuBookstore.Controllers
             _advertiserService = advertiserService;
             _unitOfWork = unitOfWork;
         }
+        [Authorize]
         public IActionResult Index()
         {
             var temp = Task.Run(() => _authorizationService.AuthorizeAsync(User, Const_FunctionId.Advertiser, Operations.Read));
@@ -32,6 +32,10 @@ namespace BeYeuBookstore.Controllers
             //check truy cập
             if (temp.Result.Succeeded == false)
                 return new RedirectResult("/Home/Index");
+            return View();
+        }
+        public IActionResult SignUp()
+        {
             return View();
         }
 
