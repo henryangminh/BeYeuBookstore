@@ -90,6 +90,14 @@ namespace BeYeuBookstore.Controllers
             }
             return new RedirectResult(Url.Action("Index", "BeyeuBookstore"));
         }
+
+        public IActionResult BookDetail(int? id)
+        {
+            if (id == null)
+                return View();
+            var book = _bookService.GetById((int)id);
+            return View(book);
+        }
         #region AJAX API
         [HttpGet]
         public IActionResult GetAll()

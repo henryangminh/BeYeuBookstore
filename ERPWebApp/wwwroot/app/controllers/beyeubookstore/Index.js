@@ -24,7 +24,6 @@
         });
 
         $('body').on('click', '#ShowDetail', function () {
-            //var BookId = $('#txtBookKeyId').val();
             var BookId = $(this).parent().parent().siblings('input').val();
 
             $.ajax({
@@ -37,11 +36,15 @@
                 },
                 success: function (response) {
                     console.log('BookDetail', response);
-
+                    var size = response.Width + "x" + response.Length;
+                    if (response.Height != null) size += "x" + response.Height;
+                    $('#BookId').val(response.KeyId);
+                    $('#txtPaperback').val((response.isPaperback) ? "Bìa mềm" : "Bìa cứng");
                     $('#txtBookNameModal').text(response.BookTitle);
                     $('#txtPriceModal').text(general.toMoney(response.UnitPrice));
                     $('#txtDescriptionModal').text(response.Description);
-                    $('#imgDetail').attr('src',response.Img)
+                    $('#imgDetail').attr('src', response.Img)
+                    $('#txtSize').text("Kích thước: " + size);
                 }
             })
         })
