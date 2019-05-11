@@ -52,7 +52,7 @@ namespace BeYeuBookstore.Application.Implementation
 
         public List<InvoiceViewModel> GetAllInvoiceByCustomerId(int id)
         {
-            var query = _invoiceRepository.FindAll(x=>x.CustomerFK==id);
+            var query = _invoiceRepository.FindAll(x => x.CustomerFK == id);
             var data = new List<InvoiceViewModel>();
             foreach (var item in query)
             {

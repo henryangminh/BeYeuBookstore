@@ -586,8 +586,8 @@ namespace BeYeuBookstore.Data.EF
                 {
                         _context.Invoices.AddRange(new List<Invoice>()
                     {
-                            new Invoice(){ CustomerFK=1,TotalPrice=0,DeliAddress="Lầu 19 Landmark 81 Q.Bình Thạnh", DeliContactName="Mỡ's Má", DeliContactHotline="0908468188"},
-                            new Invoice(){ CustomerFK=1,TotalPrice=0,DeliAddress="Lầu 19 Landmark 81 Q.Bình Thạnh", DeliContactName="Mỡ's Ba", DeliContactHotline="0908466048"}
+                            new Invoice(){ CustomerFK=1,TotalPrice=182000,DeliAddress="Lầu 19 Landmark 81 Q.Bình Thạnh", DeliContactName="Mỡ's Má", DeliContactHotline="0908468188"},
+                            new Invoice(){ CustomerFK=1,TotalPrice=355000,DeliAddress="Lầu 19 Landmark 81 Q.Bình Thạnh", DeliContactName="Mỡ's Ba", DeliContactHotline="0908466048"}
                     });
              
                 }
@@ -604,10 +604,10 @@ namespace BeYeuBookstore.Data.EF
                 {
                     _context.InvoiceDetails.AddRange(new List<InvoiceDetail>()
                     {
-                            new InvoiceDetail(){ InvoiceFK=1,BookFK=1,Qty=2,SubTotal=0},
-                            new InvoiceDetail(){ InvoiceFK=1,BookFK=2,Qty=2,SubTotal=0},
-                            new InvoiceDetail(){ InvoiceFK=2,BookFK=1,Qty=3,SubTotal=0},
-                            new InvoiceDetail(){ InvoiceFK=2,BookFK=2,Qty=4,SubTotal=0},
+                            new InvoiceDetail(){ InvoiceFK=1,BookFK=1,Qty=2,UnitPrice=45000,SubTotal=90000},
+                            new InvoiceDetail(){ InvoiceFK=1,BookFK=2,Qty=2,UnitPrice=46000,SubTotal=92000},
+                            new InvoiceDetail(){ InvoiceFK=2,BookFK=5,Qty=3,UnitPrice=65000,SubTotal=195000},
+                            new InvoiceDetail(){ InvoiceFK=2,BookFK=7,Qty=4,UnitPrice=40000,SubTotal=160000},
                     });
 
                 }
