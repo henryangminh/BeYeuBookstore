@@ -7,6 +7,7 @@ using BeYeuBookstore.Application.Interfaces;
 using BeYeuBookstore.Application.Interfaces.Acc;
 using BeYeuBookstore.Application.ViewModels;
 using BeYeuBookstore.Application.ViewModels.System;
+using BeYeuBookstore.Data.EF;
 using BeYeuBookstore.Data.Entities;
 using BeYeuBookstore.Extensions;
 using BeYeuBookstore.Models.AccountViewModels;
@@ -30,6 +31,7 @@ namespace BeYeuBookstore.Controllers
         IRatingDetailService _ratingDetailService;
         private readonly UserManager<User> _userManager;
         private readonly SignInManager<User> _signInManager;
+        private readonly ERPDbContext _context;
         private readonly IUserService _userService;
         private readonly IEmailSender _emailSender;
         public BeyeuBookstoreController(IBookService bookService, SignInManager<User> signInManager, IUserService userService, IInvoiceService invoiceService, ICustomerService customerService, IInvoiceDetailService invoiceDetailService, IRatingDetailService ratingDetailService, UserManager<User> userManager, IEmailSender emailSender)
@@ -162,13 +164,17 @@ namespace BeYeuBookstore.Controllers
                 if (result.Succeeded)
                 {
                     var user = await _userService.GetByEmailAsync(model.Email);
-                    if (user.UserTypeFK == 3)
+                    if (user.EmailConfirmed)
                     {
-                        HttpContext.Session.Set("IsLogin", true);
-                        HttpContext.Session.Set("User", user);
-                        return new OkObjectResult(urlSuccess);
+                        if (user.UserTypeFK == 3)
+                        {
+                            HttpContext.Session.Set("IsLogin", true);
+                            HttpContext.Session.Set("User", user);
+                            return new OkObjectResult(urlSuccess);
+                        }
+                        return new OkObjectResult("permission");
                     }
-                    return new OkObjectResult("permission");
+                    return new OkObjectResult("emailconfirm");
                 }
                 if (result.IsLockedOut)
                 {
@@ -270,9 +276,21 @@ namespace BeYeuBookstore.Controllers
                 return new RedirectResult(Url.Action("ConfirmationError", "BeyeuBookstore"));
             }
             var result = await _userManager.ConfirmEmailAsync(user, code);
-            if (result.Succeeded) user.Status = Data.Enums.Status.Active;
-            await _userService.UpdateAsync(Mapper.Map<User, UserViewModel>(user));
+            if (result.Succeeded)
+            {
+                user.Status = Data.Enums.Status.Active;
+                await _userService.UpdateAsync(Mapper.Map<User, UserViewModel>(user));
+                await _userManager.AddToRoleAsync(user, "Customer"); // add vao role
+                //_context.Customers.Add(new Customer() { UserFK = user.Id });
+                //_context.SaveChanges();
+            }
             return new RedirectResult(Url.Action("Index", "BeyeuBookstore"));
+        }
+
+        [HttpGet]
+        public IActionResult GetAdvertisement()
+        {
+
         }
         #endregion
     }
