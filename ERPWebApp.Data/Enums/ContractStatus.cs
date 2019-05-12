@@ -9,5 +9,7 @@ namespace BeYeuBookstore.Data.Enums
         Requesting,
         Unqualified,
         Success,
+        AccountingCensored,
+
     }
 }

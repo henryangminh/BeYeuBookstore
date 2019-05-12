@@ -14,14 +14,19 @@ namespace BeYeuBookstore.Application.Interfaces
         AdvertiseContractViewModel Add(AdvertiseContractViewModel advertiseContractViewModel);
 
         void Update(AdvertiseContractViewModel advertiseContractViewModel);
+        void UpdateStatus(int id, int status, string note);
 
         void Delete(int id);
 
         List<AdvertiseContractViewModel> GetAll();
 
-        PagedResult<AdvertiseContractViewModel> GetAllPaging(int advertiserId, int? status, string keyword, int page, int pageSize);
+        List<AdvertiseContractViewModel> GetAllRequestingNPaidContract();
 
-        List<AdvertiseContractViewModel> GetAll(int id);
+        PagedResult<AdvertiseContractViewModel> GetAllPaging(string fromdate, string todate, bool? isSaleAdmin, bool? isAccountant, int advertiserId, int? status, string keyword, int page, int pageSize);
+
+        PagedResult<AdStatisticViewModel> GetAllStatisticPaging(string fromdate, string todate, int advertiserId, int page, int pageSize);
+
+        List<AdvertiseContractViewModel> GetAllFutureContractByPositionId(int id);
 
         AdvertiseContractViewModel GetById(int id);
 

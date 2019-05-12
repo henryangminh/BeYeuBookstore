@@ -51,6 +51,20 @@ namespace BeYeuBookstore.Application.Implementation
             return data;
         }
 
+        public CustomerViewModel GetBysId(string id)
+        {
+            var query = _customerRepository.FindAll(p => p.UserBy);
+            var _data = new CustomerViewModel();
+            foreach (var item in query)
+            {
+                if ((item.UserFK.ToString()) == id)
+                {
+                    _data = Mapper.Map<Customer, CustomerViewModel>(item);
+                }
+            }
+            return _data;
+        }
+
         public List<CustomerViewModel> GetAll(int id)
         {
             throw new NotImplementedException();

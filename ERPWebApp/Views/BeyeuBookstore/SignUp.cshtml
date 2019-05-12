@@ -4,6 +4,11 @@
 }
 @section Scripts{
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.min.js"></script>
+    <script src="~/app/controllers/beyeubookstore/signup/index.js"></script>
+    <script>
+        var signUpController = new signUpController();
+        signUpController.initialize();
+    </script>
 }
 <div class="user-login-area mb-70" style="margin-top:15px;">
     <div class="container">
@@ -19,7 +24,7 @@
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                             <div class="single-register">
                                 <form>
-                                    <label>Email<span style="color:red">*</span></label>
+                                    <label>Email<span style="color:red">*</span><span style="color:red" id="txtEmailMessage"></span></label>
                                     <input class="form-control" type="email" id="txtEmailSignUp" placeholder="Email" />
                                 </form>
                             </div>
@@ -27,7 +32,7 @@
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                             <div class="single-register">
                                 <form>
-                                    <label>Họ tên<span style="color:red">*</span></label>
+                                    <label>Họ tên<span style="color:red">*</span><span style="color:red" id="txtNameMessage"></span></label>
                                     <input class="form-control" type="text" id="txtNameSignUp" placeholder="Họ tên" />
                                 </form>
                             </div>
@@ -37,7 +42,7 @@
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                             <div class="single-register">
                                 <form>
-                                    <label>Mật khẩu<span style="color:red">*</span></label>
+                                    <label>Mật khẩu<span style="color:red">*</span><span style="color:red" id="txtPasswordMessage"></span></label>
                                     <input type="password" id="txtPasswordSignUp" placeholder="Mật khẩu" />
                                 </form>
                             </div>
@@ -45,7 +50,7 @@
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                             <div class="single-register">
                                 <form>
-                                    <label>Nhập lại mật khẩu<span style="color:red">*</span></label>
+                                    <label>Nhập lại mật khẩu<span style="color:red">*</span><span style="color:red" id="txtRetypePasswordMessage"></span></label>
                                     <input type="password" id="txtRetypePasswordSignUp" placeholder="Nhập lại mật khẩu" />
                                 </form>
                             </div>
@@ -53,22 +58,22 @@
                     </div>
                     <div class="single-register">
                         <form>
-                            <label>Địa chỉ<span style="color:red">*</span></label>
+                            <label>Địa chỉ<span style="color:red">*</span><span style="color:red" id="txtAddressMessage"></span></label>
                             <input type="text" class="form-control" id="txtAddressSignUp" placeholder="Địa chỉ" />
                         </form>
                     </div>
                     <div class="single-register">
                         <form>
-                            <label>Điện thoại<span style="color:red">*</span></label>
+                            <label>Điện thoại<span style="color:red">*</span><span style="color:red" id="txtPhoneNoMessage"></span></label>
                             <input type="text" class="form-control" id="txtPhoneNumberSignUp" placeholder="Số điện thoại" />
                         </form>
                     </div>
                     <div class="single-register single-register-3">
-                        <input id="rememberme" type="checkbox" name="rememberme" value="forever">
+                        <input id="rememberme" type="checkbox" name="license" value="forever">
                         <label class="inline">Tôi đã đọc và đồng ý với <a href="#" style="color:#00ABDF">điều khoản sử dụng</a></label>
                     </div>
                     <div class="single-register">
-                        <a href="#">Đăng ký</a>
+                        <a id="btnSignUp">Đăng ký</a>
                     </div>
                     <div class="single-register">
                         <form>

@@ -34,7 +34,7 @@ namespace BeYeuBookstore.Data.EF.Migrations
 
                     b.Property<DateTime>("DateStart");
 
-                    b.Property<bool>("Paid");
+                    b.Property<string>("Note");
 
                     b.Property<int>("Status");
 
@@ -468,7 +468,7 @@ namespace BeYeuBookstore.Data.EF.Migrations
 
                     b.HasIndex("CustomerFK");
 
-                    b.ToTable("RatingDetail");
+                    b.ToTable("RatingDetails");
                 });
 
             modelBuilder.Entity("BeYeuBookstore.Data.Entities.Role", b =>

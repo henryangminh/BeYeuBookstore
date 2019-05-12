@@ -1,42 +1,56 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Net.Http.Headers;
-using System.Threading.Tasks;
-using BeYeuBookstore.Application.Interfaces;
+﻿using BeYeuBookstore.Application.Interfaces;
 using BeYeuBookstore.Application.ViewModels;
+using BeYeuBookstore.Authorization;
 using BeYeuBookstore.Infrastructure.Interfaces;
+using BeYeuBookstore.Services;
 using BeYeuBookstore.Utilities.Constants;
+using Helper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace BeYeuBookstore.Controllers
 {
-    [Authorize]
     public class BookController : Controller
     {
+        IRatingDetailService _ratingDetailService;
         IBookService _bookService;
         IBookCategoryService _bookCategoryService;
+        IAuthorizationService _authorizationService;
+        private readonly IEmailService _emailService;
         IMerchantService _merchantService;
         private readonly IHostingEnvironment _hostingEnvironment;
         IUnitOfWork _unitOfWork;
-        public BookController(IHostingEnvironment hostingEnvironment,IMerchantService merchantService ,IBookCategoryService bookCategoryService, IBookService bookService, IUnitOfWork unitOfWork)
+        public BookController(IRatingDetailService ratingDetailService,IEmailService emailService, IAuthorizationService authorizationService,IHostingEnvironment hostingEnvironment,IMerchantService merchantService ,IBookCategoryService bookCategoryService, IBookService bookService, IUnitOfWork unitOfWork)
         {
+            _ratingDetailService = ratingDetailService;
+            _emailService = emailService;
+            _authorizationService = authorizationService;
             _bookService = bookService;
             _bookCategoryService = bookCategoryService;
             _unitOfWork =unitOfWork;
             _merchantService = merchantService;
             _hostingEnvironment = hostingEnvironment;
         }
+        [Authorize]
         public IActionResult Index()
         {
+            var temp = Task.Run(() => _authorizationService.AuthorizeAsync(User, Const_FunctionId.Book, Operations.Read));
+            temp.Wait();
+            //check truy cập
+            if (temp.Result.Succeeded == false)
+                return new RedirectResult("/Home/Index");
             return View();
         }
         #region AJAX API
+        [Authorize]
         [HttpPost]
         public IActionResult SaveEntity(BookViewModel bookVm)
         {
@@ -91,12 +105,37 @@ namespace BeYeuBookstore.Controllers
             return new OkObjectResult(model);
         }
 
+        [HttpPost]
+        public IActionResult ConfirmEmail(string toEmailAddress, string subject, string content)
+        {
+            try
+            {
+                string MailContent = System.IO.File.ReadAllText(@"./Helpers/template.html");
+                //MailContent = MailContent.Replace("{{Code}}", "Active");
+
+                new MailHelper().SendMail(toEmailAddress, "Register Code", MailContent);
+                return new OkObjectResult("true");
+            }
+            catch (Exception ex)
+            {
+                return new BadRequestResult();
+            }
+        }
 
         [HttpGet]
         public IActionResult GetById(int id)
         {
             var model = _bookService.GetById(id);
             return new OkObjectResult(model);
+        }
+
+        [HttpPost]
+        public IActionResult UpdateBookRatingById(int id)
+        {
+            double rating = _ratingDetailService.CalculateBookRatingByBookId(id);
+            _bookService.UpdateBookRating(rating, id);
+            _bookService.Save();
+            return new OkObjectResult("true");
         }
 
         [HttpGet]
@@ -111,6 +150,7 @@ namespace BeYeuBookstore.Controllers
             return new BadRequestResult();
         }
 
+        [Authorize]
         [HttpPost]
         public IActionResult ImportFiles(IList<IFormFile> files)
         {
@@ -150,6 +190,7 @@ namespace BeYeuBookstore.Controllers
             return new NoContentResult();
         }
 
+        [Authorize]
         [HttpPost]
         public IActionResult Delete(int id)
         {

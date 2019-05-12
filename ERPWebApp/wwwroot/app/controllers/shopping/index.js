@@ -1,8 +1,84 @@
 ﻿var shopController = function () {
     this.initialize = function () {
+        loadData(true);
         loadBookCategory();
         registerEvents();
     }
+}
+
+$.urlParam = function (name) {
+    var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+    if (results != null)
+        return results[1] || '';
+    return null;
+}
+
+function loadData() {
+
+    var template = $('#bookcase').html();
+    var templatePaging = $('#paging').html();
+    var render = "";
+    var renderPaging = "";
+    var Page = ($.urlParam('page') != null) ? $.urlParam('page') : 1;
+
+    $.ajax({
+        type: 'GET',
+        url: '/BeyeuBookstore/GetAllPaging',
+        data: {
+            "txtSearch": ($.urlParam('txtSearch') != null) ? decodeURI($.urlParam('txtSearch')):'',
+            "BookCategoryId": $.urlParam('radBookCategory'),
+            "From": ($.urlParam('txtFrom') != null) ? $.urlParam('txtFrom') : null,
+            "To": ($.urlParam('txtTo') != null) ? $.urlParam('txtTo') : null,
+            "page": Page,
+            "pageSize": 10,
+        },
+        dataType: 'json',
+        success: function (response) {
+            console.log("data", response);
+            if (response.Results.length == 0) {
+                $('#rsNone').text('Không có kết quả')
+            }
+            else {
+                $('#rsCount').text(response.Results.length + ' trong số ' + response.RowCount + ' kết quả')
+                $.each(response.Results, function (i, item) {
+                    if (i % 4 == 0) render += '<div class="col-lg-12 col-md-12 col-xs-12">';
+                    render += Mustache.render(template, {
+                        KeyId: item.KeyId,
+                        BookImage: item.Img,
+                        BookTitle: item.BookTitle,
+                        BookPrice: general.toMoney(item.UnitPrice),
+                        LinkBook: '?id=' + item.KeyId,
+                    });
+                    if ((i + 1) % 4 == 0) render += '</div>';
+                });
+                $('#LoadBook').html(render);
+
+                for (var i = 1; i <= response.PageCount; i++) {
+                    renderPaging += Mustache.render(templatePaging, {
+                        LinkPage: GetLinkPaging(i),
+                        PageNumber: i,
+                        active: (Page == i) ? true : false,
+                    })
+                }
+                $('#pageNav').html(renderPaging);
+            }
+        },
+        error: function (status) {
+            console.log(status);
+            general.notify('Không thể load dữ liệu', 'error');
+        }
+    });
+}
+
+function GetLinkPaging(index) {
+    var url = window.location.href.split('?')[0];
+    var query = window.location.search.substring(1).split('&');
+    for (var i = 0; i < query.length; i++) {
+        if (query[i].includes('page'))
+            query.splice(i, 1);
+    }
+    query = query.join('&');
+    return url + '?' + query + '&page=' + index;
 }
 
 function registerEvents() {
@@ -11,17 +87,49 @@ function registerEvents() {
             general.notify('Khoảng giá Đến không thể nhỏ hơn Từ')
             return false;
         }
-        $('#txtFrom').val(general.toInt($('#txtFrom').val()));
-        $('#txtTo').val(general.toInt($('#txtTo').val()));
+        if ($('#txtFrom').val() != "") 
+            $('#txtFrom').val(general.toInt($('#txtFrom').val()));
+        if ($('#txtTo').val() != "") 
+            $('#txtTo').val(general.toInt($('#txtTo').val()));
         return true;
     })
-}
 
-$.urlParam = function (name) {
-    var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
-    if (results != null)
-        return results[1] || 0;
-    return null;
+    $('body').on('click', '#ShowDetail', function () {
+        //var BookId = $('#txtBookKeyId').val();
+        var BookId = $(this).parent().parent().siblings('input').val();
+
+        $.ajax({
+            type: 'GET',
+            url: "/BeyeuBookstore/GetById",
+            data: { id: BookId },
+            dataType: "json",
+            beforeSend: function () {
+                general.startLoading();
+            },
+            success: function (response) {
+                console.log('BookDetail', response);
+                var size = response.Width + "x" + response.Length;
+                if (response.Height != null) size += "x" + response.Height;
+                size += " (cm)";
+                $('#BookId').val(response.KeyId);
+                $('#txtPaperback').text((response.isPaperback) ? "Bìa mềm" : "Bìa cứng");
+                $('#txtBookNameModal').text(response.BookTitle);
+                $('#txtPriceModal').text(general.toMoney(response.UnitPrice));
+                $('#txtDescriptionModal').text(response.Description);
+                $('#txtLinkToProduct').attr('href', '/BeyeuBookstore/BookDetail?id=' + response.KeyId);
+                $('#imgDetail').attr('src', response.Img)
+                $('#txtSize').text("Kích thước: " + size);
+                $('#txtAuthor').text("Tác giả: " + response.Author);
+                if (response.Quantity > 0) {
+                    $('#quantityStatus').html('<i class="fa fa-check"></i>Còn hàng');
+                }
+                else {
+                    $('#quantityStatus').html('<i class="fa fa-times" color="red"></i>Hết hàng');
+                    $('#divAddToCart').remove();
+                }
+            }
+        })
+    })
 }
 
 function loadBookCategory() {
@@ -49,8 +157,7 @@ function loadBookCategory() {
             $('#BookCategory').html(render);
         },
         error: function (err) {
-            general.notify('Có lỗi trong khi load loại sách !', 'error');
-
+            console.log(err);
         },
     });
 }

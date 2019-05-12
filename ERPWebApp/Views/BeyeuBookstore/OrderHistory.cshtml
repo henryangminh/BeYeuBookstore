@@ -1,0 +1,50 @@
+﻿@model IEnumerable<BeYeuBookstore.Application.ViewModels.InvoiceViewModel>
+
+@{
+    ViewData["Title"] = "OrderHistory";
+    Layout = "~/Views/Shared/Frontend/_Layout.cshtml";
+}
+
+<div class="breadcrumbs">
+    <div class="container">
+        <ul class="breadcrumb">
+            <li><a href="@Url.Action("MyAccount","BeyeuBookstore")">Thông tin cá nhân</a></li>
+            <li><a href="@Url.Action("OrderHistory","BeyeuBookstore")">Lịch sử mua hàng</a></li>
+        </ul>
+    </div>
+</div>
+<div id="account-order" class="container">
+
+    <div class="row">
+        <div id="content" class="col-sm-12">
+            <h1>Lịch sử mua hàng</h1>
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <td class="text-right">Mã hóa đơn</td>
+                            <td class="text-right">Số sản phẩm</td>
+                            <td class="text-left">Trạng thái</td>
+                            <td class="text-right">Tổng cộng</td>
+                            <td class="text-left">Ngày đặt</td>
+                            <td></td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var model in Model)
+                        {
+                            <tr>
+                                <td class="text-right">@Html.DisplayFor(modelItem => model.KeyId)</td>
+                                <td class="text-right">1</td>
+                                <td class="text-left"></td>
+                                <td class="text-right">@Html.DisplayFor(modelItem => model.TotalPrice)</td>
+                                <td class="text-left">@Html.DisplayFor(modelItem => model.DateCreated)</td>
+                                <td class="text-center"><a href="@Url.Action("OrderDetails", "BeyeuBookstore", new { id = model.KeyId })" data-toggle="tooltip" title="" class="btn btn-info" data-original-title="Xem chi tiết hóa đơn"><i class="fa fa-eye"></i></a></td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

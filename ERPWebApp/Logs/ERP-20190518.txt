@@ -1,0 +1,563 @@
+2019-05-18T15:13:02.8310335+07:00 0HLMKAASFVEC9:0000000B [INF] Request starting HTTP/1.1 GET http://localhost:58918/AdvertiseContract   (ca22a1cb)
+2019-05-18T15:13:02.9312709+07:00 0HLMKAASFVEC9:0000000B [INF] "Identity.Application" was not authenticated. Failure message: "Ticket expired" (48071232)
+2019-05-18T15:13:02.9679515+07:00 0HLMKAASFVEC9:0000000B [INF] Route matched with "{action = \"Index\", controller = \"AdvertiseContract\", area = \"\"}". Executing action "BeYeuBookstore.Controllers.AdvertiseContractController.Index (BeYeuBookstore)" (a44c0341)
+2019-05-18T15:13:02.9984494+07:00 0HLMKAASFVEC9:0000000B [INF] Authorization failed. (b15dd539)
+2019-05-18T15:13:03.0195819+07:00 0HLMKAASFVEC9:0000000B [INF] Authorization failed for the request at filter '"Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter"'. (8b6446cb)
+2019-05-18T15:13:03.2852737+07:00 0HLMKAASFVEC9:0000000B [INF] Executing ChallengeResult with authentication schemes ([]). (f3dca807)
+2019-05-18T15:13:03.4163937+07:00 0HLMKAASFVEC9:0000000B [INF] AuthenticationScheme: "Identity.Application" was challenged. (d45f1f38)
+2019-05-18T15:13:03.4503541+07:00 0HLMKAASFVEC9:0000000B [INF] Executed action "BeYeuBookstore.Controllers.AdvertiseContractController.Index (BeYeuBookstore)" in 448.4367ms (afa2e885)
+2019-05-18T15:13:03.5098630+07:00 0HLMKAASFVEC9:0000000B [INF] Request finished in 637.1917ms 302  (791a596a)
+2019-05-18T15:13:03.5283314+07:00 0HLMKAASFVEC4:0000000B [INF] Request starting HTTP/1.1 GET http://localhost:58918/Account/Login?ReturnUrl=%2FAdvertiseContract   (ca22a1cb)
+2019-05-18T15:13:03.5444200+07:00 0HLMKAASFVEC4:0000000B [INF] "Identity.Application" was not authenticated. Failure message: "Ticket expired" (48071232)
+2019-05-18T15:13:03.5758060+07:00 0HLMKAASFVEC4:0000000B [INF] Route matched with "{action = \"Login\", controller = \"Account\", area = \"\"}". Executing action "BeYeuBookstore.Controllers.AccountController.Login (BeYeuBookstore)" (a44c0341)
+2019-05-18T15:13:03.6084596+07:00 0HLMKAASFVEC4:0000000B [INF] Executing action method "BeYeuBookstore.Controllers.AccountController.Login (BeYeuBookstore)" with arguments (["/AdvertiseContract"]) - Validation state: Valid (4e3479ed)
+2019-05-18T15:13:03.6383407+07:00 0HLMKAASFVEC4:0000000B [INF] AuthenticationScheme: "Identity.External" signed out. (d3f50c8d)
+2019-05-18T15:13:03.6801449+07:00 0HLMKAASFVEC4:0000000B [INF] Executed action method "BeYeuBookstore.Controllers.AccountController.Login (BeYeuBookstore)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 29.9337ms. (50a9e262)
+2019-05-18T15:13:03.7423572+07:00 0HLMKAASFVEC4:0000000B [INF] Executing ViewResult, running view "Login". (c83d0e25)
+2019-05-18T15:13:03.8283920+07:00 0HLMKAASFVEC4:0000000B [INF] Executed ViewResult - view "Login" executed in 93.2455ms. (f66409e9)
+2019-05-18T15:13:03.8713977+07:00 0HLMKAASFVEC4:0000000B [INF] Executed action "BeYeuBookstore.Controllers.AccountController.Login (BeYeuBookstore)" in 252.73ms (afa2e885)
+2019-05-18T15:13:04.1317658+07:00 0HLMKAASFVEC4:0000000B [INF] Request finished in 376.0047ms 200 text/html; charset=utf-8 (791a596a)
+2019-05-18T15:13:04.1869554+07:00 0HLMKAASFVEC7:0000000B [INF] Request starting HTTP/1.1 GET http://localhost:58918/lib/notifyjs/dist/styles/metro/notify-metro.css   (ca22a1cb)
+2019-05-18T15:13:04.1966855+07:00 0HLMKAASFVEC5:00000005 [INF] Request starting HTTP/1.1 GET http://localhost:58918/lib/animate.css/animate.css   (ca22a1cb)
+2019-05-18T15:13:04.2440220+07:00 0HLMKAASFVEC7:0000000B [INF] Sending file. Request path: '"/lib/notifyjs/dist/styles/metro/notify-metro.css"'. Physical path: '"H:\Kul\TMĐT\ERPWebApp\wwwroot\lib\notifyjs\dist\styles\metro\notify-metro.css"' (27b0a520)
+2019-05-18T15:13:04.2684465+07:00 0HLMKAASFVEC9:0000000C [INF] Request starting HTTP/1.1 GET http://localhost:58918/lib/font-awesome/css/font-awesome.css   (ca22a1cb)
+2019-05-18T15:13:04.2767991+07:00 0HLMKAASFVEC4:0000000C [INF] Request starting HTTP/1.1 GET http://localhost:58918/lib/nprogress/nprogress.css   (ca22a1cb)
+2019-05-18T15:13:04.2933659+07:00 0HLMKAASFVEC7:0000000B [INF] Request finished in 156.6834ms 200 text/css (791a596a)
+2019-05-18T15:13:04.3003325+07:00 0HLMKAASFVEC9:0000000C [INF] "Identity.Application" was not authenticated. Failure message: "Ticket expired" (48071232)
+2019-05-18T15:13:04.3343715+07:00 0HLMKAASFVEC9:0000000C [INF] Request finished in 68.7564ms 404  (791a596a)
+2019-05-18T15:13:04.3405671+07:00 0HLMKAASFVEC6:00000007 [INF] Request starting HTTP/1.1 GET http://localhost:58918/lib/bootstrap/dist/css/bootstrap.css   (ca22a1cb)
+2019-05-18T15:13:04.3465430+07:00 0HLMKAASFVEC4:0000000C [INF] Sending file. Request path: '"/lib/nprogress/nprogress.css"'. Physical path: '"H:\Kul\TMĐT\ERPWebApp\wwwroot\lib\nprogress\nprogress.css"' (27b0a520)
+2019-05-18T15:13:04.3877117+07:00 0HLMKAASFVEC8:0000000D [INF] Request starting HTTP/1.1 GET http://localhost:58918/admin-side/css/custom.css   (ca22a1cb)
+2019-05-18T15:13:04.3990924+07:00 0HLMKAASFVEC4:0000000C [INF] Request finished in 134.6353ms 200 text/css (791a596a)
+2019-05-18T15:13:04.4902541+07:00 0HLMKAASFVEC5:00000005 [INF] Sending file. Request path: '"/lib/animate.css/animate.css"'. Physical path: '"H:\Kul\TMĐT\ERPWebApp\wwwroot\lib\animate.css\animate.css"' (27b0a520)
+2019-05-18T15:13:04.5099173+07:00 0HLMKAASFVEC7:0000000C [INF] Request starting HTTP/1.1 GET http://localhost:58918/admin-side/css/style.css   (ca22a1cb)
+2019-05-18T15:13:04.5351453+07:00 0HLMKAASFVEC5:00000005 [INF] Request finished in 389.7678ms 200 text/css (791a596a)
+2019-05-18T15:13:04.6160830+07:00 0HLMKAASFVEC7:0000000C [INF] Sending file. Request path: '"/admin-side/css/style.css"'. Physical path: '"H:\Kul\TMĐT\ERPWebApp\wwwroot\admin-side\css\style.css"' (27b0a520)
+2019-05-18T15:13:04.6454626+07:00 0HLMKAASFVEC4:0000000D [INF] Request starting HTTP/1.1 GET http://localhost:58918/lib/jquery/dist/jquery.js   (ca22a1cb)
+2019-05-18T15:13:04.7035354+07:00 0HLMKAASFVEC6:00000007 [INF] Sending file. Request path: '"/lib/bootstrap/dist/css/bootstrap.css"'. Physical path: '"H:\Kul\TMĐT\ERPWebApp\wwwroot\lib\bootstrap\dist\css\bootstrap.css"' (27b0a520)
+2019-05-18T15:13:04.7518144+07:00 0HLMKAASFVEC7:0000000C [INF] Request finished in 228.3367ms 200 text/css (791a596a)
+2019-05-18T15:13:04.7566180+07:00 0HLMKAASFVEC9:0000000D [INF] Request starting HTTP/1.1 GET http://localhost:58918/lib/notifyjs/dist/notify.js   (ca22a1cb)
+2019-05-18T15:13:04.7986010+07:00 0HLMKAASFVEC5:00000006 [INF] Request starting HTTP/1.1 GET http://localhost:58918/lib/notifyjs/dist/styles/metro/notify-metro.js   (ca22a1cb)
+2019-05-18T15:13:04.8313554+07:00 0HLMKAASFVEC7:0000000D [INF] Request starting HTTP/1.1 GET http://localhost:58918/lib/font-awesome/css/font-awesome.css   (ca22a1cb)
+2019-05-18T15:13:04.9674575+07:00 0HLMKAASFVEC4:0000000D [INF] Sending file. Request path: '"/lib/jquery/dist/jquery.js"'. Physical path: '"H:\Kul\TMĐT\ERPWebApp\wwwroot\lib\jquery\dist\jquery.js"' (27b0a520)
+2019-05-18T15:13:04.9792809+07:00 0HLMKAASFVEC7:0000000D [INF] "Identity.Application" was not authenticated. Failure message: "Ticket expired" (48071232)
+2019-05-18T15:13:05.0317828+07:00 0HLMKAASFVEC4:0000000D [INF] Request finished in 438.4599ms 200 application/javascript (791a596a)
+2019-05-18T15:13:05.1097672+07:00 0HLMKAASFVEC7:0000000D [INF] Request finished in 214.7335ms 404  (791a596a)
+2019-05-18T15:13:05.1353370+07:00 0HLMKAASFVEC6:00000007 [INF] Request finished in 395.6119ms 200 text/css (791a596a)
+2019-05-18T15:13:05.1431871+07:00 0HLMKAASFVEC5:00000006 [INF] Sending file. Request path: '"/lib/notifyjs/dist/styles/metro/notify-metro.js"'. Physical path: '"H:\Kul\TMĐT\ERPWebApp\wwwroot\lib\notifyjs\dist\styles\metro\notify-metro.js"' (27b0a520)
+2019-05-18T15:13:05.1660893+07:00 0HLMKAASFVEC5:00000006 [INF] Request finished in 398.7755ms 200 application/javascript (791a596a)
+2019-05-18T15:13:05.1907999+07:00 0HLMKAASFVEC6:00000008 [INF] Request starting HTTP/1.1 GET http://localhost:58918/lib/jquery-validation/dist/jquery.validate.js   (ca22a1cb)
+2019-05-18T15:13:05.2070022+07:00 0HLMKAASFVEC9:0000000D [INF] Sending file. Request path: '"/lib/notifyjs/dist/notify.js"'. Physical path: '"H:\Kul\TMĐT\ERPWebApp\wwwroot\lib\notifyjs\dist\notify.js"' (27b0a520)
+2019-05-18T15:13:05.2237207+07:00 0HLMKAASFVEC5:00000007 [INF] Request starting HTTP/1.1 GET http://localhost:58918/lib/jquery-validation/dist/Localization/messages_vi.js   (ca22a1cb)
+2019-05-18T15:13:05.2830914+07:00 0HLMKAASFVEC9:0000000D [INF] Request finished in 537.7065ms 200 application/javascript (791a596a)
+2019-05-18T15:13:05.2880622+07:00 0HLMKAASFVEC8:0000000D [INF] Sending file. Request path: '"/admin-side/css/custom.css"'. Physical path: '"H:\Kul\TMĐT\ERPWebApp\wwwroot\admin-side\css\custom.css"' (27b0a520)
+2019-05-18T15:13:05.3142042+07:00 0HLMKAASFVEC8:0000000D [INF] Request finished in 1201.1295ms 200 text/css (791a596a)
+2019-05-18T15:13:05.3186127+07:00 0HLMKAASFVEC5:00000007 [INF] Sending file. Request path: '"/lib/jquery-validation/dist/Localization/messages_vi.js"'. Physical path: '"H:\Kul\TMĐT\ERPWebApp\wwwroot\lib\jquery-validation\dist\Localization\messages_vi.js"' (27b0a520)
+2019-05-18T15:13:05.3229831+07:00 0HLMKAASFVEC9:0000000E [INF] Request starting HTTP/1.1 GET http://localhost:58918/lib/jquery-validation/dist/additional-methods.js   (ca22a1cb)
+2019-05-18T15:13:05.3524781+07:00 0HLMKAASFVEC5:00000007 [INF] Request finished in 134.6558ms 200 application/javascript (791a596a)
+2019-05-18T15:13:05.3562431+07:00 0HLMKAASFVEC9:0000000E [INF] Sending file. Request path: '"/lib/jquery-validation/dist/additional-methods.js"'. Physical path: '"H:\Kul\TMĐT\ERPWebApp\wwwroot\lib\jquery-validation\dist\additional-methods.js"' (27b0a520)
+2019-05-18T15:13:05.3602847+07:00 0HLMKAASFVEC8:0000000E [INF] Request starting HTTP/1.1 GET http://localhost:58918/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js   (ca22a1cb)
+2019-05-18T15:13:05.3750100+07:00 0HLMKAASFVEC9:0000000E [INF] Request finished in 56.682ms 200 application/javascript (791a596a)
+2019-05-18T15:13:05.3936571+07:00 0HLMKAASFVEC8:0000000E [INF] Sending file. Request path: '"/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"'. Physical path: '"H:\Kul\TMĐT\ERPWebApp\wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.js"' (27b0a520)
+2019-05-18T15:13:05.3975568+07:00 0HLMKAASFVEC6:00000008 [INF] Sending file. Request path: '"/lib/jquery-validation/dist/jquery.validate.js"'. Physical path: '"H:\Kul\TMĐT\ERPWebApp\wwwroot\lib\jquery-validation\dist\jquery.validate.js"' (27b0a520)
+2019-05-18T15:13:05.4097833+07:00 0HLMKAASFVEC8:0000000E [INF] Request finished in 67.1493ms 200 application/javascript (791a596a)
+2019-05-18T15:13:05.4156749+07:00 0HLMKAASFVEC6:00000008 [INF] Request finished in 236.9373ms 200 application/javascript (791a596a)
+2019-05-18T15:13:12.1152376+07:00 0HLMKAASFVEC4:0000000E [INF] Request starting HTTP/1.1 POST http://localhost:58918/Account/Login?returnurl=%2FAdvertiseContract application/x-www-form-urlencoded 260 (ca22a1cb)
+2019-05-18T15:13:12.1439043+07:00 0HLMKAASFVEC4:0000000E [INF] "Identity.Application" was not authenticated. Failure message: "Ticket expired" (48071232)
+2019-05-18T15:13:12.1652352+07:00 0HLMKAASFVEC4:0000000E [INF] Route matched with "{action = \"Login\", controller = \"Account\", area = \"\"}". Executing action "BeYeuBookstore.Controllers.AccountController.Login (BeYeuBookstore)" (a44c0341)
+2019-05-18T15:13:12.1940624+07:00 0HLMKAASFVEC4:0000000E [INF] Executing action method "BeYeuBookstore.Controllers.AccountController.Login (BeYeuBookstore)" with arguments (["BeYeuBookstore.Models.AccountViewModels.LoginViewModel", "/AdvertiseContract"]) - Validation state: Valid (4e3479ed)
+2019-05-18T15:13:12.2106059+07:00 0HLMKAASFVEC4:0000000E [INF] Entity Framework Core "2.2.0-preview1-35029" initialized '"ERPDbContext"' using provider '"Pomelo.EntityFrameworkCore.MySql"' with options: "ServerVersion 8.0.13 MySql " (9958f5bb)
+2019-05-18T15:13:13.0023284+07:00 0HLMKAASFVEC4:0000000E [INF] Executed DbCommand ("13"ms) [Parameters=["@__normalizedUserName_0='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SELECT `u`.`Id`, `u`.`AccessFailedCount`, `u`.`Address`, `u`.`Avatar`, `u`.`ConcurrencyStamp`, `u`.`DateCreated`, `u`.`DateModified`, `u`.`Dob`, `u`.`Email`, `u`.`EmailConfirmed`, `u`.`FullName`, `u`.`Gender`, `u`.`IdDate`, `u`.`IdNumber`, `u`.`LastupdatedFk`, `u`.`LockoutEnabled`, `u`.`LockoutEnd`, `u`.`NormalizedEmail`, `u`.`NormalizedUserName`, `u`.`PasswordHash`, `u`.`PhoneNumber`, `u`.`PhoneNumberConfirmed`, `u`.`SecurityStamp`, `u`.`Status`, `u`.`TwoFactorEnabled`, `u`.`UserName`, `u`.`UserTypeFK`
+FROM `User` AS `u`
+WHERE `u`.`NormalizedUserName` = @__normalizedUserName_0
+LIMIT 1" (0723d8ff)
+2019-05-18T15:13:13.0717605+07:00 0HLMKAASFVEC4:0000000E [INF] Executed DbCommand ("2"ms) [Parameters=["@__user_Id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT `uc`.`Id`, `uc`.`ClaimType`, `uc`.`ClaimValue`, `uc`.`UserId`
+FROM `AppUserClaims` AS `uc`
+WHERE `uc`.`UserId` = @__user_Id_0" (0723d8ff)
+2019-05-18T15:13:13.1081136+07:00 0HLMKAASFVEC4:0000000E [INF] Executed DbCommand ("2"ms) [Parameters=["@__userId_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT `role`.`Name`
+FROM `AppUserRoles` AS `userRole`
+INNER JOIN `Roles` AS `role` ON `userRole`.`RoleId` = `role`.`Id`
+WHERE `userRole`.`UserId` = @__userId_0" (0723d8ff)
+2019-05-18T15:13:13.1281223+07:00 0HLMKAASFVEC4:0000000E [INF] Executed DbCommand ("1"ms) [Parameters=["@__normalizedName_0='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SELECT `r`.`Id`, `r`.`ConcurrencyStamp`, `r`.`Description`, `r`.`Name`, `r`.`NormalizedName`
+FROM `Roles` AS `r`
+WHERE `r`.`NormalizedName` = @__normalizedName_0
+LIMIT 1" (0723d8ff)
+2019-05-18T15:13:13.1469414+07:00 0HLMKAASFVEC4:0000000E [INF] Executed DbCommand ("2"ms) [Parameters=["@__role_Id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT `rc`.`ClaimType`, `rc`.`ClaimValue`
+FROM `AppRoleClaims` AS `rc`
+WHERE `rc`.`RoleId` = @__role_Id_0" (0723d8ff)
+2019-05-18T15:13:13.1683459+07:00 0HLMKAASFVEC4:0000000E [INF] Executed DbCommand ("2"ms) [Parameters=["@__userId_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT `role`.`Name`
+FROM `AppUserRoles` AS `userRole`
+INNER JOIN `Roles` AS `role` ON `userRole`.`RoleId` = `role`.`Id`
+WHERE `userRole`.`UserId` = @__userId_0" (0723d8ff)
+2019-05-18T15:13:13.1903141+07:00 0HLMKAASFVEC4:0000000E [INF] AuthenticationScheme: "Identity.Application" signed in. (c66dd7e7)
+2019-05-18T15:13:13.2058870+07:00 0HLMKAASFVEC4:0000000E [INF] User đăng nhập thành công . (a79f9d02)
+2019-05-18T15:13:13.2229908+07:00 0HLMKAASFVEC4:0000000E [INF] Executed action method "BeYeuBookstore.Controllers.AccountController.Login (BeYeuBookstore)", returned result "Microsoft.AspNetCore.Mvc.RedirectResult" in 1012.2736ms. (50a9e262)
+2019-05-18T15:13:13.2433288+07:00 0HLMKAASFVEC4:0000000E [INF] Executing RedirectResult, redirecting to "/AdvertiseContract". (d98d540e)
+2019-05-18T15:13:13.2580528+07:00 0HLMKAASFVEC4:0000000E [INF] Executed action "BeYeuBookstore.Controllers.AccountController.Login (BeYeuBookstore)" in 1077.9882ms (afa2e885)
+2019-05-18T15:13:13.2971166+07:00 0HLMKAASFVEC4:0000000E [INF] Request finished in 1261.1724ms 302  (791a596a)
+2019-05-18T15:13:13.3294213+07:00 0HLMKAASFVEC7:0000000E [INF] Request starting HTTP/1.1 GET http://localhost:58918/AdvertiseContract   (ca22a1cb)
+2019-05-18T15:13:13.3463839+07:00 0HLMKAASFVEC7:0000000E [INF] Route matched with "{action = \"Index\", controller = \"AdvertiseContract\", area = \"\"}". Executing action "BeYeuBookstore.Controllers.AdvertiseContractController.Index (BeYeuBookstore)" (a44c0341)
+2019-05-18T15:13:13.3568743+07:00 0HLMKAASFVEC7:0000000E [INF] Authorization was successful. (0d575a54)
+2019-05-18T15:13:13.3684893+07:00 0HLMKAASFVEC7:0000000E [INF] Executing action method "BeYeuBookstore.Controllers.AdvertiseContractController.Index (BeYeuBookstore)" - Validation state: Valid (dad538d7)
+2019-05-18T15:13:13.3790298+07:00 0HLMKAASFVEC7:0000000E [INF] Executed action method "BeYeuBookstore.Controllers.AdvertiseContractController.Index (BeYeuBookstore)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 0.0248ms. (50a9e262)
+2019-05-18T15:13:13.3916647+07:00 0HLMKAASFVEC7:0000000E [INF] Executing ViewResult, running view "Index". (c83d0e25)
+2019-05-18T15:13:13.4024276+07:00 0HLMKAASFVEC7:0000000E [INF] Entity Framework Core "2.2.0-preview1-35029" initialized '"ERPDbContext"' using provider '"Pomelo.EntityFrameworkCore.MySql"' with options: "ServerVersion 8.0.13 MySql " (9958f5bb)
+2019-05-18T15:13:13.4248953+07:00 0HLMKAASFVEC7:0000000E [INF] Executed DbCommand ("2"ms) [Parameters=["@__functionId_1='?' (Size = 128) (DbType = AnsiString)"], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM `Functions` AS `f`
+        INNER JOIN `Permissions` AS `p` ON `f`.`KeyId` = `p`.`FunctionId`
+        INNER JOIN `Roles` AS `r` ON `p`.`RoleId` = `r`.`Id`
+        WHERE (`r`.`Name` IN ('Advertiser') AND (`f`.`KeyId` = @__functionId_1)) AND (`p`.`CanCreate` = TRUE))
+    THEN TRUE ELSE FALSE
+END" (0723d8ff)
+2019-05-18T15:13:13.4370465+07:00 0HLMKAASFVEC7:0000000E [INF] Authorization was successful. (0d575a54)
+2019-05-18T15:13:13.4600150+07:00 0HLMKAASFVEC7:0000000E [INF] Executed DbCommand ("1"ms) [Parameters=["@__functionId_1='?' (Size = 128) (DbType = AnsiString)"], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM `Functions` AS `f`
+        INNER JOIN `Permissions` AS `p` ON `f`.`KeyId` = `p`.`FunctionId`
+        INNER JOIN `Roles` AS `r` ON `p`.`RoleId` = `r`.`Id`
+        WHERE (`r`.`Name` IN ('Advertiser') AND (`f`.`KeyId` = @__functionId_1)) AND (`p`.`CanDelete` = TRUE))
+    THEN TRUE ELSE FALSE
+END" (0723d8ff)
+2019-05-18T15:13:13.4705887+07:00 0HLMKAASFVEC7:0000000E [INF] Authorization failed. (b15dd539)
+2019-05-18T15:13:13.5090890+07:00 0HLMKAASFVEC7:0000000E [INF] Executed DbCommand ("2"ms) [Parameters=["@__functionId_1='?' (Size = 128) (DbType = AnsiString)"], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM `Functions` AS `f`
+        INNER JOIN `Permissions` AS `p` ON `f`.`KeyId` = `p`.`FunctionId`
+        INNER JOIN `Roles` AS `r` ON `p`.`RoleId` = `r`.`Id`
+        WHERE (`r`.`Name` IN ('Advertiser') AND (`f`.`KeyId` = @__functionId_1)) AND (`p`.`CanUpdate` = TRUE))
+    THEN TRUE ELSE FALSE
+END" (0723d8ff)
+2019-05-18T15:13:13.5241974+07:00 0HLMKAASFVEC7:0000000E [INF] Authorization failed. (b15dd539)
+2019-05-18T15:13:13.5634506+07:00 0HLMKAASFVEC7:0000000E [INF] Executed DbCommand ("3"ms) [Parameters=["@__functionId_1='?' (Size = 128) (DbType = AnsiString)"], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM `Functions` AS `f`
+        INNER JOIN `Permissions` AS `p` ON `f`.`KeyId` = `p`.`FunctionId`
+        INNER JOIN `Roles` AS `r` ON `p`.`RoleId` = `r`.`Id`
+        WHERE (`r`.`Name` IN ('Advertiser') AND (`f`.`KeyId` = @__functionId_1)) AND (`p`.`CanConfirm` = TRUE))
+    THEN TRUE ELSE FALSE
+END" (0723d8ff)
+2019-05-18T15:13:13.5781012+07:00 0HLMKAASFVEC7:0000000E [INF] Authorization failed. (b15dd539)
+2019-05-18T15:13:13.6039967+07:00 0HLMKAASFVEC7:0000000E [INF] Executed DbCommand ("2"ms) [Parameters=["@__functionId_1='?' (Size = 128) (DbType = AnsiString)"], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM `Functions` AS `f`
+        INNER JOIN `Permissions` AS `p` ON `f`.`KeyId` = `p`.`FunctionId`
+        INNER JOIN `Roles` AS `r` ON `p`.`RoleId` = `r`.`Id`
+        WHERE (`r`.`Name` IN ('Advertiser') AND (`f`.`KeyId` = @__functionId_1)) AND (`p`.`CanCreate` = TRUE))
+    THEN TRUE ELSE FALSE
+END" (0723d8ff)
+2019-05-18T15:13:13.6180553+07:00 0HLMKAASFVEC7:0000000E [INF] Authorization was successful. (0d575a54)
+2019-05-18T15:13:13.6408779+07:00 0HLMKAASFVEC7:0000000E [INF] Executed DbCommand ("2"ms) [Parameters=["@__functionId_1='?' (Size = 128) (DbType = AnsiString)"], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM `Functions` AS `f`
+        INNER JOIN `Permissions` AS `p` ON `f`.`KeyId` = `p`.`FunctionId`
+        INNER JOIN `Roles` AS `r` ON `p`.`RoleId` = `r`.`Id`
+        WHERE (`r`.`Name` IN ('Advertiser') AND (`f`.`KeyId` = @__functionId_1)) AND (`p`.`CanDelete` = TRUE))
+    THEN TRUE ELSE FALSE
+END" (0723d8ff)
+2019-05-18T15:13:13.6549993+07:00 0HLMKAASFVEC7:0000000E [INF] Authorization failed. (b15dd539)
+2019-05-18T15:13:13.6765497+07:00 0HLMKAASFVEC7:0000000E [INF] Executed DbCommand ("2"ms) [Parameters=["@__functionId_1='?' (Size = 128) (DbType = AnsiString)"], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM `Functions` AS `f`
+        INNER JOIN `Permissions` AS `p` ON `f`.`KeyId` = `p`.`FunctionId`
+        INNER JOIN `Roles` AS `r` ON `p`.`RoleId` = `r`.`Id`
+        WHERE (`r`.`Name` IN ('Advertiser') AND (`f`.`KeyId` = @__functionId_1)) AND (`p`.`CanUpdate` = TRUE))
+    THEN TRUE ELSE FALSE
+END" (0723d8ff)
+2019-05-18T15:13:13.6876567+07:00 0HLMKAASFVEC7:0000000E [INF] Authorization failed. (b15dd539)
+2019-05-18T15:13:13.7235749+07:00 0HLMKAASFVEC7:0000000E [INF] Executed DbCommand ("5"ms) [Parameters=["@__functionId_1='?' (Size = 128) (DbType = AnsiString)"], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM `Functions` AS `f`
+        INNER JOIN `Permissions` AS `p` ON `f`.`KeyId` = `p`.`FunctionId`
+        INNER JOIN `Roles` AS `r` ON `p`.`RoleId` = `r`.`Id`
+        WHERE (`r`.`Name` IN ('Advertiser') AND (`f`.`KeyId` = @__functionId_1)) AND (`p`.`CanConfirm` = TRUE))
+    THEN TRUE ELSE FALSE
+END" (0723d8ff)
+2019-05-18T15:13:13.7589346+07:00 0HLMKAASFVEC7:0000000E [INF] Authorization failed. (b15dd539)
+2019-05-18T15:13:13.7826855+07:00 0HLMKAASFVEC7:0000000E [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT `p`.`KeyId`, `p`.`CanConfirm`, `p`.`CanCreate`, `p`.`CanDelete`, `p`.`CanRead`, `p`.`CanUpdate`, `p`.`FunctionId`, `p`.`RoleId`, `p.Function`.`KeyId`, `p.Function`.`IconCss`, `p.Function`.`Name`, `p.Function`.`ParentId`, `p.Function`.`SortOrder`, `p.Function`.`Status`, `p.Function`.`URL`
+FROM `Permissions` AS `p`
+INNER JOIN `Functions` AS `p.Function` ON `p`.`FunctionId` = `p.Function`.`KeyId`
+INNER JOIN `Roles` AS `p.AppRole` ON `p`.`RoleId` = `p.AppRole`.`Id`
+WHERE `p.AppRole`.`Name` IN ('Advertiser') AND (`p`.`CanRead` = TRUE)" (0723d8ff)
+2019-05-18T15:13:13.8022906+07:00 0HLMKAASFVEC7:0000000E [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT `f`.`KeyId`, `f`.`IconCss`, `f`.`Name`, `f`.`ParentId`, `f`.`SortOrder`, `f`.`Status`, `f`.`URL`
+FROM `Functions` AS `f`" (0723d8ff)
+2019-05-18T15:13:13.8240278+07:00 0HLMKAASFVEC7:0000000E [INF] Executed ViewResult - view "Index" executed in 428.3351ms. (f66409e9)
+2019-05-18T15:13:13.8392133+07:00 0HLMKAASFVEC7:0000000E [INF] Executed action "BeYeuBookstore.Controllers.AdvertiseContractController.Index (BeYeuBookstore)" in 477.8945ms (afa2e885)
+2019-05-18T15:13:14.1017987+07:00 0HLMKAASFVEC7:0000000E [INF] Request finished in 567.0074ms 200 text/html; charset=utf-8 (791a596a)
+2019-05-18T15:13:14.2919469+07:00 0HLMKAASFVEC6:00000009 [INF] Request starting HTTP/1.1 GET http://localhost:58918/app/controllers/advertisecontract/index.js?v=LdKS3H_TY95ecLRTH0JK2-Zkk8CvdfsY-I-O8WhQnGY   (ca22a1cb)
+2019-05-18T15:13:14.3119690+07:00 0HLMKAASFVEC6:00000009 [INF] The file "/app/controllers/advertisecontract/index.js" was not modified (f1f8d725)
+2019-05-18T15:13:14.3965163+07:00 0HLMKAASFVEC6:00000009 [INF] Request finished in 35.2322ms 304 application/javascript (791a596a)
+2019-05-18T15:13:15.3362677+07:00 0HLMKAASFVEC8:0000000F [INF] Request starting HTTP/1.1 GET http://localhost:58918/AdvertiseContract/GetAllFutureSuccessContract   (ca22a1cb)
+2019-05-18T15:13:15.3410257+07:00 0HLMKAASFVEC9:0000000F [INF] Request starting HTTP/1.1 GET http://localhost:58918/AdvertiseContract/GetAllPaging?keyword=&status=&page=1&pageSize=10   (ca22a1cb)
+2019-05-18T15:13:15.3494479+07:00 0HLMKAASFVEC5:00000008 [INF] Request starting HTTP/1.1 GET http://localhost:58918/Notification/GetByUserId   (ca22a1cb)
+2019-05-18T15:13:15.3918072+07:00 0HLMKAASFVEC8:0000000F [INF] Route matched with "{action = \"GetAllFutureSuccessContract\", controller = \"AdvertiseContract\", area = \"\"}". Executing action "BeYeuBookstore.Controllers.AdvertiseContractController.GetAllFutureSuccessContract (BeYeuBookstore)" (a44c0341)
+2019-05-18T15:13:15.3972651+07:00 0HLMKAASFVEC9:0000000F [INF] Route matched with "{action = \"GetAllPaging\", controller = \"AdvertiseContract\", area = \"\"}". Executing action "BeYeuBookstore.Controllers.AdvertiseContractController.GetAllPaging (BeYeuBookstore)" (a44c0341)
+2019-05-18T15:13:15.4464062+07:00 0HLMKAASFVEC8:0000000F [INF] Authorization was successful. (0d575a54)
+2019-05-18T15:13:15.4553888+07:00 0HLMKAASFVEC9:0000000F [INF] Authorization was successful. (0d575a54)
+2019-05-18T15:13:15.4745999+07:00 0HLMKAASFVEC8:0000000F [INF] Executing action method "BeYeuBookstore.Controllers.AdvertiseContractController.GetAllFutureSuccessContract (BeYeuBookstore)" - Validation state: Valid (dad538d7)
+2019-05-18T15:13:15.4821773+07:00 0HLMKAASFVEC9:0000000F [INF] Executing action method "BeYeuBookstore.Controllers.AdvertiseContractController.GetAllPaging (BeYeuBookstore)" with arguments (["", "", "1", "10"]) - Validation state: Valid (4e3479ed)
+2019-05-18T15:13:15.5187574+07:00 0HLMKAASFVEC8:0000000F [INF] Entity Framework Core "2.2.0-preview1-35029" initialized '"ERPDbContext"' using provider '"Pomelo.EntityFrameworkCore.MySql"' with options: "ServerVersion 8.0.13 MySql " (9958f5bb)
+2019-05-18T15:13:15.5261915+07:00 0HLMKAASFVEC9:0000000F [INF] Entity Framework Core "2.2.0-preview1-35029" initialized '"ERPDbContext"' using provider '"Pomelo.EntityFrameworkCore.MySql"' with options: "ServerVersion 8.0.13 MySql " (9958f5bb)
+2019-05-18T15:13:15.5349456+07:00 0HLMKAASFVEC5:00000008 [INF] Route matched with "{action = \"GetByUserId\", controller = \"Notification\", area = \"\"}". Executing action "BeYeuBookstore.Controllers.Construction.NotificationController.GetByUserId (BeYeuBookstore)" (a44c0341)
+2019-05-18T15:13:15.5508217+07:00 0HLMKAASFVEC8:0000000F [INF] Executed DbCommand ("6"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT `x`.`KeyId`, `x`.`AdvertisementContentFK`, `x`.`ContractValue`, `x`.`DateCreated`, `x`.`DateFinish`, `x`.`DateModified`, `x`.`DateStart`, `x`.`Note`, `x`.`Paid`, `x`.`Status`
+FROM `AdvertiseContracts` AS `x`
+WHERE (`x`.`Status` = 2) AND (`x`.`DateFinish` >= CURRENT_TIMESTAMP())" (0723d8ff)
+2019-05-18T15:13:15.5602529+07:00 0HLMKAASFVEC5:00000008 [INF] Executing action method "BeYeuBookstore.Controllers.Construction.NotificationController.GetByUserId (BeYeuBookstore)" - Validation state: Valid (dad538d7)
+2019-05-18T15:13:15.5785647+07:00 0HLMKAASFVEC8:0000000F [INF] Executed action method "BeYeuBookstore.Controllers.AdvertiseContractController.GetAllFutureSuccessContract (BeYeuBookstore)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult" in 76.4351ms. (50a9e262)
+2019-05-18T15:13:15.5831147+07:00 0HLMKAASFVEC5:00000008 [INF] Entity Framework Core "2.2.0-preview1-35029" initialized '"ERPDbContext"' using provider '"Pomelo.EntityFrameworkCore.MySql"' with options: "ServerVersion 8.0.13 MySql " (9958f5bb)
+2019-05-18T15:13:15.6018645+07:00 0HLMKAASFVEC8:0000000F [INF] Executing ObjectResult, writing value of type '"System.Collections.Generic.List`1[[BeYeuBookstore.Application.ViewModels.AdvertiseContractViewModel, BeYeuBookstore.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'. (8a1b66c8)
+2019-05-18T15:13:15.6124396+07:00 0HLMKAASFVEC5:00000008 [INF] Executed DbCommand ("2"ms) [Parameters=["@__userId_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT `p`.`NotificationFkNavigationKeyId` AS `KeyId`, `p.NotificationFkNavigation`.`NotificationContent`, `p.NotificationFkNavigation`.`DateCreated` AS `NotificationTime`, `p`.`Status`
+FROM `SoNotificationGeneralDetail` AS `p`
+INNER JOIN `SoNotificationGeneral` AS `p.NotificationFkNavigation` ON `p`.`NotificationFkNavigationKeyId` = `p.NotificationFkNavigation`.`KeyId`
+WHERE `p`.`UserFk` = @__userId_0" (0723d8ff)
+2019-05-18T15:13:15.6349359+07:00 0HLMKAASFVEC9:0000000F [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT `p`.`KeyId`, `p`.`BrandName`, `p`.`DateCreated`, `p`.`DateModified`, `p`.`Status`, `p`.`UrlToBrand`, `p`.`UserFK`, `p.UserBy`.`Id`, `p.UserBy`.`AccessFailedCount`, `p.UserBy`.`Address`, `p.UserBy`.`Avatar`, `p.UserBy`.`ConcurrencyStamp`, `p.UserBy`.`DateCreated`, `p.UserBy`.`DateModified`, `p.UserBy`.`Dob`, `p.UserBy`.`Email`, `p.UserBy`.`EmailConfirmed`, `p.UserBy`.`FullName`, `p.UserBy`.`Gender`, `p.UserBy`.`IdDate`, `p.UserBy`.`IdNumber`, `p.UserBy`.`LastupdatedFk`, `p.UserBy`.`LockoutEnabled`, `p.UserBy`.`LockoutEnd`, `p.UserBy`.`NormalizedEmail`, `p.UserBy`.`NormalizedUserName`, `p.UserBy`.`PasswordHash`, `p.UserBy`.`PhoneNumber`, `p.UserBy`.`PhoneNumberConfirmed`, `p.UserBy`.`SecurityStamp`, `p.UserBy`.`Status`, `p.UserBy`.`TwoFactorEnabled`, `p.UserBy`.`UserName`, `p.UserBy`.`UserTypeFK`
+FROM `Advertisers` AS `p`
+INNER JOIN `User` AS `p.UserBy` ON `p`.`UserFK` = `p.UserBy`.`Id`" (0723d8ff)
+2019-05-18T15:13:15.6398858+07:00 0HLMKAASFVEC8:0000000F [INF] Executed action "BeYeuBookstore.Controllers.AdvertiseContractController.GetAllFutureSuccessContract (BeYeuBookstore)" in 210.4131ms (afa2e885)
+2019-05-18T15:13:15.6513517+07:00 0HLMKAASFVEC5:00000008 [INF] Executed action method "BeYeuBookstore.Controllers.Construction.NotificationController.GetByUserId (BeYeuBookstore)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult" in 52.2209ms. (50a9e262)
+2019-05-18T15:13:15.6815313+07:00 0HLMKAASFVEC9:0000000F [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT `p`.`KeyId`, `p`.`DateCreated`, `p`.`DateModified`, `p`.`UserFK`, `p`.`WebMasterTypeFK`, `p.UserBy`.`Id`, `p.UserBy`.`AccessFailedCount`, `p.UserBy`.`Address`, `p.UserBy`.`Avatar`, `p.UserBy`.`ConcurrencyStamp`, `p.UserBy`.`DateCreated`, `p.UserBy`.`DateModified`, `p.UserBy`.`Dob`, `p.UserBy`.`Email`, `p.UserBy`.`EmailConfirmed`, `p.UserBy`.`FullName`, `p.UserBy`.`Gender`, `p.UserBy`.`IdDate`, `p.UserBy`.`IdNumber`, `p.UserBy`.`LastupdatedFk`, `p.UserBy`.`LockoutEnabled`, `p.UserBy`.`LockoutEnd`, `p.UserBy`.`NormalizedEmail`, `p.UserBy`.`NormalizedUserName`, `p.UserBy`.`PasswordHash`, `p.UserBy`.`PhoneNumber`, `p.UserBy`.`PhoneNumberConfirmed`, `p.UserBy`.`SecurityStamp`, `p.UserBy`.`Status`, `p.UserBy`.`TwoFactorEnabled`, `p.UserBy`.`UserName`, `p.UserBy`.`UserTypeFK`
+FROM `WebMasters` AS `p`
+INNER JOIN `User` AS `p.UserBy` ON `p`.`UserFK` = `p.UserBy`.`Id`" (0723d8ff)
+2019-05-18T15:13:15.6905527+07:00 0HLMKAASFVEC8:0000000F [INF] Request finished in 343.9062ms 200 application/json; charset=utf-8 (791a596a)
+2019-05-18T15:13:15.7285573+07:00 0HLMKAASFVEC5:00000008 [INF] Executing ObjectResult, writing value of type '"System.Collections.Generic.List`1[[BeYeuBookstore.Utilities.DTOs.Boq.SO_NotificationGeneralDTO, BeYeuBookstore.Utilities, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'. (8a1b66c8)
+2019-05-18T15:13:15.7316393+07:00 0HLMKAASFVEC9:0000000F [INF] Executed DbCommand ("3"ms) [Parameters=["@__advertiserId_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM `AdvertiseContracts` AS `x`
+INNER JOIN `AdvertisementContents` AS `x.AdvertisementContentFKNavigation` ON `x`.`AdvertisementContentFK` = `x.AdvertisementContentFKNavigation`.`KeyId`
+WHERE `x.AdvertisementContentFKNavigation`.`AdvertiserFK` = @__advertiserId_0" (0723d8ff)
+2019-05-18T15:13:15.7459532+07:00 0HLMKAASFVEC5:00000008 [INF] Executed action "BeYeuBookstore.Controllers.Construction.NotificationController.GetByUserId (BeYeuBookstore)" in 193.7831ms (afa2e885)
+2019-05-18T15:13:15.7934834+07:00 0HLMKAASFVEC9:0000000F [INF] Executed DbCommand ("1"ms) [Parameters=["@__advertiserId_0='?' (DbType = Int32), @__p_2='?' (DbType = Int32), @__p_1='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT `x`.`KeyId`, `x`.`AdvertisementContentFK`, `x`.`ContractValue`, `x`.`DateCreated`, `x`.`DateFinish`, `x`.`DateModified`, `x`.`DateStart`, `x`.`Note`, `x`.`Paid`, `x`.`Status`, `x.AdvertisementContentFKNavigation`.`KeyId`, `x.AdvertisementContentFKNavigation`.`AdvertisementPositionFK`, `x.AdvertisementContentFKNavigation`.`AdvertiserFK`, `x.AdvertisementContentFKNavigation`.`CensorFK`, `x.AdvertisementContentFKNavigation`.`CensorStatus`, `x.AdvertisementContentFKNavigation`.`DateCreated`, `x.AdvertisementContentFKNavigation`.`DateModified`, `x.AdvertisementContentFKNavigation`.`Deposite`, `x.AdvertisementContentFKNavigation`.`Description`, `x.AdvertisementContentFKNavigation`.`ImageLink`, `x.AdvertisementContentFKNavigation`.`Note`, `x.AdvertisementContentFKNavigation`.`Title`, `x.AdvertisementContentFKNavigation`.`UrlToAdvertisement`, `x.AdvertisementContentFKNavigation.AdvertiserFKNavigation`.`KeyId`, `x.AdvertisementContentFKNavigation.AdvertiserFKNavigation`.`BrandName`, `x.AdvertisementContentFKNavigation.AdvertiserFKNavigation`.`DateCreated`, `x.AdvertisementContentFKNavigation.AdvertiserFKNavigation`.`DateModified`, `x.AdvertisementContentFKNavigation.AdvertiserFKNavigation`.`Status`, `x.AdvertisementContentFKNavigation.AdvertiserFKNavigation`.`UrlToBrand`, `x.AdvertisementContentFKNavigation.AdvertiserFKNavigation`.`UserFK`
+FROM `AdvertiseContracts` AS `x`
+INNER JOIN `AdvertisementContents` AS `x.AdvertisementContentFKNavigation` ON `x`.`AdvertisementContentFK` = `x.AdvertisementContentFKNavigation`.`KeyId`
+INNER JOIN `Advertisers` AS `x.AdvertisementContentFKNavigation.AdvertiserFKNavigation` ON `x.AdvertisementContentFKNavigation`.`AdvertiserFK` = `x.AdvertisementContentFKNavigation.AdvertiserFKNavigation`.`KeyId`
+WHERE `x.AdvertisementContentFKNavigation`.`AdvertiserFK` = @__advertiserId_0
+ORDER BY `x`.`KeyId`
+LIMIT @__p_2 OFFSET @__p_1" (0723d8ff)
+2019-05-18T15:13:15.7983423+07:00 0HLMKAASFVEC5:00000008 [INF] Request finished in 468.8688ms 200 application/json; charset=utf-8 (791a596a)
+2019-05-18T15:13:15.8092876+07:00 0HLMKAASFVEC9:0000000F [INF] Executed action method "BeYeuBookstore.Controllers.AdvertiseContractController.GetAllPaging (BeYeuBookstore)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult" in 313.165ms. (50a9e262)
+2019-05-18T15:13:15.8184951+07:00 0HLMKAASFVEC9:0000000F [INF] Executing ObjectResult, writing value of type '"BeYeuBookstore.Utilities.DTOs.PagedResult`1[[BeYeuBookstore.Application.ViewModels.AdvertiseContractViewModel, BeYeuBookstore.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'. (8a1b66c8)
+2019-05-18T15:13:15.8292352+07:00 0HLMKAASFVEC9:0000000F [INF] Executed action "BeYeuBookstore.Controllers.AdvertiseContractController.GetAllPaging (BeYeuBookstore)" in 421.4805ms (afa2e885)
+2019-05-18T15:13:15.8544270+07:00 0HLMKAASFVEC9:0000000F [INF] Request finished in 533.197ms 200 application/json; charset=utf-8 (791a596a)
+2019-05-09T15:13:44.5796842+07:00 0HLMKAASFVEC4:0000000F [INF] Request starting HTTP/1.1 GET http://localhost:58918/AdvertiseContract   (ca22a1cb)
+2019-05-09T15:13:44.6071223+07:00 0HLMKAASFVEC4:0000000F [INF] Route matched with "{action = \"Index\", controller = \"AdvertiseContract\", area = \"\"}". Executing action "BeYeuBookstore.Controllers.AdvertiseContractController.Index (BeYeuBookstore)" (a44c0341)
+2019-05-09T15:13:44.6327797+07:00 0HLMKAASFVEC4:0000000F [INF] Authorization failed. (b15dd539)
+2019-05-09T15:13:44.6570289+07:00 0HLMKAASFVEC4:0000000F [INF] Authorization failed for the request at filter '"Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter"'. (8b6446cb)
+2019-05-09T15:13:44.6822227+07:00 0HLMKAASFVEC4:0000000F [INF] Executing ChallengeResult with authentication schemes ([]). (f3dca807)
+2019-05-09T15:13:44.7060418+07:00 0HLMKAASFVEC4:0000000F [INF] AuthenticationScheme: "Identity.Application" was challenged. (d45f1f38)
+2019-05-09T15:13:44.7235300+07:00 0HLMKAASFVEC4:0000000F [INF] Executed action "BeYeuBookstore.Controllers.AdvertiseContractController.Index (BeYeuBookstore)" in 99.0447ms (afa2e885)
+2019-05-09T15:13:44.7670451+07:00 0HLMKAASFVEC4:0000000F [INF] Request finished in 176.7661ms 302  (791a596a)
+2019-05-09T15:13:44.8193358+07:00 0HLMKAASFVEC7:0000000F [INF] Request starting HTTP/1.1 GET http://localhost:58918/Account/Login?ReturnUrl=%2FAdvertiseContract   (ca22a1cb)
+2019-05-09T15:13:44.8399591+07:00 0HLMKAASFVEC7:0000000F [INF] Route matched with "{action = \"Login\", controller = \"Account\", area = \"\"}". Executing action "BeYeuBookstore.Controllers.AccountController.Login (BeYeuBookstore)" (a44c0341)
+2019-05-09T15:13:44.8600815+07:00 0HLMKAASFVEC7:0000000F [INF] Executing action method "BeYeuBookstore.Controllers.AccountController.Login (BeYeuBookstore)" with arguments (["/AdvertiseContract"]) - Validation state: Valid (4e3479ed)
+2019-05-09T15:13:44.8771320+07:00 0HLMKAASFVEC7:0000000F [INF] AuthenticationScheme: "Identity.External" signed out. (d3f50c8d)
+2019-05-09T15:13:44.8936908+07:00 0HLMKAASFVEC7:0000000F [INF] Executed action method "BeYeuBookstore.Controllers.AccountController.Login (BeYeuBookstore)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 17.1936ms. (50a9e262)
+2019-05-09T15:13:44.9083307+07:00 0HLMKAASFVEC7:0000000F [INF] Executing ViewResult, running view "Login". (c83d0e25)
+2019-05-09T15:13:44.9274982+07:00 0HLMKAASFVEC7:0000000F [INF] Executed ViewResult - view "Login" executed in 19.9822ms. (f66409e9)
+2019-05-09T15:13:44.9432246+07:00 0HLMKAASFVEC7:0000000F [INF] Executed action "BeYeuBookstore.Controllers.AccountController.Login (BeYeuBookstore)" in 87.3685ms (afa2e885)
+2019-05-09T15:13:45.4195964+07:00 0HLMKAASFVEC7:0000000F [INF] Request finished in 161.0026ms 200 text/html; charset=utf-8 (791a596a)
+2019-05-09T15:13:45.4640167+07:00 0HLMKAASFVEC6:0000000A [INF] Request starting HTTP/1.1 GET http://localhost:58918/lib/font-awesome/css/font-awesome.css   (ca22a1cb)
+2019-05-09T15:13:45.4915815+07:00 0HLMKAASFVEC9:00000010 [INF] Request starting HTTP/1.1 GET http://localhost:58918/lib/animate.css/animate.css   (ca22a1cb)
+2019-05-09T15:13:45.5310631+07:00 0HLMKAASFVEC7:00000010 [INF] Request starting HTTP/1.1 GET http://localhost:58918/admin-side/css/custom.css   (ca22a1cb)
+2019-05-09T15:13:45.6780751+07:00 0HLMKAASFVEC6:0000000A [INF] Request finished in 89.4806ms 404  (791a596a)
+2019-05-09T15:13:45.8318652+07:00 0HLMKAASFVEC9:00000010 [INF] Sending file. Request path: '"/lib/animate.css/animate.css"'. Physical path: '"H:\Kul\TMĐT\ERPWebApp\wwwroot\lib\animate.css\animate.css"' (27b0a520)
+2019-05-09T15:13:46.0212740+07:00 0HLMKAASFVEC6:0000000B [INF] Request starting HTTP/1.1 GET http://localhost:58918/admin-side/css/style.css   (ca22a1cb)
+2019-05-09T15:13:46.0329327+07:00 0HLMKAASFVEC9:00000010 [INF] Request finished in 455.8207ms 200 text/css (791a596a)
+2019-05-09T15:13:46.0548192+07:00 0HLMKAASFVEC5:00000009 [INF] Request starting HTTP/1.1 GET http://localhost:58918/lib/notifyjs/dist/styles/metro/notify-metro.css   (ca22a1cb)
+2019-05-09T15:13:46.2588251+07:00 0HLMKAASFVEC5:00000009 [INF] Sending file. Request path: '"/lib/notifyjs/dist/styles/metro/notify-metro.css"'. Physical path: '"H:\Kul\TMĐT\ERPWebApp\wwwroot\lib\notifyjs\dist\styles\metro\notify-metro.css"' (27b0a520)
+2019-05-09T15:13:46.2910951+07:00 0HLMKAASFVEC9:00000011 [INF] Request starting HTTP/1.1 GET http://localhost:58918/lib/jquery/dist/jquery.js   (ca22a1cb)
+2019-05-09T15:13:46.3354004+07:00 0HLMKAASFVEC8:00000010 [INF] Request starting HTTP/1.1 GET http://localhost:58918/lib/bootstrap/dist/css/bootstrap.css   (ca22a1cb)
+2019-05-09T15:13:46.3500705+07:00 0HLMKAASFVEC5:00000009 [INF] Request finished in 883.5328ms 200 text/css (791a596a)
+2019-05-09T15:13:46.4627039+07:00 0HLMKAASFVEC8:00000010 [INF] Sending file. Request path: '"/lib/bootstrap/dist/css/bootstrap.css"'. Physical path: '"H:\Kul\TMĐT\ERPWebApp\wwwroot\lib\bootstrap\dist\css\bootstrap.css"' (27b0a520)
+2019-05-09T15:13:46.5372544+07:00 0HLMKAASFVEC5:0000000A [INF] Request starting HTTP/1.1 GET http://localhost:58918/lib/jquery-validation/dist/jquery.validate.js   (ca22a1cb)
+2019-05-09T15:13:46.6096454+07:00 0HLMKAASFVEC8:00000010 [INF] Request finished in 1087.4553ms 200 text/css (791a596a)
+2019-05-09T15:13:46.6319334+07:00 0HLMKAASFVEC5:0000000A [INF] Sending file. Request path: '"/lib/jquery-validation/dist/jquery.validate.js"'. Physical path: '"H:\Kul\TMĐT\ERPWebApp\wwwroot\lib\jquery-validation\dist\jquery.validate.js"' (27b0a520)
+2019-05-09T15:13:46.6525580+07:00 0HLMKAASFVEC8:00000011 [INF] Request starting HTTP/1.1 GET http://localhost:58918/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js   (ca22a1cb)
+2019-05-09T15:13:46.6662667+07:00 0HLMKAASFVEC5:0000000A [INF] Request finished in 241.469ms 200 application/javascript (791a596a)
+2019-05-09T15:13:46.7376237+07:00 0HLMKAASFVEC8:00000011 [INF] Sending file. Request path: '"/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"'. Physical path: '"H:\Kul\TMĐT\ERPWebApp\wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.js"' (27b0a520)
+2019-05-09T15:13:46.7565450+07:00 0HLMKAASFVEC5:0000000B [INF] Request starting HTTP/1.1 GET http://localhost:58918/lib/font-awesome/css/font-awesome.css   (ca22a1cb)
+2019-05-09T15:13:46.7632011+07:00 0HLMKAASFVEC8:00000011 [INF] Request finished in 112.1437ms 200 application/javascript (791a596a)
+2019-05-09T15:13:46.7762740+07:00 0HLMKAASFVEC9:00000011 [INF] Sending file. Request path: '"/lib/jquery/dist/jquery.js"'. Physical path: '"H:\Kul\TMĐT\ERPWebApp\wwwroot\lib\jquery\dist\jquery.js"' (27b0a520)
+2019-05-09T15:13:46.8352500+07:00 0HLMKAASFVEC5:0000000B [INF] Request finished in 32.2327ms 404  (791a596a)
+2019-05-09T15:13:46.8487791+07:00 0HLMKAASFVEC8:00000012 [INF] Request starting HTTP/1.1 GET http://localhost:58918/lib/jquery-validation/dist/Localization/messages_vi.js   (ca22a1cb)
+2019-05-09T15:13:46.8665158+07:00 0HLMKAASFVEC9:00000011 [INF] Request finished in 678.1696ms 200 application/javascript (791a596a)
+2019-05-09T15:13:46.8991813+07:00 0HLMKAASFVEC5:0000000C [INF] Request starting HTTP/1.1 GET http://localhost:58918/lib/bootstrap/dist/css/bootstrap.css.map   (ca22a1cb)
+2019-05-09T15:13:46.9325003+07:00 0HLMKAASFVEC8:00000012 [INF] Sending file. Request path: '"/lib/jquery-validation/dist/Localization/messages_vi.js"'. Physical path: '"H:\Kul\TMĐT\ERPWebApp\wwwroot\lib\jquery-validation\dist\Localization\messages_vi.js"' (27b0a520)
+2019-05-09T15:13:46.9384992+07:00 0HLMKAASFVEC5:0000000C [INF] The file "/lib/bootstrap/dist/css/bootstrap.css.map" was not modified (f1f8d725)
+2019-05-09T15:13:46.9466345+07:00 0HLMKAASFVEC9:00000012 [INF] Request starting HTTP/1.1 GET http://localhost:58918/lib/jquery-validation/dist/additional-methods.js   (ca22a1cb)
+2019-05-09T15:13:47.0006679+07:00 0HLMKAASFVEC5:0000000C [INF] Request finished in 83.0699ms 304 text/plain (791a596a)
+2019-05-09T15:13:47.0218030+07:00 0HLMKAASFVEC9:00000012 [INF] Sending file. Request path: '"/lib/jquery-validation/dist/additional-methods.js"'. Physical path: '"H:\Kul\TMĐT\ERPWebApp\wwwroot\lib\jquery-validation\dist\additional-methods.js"' (27b0a520)
+2019-05-09T15:13:47.0283767+07:00 0HLMKAASFVEC8:00000012 [INF] Request finished in 117.2826ms 200 application/javascript (791a596a)
+2019-05-09T15:13:47.0469862+07:00 0HLMKAASFVEC9:00000012 [INF] Request finished in 136.6157ms 200 application/javascript (791a596a)
+2019-05-09T15:13:47.0534910+07:00 0HLMKAASFVEC6:0000000B [INF] Sending file. Request path: '"/admin-side/css/style.css"'. Physical path: '"H:\Kul\TMĐT\ERPWebApp\wwwroot\admin-side\css\style.css"' (27b0a520)
+2019-05-09T15:13:47.0789025+07:00 0HLMKAASFVEC6:0000000B [INF] Request finished in 1276.1393ms 200 text/css (791a596a)
+2019-05-09T15:13:47.0848107+07:00 0HLMKAASFVEC4:00000010 [INF] Request starting HTTP/1.1 GET http://localhost:58918/lib/nprogress/nprogress.css   (ca22a1cb)
+2019-05-09T15:13:47.1707454+07:00 0HLMKAASFVEC4:00000010 [INF] Sending file. Request path: '"/lib/nprogress/nprogress.css"'. Physical path: '"H:\Kul\TMĐT\ERPWebApp\wwwroot\lib\nprogress\nprogress.css"' (27b0a520)
+2019-05-09T15:13:47.1782243+07:00 0HLMKAASFVEC6:0000000C [INF] Request starting HTTP/1.1 GET http://localhost:58918/lib/notifyjs/dist/styles/metro/notify-metro.js   (ca22a1cb)
+2019-05-09T15:13:47.2117413+07:00 0HLMKAASFVEC7:00000010 [INF] Sending file. Request path: '"/admin-side/css/custom.css"'. Physical path: '"H:\Kul\TMĐT\ERPWebApp\wwwroot\admin-side\css\custom.css"' (27b0a520)
+2019-05-09T15:13:47.2177864+07:00 0HLMKAASFVEC4:00000010 [INF] Request finished in 1758.9337ms 200 text/css (791a596a)
+2019-05-09T15:13:47.2377255+07:00 0HLMKAASFVEC6:0000000C [INF] Sending file. Request path: '"/lib/notifyjs/dist/styles/metro/notify-metro.js"'. Physical path: '"H:\Kul\TMĐT\ERPWebApp\wwwroot\lib\notifyjs\dist\styles\metro\notify-metro.js"' (27b0a520)
+2019-05-09T15:13:47.2566595+07:00 0HLMKAASFVEC7:00000010 [INF] Request finished in 1772.6618ms 200 text/css (791a596a)
+2019-05-09T15:13:47.2667604+07:00 0HLMKAASFVEC6:0000000C [INF] Request finished in 133.2147ms 200 application/javascript (791a596a)
+2019-05-09T15:13:47.2861165+07:00 0HLMKAASFVEC7:00000011 [INF] Request starting HTTP/1.1 GET http://localhost:58918/lib/notifyjs/dist/notify.js   (ca22a1cb)
+2019-05-09T15:13:47.3498824+07:00 0HLMKAASFVEC7:00000011 [INF] Sending file. Request path: '"/lib/notifyjs/dist/notify.js"'. Physical path: '"H:\Kul\TMĐT\ERPWebApp\wwwroot\lib\notifyjs\dist\notify.js"' (27b0a520)
+2019-05-09T15:13:47.3817004+07:00 0HLMKAASFVEC7:00000011 [INF] Request finished in 77.6158ms 200 application/javascript (791a596a)
+2019-05-09T15:13:47.4789422+07:00 0HLMKAASFVEC8:00000013 [INF] Request starting HTTP/1.1 GET http://localhost:58918/favicon.ico   (ca22a1cb)
+2019-05-09T15:13:47.4903661+07:00 0HLMKAASFVEC8:00000013 [INF] The file "/favicon.ico" was not modified (f1f8d725)
+2019-05-09T15:13:47.5097736+07:00 0HLMKAASFVEC8:00000013 [INF] Request finished in 25.6227ms 304 image/x-icon (791a596a)
+2019-05-09T15:13:49.6651352+07:00 0HLMKAASFVEC5:0000000D [INF] Request starting HTTP/1.1 POST http://localhost:58918/Account/Login?returnurl=%2FAdvertiseContract application/x-www-form-urlencoded 260 (ca22a1cb)
+2019-05-09T15:13:49.6893665+07:00 0HLMKAASFVEC5:0000000D [INF] Route matched with "{action = \"Login\", controller = \"Account\", area = \"\"}". Executing action "BeYeuBookstore.Controllers.AccountController.Login (BeYeuBookstore)" (a44c0341)
+2019-05-09T15:13:49.7124299+07:00 0HLMKAASFVEC5:0000000D [INF] Executing action method "BeYeuBookstore.Controllers.AccountController.Login (BeYeuBookstore)" with arguments (["BeYeuBookstore.Models.AccountViewModels.LoginViewModel", "/AdvertiseContract"]) - Validation state: Valid (4e3479ed)
+2019-05-09T15:13:49.7414446+07:00 0HLMKAASFVEC5:0000000D [INF] Entity Framework Core "2.2.0-preview1-35029" initialized '"ERPDbContext"' using provider '"Pomelo.EntityFrameworkCore.MySql"' with options: "ServerVersion 8.0.13 MySql " (9958f5bb)
+2019-05-09T15:13:49.7863927+07:00 0HLMKAASFVEC5:0000000D [INF] Executed DbCommand ("6"ms) [Parameters=["@__normalizedUserName_0='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SELECT `u`.`Id`, `u`.`AccessFailedCount`, `u`.`Address`, `u`.`Avatar`, `u`.`ConcurrencyStamp`, `u`.`DateCreated`, `u`.`DateModified`, `u`.`Dob`, `u`.`Email`, `u`.`EmailConfirmed`, `u`.`FullName`, `u`.`Gender`, `u`.`IdDate`, `u`.`IdNumber`, `u`.`LastupdatedFk`, `u`.`LockoutEnabled`, `u`.`LockoutEnd`, `u`.`NormalizedEmail`, `u`.`NormalizedUserName`, `u`.`PasswordHash`, `u`.`PhoneNumber`, `u`.`PhoneNumberConfirmed`, `u`.`SecurityStamp`, `u`.`Status`, `u`.`TwoFactorEnabled`, `u`.`UserName`, `u`.`UserTypeFK`
+FROM `User` AS `u`
+WHERE `u`.`NormalizedUserName` = @__normalizedUserName_0
+LIMIT 1" (0723d8ff)
+2019-05-09T15:13:49.8621766+07:00 0HLMKAASFVEC5:0000000D [INF] Executed DbCommand ("3"ms) [Parameters=["@__user_Id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT `uc`.`Id`, `uc`.`ClaimType`, `uc`.`ClaimValue`, `uc`.`UserId`
+FROM `AppUserClaims` AS `uc`
+WHERE `uc`.`UserId` = @__user_Id_0" (0723d8ff)
+2019-05-09T15:13:49.8887675+07:00 0HLMKAASFVEC5:0000000D [INF] Executed DbCommand ("3"ms) [Parameters=["@__userId_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT `role`.`Name`
+FROM `AppUserRoles` AS `userRole`
+INNER JOIN `Roles` AS `role` ON `userRole`.`RoleId` = `role`.`Id`
+WHERE `userRole`.`UserId` = @__userId_0" (0723d8ff)
+2019-05-09T15:13:49.9133353+07:00 0HLMKAASFVEC5:0000000D [INF] Executed DbCommand ("2"ms) [Parameters=["@__normalizedName_0='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SELECT `r`.`Id`, `r`.`ConcurrencyStamp`, `r`.`Description`, `r`.`Name`, `r`.`NormalizedName`
+FROM `Roles` AS `r`
+WHERE `r`.`NormalizedName` = @__normalizedName_0
+LIMIT 1" (0723d8ff)
+2019-05-09T15:13:49.9388558+07:00 0HLMKAASFVEC5:0000000D [INF] Executed DbCommand ("3"ms) [Parameters=["@__role_Id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT `rc`.`ClaimType`, `rc`.`ClaimValue`
+FROM `AppRoleClaims` AS `rc`
+WHERE `rc`.`RoleId` = @__role_Id_0" (0723d8ff)
+2019-05-09T15:13:49.9665834+07:00 0HLMKAASFVEC5:0000000D [INF] Executed DbCommand ("2"ms) [Parameters=["@__userId_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT `role`.`Name`
+FROM `AppUserRoles` AS `userRole`
+INNER JOIN `Roles` AS `role` ON `userRole`.`RoleId` = `role`.`Id`
+WHERE `userRole`.`UserId` = @__userId_0" (0723d8ff)
+2019-05-09T15:13:49.9890995+07:00 0HLMKAASFVEC5:0000000D [INF] AuthenticationScheme: "Identity.Application" signed in. (c66dd7e7)
+2019-05-09T15:13:50.0135701+07:00 0HLMKAASFVEC5:0000000D [INF] User đăng nhập thành công . (a79f9d02)
+2019-05-09T15:13:50.0485167+07:00 0HLMKAASFVEC5:0000000D [INF] Executed action method "BeYeuBookstore.Controllers.AccountController.Login (BeYeuBookstore)", returned result "Microsoft.AspNetCore.Mvc.RedirectResult" in 301.065ms. (50a9e262)
+2019-05-09T15:13:50.0694492+07:00 0HLMKAASFVEC5:0000000D [INF] Executing RedirectResult, redirecting to "/AdvertiseContract". (d98d540e)
+2019-05-09T15:13:50.0880659+07:00 0HLMKAASFVEC5:0000000D [INF] Executed action "BeYeuBookstore.Controllers.AccountController.Login (BeYeuBookstore)" in 380.1421ms (afa2e885)
+2019-05-09T15:13:50.1263998+07:00 0HLMKAASFVEC5:0000000D [INF] Request finished in 465.688ms 302  (791a596a)
+2019-05-09T15:13:50.1518481+07:00 0HLMKAASFVEC9:00000013 [INF] Request starting HTTP/1.1 GET http://localhost:58918/AdvertiseContract   (ca22a1cb)
+2019-05-09T15:13:50.1780353+07:00 0HLMKAASFVEC9:00000013 [INF] Route matched with "{action = \"Index\", controller = \"AdvertiseContract\", area = \"\"}". Executing action "BeYeuBookstore.Controllers.AdvertiseContractController.Index (BeYeuBookstore)" (a44c0341)
+2019-05-09T15:13:50.2205284+07:00 0HLMKAASFVEC9:00000013 [INF] Authorization failed. (b15dd539)
+2019-05-09T15:13:50.2496099+07:00 0HLMKAASFVEC9:00000013 [INF] Authorization failed for the request at filter '"Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter"'. (8b6446cb)
+2019-05-09T15:13:50.2784216+07:00 0HLMKAASFVEC9:00000013 [INF] Executing ChallengeResult with authentication schemes ([]). (f3dca807)
+2019-05-09T15:13:50.2993702+07:00 0HLMKAASFVEC9:00000013 [INF] AuthenticationScheme: "Identity.Application" was challenged. (d45f1f38)
+2019-05-09T15:13:50.3204117+07:00 0HLMKAASFVEC9:00000013 [INF] Executed action "BeYeuBookstore.Controllers.AdvertiseContractController.Index (BeYeuBookstore)" in 121.4824ms (afa2e885)
+2019-05-09T15:13:50.3855504+07:00 0HLMKAASFVEC9:00000013 [INF] Request finished in 205.2857ms 302  (791a596a)
+2019-05-09T15:13:50.4201864+07:00 0HLMKAASFVEC4:00000011 [INF] Request starting HTTP/1.1 GET http://localhost:58918/Account/Login?ReturnUrl=%2FAdvertiseContract   (ca22a1cb)
+2019-05-09T15:13:50.4380938+07:00 0HLMKAASFVEC4:00000011 [INF] Route matched with "{action = \"Login\", controller = \"Account\", area = \"\"}". Executing action "BeYeuBookstore.Controllers.AccountController.Login (BeYeuBookstore)" (a44c0341)
+2019-05-09T15:13:50.4655092+07:00 0HLMKAASFVEC4:00000011 [INF] Executing action method "BeYeuBookstore.Controllers.AccountController.Login (BeYeuBookstore)" with arguments (["/AdvertiseContract"]) - Validation state: Valid (4e3479ed)
+2019-05-09T15:13:50.4976038+07:00 0HLMKAASFVEC4:00000011 [INF] AuthenticationScheme: "Identity.External" signed out. (d3f50c8d)
+2019-05-09T15:13:50.5162463+07:00 0HLMKAASFVEC4:00000011 [INF] Executed action method "BeYeuBookstore.Controllers.AccountController.Login (BeYeuBookstore)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 32.1703ms. (50a9e262)
+2019-05-09T15:13:50.5362187+07:00 0HLMKAASFVEC4:00000011 [INF] Executing ViewResult, running view "Login". (c83d0e25)
+2019-05-09T15:13:50.5584742+07:00 0HLMKAASFVEC4:00000011 [INF] Executed ViewResult - view "Login" executed in 24.8692ms. (f66409e9)
+2019-05-09T15:13:50.5743819+07:00 0HLMKAASFVEC4:00000011 [INF] Executed action "BeYeuBookstore.Controllers.AccountController.Login (BeYeuBookstore)" in 120.6395ms (afa2e885)
+2019-05-09T15:13:50.7339951+07:00 0HLMKAASFVEC4:00000011 [INF] Request finished in 206.0944ms 200 text/html; charset=utf-8 (791a596a)
+2019-05-09T15:13:50.8662806+07:00 0HLMKAASFVEC6:0000000D [INF] Request starting HTTP/1.1 GET http://localhost:58918/lib/font-awesome/css/font-awesome.css   (ca22a1cb)
+2019-05-09T15:13:50.9063019+07:00 0HLMKAASFVEC6:0000000D [INF] Request finished in 76.0104ms 404  (791a596a)
+2019-05-09T15:13:53.4834751+07:00 0HLMKAASFVEC7:00000012 [INF] Request starting HTTP/1.1 POST http://localhost:58918/Account/Login?returnurl=%2FAdvertiseContract application/x-www-form-urlencoded 260 (ca22a1cb)
+2019-05-09T15:13:53.5081263+07:00 0HLMKAASFVEC7:00000012 [INF] Route matched with "{action = \"Login\", controller = \"Account\", area = \"\"}". Executing action "BeYeuBookstore.Controllers.AccountController.Login (BeYeuBookstore)" (a44c0341)
+2019-05-09T15:13:53.5346385+07:00 0HLMKAASFVEC7:00000012 [INF] Executing action method "BeYeuBookstore.Controllers.AccountController.Login (BeYeuBookstore)" with arguments (["BeYeuBookstore.Models.AccountViewModels.LoginViewModel", "/AdvertiseContract"]) - Validation state: Valid (4e3479ed)
+2019-05-09T15:13:53.5571263+07:00 0HLMKAASFVEC7:00000012 [INF] Entity Framework Core "2.2.0-preview1-35029" initialized '"ERPDbContext"' using provider '"Pomelo.EntityFrameworkCore.MySql"' with options: "ServerVersion 8.0.13 MySql " (9958f5bb)
+2019-05-09T15:13:53.6107205+07:00 0HLMKAASFVEC7:00000012 [INF] Executed DbCommand ("3"ms) [Parameters=["@__normalizedUserName_0='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SELECT `u`.`Id`, `u`.`AccessFailedCount`, `u`.`Address`, `u`.`Avatar`, `u`.`ConcurrencyStamp`, `u`.`DateCreated`, `u`.`DateModified`, `u`.`Dob`, `u`.`Email`, `u`.`EmailConfirmed`, `u`.`FullName`, `u`.`Gender`, `u`.`IdDate`, `u`.`IdNumber`, `u`.`LastupdatedFk`, `u`.`LockoutEnabled`, `u`.`LockoutEnd`, `u`.`NormalizedEmail`, `u`.`NormalizedUserName`, `u`.`PasswordHash`, `u`.`PhoneNumber`, `u`.`PhoneNumberConfirmed`, `u`.`SecurityStamp`, `u`.`Status`, `u`.`TwoFactorEnabled`, `u`.`UserName`, `u`.`UserTypeFK`
+FROM `User` AS `u`
+WHERE `u`.`NormalizedUserName` = @__normalizedUserName_0
+LIMIT 1" (0723d8ff)
+2019-05-09T15:13:53.7353679+07:00 0HLMKAASFVEC7:00000012 [INF] Executed DbCommand ("2"ms) [Parameters=["@__user_Id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT `uc`.`Id`, `uc`.`ClaimType`, `uc`.`ClaimValue`, `uc`.`UserId`
+FROM `AppUserClaims` AS `uc`
+WHERE `uc`.`UserId` = @__user_Id_0" (0723d8ff)
+2019-05-09T15:13:53.7705804+07:00 0HLMKAASFVEC7:00000012 [INF] Executed DbCommand ("3"ms) [Parameters=["@__userId_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT `role`.`Name`
+FROM `AppUserRoles` AS `userRole`
+INNER JOIN `Roles` AS `role` ON `userRole`.`RoleId` = `role`.`Id`
+WHERE `userRole`.`UserId` = @__userId_0" (0723d8ff)
+2019-05-09T15:13:53.9164468+07:00 0HLMKAASFVEC7:00000012 [INF] Executed DbCommand ("2"ms) [Parameters=["@__normalizedName_0='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SELECT `r`.`Id`, `r`.`ConcurrencyStamp`, `r`.`Description`, `r`.`Name`, `r`.`NormalizedName`
+FROM `Roles` AS `r`
+WHERE `r`.`NormalizedName` = @__normalizedName_0
+LIMIT 1" (0723d8ff)
+2019-05-09T15:13:53.9488557+07:00 0HLMKAASFVEC7:00000012 [INF] Executed DbCommand ("2"ms) [Parameters=["@__role_Id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT `rc`.`ClaimType`, `rc`.`ClaimValue`
+FROM `AppRoleClaims` AS `rc`
+WHERE `rc`.`RoleId` = @__role_Id_0" (0723d8ff)
+2019-05-09T15:13:53.9725032+07:00 0HLMKAASFVEC7:00000012 [INF] Executed DbCommand ("2"ms) [Parameters=["@__userId_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT `role`.`Name`
+FROM `AppUserRoles` AS `userRole`
+INNER JOIN `Roles` AS `role` ON `userRole`.`RoleId` = `role`.`Id`
+WHERE `userRole`.`UserId` = @__userId_0" (0723d8ff)
+2019-05-09T15:13:53.9908146+07:00 0HLMKAASFVEC7:00000012 [INF] AuthenticationScheme: "Identity.Application" signed in. (c66dd7e7)
+2019-05-09T15:13:54.0054647+07:00 0HLMKAASFVEC7:00000012 [INF] User đăng nhập thành công . (a79f9d02)
+2019-05-09T15:13:54.0223239+07:00 0HLMKAASFVEC7:00000012 [INF] Executed action method "BeYeuBookstore.Controllers.AccountController.Login (BeYeuBookstore)", returned result "Microsoft.AspNetCore.Mvc.RedirectResult" in 471.0455ms. (50a9e262)
+2019-05-09T15:13:54.0424558+07:00 0HLMKAASFVEC7:00000012 [INF] Executing RedirectResult, redirecting to "/AdvertiseContract". (d98d540e)
+2019-05-09T15:13:54.0601330+07:00 0HLMKAASFVEC7:00000012 [INF] Executed action "BeYeuBookstore.Controllers.AccountController.Login (BeYeuBookstore)" in 534.2884ms (afa2e885)
+2019-05-09T15:13:54.1263005+07:00 0HLMKAASFVEC7:00000012 [INF] Request finished in 606.6904ms 302  (791a596a)
+2019-05-09T15:13:54.1478420+07:00 0HLMKAASFVEC8:00000014 [INF] Request starting HTTP/1.1 GET http://localhost:58918/AdvertiseContract   (ca22a1cb)
+2019-05-09T15:13:54.1666460+07:00 0HLMKAASFVEC8:00000014 [INF] Route matched with "{action = \"Index\", controller = \"AdvertiseContract\", area = \"\"}". Executing action "BeYeuBookstore.Controllers.AdvertiseContractController.Index (BeYeuBookstore)" (a44c0341)
+2019-05-09T15:13:54.1836712+07:00 0HLMKAASFVEC8:00000014 [INF] Authorization failed. (b15dd539)
+2019-05-09T15:13:54.1986449+07:00 0HLMKAASFVEC8:00000014 [INF] Authorization failed for the request at filter '"Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter"'. (8b6446cb)
+2019-05-09T15:13:54.2154301+07:00 0HLMKAASFVEC8:00000014 [INF] Executing ChallengeResult with authentication schemes ([]). (f3dca807)
+2019-05-09T15:13:54.2283426+07:00 0HLMKAASFVEC8:00000014 [INF] AuthenticationScheme: "Identity.Application" was challenged. (d45f1f38)
+2019-05-09T15:13:54.2419937+07:00 0HLMKAASFVEC8:00000014 [INF] Executed action "BeYeuBookstore.Controllers.AdvertiseContractController.Index (BeYeuBookstore)" in 61.7051ms (afa2e885)
+2019-05-09T15:13:54.2809087+07:00 0HLMKAASFVEC8:00000014 [INF] Request finished in 129.9355ms 302  (791a596a)
+2019-05-09T15:13:54.3010201+07:00 0HLMKAASFVEC5:0000000E [INF] Request starting HTTP/1.1 GET http://localhost:58918/Account/Login?ReturnUrl=%2FAdvertiseContract   (ca22a1cb)
+2019-05-09T15:13:54.3219568+07:00 0HLMKAASFVEC5:0000000E [INF] Route matched with "{action = \"Login\", controller = \"Account\", area = \"\"}". Executing action "BeYeuBookstore.Controllers.AccountController.Login (BeYeuBookstore)" (a44c0341)
+2019-05-09T15:13:54.3494723+07:00 0HLMKAASFVEC5:0000000E [INF] Executing action method "BeYeuBookstore.Controllers.AccountController.Login (BeYeuBookstore)" with arguments (["/AdvertiseContract"]) - Validation state: Valid (4e3479ed)
+2019-05-09T15:13:54.3790610+07:00 0HLMKAASFVEC5:0000000E [INF] AuthenticationScheme: "Identity.External" signed out. (d3f50c8d)
+2019-05-09T15:13:54.3972706+07:00 0HLMKAASFVEC5:0000000E [INF] Executed action method "BeYeuBookstore.Controllers.AccountController.Login (BeYeuBookstore)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 29.5955ms. (50a9e262)
+2019-05-09T15:13:54.4139883+07:00 0HLMKAASFVEC5:0000000E [INF] Executing ViewResult, running view "Login". (c83d0e25)
+2019-05-09T15:13:54.4357093+07:00 0HLMKAASFVEC5:0000000E [INF] Executed ViewResult - view "Login" executed in 22.0661ms. (f66409e9)
+2019-05-09T15:13:54.4532621+07:00 0HLMKAASFVEC5:0000000E [INF] Executed action "BeYeuBookstore.Controllers.AccountController.Login (BeYeuBookstore)" in 114.0103ms (afa2e885)
+2019-05-09T15:13:54.5994501+07:00 0HLMKAASFVEC5:0000000E [INF] Request finished in 187.4049ms 200 text/html; charset=utf-8 (791a596a)
+2019-05-09T15:13:54.6982823+07:00 0HLMKAASFVEC9:00000014 [INF] Request starting HTTP/1.1 GET http://localhost:58918/lib/font-awesome/css/font-awesome.css   (ca22a1cb)
+2019-05-09T15:13:54.8648356+07:00 0HLMKAASFVEC9:00000014 [INF] Request finished in 99.6147ms 404  (791a596a)
+2019-05-09T15:13:56.7803353+07:00 0HLMKAASFVEC4:00000012 [INF] Request starting HTTP/1.1 GET http://localhost:58918/Account/Login?ReturnUrl=%2FAdvertiseContract   (ca22a1cb)
+2019-05-09T15:13:56.8098752+07:00 0HLMKAASFVEC4:00000012 [INF] Route matched with "{action = \"Login\", controller = \"Account\", area = \"\"}". Executing action "BeYeuBookstore.Controllers.AccountController.Login (BeYeuBookstore)" (a44c0341)
+2019-05-09T15:13:56.8439404+07:00 0HLMKAASFVEC4:00000012 [INF] Executing action method "BeYeuBookstore.Controllers.AccountController.Login (BeYeuBookstore)" with arguments (["/AdvertiseContract"]) - Validation state: Valid (4e3479ed)
+2019-05-09T15:13:56.8738836+07:00 0HLMKAASFVEC4:00000012 [INF] AuthenticationScheme: "Identity.External" signed out. (d3f50c8d)
+2019-05-09T15:13:56.8973335+07:00 0HLMKAASFVEC4:00000012 [INF] Executed action method "BeYeuBookstore.Controllers.AccountController.Login (BeYeuBookstore)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 30.2002ms. (50a9e262)
+2019-05-09T15:13:56.9300024+07:00 0HLMKAASFVEC4:00000012 [INF] Executing ViewResult, running view "Login". (c83d0e25)
+2019-05-09T15:13:56.9634613+07:00 0HLMKAASFVEC4:00000012 [INF] Executed ViewResult - view "Login" executed in 39.1904ms. (f66409e9)
+2019-05-09T15:13:56.9952720+07:00 0HLMKAASFVEC4:00000012 [INF] Executed action "BeYeuBookstore.Controllers.AccountController.Login (BeYeuBookstore)" in 154.0286ms (afa2e885)
+2019-05-09T15:13:57.2715285+07:00 0HLMKAASFVEC4:00000012 [INF] Request finished in 259.7843ms 200 text/html; charset=utf-8 (791a596a)
+2019-05-09T15:13:57.3229985+07:00 0HLMKAASFVEC6:0000000E [INF] Request starting HTTP/1.1 GET http://localhost:58918/lib/bootstrap/dist/css/bootstrap.css   (ca22a1cb)
+2019-05-09T15:13:57.3449226+07:00 0HLMKAASFVEC7:00000013 [INF] Request starting HTTP/1.1 GET http://localhost:58918/lib/font-awesome/css/font-awesome.css   (ca22a1cb)
+2019-05-09T15:13:57.6162327+07:00 0HLMKAASFVEC7:00000013 [INF] Request finished in 101.7863ms 404  (791a596a)
+2019-05-09T15:13:57.6400367+07:00 0HLMKAASFVEC4:00000013 [INF] Request starting HTTP/1.1 GET http://localhost:58918/lib/notifyjs/dist/styles/metro/notify-metro.css   (ca22a1cb)
+2019-05-09T15:13:57.7277777+07:00 0HLMKAASFVEC9:00000015 [INF] Request starting HTTP/1.1 GET http://localhost:58918/admin-side/css/custom.css   (ca22a1cb)
+2019-05-09T15:13:57.7390404+07:00 0HLMKAASFVEC7:00000014 [INF] Request starting HTTP/1.1 GET http://localhost:58918/admin-side/css/style.css   (ca22a1cb)
+2019-05-09T15:13:57.9859183+07:00 0HLMKAASFVEC9:00000015 [INF] Sending file. Request path: '"/admin-side/css/custom.css"'. Physical path: '"H:\Kul\TMĐT\ERPWebApp\wwwroot\admin-side\css\custom.css"' (27b0a520)
+2019-05-09T15:13:58.0058025+07:00 0HLMKAASFVEC7:00000014 [INF] Sending file. Request path: '"/admin-side/css/style.css"'. Physical path: '"H:\Kul\TMĐT\ERPWebApp\wwwroot\admin-side\css\style.css"' (27b0a520)
+2019-05-09T15:13:58.0537087+07:00 0HLMKAASFVEC9:00000015 [INF] Request finished in 739.1072ms 200 text/css (791a596a)
+2019-05-09T15:13:58.0643179+07:00 0HLMKAASFVEC7:00000014 [INF] Request finished in 333.2636ms 200 text/css (791a596a)
+2019-05-09T15:13:58.0730790+07:00 0HLMKAASFVEC8:00000015 [INF] Request starting HTTP/1.1 GET http://localhost:58918/lib/animate.css/animate.css   (ca22a1cb)
+2019-05-09T15:13:58.2316478+07:00 0HLMKAASFVEC9:00000016 [INF] Request starting HTTP/1.1 GET http://localhost:58918/lib/notifyjs/dist/styles/metro/notify-metro.js   (ca22a1cb)
+2019-05-09T15:13:58.2468367+07:00 0HLMKAASFVEC8:00000015 [INF] Sending file. Request path: '"/lib/animate.css/animate.css"'. Physical path: '"H:\Kul\TMĐT\ERPWebApp\wwwroot\lib\animate.css\animate.css"' (27b0a520)
+2019-05-09T15:13:58.2699192+07:00 0HLMKAASFVEC7:00000015 [INF] Request starting HTTP/1.1 GET http://localhost:58918/lib/notifyjs/dist/notify.js   (ca22a1cb)
+2019-05-09T15:13:58.3241903+07:00 0HLMKAASFVEC8:00000015 [INF] Request finished in 1000.0697ms 200 text/css (791a596a)
+2019-05-09T15:13:58.3573392+07:00 0HLMKAASFVEC7:00000015 [INF] Sending file. Request path: '"/lib/notifyjs/dist/notify.js"'. Physical path: '"H:\Kul\TMĐT\ERPWebApp\wwwroot\lib\notifyjs\dist\notify.js"' (27b0a520)
+2019-05-09T15:13:58.3849945+07:00 0HLMKAASFVEC8:00000016 [INF] Request starting HTTP/1.1 GET http://localhost:58918/lib/jquery-validation/dist/jquery.validate.js   (ca22a1cb)
+2019-05-09T15:13:58.3921048+07:00 0HLMKAASFVEC7:00000015 [INF] Request finished in 248.4951ms 200 application/javascript (791a596a)
+2019-05-09T15:13:58.4004822+07:00 0HLMKAASFVEC9:00000016 [INF] Sending file. Request path: '"/lib/notifyjs/dist/styles/metro/notify-metro.js"'. Physical path: '"H:\Kul\TMĐT\ERPWebApp\wwwroot\lib\notifyjs\dist\styles\metro\notify-metro.js"' (27b0a520)
+2019-05-09T15:13:58.4375297+07:00 0HLMKAASFVEC8:00000016 [INF] Sending file. Request path: '"/lib/jquery-validation/dist/jquery.validate.js"'. Physical path: '"H:\Kul\TMĐT\ERPWebApp\wwwroot\lib\jquery-validation\dist\jquery.validate.js"' (27b0a520)
+2019-05-09T15:13:58.4458713+07:00 0HLMKAASFVEC7:00000016 [INF] Request starting HTTP/1.1 GET http://localhost:58918/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js   (ca22a1cb)
+2019-05-09T15:13:58.4917282+07:00 0HLMKAASFVEC8:00000016 [INF] Request finished in 94.1991ms 200 application/javascript (791a596a)
+2019-05-09T15:13:58.4992353+07:00 0HLMKAASFVEC7:00000016 [INF] Sending file. Request path: '"/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"'. Physical path: '"H:\Kul\TMĐT\ERPWebApp\wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.js"' (27b0a520)
+2019-05-09T15:13:58.5321878+07:00 0HLMKAASFVEC7:00000016 [INF] Request finished in 89.3215ms 200 application/javascript (791a596a)
+2019-05-09T15:13:58.5425511+07:00 0HLMKAASFVEC8:00000017 [INF] Request starting HTTP/1.1 GET http://localhost:58918/lib/jquery-validation/dist/Localization/messages_vi.js   (ca22a1cb)
+2019-05-09T15:13:58.5758774+07:00 0HLMKAASFVEC9:00000016 [INF] Request finished in 316.6901ms 200 application/javascript (791a596a)
+2019-05-09T15:13:58.6052069+07:00 0HLMKAASFVEC8:00000017 [INF] Sending file. Request path: '"/lib/jquery-validation/dist/Localization/messages_vi.js"'. Physical path: '"H:\Kul\TMĐT\ERPWebApp\wwwroot\lib\jquery-validation\dist\Localization\messages_vi.js"' (27b0a520)
+2019-05-09T15:13:58.6287582+07:00 0HLMKAASFVEC9:00000017 [INF] Request starting HTTP/1.1 GET http://localhost:58918/lib/jquery-validation/dist/additional-methods.js   (ca22a1cb)
+2019-05-09T15:13:58.6359485+07:00 0HLMKAASFVEC8:00000017 [INF] Request finished in 99.0973ms 200 application/javascript (791a596a)
+2019-05-09T15:13:58.6474977+07:00 0HLMKAASFVEC5:0000000F [INF] Request starting HTTP/1.1 GET http://localhost:58918/lib/nprogress/nprogress.css   (ca22a1cb)
+2019-05-09T15:13:58.7079657+07:00 0HLMKAASFVEC9:00000017 [INF] Sending file. Request path: '"/lib/jquery-validation/dist/additional-methods.js"'. Physical path: '"H:\Kul\TMĐT\ERPWebApp\wwwroot\lib\jquery-validation\dist\additional-methods.js"' (27b0a520)
+2019-05-09T15:13:58.7183979+07:00 0HLMKAASFVEC5:0000000F [INF] Sending file. Request path: '"/lib/nprogress/nprogress.css"'. Physical path: '"H:\Kul\TMĐT\ERPWebApp\wwwroot\lib\nprogress\nprogress.css"' (27b0a520)
+2019-05-09T15:13:58.7562674+07:00 0HLMKAASFVEC9:00000017 [INF] Request finished in 110.1701ms 200 application/javascript (791a596a)
+2019-05-09T15:13:58.7644925+07:00 0HLMKAASFVEC5:0000000F [INF] Request finished in 1471.7173ms 200 text/css (791a596a)
+2019-05-09T15:13:58.8092312+07:00 0HLMKAASFVEC6:0000000E [INF] Sending file. Request path: '"/lib/bootstrap/dist/css/bootstrap.css"'. Physical path: '"H:\Kul\TMĐT\ERPWebApp\wwwroot\lib\bootstrap\dist\css\bootstrap.css"' (27b0a520)
+2019-05-09T15:13:58.8388549+07:00 0HLMKAASFVEC4:00000013 [INF] Sending file. Request path: '"/lib/notifyjs/dist/styles/metro/notify-metro.css"'. Physical path: '"H:\Kul\TMĐT\ERPWebApp\wwwroot\lib\notifyjs\dist\styles\metro\notify-metro.css"' (27b0a520)
+2019-05-09T15:13:58.8447209+07:00 0HLMKAASFVEC6:0000000E [INF] Request finished in 1562.8092ms 200 text/css (791a596a)
+2019-05-09T15:13:58.8674836+07:00 0HLMKAASFVEC4:00000013 [INF] Request finished in 1466.7708ms 200 text/css (791a596a)
+2019-05-09T15:13:58.8923810+07:00 0HLMKAASFVEC6:0000000F [INF] Request starting HTTP/1.1 GET http://localhost:58918/lib/jquery/dist/jquery.js   (ca22a1cb)
+2019-05-09T15:13:58.9059038+07:00 0HLMKAASFVEC4:00000014 [INF] Request starting HTTP/1.1 GET http://localhost:58918/lib/font-awesome/css/font-awesome.css   (ca22a1cb)
+2019-05-09T15:13:59.0302711+07:00 0HLMKAASFVEC6:0000000F [INF] Sending file. Request path: '"/lib/jquery/dist/jquery.js"'. Physical path: '"H:\Kul\TMĐT\ERPWebApp\wwwroot\lib\jquery\dist\jquery.js"' (27b0a520)
+2019-05-09T15:13:59.0468891+07:00 0HLMKAASFVEC4:00000014 [INF] Request finished in 34.5201ms 404  (791a596a)
+2019-05-09T15:13:59.1134646+07:00 0HLMKAASFVEC6:0000000F [INF] Request finished in 171.3903ms 200 application/javascript (791a596a)
+2019-05-09T15:13:59.3094912+07:00 0HLMKAASFVEC7:00000017 [INF] Request starting HTTP/1.1 GET http://localhost:58918/favicon.ico   (ca22a1cb)
+2019-05-09T15:13:59.3306913+07:00 0HLMKAASFVEC7:00000017 [INF] Sending file. Request path: '"/favicon.ico"'. Physical path: '"H:\Kul\TMĐT\ERPWebApp\wwwroot\favicon.ico"' (27b0a520)
+2019-05-09T15:13:59.3465096+07:00 0HLMKAASFVEC7:00000017 [INF] Request finished in 37.4948ms 200 image/x-icon (791a596a)
+2019-05-09T15:14:00.8032147+07:00 0HLMKAASFVEC8:00000018 [INF] Request starting HTTP/1.1 POST http://localhost:58918/Account/Login?returnurl=%2FAdvertiseContract application/x-www-form-urlencoded 260 (ca22a1cb)
+2019-05-09T15:14:00.8269293+07:00 0HLMKAASFVEC8:00000018 [INF] Route matched with "{action = \"Login\", controller = \"Account\", area = \"\"}". Executing action "BeYeuBookstore.Controllers.AccountController.Login (BeYeuBookstore)" (a44c0341)
+2019-05-09T15:14:00.8516965+07:00 0HLMKAASFVEC8:00000018 [INF] Executing action method "BeYeuBookstore.Controllers.AccountController.Login (BeYeuBookstore)" with arguments (["BeYeuBookstore.Models.AccountViewModels.LoginViewModel", "/AdvertiseContract"]) - Validation state: Valid (4e3479ed)
+2019-05-09T15:14:00.8748761+07:00 0HLMKAASFVEC8:00000018 [INF] Entity Framework Core "2.2.0-preview1-35029" initialized '"ERPDbContext"' using provider '"Pomelo.EntityFrameworkCore.MySql"' with options: "ServerVersion 8.0.13 MySql " (9958f5bb)
+2019-05-09T15:14:00.9240707+07:00 0HLMKAASFVEC8:00000018 [INF] Executed DbCommand ("3"ms) [Parameters=["@__normalizedUserName_0='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SELECT `u`.`Id`, `u`.`AccessFailedCount`, `u`.`Address`, `u`.`Avatar`, `u`.`ConcurrencyStamp`, `u`.`DateCreated`, `u`.`DateModified`, `u`.`Dob`, `u`.`Email`, `u`.`EmailConfirmed`, `u`.`FullName`, `u`.`Gender`, `u`.`IdDate`, `u`.`IdNumber`, `u`.`LastupdatedFk`, `u`.`LockoutEnabled`, `u`.`LockoutEnd`, `u`.`NormalizedEmail`, `u`.`NormalizedUserName`, `u`.`PasswordHash`, `u`.`PhoneNumber`, `u`.`PhoneNumberConfirmed`, `u`.`SecurityStamp`, `u`.`Status`, `u`.`TwoFactorEnabled`, `u`.`UserName`, `u`.`UserTypeFK`
+FROM `User` AS `u`
+WHERE `u`.`NormalizedUserName` = @__normalizedUserName_0
+LIMIT 1" (0723d8ff)
+2019-05-09T15:14:01.0273623+07:00 0HLMKAASFVEC8:00000018 [INF] Executed DbCommand ("3"ms) [Parameters=["@__user_Id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT `uc`.`Id`, `uc`.`ClaimType`, `uc`.`ClaimValue`, `uc`.`UserId`
+FROM `AppUserClaims` AS `uc`
+WHERE `uc`.`UserId` = @__user_Id_0" (0723d8ff)
+2019-05-09T15:14:01.0516316+07:00 0HLMKAASFVEC8:00000018 [INF] Executed DbCommand ("2"ms) [Parameters=["@__userId_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT `role`.`Name`
+FROM `AppUserRoles` AS `userRole`
+INNER JOIN `Roles` AS `role` ON `userRole`.`RoleId` = `role`.`Id`
+WHERE `userRole`.`UserId` = @__userId_0" (0723d8ff)
+2019-05-09T15:14:01.0775794+07:00 0HLMKAASFVEC8:00000018 [INF] Executed DbCommand ("3"ms) [Parameters=["@__normalizedName_0='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SELECT `r`.`Id`, `r`.`ConcurrencyStamp`, `r`.`Description`, `r`.`Name`, `r`.`NormalizedName`
+FROM `Roles` AS `r`
+WHERE `r`.`NormalizedName` = @__normalizedName_0
+LIMIT 1" (0723d8ff)
+2019-05-09T15:14:01.1022275+07:00 0HLMKAASFVEC8:00000018 [INF] Executed DbCommand ("1"ms) [Parameters=["@__role_Id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT `rc`.`ClaimType`, `rc`.`ClaimValue`
+FROM `AppRoleClaims` AS `rc`
+WHERE `rc`.`RoleId` = @__role_Id_0" (0723d8ff)
+2019-05-09T15:14:01.1305141+07:00 0HLMKAASFVEC8:00000018 [INF] Executed DbCommand ("3"ms) [Parameters=["@__userId_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT `role`.`Name`
+FROM `AppUserRoles` AS `userRole`
+INNER JOIN `Roles` AS `role` ON `userRole`.`RoleId` = `role`.`Id`
+WHERE `userRole`.`UserId` = @__userId_0" (0723d8ff)
+2019-05-09T15:14:01.1790159+07:00 0HLMKAASFVEC8:00000018 [INF] AuthenticationScheme: "Identity.Application" signed in. (c66dd7e7)
+2019-05-09T15:14:01.1982956+07:00 0HLMKAASFVEC8:00000018 [INF] User đăng nhập thành công . (a79f9d02)
+2019-05-09T15:14:01.2167562+07:00 0HLMKAASFVEC8:00000018 [INF] Executed action method "BeYeuBookstore.Controllers.AccountController.Login (BeYeuBookstore)", returned result "Microsoft.AspNetCore.Mvc.RedirectResult" in 346.738ms. (50a9e262)
+2019-05-09T15:14:01.2404563+07:00 0HLMKAASFVEC8:00000018 [INF] Executing RedirectResult, redirecting to "/AdvertiseContract". (d98d540e)
+2019-05-09T15:14:01.2648000+07:00 0HLMKAASFVEC8:00000018 [INF] Executed action "BeYeuBookstore.Controllers.AccountController.Login (BeYeuBookstore)" in 414.2329ms (afa2e885)
+2019-05-09T15:14:01.3110020+07:00 0HLMKAASFVEC8:00000018 [INF] Request finished in 496.5074ms 302  (791a596a)
+2019-05-09T15:14:01.3317724+07:00 0HLMKAASFVEC9:00000018 [INF] Request starting HTTP/1.1 GET http://localhost:58918/AdvertiseContract   (ca22a1cb)
+2019-05-09T15:14:01.3675284+07:00 0HLMKAASFVEC9:00000018 [INF] Route matched with "{action = \"Index\", controller = \"AdvertiseContract\", area = \"\"}". Executing action "BeYeuBookstore.Controllers.AdvertiseContractController.Index (BeYeuBookstore)" (a44c0341)
+2019-05-09T15:14:01.3915792+07:00 0HLMKAASFVEC9:00000018 [INF] Authorization failed. (b15dd539)
+2019-05-09T15:14:01.4422222+07:00 0HLMKAASFVEC9:00000018 [INF] Authorization failed for the request at filter '"Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter"'. (8b6446cb)
+2019-05-09T15:14:01.4756823+07:00 0HLMKAASFVEC9:00000018 [INF] Executing ChallengeResult with authentication schemes ([]). (f3dca807)
+2019-05-09T15:14:01.4996381+07:00 0HLMKAASFVEC9:00000018 [INF] AuthenticationScheme: "Identity.Application" was challenged. (d45f1f38)
+2019-05-09T15:14:01.5191050+07:00 0HLMKAASFVEC9:00000018 [INF] Executed action "BeYeuBookstore.Controllers.AdvertiseContractController.Index (BeYeuBookstore)" in 132.1148ms (afa2e885)
+2019-05-09T15:14:01.5693550+07:00 0HLMKAASFVEC9:00000018 [INF] Request finished in 228.5928ms 302  (791a596a)
+2019-05-09T15:14:01.6154826+07:00 0HLMKAASFVEC5:00000010 [INF] Request starting HTTP/1.1 GET http://localhost:58918/Account/Login?ReturnUrl=%2FAdvertiseContract   (ca22a1cb)
+2019-05-09T15:14:01.6414753+07:00 0HLMKAASFVEC5:00000010 [INF] Route matched with "{action = \"Login\", controller = \"Account\", area = \"\"}". Executing action "BeYeuBookstore.Controllers.AccountController.Login (BeYeuBookstore)" (a44c0341)
+2019-05-09T15:14:01.6622910+07:00 0HLMKAASFVEC5:00000010 [INF] Executing action method "BeYeuBookstore.Controllers.AccountController.Login (BeYeuBookstore)" with arguments (["/AdvertiseContract"]) - Validation state: Valid (4e3479ed)
+2019-05-09T15:14:01.6799079+07:00 0HLMKAASFVEC5:00000010 [INF] AuthenticationScheme: "Identity.External" signed out. (d3f50c8d)
+2019-05-09T15:14:01.7042277+07:00 0HLMKAASFVEC5:00000010 [INF] Executed action method "BeYeuBookstore.Controllers.AccountController.Login (BeYeuBookstore)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 17.6832ms. (50a9e262)
+2019-05-09T15:14:01.7212204+07:00 0HLMKAASFVEC5:00000010 [INF] Executing ViewResult, running view "Login". (c83d0e25)
+2019-05-09T15:14:01.7512247+07:00 0HLMKAASFVEC5:00000010 [INF] Executed ViewResult - view "Login" executed in 21.6517ms. (f66409e9)
+2019-05-09T15:14:01.8818970+07:00 0HLMKAASFVEC5:00000010 [INF] Executed action "BeYeuBookstore.Controllers.AccountController.Login (BeYeuBookstore)" in 109.9276ms (afa2e885)
+2019-05-09T15:14:02.0040928+07:00 0HLMKAASFVEC5:00000010 [INF] Request finished in 345.1378ms 200 text/html; charset=utf-8 (791a596a)
+2019-05-09T15:14:02.0335592+07:00 0HLMKAASFVEC4:00000015 [INF] Request starting HTTP/1.1 GET http://localhost:58918/lib/font-awesome/css/font-awesome.css   (ca22a1cb)
+2019-05-09T15:14:02.0786848+07:00 0HLMKAASFVEC4:00000015 [INF] Request finished in 53.3512ms 404  (791a596a)
+2019-05-09T15:14:02.1366255+07:00 0HLMKAASFVEC6:00000010 [INF] Request starting HTTP/1.1 GET http://localhost:58918/lib/font-awesome/css/font-awesome.css   (ca22a1cb)
+2019-05-09T15:14:02.1942420+07:00 0HLMKAASFVEC6:00000010 [INF] Request finished in 48.4658ms 404  (791a596a)

@@ -17,10 +17,12 @@ namespace BeYeuBookstore.Application.Interfaces
 
         PagedResult<BookViewModel> GetAllPaging(int? merchantId, string fromdate, string todate, string keyword, int bookcategoryid, int page, int pageSize);
 
+        PagedResult<BookViewModel> GetAllPaging(string txtSearch, int BookCategoryId, int? From, int? To, int page, int pageSize);
+
         List<BookViewModel> GetAll(int id);
 
         BookViewModel GetById(int id);
-
+        void UpdateBookRating(double rating, int id);
         bool Save();
     }
 }

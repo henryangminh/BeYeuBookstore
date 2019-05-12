@@ -4,7 +4,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using BeYeuBookstore.Application.Interfaces;
 using BeYeuBookstore.Application.ViewModels;
+using BeYeuBookstore.Authorization;
 using BeYeuBookstore.Infrastructure.Interfaces;
+using BeYeuBookstore.Utilities.Constants;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
@@ -15,15 +17,23 @@ namespace BeYeuBookstore.Controllers
     public class AdvertisementPositionController : Controller
     {
         IAdvertisementPositionService _advertisementPositionService;
+        IAuthorizationService _authorizationService;
         IUnitOfWork _unitOfWork;
-        public AdvertisementPositionController(IAdvertisementPositionService advertisementPositionService, IUnitOfWork unitOfWork)
+        public AdvertisementPositionController(IAuthorizationService authorizationService, IAdvertisementPositionService advertisementPositionService, IUnitOfWork unitOfWork)
         {
+            _authorizationService = authorizationService;
             _advertisementPositionService = advertisementPositionService;
             _unitOfWork = unitOfWork;
         }
         public IActionResult Index()
         {
+            var temp = Task.Run(() => _authorizationService.AuthorizeAsync(User, Const_FunctionId.AdvertisementPosition, Operations.Read));
+            temp.Wait();
+            //check truy cập
+            if (temp.Result.Succeeded == false)
+                return new RedirectResult("/Home/Index");
             return View();
+
         }
 
         [HttpGet]

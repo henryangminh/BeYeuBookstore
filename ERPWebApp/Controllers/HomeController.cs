@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc;
 using BeYeuBookstore.Models;
 using Microsoft.AspNetCore.Authorization;
 using BeYeuBookstore.Extensions;
+using BeYeuBookstore.Application.Interfaces;
+using BeYeuBookstore.Utilities.Constants;
 
 namespace BeYeuBookstore.Controllers
 {
@@ -14,10 +16,21 @@ namespace BeYeuBookstore.Controllers
    // [Route("[controller]/[action]")]
     public class HomeController : BaseController
     {
+
+        ICustomerService _customerService;
+        public HomeController(ICustomerService customerService)
+        {
+            _customerService = customerService;
+        }
         public IActionResult Index()
         {
             var Namefull = User.GetSpecificClaim("FullName");
-          
+            var userid = _generalFunctionController.Instance.getClaimType(User, CommonConstants.UserClaims.Key);
+            var C = _customerService.GetBysId(userid);
+            if(C.KeyId!=0)
+            {
+                return new RedirectResult("/Beyeubookstore");
+            }
             return View();
         }
 

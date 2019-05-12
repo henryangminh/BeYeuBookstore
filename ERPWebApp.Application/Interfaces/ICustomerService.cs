@@ -20,6 +20,7 @@ namespace BeYeuBookstore.Application.Interfaces
         List<CustomerViewModel> GetAll(int id);
 
         CustomerViewModel GetById(int id);
+        CustomerViewModel GetBysId(string id);
 
         bool Save();
     }

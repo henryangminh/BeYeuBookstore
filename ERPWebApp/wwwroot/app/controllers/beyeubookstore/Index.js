@@ -24,7 +24,6 @@
         });
 
         $('body').on('click', '#ShowDetail', function () {
-            //var BookId = $('#txtBookKeyId').val();
             var BookId = $(this).parent().parent().siblings('input').val();
 
             $.ajax({
@@ -37,11 +36,35 @@
                 },
                 success: function (response) {
                     console.log('BookDetail', response);
-
+                    var size = response.Width + "x" + response.Length;
+                    if (response.Height != null) size += "x" + response.Height;
+                    size += " (cm)";
+                    $('#BookId').val(response.KeyId);
+                    $('#txtPaperback').text((response.isPaperback) ? "Bìa mềm" : "Bìa cứng");
                     $('#txtBookNameModal').text(response.BookTitle);
                     $('#txtPriceModal').text(general.toMoney(response.UnitPrice));
                     $('#txtDescriptionModal').text(response.Description);
-                    $('#imgDetail').attr('src',response.Img)
+                    $('#txtLinkToProduct').attr('href', '/BeyeuBookstore/BookDetail?id=' + response.KeyId);
+                    $('#imgDetail').attr('src', response.Img)
+                    $('#txtSize').text("Kích thước: " + size);
+                    $('#txtAuthor').text("Tác giả: " + response.Author);
+                    if (response.Quantity > 0) {
+                        $('#quantityStatus').html('<i class="fa fa-check"></i>Còn hàng');
+                    }
+                    else {
+                        $('#quantityStatus').html('<i class="fa fa-times" color="red"></i>Hết hàng');
+                        $('#divAddToCart').remove();
+                    }
+                }
+            })
+        })
+
+        $('body').on('click', '#LogOut', function () {
+            $.ajax({
+                type: 'POST',
+                url: '/BeyeuBookstore/LogOutAsync',
+                success: function (respond) {
+                    window.location.href = respond;
                 }
             })
         })
@@ -107,7 +130,7 @@ function loadData(isPageChanged) {
     $.ajax({
         type: 'GET',
         data: {
-            quantity: 8,
+            quantity: 12,
         },
         url: '/BeyeuBookstore/GetAllQuantity',
         dataType: 'json',
@@ -176,10 +199,14 @@ function loadBookCategory() {
             console.log('BookCategory', response);
             $.each(response, function (i, item) {
                 render += Mustache.render(template, {
-                    LinkCategoryShop: '#',
+                    LinkCategoryShop: '?radBookCategory=' + item.KeyId,
                     BookCategoryName: item.BookCategoryName,
+                    More: (i > 10) ? true : false,
                 });
             });
+            if (response.length > 10) {
+                render += '<li class="rx-parent"><a class="rx-default" ><span class="cat-thumb fa fa-plus"></span>Thêm</a><a class="rx-show"><span class="cat-thumb fa fa-minus"></span>Đóng</a></li>';
+            }
             $('#BookCategory').html(render);
         },
         error: function (err) {
@@ -188,19 +215,3 @@ function loadBookCategory() {
         },
     });
 }
-/*
-$(document).ready(function () {
-    $('.modal').on('show.bs.modal', function () {
-        if ($(document).height() > $(window).height()) {
-            // no-scroll
-            $('body').addClass("modal-open-noscroll");
-        }
-        else {
-            $('body').removeClass("modal-open-noscroll");
-        }
-    });
-    $('.modal').on('hide.bs.modal', function () {
-        $('body').removeClass("modal-open-noscroll");
-    });
-})
-*/

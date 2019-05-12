@@ -33,6 +33,7 @@ using BeYeuBookstore.Application.Interfaces;
 using BeYeuBookstore.Application.Implementation;
 using BeYeuBookstore.Application.Interfaces.Boq;
 using BeYeuBookstore.Application.Implementation.Boq;
+using Microsoft.AspNetCore.Http;
 
 namespace BeYeuBookstore
 {
@@ -103,6 +104,8 @@ namespace BeYeuBookstore
                 options.User.RequireUniqueEmail = true;
             });
 
+          
+
             services.AddSession(options =>
             {
                 options.IdleTimeout = TimeSpan.FromHours(6);
@@ -154,9 +157,11 @@ namespace BeYeuBookstore
             services.AddTransient<IMerchantRepository, MerchantRepository>();
             services.AddTransient<IWebMasterRepository, WebMasterRepository>();
             services.AddTransient<IWebMasterTypeRepository, WebMasterTypeRepository>();
+            services.AddTransient<IRatingDetailRepository, RatingDetailRepository>();
 
             services.AddTransient<IUserRolesRepository, UserRolesRepository>();
-
+            services.AddMvc();
+            services.AddTransient<IEmailService, EmailService>();
 
             //Services
 
@@ -178,6 +183,7 @@ namespace BeYeuBookstore
             //services.AddTransient<IPermissionService, PermissionService>();
             services.AddTransient<IUserService,UserService>();
             services.AddTransient<IRoleService, RoleService>();
+            services.AddTransient<IRatingDetailService, RatingDetailService>();
 
 
             services.AddTransient<ISO_NotificationGeneralService, SO_NotificationGeneralService>();
@@ -228,6 +234,7 @@ namespace BeYeuBookstore
             {
                 options.Cookie.HttpOnly = true;
             });
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

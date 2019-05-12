@@ -4,13 +4,13 @@
 @inject IAuthorizationService AuthorizationService
 @{
     //kiểm tra quyền tạo đối với nut create cho hiểu thị nut
-    var result_create = await AuthorizationService.AuthorizeAsync(User, Const_FunctionId.AdvertisementContent, Operations.Create);
+    var result_create = await AuthorizationService.AuthorizeAsync(User, Const_FunctionId.AdvertiseContract, Operations.Create);
     //kiểm tra quyền tạo đối với nut delete cho hiểu thị nut
-    var result_delete = await AuthorizationService.AuthorizeAsync(User, Const_FunctionId.AdvertisementContent, Operations.Delete);
+    var result_delete = await AuthorizationService.AuthorizeAsync(User, Const_FunctionId.AdvertiseContract, Operations.Delete);
     //kiểm tra quyền tạo đối với nut update cho hiểu thị nut
-    var result_edit = await AuthorizationService.AuthorizeAsync(User, Const_FunctionId.AdvertisementContent, Operations.Update);
+    var result_edit = await AuthorizationService.AuthorizeAsync(User, Const_FunctionId.AdvertiseContract, Operations.Update);
     //kiểm tra quyền tạo đối với nut delete cho hiểu thị nut
-    var result_confirm = await AuthorizationService.AuthorizeAsync(User, Const_FunctionId.AdvertisementContent, Operations.Confirm);
+    var result_confirm = await AuthorizationService.AuthorizeAsync(User, Const_FunctionId.AdvertiseContract, Operations.Confirm);
 }
 <div id="modal-add-edit" class="bootbox modal fade modal-darkorange in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog  modal-lg">
@@ -18,7 +18,8 @@
             <div class="modal-header">
 
                 <button type="button" class="bootbox-close-button close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h4 class="modal-title">Thêm</h4>
+                <h4 class="modal-title" id="addview">Thêm</h4>
+                <h4 class="modal-title hidden" id="watchview">Xem</h4>
             </div>
             <div class="modal-body">
                 <div id="horizontal-form">
@@ -48,7 +49,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="selAdContent" class="col-sm-2 col-form-label">Chọn nội dung quảng cáo<span class="star">*</span></label>
+                            <label for="selAdContent" class="col-sm-2 col-form-label">Nội dung quảng cáo<span class="star">*</span></label>
                             <div class="col-sm-10">
                                 <select id="selAdContent" class="form-control" name="selAdContent">
                                     <option value="">Chọn nội dung quảng cáo</option>
@@ -76,11 +77,11 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="" class="col-sm-2 col-form-label">Ngày bắt đầu<span class="star">*</span></label>
+                            <label for="txtFromdate" class="col-sm-2 col-form-label">Ngày bắt đầu<span class="star">*</span></label>
                             <div class="col-sm-4">
                                 <input type="text" id="txtFromdate" name="txtFromdate" autocomplete="off" class="form-control datepicker" placeholder="Chọn ngày bắt đầu" />
                             </div>
-                            <label for="" class="col-sm-2 col-form-label">Ngày kết thúc<span class="star">*</span></label>
+                            <label for="txtTodate" class="col-sm-2 col-form-label">Ngày kết thúc<span class="star">*</span></label>
                             <div class="col-sm-4">
                                 <input type="text" id="txtTodate" name="txtTodate" autocomplete="off" class="form-control datepicker" placeholder="Chọn ngày kết thúc" />
                             </div>
@@ -98,6 +99,13 @@
                         </div>
 
                         <div class="form-group row">
+                            <label for="txtMustPay" class="col-sm-2 col-form-label">Phải trả (VNĐ)</label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" id="txtMustPay" name="txtMustPay" readonly />
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
                             <label for="txtNote" class="col-sm-2 col-form-label">Ghi chú</label>
                             <div class="col-sm-10">
                                 <input type="text" class="form-control" id="txtNote" name="txtNote" />
@@ -108,14 +116,14 @@
                         <div class="form-group row">
                             <label for="txtCensorStatus" class="col-sm-2 col-form-label">Trạng thái</label>
                             <div class="col-sm-10" id="txtCensorStatus">
-                                
+
                             </div>
 
                         </div>
 
-                        <div class="form-group row">
+                        <div class="form-group row" id="TermsOfUse">
                             <div class="col-sm-8 checkbox pull-left">
-                                <label><input type="checkbox" value="" id="chkPaidDeposits" onchange="document.getElementById('btnSave').disabled = !this.checked;">Tôi đã chuyển khoản đầy đủ</label>
+                                <label><input type="checkbox" value="" id="chkPaidDeposits" onchange="document.getElementById('btnSave').disabled = !this.checked;">Tôi đã đồng ý với <a href="/Process/Advertiser" target="_blank">điều khoản sử dụng</a></label>
                             </div>
                         </div>
 
@@ -129,7 +137,16 @@
                     <button type="button" id="btnSave" class="btn btn-success">Ghi</button>
                     <button type="button" id="btnCancel" data-dismiss="modal" class="btn btn-danger">Hủy</button>
                 </div>
-
+                @if (result_confirm.Succeeded)
+                {
+                    <div class="col-sm-6" id="formAccountingCensor">
+                        <button type="button" id="btnAccountingCensored" class="btn btn-warning">Đã thanh toán</button>
+                    </div>
+                    <div class="col-sm-6" id="formCensor">
+                        <button type="button" id="btnSuccess" class="btn btn-success">Thành công</button>
+                        <button type="button" id="btnFail" class="btn btn-danger">Không thành công</button>
+                    </div>
+                }
             </div>
         </div>
 

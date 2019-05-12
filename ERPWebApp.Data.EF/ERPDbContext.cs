@@ -23,7 +23,7 @@ namespace BeYeuBookstore.Data.EF
         {
 
         }
-        #region creare DbSet
+        #region create DbSet
          
         public virtual DbSet<User> User { get; set; }
         public virtual DbSet<Role> Role { get; set; }
@@ -45,6 +45,7 @@ namespace BeYeuBookstore.Data.EF
         public virtual DbSet<UserType> UserTypes { get; set; }
         public virtual DbSet<WebMaster> WebMasters { get; set; }
         public virtual DbSet<WebMasterType> WebMasterTypes { get; set; }
+        public virtual DbSet<RatingDetail> RatingDetails { get; set; }
 
 
         //boq
