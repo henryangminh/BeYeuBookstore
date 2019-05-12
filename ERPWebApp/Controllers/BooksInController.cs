@@ -92,6 +92,21 @@ namespace BeYeuBookstore.Controllers
             }
             return new BadRequestResult();
         }
+        
+        [HttpGet]
+        public IActionResult GetAllBookByMerchantId()
+        {
+            var userid = _generalFunctionController.Instance.getClaimType(User, CommonConstants.UserClaims.Key);
+            
+            if (Guid.TryParse(userid, out var guid))
+            {
+
+                var M = _merchantService.GetBysId(userid);
+                var model = _bookService.GetAllByMerchantId(M.KeyId);
+                return new OkObjectResult(model);
+            }
+            return new BadRequestResult();
+        }
 
     }
 }

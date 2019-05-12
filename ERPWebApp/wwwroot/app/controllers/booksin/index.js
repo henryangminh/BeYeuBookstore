@@ -24,6 +24,10 @@
             loadData();
         });
 
+        $('body').on('click', '#BooksInDetailDelete', function () {
+            $(this).parent().parent().remove();
+        });
+
         //$('#modal-add-edit').on('hide', function () {
         //    resetForm();
         //});
@@ -62,6 +66,18 @@
         $('#btnCancel').on('click', function () {
 
             $('#frmMaintainance').trigger('reset');
+        });
+
+        $('#btnMore').on('click', function () {
+
+            var template = $('#tableBooksIn-template').html();
+            var render = "";
+            render += Mustache.render(template, {
+
+     
+            });
+            $('#tbl-booksincontent').append(render);
+            loadAllBookByMerchantId();
         });
         //Reset Form
 
@@ -451,6 +467,28 @@ function wrapPaging(recordCount, callBack, changePageSize) {
                 setTimeout(callBack(), 200);
             }
         });
+}
+
+function loadAllBookByMerchantId() {
+    $.ajax({
+        type: 'GET',
+        url: '/BooksIn/GetAllBookByMerchantId',
+
+        dataType: "json",
+
+        success: function (response) {
+
+            $.each(response, function (i, item) {
+                $('#selBook').append("<option value='" + item.KeyId + "'>" + item.BookTitle + "</option>");
+             
+            });
+        },
+        error: function (err) {
+            general.notify('Có lỗi trong khi sách !', 'error');
+
+        },
+    });
+
 }
 
 function loadBookCategory() {

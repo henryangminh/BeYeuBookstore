@@ -56,7 +56,7 @@ namespace BeYeuBookstore.Application.Implementation
             throw new NotImplementedException();
         }
 
-        public PagedResult<DeliveryViewModel> GetAllPaging(int merchantId, int status, string keyword, int page, int pageSize)
+        public PagedResult<DeliveryViewModel> GetAllPaging(int merchantId, int status, string fromdate, string todate, string keyword, int page, int pageSize)
         {
             var query = _deliveryRepository.FindAll(x=>x.InvoiceFKNavigation, x=>x.MerchantFKNavigation, x => x.InvoiceFKNavigation.CustomerFKNavigation.UserBy);
             query = query.OrderBy(x => x.KeyId);
@@ -70,10 +70,24 @@ namespace BeYeuBookstore.Application.Implementation
                 var keysearch = keyword.Trim().ToUpper();
 
                 query = query.Where(x => (x.InvoiceFKNavigation.CustomerFKNavigation.UserBy.FullName.ToUpper().Contains(keysearch) || x.InvoiceFKNavigation.CustomerFKNavigation.UserBy.UserName.ToUpper().Contains(keysearch)));
+            }
+            if (!string.IsNullOrEmpty(fromdate))
+            {
+                var date = DateTime.Parse(fromdate);
+                TimeSpan ts = new TimeSpan(0, 0, 0);
+                DateTime _fromdate = date.Date + ts;
+                query = query.Where(x => x.DateCreated >= _fromdate);
 
             }
+            if (!string.IsNullOrEmpty(todate))
+            {
+                var date = DateTime.Parse(todate);
+                TimeSpan ts = new TimeSpan(23, 59, 59);
+                DateTime _todate = date.Date + ts;
+                query = query.Where(x => x.DateCreated <= _todate);
 
-            if(status!=0)
+            }
+            if (status!=0)
             {
                 query = query.Where(x => x.DeliveryStatus == status);
             }

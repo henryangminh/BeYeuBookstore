@@ -50,6 +50,18 @@ namespace BeYeuBookstore.Application.Implementation
             return data;
         }
 
+        public List<BookViewModel> GetAllByMerchantId(int id)
+        {
+            var query = _bookRepository.FindAll(x=>x.MerchantFK==id);
+            var data = new List<BookViewModel>();
+            foreach (var item in query)
+            {
+                var _data = Mapper.Map<Book, BookViewModel>(item);
+                data.Add(_data);
+            }
+            return data;
+        }
+
         public List<BookViewModel> GetAll(int quantity)
         {
             var query = _bookRepository.FindAll().OrderBy(x => x.KeyId).Take(quantity);

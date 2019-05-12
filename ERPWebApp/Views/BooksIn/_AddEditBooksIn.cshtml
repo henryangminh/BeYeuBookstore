@@ -39,11 +39,11 @@
                                 <thead>
                                     <tr>
                                         <th width="3%">Mã sách</th>
-                                        <th width="20%">Tên sách</th>
+                                        <th width="30%">Tên sách</th>
                                         <th>Tác giả</th>
                                         <th width="5%">Hình ảnh</th>
-                                        <th width="10%">Loại sách</th>
-                                        <th>Số lượng<br>hiện có</th>
+                                        <th>Loại sách</th>
+                                        <th width="5%">Số lượng<br>hiện có</th>
                                         <th width="8%">#</th>
                                     </tr>
                                 </thead>
@@ -57,7 +57,6 @@
                 </div>
             </div>
             <div class="modal-footer">
-
                         <button type="button" id="btnSave" class="btn btn-success" >Ghi</button>
                         <button type="button" id="btnCancel" data-dismiss="modal" class="btn btn-danger">Hủy</button>
             </div>
@@ -69,7 +68,7 @@
     <tr>
         <td></td>
         <td>
-            <select id="selBook">
+            <select id="selBook" class="form-control">
                 <option value="" selected="selected">Chọn sách</option>
             </select>
         </td>
@@ -79,7 +78,7 @@
         <td></td>
 
         <td scope="row">
-            <a class="btn btn-xs btn-danger btn-delete {{{Prop}}}" {{{Prop}}} data-id="{{KeyId}}"><i class="fa fa-trash"></i></a>
+            <a class="btn btn-xs btn-danger btn-delete {{{Prop}}}" {{{Prop}}} id="BooksInDetailDelete"><i class="fa fa-trash"></i></a>
         </td>
     </tr>
 </script>
