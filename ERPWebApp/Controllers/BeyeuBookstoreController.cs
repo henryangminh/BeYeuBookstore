@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using BeYeuBookstore.Application.Interfaces;
 using BeYeuBookstore.Application.Interfaces.Acc;
 using BeYeuBookstore.Application.ViewModels;
@@ -115,6 +116,11 @@ namespace BeYeuBookstore.Controllers
         {
             return View();
         }
+
+        public IActionResult ConfirmationError()
+        {
+            return View();
+        }
         #region AJAX API
         [HttpGet]
         public IActionResult GetAll()
@@ -207,7 +213,7 @@ namespace BeYeuBookstore.Controllers
                     DateModified = DateTime.Now,
                     PhoneNumber = userViewModel.PhoneNumber,
                     Gender = Data.Enums.Gender.Other,
-                    Status=Data.Enums.Status.Active,
+                    Status=Data.Enums.Status.InActive,
                     UserTypeFK= Const_UserType.Customer,
                 };
                 var result = await _userManager.CreateAsync(user, model.Password);
@@ -215,11 +221,11 @@ namespace BeYeuBookstore.Controllers
                 {
 
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
-                    var callbackUrl = Url.EmailConfirmationLink(user.Id, code, Request.Scheme);
+                    var callbackUrl = Url.EmailConfirmationLink(user.Id, code, Request.Scheme, nameof(AccountController.ConfirmEmail), "BeyeuBookstore");
 
                     var content = "Hãy nhấp vào link này để xác nhận tài khoản Bé Yêu Bookstore: " + callbackUrl;
 
-                    ConfirmEmail(model.Email, content);
+                    SendConfirmEmail(model.Email, content);
                     //await _signInManager.SignInAsync(user, isPersistent: false);
                     return new RedirectResult(Url.Action("WaitingConfirmation", "BeyeuBookstore"));
                 }
@@ -236,7 +242,7 @@ namespace BeYeuBookstore.Controllers
             return new OkObjectResult(model);
         }
 
-        public void ConfirmEmail(string toEmailAddress, string content)
+        public void SendConfirmEmail(string toEmailAddress, string content)
         {
             try
             {
@@ -248,6 +254,25 @@ namespace BeYeuBookstore.Controllers
             {
                 
             }
+        }
+
+        [HttpGet]
+        [AllowAnonymous]
+        public async Task<IActionResult> ConfirmEmail(string userId, string code)
+        {
+            if (userId == null || code == null)
+            {
+                return RedirectToAction(nameof(HomeController.Index), "Home");
+            }
+            var user = await _userManager.FindByIdAsync(userId);
+            if (user == null)
+            {
+                return new RedirectResult(Url.Action("ConfirmationError", "BeyeuBookstore"));
+            }
+            var result = await _userManager.ConfirmEmailAsync(user, code);
+            if (result.Succeeded) user.Status = Data.Enums.Status.Active;
+            await _userService.UpdateAsync(Mapper.Map<User, UserViewModel>(user));
+            return new RedirectResult(Url.Action("Index", "BeyeuBookstore"));
         }
         #endregion
     }
