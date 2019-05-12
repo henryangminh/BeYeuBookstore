@@ -176,8 +176,8 @@
 <!-- banner-area-end -->
 
 <script id="bookcategory" type="x-tmpl-mustache">
-    <li class="cr-dropdown">
-        <a href="{{LinkCategoryShop}}">{{BookCategoryName}}<i class="none-lg fa fa-angle-down"></i><i class="none-sm fa fa-angle-right"></i></a>
+    <li {{#More}} class="rx-child" {{/More}}>
+        <a target="_blank" href="@Url.Action("Shopping","BeyeuBookstore"){{LinkCategoryShop}}">{{BookCategoryName}}<i class="none-lg fa fa-angle-down"></i><i class="none-sm fa fa-angle-right"></i></a>
     </li>
 </script>
 
