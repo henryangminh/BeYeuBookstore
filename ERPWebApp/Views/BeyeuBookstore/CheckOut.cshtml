@@ -8,6 +8,14 @@
     Layout = "~/Views/Shared/Frontend/_Layout.cshtml";
 }
 
+@section Scripts{
+    <script src="~/app/controllers/beyeubookstore/checkout/index.js"></script>
+    <script>
+        var checkOutController = new checkOutController();
+        checkOutController.initialize();
+    </script>
+}
+
 <!-- entry-header-area-start -->
 <div class="entry-header-area" style="margin-top:15px;">
     <div class="container">
@@ -68,38 +76,39 @@ else
 {
     @if (HttpContextAccessor.HttpContext.Session.Get<User>("User").UserTypeFK == 3)
     {
-        
         var Total = 0;
         var Cart = HttpContextAccessor.HttpContext.Session.Get<List<CartViewModel>>("CartSession");
+        var NumberOfMerchant = Cart.GroupBy(x => x.Book.MerchantFK).ToList().Count();
         @if (Cart != null && Cart.Count > 0)
         {
             <!-- checkout-area-start -->
             <div class="checkout-area mb-70">
                 <div class="container">
                     <div class="row">
-                        <form action="#">
+                        <form action="" onsubmit="return false">
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                 <div class="checkbox-form">
                                     <h3>Thông tin giao hàng</h3>
                                     <div class="row">
                                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
                                             <div class="checkout-form-list">
-                                                <label>Tên người nhận hàng <span class="required">*</span></label>
-                                                <input type="text" placeholder="Tên người nhận hàng">
+                                                <label>Tên người nhận hàng</label>
+                                                <input id="txtDeliName" type="text" placeholder="Tên người nhận hàng">
                                             </div>
                                         </div>
                                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                             <div class="checkout-form-list">
-                                                <label>Địa chỉ nhận hàng <span class="required">*</span></label>
-                                                <input type="text" placeholder="Địa chỉ nhận hàng">
+                                                <label>Địa chỉ nhận hàng</label>
+                                                <input id="txtDeliAddress" type="text" placeholder="Địa chỉ nhận hàng">
                                             </div>
                                         </div>
                                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                             <div class="checkout-form-list">
-                                                <label>Số điện thoại <span class="required">*</span></label>
-                                                <input type="text" placeholder="Số điện thoại">
+                                                <label>Số điện thoại<span style="margin-left:10px" id="txtPhoneMessage" class="required"></span></label>
+                                                <input id="txtDeliPhone" type="text" placeholder="Số điện thoại">
                                             </div>
                                         </div>
+                                        <p>Nếu để trống sẽ lấy tên người nhận hàng, địa chỉ và số điện thoại mặc định</p>
                                     </div>
                                 </div>
                             </div>
@@ -122,17 +131,17 @@ else
                                                             @Cart[i].Book.BookTitle <strong class="product-quantity"> × @Cart[i].Quantity</strong>
                                                         </td>
                                                         <td class="product-total">
-                                                            <span class="amount money">
+                                                            <span class="amount">
                                                                 @{
                                                                     var unitPrice = Convert.ToInt32(@Cart[i].UnitPrice);
                                                                     var subtotal = Cart[i].Quantity * unitPrice;
                                                                     Total += subtotal;
-                                                                    Write(subtotal);
+                                                                    Write(subtotal.ToString("###,###,###,###,###"));
                                                                 }
                                                             </span>
                                                         </td>
                                                     </tr>
-                                                }
+                                                                    }
                                             </tbody>
                                             <tfoot>
                                                 <tr class="cart-subtotal">
@@ -142,20 +151,24 @@ else
                                                 <tr class="shipping">
                                                     <th>Phí vận chuyển</th>
                                                     <td>
-                                                        <span class="amount money" id="Shipping"></span>
+                                                        <span class="amount" id="Shipping">@{Write("0 - " + (NumberOfMerchant * 30000).ToString("###,###,###,###,###"));}</span>
                                                     </td>
                                                 </tr>
                                                 <tr class="order-total">
                                                     <th>Thành tiền</th>
                                                     <td>
-                                                        <strong><span class="amount money"></span></strong>
+                                                        @{ 
+                                                            var TotalWithShip = Total + NumberOfMerchant * 30000;
+                                                            var textTotalMoney = Total.ToString("###,###,###,###") + " - " + TotalWithShip.ToString("###,###,###,###");
+                                                        }
+                                                        <strong><span class="amount">@textTotalMoney</span></strong>
                                                     </td>
                                                 </tr>
                                             </tfoot>
                                         </table>
                                     </div>
                                     <div class="order-button-payment">
-                                        <input type="submit" value="Đặt hàng">
+                                        <input id="btnCheckOut" type="submit" value="Đặt hàng">
                                     </div>
                                 </div>
                             </div>

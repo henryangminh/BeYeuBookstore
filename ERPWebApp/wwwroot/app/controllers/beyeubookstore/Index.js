@@ -1,7 +1,6 @@
 ﻿var beyeubookstoreController = function () {
     this.initialize = function () {
         loadData();
-        getAdvertisement()
         registerEvents();
     }
     function registerEvents() {
@@ -215,25 +214,4 @@ function loadBookCategory() {
 
         },
     });
-}
-
-function getAdvertisement() {
-    $.ajax({
-        type: "GET",
-        url: "/BeyeuBookstore/GetAdvertisement",
-        dataType: 'json',
-        data: { url: window.location.pathname.toLowerCase() },
-        success: function (respond) {
-            console.log("Advertiser", respond);
-            $.each(respond, function (i, item) {
-                var idPosition = '#' + item.AdvertisementContentFKNavigation.AdvertisementPositionFKNavigation.IdOfPosition;
-                $(idPosition).attr("src", item.AdvertisementContentFKNavigation.ImageLink);
-                $(idPosition).parent().attr("href", item.AdvertisementContentFKNavigation.UrlToAdvertisement);
-                $(idPosition).parent().attr("target", "_blank");
-            })
-        },
-        error: function (e) {
-            console.log(e);
-        }
-    })
 }
