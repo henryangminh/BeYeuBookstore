@@ -229,11 +229,13 @@
                                                 resetForm();
                                                 $('#frmMaintainance').trigger('reset');
                                                 general.stopLoading();
+                                                general.stopLoad();
                                                 loadData();
                                             },
                                             error: function (err) {
                                                 general.notify('Có lỗi trong khi ghi !', 'error');
-                                                general.stopLoading();
+                                                general.stopLoaading();
+                                                general.stopLoaad();
 
                                             },
                                         });

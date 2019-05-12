@@ -19,6 +19,10 @@
             loadData();
         });
 
+        $('#selStatus').on('change', function () {
+            loadData();
+        });
+
         //$('#modal-add-edit').on('hide', function () {
         //    resetForm();
         //});
@@ -321,6 +325,7 @@ function loadData(isPageChanged) {
     $.ajax({
         type: 'GET',
         data: {
+            status: $('#selStatus option:selected').val(),
             fromdate: $('#dtBegin').val(),
             todate: $('#dtEnd').val(),
             keyword: $('#txtKeyword').val(),

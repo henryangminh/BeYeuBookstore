@@ -46,6 +46,10 @@ namespace BeYeuBookstore.Data.EF
         public virtual DbSet<WebMaster> WebMasters { get; set; }
         public virtual DbSet<WebMasterType> WebMasterTypes { get; set; }
         public virtual DbSet<RatingDetail> RatingDetails { get; set; }
+        public virtual DbSet<BooksIn> BooksIns { get; set; }
+        public virtual DbSet<BooksInDetail> BooksInDetails { get; set; }
+        public virtual DbSet<BooksOut> BooksOuts { get; set; }
+        public virtual DbSet<BooksOutDetail> BooksOutDetails { get; set; }
 
 
         //boq
@@ -245,6 +249,66 @@ namespace BeYeuBookstore.Data.EF
             modelBuilder.Entity<WebMasterType>(entity =>
             {
                 entity.HasKey(e => e.KeyId);
+
+            });
+
+            modelBuilder.Entity<BooksIn>(entity =>
+            {
+                entity.HasKey(e => e.KeyId);
+
+
+                entity.HasOne(d => d.MerchantFKNavigation)
+              .WithMany(p => p.BooksIns)
+              .HasForeignKey(d => d.MerchantFK)
+              .HasConstraintName("FK_dbo.BooksIn.MerchantFK");
+
+            });
+
+            modelBuilder.Entity<BooksInDetail>(entity =>
+            {
+                entity.HasKey(e => e.KeyId);
+
+                entity.HasOne(d => d.BookFKNavigation)
+              .WithMany(p => p.BooksInDetails)
+              .HasForeignKey(d => d.BookFK)
+              .HasConstraintName("FK_dbo.BooksInDetail.BookFK");
+
+
+                entity.HasOne(d => d.BooksInFKNavigation)
+              .WithMany(p => p.BooksInDetails)
+              .HasForeignKey(d => d.BooksInFK)
+              .HasConstraintName("FK_dbo.BooksInDetail.BooksInFK");
+            });
+
+            modelBuilder.Entity<BooksOut>(entity =>
+            {
+                entity.HasKey(e => e.KeyId);
+
+
+                entity.HasOne(d => d.MerchantFKNavigation)
+              .WithMany(p => p.BooksOuts)
+              .HasForeignKey(d => d.MerchantFK)
+              .HasConstraintName("FK_dbo.BooksOut.MerchantFK");
+
+
+
+            });
+
+            modelBuilder.Entity<BooksOutDetail>(entity =>
+            {
+                entity.HasKey(e => e.KeyId);
+
+
+                entity.HasOne(d => d.BookFKNavigation)
+              .WithMany(p => p.BooksOutDetails)
+              .HasForeignKey(d => d.BookFK)
+              .HasConstraintName("FK_dbo.BooksOutDetail.BookFK");
+
+
+                entity.HasOne(d => d.BooksOutFKNavigation)
+              .WithMany(p => p.BooksOutDetails)
+              .HasForeignKey(d => d.BooksOutFK)
+              .HasConstraintName("FK_dbo.BooksOutDetail.BooksOutFK");
 
             });
 

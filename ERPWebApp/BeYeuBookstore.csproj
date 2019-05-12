@@ -62,6 +62,15 @@
     <Content Update="Areas\Admin\Views\_ViewImports.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
+    <Content Update="Views\BooksIn\_AddEditBooksIn.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Views\BooksOut\Index.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Views\BooksOut\_AddEditBooksOut.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
     <Content Update="Views\Shared\Frontend\Components\SideBar\Default.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>

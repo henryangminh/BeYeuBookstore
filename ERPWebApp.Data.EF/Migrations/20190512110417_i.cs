@@ -493,6 +493,48 @@ namespace BeYeuBookstore.Data.EF.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "BooksIns",
+                columns: table => new
+                {
+                    KeyId = table.Column<int>(nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    MerchantFK = table.Column<int>(nullable: false),
+                    DateCreated = table.Column<DateTime>(nullable: true),
+                    DateModified = table.Column<DateTime>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_BooksIns", x => x.KeyId);
+                    table.ForeignKey(
+                        name: "FK_dbo.BooksIn.MerchantFK",
+                        column: x => x.MerchantFK,
+                        principalTable: "Merchants",
+                        principalColumn: "KeyId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "BooksOuts",
+                columns: table => new
+                {
+                    KeyId = table.Column<int>(nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    MerchantFK = table.Column<int>(nullable: false),
+                    DateCreated = table.Column<DateTime>(nullable: true),
+                    DateModified = table.Column<DateTime>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_BooksOuts", x => x.KeyId);
+                    table.ForeignKey(
+                        name: "FK_dbo.BooksOut.MerchantFK",
+                        column: x => x.MerchantFK,
+                        principalTable: "Merchants",
+                        principalColumn: "KeyId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "MerchantContracts",
                 columns: table => new
                 {
@@ -652,6 +694,61 @@ namespace BeYeuBookstore.Data.EF.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "BooksInDetails",
+                columns: table => new
+                {
+                    KeyId = table.Column<int>(nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    BooksInFK = table.Column<int>(nullable: false),
+                    BookFK = table.Column<int>(nullable: false),
+                    Qty = table.Column<int>(nullable: false),
+                    Price = table.Column<decimal>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_BooksInDetails", x => x.KeyId);
+                    table.ForeignKey(
+                        name: "FK_dbo.BooksInDetail.BookFK",
+                        column: x => x.BookFK,
+                        principalTable: "Books",
+                        principalColumn: "KeyId",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_dbo.BooksInDetail.BooksInFK",
+                        column: x => x.BooksInFK,
+                        principalTable: "BooksIns",
+                        principalColumn: "KeyId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "BooksOutDetails",
+                columns: table => new
+                {
+                    KeyId = table.Column<int>(nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    BooksOutFK = table.Column<int>(nullable: false),
+                    BookFK = table.Column<int>(nullable: false),
+                    Qty = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_BooksOutDetails", x => x.KeyId);
+                    table.ForeignKey(
+                        name: "FK_dbo.BooksOutDetail.BookFK",
+                        column: x => x.BookFK,
+                        principalTable: "Books",
+                        principalColumn: "KeyId",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_dbo.BooksOutDetail.BooksOutFK",
+                        column: x => x.BooksOutFK,
+                        principalTable: "BooksOuts",
+                        principalColumn: "KeyId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "AdvertiseContracts",
                 columns: table => new
                 {
@@ -712,6 +809,36 @@ namespace BeYeuBookstore.Data.EF.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_Books_MerchantFK",
                 table: "Books",
+                column: "MerchantFK");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_BooksInDetails_BookFK",
+                table: "BooksInDetails",
+                column: "BookFK");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_BooksInDetails_BooksInFK",
+                table: "BooksInDetails",
+                column: "BooksInFK");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_BooksIns_MerchantFK",
+                table: "BooksIns",
+                column: "MerchantFK");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_BooksOutDetails_BookFK",
+                table: "BooksOutDetails",
+                column: "BookFK");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_BooksOutDetails_BooksOutFK",
+                table: "BooksOutDetails",
+                column: "BooksOutFK");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_BooksOuts_MerchantFK",
+                table: "BooksOuts",
                 column: "MerchantFK");
 
             migrationBuilder.CreateIndex(
@@ -819,6 +946,12 @@ namespace BeYeuBookstore.Data.EF.Migrations
                 name: "AppUserTokens");
 
             migrationBuilder.DropTable(
+                name: "BooksInDetails");
+
+            migrationBuilder.DropTable(
+                name: "BooksOutDetails");
+
+            migrationBuilder.DropTable(
                 name: "Deliveries");
 
             migrationBuilder.DropTable(
@@ -841,6 +974,12 @@ namespace BeYeuBookstore.Data.EF.Migrations
 
             migrationBuilder.DropTable(
                 name: "AdvertisementContents");
+
+            migrationBuilder.DropTable(
+                name: "BooksIns");
+
+            migrationBuilder.DropTable(
+                name: "BooksOuts");
 
             migrationBuilder.DropTable(
                 name: "Invoices");

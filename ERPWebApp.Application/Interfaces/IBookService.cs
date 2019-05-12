@@ -14,6 +14,7 @@ namespace BeYeuBookstore.Application.Interfaces
         void Delete(int id);
 
         List<BookViewModel> GetAll();
+        List<BookViewModel> GetAllByMerchantId(int id);
 
         PagedResult<BookViewModel> GetAllPaging(int? merchantId, string fromdate, string todate, string keyword, int bookcategoryid, int page, int pageSize);
 

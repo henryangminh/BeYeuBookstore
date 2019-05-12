@@ -47,23 +47,30 @@ namespace BeYeuBookstore.Data.EF
                       new Function() {KeyId = "BookCategoryItem",Name = "Loại sách",ParentId = "ProductItem",SortOrder = 2,Status = Status.Active,URL = "/BookCategory",IconCss = "fa-clone"  },
                       new Function() {KeyId = "AdvertisementContentItem",Name = "Nội dung quảng cáo",ParentId = "ProductItem",SortOrder = 3,Status = Status.Active,URL = "/AdvertisementContent",IconCss = "fa-clone"  },
                       new Function() {KeyId = "AdvertisementPositionItem",Name = "Vị trí quảng cáo",ParentId = "ProductItem",SortOrder = 4,Status = Status.Active,URL = "/AdvertisementPosition",IconCss = "fa-clone"  },
+                      
+                      new Function() {KeyId = "WarehouseItem",Name = "Xuất nhập kho",ParentId = null,SortOrder = 3,Status = Status.Active,URL = "/",IconCss = "fa-warehouse"  },
 
-                      new Function() {KeyId = "ReceiptandDelivery",Name = "Hóa đơn & Giao hàng",ParentId = null,SortOrder = 3,Status = Status.Active,URL = "/",IconCss = "fa-receipt"  },
-                      new Function() {KeyId = "ReceiptItem",Name = "Hóa đơn",ParentId = "ReceiptandDelivery",SortOrder = 1,Status = Status.Active,URL = "/Invoice",IconCss = "fa-home"  },
-                      new Function() {KeyId = "DeliveryItem",Name = "Phiếu giao hàng",ParentId = "ReceiptandDelivery",SortOrder = 2,Status = Status.Active,URL = "/Delivery",IconCss = "fa-home"  },
+                      new Function() {KeyId = "BooksReceiptItem",Name = "Nhập sách",ParentId = "WarehouseItem",SortOrder = 1,Status = Status.Active,URL = "/BooksIn",IconCss = "fa-chevron-down"  },
+                      new Function() {KeyId = "BooksIssueItem",Name = "Xuất sách",ParentId = "WarehouseItem",SortOrder = 2,Status = Status.Active,URL = "/BooksOut",IconCss = "fa-clone"  },
+                     
+                      new Function() {KeyId = "ReceiptDeliveryItem",Name = "Hóa đơn & Giao hàng",ParentId = null,SortOrder = 4,Status = Status.Active,URL = "/",IconCss = "fa-receipt"  },
 
-                      new Function() {KeyId = "ContractItem",Name = "Hợp đồng",ParentId = null,SortOrder = 4,Status = Status.Active,URL = "/",IconCss = "fa-file-signature"  },
+                      new Function() {KeyId = "ReceiptItem",Name = "Hóa đơn",ParentId = "ReceiptDeliveryItem",SortOrder = 1,Status = Status.Active,URL = "/Invoice",IconCss = "fa-chevron-down"  },
+                      new Function() {KeyId = "DeliveryItem",Name = "Phiếu giao hàng",ParentId = "ReceiptDeliveryItem",SortOrder = 2,Status = Status.Active,URL = "/Delivery",IconCss = "fa-clone"  },
+                   
+                      
+                      new Function() {KeyId = "ContractItem",Name = "Hợp đồng",ParentId = null,SortOrder = 5,Status = Status.Active,URL = "/",IconCss = "fa-file-signature"  },
 
                       new Function() {KeyId = "MerchantContractItem",Name = "Hợp đồng với nhà cung cấp",ParentId = "ContractItem",SortOrder = 1,Status = Status.Active,URL = "/MerchantContract",IconCss = "fa-chevron-down"  },
                       new Function() {KeyId = "AdvertiseContractItem",Name = "Hợp đồng quảng cáo",ParentId = "ContractItem",SortOrder = 2,Status = Status.Active,URL = "/AdvertiseContract",IconCss = "fa-clone"  },
    
-                      new Function() {KeyId = "TermItem",Name = "Điều khoản dịch vụ, quy trình",ParentId = null,SortOrder = 6,Status = Status.Active,URL = "/",IconCss = "fa-handshake"  },
+                      new Function() {KeyId = "TermItem",Name = "Điều khoản dịch vụ, quy trình",ParentId = null,SortOrder = 7,Status = Status.Active,URL = "/",IconCss = "fa-handshake"  },
 
                       new Function() {KeyId = "MerchantTermItem",Name = "Đối với Nhà cung cấp",ParentId = "TermItem",SortOrder = 3,Status = Status.Active,URL = "/Process/Merchant",IconCss = "fa-chevron-down"  },
                       new Function() {KeyId = "AdvertiserTermItem",Name = "Đối với bên quảng cáo",ParentId = "TermItem",SortOrder = 2,Status = Status.Active,URL = "/Process/Advertiser",IconCss = "fa-clone"  },
                       new Function() {KeyId = "GeneralTermItem",Name = "Điều khoản và dịch vụ",ParentId = "TermItem",SortOrder = 1,Status = Status.Active,URL = "/Process/GeneralTerm",IconCss = "fa-clone"  },
 
-                      new Function() {KeyId = "StatisticsItem",Name = "Thống kê",ParentId = null,SortOrder = 5,Status = Status.Active,URL = "/",IconCss = "fa-chart-line"  },
+                      new Function() {KeyId = "StatisticsItem",Name = "Thống kê",ParentId = null,SortOrder = 6,Status = Status.Active,URL = "/",IconCss = "fa-chart-line"  },
 
                       new Function() {KeyId = "AdStatisticsItem",Name = "Quảng cáo", ParentId = "StatisticsItem",SortOrder = 1,Status = Status.Active,URL = "/AdvertiseContract/Statistic",IconCss = "fa-chevron-down"  },
                  });
@@ -251,6 +258,7 @@ namespace BeYeuBookstore.Data.EF
                     DateCreated = DateTime.Now,
                     DateModified = DateTime.Now,
                     UserTypeFK = Const_UserType.Webmaster, //Webmaster
+                    EmailConfirmed = true, //Webmaster
                     Status = Status.Active,
                     Gender = Gender.Other
                 }, CommonConstants.DefaultPW).Result;
@@ -269,6 +277,7 @@ namespace BeYeuBookstore.Data.EF
                     DateCreated = DateTime.Now,
                     DateModified = DateTime.Now,
                     UserTypeFK = Const_UserType.Webmaster, //Webmaster
+                    EmailConfirmed = true,
                     Status = Status.Active,
                     Gender = Gender.Other
                 }, CommonConstants.DefaultPW).Result;
@@ -288,6 +297,7 @@ namespace BeYeuBookstore.Data.EF
                     DateCreated = DateTime.Now,
                     DateModified = DateTime.Now,
                     UserTypeFK = Const_UserType.Webmaster, //Webmaster
+                    EmailConfirmed = true,
                     Status = Status.Active,
                     Gender = Gender.Other
                 }, CommonConstants.DefaultPW).Result;
@@ -307,6 +317,7 @@ namespace BeYeuBookstore.Data.EF
                     DateCreated = DateTime.Now,
                     DateModified = DateTime.Now,
                     UserTypeFK = Const_UserType.Webmaster, //Webmaster
+                    EmailConfirmed = true,
                     Status = Status.Active,
                     Gender = Gender.Other
                 }, CommonConstants.DefaultPW).Result;
@@ -326,6 +337,7 @@ namespace BeYeuBookstore.Data.EF
                     DateCreated = DateTime.Now,
                     DateModified = DateTime.Now,
                     UserTypeFK = Const_UserType.Webmaster, //Webmaster
+                    EmailConfirmed = true,
                     Status = Status.Active,
                     Gender = Gender.Other
                 }, CommonConstants.DefaultPW).Result;
@@ -346,6 +358,7 @@ namespace BeYeuBookstore.Data.EF
                     DateCreated = DateTime.Now,
                     DateModified = DateTime.Now,
                     UserTypeFK = Const_UserType.Customer,
+                    EmailConfirmed = true,
                     Status = Status.Active,
                     PhoneNumber="09000000002",
                     Address = "Chung cư HaDo Q.10",
@@ -367,6 +380,7 @@ namespace BeYeuBookstore.Data.EF
                     DateCreated = DateTime.Now,
                     DateModified = DateTime.Now,
                     UserTypeFK = Const_UserType.Customer,
+                    EmailConfirmed = true,
                     Status = Status.Active,
                     PhoneNumber = "0900000001",
                     Address = "289 Bình Đông F14 Q8",
@@ -378,6 +392,189 @@ namespace BeYeuBookstore.Data.EF
                     await _userManager.AddToRoleAsync(user, "Customer"); // add vao role 
                     _context.Customers.Add(new Customer() { UserFK = user.Id });
                 }
+                //tạo user customer
+                result = _userManager.CreateAsync(new User()
+                {
+                    UserName = "utbi@gmail.com",
+                    FullName = "Út Bi",
+                    Email = "utbi@gmail.com",
+                    DateCreated = DateTime.Now,
+                    DateModified = DateTime.Now,
+                    UserTypeFK = Const_UserType.Customer,
+                    EmailConfirmed = true,
+                    Status = Status.Active,
+                    PhoneNumber = "0989282912",
+                    Address = "23 Nguyễn Đình Chiểu F12 Q3 ",
+                    Gender = Gender.Male,
+                }, CommonConstants.DefaultPW).Result;
+                if (result.Succeeded)
+                {
+                    var user = await _userManager.FindByNameAsync("utbi@gmail.com"); // tim user 
+                    await _userManager.AddToRoleAsync(user, "Customer"); // add vao role 
+                    _context.Customers.Add(new Customer() { UserFK = user.Id });
+                }
+
+
+                ////tạo user customer
+                result = _userManager.CreateAsync(new User()
+                {
+                    UserName = "banhmi@gmail.com",
+                    FullName = "Bánh mì ciute",
+                    Email = "banhmi@gmail.com",
+                    DateCreated = DateTime.Now,
+                    DateModified = DateTime.Now,
+                    UserTypeFK = Const_UserType.Customer,
+                    EmailConfirmed = true,
+                    Status = Status.Active,
+                    PhoneNumber = "0922229931",
+                    Address = "",
+                    Gender = Gender.Female,
+                }, CommonConstants.DefaultPW).Result;
+                if (result.Succeeded)
+                {
+                    var user = await _userManager.FindByNameAsync("banhmi@gmail.com"); // tim user 
+                    await _userManager.AddToRoleAsync(user, "Customer"); // add vao role 
+                    _context.Customers.Add(new Customer() { UserFK = user.Id });
+                }
+
+
+                ////tạo user customer
+                result = _userManager.CreateAsync(new User()
+                {
+                    UserName = "marvel@gmail.com",
+                    FullName = "Captain Marvel",
+                    Email = "marvel@gmail.com",
+                    DateCreated = DateTime.Now,
+                    DateModified = DateTime.Now,
+                    UserTypeFK = Const_UserType.Customer,
+                    Status = Status.Active,
+                    EmailConfirmed = true,
+                    PhoneNumber = "0972822223",
+                    Address = "12 Ba Tháng Hai F2 Q10",
+                    Gender = Gender.Male,
+                }, CommonConstants.DefaultPW).Result;
+                if (result.Succeeded)
+                {
+                    var user = await _userManager.FindByNameAsync("marvel@gmail.com"); // tim user 
+                    await _userManager.AddToRoleAsync(user, "Customer"); // add vao role 
+                    _context.Customers.Add(new Customer() { UserFK = user.Id });
+                }
+
+
+                ////tạo user customer
+                result = _userManager.CreateAsync(new User()
+                {
+                    UserName = "vinhhuynh@gmail.com",
+                    FullName = "Huỳnh Mỹ Vinh",
+                    Email = "vinhhuynh@gmail.com",
+                    DateCreated = DateTime.Now,
+                    DateModified = DateTime.Now,
+                    UserTypeFK = Const_UserType.Customer,
+                    EmailConfirmed = true,
+                    Status = Status.Active,
+                    PhoneNumber = "0906736222",
+                    Address = "289 Mai Chí Thọ F3 Q2",
+                    Gender = Gender.Female,
+                }, CommonConstants.DefaultPW).Result;
+                if (result.Succeeded)
+                {
+                    var user = await _userManager.FindByNameAsync("vinhhuynh@gmail.com"); // tim user 
+                    await _userManager.AddToRoleAsync(user, "Customer"); // add vao role 
+                    _context.Customers.Add(new Customer() { UserFK = user.Id });
+                }
+
+
+                ////tạo user customer
+                result = _userManager.CreateAsync(new User()
+                {
+                    UserName = "huyen@gmail.com",
+                    FullName = "Ngọc Huyền",
+                    Email = "huyen@gmail.com",
+                    DateCreated = DateTime.Now,
+                    DateModified = DateTime.Now,
+                    UserTypeFK = Const_UserType.Customer,
+                    EmailConfirmed = true,
+                    Status = Status.Active,
+                    PhoneNumber = "0978782493",
+                    Address = "34 Nguyễn Hữu Cảnh F5 Q4",
+                    Gender = Gender.Female,
+                }, CommonConstants.DefaultPW).Result;
+                if (result.Succeeded)
+                {
+                    var user = await _userManager.FindByNameAsync("huyen@gmail.com"); // tim user 
+                    await _userManager.AddToRoleAsync(user, "Customer"); // add vao role 
+                    _context.Customers.Add(new Customer() { UserFK = user.Id });
+                }
+
+
+                ////tạo user customer
+                result = _userManager.CreateAsync(new User()
+                {
+                    UserName = "hachi@gmail.com",
+                    FullName = "Chi Hà",
+                    Email = "chi@gmail.com",
+                    DateCreated = DateTime.Now,
+                    DateModified = DateTime.Now,
+                    UserTypeFK = Const_UserType.Customer,
+                    EmailConfirmed = true,
+                    Status = Status.Active,
+                    PhoneNumber = "0978373382",
+                    Address = "24 Trần Văn Đang F3 Q3",
+                    Gender = Gender.Female,
+                }, CommonConstants.DefaultPW).Result;
+                if (result.Succeeded)
+                {
+                    var user = await _userManager.FindByNameAsync("hachi@gmail.com"); // tim user 
+                    await _userManager.AddToRoleAsync(user, "Customer"); // add vao role 
+                    _context.Customers.Add(new Customer() { UserFK = user.Id });
+                }
+
+
+                ////tạo user customer
+                result = _userManager.CreateAsync(new User()
+                {
+                    UserName = "duyhuynh@gmail.com",
+                    FullName = "Huỳnh Hữu Duy",
+                    Email = "duyhuynh@gmail.com",
+                    DateCreated = DateTime.Now,
+                    DateModified = DateTime.Now,
+                    UserTypeFK = Const_UserType.Customer,
+                    EmailConfirmed = true,
+                    Status = Status.Active,
+                    PhoneNumber = "0900000002",
+                    Address = "29 Trần Tuấn Khải  F2 Q1",
+                    Gender = Gender.Male,
+                }, CommonConstants.DefaultPW).Result;
+                if (result.Succeeded)
+                {
+                    var user = await _userManager.FindByNameAsync("duyhuynh@gmail.com"); // tim user 
+                    await _userManager.AddToRoleAsync(user, "Customer"); // add vao role 
+                    _context.Customers.Add(new Customer() { UserFK = user.Id });
+                }
+
+
+                ////tạo user customer
+                result = _userManager.CreateAsync(new User()
+                {
+                    UserName = "vanlam@gmail.com",
+                    FullName = "Lê Văn Lâm",
+                    Email = "vanlam@gmail.com",
+                    DateCreated = DateTime.Now,
+                    DateModified = DateTime.Now,
+                    UserTypeFK = Const_UserType.Customer,
+                    EmailConfirmed = true,
+                    Status = Status.Active,
+                    PhoneNumber = "0900000021",
+                    Address = "289 Thành Thái F12 Q2",
+                    Gender = Gender.Male,
+                }, CommonConstants.DefaultPW).Result;
+                if (result.Succeeded)
+                {
+                    var user = await _userManager.FindByNameAsync("vanlam@gmail.com"); // tim user 
+                    await _userManager.AddToRoleAsync(user, "Customer"); // add vao role 
+                    _context.Customers.Add(new Customer() { UserFK = user.Id });
+                }
+
 
                 //tạo user merchant
                 result = _userManager.CreateAsync(new User()
@@ -387,7 +584,8 @@ namespace BeYeuBookstore.Data.EF
                     Email = "khang_merchant@gmail.com",
                     DateCreated = DateTime.Now,
                     DateModified = DateTime.Now,
-                    UserTypeFK = Const_UserType.Merchant, 
+                    UserTypeFK = Const_UserType.Merchant,
+                    EmailConfirmed = true,
                     Status = Status.Active,
                     Gender = Gender.Male
                 }, CommonConstants.DefaultPW).Result;
@@ -452,7 +650,306 @@ namespace BeYeuBookstore.Data.EF
                         EstablishDate = DateTime.Parse("2016-04-01")
                     });
                 }
+                //tạo user merchant
+                result = _userManager.CreateAsync(new User()
+                {
+                    UserName = "chim_merchant@gmail.com",
+                    FullName = "Chimte Merchant",
+                    Email = "chim_merchant@gmail.com",
+                    DateCreated = DateTime.Now,
+                    DateModified = DateTime.Now,
+                    UserTypeFK = Const_UserType.Merchant,
+                    EmailConfirmed = true,
+                    Status = Status.Active,
+                    Gender = Gender.Female
+                }, CommonConstants.DefaultPW).Result;
+                if (result.Succeeded)
+                {
+                    var user = await _userManager.FindByNameAsync("chim_merchant@gmail.com"); // tim user 
+                    await _userManager.AddToRoleAsync(user, "Merchant"); // add vao role 
+                    _context.Merchants.Add(new Merchant()
+                    {
+                        UserFK = user.Id,
+                        DirectContactName = "Nguyễn Thị Chim",
+                        Hotline = "19001119",
+                        MerchantCompanyName = "Chim shop",
+                        Address = "178 Nguyễn Văn Lượng, P.6, Q.6",
+                        ContactAddress = "178 Nguyễn Văn Lượng, P.6, Q.6",
+                        BussinessRegisterId = "18895",
+                        TaxId = "3",
+                        Website = "chimte.vn",
+                        LegalRepresentative = "Nguyễn Thị Chim",
+                        MerchantBankingName = "Nguyễn Thị Chim",
+                        Bank = "MB",
+                        BankBranch = "Lê Văn Sỹ",
+                        Status = Status.Active,
+                        Scales = Scale.Large,
+                        EstablishDate = DateTime.Parse("2017-03-02")
+                    });
+                }
 
+                //tạo user merchant
+                result = _userManager.CreateAsync(new User()
+                {
+                    UserName = "huy_merchant@gmail.com",
+                    FullName = "Huy Merchant",
+                    Email = "huy_merchant@gmail.com",
+                    DateCreated = DateTime.Now,
+                    DateModified = DateTime.Now,
+                    UserTypeFK = Const_UserType.Merchant,
+                    EmailConfirmed = true,
+                    Status = Status.Active,
+                    Gender = Gender.Male
+                }, CommonConstants.DefaultPW).Result;
+                if (result.Succeeded)
+                {
+                    var user = await _userManager.FindByNameAsync("huy_merchant@gmail.com"); // tim user 
+                    await _userManager.AddToRoleAsync(user, "Merchant"); // add vao role 
+                    _context.Merchants.Add(new Merchant()
+                    {
+                        UserFK = user.Id,
+                        DirectContactName = "Huỳnh Tấn Huy",
+                        Hotline = "19001122",
+                        MerchantCompanyName = "Huy Huỳnh",
+                        Address = "177/1 Trần Tuấn Khải, P.5, Q.5",
+                        ContactAddress = "177/1 Trần Tuấn Khải, P.5, Q.5",
+                        BussinessRegisterId = "456788",
+                        TaxId = "4",
+                        Website = "huyhuynh.com.vn",
+                        LegalRepresentative = "Huỳnh Tấn Huy",
+                        MerchantBankingName = "Huỳnh Tấn Huy",
+                        Bank = "Đông Á",
+                        BankBranch = "Tân Phú",
+                        Status = Status.Active,
+                        Scales = Scale.Large,
+                        EstablishDate = DateTime.Parse("2016-08-10"),
+                    });
+                }
+
+               result = _userManager.CreateAsync(new User()
+                {
+                    UserName = "hien_merchant@gmail.com",
+                    FullName = "Hiền Merchant",
+                    Email = "hien_merchant@gmail.com",
+                    DateCreated = DateTime.Now,
+                    DateModified = DateTime.Now,
+                    UserTypeFK = Const_UserType.Merchant,
+                   EmailConfirmed = true,
+                   Status = Status.Active,
+                    Gender = Gender.Female
+                }, CommonConstants.DefaultPW).Result;
+                if (result.Succeeded)
+                {
+                    var user = await _userManager.FindByNameAsync("hien_merchant@gmail.com"); // tim user 
+                    await _userManager.AddToRoleAsync(user, "Merchant"); // add vao role 
+                    _context.Merchants.Add(new Merchant()
+                    {
+                        UserFK = user.Id,
+                        DirectContactName = "Nguyễn Thị Bích Hiền",
+                        Hotline = "19900123",
+                        MerchantCompanyName = "Phương Nam Book",
+                        Address = "22 Nguyễn Văn Linh, P.1, Q.7",
+                        ContactAddress = "22 Nguyễn Văn Linh, P.1, Q.7",
+                        BussinessRegisterId = "11234",
+                        TaxId = "5",
+                        Website = "phuongnam.net",
+                        LegalRepresentative = "Nguyễn Thị Bích Hiền",
+                        MerchantBankingName = "Nguyễn Thị Bích Hiền",
+                        Bank = "Shinhan",
+                        BankBranch = "Nguyễn Thị Thập",
+                        Status = Status.Active,
+                        Scales = Scale.Large,
+                        EstablishDate = DateTime.Parse("2011-02-04")
+                    });
+                }
+
+                result = _userManager.CreateAsync(new User()
+                {
+                    UserName = "nhan_merchant@gmail.com",
+                    FullName = "Nhân Merchant",
+                    Email = "nhan_merchant@gmail.com",
+                    DateCreated = DateTime.Now,
+                    DateModified = DateTime.Now,
+                    UserTypeFK = Const_UserType.Merchant,
+                    EmailConfirmed = true,
+                    Status = Status.Active,
+                    Gender = Gender.Male
+                }, CommonConstants.DefaultPW).Result;
+                if (result.Succeeded)
+                {
+                    var user = await _userManager.FindByNameAsync("nhan_merchant@gmail.com"); // tim user 
+                    await _userManager.AddToRoleAsync(user, "Merchant"); // add vao role 
+                    _context.Merchants.Add(new Merchant()
+                    {
+                        UserFK = user.Id,
+                        DirectContactName = "Trương Vĩ Nhân",
+                        Hotline = "19001219",
+                        MerchantCompanyName = "Nhân Company",
+                        Address = "19 Nguyễn Thượng Hiền, P.4, Q.3",
+                        ContactAddress = "19 Nguyễn Thượng Hiền, P.4, Q.3",
+                        BussinessRegisterId = "18892",
+                        TaxId = "6",
+                        Website = "nhancompany.com.vn",
+                        LegalRepresentative = "Trương Vĩ Nhân",
+                        MerchantBankingName = "Trương Vĩ Nhân",
+                        Bank = "Agribank",
+                        BankBranch = "An Dương Vương",
+                        Status = Status.Active,
+                        Scales = Scale.Large,
+                        EstablishDate = DateTime.Parse("2013-12-12")
+                    });
+                }
+                //tạo user merchant
+                result = _userManager.CreateAsync(new User()
+                {
+                    UserName = "minh_merchant@gmail.com",
+                    FullName = "Minh Merchant",
+                    Email = "minh_merchant@gmail.com",
+                    DateCreated = DateTime.Now,
+                    DateModified = DateTime.Now,
+                    UserTypeFK = Const_UserType.Merchant,
+                    EmailConfirmed = true,
+                    Status = Status.Active,
+                    Gender = Gender.Male
+                }, CommonConstants.DefaultPW).Result;
+                if (result.Succeeded)
+                {
+                    var user = await _userManager.FindByNameAsync("minh_merchant@gmail.com"); // tim user 
+                    await _userManager.AddToRoleAsync(user, "Merchant"); // add vao role 
+                    _context.Merchants.Add(new Merchant()
+                    {
+                        UserFK = user.Id,
+                        DirectContactName = "Huỳnh Hà Khánh Minh",
+                        Hotline = "19001112",
+                        MerchantCompanyName = "Alpha Books ",
+                        Address = "99 Nguyễn Văn Trỗi, P.2, Q.Tân Phú",
+                        ContactAddress = "99 Nguyễn Văn Trỗi, P.2, Q.Tân Phú",
+                        BussinessRegisterId = "11282",
+                        TaxId = "7",
+                        Website = "alphabooks.com",
+                        LegalRepresentative = "Huỳnh Hà Khánh Minh",
+                        MerchantBankingName = "Huỳnh Hà Khánh Minh",
+                        Bank = "Viettin Bank",
+                        BankBranch = "Trương Định",
+                        Status = Status.Active,
+                        Scales = Scale.Large,
+                        EstablishDate = DateTime.Parse("2009-11-22")
+                    });
+                }
+
+                //tạo user merchant
+                result = _userManager.CreateAsync(new User()
+                {
+                    UserName = "vu_merchant@gmail.com",
+                    FullName = "Vũ Merchant",
+                    Email = "vu_merchant@gmail.com",
+                    DateCreated = DateTime.Now,
+                    DateModified = DateTime.Now,
+                    UserTypeFK = Const_UserType.Merchant,
+                    EmailConfirmed = true,
+                    Status = Status.Active,
+                    Gender = Gender.Male
+                }, CommonConstants.DefaultPW).Result;
+                if (result.Succeeded)
+                {
+                    var user = await _userManager.FindByNameAsync("vu_merchant@gmail.com"); // tim user 
+                    await _userManager.AddToRoleAsync(user, "Merchant"); // add vao role 
+                    _context.Merchants.Add(new Merchant()
+                    {
+                        UserFK = user.Id,
+                        DirectContactName = "Lê Tấn Vũ",
+                        Hotline = "10002233",
+                        MerchantCompanyName = "First News",
+                        Address = "31 Lê Văn Lương, P.3, Q.7",
+                        ContactAddress = "31 Lê Văn Lương, P.3, Q.7",
+                        BussinessRegisterId = "12234",
+                        TaxId = "8",
+                        Website = "firstnews.edu.vn",
+                        LegalRepresentative = "Lê Tấn Vũ",
+                        MerchantBankingName = "Lê Tấn Vũ",
+                        Bank = "Vietcombank",
+                        BankBranch = "Đinh Công Tráng",
+                        Status = Status.Active,
+                        Scales = Scale.Large,
+                        EstablishDate = DateTime.Parse("2011-12-04")
+                    });
+                }
+
+                //tạo user merchant
+                result = _userManager.CreateAsync(new User()
+                {
+                    UserName = "linh_merchant@gmail.com",
+                    FullName = "Linh Merchant",
+                    Email = "linh_merchant@gmail.com",
+                    DateCreated = DateTime.Now,
+                    DateModified = DateTime.Now,
+                    UserTypeFK = Const_UserType.Merchant,
+                    EmailConfirmed = true,
+                    Status = Status.Active,
+                    Gender = Gender.Female
+                }, CommonConstants.DefaultPW).Result;
+                if (result.Succeeded)
+                {
+                    var user = await _userManager.FindByNameAsync("linh_merchant@gmail.com"); // tim user 
+                    await _userManager.AddToRoleAsync(user, "Merchant"); // add vao role 
+                    _context.Merchants.Add(new Merchant()
+                    {
+                        UserFK = user.Id,
+                        DirectContactName = "Huỳnh Hà Khánh Linh",
+                        Hotline = "19009892",
+                        MerchantCompanyName = "Linh New Style",
+                        Address = "16 Nguyễn Biểu, P.5, Q.5",
+                        ContactAddress = "16 Nguyễn Biểu, P.5, Q.5",
+                        BussinessRegisterId = "13242",
+                        TaxId = "9",
+                        Website = "linhnewstyle.net",
+                        LegalRepresentative = "Huỳnh Hà Khánh Linh",
+                        MerchantBankingName = "Huỳnh Hà Khánh Linh",
+                        Bank = "BIDV",
+                        BankBranch = "Nguyễn Văn Cừ",
+                        Status = Status.Active,
+                        Scales = Scale.Large,
+                        EstablishDate = DateTime.Parse("2013-12-02")
+                    });
+                }
+
+                //tạo user merchant
+                result = _userManager.CreateAsync(new User()
+                {
+                    UserName = "trung_merchant@gmail.com",
+                    FullName = "Trung Merchant",
+                    Email = "trung_merchant@gmail.com",
+                    DateCreated = DateTime.Now,
+                    DateModified = DateTime.Now,
+                    UserTypeFK = Const_UserType.Merchant,
+                    EmailConfirmed = true,
+                    Status = Status.Active,
+                    Gender = Gender.Male
+                }, CommonConstants.DefaultPW).Result;
+                if (result.Succeeded)
+                {
+                    var user = await _userManager.FindByNameAsync("trung_merchant@gmail.com"); // tim user 
+                    await _userManager.AddToRoleAsync(user, "Merchant"); // add vao role 
+                    _context.Merchants.Add(new Merchant()
+                    {
+                        UserFK = user.Id,
+                        DirectContactName = "Lê Trọng Trung",
+                        Hotline = "0989345512",
+                        MerchantCompanyName = "Trung Lê",
+                        Address = "02 Lê Đức Thọ, P.1, Q.Gò Vấp",
+                        ContactAddress = "02 Lê Đức Thọ, P.1, Q.Gò Vấp",
+                        BussinessRegisterId = "45333",
+                        TaxId = "10",
+                        Website = "trungle.edu.com.vn",
+                        LegalRepresentative = "Lê Trọng Trung",
+                        MerchantBankingName = "Lê Trọng Trung",
+                        Bank = "SCB",
+                        BankBranch = "Lê Lai",
+                        Status = Status.Active,
+                        Scales = Scale.Large,
+                        EstablishDate = DateTime.Parse("2017-12-18")
+                    }); 
+                }
                 //tạo user advertiser
                 result = _userManager.CreateAsync(new User()
                 {
@@ -462,6 +959,7 @@ namespace BeYeuBookstore.Data.EF
                     DateCreated = DateTime.Now,
                     DateModified = DateTime.Now,
                     UserTypeFK = Const_UserType.Advertiser, //Webmaster
+                    EmailConfirmed = true,
                     Status = Status.Active,
                     Gender = Gender.Other
                 }, CommonConstants.DefaultPW).Result;
@@ -479,7 +977,8 @@ namespace BeYeuBookstore.Data.EF
                     Email = "viethung@gmail.com",
                     DateCreated = DateTime.Now,
                     DateModified = DateTime.Now,
-                    UserTypeFK = Const_UserType.Advertiser, //Webmaster
+                    UserTypeFK = Const_UserType.Advertiser,
+                    EmailConfirmed = true,
                     Status = Status.Active,
                     Gender = Gender.Other
                 }, CommonConstants.DefaultPW).Result;
@@ -497,7 +996,8 @@ namespace BeYeuBookstore.Data.EF
                     Email = "phongzu@gmail.com",
                     DateCreated = DateTime.Now,
                     DateModified = DateTime.Now,
-                    UserTypeFK = Const_UserType.Advertiser, //Webmaster
+                    UserTypeFK = Const_UserType.Advertiser,
+                    EmailConfirmed = true,
                     Status = Status.Active,
                     Gender = Gender.Other
                 }, CommonConstants.DefaultPW).Result;
@@ -515,7 +1015,8 @@ namespace BeYeuBookstore.Data.EF
                     Email = "tiki@gmail.com",
                     DateCreated = DateTime.Now,
                     DateModified = DateTime.Now,
-                    UserTypeFK = Const_UserType.Advertiser, //Webmaster
+                    UserTypeFK = Const_UserType.Advertiser,
+                    EmailConfirmed = true,
                     Status = Status.Active,
                     Gender = Gender.Other
                 }, CommonConstants.DefaultPW).Result;
@@ -532,45 +1033,56 @@ namespace BeYeuBookstore.Data.EF
                     _context.Books.AddRange(new List<Book>()
                 {
                     new Book(){Status=Status.Active, BookTitle="Đắc Nhân Tâm",Author="Dale Carnegie",BookCategoryFK=4,MerchantFK=1,isPaperback=false,UnitPrice=45000, Length=20, Height=2, Width=14,PageNumber=320,Description="Đắc Nhân Tâm nằm trong top bán chạy nhất thế giới",Quantity=50, Img="/images/merchant/Khang Book/books/1.jpg"},
-                    new Book(){Status=Status.Active, BookTitle="Đời ngắn đừng ngủ dài",Author="Robins Sharma",BookCategoryFK=4,MerchantFK=2,isPaperback=true,UnitPrice=46000, Length=21, Height=2, Width=13,PageNumber=239,Description="Bằng những lời chia sẻ thật ngắn gọn, dễ hiểu về những trải nghiệm và suy ngẫm trong đời, Robin Sharma tiếp tục phong cách viết của ông từ cuốn sách Điều vĩ đại đời thường để mang đến cho độc giả những bài viết như lời tâm sự, vừa chân thành vừa sâu sắc.",Quantity=50,Img="/images/merchant/Trâm Store/books/2.jpg",Rating=1,RatingNumber=5},
-                    new Book(){Status=Status.Active, BookTitle="Nếu tôi biết khi còn 20",Author="Tina Seelig",BookCategoryFK=4,MerchantFK=1,isPaperback=true,UnitPrice=44000, Length=21, Height=2, Width=14,PageNumber=252,Description="Thông qua quyển sách, tác giả còn muốn các độc giả, đặc biệt là độc giả trẻ, sẽ được  bị đủ sự tự tin để biến căng thẳng thành sự hào hứng, biến thử thách thành các cơ hội, và cứ sau mỗi lần vấp ngã lại đứng lên trưởng thành hơn.",Quantity=50,Img="/images/merchant/Khang Book/books/3.jpg",Rating=1,RatingNumber=4},
-                    new Book(){Status=Status.Active, BookTitle="Café sáng cùng Tony",Author="Tony",BookCategoryFK=4,MerchantFK=1,isPaperback=false,UnitPrice=55000, Length=21, Height=3, Width=15,PageNumber=323,Description="Chúng tôi tin rằng những người trẻ tuổi luôn mang trong mình khát khao vươn lên và tấm lòng hướng thiện, và có nhiều cách để động viên họ biến điều đó thành hành động. Nếu như tập sách nhỏ này có thể khơi gợi trong lòng bạn đọc trẻ một cảm hứng tốt đẹp, như tách cà phê thơm vào đầu ngày nắng mới, thì đó là niềm vui lớn của tác giả Tony Buổi Sáng.",Quantity=46,Img="/images/merchant/Khang Book/books/4.jpg",Rating=0,RatingNumber=0},
-                    new Book(){Status=Status.Active, BookTitle="Tuổi trẻ đáng giá bao nhiêu ?",Author="Chi",BookCategoryFK=4,MerchantFK=2,isPaperback=true,UnitPrice=65000, Length=21, Height=2, Width=16,PageNumber=234,Description="Hãy đọc sách, nếu bạn đọc sách một cách bền bỉ, sẽ đến lúc bạn bị thôi thúc không ngừng bởi ý muốn viết nên cuốn sách của riêng mình. Nếu tôi còn ở tuổi đôi mươi, hẳn là tôi sẽ đọc Tuổi trẻ đáng giá bao nhiêu? nhiều hơn một lần.",Quantity=45,Img="/images/merchant/Trâm Store/books/5.jpg",Rating=0,RatingNumber=0},
-                    new Book(){Status=Status.Active, BookTitle="Tokyo Hoàng Đạo Án",Author="Soji Shimada",BookCategoryFK=1,MerchantFK=1,isPaperback=false,UnitPrice=45000, Length=21, Height=2, Width=17,PageNumber=332,Description="Tiểu thuyết trinh thám kinh dị",Quantity=47,Img="/images/merchant/Khang Book/books/6.jpg",Rating=0,RatingNumber=0},
-                    new Book(){Status=Status.Active, BookTitle="Athoner",Author="Yukito Ayatsuji",BookCategoryFK=1,MerchantFK=2,isPaperback=true,UnitPrice=40000, Length=21, Height=2, Width=18,PageNumber=231,Description="Hai mươi sáu năm về trước có một học sinh hoàn thiện hoàn mĩ. Rất đẹp, rất giỏi, rất hòa đồng, ai cũng yêu quý, những lời tán tụng người ấy được truyền mãi qua các thế hệ học sinh của trường. Nhưng tên đầy đủ là gì, chết đi thế nào, thậm chí giới tính ra sao lại không một ai hay biết. Người ta chỉ rỉ tai nhau, bỗng nhiên giữa năm bạn ấy chết, trường lớp không sao thoát được nỗi buồn nhớ thương, họ bèn cư xử như thể học sinh này còn tồn tại. Bàn ghế để nguyên, bạn cùng lớp vẫn giả vờ nói chuyện với người đã khuất.",Quantity=34,Img="/images/merchant/Trâm Store/books/7.jpg",Rating=0,RatingNumber=0},
-                    new Book(){Status=Status.Active, BookTitle="Kỹ Thuật Làm Bánh Ngọt",Author="Thảo Đoàn",BookCategoryFK=2,MerchantFK=1,isPaperback=true,UnitPrice=20000, Length=32, Height=450, Width=19,PageNumber=332,Description="Cuốn Sách Cho Người Bắt Đầu Học Làm Bánh là những kiến thức cơ bản nhất mà một người bắt đầu làm quen với bột, lò nướng cần có: Gồm các kiến thức chung về nguyên liệu, dụng cụ làm bánh, các kỹ năng làm bánh cơ bản. Cuốn sách còn cung cấp các công thức làm bánh Cookies. Muffin, Cream Cake, Tart đơn giản, dễ làm nhưng cũng rất hấp dẫn, ngon miệng.",Quantity=43,Img="/images/merchant/Khang Book/books/8.jpg",Rating=0,RatingNumber=0},
-                    new Book(){Status=Status.Active, BookTitle="150 Thuật Ngữ Văn Học",Author="Lại Nguyên Ân",BookCategoryFK=2,MerchantFK=2,isPaperback=false,UnitPrice=10000, Length=7, Height=4, Width=20,PageNumber=588,Description="150 Thuật Ngữ Văn Học - Với khoảng trên 150 mục từ THUẬT NGỮ VĂN HỌC, cuốnsách nhỏ này chưa thể bao quát toàn bộ các bình diện, cấp độ, sắc thái của một loại hiện tượng văn hoá nhân bản đặc sắc và vô cùng phong phú là văn học và các chuyên ngành nghiên cứu nó…",Quantity=42,Img="/images/merchant/Trâm Store/books/9.png",Rating=0,RatingNumber=0},
-                    new Book(){Status=Status.Active, BookTitle="Truyện ngụ ngôn Êdốp",Author="êdop",BookCategoryFK=3,MerchantFK=1,isPaperback=true,UnitPrice=36000, Length=13, Height=1, Width=21,PageNumber=46,Description="Truyện tranh thiếu nhi",Quantity=46,Img="/images/merchant/Khang Book/books/10.jpg",Rating=0,RatingNumber=0},
-                    new Book(){Status=Status.Active, BookTitle="Alixơ ở xứ sở diệu kỳ",Author="Hàn Thuyên",BookCategoryFK=3,MerchantFK=2,isPaperback=false,UnitPrice=120000, Length=21, Height=2, Width=22,PageNumber=132,Description="Truyện tranh thiếu nhi",Quantity=46,Img="/images/merchant/Trâm Store/books/11.jpg",Rating=0,RatingNumber=0},
-                    new Book(){Status=Status.Active, BookTitle="Kỳ án ánh trăng",Author="Quỷ Cổ Nữ",BookCategoryFK=1,MerchantFK=1,isPaperback=false,UnitPrice=165000, Length=24, Height=3, Width=15,PageNumber=528,Description="Người tới số năm nay là Diệp Hinh. Không cam chịu lời nguyền trái ngang này, cô tìm gặp người duy nhất thoát nạn trong mười sáu năm qua để học hỏi kinh nghiệm, người ta liền trèo lên bậu cửa sổ ngay trước mắt cô, lao đầu xuống sân và chết.",Quantity=10, Img="/images/merchant/Khang Book/books/12.jpg",Rating=0,RatingNumber=0},
-                    new Book(){Status=Status.Active, BookTitle="Tự học tiếng Đức",Author="Paul Coggle & Heiner Schenke",BookCategoryFK=5,MerchantFK=2,isPaperback=false,UnitPrice=165000, Length=14, Height=2, Width=20,PageNumber=318,Description="Tự Học Tiếng Đức Cho Người Mới Bắt Đầu là cuốn giáo trình tự học tiếng Đức hoàn chỉnh nhất và được biên soạn công phu nhằm giúp người học nâng cao bốn kỹ năng của mình: Nghe, Nói, Đọc, Viết.",Quantity=10, Img="/images/merchant/Trâm Store/books/13.jpg",Rating=0,RatingNumber=0},
-                    new Book(){Status=Status.Active, BookTitle="Thám tử lừng danh Conan (Tập 93)",Author="Aoyama Gosho",BookCategoryFK=6,MerchantFK=1,isPaperback=false,UnitPrice=18000, Length=18, Height=1, Width=11,PageNumber=192,Description="Thi thể đã biến đi đâu!? “Vụ án xác chết biến mất trong bể bơi” sẽ được làm sáng tỏ! Bên cạnh đó, bóng dáng “Rum”, nhân vật quyền lực thứ 2 của tổ chức Áo Đen sẽ theo sát Conan và Haibara!?",Quantity=12, Img="/images/merchant/Khang Book/books/14.jpg",Rating=0,RatingNumber=0},
-                    new Book(){Status=Status.Active, BookTitle="Khéo ăn nói sẽ có được thiên hạ",Author="Trác Nhã",BookCategoryFK=7,MerchantFK=2,isPaperback=false,UnitPrice=145000, Length=16, Height=3, Width=23,PageNumber=403,Description="Như thế nào mới gọi là biết cách ăn nói? Nói năng lưu loát, không ấp úng có được gọi là biết cách nói chuyện không? Nói ngắn gọn, nói ít nhưng ý nghĩa thâm sâu có được gọi là biết cách nói chuyện không?",Quantity=12, Img="/images/merchant/Trâm Store/books/15.jpg",Rating=0,RatingNumber=0},
-                    new Book(){Status=Status.Active, BookTitle="7 thói quen hiệu quả",Author="Stephen R.Covey",BookCategoryFK=8,MerchantFK=1,isPaperback=false,UnitPrice=18000, Length=15, Height=3, Width=23,PageNumber=476,Description="Tác phẩm 7 Thói quen Hiệu quả / 7 Habits for Highly Effective People đã ra đời hơn 25 năm, được biết đến là cuốn sách quản trị (quản trị bản thân và quản trị tổ chức) bán chạy nhất mọi thời đại với hơn 30 triệu bản bán ra trên toàn thế giới và được dịch sang 40 ngôn ngữ. Sách có mặt tại thị trường Việt Nam hơn 10 năm nay dưới cái tên 7 Thói quen để Thành đạt.", Quantity=0, Img="/images/merchant/Khang Book/books/16.jpg",Rating=0,RatingNumber=0},
-                    new Book(){Status=Status.Active, BookTitle="Phép màu để trở thành chính mình",Author="Nhan Húc Quân",BookCategoryFK=9,MerchantFK=2,isPaperback=false,UnitPrice=99000, Length=13, Height=2, Width=20,PageNumber=260,Description="Cuốn sách Phép màu để trở thành chính mình chính là những đúc kết thành công qua những nỗ lực vượt khó của tác giả, từ khi bắt đầu lập nghiệp cho đến bây giờ - là Tổng Giám đốc New Toyo Việt Nam. Là phụ nữ, con đường lập nghiệp không hề đơn giản, và càng không hề đơn giản hơn đối với bản thân tác giả - là một phụ nữ làm việc trong một môi trường mà chỉ có sức lực người đàn ông nhiều khi mới đảm đương nổi.", Quantity=2, Img="/images/merchant/Trâm Store/books/17.jpg",Rating=0,RatingNumber=0},
-                    new Book(){Status=Status.Active, BookTitle="Tiếp thị 4.0",Author="Philip Kopler",BookCategoryFK=10,MerchantFK=1,isPaperback=false,UnitPrice=10000, Length=13, Height=2, Width=20,PageNumber=260,Description="Quyển cẩm nang vô cùng cần thiết cho những người làm tiếp thị trong thời đại số. Được viết bởi cha đẻ ngành tiếp thị hiện đại, cùng hai đồng tác giả là lãnh đạo của công ty MarkPlus, quyển sách sẽ giúp bạn lèo lái thế giới không ngừng kết nối và khách hàng không ngừng thay đổi để có được nhiều khách hàng hơn, xây dựng thương hiệu hiệu quả hơn, và cuối cùng kinh doanh thành công hơn. Ngày nay khách hàng không có nhiều thời gian và sự chú ý dành cho thương hiệu của bạn – và họ còn bị bao quanh bởi vô số các chọn lựa.", Quantity=9, Img="/images/merchant/Khang Book/books/18.jpg",Rating=0,RatingNumber=0},
-                    new Book(){Status=Status.Active, BookTitle="Phép lạ",Author="Tạ Duy Anh",BookCategoryFK=11,MerchantFK=2,isPaperback=false,UnitPrice=37000, Length=13, Height=1, Width=20,PageNumber=120,Description="Truyện vừa Phép lạ kể về chuyến nghỉ hè của một cô bé thành phố yếu ớt bị bệnh tim bẩm sinh, từ nhỏ vốn luôn phải nép mình trong những quy tắc nghiêm ngặt về môi trường sống, hạn chế tiếp xúc với bên ngoài ồn ào phức tạp.", Quantity=29, Img="/images/merchant/Trâm Store/books/19.jpg",Rating=0,RatingNumber=0},
-                    new Book(){Status=Status.Active, BookTitle="Nuôi con không phải là cuộc chiến",Author="Mẹ Ong Bông",BookCategoryFK=12,MerchantFK=1,isPaperback=false,UnitPrice=79000, Length=15, Height=2, Width=24,PageNumber=316,Description="Nuôi con không phải là cuộc chiến là cuốn sách của tác giả Việt giúp mẹ hiểu hơn về chu kỳ sinh học của con để có thể nuôi dưỡng bé được tốt hơn thông qua những phương pháp đã được cả thế giới công nhận.", Quantity=29, Img="/images/merchant/Khang Book/books/20.jpg",Rating=0,RatingNumber=0},
-                    new Book(){Status=Status.Active, BookTitle="Tắt đèn",Author="Ngô Tất Tố",BookCategoryFK=13,MerchantFK=2,isPaperback=false,UnitPrice=45000, Length=13, Height=2, Width=20,PageNumber=264,Description="Tắt đèn của nhà văn Ngô Tất Tố phản ánh rất chân thực cuộc sống khốn khổ của tầng lớp nông dân Việt Nam đầu thế kỷ XX dưới ách đô hộ của thực dân Pháp. Tác phẩm xoay quanh nhân vật chị Dậu và gia đình – một điển hình của cuộc sống bần cùng hóa sưu cao thuế nặng mà chế độ thực dân áp đặt lên xã hội Việt Nam", Quantity=29, Img="/images/merchant/Trâm Store/books/21.jpg",Rating=0,RatingNumber=0},
-                    new Book(){Status=Status.Active, BookTitle="Thương mấy cũng là người dưng",Author="Anh Khang",BookCategoryFK=14,MerchantFK=1,isPaperback=false,UnitPrice=94000, Length=12, Height=2, Width=20,PageNumber=264,Description="Thương mấy cũng là người dưng được tác giả viết “trong những ngày tủi thân nhất của thanh xuân mình. Cái quãng đời đã bước qua đủ nhiều cuộc yêu để tự thấy mình không còn dư dả tuổi trẻ, niềm tin và tình thương để phung phí; thành ra chỉ muốn nắm thật chặt bàn tay của người bên cạnh, bình bình đạm đạm đi đến cuối.", Quantity=20, Img="/images/merchant/Khang Book/books/22.jpg",Rating=0,RatingNumber=0},
-                    new Book(){Status=Status.Active, BookTitle="Doreamon Kỉ niệm (Tập 3)",Author="Fujiko.F.Fujio",BookCategoryFK=6,MerchantFK=2,isPaperback=false,UnitPrice=16000, Length=11, Height=1, Width=17,PageNumber=196,Description="Những câu chuyện về chú mèo máy thông minh Doraemon và nhóm bạn Nobita, Shizuka, Jaian, Dekisugi sẽ đưa chúng ta bước vào thế giới hồn nhiên, trong sáng, đầy ắp tiếng cười với một kho bảo bối kì diệu - những bảo bối biến giấc mơ của chúng ta thành sự thật.", Quantity=20, Img="/images/merchant/Trâm Store/books/23.jpg",Rating=0,RatingNumber=0},
-                    new Book(){Status=Status.Active, BookTitle="Khẩu ngữ tiếng Thái",Author="Bình Minh",BookCategoryFK=5,MerchantFK=1,isPaperback=false,UnitPrice=89000, Length=13, Height=1, Width=20,PageNumber=196,Description="Cuốn sách là phương tiện hữu ích giúp những người có nhu cầu học tiếng Thái có thể chuẩn bị cho mình vốn từ vựng cơ bản để có thể tự tin hơn khi giao tiếp với người bản địa ở những tình huống phổ biến.", Quantity=20, Img="/images/merchant/Khang Book/books/24.jpg",Rating=0,RatingNumber=0},
-                    new Book(){Status=Status.Active, BookTitle="Thế giới phẳng",Author="Thomas L. Friedman",BookCategoryFK=10,MerchantFK=2,isPaperback=false,UnitPrice=272000, Length=16, Height=4, Width=23,PageNumber=720,Description="Trong xu thế toàn cầu hóa, việc tiếp cận và tham khảo những tri thức đương đại từ những nước đã phát triển về sự chuyển động của thế giới (đang ở bước ngoặt từ “tròn” sang “phẳng”, như cách nói của tác giả) có lẽ sẽ giúp chúng ta có thêm những thông tin bổ ích để có sự chủ động trong quá trình hội nhập.", Quantity=20, Img="/images/merchant/Trâm Store/books/25.jpg",Rating=0,RatingNumber=0},
-                    new Book(){Status=Status.Active, BookTitle="Sức mạnh của thói quen",Author="Charles Duhigg",BookCategoryFK=8,MerchantFK=1,isPaperback=false,UnitPrice=149000, Length=13, Height=3, Width=20,PageNumber=443,Description="Sức mạnh của thói quen sẽ làm bạn say mê bởi những ý tưởng thú vị, những nghiên cứu ấn tượng, những phân tích thông minh và những lời khuyên thiết thực. Những độc giả đưa cuốn sách này vào danh sách bestseller của Thời báo New York suốt 40 tuần đã kiểm chứng điều đó.", Quantity=20, Img="/images/merchant/Khang Book/books/26.jpg",Rating=0,RatingNumber=0},
-                    new Book(){Status=Status.Active, BookTitle="Bài học diệu kỳ từ chiếc xe rác",Author="David J.Pollay",BookCategoryFK=8,MerchantFK=2,isPaperback=false,UnitPrice=30000, Length=10, Height=3, Width=15,PageNumber=112,Description="Bạn có dễ bị tác động bởi cách hành xử của người khác không? Liệu một tài xế taxi chạy ẩu, người phục vụ bàn thô lỗ, người quản lý nóng nảy hay một đồng nghiệp vô ý có phá hỏng một ngày tốt đẹp của bạn không?", Quantity=20, Img="/images/merchant/Trâm Store/books/27.jpg",Rating=0,RatingNumber=0},
-                    new Book(){Status=Status.Active, BookTitle="Người xưa đã quên ngày xưa",Author="Anh Khang",BookCategoryFK=14,MerchantFK=1,isPaperback=false,UnitPrice=89000, Length=12, Height=2, Width=20,PageNumber=216,Description="Sự trở lại của hiện tượng xuất bản – nhà văn của nỗi buồn tuổi trẻ. Cảm ơn người, vì đã từng một lần nắm lấy tay nhau.", Quantity=20, Img="/images/merchant/Khang Book/books/28.jpg",Rating=0,RatingNumber=0},
-                    new Book(){Status=Status.Active, BookTitle="Truyện cổ Grimm",Author="Jakob Grim - Vilhelm Grim",BookCategoryFK=11,MerchantFK=2,isPaperback=false,UnitPrice=118000, Length=18, Height=1, Width=24,PageNumber=196,Description="Truyện cổ Grimm là một trong số ít những tác phẩm được dịch ra nhiều thứ tiếng nhất trên thế giới. Gần hai thế kỉ sắp qua từ ngày tập truyện cổ dân gian Đức do hai anh em Grimm sưu tầm ra đời, tác phẩm này vẫn là một nguồn cảm hứng dồi dào, mang lại cho bạn đọc niềm vui vô tận, nhắc nhở mọi thế hệ trên toàn cầu một đạo lí nhân bản.", Quantity=20, Img="/images/merchant/Trâm Store/books/29.jpg",Rating=0,RatingNumber=0},
-                    new Book(){Status=Status.Active, BookTitle="Tôi tư duy tôi thành đạt",Author="John C. Maxwell",BookCategoryFK=7,MerchantFK=1,isPaperback=false,UnitPrice=109000, Length=15, Height=1, Width=20,PageNumber=126,Description="Những người tư duy tốt luôn luôn có rất nhiều mong muốn và đòi hỏi. Những người biết đặt câu hỏi “làm thế nào” luôn  tìm được một công việc hợp lý, còn những người biết đặt câu hỏi “tại sao” thì luôn luôn trở thành những nhà lãnh đạo.", Quantity=0, Img="/images/merchant/Khang Book/books/30.jpg",Rating=0,RatingNumber=0},
-                    new Book(){Status=Status.Active, BookTitle="Ngày xưa có một con bò",Author="Camilo Cruz",BookCategoryFK=10,MerchantFK=2,isPaperback=false,UnitPrice=62000, Length=13, Height=1, Width=20,PageNumber=148,Description="Nếu bạn vẫn muốn nuôi bò, vẫn muốn “ăn mày quá khứ” thì có lẽ cuốn sách này không dành cho bạn. Cuốn sách này chỉ dành cho những người đang nuôi bò và mong muốn được tiêu diệt con bò của chính mình.", Quantity=10, Img="/images/merchant/Trâm Store/books/31.jpg",Rating=0,RatingNumber=0},
-                    new Book(){Status=Status.Active, BookTitle="Lối sống tối giản của người Nhật",Author="Camilo Cruz",BookCategoryFK=7,MerchantFK=1,isPaperback=false,UnitPrice=95000, Length=13, Height=1, Width=20,PageNumber=148,Description="Lối sống tối giản là cách sống cắt giảm vật dụng xuống còn mức tối thiểu. Và cùng với cuộc sống ít đồ đạc, ta có thể để tâm nhiều hơn tới hạnh phúc, đó chính là chủ đề của cuốn sách này.", Quantity=10, Img="/images/merchant/Khang Book/books/32.jpg",Rating=0,RatingNumber=0},
-                    new Book(){Status=Status.Active, BookTitle="Cẩm nang tự học IETLS",Author="Kiên Trần",BookCategoryFK=5,MerchantFK=2,isPaperback=false,UnitPrice=90000, Length=16, Height=2, Width=24,PageNumber=188,Description="Cuốn sách này khác với các cuốn sách khác ở chỗ nó tập trung thay đổi belief system của bạn thay vì cố nhồi nhét thêm từ vựng hay ngữ pháp khiến bạn… gấp sách lại để năm sau đọc tiếp.", Quantity=0, Img="/images/merchant/Trâm Store/books/33.jpg",Rating=0,RatingNumber=0},
-                    new Book(){Status=Status.Active, BookTitle="Khi tài năng không theo kịp giấc mơ",Author="Mèo Maverick",BookCategoryFK=7,MerchantFK=1,isPaperback=false,UnitPrice=82000, Length=13, Height=1, Width=20,PageNumber=256,Description="Khi tài năng không theo kịp giấc mơ, bạn sẽ lựa chọn từ bỏ, hay cố gắng hết sức để vươn tới ước mơ ấy?", Quantity=10, Img="/images/merchant/Khang Book/books/34.jpg",Rating=0,RatingNumber=0},
-                    new Book(){Status=Status.Active, BookTitle="Thất tịch không mưa",Author="Lâu Vũ Tình",BookCategoryFK=13,MerchantFK=2,isPaperback=false,UnitPrice=79000, Length=13, Height=2, Width=20,PageNumber=319,Description="Cái chết - có nhiều người sẽ xem nó là một điều tồi tệ nhất, nhưng với cái chết trong câu chuyện này thì nó là cách giải thoát cho họ khỏi số phận đầy bi ai và đau đớn đến xé lòng kia.", Quantity=20, Img="/images/merchant/Trâm Store/books/35.jpg",Rating=0,RatingNumber=0},
-                    new Book(){Status=Status.Active, BookTitle="Tớ thích cậu hơn cả Harvard",Author="Lan Rùa",BookCategoryFK=13,MerchantFK=1,isPaperback=false,UnitPrice=98000, Length=13, Height=2, Width=20,PageNumber=369,Description="Tuổi trẻ đầy mộng mơ và tươi đẹp của ai cũng đã từng có một chàng trai bàn bên, một cô nàng lớp kế, một người mà chúng ta dùng tất cả mọi sự thuần khiết và vô tư của mình để tưởng nhớ về một thời Thanh Xuân ấy.", Quantity=10, Img="/images/merchant/Khang Book/books/36.jpg",Rating=0,RatingNumber=0},
-                    new Book(){Status=Status.Active, BookTitle="Để con được ốm",Author="Uyên Bùi - BS. Trí Đoàn",BookCategoryFK=12,MerchantFK=2,isPaperback=false,UnitPrice=95000, Length=13, Height=1, Width=20,PageNumber=300,Description="Cuốn sách sẽ giúp các bậc phụ huynh trang bị một số kiến thức cơ bản trong việc chăm sóc trẻ một cách khoa học và góp phần giúp các mẹ và những-người-sẽ-là-mẹ trở nên tự tin hơn trong việc chăm con, xua tan đi những lo lắng, để mỗi em bé ra đời đều được hưởng sự chăm sóc tốt nhất.", Quantity=10, Img="/images/merchant/Trâm Store/books/37.jpg",Rating=0,RatingNumber=0},
-                    new Book(){Status=Status.Active, BookTitle="Dám nghĩ lớn",Author="David J. Schwartz. Ph.D",BookCategoryFK=12,MerchantFK=1,isPaperback=false,UnitPrice=98000, Length=13, Height=1, Width=20,PageNumber=200,Description="Bạn không cần phải thông minh tuyệt đỉnh hay tài năng xuất chúng mới đạt được thành công lớn lao, bạn chỉ cần rèn luyện và áp dụng thường xuyên tư duy Dám Nghĩ Lớn. Và đây là những điều diệu kỳ mà cuốn sách sẽ mang đến cho bạn.", Quantity=10, Img="/images/merchant/Khang Book/books/38.jpg",Rating=0,RatingNumber=0},
-                    new Book(){Status=Status.Active, BookTitle="Nói nhiều không bằng nói đúng",Author="2.1/2 Bạn Tốt",BookCategoryFK=8,MerchantFK=2,isPaperback=false,UnitPrice=50000, Length=13, Height=1, Width=20,PageNumber=120,Description="Nói chuyện không dễ nghe sẽ khiến mọi người phản cảm và xa cách bạn, đồng thời dẫn đến việc bạn trở thành người có ấn tượng xấu. Lời nói hay như những giai điệu đẹp, ai cũng muốn nghe.", Quantity=10, Img="/images/merchant/Trâm Store/books/39.jpg",Rating=0,RatingNumber=0},
-                    new Book(){Status=Status.Active, BookTitle="Ai ở sau lưng bạn thế?",Author="Accototo",BookCategoryFK=11,MerchantFK=1,isPaperback=false,UnitPrice=30000, Length=17, Height=1, Width=24,PageNumber=32,Description="Ai ở sau lưng bạn thế? là bộ truyện Ehon Nhật Bản gồm 6 cuốn dành cho các bé từ 0 - 3 tuổi theo chủ đề về các loài động vật. Điểm thú vị của truyện chính là những bức tranh gồm một loài động vật cụ thể và một phần chi tiết về một con vật khác.", Quantity=89, Img="/images/merchant/Khang Book/books/40.jpg",Rating=0,RatingNumber=0},
+                    new Book(){Status=Status.Active, BookTitle="Đời ngắn đừng ngủ dài",Author="Robins Sharma",BookCategoryFK=4,MerchantFK=2,isPaperback=true,UnitPrice=46000, Length=21, Height=2, Width=13,PageNumber=239,Description="Bằng những lời chia sẻ thật ngắn gọn, dễ hiểu về những trải nghiệm và suy ngẫm trong đời, Robin Sharma tiếp tục phong cách viết của ông từ cuốn sách Điều vĩ đại đời thường để mang đến cho độc giả những bài viết như lời tâm sự, vừa chân thành vừa sâu sắc.",Quantity=50,Img="/images/merchant/Trâm Store/books/2.jpg"},
+                    new Book(){Status=Status.Active, BookTitle="Nếu tôi biết khi còn 20",Author="Tina Seelig",BookCategoryFK=4,MerchantFK=1,isPaperback=true,UnitPrice=44000, Length=21, Height=2, Width=14,PageNumber=252,Description="Thông qua quyển sách, tác giả còn muốn các độc giả, đặc biệt là độc giả trẻ, sẽ được  bị đủ sự tự tin để biến căng thẳng thành sự hào hứng, biến thử thách thành các cơ hội, và cứ sau mỗi lần vấp ngã lại đứng lên trưởng thành hơn.",Quantity=50,Img="/images/merchant/Khang Book/books/3.jpg"},
+                    new Book(){Status=Status.Active, BookTitle="Café sáng cùng Tony",Author="Tony",BookCategoryFK=4,MerchantFK=1,isPaperback=false,UnitPrice=55000, Length=21, Height=3, Width=15,PageNumber=323,Description="Chúng tôi tin rằng những người trẻ tuổi luôn mang trong mình khát khao vươn lên và tấm lòng hướng thiện, và có nhiều cách để động viên họ biến điều đó thành hành động. Nếu như tập sách nhỏ này có thể khơi gợi trong lòng bạn đọc trẻ một cảm hứng tốt đẹp, như tách cà phê thơm vào đầu ngày nắng mới, thì đó là niềm vui lớn của tác giả Tony Buổi Sáng.",Quantity=46,Img="/images/merchant/Khang Book/books/4.jpg"},
+                    new Book(){Status=Status.Active, BookTitle="Tuổi trẻ đáng giá bao nhiêu ?",Author="Chi",BookCategoryFK=4,MerchantFK=2,isPaperback=true,UnitPrice=65000, Length=21, Height=2, Width=16,PageNumber=234,Description="Hãy đọc sách, nếu bạn đọc sách một cách bền bỉ, sẽ đến lúc bạn bị thôi thúc không ngừng bởi ý muốn viết nên cuốn sách của riêng mình. Nếu tôi còn ở tuổi đôi mươi, hẳn là tôi sẽ đọc Tuổi trẻ đáng giá bao nhiêu? nhiều hơn một lần.",Quantity=45,Img="/images/merchant/Trâm Store/books/5.jpg"},
+                    new Book(){Status=Status.Active, BookTitle="Tokyo Hoàng Đạo Án",Author="Soji Shimada",BookCategoryFK=1,MerchantFK=1,isPaperback=false,UnitPrice=45000, Length=21, Height=2, Width=17,PageNumber=332,Description="Tiểu thuyết trinh thám kinh dị",Quantity=47,Img="/images/merchant/Khang Book/books/6.jpg"},
+                    new Book(){Status=Status.Active, BookTitle="Athoner",Author="Yukito Ayatsuji",BookCategoryFK=1,MerchantFK=2,isPaperback=true,UnitPrice=40000, Length=21, Height=2, Width=18,PageNumber=231,Description="Hai mươi sáu năm về trước có một học sinh hoàn thiện hoàn mĩ. Rất đẹp, rất giỏi, rất hòa đồng, ai cũng yêu quý, những lời tán tụng người ấy được truyền mãi qua các thế hệ học sinh của trường. Nhưng tên đầy đủ là gì, chết đi thế nào, thậm chí giới tính ra sao lại không một ai hay biết. Người ta chỉ rỉ tai nhau, bỗng nhiên giữa năm bạn ấy chết, trường lớp không sao thoát được nỗi buồn nhớ thương, họ bèn cư xử như thể học sinh này còn tồn tại. Bàn ghế để nguyên, bạn cùng lớp vẫn giả vờ nói chuyện với người đã khuất.",Quantity=34,Img="/images/merchant/Trâm Store/books/7.jpg"},
+                    new Book(){Status=Status.Active, BookTitle="Kỹ Thuật Làm Bánh Ngọt",Author="Thảo Đoàn",BookCategoryFK=2,MerchantFK=1,isPaperback=true,UnitPrice=20000, Length=32, Height=450, Width=19,PageNumber=332,Description="Cuốn Sách Cho Người Bắt Đầu Học Làm Bánh là những kiến thức cơ bản nhất mà một người bắt đầu làm quen với bột, lò nướng cần có: Gồm các kiến thức chung về nguyên liệu, dụng cụ làm bánh, các kỹ năng làm bánh cơ bản. Cuốn sách còn cung cấp các công thức làm bánh Cookies. Muffin, Cream Cake, Tart đơn giản, dễ làm nhưng cũng rất hấp dẫn, ngon miệng.",Quantity=43,Img="/images/merchant/Khang Book/books/8.jpg"},
+                    new Book(){Status=Status.Active, BookTitle="150 Thuật Ngữ Văn Học",Author="Lại Nguyên Ân",BookCategoryFK=2,MerchantFK=2,isPaperback=false,UnitPrice=10000, Length=7, Height=4, Width=20,PageNumber=588,Description="150 Thuật Ngữ Văn Học - Với khoảng trên 150 mục từ THUẬT NGỮ VĂN HỌC, cuốnsách nhỏ này chưa thể bao quát toàn bộ các bình diện, cấp độ, sắc thái của một loại hiện tượng văn hoá nhân bản đặc sắc và vô cùng phong phú là văn học và các chuyên ngành nghiên cứu nó…",Quantity=42,Img="/images/merchant/Trâm Store/books/9.png"},
+                    new Book(){Status=Status.Active, BookTitle="Truyện ngụ ngôn Êdốp",Author="êdop",BookCategoryFK=3,MerchantFK=1,isPaperback=true,UnitPrice=36000, Length=13, Height=1, Width=21,PageNumber=46,Description="Truyện tranh thiếu nhi",Quantity=46,Img="/images/merchant/Khang Book/books/10.jpg"},
+                    new Book(){Status=Status.Active, BookTitle="Alixơ ở xứ sở diệu kỳ",Author="Hàn Thuyên",BookCategoryFK=3,MerchantFK=2,isPaperback=false,UnitPrice=120000, Length=21, Height=2, Width=22,PageNumber=132,Description="Truyện tranh thiếu nhi",Quantity=46,Img="/images/merchant/Trâm Store/books/11.jpg"},
+                    new Book(){Status=Status.Active, BookTitle="Kỳ án ánh trăng",Author="Quỷ Cổ Nữ",BookCategoryFK=1,MerchantFK=1,isPaperback=false,UnitPrice=165000, Length=24, Height=3, Width=15,PageNumber=528,Description="Người tới số năm nay là Diệp Hinh. Không cam chịu lời nguyền trái ngang này, cô tìm gặp người duy nhất thoát nạn trong mười sáu năm qua để học hỏi kinh nghiệm, người ta liền trèo lên bậu cửa sổ ngay trước mắt cô, lao đầu xuống sân và chết.",Quantity=10, Img="/images/merchant/Khang Book/books/12.jpg"},
+                    new Book(){Status=Status.Active, BookTitle="Tự học tiếng Đức",Author="Paul Coggle & Heiner Schenke",BookCategoryFK=5,MerchantFK=2,isPaperback=false,UnitPrice=165000, Length=14, Height=2, Width=20,PageNumber=318,Description="Tự Học Tiếng Đức Cho Người Mới Bắt Đầu là cuốn giáo trình tự học tiếng Đức hoàn chỉnh nhất và được biên soạn công phu nhằm giúp người học nâng cao bốn kỹ năng của mình: Nghe, Nói, Đọc, Viết.",Quantity=10, Img="/images/merchant/Trâm Store/books/13.jpg"},
+                    new Book(){Status=Status.Active, BookTitle="Thám tử lừng danh Conan (Tập 93)",Author="Aoyama Gosho",BookCategoryFK=6,MerchantFK=1,isPaperback=false,UnitPrice=18000, Length=18, Height=1, Width=11,PageNumber=192,Description="Thi thể đã biến đi đâu!? “Vụ án xác chết biến mất trong bể bơi” sẽ được làm sáng tỏ! Bên cạnh đó, bóng dáng “Rum”, nhân vật quyền lực thứ 2 của tổ chức Áo Đen sẽ theo sát Conan và Haibara!?",Quantity=12, Img="/images/merchant/Khang Book/books/14.jpg"},
+                    new Book(){Status=Status.Active, BookTitle="Khéo ăn nói sẽ có được thiên hạ",Author="Trác Nhã",BookCategoryFK=7,MerchantFK=2,isPaperback=false,UnitPrice=145000, Length=16, Height=3, Width=23,PageNumber=403,Description="Như thế nào mới gọi là biết cách ăn nói? Nói năng lưu loát, không ấp úng có được gọi là biết cách nói chuyện không? Nói ngắn gọn, nói ít nhưng ý nghĩa thâm sâu có được gọi là biết cách nói chuyện không?",Quantity=12, Img="/images/merchant/Trâm Store/books/15.jpg"},
+                    new Book(){Status=Status.Active, BookTitle="7 thói quen hiệu quả",Author="Stephen R.Covey",BookCategoryFK=8,MerchantFK=1,isPaperback=false,UnitPrice=18000, Length=15, Height=3, Width=23,PageNumber=476,Description="Tác phẩm 7 Thói quen Hiệu quả / 7 Habits for Highly Effective People đã ra đời hơn 25 năm, được biết đến là cuốn sách quản trị (quản trị bản thân và quản trị tổ chức) bán chạy nhất mọi thời đại với hơn 30 triệu bản bán ra trên toàn thế giới và được dịch sang 40 ngôn ngữ. Sách có mặt tại thị trường Việt Nam hơn 10 năm nay dưới cái tên 7 Thói quen để Thành đạt.", Quantity=0, Img="/images/merchant/Khang Book/books/16.jpg"},
+                    new Book(){Status=Status.Active, BookTitle="Phép màu để trở thành chính mình",Author="Nhan Húc Quân",BookCategoryFK=9,MerchantFK=2,isPaperback=false,UnitPrice=99000, Length=13, Height=2, Width=20,PageNumber=260,Description="Cuốn sách Phép màu để trở thành chính mình chính là những đúc kết thành công qua những nỗ lực vượt khó của tác giả, từ khi bắt đầu lập nghiệp cho đến bây giờ - là Tổng Giám đốc New Toyo Việt Nam. Là phụ nữ, con đường lập nghiệp không hề đơn giản, và càng không hề đơn giản hơn đối với bản thân tác giả - là một phụ nữ làm việc trong một môi trường mà chỉ có sức lực người đàn ông nhiều khi mới đảm đương nổi.", Quantity=2, Img="/images/merchant/Trâm Store/books/17.jpg"},
+                    new Book(){Status=Status.Active, BookTitle="Tiếp thị 4.0",Author="Philip Kopler",BookCategoryFK=10,MerchantFK=1,isPaperback=false,UnitPrice=10000, Length=13, Height=2, Width=20,PageNumber=260,Description="Quyển cẩm nang vô cùng cần thiết cho những người làm tiếp thị trong thời đại số. Được viết bởi cha đẻ ngành tiếp thị hiện đại, cùng hai đồng tác giả là lãnh đạo của công ty MarkPlus, quyển sách sẽ giúp bạn lèo lái thế giới không ngừng kết nối và khách hàng không ngừng thay đổi để có được nhiều khách hàng hơn, xây dựng thương hiệu hiệu quả hơn, và cuối cùng kinh doanh thành công hơn. Ngày nay khách hàng không có nhiều thời gian và sự chú ý dành cho thương hiệu của bạn – và họ còn bị bao quanh bởi vô số các chọn lựa.", Quantity=9, Img="/images/merchant/Khang Book/books/18.jpg"},
+                    new Book(){Status=Status.Active, BookTitle="Phép lạ",Author="Tạ Duy Anh",BookCategoryFK=11,MerchantFK=2,isPaperback=false,UnitPrice=37000, Length=13, Height=1, Width=20,PageNumber=120,Description="Truyện vừa Phép lạ kể về chuyến nghỉ hè của một cô bé thành phố yếu ớt bị bệnh tim bẩm sinh, từ nhỏ vốn luôn phải nép mình trong những quy tắc nghiêm ngặt về môi trường sống, hạn chế tiếp xúc với bên ngoài ồn ào phức tạp.", Quantity=29, Img="/images/merchant/Trâm Store/books/19.jpg"},
+                    new Book(){Status=Status.Active, BookTitle="Nuôi con không phải là cuộc chiến",Author="Mẹ Ong Bông",BookCategoryFK=12,MerchantFK=1,isPaperback=false,UnitPrice=79000, Length=15, Height=2, Width=24,PageNumber=316,Description="Nuôi con không phải là cuộc chiến là cuốn sách của tác giả Việt giúp mẹ hiểu hơn về chu kỳ sinh học của con để có thể nuôi dưỡng bé được tốt hơn thông qua những phương pháp đã được cả thế giới công nhận.", Quantity=29, Img="/images/merchant/Khang Book/books/20.jpg"},
+                    new Book(){Status=Status.Active, BookTitle="Tắt đèn",Author="Ngô Tất Tố",BookCategoryFK=13,MerchantFK=2,isPaperback=false,UnitPrice=45000, Length=13, Height=2, Width=20,PageNumber=264,Description="Tắt đèn của nhà văn Ngô Tất Tố phản ánh rất chân thực cuộc sống khốn khổ của tầng lớp nông dân Việt Nam đầu thế kỷ XX dưới ách đô hộ của thực dân Pháp. Tác phẩm xoay quanh nhân vật chị Dậu và gia đình – một điển hình của cuộc sống bần cùng hóa sưu cao thuế nặng mà chế độ thực dân áp đặt lên xã hội Việt Nam", Quantity=29, Img="/images/merchant/Trâm Store/books/21.jpg"},
+                    new Book(){Status=Status.Active, BookTitle="Thương mấy cũng là người dưng",Author="Anh Khang",BookCategoryFK=14,MerchantFK=1,isPaperback=false,UnitPrice=94000, Length=12, Height=2, Width=20,PageNumber=264,Description="Thương mấy cũng là người dưng được tác giả viết “trong những ngày tủi thân nhất của thanh xuân mình. Cái quãng đời đã bước qua đủ nhiều cuộc yêu để tự thấy mình không còn dư dả tuổi trẻ, niềm tin và tình thương để phung phí; thành ra chỉ muốn nắm thật chặt bàn tay của người bên cạnh, bình bình đạm đạm đi đến cuối.", Quantity=20, Img="/images/merchant/Khang Book/books/22.jpg"},
+                    new Book(){Status=Status.Active, BookTitle="Doreamon Kỉ niệm (Tập 3)",Author="Fujiko.F.Fujio",BookCategoryFK=6,MerchantFK=2,isPaperback=false,UnitPrice=16000, Length=11, Height=1, Width=17,PageNumber=196,Description="Những câu chuyện về chú mèo máy thông minh Doraemon và nhóm bạn Nobita, Shizuka, Jaian, Dekisugi sẽ đưa chúng ta bước vào thế giới hồn nhiên, trong sáng, đầy ắp tiếng cười với một kho bảo bối kì diệu - những bảo bối biến giấc mơ của chúng ta thành sự thật.", Quantity=20, Img="/images/merchant/Trâm Store/books/23.jpg"},
+                    new Book(){Status=Status.Active, BookTitle="Khẩu ngữ tiếng Thái",Author="Bình Minh",BookCategoryFK=5,MerchantFK=1,isPaperback=false,UnitPrice=89000, Length=13, Height=1, Width=20,PageNumber=196,Description="Cuốn sách là phương tiện hữu ích giúp những người có nhu cầu học tiếng Thái có thể chuẩn bị cho mình vốn từ vựng cơ bản để có thể tự tin hơn khi giao tiếp với người bản địa ở những tình huống phổ biến.", Quantity=20, Img="/images/merchant/Khang Book/books/24.jpg"},
+                    new Book(){Status=Status.Active, BookTitle="Thế giới phẳng",Author="Thomas L. Friedman",BookCategoryFK=10,MerchantFK=2,isPaperback=false,UnitPrice=272000, Length=16, Height=4, Width=23,PageNumber=720,Description="Trong xu thế toàn cầu hóa, việc tiếp cận và tham khảo những tri thức đương đại từ những nước đã phát triển về sự chuyển động của thế giới (đang ở bước ngoặt từ “tròn” sang “phẳng”, như cách nói của tác giả) có lẽ sẽ giúp chúng ta có thêm những thông tin bổ ích để có sự chủ động trong quá trình hội nhập.", Quantity=20, Img="/images/merchant/Trâm Store/books/25.jpg"},
+                    new Book(){Status=Status.Active, BookTitle="Sức mạnh của thói quen",Author="Charles Duhigg",BookCategoryFK=8,MerchantFK=1,isPaperback=false,UnitPrice=149000, Length=13, Height=3, Width=20,PageNumber=443,Description="Sức mạnh của thói quen sẽ làm bạn say mê bởi những ý tưởng thú vị, những nghiên cứu ấn tượng, những phân tích thông minh và những lời khuyên thiết thực. Những độc giả đưa cuốn sách này vào danh sách bestseller của Thời báo New York suốt 40 tuần đã kiểm chứng điều đó.", Quantity=20, Img="/images/merchant/Khang Book/books/26.jpg"},
+                    new Book(){Status=Status.Active, BookTitle="Bài học diệu kỳ từ chiếc xe rác",Author="David J.Pollay",BookCategoryFK=8,MerchantFK=2,isPaperback=false,UnitPrice=30000, Length=10, Height=3, Width=15,PageNumber=112,Description="Bạn có dễ bị tác động bởi cách hành xử của người khác không? Liệu một tài xế taxi chạy ẩu, người phục vụ bàn thô lỗ, người quản lý nóng nảy hay một đồng nghiệp vô ý có phá hỏng một ngày tốt đẹp của bạn không?", Quantity=20, Img="/images/merchant/Trâm Store/books/27.jpg"},
+                    new Book(){Status=Status.Active, BookTitle="Người xưa đã quên ngày xưa",Author="Anh Khang",BookCategoryFK=14,MerchantFK=1,isPaperback=false,UnitPrice=89000, Length=12, Height=2, Width=20,PageNumber=216,Description="Sự trở lại của hiện tượng xuất bản – nhà văn của nỗi buồn tuổi trẻ. Cảm ơn người, vì đã từng một lần nắm lấy tay nhau.", Quantity=20, Img="/images/merchant/Khang Book/books/28.jpg"},
+                    new Book(){Status=Status.Active, BookTitle="Truyện cổ Grimm",Author="Jakob Grim - Vilhelm Grim",BookCategoryFK=11,MerchantFK=2,isPaperback=false,UnitPrice=118000, Length=18, Height=1, Width=24,PageNumber=196,Description="Truyện cổ Grimm là một trong số ít những tác phẩm được dịch ra nhiều thứ tiếng nhất trên thế giới. Gần hai thế kỉ sắp qua từ ngày tập truyện cổ dân gian Đức do hai anh em Grimm sưu tầm ra đời, tác phẩm này vẫn là một nguồn cảm hứng dồi dào, mang lại cho bạn đọc niềm vui vô tận, nhắc nhở mọi thế hệ trên toàn cầu một đạo lí nhân bản.", Quantity=20, Img="/images/merchant/Trâm Store/books/29.jpg"},
+                    new Book(){Status=Status.Active, BookTitle="Tôi tư duy tôi thành đạt",Author="John C. Maxwell",BookCategoryFK=7,MerchantFK=1,isPaperback=false,UnitPrice=109000, Length=15, Height=1, Width=20,PageNumber=126,Description="Những người tư duy tốt luôn luôn có rất nhiều mong muốn và đòi hỏi. Những người biết đặt câu hỏi “làm thế nào” luôn  tìm được một công việc hợp lý, còn những người biết đặt câu hỏi “tại sao” thì luôn luôn trở thành những nhà lãnh đạo.", Quantity=0, Img="/images/merchant/Khang Book/books/30.jpg"},
+                    new Book(){Status=Status.Active, BookTitle="Ngày xưa có một con bò",Author="Camilo Cruz",BookCategoryFK=10,MerchantFK=2,isPaperback=false,UnitPrice=62000, Length=13, Height=1, Width=20,PageNumber=148,Description="Nếu bạn vẫn muốn nuôi bò, vẫn muốn “ăn mày quá khứ” thì có lẽ cuốn sách này không dành cho bạn. Cuốn sách này chỉ dành cho những người đang nuôi bò và mong muốn được tiêu diệt con bò của chính mình.", Quantity=10, Img="/images/merchant/Trâm Store/books/31.jpg"},
+                    new Book(){Status=Status.Active, BookTitle="Lối sống tối giản của người Nhật",Author="Camilo Cruz",BookCategoryFK=7,MerchantFK=1,isPaperback=false,UnitPrice=95000, Length=13, Height=1, Width=20,PageNumber=148,Description="Lối sống tối giản là cách sống cắt giảm vật dụng xuống còn mức tối thiểu. Và cùng với cuộc sống ít đồ đạc, ta có thể để tâm nhiều hơn tới hạnh phúc, đó chính là chủ đề của cuốn sách này.", Quantity=10, Img="/images/merchant/Khang Book/books/32.jpg"},
+                    new Book(){Status=Status.Active, BookTitle="Cẩm nang tự học IETLS",Author="Kiên Trần",BookCategoryFK=5,MerchantFK=2,isPaperback=false,UnitPrice=90000, Length=16, Height=2, Width=24,PageNumber=188,Description="Cuốn sách này khác với các cuốn sách khác ở chỗ nó tập trung thay đổi belief system của bạn thay vì cố nhồi nhét thêm từ vựng hay ngữ pháp khiến bạn… gấp sách lại để năm sau đọc tiếp.", Quantity=0, Img="/images/merchant/Trâm Store/books/33.jpg"},
+                    new Book(){Status=Status.Active, BookTitle="Khi tài năng không theo kịp giấc mơ",Author="Mèo Maverick",BookCategoryFK=7,MerchantFK=1,isPaperback=false,UnitPrice=82000, Length=13, Height=1, Width=20,PageNumber=256,Description="Khi tài năng không theo kịp giấc mơ, bạn sẽ lựa chọn từ bỏ, hay cố gắng hết sức để vươn tới ước mơ ấy?", Quantity=10, Img="/images/merchant/Khang Book/books/34.jpg"},
+                    new Book(){Status=Status.Active, BookTitle="Thất tịch không mưa",Author="Lâu Vũ Tình",BookCategoryFK=13,MerchantFK=2,isPaperback=false,UnitPrice=79000, Length=13, Height=2, Width=20,PageNumber=319,Description="Cái chết - có nhiều người sẽ xem nó là một điều tồi tệ nhất, nhưng với cái chết trong câu chuyện này thì nó là cách giải thoát cho họ khỏi số phận đầy bi ai và đau đớn đến xé lòng kia.", Quantity=20, Img="/images/merchant/Trâm Store/books/35.jpg"},
+                    new Book(){Status=Status.Active, BookTitle="Tớ thích cậu hơn cả Harvard",Author="Lan Rùa",BookCategoryFK=13,MerchantFK=1,isPaperback=false,UnitPrice=98000, Length=13, Height=2, Width=20,PageNumber=369,Description="Tuổi trẻ đầy mộng mơ và tươi đẹp của ai cũng đã từng có một chàng trai bàn bên, một cô nàng lớp kế, một người mà chúng ta dùng tất cả mọi sự thuần khiết và vô tư của mình để tưởng nhớ về một thời Thanh Xuân ấy.", Quantity=10, Img="/images/merchant/Khang Book/books/36.jpg"},
+                    new Book(){Status=Status.Active, BookTitle="Để con được ốm",Author="Uyên Bùi - BS. Trí Đoàn",BookCategoryFK=12,MerchantFK=2,isPaperback=false,UnitPrice=95000, Length=13, Height=1, Width=20,PageNumber=300,Description="Cuốn sách sẽ giúp các bậc phụ huynh trang bị một số kiến thức cơ bản trong việc chăm sóc trẻ một cách khoa học và góp phần giúp các mẹ và những-người-sẽ-là-mẹ trở nên tự tin hơn trong việc chăm con, xua tan đi những lo lắng, để mỗi em bé ra đời đều được hưởng sự chăm sóc tốt nhất.", Quantity=10, Img="/images/merchant/Trâm Store/books/37.jpg"},
+                    new Book(){Status=Status.Active, BookTitle="Dám nghĩ lớn",Author="David J. Schwartz. Ph.D",BookCategoryFK=12,MerchantFK=1,isPaperback=false,UnitPrice=98000, Length=13, Height=1, Width=20,PageNumber=200,Description="Bạn không cần phải thông minh tuyệt đỉnh hay tài năng xuất chúng mới đạt được thành công lớn lao, bạn chỉ cần rèn luyện và áp dụng thường xuyên tư duy Dám Nghĩ Lớn. Và đây là những điều diệu kỳ mà cuốn sách sẽ mang đến cho bạn.", Quantity=10, Img="/images/merchant/Khang Book/books/38.jpg"},
+                    new Book(){Status=Status.Active, BookTitle="Nói nhiều không bằng nói đúng",Author="2.1/2 Bạn Tốt",BookCategoryFK=8,MerchantFK=2,isPaperback=false,UnitPrice=50000, Length=13, Height=1, Width=20,PageNumber=120,Description="Nói chuyện không dễ nghe sẽ khiến mọi người phản cảm và xa cách bạn, đồng thời dẫn đến việc bạn trở thành người có ấn tượng xấu. Lời nói hay như những giai điệu đẹp, ai cũng muốn nghe.", Quantity=10, Img="/images/merchant/Trâm Store/books/39.jpg"},
+                    new Book(){Status=Status.Active, BookTitle="Ai ở sau lưng bạn thế?",Author="Accototo",BookCategoryFK=11,MerchantFK=1,isPaperback=false,UnitPrice=30000, Length=17, Height=1, Width=24,PageNumber=32,Description="Ai ở sau lưng bạn thế? là bộ truyện Ehon Nhật Bản gồm 6 cuốn dành cho các bé từ 0 - 3 tuổi theo chủ đề về các loài động vật. Điểm thú vị của truyện chính là những bức tranh gồm một loài động vật cụ thể và một phần chi tiết về một con vật khác.", Quantity=89, Img="/images/merchant/Khang Book/books/40.jpg"},
+                    new Book(){Status=Status.Active, BookTitle="Ngày người thương một người thương khác",Author="Trí",BookCategoryFK=4,MerchantFK=3,isPaperback=false,UnitPrice=60000, Length=22, Height=202, Width=23,PageNumber=300,Description="Sách chia sẻ những câu chuyện tình yêu lãng mạng",Quantity=50,Img="/images/merchant/Chim Shop/books/12.jpg"},
+                    new Book(){Status=Status.Active, BookTitle="Thám tử lừng danh Conan",Author="Gosho Aoyama,",BookCategoryFK=3,MerchantFK=4,isPaperback=false,UnitPrice=18000, Length=11, Height=210, Width=17,PageNumber=89,Description="Truyện tranh thể loại trinh thám",Quantity=29,Img="/images/merchant/Huy Huỳnh/books/13.jpg"},
+                    new Book(){Status=Status.Active, BookTitle="Ba người thầy vĩ đại",Author="Robin Sharma",BookCategoryFK=4,MerchantFK=5,isPaperback=false,UnitPrice=78000, Length=22, Height=442, Width=18,PageNumber=233,Description="Cuốn sổ mà cha Mike - người thầy đầu tiên ở Rome đưa cho Jack đã đúc kết 10 điều mà anh đã học được trong suốt cuộc hành trình",Quantity=189,Img="/images/merchant/Phương Nam Book/books/14.jpg"},
+                    new Book(){Status=Status.Active, BookTitle="Những Câu Chuyện Kỳ Lạ Của Darren Shan 01 - Gánh Xiếc Quái Dị ",Author="Darren Shan",BookCategoryFK=1,MerchantFK=6,isPaperback=false,UnitPrice=160000, Length=20, Height=256, Width=14,PageNumber=119,Description="Những Chuyện Kỳ Lạ Của Darren Shan với những chi tiết phong phú và sinh động, kỳ lạ, quái dị, pha lẫn chút khiếp đảm, không chỉ là những câu chuyện ma quái bình thường mà còn là chuyện kể về đời sống tự nhiên xung quanh ta, về những mối quan hệ tình bạn, tình thầy trò ngập tràn yêu thương và nhân bản.",Quantity=12,Img="/images/merchant/Nhân Company/books/15.jpg"},
+                    new Book(){Status=Status.Active, BookTitle="Bộ Sách Kinh Điển Về Phân Tâm Học",Author="Sigmund Freud",BookCategoryFK=2,MerchantFK=7,isPaperback=false,UnitPrice=190000, Length=19, Height=223, Width=29,PageNumber=189,Description="Truyện kinh dị ",Quantity=90,Img="/images/merchant/Alpha Books/books/16.jpg"},
+                    new Book(){Status=Status.Active, BookTitle="The Haunting of Hill House",Author="Shirley Disert",BookCategoryFK=1,MerchantFK=8,isPaperback=false,UnitPrice=120000, Length=21, Height=222, Width=22,PageNumber=132,Description="Truyện tranh thiếu nhi",Quantity=18,Img="/images/merchant/First News/books/17.jpg"},
+                    new Book(){Status=Status.Active, BookTitle="Tớ Thích Cậu Hơn Cả Harvard",Author="Lan Rùa",BookCategoryFK=3,MerchantFK=9,isPaperback=false,UnitPrice=120000, Length=23, Height=233, Width=20,PageNumber=98,Description="Món quà tuyệt vời cho mùa hè rực rỡ",Quantity=46,Img="/images/merchant/Linh New Style/books/18.jpg"},
+                    new Book(){Status=Status.Active, BookTitle="Bạn Có Phải Là Đứa Trẻ Sợ Hãi Ẩn Sau Lớp Vỏ Trưởng Thành",Author="Beth Evans",BookCategoryFK=4,MerchantFK=10,isPaperback=false,UnitPrice=230000, Length=27, Height=234, Width=28,PageNumber=209,Description="Cuốn sách tâm lý cùng bạn học cách trưởng thành dành cho người HƯỚNG NỘI.",Quantity=55,Img="/images/merchant/Trung Lê/books/19.jpg"},
+
+
+
                     });
 
                 }
