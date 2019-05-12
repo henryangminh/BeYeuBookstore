@@ -1099,9 +1099,9 @@ namespace BeYeuBookstore.Data.EF
                 {
                     _context.AdvertisementContents.AddRange(new List<AdvertisementContent>()
                 {
-                    new AdvertisementContent(){AdvertisementPositionFK=1, AdvertiserFK=1, Title="Bút Thiên Long", Description="Bút TL mua 3 tặng chục", UrlToAdvertisement="thienloi.vn", Deposite=2000000, CensorStatus=CensorStatus.AccountingCensored, ImageLink="/images/advertiser/Bút Kim Long/content/butthienlong.jpg", },
-                    new AdvertisementContent(){AdvertisementPositionFK=3,AdvertiserFK=3, Title="Laptop Phong Vũ", Description="Laptop khuyến mãi mùa học lại mua 10 tặng 1", UrlToAdvertisement="phongvu.vn", Deposite=2000000, CensorStatus=CensorStatus.AccountingCensored, ImageLink="/images/advertiser/Phong Vũ/content/phongvu.jpg",},
-                    new AdvertisementContent(){AdvertisementPositionFK=2, AdvertiserFK=4, Title="Tiki", Description="Săn sách giá rẻ",UrlToAdvertisement="tiki.vn",Deposite=2000000, CensorStatus=CensorStatus.AccountingCensored,ImageLink="/images/advertiser/Tiki/content/tiki.jpg", },
+                    new AdvertisementContent(){AdvertisementPositionFK=1, AdvertiserFK=1, Title="Bút Thiên Long", Description="Bút TL mua 3 tặng chục", UrlToAdvertisement="http://thienlonggroup.com", Deposite=2000000, CensorStatus=CensorStatus.AccountingCensored, ImageLink="/images/advertiser/Bút Kim Long/content/butthienlong.jpg", },
+                    new AdvertisementContent(){AdvertisementPositionFK=3,AdvertiserFK=3, Title="Laptop Phong Vũ", Description="Laptop khuyến mãi mùa học lại mua 10 tặng 1", UrlToAdvertisement="https://phongvu.vn", Deposite=2000000, CensorStatus=CensorStatus.AccountingCensored, ImageLink="/images/advertiser/Phong Vũ/content/phongvu.jpg",},
+                    new AdvertisementContent(){AdvertisementPositionFK=2, AdvertiserFK=4, Title="Tiki", Description="Săn sách giá rẻ",UrlToAdvertisement="https://tiki.vn",Deposite=2000000, CensorStatus=CensorStatus.AccountingCensored,ImageLink="/images/advertiser/Tiki/content/tiki.jpg", },
                    
                     });
 
