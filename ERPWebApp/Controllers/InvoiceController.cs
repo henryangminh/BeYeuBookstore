@@ -81,7 +81,7 @@ namespace BeYeuBookstore.Controllers
         }
 
         [HttpPost]
-        public IActionResult SaveEntity(InvoiceViewModel invoiceVm, List<InvoiceDetailViewModel> invoiceDetailVms, List<DeliveryViewModel> deliveryVms)
+        public IActionResult SaveEntity(InvoiceViewModel invoiceVm, List<InvoiceDetailViewModel> invoiceDetailVms)
         {
 
             if (!ModelState.IsValid)
@@ -98,11 +98,6 @@ namespace BeYeuBookstore.Controllers
                 {
                     item.InvoiceFK = invoiceId;
                     _invoiceDetailService.Add(item);
-                }
-                foreach (var _item in deliveryVms)
-                {
-                    _item.InvoiceFK = invoiceId;
-                    _deliveryService.Add(_item);
                 }
                     return new OkObjectResult(invoiceVm);
             }
