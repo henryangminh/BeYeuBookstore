@@ -45,46 +45,60 @@ namespace BeYeuBookstore.Application.Implementation
             return data;
         }
 
-        public PagedResult<BooksInViewModel> GetAllPaging(string fromdate, string todate, string keyword, int page, int pageSize)
+        public PagedResult<BooksInViewModel> GetAllPaging(int mId, int? merchantId ,string fromdate, string todate, string keyword, int page, int pageSize)
         {
             var query = _booksInRepository.FindAll(p => p.MerchantFKNavigation);
-            query = query.OrderByDescending(x => x.KeyId);
-            if (!string.IsNullOrEmpty(keyword))
-            {
-                var keysearch = keyword.Trim().ToUpper();
-
-                query = query.OrderBy(x => x.KeyId).Where(x => x.MerchantFKNavigation.MerchantCompanyName.ToUpper().Contains(keysearch));
-
-            }
-
-            if (!string.IsNullOrEmpty(fromdate))
-            {
-                var date = DateTime.Parse(fromdate);
-                TimeSpan ts = new TimeSpan(0, 0, 0);
-                DateTime _fromdate = date.Date + ts;
-                query = query.Where(x => x.DateCreated >= _fromdate);
-
-            }
-            if (!string.IsNullOrEmpty(todate))
-            {
-                var date = DateTime.Parse(todate);
-                TimeSpan ts = new TimeSpan(23, 59, 59);
-                DateTime _todate = date.Date + ts;
-                query = query.Where(x => x.DateCreated <= _todate);
-
-            }
-
-
-            int totalRow = query.Count();
-
-            query = query.Skip((page - 1) * pageSize).Take(pageSize);
             var data = new List<BooksInViewModel>();
-            foreach (var item in query)
+            if (query.Count() != 0)
             {
-                var _data = Mapper.Map<BooksIn, BooksInViewModel>(item);
-                data.Add(_data);
-            }
 
+                query = query.OrderByDescending(x => x.KeyId);
+                if (!string.IsNullOrEmpty(keyword))
+                {
+                    var keysearch = keyword.Trim().ToUpper();
+
+                    query = query.OrderBy(x => x.KeyId).Where(x => x.MerchantFKNavigation.MerchantCompanyName.ToUpper().Contains(keysearch));
+
+                }
+
+                if (!string.IsNullOrEmpty(fromdate))
+                {
+                    var date = DateTime.Parse(fromdate);
+                    TimeSpan ts = new TimeSpan(0, 0, 0);
+                    DateTime _fromdate = date.Date + ts;
+                    query = query.Where(x => x.DateCreated >= _fromdate);
+
+                }
+                if (!string.IsNullOrEmpty(todate))
+                {
+                    var date = DateTime.Parse(todate);
+                    TimeSpan ts = new TimeSpan(23, 59, 59);
+                    DateTime _todate = date.Date + ts;
+                    query = query.Where(x => x.DateCreated <= _todate);
+
+                }
+                if (mId != 0)
+                {
+                    query = query.Where(x => x.MerchantFK == mId);
+                }
+
+                if (merchantId != 0)
+                {
+                    query = query.Where(x => x.MerchantFK == mId);
+                }
+
+
+              
+
+                query = query.Skip((page - 1) * pageSize).Take(pageSize);
+                
+                foreach (var item in query)
+                {
+                    var _data = Mapper.Map<BooksIn, BooksInViewModel>(item);
+                    data.Add(_data);
+                }
+            }
+            int totalRow = query.Count();
             var paginationSet = new PagedResult<BooksInViewModel>()
             {
                 Results = data,
