@@ -29,12 +29,13 @@ namespace BeYeuBookstore.Controllers
         ICustomerService _customerService;
         IInvoiceDetailService _invoiceDetailService;
         IRatingDetailService _ratingDetailService;
+        IAdvertiseContractService _advertiseContractService;
         private readonly UserManager<User> _userManager;
         private readonly SignInManager<User> _signInManager;
         private readonly ERPDbContext _context;
         private readonly IUserService _userService;
         private readonly IEmailSender _emailSender;
-        public BeyeuBookstoreController(IBookService bookService, SignInManager<User> signInManager, IUserService userService, IInvoiceService invoiceService, ICustomerService customerService, IInvoiceDetailService invoiceDetailService, IRatingDetailService ratingDetailService, UserManager<User> userManager, IEmailSender emailSender)
+        public BeyeuBookstoreController(IBookService bookService, SignInManager<User> signInManager, IUserService userService, IInvoiceService invoiceService, ICustomerService customerService, IInvoiceDetailService invoiceDetailService, IRatingDetailService ratingDetailService, UserManager<User> userManager, IEmailSender emailSender, IAdvertiseContractService advertiseContractService, ERPDbContext context)
         {
             _bookService = bookService;
             _signInManager = signInManager;
@@ -45,6 +46,8 @@ namespace BeYeuBookstore.Controllers
             _ratingDetailService = ratingDetailService;
             _userManager = userManager;
             _emailSender = emailSender;
+            _advertiseContractService = advertiseContractService;
+            _context = context;
         }
 
         public IActionResult Index()
@@ -281,16 +284,25 @@ namespace BeYeuBookstore.Controllers
                 user.Status = Data.Enums.Status.Active;
                 await _userService.UpdateAsync(Mapper.Map<User, UserViewModel>(user));
                 await _userManager.AddToRoleAsync(user, "Customer"); // add vao role
-                //_context.Customers.Add(new Customer() { UserFK = user.Id });
-                //_context.SaveChanges();
+                var customer = new Customer();
+                customer.UserFK = user.Id;
+                _context.Customers.Add(customer);
+                _context.SaveChanges();
             }
             return new RedirectResult(Url.Action("Index", "BeyeuBookstore"));
         }
 
         [HttpGet]
-        public IActionResult GetAdvertisement()
+        public IActionResult GetAdvertisement(string url)
         {
+            var query = _advertiseContractService.GetAll();
+            var date = DateTime.Now.Date;
+            query = query.Where(x => x.DateStart <= date && x.DateFinish >= date).ToList();
+            query = query.Where(x => x.Status == Data.Enums.ContractStatus.AccountingCensored).ToList();
+            url = (url == Url.Action("Index", "BeyeuBookstore")) ? "/beyeubookstore" : url;
+            query = query.Where(x => x.AdvertisementContentFKNavigation.AdvertisementPositionFKNavigation.PageUrl == url).ToList();
 
+            return new OkObjectResult(query);
         }
         #endregion
     }

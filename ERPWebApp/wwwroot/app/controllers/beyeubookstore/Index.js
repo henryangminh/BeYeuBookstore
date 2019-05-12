@@ -1,6 +1,7 @@
 ﻿var beyeubookstoreController = function () {
     this.initialize = function () {
         loadData();
+        getAdvertisement()
         registerEvents();
     }
     function registerEvents() {
@@ -145,7 +146,7 @@ function loadData(isPageChanged) {
                     //BookRating: 5.0, //item.BookRating, //Rating //Để tạm thời thôi
                     BookTitle: item.BookTitle,
                     BookPrice: general.toMoney(item.UnitPrice),
-                    LinkBook: '#',
+                    LinkBook: '?id=' + item.KeyId,
                 });
                 if ((i + 1) % 4 == 0) render += '</div>';
                 //order++;
@@ -214,4 +215,25 @@ function loadBookCategory() {
 
         },
     });
+}
+
+function getAdvertisement() {
+    $.ajax({
+        type: "GET",
+        url: "/BeyeuBookstore/GetAdvertisement",
+        dataType: 'json',
+        data: { url: window.location.pathname.toLowerCase() },
+        success: function (respond) {
+            console.log("Advertiser", respond);
+            $.each(respond, function (i, item) {
+                var idPosition = '#' + item.AdvertisementContentFKNavigation.AdvertisementPositionFKNavigation.IdOfPosition;
+                $(idPosition).attr("src", item.AdvertisementContentFKNavigation.ImageLink);
+                $(idPosition).parent().attr("href", item.AdvertisementContentFKNavigation.UrlToAdvertisement);
+                $(idPosition).parent().attr("target", "_blank");
+            })
+        },
+        error: function (e) {
+            console.log(e);
+        }
+    })
 }
