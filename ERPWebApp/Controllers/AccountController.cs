@@ -14,6 +14,8 @@ using BeYeuBookstore.Models;
 using BeYeuBookstore.Models.AccountViewModels;
 using BeYeuBookstore.Services;
 using BeYeuBookstore.Data.Entities;
+using BeYeuBookstore.Application.Interfaces.Acc;
+using BeYeuBookstore.Extensions;
 
 namespace BeYeuBookstore.Controllers
 {
@@ -22,6 +24,7 @@ namespace BeYeuBookstore.Controllers
     {
         private readonly UserManager<User> _userManager;
         private readonly SignInManager<User> _signInManager;
+        private readonly IUserService _userService;
         private readonly IEmailSender _emailSender;
         private readonly ILogger _logger;
 
@@ -29,12 +32,14 @@ namespace BeYeuBookstore.Controllers
             UserManager<User> userManager,
             SignInManager<User> signInManager,
             IEmailSender emailSender,
-            ILogger<AccountController> logger)
+            ILogger<AccountController> logger,
+            IUserService userService)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _emailSender = emailSender;
             _logger = logger;
+            _userService = userService;
         }
 
         [TempData]
@@ -76,7 +81,11 @@ namespace BeYeuBookstore.Controllers
                 var result = await _signInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, lockoutOnFailure: false);
                 if (result.Succeeded)
                 {
+                    var user = await _userService.GetByEmailAsync(model.Email);
                     _logger.LogInformation("User đăng nhập thành công .");
+                    HttpContext.Session.Set("IsLogin", true);
+                    HttpContext.Session.Set("User", user);
+                    HttpContext.Session.Remove("CartSession");
                     return RedirectToLocal(returnUrl);
                 }
                 if (result.RequiresTwoFactor)
@@ -260,6 +269,9 @@ namespace BeYeuBookstore.Controllers
           
             _logger.LogInformation("User logged out.");
             //return RedirectToAction(nameof(HomeController.Index), "Home");
+            HttpContext.Session.Remove("IsLogin");
+            HttpContext.Session.Remove("User");
+            HttpContext.Session.Remove("CartSession");
             return RedirectToAction(nameof(Login));
         }
 
