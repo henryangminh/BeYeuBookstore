@@ -10,6 +10,19 @@
             general.configs.pageIndex = 1;
             loadData(true);
         });
+
+        $('#dtBegin').on('change', function () {
+            loadData();
+        });
+
+        $('#dtEnd').on('change', function () {
+            loadData();
+        });
+
+        $('#selAdvertiser').on('change', function () {
+            loadData();
+        });
+
         $('.monthpicker').datepicker({
             format: "mm/yyyy",
             //todayBtn: "linked",
@@ -31,19 +44,30 @@ function loadData(isPageChanged) {
     $.ajax({
         type: 'GET',
         data: {
-            frommonth: $('#mthFromMonth').val(),
+            fromdate: $('#dtBegin').val(),
+            todate: $('#dtEnd').val(),
+            advertiserId: $('#selAdvertiser option:selected').val(),
             page: general.configs.pageIndex,
             pageSize: general.configs.pageSize,
         },
         url: '/AdvertiseContract/GetAllStatisticPaging',
         dataType: 'json',
+        beforeSend: function () {
+            general.startLoad();
+            general.startLoading();
+        },
         success: function (response) {
             console.log("Statisticdata", response);
 
             $.each(response.Results, function (i, item) {
-           
+                var _totalContractValuePeriod = general.toMoney(item.TotalContractValuePeriod);
+                var _totalContractValue = general.toMoney(item.TotalContractValue);
                 render += Mustache.render(template, {
-
+                    Advertiser: item.Advertiser,
+                    NoContract: item.NoOfContract,
+                    NoSuccessContract: item.NoOfSuccessContract,
+                    TotalContractValuePeriod: _totalContractValuePeriod,
+                    TotalContractValue: _totalContractValue,
 
                 });
 
@@ -53,10 +77,15 @@ function loadData(isPageChanged) {
             wrapPaging(response.RowCount, function () {
                 loadData();
             }, isPageChanged);
+            general.stopLoad();
+            general.stopLoading();
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
             console.log(status);
             general.notify('Không thể load dữ liệu', 'error');
+
+            general.stopLoad();
+            general.stopLoading();
         }
     });
 }

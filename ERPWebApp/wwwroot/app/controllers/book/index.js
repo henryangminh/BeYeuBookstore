@@ -219,6 +219,7 @@
                                             },
                                             dataType: "json",
                                             beforeSend: function () {
+                                                general.startLoad();
                                                 general.startLoading();
                                             },
                                             success: function (response) {

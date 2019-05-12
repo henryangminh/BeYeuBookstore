@@ -549,9 +549,29 @@ namespace BeYeuBookstore.Data.EF
                 {
                     _context.AdvertisementContents.AddRange(new List<AdvertisementContent>()
                 {
-                    new AdvertisementContent(){AdvertisementPositionFK=1, AdvertiserFK=1, Title="Bút Thiên Long", Description="Bút TL mua 3 tặng chục", UrlToAdvertisement="thienloi.vn", Deposite=2000000, CensorStatus=CensorStatus.Uncensored, ImageLink="/images/advertiser/Bút Kim Long/content/butthienlong.jpg", },
-                    new AdvertisementContent(){AdvertisementPositionFK=3,AdvertiserFK=3, Title="Laptop Phong Vũ", Description="Laptop khuyến mãi mùa học lại mua 10 tặng 1", UrlToAdvertisement="phongvu.vn", Deposite=2000000, CensorStatus=CensorStatus.Uncensored, ImageLink="/images/advertiser/Phong Vũ/content/phongvu.jpg",},
-                    new AdvertisementContent(){AdvertisementPositionFK=2, AdvertiserFK=4, Title="Tiki", Description="Săn sách giá rẻ",UrlToAdvertisement="tiki.vn",Deposite=2000000, CensorStatus=CensorStatus.Uncensored,ImageLink="/images/advertiser/Tiki/content/tiki.jpg", },
+                    new AdvertisementContent(){AdvertisementPositionFK=1, AdvertiserFK=1, Title="Bút Thiên Long", Description="Bút TL mua 3 tặng chục", UrlToAdvertisement="thienloi.vn", Deposite=2000000, CensorStatus=CensorStatus.AccountingCensored, ImageLink="/images/advertiser/Bút Kim Long/content/butthienlong.jpg", },
+                    new AdvertisementContent(){AdvertisementPositionFK=3,AdvertiserFK=3, Title="Laptop Phong Vũ", Description="Laptop khuyến mãi mùa học lại mua 10 tặng 1", UrlToAdvertisement="phongvu.vn", Deposite=2000000, CensorStatus=CensorStatus.AccountingCensored, ImageLink="/images/advertiser/Phong Vũ/content/phongvu.jpg",},
+                    new AdvertisementContent(){AdvertisementPositionFK=2, AdvertiserFK=4, Title="Tiki", Description="Săn sách giá rẻ",UrlToAdvertisement="tiki.vn",Deposite=2000000, CensorStatus=CensorStatus.AccountingCensored,ImageLink="/images/advertiser/Tiki/content/tiki.jpg", },
+                   
+                    });
+
+                }
+                try
+                {
+                    _context.SaveChanges();
+                }
+                catch (Exception ex)
+                {
+                    string a = ex.ToString();
+                };
+                //Seed AdContract
+                if (_context.AdvertiseContracts.Count() == 0)
+                {
+                    _context.AdvertiseContracts.AddRange(new List<AdvertiseContract>()
+                {
+                    new AdvertiseContract(){AdvertisementContentFK=3, DateStart=DateTime.Parse("2019-05-11"), DateFinish=DateTime.Parse("2019-05-13 23:59:59"), ContractValue=27000000, },
+                    new AdvertiseContract(){},
+                    new AdvertiseContract(){}
                    
                     });
 
