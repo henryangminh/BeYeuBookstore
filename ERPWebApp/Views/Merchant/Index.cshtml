@@ -1,4 +1,18 @@
-﻿
+﻿@using BeYeuBookstore.Utilities.Constants
+@using Microsoft.AspNetCore.Authorization
+@using BeYeuBookstore.Authorization
+@inject IAuthorizationService AuthorizationService
+@{
+    //kiểm tra quyền tạo đối với nut create cho hiểu thị nut
+    var result_edit = await AuthorizationService.AuthorizeAsync(User, Const_FunctionId.Merchant, Operations.Create);
+    //kiểm tra quyền tạo đối với nut delete cho hiểu thị nut
+    var result_delete = await AuthorizationService.AuthorizeAsync(User, Const_FunctionId.Merchant, Operations.Delete);
+    //kiểm tra quyền tạo đối với nut update cho hiểu thị nut
+    var result_create = await AuthorizationService.AuthorizeAsync(User, Const_FunctionId.Merchant, Operations.Update);
+    //kiểm tra quyền tạo đối với nut delete cho hiểu thị nut
+    var result_confirm = await AuthorizationService.AuthorizeAsync(User, Const_FunctionId.Merchant, Operations.Confirm);
+    var result_read = await AuthorizationService.AuthorizeAsync(User, Const_FunctionId.Merchant, Operations.Read);
+}
 @{
     ViewData["Title"] = "Index";
 }
@@ -9,7 +23,7 @@
     <script src="~/app/controllers/merchant/index.js" asp-append-version="true"></script>
     <script src="~/lib/bootstrap-datepicker/dist/js/bootstrap-datepicker.js" asp-append-version="true"></script>
     <script src="~/lib/bootstrap-datepicker/dist/locales/bootstrap-datepicker.vi.min.js" asp-append-version="true"></script>
- 
+
 
     <script>
         var merchant = new merchantController();
@@ -102,10 +116,10 @@
         <td>{{Website}}</td>
         <td>{{{Status}}}</td>
         <td>{{DirectContactName}}</td>
-        
+
         <td scope="row">
             <a class="btn btn-xs btn-default btn-edit {{{Prop}}}" {{{Prop}}} data-id="{{KeyId}}"><i class="fa fa-pencil"></i></a>
-            
+
         </td>
     </tr>
 </script>

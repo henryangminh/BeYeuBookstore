@@ -19,14 +19,16 @@ namespace BeYeuBookstore.Controllers
         IRatingDetailService _ratingDetailService;
         IBookService _bookService;
         IBooksInService _booksInService;
+        IBooksInDetailService _booksInDetailService;
         IBookCategoryService _bookCategoryService;
         IAuthorizationService _authorizationService;
         private readonly IEmailService _emailService;
         IMerchantService _merchantService;
         private readonly IHostingEnvironment _hostingEnvironment;
         IUnitOfWork _unitOfWork;
-        public BooksInController(IBooksInService booksInService,IRatingDetailService ratingDetailService, IEmailService emailService, IAuthorizationService authorizationService, IHostingEnvironment hostingEnvironment, IMerchantService merchantService, IBookCategoryService bookCategoryService, IBookService bookService, IUnitOfWork unitOfWork)
+        public BooksInController(IBooksInDetailService booksInDetailService,IBooksInService booksInService,IRatingDetailService ratingDetailService, IEmailService emailService, IAuthorizationService authorizationService, IHostingEnvironment hostingEnvironment, IMerchantService merchantService, IBookCategoryService bookCategoryService, IBookService bookService, IUnitOfWork unitOfWork)
         {
+            _booksInDetailService = booksInDetailService;
             _booksInService = booksInService;
             _ratingDetailService = ratingDetailService;
             _emailService = emailService;
@@ -96,6 +98,15 @@ namespace BeYeuBookstore.Controllers
 
 
         [HttpGet]
+        public IActionResult GetAllDetailById(int id)
+        {
+            
+                var model = _booksInDetailService.GetAllByBooksInId(id);
+                return new OkObjectResult(model);
+        }
+
+
+        [HttpGet]
         public IActionResult GetAllPaging(int mId, string fromdate, string todate, string keyword,  int page, int pageSize)
         {
             var userid = _generalFunctionController.Instance.getClaimType(User, CommonConstants.UserClaims.Key);
@@ -126,6 +137,13 @@ namespace BeYeuBookstore.Controllers
             var userid = _generalFunctionController.Instance.getClaimType(User, CommonConstants.UserClaims.Key);
             var M = _merchantService.GetBysId(userid);
             var model = _merchantService.GetAllByBook(M.KeyId);
+            return new OkObjectResult(model);
+        }
+
+        [HttpGet]
+        public IActionResult GetById(int id)
+        {
+            var model = _booksInService.GetById(id); 
             return new OkObjectResult(model);
         }
 

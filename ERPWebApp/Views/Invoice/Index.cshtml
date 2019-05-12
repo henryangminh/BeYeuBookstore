@@ -1,4 +1,18 @@
-﻿
+﻿@using BeYeuBookstore.Utilities.Constants
+@using Microsoft.AspNetCore.Authorization
+@using BeYeuBookstore.Authorization
+@inject IAuthorizationService AuthorizationService
+@{
+    //kiểm tra quyền tạo đối với nut create cho hiểu thị nut
+    var result_edit = await AuthorizationService.AuthorizeAsync(User, Const_FunctionId.Receipt, Operations.Create);
+    //kiểm tra quyền tạo đối với nut delete cho hiểu thị nut
+    var result_delete = await AuthorizationService.AuthorizeAsync(User, Const_FunctionId.Receipt, Operations.Delete);
+    //kiểm tra quyền tạo đối với nut update cho hiểu thị nut
+    var result_create = await AuthorizationService.AuthorizeAsync(User, Const_FunctionId.Receipt, Operations.Update);
+    //kiểm tra quyền tạo đối với nut delete cho hiểu thị nut
+    var result_confirm = await AuthorizationService.AuthorizeAsync(User, Const_FunctionId.Receipt, Operations.Confirm);
+    var result_read = await AuthorizationService.AuthorizeAsync(User, Const_FunctionId.Receipt, Operations.Read);
+}
 @{
     ViewData["Title"] = "Index";
 }
@@ -33,7 +47,7 @@
     <div class="col-lg-2">
 
     </div>
- 
+
 </div>
 
 <div class="row">
@@ -83,10 +97,10 @@
         <td>{{CustomerName}}</td>
         <td>{{DateCreated}}</td>
         <td>{{TotalPrice}}</td>
-    
+
         <td scope="row">
             <a class="btn btn-xs btn-primary btn-edit {{{Prop}}}" {{{Prop}}} data-id="{{KeyId}}"><i class="fa fa-eye"></i></a>
-          
+
 
         </td>
     </tr>

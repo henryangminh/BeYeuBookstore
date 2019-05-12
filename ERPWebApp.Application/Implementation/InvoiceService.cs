@@ -28,6 +28,15 @@ namespace BeYeuBookstore.Application.Implementation
             return InvoiceViewModel;
         }
 
+
+        public int GetLastest()
+        {
+            var invoice = _invoiceRepository.FindAll();
+            invoice = invoice.OrderByDescending(x => x.KeyId);
+            var _invoice = invoice.First();
+            return _invoice.KeyId;
+        }
+
         public void Delete(int id)
         {
             _invoiceRepository.Remove(id);

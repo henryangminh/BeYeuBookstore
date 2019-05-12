@@ -1,4 +1,18 @@
-﻿
+﻿@using BeYeuBookstore.Utilities.Constants
+@using Microsoft.AspNetCore.Authorization
+@using BeYeuBookstore.Authorization
+@inject IAuthorizationService AuthorizationService
+@{
+    //kiểm tra quyền tạo đối với nut create cho hiểu thị nut
+    var result_edit = await AuthorizationService.AuthorizeAsync(User, Const_FunctionId.WebMaster, Operations.Create);
+    //kiểm tra quyền tạo đối với nut delete cho hiểu thị nut
+    var result_delete = await AuthorizationService.AuthorizeAsync(User, Const_FunctionId.WebMaster, Operations.Delete);
+    //kiểm tra quyền tạo đối với nut update cho hiểu thị nut
+    var result_create = await AuthorizationService.AuthorizeAsync(User, Const_FunctionId.WebMaster, Operations.Update);
+    //kiểm tra quyền tạo đối với nut delete cho hiểu thị nut
+    var result_confirm = await AuthorizationService.AuthorizeAsync(User, Const_FunctionId.WebMaster, Operations.Confirm);
+    var result_read = await AuthorizationService.AuthorizeAsync(User, Const_FunctionId.WebMaster, Operations.Read);
+}
 @{
     ViewData["Title"] = "Index";
 }
@@ -96,7 +110,7 @@
         <td>{{{Status}}}</td>
         <td scope="row">
             <a class="btn btn-xs btn-default btn-edit {{{Prop}}}" {{{Prop}}} data-id="{{KeyId}}"><i class="fa fa-pencil"></i></a>
-          </td>
+        </td>
     </tr>
 </script>
 @await Html.PartialAsync("_AddEditWebMaster.cshtml")

@@ -8,7 +8,7 @@ var booksinController = function () {
         registerEvents();
     }
     function registerEvents() {
-        loadBookCategory();
+  
         $('#ddlShowPage').on('change', function () {
             general.configs.pageSize = $(this).val();
             general.configs.pageIndex = 1;
@@ -37,6 +37,10 @@ var booksinController = function () {
 
         $('#btnCreate').on('click', function () {
             resetForm();
+            $('#formWacth').addClass('hidden');
+            $('#formAdd').removeClass('hidden');
+            $('#btnMore').removeClass('hidden');
+            $('#formSaveBooksIn').removeClass('hidden');
             $.ajax({
                 type: 'GET',
                 url: '/BooksIn/GetMerchantInfo',
@@ -88,9 +92,12 @@ var booksinController = function () {
 
         $('body').on('click', '.btn-edit', function (e) {
             e.preventDefault();
+            $('#formWacth').removeClass('hidden');
+            $('#formAdd').addClass('hidden');
+            $('#btnMore').addClass('hidden');
+            $('#formSaveBooksIn').addClass('hidden');
             var that = $(this).data('id');
             loadDetail(that);
-
         });
 
 
@@ -101,43 +108,7 @@ var booksinController = function () {
             ignore: [],
             lang: 'vi',
             rules: {
-                txtBooktitle:
-                {
-                    required: true
-                },
-                txtAuthor:
-                {
-                    required: true
-                },
-                txtLength:
-                {
-                    required: true,
-                    number: true,
-                },
-                txtWidth:
-                {
-                    required: true,
-                    number: true,
-                },
-                txtHeight:
-                {
-                    number: true,
-                },
-                selBookcategory: {
-                    required: true
-                },
-                selisPaperback: {
-                    required: true
-                },
-                txtPageNumber: {
-                    required: true,
-                    number: true,
-                },
-                txtPrice: {
-                    required: true,
-                     number: true
 
-                },
             }
         });
 
@@ -330,17 +301,20 @@ var booksinController = function () {
         $('#txtPageNumber').val('');
         $('#txtPrice').val('');
         $('#txtDescription').val('');
+        $('#tbl-booksincontent').empty();
     }
 
     function loadDetail(that) {
-
+        resetForm();
+        var template = $('#tableBooksInDetail-template').html();
+        var render = "";
         $.ajax({
             type: "GET",
-            url: "/Book/GetById",
+            url: "/BooksIn/GetById",
             data: { id: that },
             dataType: "json",
             beforeSend: function () {
-                general.startLoading();
+                general.startLoad();
             },
             success: function (response) {
                 console.log("loaddetailbook", response);
@@ -350,33 +324,43 @@ var booksinController = function () {
                 $('#txtMerchant').val(data.MerchantFKNavigation.MerchantCompanyName);
                 $('#dtDateCreated').val(moment(data.DateCreated).format("DD/MM/YYYY"));
                 $('#dtDateModified').val(moment(data.DateModified).format("DD/MM/YYYY"));
-                $('#txtMerchantKeyId').val(data.MerchantFKNavigation.KeyId);
-                $('#txtMerchantStatus').val(data.MerchantFKNavigation.Status);
-                $('#txtBooktitle').val(data.BookTitle);
-                $('#txtAuthor').val(data.Author);
-                $('#BookImg').val(data.Img);
-                $('#selBookcategory').val(data.BookCategoryFK);
-                if (data.isPaperback) {
-                    $('#selisPaperback').val(0);
-                }
-                else {
-                    $('#selisPaperback').val(1);
-                }
-                $('#txtLength').val(data.Length);
-                $('#txtWidth').val(data.Width);
-                $('#txtHeight').val(data.Height);
-                $('#txtPageNumber').val(data.PageNumber);
-                $('#txtPrice').val(general.toMoney(data.UnitPrice));
-                $('#txtDescription').val(data.Description);
-                $('#selStatus').val(data.Status);
+
+                $.ajax({
+                    type: "GET",
+                    url: "/BooksIn/GetAllDetailById",
+                    data: { id: that },
+                    dataType: "json",
+                    success: function (response) {
+                        $.each(response, function (i, item) {
+                            var _priceIn = general.toMoney(item.Price);
+                            render += Mustache.render(template, {
+
+                                BookId: item.BookFK,
+                                BookName: item.BookFKNavigation.BookTitle,
+                                Author: item.BookFKNavigation.Author,
+                                Img: '<img src="' + item.BookFKNavigation.Img + '" width="100">',
+                                Category: item.BookFKNavigation.BookCategoryFKNavigation.BookCategoryName,
+                                QtyIn: item.Qty,
+                                PriceIn: _priceIn,
+
+                            });
+                        });
+                        $('#tbl-booksincontent').html(render);
+                        general.stopLoad();
+
+                    },
+                    error: function (status) {
+                        general.notify('Có lỗi xảy ra', 'error');
+                        general.stopLoad();
+                    }
+                });
+
+                general.stopLoad();
                 $('#modal-add-edit').modal('show');
-
-                general.stopLoading();
-
             },
             error: function (status) {
                 general.notify('Có lỗi xảy ra', 'error');
-                general.stopLoading();
+                general.stopLoad();
             }
         });
 
@@ -417,20 +401,12 @@ function loadData(isPageChanged) {
                         _statusName = 'Khóa';
                         break;
                 }
-                var _price = general.toMoney(item.UnitPrice);
+                var _dateCreated = moment(item.DateCreated).format("DD/MM/YYYY HH:mm:ss");
                 render += Mustache.render(template, {
                     
                     KeyId: item.KeyId,
                     Merchant: item.MerchantFKNavigation.MerchantCompanyName,
-                    BookTitle: item.BookTitle,
-                    Author: item.Author,
-                    Img: '<img src="'+item.Img+'" width="100">',
-                    BookType: item.BookCategoryFKNavigation.BookCategoryName,
-                    UnitPrice: _price,
-                    Qty: item.Quantity,
-                    Status: '<span class="badge bg-' + _color + '">' + _statusName + '</span>',
-
-                    
+                    DateCreated: _dateCreated,
                 });
                 order++;
 
@@ -480,7 +456,7 @@ function loadAllBookByMerchantId(id) {
         dataType: "json",
 
         success: function (response) {
-            var _id = '#selBook' + id;
+            var _id = "#selBook" + id;
             $.each(response, function (i, item) {
                 $('#selBook'+id).append("<option value='" + item.KeyId + "'>" + item.BookTitle + "</option>");
              

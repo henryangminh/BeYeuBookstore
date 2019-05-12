@@ -14,6 +14,7 @@ namespace BeYeuBookstore.Application.Interfaces
         void Update(BooksInDetailViewModel BookViewModel);
 
         List<BooksInDetailViewModel> GetAll();
+        List<BooksInDetailViewModel> GetAllByBooksInId(int id);
 
         PagedResult<BooksInDetailViewModel> GetAllPaging( string keyword, int page, int pageSize);
 

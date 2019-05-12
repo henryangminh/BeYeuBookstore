@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using BeYeuBookstore.Application.Interfaces;
+using BeYeuBookstore.Application.ViewModels;
 using BeYeuBookstore.Authorization;
 using BeYeuBookstore.Infrastructure.Interfaces;
 using BeYeuBookstore.Utilities.Constants;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 
 namespace BeYeuBookstore.Controllers
 {
@@ -16,11 +18,13 @@ namespace BeYeuBookstore.Controllers
     {
 
         IInvoiceService _invoiceService;
+        IDeliveryService _deliveryService;
         IInvoiceDetailService _invoiceDetailService;
         IUnitOfWork _unitOfWork;
         IAuthorizationService _authorizationService;
-        public InvoiceController(IAuthorizationService authorizationService, IInvoiceDetailService invoiceDetailService, IInvoiceService invoiceService, IUnitOfWork unitOfWork)
+        public InvoiceController(IDeliveryService deliveryService,IAuthorizationService authorizationService, IInvoiceDetailService invoiceDetailService, IInvoiceService invoiceService, IUnitOfWork unitOfWork)
         {
+            _deliveryService = deliveryService;
             _authorizationService = authorizationService;
             _invoiceService = invoiceService;
             _invoiceDetailService = invoiceDetailService;
@@ -74,8 +78,34 @@ namespace BeYeuBookstore.Controllers
 
             }
 
-
         }
 
+        [HttpPost]
+        public IActionResult SaveEntity(InvoiceViewModel invoiceVm, List<InvoiceDetailViewModel> invoiceDetailVms, List<DeliveryViewModel> deliveryVms)
+        {
+
+            if (!ModelState.IsValid)
+            {
+                IEnumerable<ModelError> allErrors = ModelState.Values.SelectMany(v => v.Errors);
+                return new BadRequestObjectResult(allErrors);
+            }
+            else
+            {
+                var invoice = _invoiceService.Add(invoiceVm);
+                _invoiceService.Save();
+                var invoiceId = _invoiceService.GetLastest();
+                foreach (var item in invoiceDetailVms)
+                {
+                    item.InvoiceFK = invoiceId;
+                    _invoiceDetailService.Add(item);
+                }
+                foreach (var _item in deliveryVms)
+                {
+                    _item.InvoiceFK = invoiceId;
+                    _deliveryService.Add(_item);
+                }
+                    return new OkObjectResult(invoiceVm);
+            }
+        }
     }
 }

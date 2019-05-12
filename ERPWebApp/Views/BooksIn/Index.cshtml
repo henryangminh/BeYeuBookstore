@@ -1,4 +1,17 @@
-﻿
+﻿@using BeYeuBookstore.Utilities.Constants
+@using Microsoft.AspNetCore.Authorization
+@using BeYeuBookstore.Authorization
+@inject IAuthorizationService AuthorizationService
+@{
+    //kiểm tra quyền tạo đối với nut create cho hiểu thị nut
+    var result_edit = await AuthorizationService.AuthorizeAsync(User, Const_FunctionId.BooksReceipt, Operations.Create);
+    //kiểm tra quyền tạo đối với nut delete cho hiểu thị nut
+    var result_delete = await AuthorizationService.AuthorizeAsync(User, Const_FunctionId.BooksReceipt, Operations.Delete);
+    //kiểm tra quyền tạo đối với nut update cho hiểu thị nut
+    var result_create = await AuthorizationService.AuthorizeAsync(User, Const_FunctionId.BooksReceipt, Operations.Update);
+    //kiểm tra quyền tạo đối với nut delete cho hiểu thị nut
+    var result_confirm = await AuthorizationService.AuthorizeAsync(User, Const_FunctionId.BooksReceipt, Operations.Confirm);
+}
 @{
     ViewData["Title"] = "Index";
 }
@@ -35,9 +48,11 @@
     <div class="col-sm-4 form-group">
         <input type="text" id="txtKeyword" class="form-control" placeholder="Gõ từ khóa...">
     </div>
+    @if (result_create.Succeeded) {
     <div class="col-sm-1 form-group">
         <button id="btnCreate" class="btn btn-success"><i class="fa fa-plus"></i> Thêm mới</button>
     </div>
+    }
 </div>
 
 <div class="row">
@@ -87,7 +102,7 @@
         <td>{{Merchant}}</td>
         <td>{{DateCreated}}</td>
         <td scope="row">
-            <a class="btn btn-xs btn-default btn-edit {{{Prop}}}" {{{Prop}}} data-id="{{KeyId}}"><i class="fa fa-pencil"></i></a>
+            <a class="btn btn-xs btn-primary btn-edit {{{Prop}}}" {{{Prop}}} data-id="{{KeyId}}"><i class="fa fa-eye"></i></a>
         </td>
     </tr>
 </script>
