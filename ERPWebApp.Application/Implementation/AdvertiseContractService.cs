@@ -258,7 +258,6 @@ namespace BeYeuBookstore.Application.Implementation
                 temp.ContractValue = advertiseContractViewModel.ContractValue;
                 temp.DateStart = advertiseContractViewModel.DateStart;
                 temp.DateFinish = advertiseContractViewModel.DateFinish;
-                temp.Paid = advertiseContractViewModel.Paid;
                 temp.Status = advertiseContractViewModel.Status;
             }
         }
