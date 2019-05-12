@@ -38,13 +38,23 @@
                     console.log('BookDetail', response);
                     var size = response.Width + "x" + response.Length;
                     if (response.Height != null) size += "x" + response.Height;
+                    size += "(cm)";
                     $('#BookId').val(response.KeyId);
-                    $('#txtPaperback').val((response.isPaperback) ? "Bìa mềm" : "Bìa cứng");
+                    $('#txtPaperback').text((response.isPaperback) ? "Bìa mềm" : "Bìa cứng");
                     $('#txtBookNameModal').text(response.BookTitle);
                     $('#txtPriceModal').text(general.toMoney(response.UnitPrice));
                     $('#txtDescriptionModal').text(response.Description);
+                    $('#txtLinkToProduct').attr('href', '/BeyeuBookstore/BookDetail?id=' + response.KeyId);
                     $('#imgDetail').attr('src', response.Img)
                     $('#txtSize').text("Kích thước: " + size);
+                    $('#txtAuthor').text("Tác giả: " + response.Author);
+                    if (response.Quantity > 0) {
+                        $('#quantityStatus').html('<i class="fa fa-check"></i>Còn hàng');
+                    }
+                    else {
+                        $('#quantityStatus').html('<i class="fa fa-times" color="red"></i>Hết hàng');
+                        $('#divAddToCart').remove();
+                    }
                 }
             })
         })
