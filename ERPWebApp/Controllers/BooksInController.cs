@@ -1,0 +1,97 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using BeYeuBookstore.Application.Interfaces;
+using BeYeuBookstore.Application.ViewModels;
+using BeYeuBookstore.Infrastructure.Interfaces;
+using BeYeuBookstore.Services;
+using BeYeuBookstore.Utilities.Constants;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
+
+namespace BeYeuBookstore.Controllers
+{
+    public class BooksInController : Controller
+    {
+        IRatingDetailService _ratingDetailService;
+        IBookService _bookService;
+        IBooksInService _booksInService;
+        IBookCategoryService _bookCategoryService;
+        IAuthorizationService _authorizationService;
+        private readonly IEmailService _emailService;
+        IMerchantService _merchantService;
+        private readonly IHostingEnvironment _hostingEnvironment;
+        IUnitOfWork _unitOfWork;
+        public BooksInController(IRatingDetailService ratingDetailService, IEmailService emailService, IAuthorizationService authorizationService, IHostingEnvironment hostingEnvironment, IMerchantService merchantService, IBookCategoryService bookCategoryService, IBookService bookService, IUnitOfWork unitOfWork)
+        {
+            _ratingDetailService = ratingDetailService;
+            _emailService = emailService;
+            _authorizationService = authorizationService;
+            _bookService = bookService;
+            _bookCategoryService = bookCategoryService;
+            _unitOfWork = unitOfWork;
+            _merchantService = merchantService;
+            _hostingEnvironment = hostingEnvironment;
+        }
+        public IActionResult Index()
+        {
+            return View();
+        }
+
+        [Authorize]
+        [HttpPost]
+        public IActionResult SaveEntity(BooksInViewModel bookVm)
+        {
+            var userid = _generalFunctionController.Instance.getClaimType(User, CommonConstants.UserClaims.Key);
+            var model = new MerchantViewModel();
+            if (Guid.TryParse(userid, out var guid))
+            {
+                model = _merchantService.GetBysId(userid);
+
+            }
+            if (!ModelState.IsValid)
+            {
+                IEnumerable<ModelError> allErrors = ModelState.Values.SelectMany(v => v.Errors);
+                return new BadRequestObjectResult(allErrors);
+            }
+            else
+            {
+                if (model != null)
+                {
+                    if (bookVm.KeyId == 0)
+                    {
+
+                        _booksInService.Add(bookVm);
+                    }
+                    else
+                    {
+                        _booksInService.Update(bookVm);
+                    }
+                    _bookCategoryService.Save();
+                    return new OkObjectResult(bookVm);
+                }
+                else
+                {
+                    return new BadRequestResult();
+                }
+            }
+        }
+
+
+        [HttpGet]
+        public IActionResult GetMerchantInfo()
+        {
+            var userid = _generalFunctionController.Instance.getClaimType(User, CommonConstants.UserClaims.Key);
+            if (Guid.TryParse(userid, out var guid))
+            {
+                var model = _merchantService.GetBysId(userid);
+                return new OkObjectResult(model);
+            }
+            return new BadRequestResult();
+        }
+
+    }
+}

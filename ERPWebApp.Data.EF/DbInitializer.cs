@@ -47,11 +47,13 @@ namespace BeYeuBookstore.Data.EF
                       new Function() {KeyId = "BookCategoryItem",Name = "Loại sách",ParentId = "ProductItem",SortOrder = 2,Status = Status.Active,URL = "/BookCategory",IconCss = "fa-clone"  },
                       new Function() {KeyId = "AdvertisementContentItem",Name = "Nội dung quảng cáo",ParentId = "ProductItem",SortOrder = 3,Status = Status.Active,URL = "/AdvertisementContent",IconCss = "fa-clone"  },
                       new Function() {KeyId = "AdvertisementPositionItem",Name = "Vị trí quảng cáo",ParentId = "ProductItem",SortOrder = 4,Status = Status.Active,URL = "/AdvertisementPosition",IconCss = "fa-clone"  },
+                      
+                      new Function() {KeyId = "WarehouseItem",Name = "Xuất nhập kho",ParentId = null,SortOrder = 3,Status = Status.Active,URL = "/",IconCss = "fa-warehouse"  },
 
-                      new Function() {KeyId = "ReceiptandDelivery",Name = "Hóa đơn & Giao hàng",ParentId = null,SortOrder = 3,Status = Status.Active,URL = "/",IconCss = "fa-receipt"  },
-                      new Function() {KeyId = "ReceiptItem",Name = "Hóa đơn",ParentId = "ReceiptandDelivery",SortOrder = 1,Status = Status.Active,URL = "/Invoice",IconCss = "fa-home"  },
-                      new Function() {KeyId = "DeliveryItem",Name = "Phiếu giao hàng",ParentId = "ReceiptandDelivery",SortOrder = 2,Status = Status.Active,URL = "/Delivery",IconCss = "fa-home"  },
-
+                      new Function() {KeyId = "BooksReceiptItem",Name = "Nhập sách",ParentId = "WarehouseItem",SortOrder = 1,Status = Status.Active,URL = "/BooksIn",IconCss = "fa-chevron-down"  },
+                      new Function() {KeyId = "BooksIssueItem",Name = "Xuất sách",ParentId = "WarehouseItem",SortOrder = 2,Status = Status.Active,URL = "/BooksOut",IconCss = "fa-clone"  },
+                   
+                      
                       new Function() {KeyId = "ContractItem",Name = "Hợp đồng",ParentId = null,SortOrder = 4,Status = Status.Active,URL = "/",IconCss = "fa-file-signature"  },
 
                       new Function() {KeyId = "MerchantContractItem",Name = "Hợp đồng với nhà cung cấp",ParentId = "ContractItem",SortOrder = 1,Status = Status.Active,URL = "/MerchantContract",IconCss = "fa-chevron-down"  },
@@ -378,7 +380,180 @@ namespace BeYeuBookstore.Data.EF
                     await _userManager.AddToRoleAsync(user, "Customer"); // add vao role 
                     _context.Customers.Add(new Customer() { UserFK = user.Id });
                 }
+                //tạo user customer
+                result = _userManager.CreateAsync(new User()
+                {
+                    UserName = "utbi_cuamo@gmail.com",
+                    FullName = "Út Bi",
+                    Email = "utbi_cuamo@gmail.com",
+                    DateCreated = DateTime.Now,
+                    DateModified = DateTime.Now,
+                    UserTypeFK = Const_UserType.Customer,
+                    Status = Status.Active,
+                    PhoneNumber = "0989282912",
+                    Address = "23 Nguyễn Đình Chiểu F12 Q3 ",
+                    Gender = Gender.Male,
+                }, CommonConstants.DefaultPW).Result;
+                if (result.Succeeded)
+                {
+                    var user = await _userManager.FindByNameAsync("utbi_cuamo@gmail.com"); // tim user 
+                    await _userManager.AddToRoleAsync(user, "Customer"); // add vao role 
+                    _context.Customers.Add(new Customer() { UserFK = user.Id });
+                }
 
+
+                //tạo user customer
+                result = _userManager.CreateAsync(new User()
+                {
+                    UserName = "banhmi@gmail.com",
+                    FullName = "Bánh mì ciute",
+                    Email = "banhmi@gmail.com",
+                    DateCreated = DateTime.Now,
+                    DateModified = DateTime.Now,
+                    UserTypeFK = Const_UserType.Customer,
+                    Status = Status.Active,
+                    PhoneNumber = "0922229931",
+                    Address = "",
+                    Gender = Gender.Female,
+                }, CommonConstants.DefaultPW).Result;
+                if (result.Succeeded)
+                {
+                    var user = await _userManager.FindByNameAsync("banhmi@gmail.com"); // tim user 
+                    await _userManager.AddToRoleAsync(user, "Customer"); // add vao role 
+                    _context.Customers.Add(new Customer() { UserFK = user.Id });
+                }
+
+
+                //tạo user customer
+                result = _userManager.CreateAsync(new User()
+                {
+                    UserName = "marvel@gmail.com",
+                    FullName = "Captain Marvel",
+                    Email = "marvel@gmail.com",
+                    DateCreated = DateTime.Now,
+                    DateModified = DateTime.Now,
+                    UserTypeFK = Const_UserType.Customer,
+                    Status = Status.Active,
+                    PhoneNumber = "0972822223",
+                    Address = "12 Ba Tháng Hai F2 Q10",
+                    Gender = Gender.Male,
+                }, CommonConstants.DefaultPW).Result;
+                if (result.Succeeded)
+                {
+                    var user = await _userManager.FindByNameAsync("marvel@gmail.com"); // tim user 
+                    await _userManager.AddToRoleAsync(user, "Customer"); // add vao role 
+                    _context.Customers.Add(new Customer() { UserFK = user.Id });
+                }
+
+
+                //tạo user customer
+                result = _userManager.CreateAsync(new User()
+                {
+                    UserName = "vinhhuynh@gmail.com",
+                    FullName = "Huỳnh Mỹ Vinh",
+                    Email = "vinhhuynh@gmail.com",
+                    DateCreated = DateTime.Now,
+                    DateModified = DateTime.Now,
+                    UserTypeFK = Const_UserType.Customer,
+                    Status = Status.Active,
+                    PhoneNumber = "0906736222",
+                    Address = "289 Mai Chí Thọ F3 Q2",
+                    Gender = Gender.Female,
+                }, CommonConstants.DefaultPW).Result;
+                if (result.Succeeded)
+                {
+                    var user = await _userManager.FindByNameAsync("vinhhuynh@gmail.com"); // tim user 
+                    await _userManager.AddToRoleAsync(user, "Customer"); // add vao role 
+                    _context.Customers.Add(new Customer() { UserFK = user.Id });
+                }
+
+
+                //tạo user customer
+                result = _userManager.CreateAsync(new User()
+                {
+                    UserName = "huyen@gmail.com",
+                    FullName = "Ngọc Huyền",
+                    Email = "huyen@gmail.com",
+                    DateCreated = DateTime.Now,
+                    DateModified = DateTime.Now,
+                    UserTypeFK = Const_UserType.Customer,
+                    Status = Status.Active,
+                    PhoneNumber = "0978782493",
+                    Address = "34 Nguyễn Hữu Cảnh F5 Q4",
+                    Gender = Gender.Female,
+                }, CommonConstants.DefaultPW).Result;
+                if (result.Succeeded)
+                {
+                    var user = await _userManager.FindByNameAsync("huyen@gmail.com"); // tim user 
+                    await _userManager.AddToRoleAsync(user, "Customer"); // add vao role 
+                    _context.Customers.Add(new Customer() { UserFK = user.Id });
+                }
+
+
+                //tạo user customer
+                result = _userManager.CreateAsync(new User()
+                {
+                    UserName = "chi@gmail.com",
+                    FullName = "Chi Hà",
+                    Email = "chi@gmail.com",
+                    DateCreated = DateTime.Now,
+                    DateModified = DateTime.Now,
+                    UserTypeFK = Const_UserType.Customer,
+                    Status = Status.Active,
+                    PhoneNumber = "0978373382",
+                    Address = "24 Trần Văn Đang F3 Q3",
+                    Gender = Gender.Female,
+                }, CommonConstants.DefaultPW).Result;
+                if (result.Succeeded)
+                {
+                    var user = await _userManager.FindByNameAsync("chi@gmail.com"); // tim user 
+                    await _userManager.AddToRoleAsync(user, "Customer"); // add vao role 
+                    _context.Customers.Add(new Customer() { UserFK = user.Id });
+                }
+
+
+                //tạo user customer
+                result = _userManager.CreateAsync(new User()
+                {
+                    UserName = "duyhuynh@gmail.com",
+                    FullName = "Huỳnh Hữu Duy",
+                    Email = "duyhuynh@gmail.com",
+                    DateCreated = DateTime.Now,
+                    DateModified = DateTime.Now,
+                    UserTypeFK = Const_UserType.Customer,
+                    Status = Status.Active,
+                    PhoneNumber = "0900000002",
+                    Address = "29 Trần Tuấn Khải  F2 Q1",
+                    Gender = Gender.Male,
+                }, CommonConstants.DefaultPW).Result;
+                if (result.Succeeded)
+                {
+                    var user = await _userManager.FindByNameAsync("duyhuynh@gmail.com"); // tim user 
+                    await _userManager.AddToRoleAsync(user, "Customer"); // add vao role 
+                    _context.Customers.Add(new Customer() { UserFK = user.Id });
+                }
+
+
+                //tạo user customer
+                result = _userManager.CreateAsync(new User()
+                {
+                    UserName = "vanlam@gmail.com",
+                    FullName = "Lê Văn Lâm",
+                    Email = "vanlam@gmail.com",
+                    DateCreated = DateTime.Now,
+                    DateModified = DateTime.Now,
+                    UserTypeFK = Const_UserType.Customer,
+                    Status = Status.Active,
+                    PhoneNumber = "0900000021",
+                    Address = "289 Thành Thái F12 Q2",
+                    Gender = Gender.Male,
+                }, CommonConstants.DefaultPW).Result;
+                if (result.Succeeded)
+                {
+                    var user = await _userManager.FindByNameAsync("vanlam@gmail.com"); // tim user 
+                    await _userManager.AddToRoleAsync(user, "Customer"); // add vao role 
+                    _context.Customers.Add(new Customer() { UserFK = user.Id });
+                }
                 //tạo user merchant
                 result = _userManager.CreateAsync(new User()
                 {
@@ -452,7 +627,298 @@ namespace BeYeuBookstore.Data.EF
                         EstablishDate = DateTime.Parse("2016-04-01")
                     });
                 }
+                //tạo user merchant
+                result = _userManager.CreateAsync(new User()
+                {
+                    UserName = "chim_merchant@gmail.com",
+                    FullName = "Chimte Merchant",
+                    Email = "chim_merchant@gmail.com",
+                    DateCreated = DateTime.Now,
+                    DateModified = DateTime.Now,
+                    UserTypeFK = Const_UserType.Merchant,
+                    Status = Status.Active,
+                    Gender = Gender.Female
+                }, CommonConstants.DefaultPW).Result;
+                if (result.Succeeded)
+                {
+                    var user = await _userManager.FindByNameAsync("chim_merchant@gmail.com"); // tim user 
+                    await _userManager.AddToRoleAsync(user, "Merchant"); // add vao role 
+                    _context.Merchants.Add(new Merchant()
+                    {
+                        UserFK = user.Id,
+                        DirectContactName = "Nguyễn Thị Chim",
+                        Hotline = "19001119",
+                        MerchantCompanyName = "Chim shop",
+                        Address = "178 Nguyễn Văn Lượng, P.6, Q.6",
+                        ContactAddress = "178 Nguyễn Văn Lượng, P.6, Q.6",
+                        BussinessRegisterId = "18895",
+                        TaxId = "3",
+                        Website = "chimte.vn",
+                        LegalRepresentative = "Nguyễn Thị Chim",
+                        MerchantBankingName = "Nguyễn Thị Chim",
+                        Bank = "MB",
+                        BankBranch = "Lê Văn Sỹ",
+                        Status = Status.Active,
+                        Scales = Scale.Large,
+                        EstablishDate = DateTime.Parse("2017-03-02")
+                    });
+                }
 
+                //tạo user merchant
+                result = _userManager.CreateAsync(new User()
+                {
+                    UserName = "huy_merchant@gmail.com",
+                    FullName = "Huy Merchant",
+                    Email = "huy_merchant@gmail.com",
+                    DateCreated = DateTime.Now,
+                    DateModified = DateTime.Now,
+                    UserTypeFK = Const_UserType.Merchant,
+                    Status = Status.Active,
+                    Gender = Gender.Male
+                }, CommonConstants.DefaultPW).Result;
+                if (result.Succeeded)
+                {
+                    var user = await _userManager.FindByNameAsync("huy_merchant@gmail.com"); // tim user 
+                    await _userManager.AddToRoleAsync(user, "Merchant"); // add vao role 
+                    _context.Merchants.Add(new Merchant()
+                    {
+                        UserFK = user.Id,
+                        DirectContactName = "Huỳnh Tấn Huy",
+                        Hotline = "19001122",
+                        MerchantCompanyName = "Huy Huỳnh",
+                        Address = "177/1 Trần Tuấn Khải, P.5, Q.5",
+                        ContactAddress = "177/1 Trần Tuấn Khải, P.5, Q.5",
+                        BussinessRegisterId = "456788",
+                        TaxId = "4",
+                        Website = "huyhuynh.com.vn",
+                        LegalRepresentative = "Huỳnh Tấn Huy",
+                        MerchantBankingName = "Huỳnh Tấn Huy",
+                        Bank = "Đông Á",
+                        BankBranch = "Tân Phú",
+                        Status = Status.Active,
+                        Scales = Scale.Large,
+                        EstablishDate = DateTime.Parse("2016-08-10"),
+                    });
+                }
+
+               result = _userManager.CreateAsync(new User()
+                {
+                    UserName = "hien_merchant@gmail.com",
+                    FullName = "Hiền Merchant",
+                    Email = "hien_merchant@gmail.com",
+                    DateCreated = DateTime.Now,
+                    DateModified = DateTime.Now,
+                    UserTypeFK = Const_UserType.Merchant,
+                    Status = Status.Active,
+                    Gender = Gender.Female
+                }, CommonConstants.DefaultPW).Result;
+                if (result.Succeeded)
+                {
+                    var user = await _userManager.FindByNameAsync("hien_merchant@gmail.com"); // tim user 
+                    await _userManager.AddToRoleAsync(user, "Merchant"); // add vao role 
+                    _context.Merchants.Add(new Merchant()
+                    {
+                        UserFK = user.Id,
+                        DirectContactName = "Nguyễn Thị Bích Hiền",
+                        Hotline = "19900123",
+                        MerchantCompanyName = "Phương Nam Book",
+                        Address = "22 Nguyễn Văn Linh, P.1, Q.7",
+                        ContactAddress = "22 Nguyễn Văn Linh, P.1, Q.7",
+                        BussinessRegisterId = "11234",
+                        TaxId = "5",
+                        Website = "phuongnam.net",
+                        LegalRepresentative = "Nguyễn Thị Bích Hiền",
+                        MerchantBankingName = "Nguyễn Thị Bích Hiền",
+                        Bank = "Shinhan",
+                        BankBranch = "Nguyễn Thị Thập",
+                        Status = Status.Active,
+                        Scales = Scale.Large,
+                        EstablishDate = DateTime.Parse("2011-02-04")
+                    });
+                }
+
+                result = _userManager.CreateAsync(new User()
+                {
+                    UserName = "nhan_merchant@gmail.com",
+                    FullName = "Nhân Merchant",
+                    Email = "nhan_merchant@gmail.com",
+                    DateCreated = DateTime.Now,
+                    DateModified = DateTime.Now,
+                    UserTypeFK = Const_UserType.Merchant,
+                    Status = Status.Active,
+                    Gender = Gender.Male
+                }, CommonConstants.DefaultPW).Result;
+                if (result.Succeeded)
+                {
+                    var user = await _userManager.FindByNameAsync("nhan_merchant@gmail.com"); // tim user 
+                    await _userManager.AddToRoleAsync(user, "Merchant"); // add vao role 
+                    _context.Merchants.Add(new Merchant()
+                    {
+                        UserFK = user.Id,
+                        DirectContactName = "Trương Vĩ Nhân",
+                        Hotline = "19001219",
+                        MerchantCompanyName = "Nhân Company",
+                        Address = "19 Nguyễn Thượng Hiền, P.4, Q.3",
+                        ContactAddress = "19 Nguyễn Thượng Hiền, P.4, Q.3",
+                        BussinessRegisterId = "18892",
+                        TaxId = "6",
+                        Website = "nhancompany.com.vn",
+                        LegalRepresentative = "Trương Vĩ Nhân",
+                        MerchantBankingName = "Trương Vĩ Nhân",
+                        Bank = "Agribank",
+                        BankBranch = "An Dương Vương",
+                        Status = Status.Active,
+                        Scales = Scale.Large,
+                        EstablishDate = DateTime.Parse("2013-12-12")
+                    });
+                }
+                //tạo user merchant
+                result = _userManager.CreateAsync(new User()
+                {
+                    UserName = "minh_merchant@gmail.com",
+                    FullName = "Minh Merchant",
+                    Email = "minh_merchant@gmail.com",
+                    DateCreated = DateTime.Now,
+                    DateModified = DateTime.Now,
+                    UserTypeFK = Const_UserType.Merchant,
+                    Status = Status.Active,
+                    Gender = Gender.Male
+                }, CommonConstants.DefaultPW).Result;
+                if (result.Succeeded)
+                {
+                    var user = await _userManager.FindByNameAsync("minh_merchant@gmail.com"); // tim user 
+                    await _userManager.AddToRoleAsync(user, "Merchant"); // add vao role 
+                    _context.Merchants.Add(new Merchant()
+                    {
+                        UserFK = user.Id,
+                        DirectContactName = "Huỳnh Hà Khánh Minh",
+                        Hotline = "19001112",
+                        MerchantCompanyName = "Alpha Books ",
+                        Address = "99 Nguyễn Văn Trỗi, P.2, Q.Tân Phú",
+                        ContactAddress = "99 Nguyễn Văn Trỗi, P.2, Q.Tân Phú",
+                        BussinessRegisterId = "11282",
+                        TaxId = "7",
+                        Website = "alphabooks.com",
+                        LegalRepresentative = "Huỳnh Hà Khánh Minh",
+                        MerchantBankingName = "Huỳnh Hà Khánh Minh",
+                        Bank = "Viettin Bank",
+                        BankBranch = "Trương Định",
+                        Status = Status.Active,
+                        Scales = Scale.Large,
+                        EstablishDate = DateTime.Parse("2009-11-22")
+                    });
+                }
+
+                //tạo user merchant
+                result = _userManager.CreateAsync(new User()
+                {
+                    UserName = "vu_merchant@gmail.com",
+                    FullName = "Vũ Merchant",
+                    Email = "vu_merchant@gmail.com",
+                    DateCreated = DateTime.Now,
+                    DateModified = DateTime.Now,
+                    UserTypeFK = Const_UserType.Merchant,
+                    Status = Status.Active,
+                    Gender = Gender.Male
+                }, CommonConstants.DefaultPW).Result;
+                if (result.Succeeded)
+                {
+                    var user = await _userManager.FindByNameAsync("vu_merchant@gmail.com"); // tim user 
+                    await _userManager.AddToRoleAsync(user, "Merchant"); // add vao role 
+                    _context.Merchants.Add(new Merchant()
+                    {
+                        UserFK = user.Id,
+                        DirectContactName = "Lê Tấn Vũ",
+                        Hotline = "10002233",
+                        MerchantCompanyName = "First News",
+                        Address = "31 Lê Văn Lương, P.3, Q.7",
+                        ContactAddress = "31 Lê Văn Lương, P.3, Q.7",
+                        BussinessRegisterId = "12234",
+                        TaxId = "8",
+                        Website = "firstnews.edu.vn",
+                        LegalRepresentative = "Lê Tấn Vũ",
+                        MerchantBankingName = "Lê Tấn Vũ",
+                        Bank = "Vietcombank",
+                        BankBranch = "Đinh Công Tráng",
+                        Status = Status.Active,
+                        Scales = Scale.Large,
+                        EstablishDate = DateTime.Parse("2011-12-04")
+                    });
+                }
+
+                //tạo user merchant
+                result = _userManager.CreateAsync(new User()
+                {
+                    UserName = "linh_merchant@gmail.com",
+                    FullName = "Linh Merchant",
+                    Email = "linh_merchant@gmail.com",
+                    DateCreated = DateTime.Now,
+                    DateModified = DateTime.Now,
+                    UserTypeFK = Const_UserType.Merchant,
+                    Status = Status.Active,
+                    Gender = Gender.Female
+                }, CommonConstants.DefaultPW).Result;
+                if (result.Succeeded)
+                {
+                    var user = await _userManager.FindByNameAsync("linh_merchant@gmail.com"); // tim user 
+                    await _userManager.AddToRoleAsync(user, "Merchant"); // add vao role 
+                    _context.Merchants.Add(new Merchant()
+                    {
+                        UserFK = user.Id,
+                        DirectContactName = "Huỳnh Hà Khánh Linh",
+                        Hotline = "19009892",
+                        MerchantCompanyName = "Linh New Style",
+                        Address = "16 Nguyễn Biểu, P.5, Q.5",
+                        ContactAddress = "16 Nguyễn Biểu, P.5, Q.5",
+                        BussinessRegisterId = "13242",
+                        TaxId = "9",
+                        Website = "linhnewstyle.net",
+                        LegalRepresentative = "Huỳnh Hà Khánh Linh",
+                        MerchantBankingName = "Huỳnh Hà Khánh Linh",
+                        Bank = "BIDV",
+                        BankBranch = "Nguyễn Văn Cừ",
+                        Status = Status.Active,
+                        Scales = Scale.Large,
+                        EstablishDate = DateTime.Parse("2013-12-02")
+                    });
+                }
+
+                //tạo user merchant
+                result = _userManager.CreateAsync(new User()
+                {
+                    UserName = "trung_merchant@gmail.com",
+                    FullName = "Trung Merchant",
+                    Email = "trung_merchant@gmail.com",
+                    DateCreated = DateTime.Now,
+                    DateModified = DateTime.Now,
+                    UserTypeFK = Const_UserType.Merchant,
+                    Status = Status.Active,
+                    Gender = Gender.Male
+                }, CommonConstants.DefaultPW).Result;
+                if (result.Succeeded)
+                {
+                    var user = await _userManager.FindByNameAsync("trung_merchant@gmail.com"); // tim user 
+                    await _userManager.AddToRoleAsync(user, "Merchant"); // add vao role 
+                    _context.Merchants.Add(new Merchant()
+                    {
+                        UserFK = user.Id,
+                        DirectContactName = "Lê Trọng Trung",
+                        Hotline = "0989345512",
+                        MerchantCompanyName = "Trung Lê",
+                        Address = "02 Lê Đức Thọ, P.1, Q.Gò Vấp",
+                        ContactAddress = "02 Lê Đức Thọ, P.1, Q.Gò Vấp",
+                        BussinessRegisterId = "45333",
+                        TaxId = "10",
+                        Website = "trungle.edu.com.vn",
+                        LegalRepresentative = "Lê Trọng Trung",
+                        MerchantBankingName = "Lê Trọng Trung",
+                        Bank = "SCB",
+                        BankBranch = "Lê Lai",
+                        Status = Status.Active,
+                        Scales = Scale.Large,
+                        EstablishDate = DateTime.Parse("2017-12-18")
+                    });
+                }
                 //tạo user advertiser
                 result = _userManager.CreateAsync(new User()
                 {
@@ -479,7 +945,7 @@ namespace BeYeuBookstore.Data.EF
                     Email = "viethung@gmail.com",
                     DateCreated = DateTime.Now,
                     DateModified = DateTime.Now,
-                    UserTypeFK = Const_UserType.Advertiser, //Webmaster
+                    UserTypeFK = Const_UserType.Advertiser, 
                     Status = Status.Active,
                     Gender = Gender.Other
                 }, CommonConstants.DefaultPW).Result;
@@ -497,7 +963,7 @@ namespace BeYeuBookstore.Data.EF
                     Email = "phongzu@gmail.com",
                     DateCreated = DateTime.Now,
                     DateModified = DateTime.Now,
-                    UserTypeFK = Const_UserType.Advertiser, //Webmaster
+                    UserTypeFK = Const_UserType.Advertiser, 
                     Status = Status.Active,
                     Gender = Gender.Other
                 }, CommonConstants.DefaultPW).Result;
@@ -515,7 +981,7 @@ namespace BeYeuBookstore.Data.EF
                     Email = "tiki@gmail.com",
                     DateCreated = DateTime.Now,
                     DateModified = DateTime.Now,
-                    UserTypeFK = Const_UserType.Advertiser, //Webmaster
+                    UserTypeFK = Const_UserType.Advertiser, 
                     Status = Status.Active,
                     Gender = Gender.Other
                 }, CommonConstants.DefaultPW).Result;
@@ -571,7 +1037,14 @@ namespace BeYeuBookstore.Data.EF
                     new Book(){Status=Status.Active, BookTitle="Dám nghĩ lớn",Author="David J. Schwartz. Ph.D",BookCategoryFK=12,MerchantFK=1,isPaperback=false,UnitPrice=98000, Length=13, Height=1, Width=20,PageNumber=200,Description="Bạn không cần phải thông minh tuyệt đỉnh hay tài năng xuất chúng mới đạt được thành công lớn lao, bạn chỉ cần rèn luyện và áp dụng thường xuyên tư duy Dám Nghĩ Lớn. Và đây là những điều diệu kỳ mà cuốn sách sẽ mang đến cho bạn.", Quantity=10, Img="/images/merchant/Khang Book/books/38.jpg"},
                     new Book(){Status=Status.Active, BookTitle="Nói nhiều không bằng nói đúng",Author="2.1/2 Bạn Tốt",BookCategoryFK=8,MerchantFK=2,isPaperback=false,UnitPrice=50000, Length=13, Height=1, Width=20,PageNumber=120,Description="Nói chuyện không dễ nghe sẽ khiến mọi người phản cảm và xa cách bạn, đồng thời dẫn đến việc bạn trở thành người có ấn tượng xấu. Lời nói hay như những giai điệu đẹp, ai cũng muốn nghe.", Quantity=10, Img="/images/merchant/Trâm Store/books/39.jpg"},
                     new Book(){Status=Status.Active, BookTitle="Ai ở sau lưng bạn thế?",Author="Accototo",BookCategoryFK=11,MerchantFK=1,isPaperback=false,UnitPrice=30000, Length=17, Height=1, Width=24,PageNumber=32,Description="Ai ở sau lưng bạn thế? là bộ truyện Ehon Nhật Bản gồm 6 cuốn dành cho các bé từ 0 - 3 tuổi theo chủ đề về các loài động vật. Điểm thú vị của truyện chính là những bức tranh gồm một loài động vật cụ thể và một phần chi tiết về một con vật khác.", Quantity=89, Img="/images/merchant/Khang Book/books/40.jpg"},
-
+                    new Book(){Status=Status.Active, BookTitle="Ngày người thương một người thương khác",Author="Trí",BookCategoryFK=4,MerchantFK=3,isPaperback=false,UnitPrice=60000, Length=22, Height=202, Width=23,PageNumber=300,Description="Sách chia sẻ những câu chuyện tình yêu lãng mạng",Quantity=50,Img="/images/merchant/Chim Shop/books/12.jpg"},
+                    new Book(){Status=Status.Active, BookTitle="Thám tử lừng danh Conan",Author="Gosho Aoyama,",BookCategoryFK=3,MerchantFK=4,isPaperback=false,UnitPrice=18000, Length=11, Height=210, Width=17,PageNumber=89,Description="Truyện tranh thể loại trinh thám",Quantity=29,Img="/images/merchant/Huy Huỳnh/books/13.jpg"},
+                    new Book(){Status=Status.Active, BookTitle="Ba người thầy vĩ đại",Author="Robin Sharma",BookCategoryFK=4,MerchantFK=5,isPaperback=false,UnitPrice=78000, Length=22, Height=442, Width=18,PageNumber=233,Description="Cuốn sổ mà cha Mike - người thầy đầu tiên ở Rome đưa cho Jack đã đúc kết 10 điều mà anh đã học được trong suốt cuộc hành trình",Quantity=189,Img="/images/merchant/Phương Nam Book/books/14.jpg"},
+                    new Book(){Status=Status.Active, BookTitle="Những Câu Chuyện Kỳ Lạ Của Darren Shan 01 - Gánh Xiếc Quái Dị ",Author="Darren Shan",BookCategoryFK=1,MerchantFK=6,isPaperback=false,UnitPrice=160000, Length=20, Height=256, Width=14,PageNumber=119,Description="Những Chuyện Kỳ Lạ Của Darren Shan với những chi tiết phong phú và sinh động, kỳ lạ, quái dị, pha lẫn chút khiếp đảm, không chỉ là những câu chuyện ma quái bình thường mà còn là chuyện kể về đời sống tự nhiên xung quanh ta, về những mối quan hệ tình bạn, tình thầy trò ngập tràn yêu thương và nhân bản.",Quantity=12,Img="/images/merchant/Nhân Company/books/15.jpg"},
+                    new Book(){Status=Status.Active, BookTitle="Bộ Sách Kinh Điển Về Phân Tâm Học",Author="Sigmund Freud",BookCategoryFK=2,MerchantFK=7,isPaperback=false,UnitPrice=190000, Length=19, Height=223, Width=29,PageNumber=189,Description="Truyện kinh dị ",Quantity=90,Img="/images/merchant/Alpha Books/books/16.jpg"},
+                    new Book(){Status=Status.Active, BookTitle="The Haunting of Hill House",Author="Shirley Disert",BookCategoryFK=1,MerchantFK=8,isPaperback=false,UnitPrice=120000, Length=21, Height=222, Width=22,PageNumber=132,Description="Truyện tranh thiếu nhi",Quantity=18,Img="/images/merchant/First News/books/17.jpg"},
+                    new Book(){Status=Status.Active, BookTitle="Tớ Thích Cậu Hơn Cả Harvard",Author="Lan Rùa",BookCategoryFK=3,MerchantFK=9,isPaperback=false,UnitPrice=120000, Length=23, Height=233, Width=20,PageNumber=98,Description="Món quà tuyệt vời cho mùa hè rực rỡ",Quantity=46,Img="/images/merchant/Linh New Style/books/18.jpg"},
+                    new Book(){Status=Status.Active, BookTitle="Bạn Có Phải Là Đứa Trẻ Sợ Hãi Ẩn Sau Lớp Vỏ Trưởng Thành",Author="Beth Evans",BookCategoryFK=4,MerchantFK=10,isPaperback=false,UnitPrice=230000, Length=27, Height=234, Width=28,PageNumber=209,Description="Cuốn sách tâm lý cùng bạn học cách trưởng thành dành cho người HƯỚNG NỘI.",Quantity=55,Img="/images/merchant/Trung Lê/books/19.jpg"},
 
 
 

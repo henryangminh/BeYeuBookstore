@@ -1,4 +1,4 @@
-﻿var bookController = function () {
+﻿var booksoutController = function () {
     this.initialize = function () {
         loadData();
        // sendMail();

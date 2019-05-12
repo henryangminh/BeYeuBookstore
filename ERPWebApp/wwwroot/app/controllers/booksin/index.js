@@ -1,4 +1,4 @@
-﻿var bookController = function () {
+﻿var booksinController = function () {
     this.initialize = function () {
         loadData();
        // sendMail();
@@ -12,7 +12,7 @@
             loadData(true);
         });
 
-        $('#selBookCategory').on('change', function () {
+        $('#selMerchant').on('change', function () {
             loadData();
         });
 
@@ -32,7 +32,7 @@
             resetForm();
             $.ajax({
                 type: 'GET',
-                url: '/Book/GetMerchantInfo',
+                url: '/BooksIn/GetMerchantInfo',
 
                 dataType: "json",
 
@@ -72,8 +72,6 @@
             var that = $(this).data('id');
             loadDetail(that);
 
-        
-            //document.getElementById("btnSave").style.display = "block";
         });
 
 
@@ -127,7 +125,7 @@
         //Save
         $('#btnSave').on('click', function (e) {
             if ($('#txtMerchantStatus').val() == 0) {
-                general.notify('Nhà cung cấp đã bị Khóa, vui lòng liên hệ Webmaster để biết thêm chi tiết!', 'error');
+                general.notify('Nhà cung cấp đã bị Khóa, hoặc bạn không có quyền thêm mới vui lòng liên hệ Webmaster để biết thêm chi tiết!', 'error');
                 return false;
             }
 
@@ -378,11 +376,11 @@ function loadData(isPageChanged) {
             fromdate: $('#dtBegin').val(),
             todate: $('#dtEnd').val(),
             keyword: $('#txtKeyword').val(),
-            bookcategoryid: $('#selBookCategory').val(),
+            merchantid: $('#selMerchant').val(),
             page: general.configs.pageIndex,
             pageSize: general.configs.pageSize,
         },
-        url: '/Book/GetAllPaging',
+        url: '/BooksIn/GetAllPaging',
         dataType: 'json',
         success: function (response) {
             console.log("data", response);

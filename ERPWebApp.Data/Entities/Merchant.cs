@@ -87,5 +87,7 @@ namespace BeYeuBookstore.Data.Entities
         public virtual ICollection<Book> Books { get; set; }
         public virtual ICollection<MerchantContract> MerchantContracts { get; set; }
         public virtual ICollection<Delivery> Deliveries { get; set; }
+        public virtual ICollection<BooksIn> BooksIns { get; set; }
+        public virtual ICollection<BooksOut> BooksOuts { get; set; }
     }
 }
