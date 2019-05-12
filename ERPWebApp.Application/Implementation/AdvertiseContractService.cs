@@ -44,7 +44,7 @@ namespace BeYeuBookstore.Application.Implementation
 
         public List<AdvertiseContractViewModel> GetAll()
         {
-            var query = _advertiseContractRepository.FindAll();
+            var query = _advertiseContractRepository.FindAll(x => x.AdvertisementContentFKNavigation, x => x.AdvertisementContentFKNavigation.AdvertisementPositionFKNavigation);
             var data = new List<AdvertiseContractViewModel>();
             foreach (var item in query)
             {

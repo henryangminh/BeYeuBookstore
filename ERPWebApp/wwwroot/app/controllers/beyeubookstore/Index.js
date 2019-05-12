@@ -1,6 +1,7 @@
 ﻿var beyeubookstoreController = function () {
     this.initialize = function () {
         loadData();
+        getAdvertisement()
         registerEvents();
     }
     function registerEvents() {
@@ -38,7 +39,7 @@
                     console.log('BookDetail', response);
                     var size = response.Width + "x" + response.Length;
                     if (response.Height != null) size += "x" + response.Height;
-                    size += "(cm)";
+                    size += " (cm)";
                     $('#BookId').val(response.KeyId);
                     $('#txtPaperback').text((response.isPaperback) ? "Bìa mềm" : "Bìa cứng");
                     $('#txtBookNameModal').text(response.BookTitle);
@@ -130,7 +131,7 @@ function loadData(isPageChanged) {
     $.ajax({
         type: 'GET',
         data: {
-            quantity: 8,
+            quantity: 12,
         },
         url: '/BeyeuBookstore/GetAllQuantity',
         dataType: 'json',
@@ -145,7 +146,7 @@ function loadData(isPageChanged) {
                     //BookRating: 5.0, //item.BookRating, //Rating //Để tạm thời thôi
                     BookTitle: item.BookTitle,
                     BookPrice: general.toMoney(item.UnitPrice),
-                    LinkBook: '#',
+                    LinkBook: '?id=' + item.KeyId,
                 });
                 if ((i + 1) % 4 == 0) render += '</div>';
                 //order++;
@@ -199,10 +200,14 @@ function loadBookCategory() {
             console.log('BookCategory', response);
             $.each(response, function (i, item) {
                 render += Mustache.render(template, {
-                    LinkCategoryShop: '#',
+                    LinkCategoryShop: '?radBookCategory=' + item.KeyId,
                     BookCategoryName: item.BookCategoryName,
+                    More: (i > 10) ? true : false,
                 });
             });
+            if (response.length > 10) {
+                render += '<li class="rx-parent"><a class="rx-default" ><span class="cat-thumb fa fa-plus"></span>Thêm</a><a class="rx-show"><span class="cat-thumb fa fa-minus"></span>Đóng</a></li>';
+            }
             $('#BookCategory').html(render);
         },
         error: function (err) {
@@ -210,4 +215,25 @@ function loadBookCategory() {
 
         },
     });
+}
+
+function getAdvertisement() {
+    $.ajax({
+        type: "GET",
+        url: "/BeyeuBookstore/GetAdvertisement",
+        dataType: 'json',
+        data: { url: window.location.pathname.toLowerCase() },
+        success: function (respond) {
+            console.log("Advertiser", respond);
+            $.each(respond, function (i, item) {
+                var idPosition = '#' + item.AdvertisementContentFKNavigation.AdvertisementPositionFKNavigation.IdOfPosition;
+                $(idPosition).attr("src", item.AdvertisementContentFKNavigation.ImageLink);
+                $(idPosition).parent().attr("href", item.AdvertisementContentFKNavigation.UrlToAdvertisement);
+                $(idPosition).parent().attr("target", "_blank");
+            })
+        },
+        error: function (e) {
+            console.log(e);
+        }
+    })
 }

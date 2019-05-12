@@ -6,6 +6,7 @@ using BeYeuBookstore.Infrastructure.Interfaces;
 using BeYeuBookstore.Utilities.DTOs;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace BeYeuBookstore.Application.Implementation
@@ -51,7 +52,7 @@ namespace BeYeuBookstore.Application.Implementation
 
         public List<RatingDetailViewModel> GetAllByBookId(int id)
         {
-            var query = _ratingDetailRepository.FindAll(x=>x.BookFK==id);
+            var query = _ratingDetailRepository.FindAll(x => x.BookFK == id, x => x.CustomerFKNavigation, x => x.CustomerFKNavigation.UserBy);
             var data = new List<RatingDetailViewModel>();
             foreach (var item in query)
             {
@@ -89,16 +90,9 @@ namespace BeYeuBookstore.Application.Implementation
 
         public double CalculateBookRatingByBookId(int id)
         {
-            double rating=0;
-            int count = 0;
             var query = _ratingDetailRepository.FindAll(x => x.BookFK == id);
-            foreach (var item in query)
-            {
-                rating = rating + item.Rating;
-                count++;
-            }
-            rating = rating / count;
-            return rating;
+            double rating = query.Select(x => x.Rating).Average();
+            return Math.Round(rating, 1);
         }
     }
 }
