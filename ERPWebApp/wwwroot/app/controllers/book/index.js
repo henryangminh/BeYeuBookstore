@@ -1,6 +1,7 @@
 ﻿var bookController = function () {
     this.initialize = function () {
         loadData();
+        loadAllMerchant();
        // sendMail();
         registerEvents();
     }
@@ -13,6 +14,9 @@
         });
 
         $('#selBookCategory').on('change', function () {
+            loadData();
+        });
+        $('#selMerchant').on('change', function () {
             loadData();
         });
 
@@ -374,7 +378,7 @@ function loadData(isPageChanged) {
     $.ajax({
         type: 'GET',
         data: {
-            
+            mId: $('#selMerchant option:selected').val(),
             fromdate: $('#dtBegin').val(),
             todate: $('#dtEnd').val(),
             keyword: $('#txtKeyword').val(),
@@ -466,13 +470,33 @@ function loadBookCategory() {
 
             $.each(response, function (i, item) {
                 $('#selBookCategory').append("<option value='" + item.KeyId + "'>" + item.BookCategoryName + "</option>");
-                $('#selBookcategory').append("<option value='" + item.KeyId + "'>" + item.BookCategoryName + "</option>");
+                $('#selBookcategoryDetail').append("<option value='" + item.KeyId + "'>" + item.BookCategoryName + "</option>");
 
 
             });
         },
         error: function (err) {
             general.notify('Có lỗi trong khi load loại sách !', 'error');
+
+        },
+    });
+
+}
+function loadAllMerchant() {
+    $.ajax({
+        type: 'GET',
+        url: '/Book/GetAllMerchantInfo',
+
+        dataType: "json",
+
+        success: function (response) {
+
+            $.each(response, function (i, item) {
+                $('#selMerchant').append("<option value='" + item.KeyId + "'>" + item.MerchantCompanyName + "</option>");
+            });
+        },
+        error: function (err) {
+            general.notify('Có lỗi trong khi load nhà cung cấp !', 'error');
 
         },
     });

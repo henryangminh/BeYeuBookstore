@@ -24,7 +24,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="dtDateModified" class="col-sm-2 col-form-label">Ngày tạo</label>
+                            <label for="dtDateCreated" class="col-sm-2 col-form-label">Ngày tạo</label>
                             <div class="col-sm-4">
                                 <input type="text" class="form-control" id="dtDateCreated" readonly />
                             </div>
@@ -44,6 +44,8 @@
                                         <th width="5%">Hình ảnh</th>
                                         <th>Loại sách</th>
                                         <th width="5%">Số lượng<br>hiện có</th>
+                                        <th width="5%">Số lượng<br>nhập</th>
+
                                         <th width="8%">#</th>
                                     </tr>
                                 </thead>
@@ -68,7 +70,7 @@
     <tr>
         <td></td>
         <td>
-            <select id="selBook" class="form-control">
+            <select id="selBook{{Id}}" class="form-control">
                 <option value="" selected="selected">Chọn sách</option>
             </select>
         </td>
@@ -76,9 +78,12 @@
         <td></td>
         <td></td>
         <td></td>
+        <td>
+            <input class="form-control" type="number" min="0"/>
+        </td>
 
         <td scope="row">
-            <a class="btn btn-xs btn-danger btn-delete {{{Prop}}}" {{{Prop}}} id="BooksInDetailDelete"><i class="fa fa-trash"></i></a>
+            <a class="btn btn-xs btn-danger btn-delete {{{Prop}}}" {{{Prop}}} id="BooksInDetailDelete-{{Id}}"><i class="fa fa-trash"></i></a>
         </td>
     </tr>
 </script>

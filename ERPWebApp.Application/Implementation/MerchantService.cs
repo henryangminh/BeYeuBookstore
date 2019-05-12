@@ -51,6 +51,22 @@ namespace BeYeuBookstore.Application.Implementation
             return data;
         }
 
+        public List<MerchantViewModel> GetAllByBook(int id)
+        {
+            var query = _merchantRepository.FindAll();
+            if(id!=0)
+            {
+                query = query.Where(x => x.KeyId == id);
+            }
+            var data = new List<MerchantViewModel>();
+            foreach (var item in query)
+            {
+                var _data = Mapper.Map<Merchant, MerchantViewModel>(item);
+                data.Add(_data);
+            }
+            return data;
+        }
+
         public MerchantViewModel GetBysId(string id)
         {
             var query = _merchantRepository.FindAll(p => p.UserBy);

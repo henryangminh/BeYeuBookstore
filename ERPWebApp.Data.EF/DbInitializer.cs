@@ -1099,9 +1099,9 @@ namespace BeYeuBookstore.Data.EF
                 {
                     _context.AdvertisementContents.AddRange(new List<AdvertisementContent>()
                 {
-                    new AdvertisementContent(){AdvertisementPositionFK=1, AdvertiserFK=1, Title="Bút Thiên Long", Description="Bút TL mua 3 tặng chục", UrlToAdvertisement="thienloi.vn", Deposite=2000000, CensorStatus=CensorStatus.AccountingCensored, ImageLink="/images/advertiser/Bút Kim Long/content/butthienlong.jpg", },
-                    new AdvertisementContent(){AdvertisementPositionFK=3,AdvertiserFK=3, Title="Laptop Phong Vũ", Description="Laptop khuyến mãi mùa học lại mua 10 tặng 1", UrlToAdvertisement="phongvu.vn", Deposite=2000000, CensorStatus=CensorStatus.AccountingCensored, ImageLink="/images/advertiser/Phong Vũ/content/phongvu.jpg",},
-                    new AdvertisementContent(){AdvertisementPositionFK=2, AdvertiserFK=4, Title="Tiki", Description="Săn sách giá rẻ",UrlToAdvertisement="tiki.vn",Deposite=2000000, CensorStatus=CensorStatus.AccountingCensored,ImageLink="/images/advertiser/Tiki/content/tiki.jpg", },
+                    new AdvertisementContent(){AdvertisementPositionFK=1, AdvertiserFK=1, Title="Bút Thiên Long", Description="Bút TL mua 3 tặng chục", UrlToAdvertisement="http://thienlonggroup.com", Deposite=2000000, CensorStatus=CensorStatus.AccountingCensored, ImageLink="/images/advertiser/Bút Kim Long/content/butthienlong.jpg", },
+                    new AdvertisementContent(){AdvertisementPositionFK=3,AdvertiserFK=3, Title="Laptop Phong Vũ", Description="Laptop khuyến mãi mùa học lại mua 10 tặng 1", UrlToAdvertisement="https://phongvu.vn", Deposite=2000000, CensorStatus=CensorStatus.AccountingCensored, ImageLink="/images/advertiser/Phong Vũ/content/phongvu.jpg",},
+                    new AdvertisementContent(){AdvertisementPositionFK=2, AdvertiserFK=4, Title="Tiki", Description="Săn sách giá rẻ",UrlToAdvertisement="https://tiki.vn",Deposite=2000000, CensorStatus=CensorStatus.AccountingCensored,ImageLink="/images/advertiser/Tiki/content/tiki.jpg", },
                    
                     });
 
@@ -1157,8 +1157,20 @@ namespace BeYeuBookstore.Data.EF
                         _context.Invoices.AddRange(new List<Invoice>()
                     {
                             new Invoice(){ CustomerFK=1,TotalPrice=182000,DeliAddress="Lầu 19 Landmark 81 Q.Bình Thạnh", DeliContactName="Mỡ's Má", DeliContactHotline="0908468188"},
-                            new Invoice(){ CustomerFK=1,TotalPrice=355000,DeliAddress="Lầu 19 Landmark 81 Q.Bình Thạnh", DeliContactName="Mỡ's Ba", DeliContactHotline="0908466048"}
-                    });
+                            new Invoice(){ CustomerFK=1,TotalPrice=355000,DeliAddress="Lầu 19 Landmark 81 Q.Bình Thạnh", DeliContactName="Mỡ's Ba", DeliContactHotline="0908466048"},
+                            new Invoice(){ CustomerFK=2,TotalPrice=182000,DeliAddress="18 Nguyễn Trãi Q.3", DeliContactName="An Đông", DeliContactHotline="0908456188"},
+                            new Invoice(){ CustomerFK=3,TotalPrice=355000,DeliAddress="81 Nguyễn Hữu Cảnh Q.Bình Thạnh", DeliContactName="Ngọc", DeliContactHotline="0904566048"},
+                            new Invoice(){ CustomerFK=3,TotalPrice=355000,DeliAddress="81 Nguyễn Hữu Cảnh Q.Bình Thạnh", DeliContactName="Ngọc", DeliContactHotline="0908787048"},
+                            new Invoice(){ CustomerFK=4,TotalPrice=355000,DeliAddress="03 Tôn Đản Q.4", DeliContactName="Lan", DeliContactHotline="0907766048"},
+                            new Invoice(){ CustomerFK=5,TotalPrice=355000,DeliAddress="23 Lê Thánh Tôn Q.1", DeliContactName="Chinh", DeliContactHotline="0977466048"},
+                            new Invoice(){ CustomerFK=5,TotalPrice=355000,DeliAddress="23 Lê Thánh Tôn Q.1", DeliContactName="Chinh", DeliContactHotline="0778466048"},
+                            new Invoice(){ CustomerFK=6,TotalPrice=355000,DeliAddress="44 Điện Biên Phủ Q.3", DeliContactName="Sang", DeliContactHotline="0908467778"},
+                            new Invoice(){ CustomerFK=7,TotalPrice=355000,DeliAddress="3 Võ Thị Sáu Q.1", DeliContactName="Sinh", DeliContactHotline="0905556048"},
+                            new Invoice(){ CustomerFK=7,TotalPrice=355000,DeliAddress="3 Võ Thị Sáu Q.1", DeliContactName="Sinh", DeliContactHotline="0908466034"},
+                            new Invoice(){ CustomerFK=8,TotalPrice=355000,DeliAddress="93 Võ Văn Kiệt Q.5", DeliContactName="Chago", DeliContactHotline="0908423048"},
+                            new Invoice(){ CustomerFK=9,TotalPrice=355000,DeliAddress="35 Lê Văn Lương Q.7", DeliContactName="Hưng", DeliContactHotline="0901366048"},
+                            new Invoice(){ CustomerFK=10,TotalPrice=355000,DeliAddress="01 Xóm Chiếu Q.4", DeliContactName="Tuấn", DeliContactHotline="090846048"}
+                     });
              
                 }
                 try
@@ -1178,6 +1190,20 @@ namespace BeYeuBookstore.Data.EF
                             new InvoiceDetail(){ InvoiceFK=1,BookFK=2,Qty=2,UnitPrice=46000,SubTotal=92000},
                             new InvoiceDetail(){ InvoiceFK=2,BookFK=5,Qty=3,UnitPrice=65000,SubTotal=195000},
                             new InvoiceDetail(){ InvoiceFK=2,BookFK=7,Qty=4,UnitPrice=40000,SubTotal=160000},
+                            new InvoiceDetail(){ InvoiceFK=3,BookFK=10,Qty=1,UnitPrice=62000,SubTotal=186000},
+                            new InvoiceDetail(){ InvoiceFK=3,BookFK=11,Qty=1,UnitPrice=95000,SubTotal=95000},
+                            new InvoiceDetail(){ InvoiceFK=4,BookFK=12,Qty=2,UnitPrice=90000,SubTotal=180000},
+                            new InvoiceDetail(){ InvoiceFK=5,BookFK=13,Qty=1,UnitPrice=82000,SubTotal=82000},
+                            new InvoiceDetail(){ InvoiceFK=5,BookFK=14,Qty=2,UnitPrice=79000,SubTotal=158000},
+                            new InvoiceDetail(){ InvoiceFK=6,BookFK=15,Qty=2,UnitPrice=98000,SubTotal=196000},
+                            new InvoiceDetail(){ InvoiceFK=6,BookFK=16,Qty=1,UnitPrice=95000,SubTotal=95000},
+                            new InvoiceDetail(){ InvoiceFK=7,BookFK=17,Qty=1,UnitPrice=98000,SubTotal=98000},
+                            new InvoiceDetail(){ InvoiceFK=7,BookFK=18,Qty=3,UnitPrice=45000,SubTotal=135000},
+                            new InvoiceDetail(){ InvoiceFK=8,BookFK=19,Qty=4,UnitPrice=50000,SubTotal=200000},
+                            new InvoiceDetail(){ InvoiceFK=9,BookFK=20,Qty=3,UnitPrice=79000,SubTotal=237000},
+                            new InvoiceDetail(){ InvoiceFK=9,BookFK=3,Qty=2,UnitPrice=89000,SubTotal=178000},
+                            new InvoiceDetail(){ InvoiceFK=10,BookFK=5,Qty=1,UnitPrice=149000,SubTotal=149000},
+                            new InvoiceDetail(){ InvoiceFK=10,BookFK=4,Qty=2,UnitPrice=272000,SubTotal=544000}
                     });
 
                 }
@@ -1216,6 +1242,43 @@ namespace BeYeuBookstore.Data.EF
                     {
                             new RatingDetail(){ BookFK = 1, CustomerFK = 1, Rating = 5,Comment = "good"},
                             new RatingDetail(){ BookFK = 2, CustomerFK = 1, Rating = 4,Comment = "blabla"},
+                    });
+
+                }
+                try
+                {
+                    _context.SaveChanges();
+                }
+                catch (Exception ex)
+                {
+                    string a = ex.ToString();
+                };
+
+                if (_context.BooksIns.Count() == 0)
+                {
+                    _context.BooksIns.AddRange(new List<BooksIn>()
+                    {
+                            new BooksIn(){MerchantFK=1, DateCreated=DateTime.Now, DateModified=DateTime.Now  },
+                            
+                    });
+
+                }
+                try
+                {
+                    _context.SaveChanges();
+                }
+                catch (Exception ex)
+                {
+                    string a = ex.ToString();
+                };
+
+                if (_context.BooksInDetails.Count() == 0)
+                {
+                    _context.BooksInDetails.AddRange(new List<BooksInDetail>()
+                    {
+                            new BooksInDetail(){BooksInFK=1, BookFK=1, Qty=10, Price=10000  },
+                            new BooksInDetail(){BooksInFK=1, BookFK=3, Qty=21, Price=100000  },
+
                     });
 
                 }
