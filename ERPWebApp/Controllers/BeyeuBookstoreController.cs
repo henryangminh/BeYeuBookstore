@@ -5,10 +5,13 @@ using System.Threading.Tasks;
 using BeYeuBookstore.Application.Interfaces;
 using BeYeuBookstore.Application.Interfaces.Acc;
 using BeYeuBookstore.Application.ViewModels;
+using BeYeuBookstore.Application.ViewModels.System;
 using BeYeuBookstore.Data.Entities;
 using BeYeuBookstore.Extensions;
 using BeYeuBookstore.Models.AccountViewModels;
 using BeYeuBookstore.Services;
+using BeYeuBookstore.Utilities.Constants;
+using Helper;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -107,6 +110,11 @@ namespace BeYeuBookstore.Controllers
             var rating = _ratingDetailService.GetAllByBookId(book.KeyId);
             return View(new Tuple<BookViewModel, List<RatingDetailViewModel>>(book, rating));
         }
+
+        public IActionResult WaitingConfirmation()
+        {
+            return View();
+        }
         #region AJAX API
         [HttpGet]
         public IActionResult GetAll()
@@ -183,31 +191,64 @@ namespace BeYeuBookstore.Controllers
         }
         
         [HttpPost]
-        [AllowAnonymous]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> SignUp(RegisterViewModel model, string returnUrl = null)
+        //[AllowAnonymous]
+        //[ValidateAntiForgeryToken]
+        public async Task<IActionResult> Register(RegisterViewModel model, UserViewModel userViewModel, string returnUrl = null)
         {
             ViewData["ReturnUrl"] = returnUrl;
             if (ModelState.IsValid)
             {
-                var user = new Data.Entities.User { UserName = model.Email, Email = model.Email };
+                var user = new Data.Entities.User {
+                    UserName = model.Email,
+                    Email = model.Email,
+                    FullName = userViewModel.FullName,
+                    Address = userViewModel.Address,
+                    DateCreated = DateTime.Now,
+                    DateModified = DateTime.Now,
+                    PhoneNumber = userViewModel.PhoneNumber,
+                    Gender = Data.Enums.Gender.Other,
+                    Status=Data.Enums.Status.Active,
+                    UserTypeFK= Const_UserType.Customer,
+                };
                 var result = await _userManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
 
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
                     var callbackUrl = Url.EmailConfirmationLink(user.Id, code, Request.Scheme);
-                    await _emailSender.SendEmailConfirmationAsync(model.Email, callbackUrl);
 
-                    await _signInManager.SignInAsync(user, isPersistent: false);
+                    var content = "Hãy nhấp vào link này để xác nhận tài khoản Bé Yêu Bookstore: " + callbackUrl;
+
+                    ConfirmEmail(model.Email, content);
+                    //await _signInManager.SignInAsync(user, isPersistent: false);
                     return new RedirectResult(Url.Action("WaitingConfirmation", "BeyeuBookstore"));
                 }
             }
 
             // If we got this far, something failed, redisplay form
-            return View(model);
+            return new RedirectResult(Url.Action("SignUp", "BeyeuBookstore"));
         }
-        
+
+        [HttpPost]
+        public IActionResult CheckEmailExist(string email)
+        {
+            var model = _userService.checkExistEmail(email);
+            return new OkObjectResult(model);
+        }
+
+        public void ConfirmEmail(string toEmailAddress, string content)
+        {
+            try
+            {
+                string MailContent = content;
+
+                new MailHelper().SendMail(toEmailAddress, "Xác nhận email tải khoản Bé Yêu Bookstore", MailContent);
+            }
+            catch (Exception ex)
+            {
+                
+            }
+        }
         #endregion
     }
 }
