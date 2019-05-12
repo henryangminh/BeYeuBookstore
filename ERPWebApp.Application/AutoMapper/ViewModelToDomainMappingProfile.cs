@@ -29,7 +29,7 @@ namespace BeYeuBookstore.Application.AutoMapper
             CreateMap<BookCategoryViewModel, BookCategory>().ConstructUsing(c => new BookCategory(c.KeyId,c.Status,c.BookCategoryName));
 
             CreateMap<AdvertiseContractViewModel, AdvertiseContract>().ConstructUsing(c => new AdvertiseContract(c.KeyId,c.AdvertisementContentFK,c.DateStart,
-                c.DateFinish, c.ContractValue, c.Paid,c.Note ,c.Status, c.DateCreated, c.DateModified));
+                c.DateFinish, c.ContractValue,c.Note ,c.Status, c.DateCreated, c.DateModified));
 
             CreateMap<AdvertisementContentViewModel, AdvertisementContent>().ConstructUsing(c => new AdvertisementContent(c.KeyId, c.AdvertiserFK, c.AdvertisementPositionFK,
                 c.ImageLink,c.Title,c.Description,c.UrlToAdvertisement,c.Deposite,c.CensorStatus,c.CensorFK,c.Note,c.DateCreated,c.DateModified));
@@ -59,6 +59,15 @@ namespace BeYeuBookstore.Application.AutoMapper
 
             CreateMap<RatingDetailViewModel, RatingDetail>().ConstructUsing(c => new RatingDetail(c.KeyId, c.BookFK, c.CustomerFK, c.Rating, c.Comment, c.DateCreated, c.DateModified));
 
+            CreateMap<BooksInViewModel, BooksIn>().ConstructUsing(c => new BooksIn(c.KeyId, c.MerchantFK, c.DateCreated, c.DateModified));
+
+            CreateMap<BooksOutViewModel, BooksOut>().ConstructUsing(c => new BooksOut(c.KeyId,  c.MerchantFK, c.DateCreated, c.DateModified));
+
+            CreateMap<BooksOutDetailViewModel, BooksOutDetail>().ConstructUsing(c => new BooksOutDetail(c.KeyId, c.BooksOutFK,c.BookFK,c.Qty));
+
+            CreateMap<BooksInDetailViewModel, BooksInDetail>().ConstructUsing(c => new BooksInDetail(c.KeyId, c.BooksInFK, c.BookFK, c.Qty, c.Price));
+
+            
         }
     }
 }

@@ -292,14 +292,13 @@ var advertiseContractController = function () {
                         return false;
                     }
                     var flag;
-                    for (var i = 0; i < parseInt(note); i++)
+                    var _curday = moment(dateStart, "YYYY-MM-DD").format("DD/MM/YYYY");
+                    for (var i = 0; i < parseInt(noDate); i++)
                     {
-                        var _dateStart = moment(dateStart, "YYYY-MM-DD");
-                        var _curday = _dateStart.format("DD/MM/YYYY");
                         if ($.inArray(_curday, gDisabledDates) != -1) {
                             flag = false;
                         }
-                        _dateStart = _dateStart.add(1, 'days');
+                        _curday = (moment(_curday,"DD/MM/YYYY").add(1, 'days')).format("DD/MM/YYYY");
                     }
 
                     if (flag==false) {
@@ -310,6 +309,9 @@ var advertiseContractController = function () {
                     $.ajax({
                         type: 'POST',
                         url: '/AdvertiseContract/SaveEntity',
+                        beforeSend: function () {
+                            general.startLoad();
+                        },
                         data: {
                             KeyId: keyId,
                             AdvertisementContentFK: adContentId,
@@ -321,20 +323,21 @@ var advertiseContractController = function () {
 
                         },
                         dataType: "json",
-                        beforeSend: function () {
-                            general.startLoading();
-                        },
+                       
                         success: function (response) {
 
                             $('#modal-add-edit').modal('hide');
                             general.notify('Ghi thành công!', 'success');
                             resetForm();
                             general.stopLoading();
+                            
                             loadData();
+                            general.stopLoad();
                         },
                         error: function (err) {
                             general.notify('Có lỗi trong khi ghi !', 'error');
                             general.stopLoading();
+                            general.stopLoad();
 
                         },
                     });

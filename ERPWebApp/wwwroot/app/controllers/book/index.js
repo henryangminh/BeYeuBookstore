@@ -219,6 +219,7 @@
                                             },
                                             dataType: "json",
                                             beforeSend: function () {
+                                                general.startLoad();
                                                 general.startLoading();
                                             },
                                             success: function (response) {
@@ -228,11 +229,13 @@
                                                 resetForm();
                                                 $('#frmMaintainance').trigger('reset');
                                                 general.stopLoading();
+                                                general.stopLoad();
                                                 loadData();
                                             },
                                             error: function (err) {
                                                 general.notify('Có lỗi trong khi ghi !', 'error');
-                                                general.stopLoading();
+                                                general.stopLoaading();
+                                                general.stopLoaad();
 
                                             },
                                         });

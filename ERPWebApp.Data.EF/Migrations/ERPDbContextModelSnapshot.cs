@@ -36,8 +36,6 @@ namespace BeYeuBookstore.Data.EF.Migrations
 
                     b.Property<string>("Note");
 
-                    b.Property<bool>("Paid");
-
                     b.Property<int>("Status");
 
                     b.HasKey("KeyId");
@@ -205,6 +203,84 @@ namespace BeYeuBookstore.Data.EF.Migrations
                     b.HasKey("KeyId");
 
                     b.ToTable("BookCategorys");
+                });
+
+            modelBuilder.Entity("BeYeuBookstore.Data.Entities.BooksIn", b =>
+                {
+                    b.Property<int>("KeyId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<DateTime?>("DateCreated");
+
+                    b.Property<DateTime?>("DateModified");
+
+                    b.Property<int>("MerchantFK");
+
+                    b.HasKey("KeyId");
+
+                    b.HasIndex("MerchantFK");
+
+                    b.ToTable("BooksIns");
+                });
+
+            modelBuilder.Entity("BeYeuBookstore.Data.Entities.BooksInDetail", b =>
+                {
+                    b.Property<int>("KeyId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int>("BookFK");
+
+                    b.Property<int>("BooksInFK");
+
+                    b.Property<decimal>("Price");
+
+                    b.Property<int>("Qty");
+
+                    b.HasKey("KeyId");
+
+                    b.HasIndex("BookFK");
+
+                    b.HasIndex("BooksInFK");
+
+                    b.ToTable("BooksInDetails");
+                });
+
+            modelBuilder.Entity("BeYeuBookstore.Data.Entities.BooksOut", b =>
+                {
+                    b.Property<int>("KeyId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<DateTime?>("DateCreated");
+
+                    b.Property<DateTime?>("DateModified");
+
+                    b.Property<int>("MerchantFK");
+
+                    b.HasKey("KeyId");
+
+                    b.HasIndex("MerchantFK");
+
+                    b.ToTable("BooksOuts");
+                });
+
+            modelBuilder.Entity("BeYeuBookstore.Data.Entities.BooksOutDetail", b =>
+                {
+                    b.Property<int>("KeyId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int>("BookFK");
+
+                    b.Property<int>("BooksOutFK");
+
+                    b.Property<int>("Qty");
+
+                    b.HasKey("KeyId");
+
+                    b.HasIndex("BookFK");
+
+                    b.HasIndex("BooksOutFK");
+
+                    b.ToTable("BooksOutDetails");
                 });
 
             modelBuilder.Entity("BeYeuBookstore.Data.Entities.Customer", b =>
@@ -818,6 +894,54 @@ namespace BeYeuBookstore.Data.EF.Migrations
                         .WithMany("Books")
                         .HasForeignKey("MerchantFK")
                         .HasConstraintName("FK_dbo.Book.MerchantFK")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("BeYeuBookstore.Data.Entities.BooksIn", b =>
+                {
+                    b.HasOne("BeYeuBookstore.Data.Entities.Merchant", "MerchantFKNavigation")
+                        .WithMany("BooksIns")
+                        .HasForeignKey("MerchantFK")
+                        .HasConstraintName("FK_dbo.BooksIn.MerchantFK")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("BeYeuBookstore.Data.Entities.BooksInDetail", b =>
+                {
+                    b.HasOne("BeYeuBookstore.Data.Entities.Book", "BookFKNavigation")
+                        .WithMany("BooksInDetails")
+                        .HasForeignKey("BookFK")
+                        .HasConstraintName("FK_dbo.BooksInDetail.BookFK")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("BeYeuBookstore.Data.Entities.BooksIn", "BooksInFKNavigation")
+                        .WithMany("BooksInDetails")
+                        .HasForeignKey("BooksInFK")
+                        .HasConstraintName("FK_dbo.BooksInDetail.BooksInFK")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("BeYeuBookstore.Data.Entities.BooksOut", b =>
+                {
+                    b.HasOne("BeYeuBookstore.Data.Entities.Merchant", "MerchantFKNavigation")
+                        .WithMany("BooksOuts")
+                        .HasForeignKey("MerchantFK")
+                        .HasConstraintName("FK_dbo.BooksOut.MerchantFK")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("BeYeuBookstore.Data.Entities.BooksOutDetail", b =>
+                {
+                    b.HasOne("BeYeuBookstore.Data.Entities.Book", "BookFKNavigation")
+                        .WithMany("BooksOutDetails")
+                        .HasForeignKey("BookFK")
+                        .HasConstraintName("FK_dbo.BooksOutDetail.BookFK")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("BeYeuBookstore.Data.Entities.BooksOut", "BooksOutFKNavigation")
+                        .WithMany("BooksOutDetails")
+                        .HasForeignKey("BooksOutFK")
+                        .HasConstraintName("FK_dbo.BooksOutDetail.BooksOutFK")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 

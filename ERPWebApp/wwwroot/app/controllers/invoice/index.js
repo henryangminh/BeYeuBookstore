@@ -181,7 +181,7 @@
                 $('#txtCustomer').val(data.CustomerFKNavigation.UserBy.UserName);
                 $('#txtCustomerId').val(data.CustomerFK);
                 $('#dtDateCreated').val(moment(data.DateCreated).format("DD/MM/YYYY"));
-                $('#txtTotalPrice').val(data.TotalPrice);
+                $('#txtTotalPrice').val(general.toMoney(data.TotalPrice));
                 
                 $.ajax({
                     type: "GET",
@@ -195,13 +195,13 @@
                       
                         console.log("InvoiceDetail", innerresponse);
                         $.each(innerresponse, function (i, item) {
-
+                            var _subTotal = general.toMoney(item.SubTotal);
                             renderDetail += Mustache.render(template, {
 
                                 InvoiceId: item.InvoiceFK,
                                 BookName: item.BookFKNavigation.BookTitle,
                                 Qty: item.Qty,
-                                Price: item.SubTotal,
+                                Price: _subTotal,
 
                             });
                            
@@ -254,12 +254,13 @@ function loadData(isPageChanged) {
             $.each(response.Results, function (i, item) {
 
                 var _dateCreate = moment(item.DateCreated).format("DD/MM/YYYY");
+                var _totalPrice = general.toMoney(item.TotalPrice);
                 render += Mustache.render(template, {
 
                     KeyId: item.KeyId,
                     CustomerName: item.CustomerFKNavigation.UserBy.FullName,
                     DateCreated: _dateCreate,
-                    TotalPrice: item.TotalPrice,
+                    TotalPrice: _totalPrice,
 
                 });
                 order++;

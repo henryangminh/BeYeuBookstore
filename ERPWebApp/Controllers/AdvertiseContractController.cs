@@ -80,12 +80,16 @@ namespace BeYeuBookstore.Controllers
 
 
         [HttpGet]
-        public IActionResult GetAllStatisticPaging(string frommonth, int page, int pageSize)
+        public IActionResult GetAllStatisticPaging(string fromdate, string todate, int advertiserId, int page, int pageSize)
         {
-
+            var id = advertiserId;
             var userid = _generalFunctionController.Instance.getClaimType(User, CommonConstants.UserClaims.Key);
             var A = _advertiserService.GetBysId(userid);
-            var model = _advertiseContractService.GetAllStatisticPaging(frommonth, A.KeyId, page, pageSize);
+            if(A.KeyId!=0)
+            {
+                id = A.KeyId;
+            }
+            var model = _advertiseContractService.GetAllStatisticPaging(fromdate, todate, id, page, pageSize);
             return new OkObjectResult(model);
         }
 

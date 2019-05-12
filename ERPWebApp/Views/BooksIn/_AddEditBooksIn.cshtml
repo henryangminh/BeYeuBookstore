@@ -1,0 +1,84 @@
+﻿<div id="modal-add-edit" class="bootbox modal fade modal-darkorange in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog  modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+
+                <button type="button" class="bootbox-close-button close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title">Thêm </h4>
+            </div>
+            <div class="modal-body">
+                <div id="horizontal-form">
+                    <form class="form-horizontal" role="form" id="frmMaintainance">
+                        <div class="form-group row">
+                            <label for="txtId" class="col-sm-2 col-form-label">Mã phiếu</label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" id="txtId" readonly />
+                            </div>
+                            <label for="txtMerchant" class="col-sm-2 col-form-label">Nhà cung cấp</label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" id="txtMerchant" readonly />
+                            </div>
+                            <div class="hidden">
+                                <input type="text" class="form-control" id="txtMerchantStatus" readonly />
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="dtDateModified" class="col-sm-2 col-form-label">Ngày tạo</label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" id="dtDateCreated" readonly />
+                            </div>
+                            <label for="dtDateModified" class="col-sm-2 col-form-label">Ngày chỉnh sửa</label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" id="dtDateModified" readonly />
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <table class="table table-striped table-bordered table-fix-header">
+                                <thead>
+                                    <tr>
+                                        <th width="3%">Mã sách</th>
+                                        <th width="30%">Tên sách</th>
+                                        <th>Tác giả</th>
+                                        <th width="5%">Hình ảnh</th>
+                                        <th>Loại sách</th>
+                                        <th width="5%">Số lượng<br>hiện có</th>
+                                        <th width="8%">#</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="tbl-booksincontent"></tbody>
+                        
+                            </table>
+                            <button type="button" id="btnMore" class="btn btn-success">Thêm sách</button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                        <button type="button" id="btnSave" class="btn btn-success" >Ghi</button>
+                        <button type="button" id="btnCancel" data-dismiss="modal" class="btn btn-danger">Hủy</button>
+            </div>
+        </div>
+       
+    </div>
+</div>
+<script id="tableBooksIn-template" type="x-tmpl-mustache">
+    <tr>
+        <td></td>
+        <td>
+            <select id="selBook" class="form-control">
+                <option value="" selected="selected">Chọn sách</option>
+            </select>
+        </td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+
+        <td scope="row">
+            <a class="btn btn-xs btn-danger btn-delete {{{Prop}}}" {{{Prop}}} id="BooksInDetailDelete"><i class="fa fa-trash"></i></a>
+        </td>
+    </tr>
+</script>
