@@ -22,6 +22,7 @@ function registerEvents() {
                         InvoiceDetail.BookFK = item.Book.KeyId;
                         InvoiceDetail.Qty = item.Quantity;
                         InvoiceDetail.UnitPrice = item.UnitPrice;
+                        InvoiceDetail.MerchantFK = item.Book.MerchantFK,
                         InvoiceDetail.SubTotal = item.Quantity * item.UnitPrice;
 
                         total += item.Quantity * item.UnitPrice;
@@ -35,6 +36,22 @@ function registerEvents() {
                     Invoice.DeliContactName = $("#txtDeliName").val();
                     Invoice.DeliAddress = $("#txtDeliAddress").val();
                     Invoice.DeliContactHotline = $("#txtDeliPhone").val();
+
+                    $.ajax({
+                        type: 'POST',
+                        url: '/Invoice/SaveEntity',
+                        data: {
+                            invoiceVm: Invoice,
+                            invoiceDetailVms: ListInvoiceDetail,
+                        },
+                        success: function (respond) {
+                            general.notify("Đặt hàng thành công", success);
+                            window.location.href = "/";
+                        },
+                        error: function () {
+                            general.notify("Đặt hàng thất bại", error);
+                        }
+                    })
                 }
             })
         }
