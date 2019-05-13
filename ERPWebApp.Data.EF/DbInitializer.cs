@@ -160,7 +160,11 @@ namespace BeYeuBookstore.Data.EF
                     new AdvertisementPosition(){PageUrl="/beyeubookstore", IdOfPosition="AdPosition3", Title="Giữa trang chủ",AdvertisePrice=9000000,Height=183,Width=385,Status=Status.Active},
                     new AdvertisementPosition(){PageUrl="/beyeubookstore", IdOfPosition="AdPosition4", Title="Giữa trang chủ trái",AdvertisePrice=80000000,Height=396,Width=263,Status=Status.Active},
                     new AdvertisementPosition(){PageUrl="/beyeubookstore", IdOfPosition="AdPosition5", Title="Cuối trang chủ",AdvertisePrice=50000000,Height=138,Width=1140,Status=Status.Active},
-                  
+                    //
+                    new AdvertisementPosition(){PageUrl="/BeyeuBookstore/Shopping", IdOfPosition="AdPosition6", Title="Đầu trang mua hàng",AdvertisePrice=10000000,Height=138,Width=1140,Status=Status.Active},
+                    new AdvertisementPosition(){PageUrl="/BeyeuBookstore/Shopping", IdOfPosition="AdPosition7", Title="Giữa trang mua hàng trái",AdvertisePrice=5000000,Height=138,Width=1140,Status=Status.Active},
+                    new AdvertisementPosition(){PageUrl="/BeyeuBookstore/BookDetail", IdOfPosition="AdPosition8", Title="Trên góc phải trang chi tiết sách",AdvertisePrice=500000,Height=138,Width=1140,Status=Status.Active},
+                
 
                 });
 
@@ -1102,6 +1106,12 @@ namespace BeYeuBookstore.Data.EF
                     new AdvertisementContent(){AdvertisementPositionFK=1, AdvertiserFK=1, Title="Bút Thiên Long", Description="Bút TL mua 3 tặng chục", UrlToAdvertisement="http://thienlonggroup.com", Deposite=2000000, CensorStatus=CensorStatus.AccountingCensored, ImageLink="/images/advertiser/Bút Kim Long/content/butthienlong.jpg", },
                     new AdvertisementContent(){AdvertisementPositionFK=3,AdvertiserFK=3, Title="Laptop Phong Vũ", Description="Laptop khuyến mãi mùa học lại mua 10 tặng 1", UrlToAdvertisement="https://phongvu.vn", Deposite=2000000, CensorStatus=CensorStatus.AccountingCensored, ImageLink="/images/advertiser/Phong Vũ/content/phongvu.jpg",},
                     new AdvertisementContent(){AdvertisementPositionFK=2, AdvertiserFK=4, Title="Tiki", Description="Săn sách giá rẻ",UrlToAdvertisement="https://tiki.vn",Deposite=2000000, CensorStatus=CensorStatus.AccountingCensored,ImageLink="/images/advertiser/Tiki/content/tiki.jpg", },
+                    new AdvertisementContent(){AdvertisementPositionFK=4, AdvertiserFK=4, Title="Tiki Number4", Description="Săn hàng giá rẻ",UrlToAdvertisement="https://tiki.vn",Deposite=80000000, CensorStatus=CensorStatus.AccountingCensored,ImageLink="/images/advertiser/Tiki/content/1.jpg", },
+                    new AdvertisementContent(){AdvertisementPositionFK=5, AdvertiserFK=3, Title="PVNo5", Description="Săn hàng mùa deadline",UrlToAdvertisement="https://phongvu.vn",Deposite=50000000, CensorStatus=CensorStatus.AccountingCensored,ImageLink="/images/advertiser/Phong Vũ/content/2.jpg", },
+                    new AdvertisementContent(){AdvertisementPositionFK=6, AdvertiserFK=3, Title="PhongVu", Description="Săn laptop giá rẻ",UrlToAdvertisement="https://phongvu.vn",Deposite=10000000, CensorStatus=CensorStatus.Uncensored,ImageLink="/images/advertiser/Phong Vũ/content/3.jpg", },
+                    new AdvertisementContent(){AdvertisementPositionFK=7, AdvertiserFK=1, Title="Bút", Description="Săn BÚT giá CỰC rẻ",UrlToAdvertisement="http://thienlonggroup.com",Deposite=5000000, CensorStatus=CensorStatus.AccountingCensored,ImageLink="/images/advertiser/Bút Kim Long/content/4.jpg", },
+                    new AdvertisementContent(){AdvertisementPositionFK=7, AdvertiserFK=1, Title="Bút TL", Description="Bút mới 2 bi",UrlToAdvertisement="http://thienlonggroup.com",Deposite=5000000, CensorStatus=CensorStatus.Unqualified,ImageLink="/images/advertiser/Bút Kim Long/content/5.jpg", },
+
                    
                     });
 
@@ -1140,7 +1150,16 @@ namespace BeYeuBookstore.Data.EF
                     _context.MerchantContracts.AddRange(new List<MerchantContract>()
                 {
                         new MerchantContract(){ ContractLink="", MerchantFK = 1, DateStart = DateTime.Parse("2019-01-01"), DateEnd = DateTime.Parse("2020-01-01")},
-                        new MerchantContract(){ ContractLink="", MerchantFK = 2, DateStart = DateTime.Parse("2019-01-01"), DateEnd = DateTime.Parse("2020-01-01")}
+                        new MerchantContract(){ ContractLink="", MerchantFK = 2, DateStart = DateTime.Parse("2019-01-01"), DateEnd = DateTime.Parse("2021-01-01")},
+                        new MerchantContract(){ ContractLink="", MerchantFK = 3, DateStart = DateTime.Parse("2019-01-01"), DateEnd = DateTime.Parse("2022-01-01")},
+                        new MerchantContract(){ ContractLink="", MerchantFK = 4, DateStart = DateTime.Parse("2018-01-01"), DateEnd = DateTime.Parse("2025-01-01")},
+                        new MerchantContract(){ ContractLink="", MerchantFK = 5, DateStart = DateTime.Parse("2017-01-01"), DateEnd = DateTime.Parse("2024-01-01")},
+                        new MerchantContract(){ ContractLink="", MerchantFK = 6, DateStart = DateTime.Parse("2016-01-01"), DateEnd = DateTime.Parse("2024-01-01")},
+                        new MerchantContract(){ ContractLink="", MerchantFK = 7, DateStart = DateTime.Parse("2016-01-01"), DateEnd = DateTime.Parse("2026-01-01")},
+                        new MerchantContract(){ ContractLink="", MerchantFK = 8, DateStart = DateTime.Parse("2016-01-01"), DateEnd = DateTime.Parse("2022-01-01")},
+                        new MerchantContract(){ ContractLink="", MerchantFK = 8, DateStart = DateTime.Parse("2015-01-01"), DateEnd = DateTime.Parse("2021-01-01")},
+                        new MerchantContract(){ ContractLink="", MerchantFK = 9, DateStart = DateTime.Parse("2016-01-01"), DateEnd = DateTime.Parse("2022-01-01")},
+                        new MerchantContract(){ ContractLink="", MerchantFK = 10, DateStart = DateTime.Parse("2029-01-01"), DateEnd = DateTime.Parse("2023-01-01")}
                     });
                 }
                 try
@@ -1223,10 +1242,27 @@ namespace BeYeuBookstore.Data.EF
                 {
                     _context.Deliveries.AddRange(new List<Delivery>()
                     {
-                            new Delivery(){ InvoiceFK=1,MerchantFK=1,DeliveryStatus=1, OrderPrice=0},
-                            new Delivery(){ InvoiceFK=1,MerchantFK=2,DeliveryStatus=1, OrderPrice=0},
-                            new Delivery(){ InvoiceFK=2,MerchantFK=1,DeliveryStatus=1, OrderPrice=0},
-                            new Delivery(){ InvoiceFK=2,MerchantFK=2,DeliveryStatus=1, OrderPrice=0},
+                            new Delivery(){ InvoiceFK=1,MerchantFK=1,DeliveryStatus=Const_DeliStatus.Confirmed, OrderPrice=240000,ShipPrice=15000,},
+                            new Delivery(){ InvoiceFK=1,MerchantFK=2,DeliveryStatus=Const_DeliStatus.OnDelivery, OrderPrice=380000, ShipPrice=15000},
+                            new Delivery(){ InvoiceFK=2,MerchantFK=3,DeliveryStatus=Const_DeliStatus.Packaged, OrderPrice=160000, ShipPrice=15000},
+                            new Delivery(){ InvoiceFK=3,MerchantFK=4,DeliveryStatus=Const_DeliStatus.Success, OrderPrice=78000,ShipPrice=20000},
+                            new Delivery(){ InvoiceFK=3,MerchantFK=5,DeliveryStatus=Const_DeliStatus.UnConfirmed, OrderPrice=18000},
+                            new Delivery(){ InvoiceFK=4,MerchantFK=6,DeliveryStatus=Const_DeliStatus.OnDelivery, OrderPrice=120000,ShipPrice=15},
+                            new Delivery(){ InvoiceFK=5,MerchantFK=3,DeliveryStatus=Const_DeliStatus.Fail, OrderPrice=160000, ShipPrice=15000},
+                            new Delivery(){ InvoiceFK=5,MerchantFK=4,DeliveryStatus=Const_DeliStatus.UnConfirmed, OrderPrice=78000},
+                            new Delivery(){ InvoiceFK=6,MerchantFK=7,DeliveryStatus=Const_DeliStatus.Confirmed, OrderPrice=240000, ShipPrice=10000},
+                            new Delivery(){ InvoiceFK=7,MerchantFK=2,DeliveryStatus=Const_DeliStatus.UnConfirmed, OrderPrice=40000},
+                            new Delivery(){ InvoiceFK=7,MerchantFK=1,DeliveryStatus=Const_DeliStatus.Packaged, OrderPrice=45000, ShipPrice=15000},
+                            new Delivery(){ InvoiceFK=8,MerchantFK=2,DeliveryStatus=Const_DeliStatus.Success, OrderPrice=130000, ShipPrice=20000},
+                            new Delivery(){ InvoiceFK=9,MerchantFK=2,DeliveryStatus=Const_DeliStatus.Confirmed, OrderPrice=45000, ShipPrice=10000},
+                            new Delivery(){ InvoiceFK=9,MerchantFK=3,DeliveryStatus=Const_DeliStatus.Fail, OrderPrice=46000, ShipPrice=10000},
+                            new Delivery(){ InvoiceFK=10,MerchantFK=1,DeliveryStatus=Const_DeliStatus.OnDelivery, OrderPrice=88000,ShipPrice=20000},
+                            new Delivery(){ InvoiceFK=11,MerchantFK=9,DeliveryStatus=Const_DeliStatus.Packaged, OrderPrice=690000,ShipPrice=15000},
+                            new Delivery(){ InvoiceFK=11,MerchantFK=2,DeliveryStatus=Const_DeliStatus.Success, OrderPrice=540000,ShipPrice=20000},
+                            new Delivery(){ InvoiceFK=12,MerchantFK=2,DeliveryStatus=Const_DeliStatus.Confirmed, OrderPrice=90000,ShipPrice=25000},
+                            new Delivery(){ InvoiceFK=13,MerchantFK=2,DeliveryStatus=Const_DeliStatus.OnDelivery, OrderPrice=40000,ShipPrice=30000},
+                            new Delivery(){ InvoiceFK=14,MerchantFK=9,DeliveryStatus=Const_DeliStatus.UnConfirmed, OrderPrice=240000},
+                            new Delivery(){ InvoiceFK=14,MerchantFK=2,DeliveryStatus=Const_DeliStatus.UnConfirmed, OrderPrice=230000 }
                     });
 
                 }

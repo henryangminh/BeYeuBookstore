@@ -23,11 +23,11 @@
 
     <script src="~/lib/bootstrap-datepicker/dist/js/bootstrap-datepicker.js" asp-append-version="true"></script>
     <script src="~/lib/bootstrap-datepicker/dist/locales/bootstrap-datepicker.vi.min.js" asp-append-version="true"></script>
-    <script src="~/app/controllers/booksout/index.js" asp-append-version="true"></script>
+    <script src="~/app/controllers/booksin/index.js" asp-append-version="true"></script>
 
     <script>
-        var booksout = new booksoutController();
-        booksout.initialize();</script>
+        var booksin = new booksinController();
+        booksin.initialize();</script>
 }
 <div class="title_left">
     <h3>Xuất Sách</h3>
@@ -41,8 +41,8 @@
         </div>
     </div>
     <div class="col-lg-2">
-        <select class="form-control" id="selBookCategory">
-            <option value="0">Chọn loại sách</option>
+        <select class="form-control" id="selMerchant">
+            <option value="0">Chọn nhà cung cấp</option>
         </select>
     </div>
     <div class="col-sm-4 form-group">
@@ -50,10 +50,10 @@
     </div>
     @if (result_create.Succeeded)
     {
-    <div class="col-sm-1 form-group">
-        <button id="btnCreate" class="btn btn-success"><i class="fa fa-plus"></i> Thêm mới</button>
-    </div>
-                }
+        <div class="col-sm-1 form-group">
+            <button id="btnCreate" class="btn btn-success"><i class="fa fa-plus"></i> Thêm mới</button>
+        </div>
+    }
 </div>
 
 <div class="row">
@@ -67,6 +67,7 @@
                             <th>Nhà cung cấp</th>
                             <th>Ngày tạo</th>
                             <th width="8%">#</th>
+
                         </tr>
                     </thead>
                     <tbody id="tbl-content"></tbody>
@@ -102,11 +103,8 @@
         <td>{{Merchant}}</td>
         <td>{{DateCreated}}</td>
         <td scope="row">
-            @if (result_edit.Succeeded)
-            {
-                <a class="btn btn-xs btn-primary btn-edit {{{Prop}}}" {{{Prop}}} data-id="{{KeyId}}"><i class="fa fa-eye"></i></a>
-            }
+            <a class="btn btn-xs btn-primary btn-edit {{{Prop}}}" {{{Prop}}} data-id="{{KeyId}}"><i class="fa fa-eye"></i></a>
         </td>
     </tr>
 </script>
-@await Html.PartialAsync("_AddEditBooksOut.cshtml")
+@await Html.PartialAsync("_AddEditBooksIn.cshtml")
