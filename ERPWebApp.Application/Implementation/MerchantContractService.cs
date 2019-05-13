@@ -55,7 +55,7 @@ namespace BeYeuBookstore.Application.Implementation
             throw new NotImplementedException();
         }
 
-        public PagedResult<MerchantContractViewModel> GetAllPaging(string fromdate, string todate, string keyword, int page, int pageSize)
+        public PagedResult<MerchantContractViewModel> GetAllPaging(int? merchantId, string fromdate, string todate, string keyword, int page, int pageSize)
         {
 
             var query = _merchantContractRepository.FindAll(p => p.MerchantFKNavigation, p => p.MerchantFKNavigation.UserBy);
@@ -80,6 +80,11 @@ namespace BeYeuBookstore.Application.Implementation
                 TimeSpan ts = new TimeSpan(23, 59, 59);
                 DateTime _todate = date.Date + ts;
                 query = query.Where(x => x.DateCreated <= _todate);
+
+            }
+            if (merchantId!=0)
+            {
+                query = query.Where(x => x.MerchantFK == merchantId);
 
             }
            

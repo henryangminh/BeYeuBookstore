@@ -15,10 +15,12 @@ namespace BeYeuBookstore.Controllers
     public class MerchantContractController : Controller
     {
         IMerchantContractService _merchantContractService;
+        IMerchantService _merchantService;
         IUnitOfWork _unitOfWork;
         IAuthorizationService _authorizationService;
-        public MerchantContractController(IAuthorizationService authorizationService ,IMerchantContractService merchantContractService, IUnitOfWork unitOfWork)
+        public MerchantContractController(IMerchantService merchantService,IAuthorizationService authorizationService ,IMerchantContractService merchantContractService, IUnitOfWork unitOfWork)
         {
+            _merchantService = merchantService;
             _authorizationService = authorizationService;
             _merchantContractService = merchantContractService;
             _unitOfWork = unitOfWork;
@@ -37,7 +39,10 @@ namespace BeYeuBookstore.Controllers
         [HttpGet]
         public IActionResult GetAllPaging( string fromdate, string todate, string keyword, int page, int pageSize)
         {
-            var model = _merchantContractService.GetAllPaging(fromdate, todate, keyword, page, pageSize);
+
+            var userid = _generalFunctionController.Instance.getClaimType(User, CommonConstants.UserClaims.Key);
+            var M = _merchantService.GetBysId(userid);
+            var model = _merchantContractService.GetAllPaging(M.KeyId, fromdate, todate, keyword, page, pageSize);
             return new OkObjectResult(model);
         }
 

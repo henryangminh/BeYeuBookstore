@@ -62,20 +62,19 @@ else
                                     </div>
                                     <div class="product-info-price">
                                         <div class="price-final">
-                                            <span>
+                                            <span class="money">
                                                 @{
                                                     var unitPrice = Convert.ToInt32(Model.Item1.UnitPrice);
-                                                    Write(unitPrice.ToString("###,###,###,###"));
+                                                    Write(unitPrice);
                                                 }
                                             </span>
                                         </div>
                                     </div>
-                                    <input type="hidden" value="@Model.Item1.KeyId" />
                                     @if (quantity > 0)
                                     {
                                         <div class="product-add-form">
                                             <form onsubmit="return false">
-                                                <a id="AddToCart">Thêm vào giỏ hàng</a>
+                                                <a href="#">Thêm vào giỏ hàng</a>
                                             </form>
                                         </div>
                                     }
@@ -216,7 +215,7 @@ else
                         <div class="banner-area mb-30">
                             <div class="banner-img-2">
                                 <a href="#">
-                                    <img id="AdPosition1" src="~/beyeubookstore/img/banner/33.jpg" />
+                                    <img id="AdPosition8" src="~/beyeubookstore/img/banner/33.jpg" />
                                 </a>
                             </div>
                         </div>
