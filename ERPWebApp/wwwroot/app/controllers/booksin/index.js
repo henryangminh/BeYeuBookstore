@@ -43,7 +43,7 @@ var booksinController = function () {
             resetForm();
             $('#formWacth').addClass('hidden');
             $('#formAdd').removeClass('hidden');
-            $('#btnMore').removeClass('hidden');
+            $('#formAddBooksIn').removeClass('hidden');
             loadAllBookByMerchantId();
             $('#formSaveBooksIn').removeClass('hidden');
             $.ajax({
@@ -94,7 +94,7 @@ var booksinController = function () {
             e.preventDefault();
             $('#formWacth').removeClass('hidden');
             $('#formAdd').addClass('hidden');
-            $('#btnMore').addClass('hidden');
+            $('#formAddBooksIn').addClass('hidden');
             $('#formSaveBooksIn').addClass('hidden');
             var that = $(this).data('id');
             loadDetail(that);
@@ -117,7 +117,13 @@ var booksinController = function () {
 
                     required: true,
                     number: true,
+                    integer: true,
+                }
 
+            },
+            message: {
+                booksinQty: {
+                    integer: "Bạn phải nhập số nguyên!"
                 }
             }
         });
@@ -299,7 +305,7 @@ function loadData(isPageChanged) {
                     Merchant: item.MerchantFKNavigation.MerchantCompanyName,
                     DateCreated: _dateCreated,
                 });
-                order++;
+            
 
             });
             $('#lblTotalRecords').text(response.RowCount);

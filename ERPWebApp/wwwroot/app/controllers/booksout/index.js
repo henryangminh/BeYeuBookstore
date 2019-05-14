@@ -5,6 +5,7 @@
         registerEvents();
     }
     function registerEvents() {
+        loadAllMerchant();
         $('#ddlShowPage').on('change', function () {
             general.configs.pageSize = $(this).val();
             general.configs.pageIndex = 1;
@@ -36,6 +37,8 @@
             loadAllBookByMerchantId();
             $('#formAdd').removeClass('hidden');
             $('#formWacth').addClass('hidden');
+            $('#formEditBooksOut').removeClass('hidden');
+            $('#formSaveBooksOut').removeClass('hidden');
             $.ajax({
                 type: 'GET',
                 url: '/BooksOut/GetMerchantInfo',
@@ -59,6 +62,11 @@
            
             
         });
+
+        $('body').on('click', '#BooksOutDetailDelete', function () {
+            $(this).parent().parent().remove();
+        });
+
 
         $('#txtKeyword').on('keyup', function (e) {
             if (e.keyCode === 13) {
@@ -91,34 +99,74 @@
             ignore: [],
             lang: 'vi',
             rules: {
+                
+                booksoutQty: {
 
+                    required: true,
+                    number: true,
+                    integer: true,
+                }
             }
         });
 
         //Save
         $('#btnSave').on('click', function (e) {
             if ($('#txtMerchantStatus').val() == 0) {
-                general.notify('Nhà cung cấp đã bị Khóa, vui lòng liên hệ Webmaster để biết thêm chi tiết!', 'error');
+                general.notify('Nhà cung cấp đã bị Khóa, hoặc bạn không có quyền thêm mới vui lòng liên hệ Webmaster để biết thêm chi tiết!', 'error');
                 return false;
             }
 
             else {
-                
-                    if ($('#frmMaintainance').valid()) {
-                        e.preventDefault();
 
-                        var linkImg = '';
-                        var keyId;
-                        if ($('#txtId').val() == "") {
-                            keyId = 0;
-                        }
-                        else {
-                            keyId = parseInt($('#txtId').val());
-                        }
-                     
-                    }               
+                if ($('#frmMaintainance').valid()) {
+                    e.preventDefault();
+                    var keyId;
+                    if ($('#txtId').val() == "") {
+                        keyId = 0;
+                    }
+                    else {
+                        keyId = parseInt($('#txtId').val());
+                    }
+                    var listBooksOutDetail = [];
+                    $('#tblBooksOut > tbody > tr').each(function () {
+                        var BooksOutDetail = new Object();
+                        BooksOutDetail.BookFK = $(this).find('td:eq(0)').text();
+                        BooksOutDetail.Qty = $(this).find('td:eq(7)').find('input').val();
+                        listBooksOutDetail.push(BooksOutDetail);
+                    });
+                    $.ajax({
+                        type: 'POST',
+                        url: '/BooksOut/SaveEntity',
+
+                        dataType: "json",
+                        beforeSend: function () {
+                            general.startLoad();
+                        },
+                        data: {
+                            listBooksOutDetailVms: listBooksOutDetail,
+                        },
+                        success: function (response) {
+
+                            general.notify('Ghi thành công!', 'success');
+                            loadData();
+                            $('#modal-add-edit').modal('hide');
+
+                            general.stopLoad();
+                            loadData();
+                        },
+                        error: function (err) {
+
+                            general.stopLoad();
+                            general.notify('Có lỗi trong khi ghi phiếu nhập!', 'error');
+
+                        },
+                    });
+
+
+                }
+
             }
-        })
+        });
     }
 
     function resetForm() {
@@ -136,12 +184,15 @@
         $('#txtPageNumber').val('');
         $('#txtPrice').val('');
         $('#txtDescription').val('');
+        $('#tbl-booksoutcontent').empty();
     }
 
     function loadDetail(that) {
 
         $('#formAdd').removeClass('hidden');
         $('#formWacth').addClass('hidden');
+        $('#formEditBooksOut').addClass('hidden');
+        $('#formSaveBooksOut').addClass('hidden');
         resetForm();
         var template = $('#tableBooksOutDetail-template').html();
         var render = "";
@@ -178,7 +229,6 @@
                                 Category: item.BookFKNavigation.BookCategoryFKNavigation.BookCategoryName,
                                 Qty: item.BookFKNavigation.Quantity,
                                 QtyOut: item.Qty,
-                        
                             });
                         });
                         $('#tbl-booksoutcontent').html(render);
@@ -186,7 +236,7 @@
 
                     },
                     error: function (status) {
-                        general.notify('Có lỗi xảy ra khi load chi tiết xuất sách', 'error');
+                        general.notify('Có lỗi xảy ra', 'error');
                         general.stopLoad();
                     }
                 });
@@ -211,11 +261,11 @@ function loadData(isPageChanged) {
     $.ajax({
         type: 'GET',
         data: {
-            
+
+            mId: $('#selMerchant option:selected').val(),
             fromdate: $('#dtBegin').val(),
             todate: $('#dtEnd').val(),
             keyword: $('#txtKeyword').val(),
-            bookcategoryid: $('#selBookCategory').val(),
             page: general.configs.pageIndex,
             pageSize: general.configs.pageSize,
         },
@@ -226,11 +276,16 @@ function loadData(isPageChanged) {
       
             $.each(response.Results, function (i, item) {
          
-                
+
+                var _dateCreated = moment(item.DateCreated).format("DD/MM/YYYY HH:mm:ss");
                 render += Mustache.render(template, {
-                   
-                    
+
+                    KeyId: item.KeyId,
+                    Merchant: item.MerchantFKNavigation.MerchantCompanyName,
+                    DateCreated: _dateCreated,
                 });
+
+
            
 
             });
