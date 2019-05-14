@@ -84,7 +84,7 @@ namespace BeYeuBookstore.Application.Implementation
 
                 if (merchantId != 0)
                 {
-                    query = query.Where(x => x.MerchantFK == mId);
+                    query = query.Where(x => x.MerchantFK == merchantId);
                 }
 
 
@@ -107,6 +107,15 @@ namespace BeYeuBookstore.Application.Implementation
                 PageSize = pageSize
             };
             return paginationSet;
+        }
+
+
+        public int GetLastest()
+        {
+            var invoice = _booksInRepository.FindAll();
+            invoice = invoice.OrderByDescending(x => x.KeyId);
+            var _invoice = invoice.First();
+            return _invoice.KeyId;
         }
 
         public BooksInViewModel GetById(int id)

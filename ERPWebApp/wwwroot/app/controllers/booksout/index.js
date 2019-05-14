@@ -10,10 +10,7 @@
             general.configs.pageIndex = 1;
             loadData(true);
         });
-
-        $('#selBookCategory').on('change', function () {
-            loadData();
-        });
+        
 
         $('#dtBegin').on('change', function () {
             loadData();
@@ -31,7 +28,7 @@
             resetForm();
             $.ajax({
                 type: 'GET',
-                url: '/Book/GetMerchantInfo',
+                url: '/BooksOut/GetMerchantInfo',
 
                 dataType: "json",
                 beforeSend: function () {
@@ -89,43 +86,7 @@
             ignore: [],
             lang: 'vi',
             rules: {
-                txtBooktitle:
-                {
-                    required: true
-                },
-                txtAuthor:
-                {
-                    required: true
-                },
-                txtLength:
-                {
-                    required: true,
-                    number: true,
-                },
-                txtWidth:
-                {
-                    required: true,
-                    number: true,
-                },
-                txtHeight:
-                {
-                    number: true,
-                },
-                selBookcategory: {
-                    required: true
-                },
-                selisPaperback: {
-                    required: true
-                },
-                txtPageNumber: {
-                    required: true,
-                    number: true,
-                },
-                txtPrice: {
-                    required: true,
-                     number: true
 
-                },
             }
         });
 

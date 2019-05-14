@@ -219,5 +219,28 @@ namespace BeYeuBookstore.Application.Implementation
                 temp.Rating = rating;
             }
         }
+
+
+        public void UpdateBookQtyByBooksIn(int bookid, int qty)
+        {
+            var temp = _bookRepository.FindById(bookid);
+            if (temp != null)
+            {
+                temp.Quantity = temp.Quantity+qty;
+            }
+        }
+
+        public void UpdateBookQtyByBooksOut(int bookid, int qty)
+        {
+            var temp = _bookRepository.FindById(bookid);
+            if (temp != null)
+            {
+                if (temp.Quantity >= qty)
+                {
+                    temp.Quantity = temp.Quantity - qty;
+                }
+                
+            }
+        }
     }
 }

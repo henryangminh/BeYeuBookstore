@@ -46,8 +46,9 @@ namespace BeYeuBookstore.Controllers
 
         [Authorize]
         [HttpPost]
-        public IActionResult SaveEntity(BooksInViewModel bookVm)
+        public IActionResult SaveEntity(List<BooksInDetailViewModel> listBooksInDetailVms)
         {
+            var bookVm = new BooksInViewModel();
             var userid = _generalFunctionController.Instance.getClaimType(User, CommonConstants.UserClaims.Key);
             var model = new MerchantViewModel();
             if (Guid.TryParse(userid, out var guid))
@@ -64,16 +65,17 @@ namespace BeYeuBookstore.Controllers
             {
                 if (model != null)
                 {
-                    if (bookVm.KeyId == 0)
-                    {
-
-                        _booksInService.Add(bookVm);
-                    }
-                    else
-                    {
-                        _booksInService.Update(bookVm);
-                    }
+                    bookVm.MerchantFK = model.KeyId;
+                    _booksInService.Add(bookVm);
                     _bookCategoryService.Save();
+                    var booksInFK = _booksInService.GetLastest();
+                    foreach(var i in listBooksInDetailVms)
+                    {
+                        i.BooksInFK = booksInFK;
+                        _booksInDetailService.Add(i);
+                        _bookService.UpdateBookQtyByBooksIn(i.BookFK, i.Qty);
+                    }
+                    _booksInDetailService.Save();
                     return new OkObjectResult(bookVm);
                 }
                 else
@@ -102,6 +104,14 @@ namespace BeYeuBookstore.Controllers
         {
             
                 var model = _booksInDetailService.GetAllByBooksInId(id);
+                return new OkObjectResult(model);
+        }
+        
+        [HttpGet]
+        public IActionResult GetBookById(int id)
+        {
+            
+                var model = _bookService.GetById(id);
                 return new OkObjectResult(model);
         }
 

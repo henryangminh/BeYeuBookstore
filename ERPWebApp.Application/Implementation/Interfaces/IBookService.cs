@@ -24,6 +24,10 @@ namespace BeYeuBookstore.Application.Interfaces
 
         BookViewModel GetById(int id);
         void UpdateBookRating(double rating, int id);
+
+        void UpdateBookQtyByBooksIn(int bookid, int qty);
+
+        void UpdateBookQtyByBooksOut(int bookid, int qty);
         bool Save();
     }
 }
