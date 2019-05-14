@@ -190,7 +190,7 @@
             data: { id: that },
             dataType: "json",
             beforeSend: function () {
-                general.startLoading();
+                general.startLoad();
             },
             success: function (response) {
                 console.log("loaddetailbook", response);
@@ -207,12 +207,12 @@
                 $('#txtPageUrl').val(data.PageUrl);
                 $('#modal-add-edit').modal('show');
 
-                general.stopLoading();
+                general.stopLoad();
 
             },
             error: function (status) {
                 general.notify('Có lỗi xảy ra', 'error');
-                general.stopLoading();
+                general.stopLoad();
             }
         });
 
@@ -236,6 +236,9 @@ function loadData(isPageChanged) {
         },
         url: '/AdvertisementPosition/GetAllPaging',
         dataType: 'json',
+        beforeSend: function () {
+            general.startLoad();
+        },
         success: function (response) {
             console.log("data", response);
         
@@ -267,6 +270,7 @@ function loadData(isPageChanged) {
             });
             $('#lblTotalRecords').text(response.RowCount);
             $('#tbl-content').html(render);
+            general.stopLoad();
             wrapPaging(response.RowCount, function () {
                 loadData();
             }, isPageChanged);
@@ -274,6 +278,7 @@ function loadData(isPageChanged) {
         error: function (XMLHttpRequest, textStatus, errorThrown) {
             console.log(status);
             general.notify('Không thể load dữ liệu', 'error');
+            general.stopLoad();
         }
     });
 }
@@ -308,19 +313,22 @@ function loadBookCategory() {
         url: '/Book/GetAllBookCategory',
 
         dataType: "json",
+        beforeSend: function () {
+            general.startLoad();
+        },
 
         success: function (response) {
 
             $.each(response, function (i, item) {
                 $('#selBookCategory').append("<option value='" + item.KeyId + "'>" + item.BookCategoryName + "</option>");
                 $('#selBookcategoryDetail').append("<option value='" + item.KeyId + "'>" + item.BookCategoryName + "</option>");
-
+                general.stopLoad();
 
             });
         },
         error: function (err) {
             general.notify('Có lỗi trong khi load loại sách !', 'error');
-
+            general.stopLoad();
         },
     });
 

@@ -57,7 +57,7 @@
                 url: '/AdvertisementContent/GetAdvertiserInfo',
                 dataType: "json",
                 beforeSend: function () {
-                    general.startLoading();
+                    general.startLoad();
                 },
                 success: function (response) {
                     $('#txtAdvertiser').val(response.BrandName);
@@ -65,12 +65,12 @@
                     $('#txtAdvertiserStatus').val(response.Status);
                     $('#modal-add-edit').modal('show');
                     
-                    general.stopLoading();
+                    general.stopLoad();
                     
                 },
                 error: function (err) {
                     general.notify('Có lỗi trong khi ghi !', 'error');
-                    general.stopLoading();
+                    general.stopLoad();
 
                 },
             });          
@@ -89,6 +89,9 @@
                     note: noteAdContent,
                 },
                 dataType: "json",
+                beforeSend: function () {
+                    general.startLoad();
+                },
 
                 success: function (response) {
 
@@ -96,10 +99,11 @@
                     general.notify('Kiểm duyệt thành công!', 'success');
                     resetForm();
                     loadData();
+                    general.stopLoad();
                 },
                 error: function (err) {
                     general.notify('Có lỗi trong khi ghi !', 'error');
-
+                    general.stopLoad();
                 },
             });
         });   
@@ -115,6 +119,9 @@
                     status: general.censorStatus.ContentCensored,
                 },
                 dataType: "json",
+                beforeSend: function () {
+                    general.startLoad();
+                },
 
                 success: function (response) {
 
@@ -122,10 +129,11 @@
                     general.notify('Kiểm duyệt thành công!', 'success');
                     resetForm();
                     loadData();
+                    general.stopLoad();
                 },
                 error: function (err) {
                     general.notify('Có lỗi trong khi ghi !', 'error');
-
+                    general.stopLoad();
                 },
             });
         });
@@ -141,6 +149,9 @@
                     status: general.censorStatus.AccountingCensored,
                 },
                 dataType: "json",
+                beforeSend: function () {
+                    general.startLoad();
+                },
 
                 success: function (response) {
 
@@ -148,10 +159,11 @@
                     general.notify('Kiểm duyệt thành công!', 'success');
                     resetForm();
                     loadData();
+                    general.stopLoad();
                 },
                 error: function (err) {
                     general.notify('Có lỗi trong khi ghi !', 'error');
-
+                    general.stopLoad();
                 },
             });
         });
@@ -260,6 +272,9 @@
                             data: data,
                             contentType: false,
                             processData: false,
+                            beforeSend: function () {
+                            general.startLoad();
+                             },
                             success: function (e) {
                                 console.log(e);
                                 if ($('#fileAdImg').val() != '') {
@@ -287,19 +302,20 @@
                                     },
                                     dataType: "json",
                                     beforeSend: function () {
-                                        general.startLoading();
+                                        general.startLoad();
                                     },
                                     success: function (response) {
 
                                         $('#modal-add-edit').modal('hide');
                                         general.notify('Ghi thành công!', 'success');
                                         resetForm();
-                                        general.stopLoading();
+                                        general.stopLoad();
                                         loadData();
+                                        general.stopLoad();
                                     },
                                     error: function (err) {
                                         general.notify('Có lỗi trong khi ghi !', 'error');
-                                        general.stopLoading();
+                                        general.stopLoad();
 
                                     },
                                 });
@@ -335,7 +351,7 @@
             data: { id: that },
             dataType: "json",
             beforeSend: function () {
-                general.startLoading();
+                general.startLoad();
             },
             success: function (response) {
                 $('#AdImg').empty();
@@ -389,12 +405,12 @@
                 $('#chkPaidDeposits').prop('checked', true);
                 $('#modal-add-edit').modal('show');
 
-                general.stopLoading();
+                general.stopLoad();
 
             },
             error: function (status) {
                 general.notify('Có lỗi xảy ra', 'error');
-                general.stopLoading();
+                general.stopLoad();
             }
         });
 
@@ -417,6 +433,10 @@ function loadData(isPageChanged) {
         },
         url: '/AdvertisementContent/GetAllPaging',
         dataType: 'json',
+        beforeSend: function () {
+            general.startLoad();
+        },
+        
         success: function (response) {
             console.log("data", response);
 
@@ -461,10 +481,13 @@ function loadData(isPageChanged) {
             wrapPaging(response.RowCount, function () {
                 loadData();
             }, isPageChanged);
+            general.stopLoad();
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
             console.log(status);
             general.notify('Không thể load dữ liệu', 'error');
+            general.stopLoad();
+
         }
     });
 }
@@ -499,16 +522,22 @@ function loadAdPosition() {
         url: '/AdvertisementContent/GetAllAdPosition',
 
         dataType: "json",
+        beforeSend: function () {
+            general.startLoad();
+        },
+        
 
         success: function (response) {
 
             $.each(response, function (i, item) {
                 $('#selAdPosition').append("<option value='" + item.KeyId + "'>" + item.Title + "</option>");
+                general.stopLoad();
+
             });
         },
         error: function (err) {
             general.notify('Có lỗi trong khi load vị trí quảng cáo !', 'error');
-
+            general.stopLoad();
         },
     });
 

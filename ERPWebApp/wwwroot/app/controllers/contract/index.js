@@ -79,7 +79,7 @@
                 url: 'contract/UpdateContract',
                 data: { soid: id, shd: customerPONumber, date: customerPODate, note: note },
                 beforeSend: function () {
-                    general.startLoading();
+                    general.startLoad();
                 },
                 success: function (res) {
                     general.stopLoad();
@@ -180,6 +180,9 @@
                         type: 'POST',
                         url: '/Contract/ConfirmContract',
                         data: list,
+                        beforeSend: function () {
+                            general.startLoad();
+                        },
                         success: function (res) {
                             general.notify('Đưa vào nội bộ thành công!', 'success');
                             $('#btnConfirm').hide();
@@ -215,10 +218,15 @@
             type: 'POST',
             url: '/customerliabilities/UpdateBySORef',
             data: { projectId: gboq1.ProjectFK, val: gboq1.Total_Order },
+            beforeSend: function () {
+                general.startLoad();
+            },
             success: function (response) {
                 console.log(response);
+                general.stopLoad():
             },
             error: function (error) {
+                general.stopLoad():
 
             }
         });
@@ -405,7 +413,7 @@
             url: '/SalesOrderBOQ1/GetListStatus',
             dataType: 'json',
             beforeSend: function () {
-                general.startLoading();
+                general.startLoad();
             },
             success: function (response) {
                 console.log(response);
@@ -473,11 +481,17 @@
             type: 'GET',
             url: '/SalesOrderBOQ1/GetAccountDefault',
             data: { codeSelect: general.accountDefault.AccountForContract },
+            beforeSend: function () {
+                general.startLoad();
+            },
             success: function (response) {
                 callback(response);
+
+                general.stopLoad();
+
             },
             error: function (err) {
-
+                general.stopLoad();
             }
         });
     }

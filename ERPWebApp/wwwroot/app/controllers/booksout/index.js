@@ -34,6 +34,9 @@
                 url: '/Book/GetMerchantInfo',
 
                 dataType: "json",
+                beforeSend: function () {
+                    general.startLoad();
+                },
 
                 success: function (response) {
                     console.log("loadInfo", response);
@@ -42,9 +45,12 @@
                     $('#txtMerchant').val(response.MerchantCompanyName);
                     $('#modal-add-edit').modal('show');
 
+                    general.stopLoad();
+
                 },
                 error: function (err) {
                     general.notify('Có lỗi trong khi load thông tin nhà cung cấp!', 'error');
+                    general.stopLoad();
 
                 },
             });
@@ -187,6 +193,9 @@
                                     data: data,
                                     contentType: false,
                                     processData: false,
+                                    beforeSend: function () {
+                                        general.startLoad();
+                                    },
                                     success: function (e) {
                                         console.log(e);
                                         if ($('#fileBookImg').val() != '') {
@@ -194,6 +203,7 @@
                                             linkImg = e[0];
 
                                             e.shift();
+                                            general.stopLoad();
 
                                         }
                                         $.ajax({
@@ -245,6 +255,7 @@
                                     error: function (e) {
                                         general.notify('Có lỗi trong khi ghi !', 'error');
                                         console.log(e);
+                                        general.stopLoad();
                                     }
 
                                 });
@@ -274,7 +285,7 @@
                                 },
                                 dataType: "json",
                                 beforeSend: function () {
-                                    general.startLoading();
+                                    general.startLoad();
                                 },
                                 success: function (response) {
 
@@ -282,12 +293,12 @@
                                     general.notify('Ghi thành công!', 'success');
                                     resetForm();
                                     $('#frmMaintainance').trigger('reset');
-                                    general.stopLoading();
+                                    general.stopLoad();
                                     loadData();
                                 },
                                 error: function (err) {
                                     general.notify('Có lỗi trong khi ghi !', 'error');
-                                    general.stopLoading();
+                                    general.stopLoad();
 
                                 },
                             });
@@ -353,12 +364,12 @@
                 $('#selStatus').val(data.Status);
                 $('#modal-add-edit').modal('show');
 
-                general.stopLoading();
+                general.stopLoad();
 
             },
             error: function (status) {
                 general.notify('Có lỗi xảy ra', 'error');
-                general.stopLoading();
+                general.stopLoad();
             }
         });
 
@@ -383,6 +394,9 @@ function loadData(isPageChanged) {
         },
         url: '/BooksOut/GetAllPaging',
         dataType: 'json',
+        beforeSend: function () {
+            general.startLoad();
+        },
         success: function (response) {
             console.log("data", response);
             var order = 1;
@@ -398,6 +412,7 @@ function loadData(isPageChanged) {
             });
             $('#lblTotalRecords').text(response.RowCount);
             $('#tbl-content').html(render);
+            general.stopLoad();
             wrapPaging(response.RowCount, function () {
                 loadData();
             }, isPageChanged);
@@ -405,6 +420,7 @@ function loadData(isPageChanged) {
         error: function (XMLHttpRequest,textStatus,errorThrown) {
             console.log(status);
             general.notify('Không thể load dữ liệu', 'error');
+            general.stopLoad();
         }
     });
 }
@@ -438,6 +454,9 @@ function loadAllBookByMerchantId(id) {
         url: '/BooksOut/GetAllBookByMerchantId',
 
         dataType: "json",
+        beforeSend: function () {
+            general.startLoad();
+        },
 
         success: function (response) {
             var _id = "#selBook" + id;
@@ -445,9 +464,11 @@ function loadAllBookByMerchantId(id) {
                 $('#selBook' + id).append("<option value='" + item.KeyId + "'>" + item.BookTitle + "</option>");
 
             });
+            general.stopLoad();
         },
         error: function (err) {
             general.notify('Có lỗi trong khi sách !', 'error');
+            general.stopLoad();
 
         },
     });
@@ -459,16 +480,20 @@ function loadAllMerchant() {
         url: '/BooksIn/GetAllMerchantInfo',
 
         dataType: "json",
+        beforeSend: function () {
+            general.startLoad();
+        },
 
         success: function (response) {
 
             $.each(response, function (i, item) {
                 $('#selMerchant').append("<option value='" + item.KeyId + "'>" + item.MerchantCompanyName + "</option>");
             });
+            general.stopLoad();
         },
         error: function (err) {
             general.notify('Có lỗi trong khi load nhà cung cấp !', 'error');
-
+            general.stopLoad();
         },
     });
 

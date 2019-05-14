@@ -98,7 +98,7 @@ var advertiseContractController = function () {
                 url: '/AdvertiseContract/GetAdvertiserInfo',
                 dataType: "json",
                 beforeSend: function () {
-                    general.startLoading();
+                    general.startLoad();
                 },
                 success: function (response) {
                     $('#txtAdvertiser').val(response.BrandName);
@@ -107,12 +107,12 @@ var advertiseContractController = function () {
                     loadAllAdContent();
                     $('#modal-add-edit').modal('show');
                     
-                    general.stopLoading();
+                    general.stopLoad();
 
                 },
                 error: function (err) {
                     general.notify('Có lỗi trong khi ghi !', 'error');
-                    general.stopLoading();
+                    general.stopLoad();
 
                 },
             });
@@ -131,6 +131,9 @@ var advertiseContractController = function () {
                     note: noteAdContract,
                 },
                 dataType: "json",
+                beforeSend: function () {
+                    general.startLoad();
+                },
 
                 success: function (response) {
 
@@ -161,6 +164,9 @@ var advertiseContractController = function () {
 
                 },
                 dataType: "json",
+                beforeSend: function () {
+                    general.startLoad();
+                },
 
                 success: function (response) {
 
@@ -171,6 +177,7 @@ var advertiseContractController = function () {
                 },
                 error: function (err) {
                     general.notify('Có lỗi trong khi ghi !', 'error');
+                    general.stopLoad();
 
                 },
             });
@@ -191,6 +198,9 @@ var advertiseContractController = function () {
 
                 },
                 dataType: "json",
+                beforeSend: function () {
+                    general.startLoad();
+                },
 
                 success: function (response) {
 
@@ -198,9 +208,11 @@ var advertiseContractController = function () {
                     general.notify('Kiểm duyệt thành công!', 'success');
                     resetForm();
                     loadData();
+                    general.stopLoad();
                 },
                 error: function (err) {
                     general.notify('Có lỗi trong khi ghi !', 'error');
+                    general.stopLoad();
 
                 },
             });
@@ -309,9 +321,7 @@ var advertiseContractController = function () {
                     $.ajax({
                         type: 'POST',
                         url: '/AdvertiseContract/SaveEntity',
-                        beforeSend: function () {
-                            general.startLoad();
-                        },
+                        
                         data: {
                             KeyId: keyId,
                             AdvertisementContentFK: adContentId,
@@ -323,16 +333,19 @@ var advertiseContractController = function () {
 
                         },
                         dataType: "json",
+                        beforeSend: function () {
+                            general.startLoad();
+                        },
                        
                         success: function (response) {
 
                             $('#modal-add-edit').modal('hide');
                             general.notify('Ghi thành công!', 'success');
                             resetForm();
-                            general.stopLoading();
+                            general.stopLoad();
                             
                             loadData();
-                            general.stopLoad();
+                            
                         },
                         error: function (err) {
                             general.notify('Có lỗi trong khi ghi !', 'error');
@@ -359,8 +372,9 @@ var advertiseContractController = function () {
             data: { id: that },
             dataType: "json",
             beforeSend: function () {
-                general.startLoading();
+               general.startLoad();
             },
+            
             success: function (response) {
                 $('#ImgAdPosition').empty(); 
                 console.log("loaddetailAdContract", response);
@@ -415,12 +429,12 @@ var advertiseContractController = function () {
                 $('#txtCensorStatus').html('<span class="badge bg-' + _color + '" style="font-size:15px;">' + _status + '</span>');
                 $('#modal-add-edit').modal('show');
 
-                general.stopLoading();
+                general.stopLoad();
 
             },
             error: function (status) {
                 general.notify('Có lỗi xảy ra', 'error');
-                general.stopLoading();
+                general.stopLoad();
             }
         });
 
@@ -445,6 +459,9 @@ function loadData(isPageChanged) {
         },
         url: '/AdvertiseContract/GetAllPaging',
         dataType: 'json',
+        beforeSend: function () {
+            general.startLoad();
+        },
         success: function (response) {
             console.log("data", response);
 
@@ -491,6 +508,7 @@ function loadData(isPageChanged) {
             });
             $('#lblTotalRecords').text(response.RowCount);
             $('#tbl-content').html(render);
+            general.stopLoad();
             wrapPaging(response.RowCount, function () {
                 loadData();
             }, isPageChanged);
@@ -499,6 +517,7 @@ function loadData(isPageChanged) {
         error: function (XMLHttpRequest, textStatus, errorThrown) {
             console.log(status);
             general.notify('Không thể load dữ liệu', 'error');
+            general.stopLoad():
         }
     });
     
@@ -562,11 +581,11 @@ function loadAllFutureSuccessContract(that) {
     $.ajax({
         type: 'GET',
         url: '/AdvertiseContract/GetAllFutureSuccessContract',
+        dataType: "json",
+        data: { id: that },
         beforeSend: function () {
             general.startLoad();
         },
-        dataType: "json",
-        data: { id: that },
 
         success: function (response) {
             console.log("Contract", response);
@@ -594,6 +613,7 @@ function loadAllFutureSuccessContract(that) {
                 todayHighlight: true,
                 beforeShowDay: DisableSpecificDates
             });
+            general.stopLoad():
           
             
         },
@@ -610,6 +630,9 @@ function loadAllAdContent() {
         url: '/AdvertiseContract/GetAllAdContentByAdvertiserId',
 
         dataType: "json",
+        beforeSend: function () {
+            general.startLoad();
+        },
 
         success: function (response) {
             $('#selAdContent').empty();
@@ -617,9 +640,11 @@ function loadAllAdContent() {
             $.each(response, function (i, item) {
                 $('#selAdContent').append("<option value='" + item.KeyId + "'>" + item.Title + "</option>");
             });
+            general.stopLoad();
         },
         error: function (err) {
             general.notify('Có lỗi trong khi load nội dung quảng cáo !', 'error');
+            general.stopLoad();
 
         },
     });
@@ -638,6 +663,10 @@ function autoUpdateContractStatus() {
         url: '/AdvertiseContract/GetAllRequestingNPaidContract',
 
         dataType: "json",
+        beforeSend: function () {
+            general.startLoad();
+        },
+        
 
         success: function (response) {
             $.each(response, function (i, item) {
@@ -652,6 +681,9 @@ function autoUpdateContractStatus() {
 
                         },
                         dataType: "json",
+                        beforeSend: function () {
+                            general.startLoad();
+                        },
 
                         success: function (response) {
 
@@ -677,6 +709,9 @@ function autoUpdateContractStatus() {
 
                         },
                         dataType: "json",
+                        beforeSend: function () {
+                            general.startLoad();
+                        },
 
                         success: function (response) {
 
@@ -684,9 +719,11 @@ function autoUpdateContractStatus() {
                             general.notify('Tự động cập nhật hợp đồng quảng cáo mã: ' + item.KeyId + 'thành công!', 'success');
                       
                             loadData();
+                            general.stopLoad();
                         },
                         error: function (err) {
-                            general.notify('Có lỗi trong khi tự động cập nhật trạng thái hợp đồng '+item.KeyId+'!', 'error');
+                            general.notify('Có lỗi trong khi tự động cập nhật trạng thái hợp đồng ' + item.KeyId + '!', 'error');
+                            general.stopLoad();
 
                         },
                     });
@@ -696,6 +733,7 @@ function autoUpdateContractStatus() {
         },
         error: function (err) {
             general.notify('Có lỗi trong khi tự động cập nhật trạng thái hợp đồng !', 'error');
+            general.stopLoad();
 
         },
     });
