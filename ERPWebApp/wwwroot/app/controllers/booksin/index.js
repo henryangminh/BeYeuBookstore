@@ -412,7 +412,7 @@ function loadBooksIn(that) {
 function loadAllMerchant() {
     $.ajax({
         type: 'GET',
-        url: '/Book/GetAllMerchantInfo',
+        url: '/BooksIn/GetAllMerchantInfo',
 
         dataType: "json",
 

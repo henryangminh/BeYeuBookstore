@@ -22,6 +22,9 @@
                             <div class="hidden">
                                 <input type="text" class="form-control" id="txtMerchantStatus" readonly />
                             </div>
+                            <div class="hidden">
+                                <input type="text" class="form-control" id="txtMerchantKeyId" readonly />
+                            </div>
                         </div>
 
                         <div class="form-group row">
@@ -34,9 +37,20 @@
                                 <input type="text" class="form-control" id="dtDateModified" readonly />
                             </div>
                         </div>
+                        <div class="form-group row">
+                            <label for="selBook" class="col-sm-2 col-form-label">Chọn sách</label>
+                            <div class="col-sm-4">
+                                <select id="selBook" class="form-control" name="selBook">
+                                    <option value="">Chọn sách</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-4">
+                                <button type="button" id="btnMore" class="btn btn-success">Thêm sách</button>
+                            </div>
+                        </div>
 
                         <div class="form-group row">
-                            <table class="table table-striped table-bordered table-fix-header">
+                            <table class="table table-striped table-bordered table-fix-header" id="tblBooksIn">
                                 <thead>
                                     <tr>
                                         <th width="3%">Mã sách</th>
@@ -44,8 +58,10 @@
                                         <th>Tác giả</th>
                                         <th width="5%">Hình ảnh</th>
                                         <th>Loại sách</th>
-                                        <th>Giá nhập</th>
-                                        <th width="5%">Số lượng<br>nhập</th>
+
+                                        <th>Số lượng hiện có</th>
+
+                                        <th width="10%">Số lượng<br>xuất</th>
 
                                         <th width="8%">#</th>
                                     </tr>
@@ -53,7 +69,6 @@
                                 <tbody id="tbl-booksincontent"></tbody>
 
                             </table>
-                            <button type="button" id="btnMore" class="btn btn-success">Thêm sách</button>
                         </div>
 
                     </form>
@@ -71,22 +86,17 @@
 </div>
 <script id="tableBooksIn-template" type="x-tmpl-mustache">
     <tr>
-        <td></td>
-        <td>
-            <select id="selBook{{Id}}" class="form-control">
-                <option value="" selected="selected">Chọn sách</option>
-            </select>
-        </td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td>
-            <input class="form-control money-green money" />
-        </td>
-        <td>
-            <input class="form-control" type="number" min="0" />
-        </td>
 
+        <td>{{BookId}}</td>
+        <td>{{BookName}}</td>
+        <td>{{Author}}</td>
+        <td>{{{Img}}}</td>
+        <td>{{Category}}</td>
+        <td>{{Qty}}</td>
+
+        <td>
+            <input id="booksInQty{{BookId}}" class="form-control" type="number" min="0" max="{{Qty}}" name="booksinQty" />
+        </td>
         <td scope="row">
             <a class="btn btn-xs btn-danger btn-delete {{{Prop}}}" {{{Prop}}} id="BooksInDetailDelete"><i class="fa fa-trash"></i></a>
         </td>
@@ -99,7 +109,7 @@
         <td>{{Author}}</td>
         <td>{{{Img}}}</td>
         <td>{{Category}}</td>
-        <td>{{PriceIn}}</td>
+        <td>{{Qty}}</td>
         <td>{{QtyIn}}</td>
         <td scope="row"></td>
     </tr>

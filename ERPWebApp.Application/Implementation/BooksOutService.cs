@@ -110,6 +110,14 @@ namespace BeYeuBookstore.Application.Implementation
         }
 
 
+        public int GetLastest()
+        {
+            var invoice = _booksOutRepository.FindAll();
+            invoice = invoice.OrderByDescending(x => x.KeyId);
+            var _invoice = invoice.First();
+            return _invoice.KeyId;
+        }
+
         public BooksOutViewModel GetById(int id)
         {
             return Mapper.Map<BooksOut, BooksOutViewModel>(_booksOutRepository.FindById(id, p => p.MerchantFKNavigation));

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using BeYeuBookstore.Application.Interfaces;
 using BeYeuBookstore.Application.ViewModels;
+using BeYeuBookstore.Authorization;
 using BeYeuBookstore.Infrastructure.Interfaces;
 using BeYeuBookstore.Services;
 using BeYeuBookstore.Utilities.Constants;
@@ -19,6 +20,7 @@ namespace BeYeuBookstore.Controllers
         IRatingDetailService _ratingDetailService;
         IBookService _bookService;
         IBooksInService _booksInService;
+        IBooksOutService _booksOutService;
         IBooksInDetailService _booksInDetailService;
         IBookCategoryService _bookCategoryService;
         IAuthorizationService _authorizationService;
@@ -26,8 +28,9 @@ namespace BeYeuBookstore.Controllers
         IMerchantService _merchantService;
         private readonly IHostingEnvironment _hostingEnvironment;
         IUnitOfWork _unitOfWork;
-        public BooksInController(IBooksInDetailService booksInDetailService,IBooksInService booksInService,IRatingDetailService ratingDetailService, IEmailService emailService, IAuthorizationService authorizationService, IHostingEnvironment hostingEnvironment, IMerchantService merchantService, IBookCategoryService bookCategoryService, IBookService bookService, IUnitOfWork unitOfWork)
+        public BooksInController(IBooksOutService booksOutService, IBooksInDetailService booksInDetailService,IBooksInService booksInService,IRatingDetailService ratingDetailService, IEmailService emailService, IAuthorizationService authorizationService, IHostingEnvironment hostingEnvironment, IMerchantService merchantService, IBookCategoryService bookCategoryService, IBookService bookService, IUnitOfWork unitOfWork)
         {
+            _booksOutService = booksOutService;
             _booksInDetailService = booksInDetailService;
             _booksInService = booksInService;
             _ratingDetailService = ratingDetailService;
@@ -41,6 +44,11 @@ namespace BeYeuBookstore.Controllers
         }
         public IActionResult Index()
         {
+            var temp = Task.Run(() => _authorizationService.AuthorizeAsync(User, Const_FunctionId.BooksReceipt, Operations.Read));
+            temp.Wait();
+            //check truy cập
+            if (temp.Result.Succeeded == false)
+                return new RedirectResult("/Home/Index");
             return View();
         }
 
@@ -67,7 +75,7 @@ namespace BeYeuBookstore.Controllers
                 {
                     bookVm.MerchantFK = model.KeyId;
                     _booksInService.Add(bookVm);
-                    _bookCategoryService.Save();
+                    _booksInService.Save();
                     var booksInFK = _booksInService.GetLastest();
                     foreach(var i in listBooksInDetailVms)
                     {
