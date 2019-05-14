@@ -141,6 +141,7 @@ namespace BeYeuBookstore.Controllers
                         DeliveryStatus = Const_DeliStatus.UnConfirmed,
                         OrderPrice = x.Sum(y => y.SubTotal),
                         ShipPrice = 0,
+                        MerchantFK = x.Key,
                     }).ToList();
 
                     foreach (var item in deli)

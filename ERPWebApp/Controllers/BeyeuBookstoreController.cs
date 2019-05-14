@@ -131,6 +131,7 @@ namespace BeYeuBookstore.Controllers
         public IActionResult GetAll()
         {
             var model = _bookService.GetAll();
+            model = model.Where(x => x.Status == Data.Enums.Status.Active && x.Quantity > 0).ToList();
             return new OkObjectResult(model);
         }
 
@@ -138,6 +139,7 @@ namespace BeYeuBookstore.Controllers
         public IActionResult GetAllPaging(string txtSearch, int BookCategoryId, int? From, int? To, int page, int pageSize)
         {
             var model = _bookService.GetAllPaging(txtSearch, BookCategoryId, From, To, page, pageSize);
+            model.Results = model.Results.Where(x => x.Status == Data.Enums.Status.Active && x.Quantity > 0).ToList();
             return new OkObjectResult(model);
         }
 
@@ -145,6 +147,7 @@ namespace BeYeuBookstore.Controllers
         public IActionResult GetAllQuantity(int quantity)
         {
             var model = _bookService.GetAll(quantity);
+            model = model.Where(x => x.Status == Data.Enums.Status.Active && x.Quantity > 0).ToList();
             return new OkObjectResult(model);
         }
 

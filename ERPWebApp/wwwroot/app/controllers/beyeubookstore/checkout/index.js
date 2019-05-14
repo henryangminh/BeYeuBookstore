@@ -53,12 +53,17 @@ function registerEvents() {
                                 case "customer":
                                     general.notify("Đặt hàng thất bại, vui lòng đăng nhập", error);
                                     break;
+                                case "quantity":
+                                    general.notify("Đặt hàng thất bại, vì có vật phẩm quá với số lượng tồn", error);
+                                    break;
                             }
+                            general.stopLoad();
                         },
                         error: function () {
                             general.notify("Đặt hàng thất bại", error);
                         }
                     })
+                    general.stopLoad();
                 }
             })
         }

@@ -64,7 +64,7 @@ namespace BeYeuBookstore.Application.Implementation
 
         public List<BookViewModel> GetAll(int quantity)
         {
-            var query = _bookRepository.FindAll().OrderBy(x => x.KeyId).Take(quantity);
+            var query = _bookRepository.FindAll().OrderByDescending(x => x.KeyId).Take(quantity);
             var data = new List<BookViewModel>();
             foreach (var item in query)
             {
