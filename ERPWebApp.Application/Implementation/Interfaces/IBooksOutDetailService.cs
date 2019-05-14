@@ -19,6 +19,7 @@ namespace BeYeuBookstore.Application.Interfaces
 
         BooksOutDetailViewModel GetById(int id);
 
+        List<BooksOutDetailViewModel> GetAllByBooksOutId(int id);
         bool Save();
     }
 }
