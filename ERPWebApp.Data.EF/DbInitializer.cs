@@ -1104,15 +1104,20 @@ namespace BeYeuBookstore.Data.EF
                     _context.AdvertisementContents.AddRange(new List<AdvertisementContent>()
                 {
                     new AdvertisementContent(){AdvertisementPositionFK=1, AdvertiserFK=1, Title="Bút Thiên Long", Description="Bút TL mua 3 tặng chục", UrlToAdvertisement="http://thienlonggroup.com", Deposite=2000000, CensorStatus=CensorStatus.AccountingCensored, ImageLink="/images/advertiser/Bút Kim Long/content/butthienlong.jpg", },
-                    new AdvertisementContent(){AdvertisementPositionFK=3,AdvertiserFK=3, Title="Laptop Phong Vũ", Description="Laptop khuyến mãi mùa học lại mua 10 tặng 1", UrlToAdvertisement="https://phongvu.vn", Deposite=2000000, CensorStatus=CensorStatus.AccountingCensored, ImageLink="/images/advertiser/Phong Vũ/content/phongvu.jpg",},
+                    new AdvertisementContent(){AdvertisementPositionFK=3, AdvertiserFK=3, Title="Laptop Phong Vũ", Description="Laptop khuyến mãi mùa học lại mua 10 tặng 1", UrlToAdvertisement="https://phongvu.vn", Deposite=2000000, CensorStatus=CensorStatus.AccountingCensored, ImageLink="/images/advertiser/Phong Vũ/content/phongvu.jpg",},
                     new AdvertisementContent(){AdvertisementPositionFK=2, AdvertiserFK=4, Title="Tiki", Description="Săn sách giá rẻ",UrlToAdvertisement="https://tiki.vn",Deposite=2000000, CensorStatus=CensorStatus.AccountingCensored,ImageLink="/images/advertiser/Tiki/content/tiki.jpg", },
                     new AdvertisementContent(){AdvertisementPositionFK=4, AdvertiserFK=4, Title="Tiki Number4", Description="Săn hàng giá rẻ",UrlToAdvertisement="https://tiki.vn",Deposite=80000000, CensorStatus=CensorStatus.AccountingCensored,ImageLink="/images/advertiser/Tiki/content/1.jpg", },
                     new AdvertisementContent(){AdvertisementPositionFK=5, AdvertiserFK=3, Title="PVNo5", Description="Săn hàng mùa deadline",UrlToAdvertisement="https://phongvu.vn",Deposite=50000000, CensorStatus=CensorStatus.AccountingCensored,ImageLink="/images/advertiser/Phong Vũ/content/2.jpg", },
                     new AdvertisementContent(){AdvertisementPositionFK=6, AdvertiserFK=3, Title="PhongVu", Description="Săn laptop giá rẻ",UrlToAdvertisement="https://phongvu.vn",Deposite=10000000, CensorStatus=CensorStatus.Uncensored,ImageLink="/images/advertiser/Phong Vũ/content/3.jpg", },
                     new AdvertisementContent(){AdvertisementPositionFK=7, AdvertiserFK=1, Title="Bút", Description="Săn BÚT giá CỰC rẻ",UrlToAdvertisement="http://thienlonggroup.com",Deposite=5000000, CensorStatus=CensorStatus.AccountingCensored,ImageLink="/images/advertiser/Bút Kim Long/content/4.jpg", },
                     new AdvertisementContent(){AdvertisementPositionFK=7, AdvertiserFK=1, Title="Bút TL", Description="Bút mới 2 bi",UrlToAdvertisement="http://thienlonggroup.com",Deposite=5000000, CensorStatus=CensorStatus.Unqualified,ImageLink="/images/advertiser/Bút Kim Long/content/5.jpg", },
+                    //New data from Theo :">
+                    new AdvertisementContent(){AdvertisementPositionFK=8, AdvertiserFK=1, Title="Bút TL No01", Description="Mua 10 bút bi để được nhận ngay bút xóa",UrlToAdvertisement="http://thienlonggroup.com",Deposite=500000, CensorStatus=CensorStatus.Unqualified,ImageLink="/images/advertiser/Bút Kim Long/content/butthienlong.jpg", },
+                    new AdvertisementContent(){AdvertisementPositionFK=1, AdvertiserFK=3, Title="Phong Vũ Khuyến Mãi", Description="Mua laptop tặng tai nghe",UrlToAdvertisement="https://phongvu.com",Deposite=10000000, CensorStatus=CensorStatus.Unqualified,ImageLink="/images/advertiser/Phong Vũ/content/phongvu.jpg", },
+                    new AdvertisementContent(){AdvertisementPositionFK=6, AdvertiserFK=4, Title="Tiki 91%", Description="Trời ơi! Tin được hông? Tiki sale 91 91%",UrlToAdvertisement="https://tiki.vn",Deposite=10000000, CensorStatus=CensorStatus.Unqualified,ImageLink="/images/advertiser/Tiki/content/1.jpg", },
+                    new AdvertisementContent(){AdvertisementPositionFK=3, AdvertiserFK=1, Title="Bút TL KM", Description="Khuyến mãi bùng cháy",UrlToAdvertisement="http://thienlonggroup.com",Deposite=9000000, CensorStatus=CensorStatus.Unqualified,ImageLink="/images/advertiser/Bút Kim Long/content/4.jpg", },
+                    
 
-                   
                     });
 
                 }
@@ -1132,7 +1137,16 @@ namespace BeYeuBookstore.Data.EF
                     new AdvertiseContract(){AdvertisementContentFK=3, DateStart=DateTime.Parse("2019-05-11"), DateFinish=DateTime.Parse("2019-05-13 23:59:59"), ContractValue=27000000, Status=ContractStatus.AccountingCensored },
                     new AdvertiseContract(){AdvertisementContentFK=1, DateStart=DateTime.Parse("2019-05-01"), DateFinish=DateTime.Parse("2019-05-05 23:59:59"), ContractValue=50000000, Status=ContractStatus.Success },
                     new AdvertiseContract(){AdvertisementContentFK=2, DateStart=DateTime.Parse("2019-05-01"), DateFinish=DateTime.Parse("2019-05-05 23:59:59"), ContractValue=45000000, Status=ContractStatus.Unqualified },
-                    new AdvertiseContract(){AdvertisementContentFK=2, DateStart=DateTime.Parse("2019-05-01"), DateFinish=DateTime.Parse("2019-05-05 23:59:59"), ContractValue=45000000, Status=ContractStatus.Unqualified }
+                    new AdvertiseContract(){AdvertisementContentFK=5, DateStart=DateTime.Parse("2019-05-02"), DateFinish=DateTime.Parse("2019-05-07 23:59:59"), ContractValue=300000000, Status=ContractStatus.Success },
+                    new AdvertiseContract(){AdvertisementContentFK=7, DateStart=DateTime.Parse("2019-05-14"), DateFinish=DateTime.Parse("2019-05-18 23:59:59"), ContractValue=50000000, Status=ContractStatus.AccountingCensored },
+                    new AdvertiseContract(){AdvertisementContentFK=4, DateStart=DateTime.Parse("2019-05-04"), DateFinish=DateTime.Parse("2019-05-06 23:59:59"), ContractValue=240000000, Status=ContractStatus.Unqualified },
+                    new AdvertiseContract(){AdvertisementContentFK=8, DateStart=DateTime.Parse("2019-05-01"), DateFinish=DateTime.Parse("2019-05-04 23:59:59"), ContractValue=25000000, Status=ContractStatus.Success },
+                    new AdvertiseContract(){AdvertisementContentFK=6, DateStart=DateTime.Parse("2019-05-02"), DateFinish=DateTime.Parse("2019-05-06 23:59:59"), ContractValue=50000000, Status=ContractStatus.Success },
+                    new AdvertiseContract(){AdvertisementContentFK=12, DateStart=DateTime.Parse("2019-05-13"), DateFinish=DateTime.Parse("2019-05-17 23:59:59"), ContractValue=40000000, Status=ContractStatus.AccountingCensored },
+                    new AdvertiseContract(){AdvertisementContentFK=9, DateStart=DateTime.Parse("2019-05-14"), DateFinish=DateTime.Parse("2019-05-16 23:59:59"), ContractValue=30000000, Status=ContractStatus.AccountingCensored },
+                    new AdvertiseContract(){AdvertisementContentFK=11, DateStart=DateTime.Parse("2019-05-10"), DateFinish=DateTime.Parse("2019-05-12 23:59:59"), ContractValue=40000000, Status=ContractStatus.AccountingCensored },
+                    new AdvertiseContract(){AdvertisementContentFK=10, DateStart=DateTime.Parse("2019-05-12"), DateFinish=DateTime.Parse("2019-05-16 23:59:59"), ContractValue=50000000, Status=ContractStatus.AccountingCensored },
+
 
                     });
 
