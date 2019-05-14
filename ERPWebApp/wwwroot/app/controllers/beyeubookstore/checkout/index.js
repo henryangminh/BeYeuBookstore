@@ -45,8 +45,15 @@ function registerEvents() {
                             invoiceDetailVms: ListInvoiceDetail,
                         },
                         success: function (respond) {
-                            general.notify("Đặt hàng thành công", success);
-                            window.location.href = "/";
+                            switch (respond) {
+                                case "true":
+                                    general.notify("Đặt hàng thành công", success);
+                                    window.location.href = "/";
+                                    break;
+                                case "customer":
+                                    general.notify("Đặt hàng thất bại, vui lòng đăng nhập", error);
+                                    break;
+                            }
                         },
                         error: function () {
                             general.notify("Đặt hàng thất bại", error);
