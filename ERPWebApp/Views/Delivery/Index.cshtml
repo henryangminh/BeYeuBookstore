@@ -4,11 +4,11 @@
 @inject IAuthorizationService AuthorizationService
 @{
     //kiểm tra quyền tạo đối với nut create cho hiểu thị nut
-    var result_edit = await AuthorizationService.AuthorizeAsync(User, Const_FunctionId.Delivery, Operations.Create);
+    var result_create = await AuthorizationService.AuthorizeAsync(User, Const_FunctionId.Delivery, Operations.Create);
     //kiểm tra quyền tạo đối với nut delete cho hiểu thị nut
     var result_delete = await AuthorizationService.AuthorizeAsync(User, Const_FunctionId.Delivery, Operations.Delete);
     //kiểm tra quyền tạo đối với nut update cho hiểu thị nut
-    var result_create = await AuthorizationService.AuthorizeAsync(User, Const_FunctionId.Delivery, Operations.Update);
+    var result_edit = await AuthorizationService.AuthorizeAsync(User, Const_FunctionId.Delivery, Operations.Update);
     //kiểm tra quyền tạo đối với nut delete cho hiểu thị nut
     var result_confirm = await AuthorizationService.AuthorizeAsync(User, Const_FunctionId.Delivery, Operations.Confirm);
     var result_read = await AuthorizationService.AuthorizeAsync(User, Const_FunctionId.Delivery, Operations.Read);
@@ -109,8 +109,10 @@
         <td>{{{Status}}}</td>
 
         <td scope="row">
+            @if (result_edit.Succeeded)
+            {
             <a class="btn btn-xs btn-primary btn-edit {{{Prop}}}" {{{Prop}}} data-id="{{KeyId}}"><i class="fa fa-eye"></i></a>
-
+            }
      </td>
     </tr>
 </script>
