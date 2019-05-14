@@ -75,8 +75,8 @@ function validateSignUp() {
         $('#txtPasswordMessage').text("Không được để trống");
         validated = false;
     }
-    else if ($('#txtPasswordSignUp').val().length < 8) {
-        $('#txtPasswordMessage').text("Mật khẩu phải có ít nhất 8 ký tự");
+    else if ($('#txtPasswordSignUp').val().length < 7) {
+        $('#txtPasswordMessage').text("Mật khẩu phải có ít nhất 7 ký tự");
         validated = false;
     }
     if ($('#txtRetypePasswordSignUp').val() == "" || $('#txtRetypePasswordSignUp').val() == null) {
