@@ -63,31 +63,7 @@
         });
 
 
-        //Delete
-        $('body').on('click', '.btn-delete', function (e) {
-            var that = $(this).data('id');
-            $.ajax({
-                type: 'POST',
-                url: '/Merchant/Delete',
-                data: { id: that },
-                dataType: 'json',
-                beforeSend: function () {
-                    general.startLoad();
-                },
-                success: function (response) {
 
-                    general.notify('Xóa thành công!', 'success');
-                    loadData();
-                    general.stopLoad();
-
-                },
-                error: function (status) {
-                    general.notify('Có lỗi trong khi xóa !', 'error');
-                    general.stopLoad();
-                },
-            });
-
-        });
         //Validate
         $('#frmMaintainance').validate({
             errorClass: 'red',
@@ -324,7 +300,7 @@ function loadData(isPageChanged) {
             });
             $('#lblTotalRecords').text(response.RowCount);
             $('#tbl-content').html(render);
-            general.stopload();
+            general.stopLoad();
             wrapPaging(response.RowCount, function () {
                 loadData();
             }, isPageChanged);
@@ -378,7 +354,7 @@ function loadStatus() {
 
 
             });
-            general.startLoad();
+            general.stopLoad();
         },
         error: function (err) {
             general.notify('Có lỗi trong khi load trạng thái !', 'error');

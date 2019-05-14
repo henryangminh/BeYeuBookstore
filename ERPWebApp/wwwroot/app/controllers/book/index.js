@@ -141,7 +141,7 @@
                 
                     if ($('#frmMaintainance').valid()) {
                         e.preventDefault();
-
+                      
                         var linkImg = '';
                         var keyId;
                         if ($('#txtId').val() == "") {
@@ -174,6 +174,8 @@
                         var price = general.toFloat($('#txtPrice').val());
                         var description = $('#txtDescription').val();
                         var quantity = 0;
+                        if ($('#txtQty').val() != 0) { quantity = $('#txtQty').val() }
+                        
                         var status = $('#selStatus option:selected').val();
                         if ($('#fileBookImg').val() != "")
                         {
@@ -194,6 +196,11 @@
                                     data: data,
                                     contentType: false,
                                     processData: false,
+
+                                    beforeSend: function () {
+                                        general.startLoad();
+                                        general.startLoading();
+                                    },
                                     success: function (e) {
                                         console.log(e);
                                         if ($('#fileBookImg').val() != '') {
@@ -250,8 +257,10 @@
 
                                     },
                                     error: function (e) {
+                                        general.stopLoaad();
                                         general.notify('Có lỗi trong khi ghi !', 'error');
                                         console.log(e);
+
                                     }
 
                                 });
@@ -281,7 +290,7 @@
                                 },
                                 dataType: "json",
                                 beforeSend: function () {
-                                    general.startLoading();
+                                    general.startLoad();
                                 },
                                 success: function (response) {
 
@@ -294,14 +303,16 @@
                                 },
                                 error: function (err) {
                                     general.notify('Có lỗi trong khi ghi !', 'error');
-                                    general.stopLoading();
+                                    general.stopLoad();
 
                                 },
                             });
                         }
                     }               
             }
+            general.stopLoad();
         })
+        
     }
 
     function resetForm() {
@@ -354,6 +365,7 @@
                     $('#selisPaperback').val(1);
                 }
                 $('#txtLength').val(data.Length);
+                $('#txtQty').val(data.Quantity);
                 $('#txtWidth').val(data.Width);
                 $('#txtHeight').val(data.Height);
                 $('#txtPageNumber').val(data.PageNumber);

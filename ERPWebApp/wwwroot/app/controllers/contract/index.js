@@ -226,7 +226,7 @@
                 general.stopLoad();
             },
             error: function (error) {
-                general.startLoad();
+                general.stopLoad();
 
             }
         });

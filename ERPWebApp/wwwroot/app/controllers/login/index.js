@@ -57,6 +57,7 @@
                     general.notify('Đăng nhập không đúng', 'error');
                  
                 }
+                general.stopLoad();
             }
         })
     }

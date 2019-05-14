@@ -68,7 +68,7 @@ namespace BeYeuBookstore.Controllers
             }
             else
             {
-                if (model != null)
+                if (model.KeyId != 0)
                 {
                     if (bookVm.KeyId == 0)
                     {

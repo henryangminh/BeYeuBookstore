@@ -20,5 +20,5 @@ $.extend($.validator.messages, {
     range: $.validator.format("Hãy nhập từ {0} đến {1}."),
     max: $.validator.format("Hãy nhập từ {0} trở xuống."),
     min: $.validator.format("Hãy nhập từ {0} trở lên."),
-    integer: "Phải nhập số nguyên!",
+    integer: "Phải nhập số tự nhiên!",
 });
