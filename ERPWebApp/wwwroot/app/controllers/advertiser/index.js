@@ -179,7 +179,7 @@
             data: { id: that },
             dataType: "json",
             beforeSend: function () {
-                general.startLoading();
+                general.startLoad();
             },
             success: function (response) {
                 console.log("loaddetail", response);
@@ -193,12 +193,12 @@
                 $('#txtUrlToBrand').val(data.UrlToBrand);
                 $('#seldetailStatus').val(data.Status);
                 $('#modal-add-edit').modal('show');
-                general.stopLoading();
+                general.stopLoad();
 
             },
             error: function (status) {
                 general.notify('Có lỗi xảy ra', 'error');
-                general.stopLoading();
+                general.stopLoad();
             }
         });
 

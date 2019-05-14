@@ -34,6 +34,8 @@
 
         $('#btnCreate').on('click', function () {
             resetForm();
+            $('#ShowBookImg').addClass('hidden');
+            $('#ImportBookImg').removeClass('hidden');
             $.ajax({
                 type: 'GET',
                 url: '/Book/GetMerchantInfo',
@@ -316,11 +318,13 @@
         $('#txtWidth').val('');
         $('#txtPageNumber').val('');
         $('#txtPrice').val('');
+        $('#ShowBookImg').empty();
         $('#txtDescription').val('');
     }
 
     function loadDetail(that) {
-
+        resetForm();
+        $('#ShowBookImg').removeClass('hidden');
         $.ajax({
             type: "GET",
             url: "/Book/GetById",
@@ -357,7 +361,7 @@
                 $('#txtDescription').val(data.Description);
                 $('#selStatus').val(data.Status);
                 $('#modal-add-edit').modal('show');
-
+                $('#ShowBookImg').append('<img src="' + data.Img + '" width="100%">')
                 general.stopLoading();
 
             },
