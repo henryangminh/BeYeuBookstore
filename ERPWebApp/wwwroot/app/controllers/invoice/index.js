@@ -182,7 +182,7 @@
                 $('#txtCustomerId').val(data.CustomerFK);
                 $('#dtDateCreated').val(moment(data.DateCreated).format("DD/MM/YYYY"));
                 $('#txtTotalPrice').val(general.toMoney(data.TotalPrice));
-                general.stopLoad():
+                general.stopLoad();
                 
                 $.ajax({
                     type: "GET",
@@ -272,7 +272,7 @@ function loadData(isPageChanged) {
             });
             $('#lblTotalRecords').text(response.RowCount);
             $('#tbl-content').html(render);
-            general.stopLoad():
+            general.stopLoad();
             wrapPaging(response.RowCount, function () {
                 loadData();
             }, isPageChanged);
