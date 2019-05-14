@@ -83,15 +83,16 @@
                                 }
                                 else
                                 {
-                                    <li>Chào bé 
-                                    @{ 
-                                        var a = HttpContextAccessor.HttpContext.Session.Get<User>("User");
-                                        Write(a.FullName);
-                                    }
+                                    <li>
+                                        Chào bé
+                                        @{
+                                            var a = HttpContextAccessor.HttpContext.Session.Get<User>("User");
+                                            Write(a.FullName);
+                                        }
                                     </li>
                                     <li><a href="@Url.Action("MyAccount", "BeyeuBookstore")">Tài khoản của tôi</a></li>
                                     <li><a id="LogOut">Đăng xuất</a></li>
-                                        }
+                                }
                             </ul>
                         </div>
                     </div>
@@ -151,67 +152,57 @@
                         <div class="menu-area">
                             <nav>
                                 <ul>
-                                    <li @{
-                                        if (HttpContextAccessor.HttpContext.Request.Path != Url.Action("Shopping", "BeyeuBookstore"))
-                                        {
-                                            Write("class = active");
-                                        }
-                                        }>
+                                    <li @{ if (HttpContextAccessor.HttpContext.Request.Path != Url.Action("Shopping", "BeyeuBookstore")) { Write("class = active"); } }>
                                         <a href="@Url.Action("Index","BeyeuBookstore")">Trang chủ<i class="fa fa-angle-down"></i></a>
                                         @*
-                                        <div class="sub-menu">
-                                            <ul>
-                                                <li><a href="index-2.html">Home-2</a></li>
-                                                <li><a href="index-3.html">Home-3</a></li>
-                                                <li><a href="index-4.html">Home-4</a></li>
-                                                <li><a href="index-5.html">Home-5</a></li>
-                                                <li><a href="index-6.html">Home-6</a></li>
-                                            </ul>
-                                        </div>
+                                            <div class="sub-menu">
+                                                <ul>
+                                                    <li><a href="index-2.html">Home-2</a></li>
+                                                    <li><a href="index-3.html">Home-3</a></li>
+                                                    <li><a href="index-4.html">Home-4</a></li>
+                                                    <li><a href="index-5.html">Home-5</a></li>
+                                                    <li><a href="index-6.html">Home-6</a></li>
+                                                </ul>
+                                            </div>
                                         *@
                                     </li>
-                                    <li @{
-                                        if (HttpContextAccessor.HttpContext.Request.Path == Url.Action("Shopping", "BeyeuBookstore"))
-                                        {
-                                            Write("class = active");
-                                        }
-                                        }>
+                                    <li @{ if (HttpContextAccessor.HttpContext.Request.Path == Url.Action("Shopping", "BeyeuBookstore")) { Write("class = active"); } }>
                                         <a href="@Url.Action("Shopping","BeyeuBookstore")">Sách<i class="fa fa-angle-down"></i></a>
                                         @*
-                                        <div class="mega-menu">
-                                            <span>
-                                                <a href="#" class="title">Jackets</a>
-                                                <a href="shop.html">Tops & Tees</a>
-                                                <a href="shop.html">Polo Short Sleeve</a>
-                                                <a href="shop.html">Graphic T-Shirts</a>
-                                                <a href="shop.html">Jackets & Coats</a>
-                                                <a href="shop.html">Fashion Jackets</a>
-                                            </span>
-                                            <span>
-                                                <a href="#" class="title">weaters</a>
-                                                <a href="shop.html">Crochet</a>
-                                                <a href="shop.html">Sleeveless</a>
-                                                <a href="shop.html">Stripes</a>
-                                                <a href="shop.html">Sweaters</a>
-                                                <a href="shop.html">hoodies</a>
-                                            </span>
-                                            <span>
-                                                <a href="#" class="title">Bottoms</a>
-                                                <a href="shop.html">Heeled sandals</a>
-                                                <a href="shop.html">Polo Short Sleeve</a>
-                                                <a href="shop.html">Flat sandals</a>
-                                                <a href="shop.html">Short Sleeve</a>
-                                                <a href="shop.html">Long Sleeve</a>
-                                            </span>
-                                            <span>
-                                                <a href="#" class="title">Jeans Pants</a>
-                                                <a href="shop.html">Polo Short Sleeve</a>
-                                                <a href="shop.html">Sleeveless</a>
-                                                <a href="shop.html">Graphic T-Shirts</a>
-                                                <a href="shop.html">Hoodies</a>
-                                                <a href="shop.html">Jackets</a>
-                                            </span>
-                                        </div>
+                                            <div class="mega-menu">
+                                                <span>
+                                                    <a href="#" class="title">Jackets</a>
+                                                    <a href="shop.html">Tops & Tees</a>
+                                                    <a href="shop.html">Polo Short Sleeve</a>
+                                                    <a href="shop.html">Graphic T-Shirts</a>
+                                                    <a href="shop.html">Jackets & Coats</a>
+                                                    <a href="shop.html">Fashion Jackets</a>
+                                                </span>
+                                                <span>
+                                                    <a href="#" class="title">weaters</a>
+                                                    <a href="shop.html">Crochet</a>
+                                                    <a href="shop.html">Sleeveless</a>
+                                                    <a href="shop.html">Stripes</a>
+                                                    <a href="shop.html">Sweaters</a>
+                                                    <a href="shop.html">hoodies</a>
+                                                </span>
+                                                <span>
+                                                    <a href="#" class="title">Bottoms</a>
+                                                    <a href="shop.html">Heeled sandals</a>
+                                                    <a href="shop.html">Polo Short Sleeve</a>
+                                                    <a href="shop.html">Flat sandals</a>
+                                                    <a href="shop.html">Short Sleeve</a>
+                                                    <a href="shop.html">Long Sleeve</a>
+                                                </span>
+                                                <span>
+                                                    <a href="#" class="title">Jeans Pants</a>
+                                                    <a href="shop.html">Polo Short Sleeve</a>
+                                                    <a href="shop.html">Sleeveless</a>
+                                                    <a href="shop.html">Graphic T-Shirts</a>
+                                                    <a href="shop.html">Hoodies</a>
+                                                    <a href="shop.html">Jackets</a>
+                                                </span>
+                                            </div>
                                         *@
                                     </li>
                                 </ul>
@@ -420,9 +411,14 @@
         notification.initialize();
     </script>
     <script src="~/client-side/Cart/cart.js"></script>
+    <script src="~/client-side/Advertisement/Advertisement.js"></script>
     <script>
         var cartController = new cartController();
         cartController.initialize();
+    </script>
+    <script>
+        var advertisementController = new advertisementController();
+        advertisementController.initialize();
     </script>
     @RenderSection("Scripts", required: false)
     <!--Select 2-->

@@ -130,6 +130,7 @@
                 $.ajax({
                     type: 'POST',
                     url: '/Advertiser/SaveEntity',
+
                     data: {
                         KeyId: keyId,
                         BrandName: brandName,
@@ -138,7 +139,7 @@
                     },
                     dataType: "json",
                     beforeSend: function () {
-                        general.startLoading();
+                        general.startLoad();
                     },
                     success: function (response) {
 
@@ -146,12 +147,12 @@
                         general.notify('Ghi thành công!', 'success');
                         resetForm();
                         $('#frmMaintainance').trigger('reset');
-                        general.stopLoading();
+                        general.stopLoad();
                         loadData();
                     },
                     error: function (err) {
                         general.notify('Có lỗi trong khi ghi !', 'error');
-                        general.stopLoading();
+                        general.stopLoad();
 
                     },
                 });
@@ -223,6 +224,9 @@ function loadData(isPageChanged) {
         //url: '/Controller/FunctionName'
         url: '/Advertiser/GetAllPaging',
         dataType: 'json',
+        beforeSend: function () {
+            general.startLoad();
+        },
         success: function (response) {
             console.log("data", response);
          
@@ -252,6 +256,7 @@ function loadData(isPageChanged) {
             });
             $('#lblTotalRecords').text(response.RowCount);
             $('#tbl-content').html(render);
+            general.stopload();
             wrapPaging(response.RowCount, function () {
                 loadData();
             }, isPageChanged);
@@ -259,6 +264,7 @@ function loadData(isPageChanged) {
         error: function (status) {
             console.log(status);
             general.notify('Không thể load dữ liệu', 'error');
+            general.stopLoad();
         }
     });
 }

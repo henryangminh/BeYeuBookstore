@@ -45,12 +45,17 @@
             },
             dataType: 'json',
             url: '/admin/login/authen',
+            beforeSend: function () {
+                general.startLoad();
+            },
             success: function (res) {
                 if (res.Success) {
                     window.location.href = 'admin/Home/Index';
+                    
                 }
                 else {
                     general.notify('Đăng nhập không đúng', 'error');
+                 
                 }
             }
         })

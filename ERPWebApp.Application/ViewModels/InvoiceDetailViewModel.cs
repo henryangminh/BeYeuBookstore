@@ -9,6 +9,7 @@ namespace BeYeuBookstore.Application.ViewModels
         public int KeyId { get; set; }
         public int InvoiceFK { get; set; }
         public int BookFK { get; set; }
+        public int MerchantFK { get; set; }
         public int Qty { get; set; }
         public decimal UnitPrice { get; set; }
         public decimal SubTotal { get; set; }

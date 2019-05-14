@@ -18,9 +18,10 @@ function registerEvents() {
                     Address: $('#txtAddressSignUp').val(),
                     PhoneNumber: $('#txtPhoneNumberSignUp').val(),
                 },
-                dataType: 'json',
                 success: function () {
-
+                    window.location.href = "/BeyeuBookstore/WaitingConfirmation";
+                },
+                error: function () {
                 }
             })
         }
