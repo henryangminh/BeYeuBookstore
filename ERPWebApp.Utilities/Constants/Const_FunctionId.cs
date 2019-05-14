@@ -51,5 +51,7 @@ namespace BeYeuBookstore.Utilities.Constants
         public const string MerchantTerm = "MerchantTermItem";
         public const string AdvertiserTerm = "AdvertiserTermItem";
         public const string GeneralTerm = "GeneralTermItem";
+        public const string BooksReceipt = "BooksReceiptItem";
+        public const string BooksIssue = "BooksIssueItem";
     }
 }
