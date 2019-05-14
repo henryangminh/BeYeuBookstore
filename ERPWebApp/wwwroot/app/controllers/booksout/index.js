@@ -20,12 +20,22 @@
             loadData();
         });
 
+
+        $('#btnMore').on('click', function () {
+
+            loadBooksOut($('#selBook option:selected').val());
+            $("#selBook option:selected").remove();
+
+        });
         //$('#modal-add-edit').on('hide', function () {
         //    resetForm();
         //});
 
         $('#btnCreate').on('click', function () {
             resetForm();
+            loadAllBookByMerchantId();
+            $('#formAdd').removeClass('hidden');
+            $('#formWacth').addClass('hidden');
             $.ajax({
                 type: 'GET',
                 url: '/BooksOut/GetMerchantInfo',
@@ -130,49 +140,63 @@
 
     function loadDetail(that) {
 
+        $('#formAdd').removeClass('hidden');
+        $('#formWacth').addClass('hidden');
+        resetForm();
+        var template = $('#tableBooksOutDetail-template').html();
+        var render = "";
         $.ajax({
             type: "GET",
             url: "/BooksOut/GetById",
             data: { id: that },
             dataType: "json",
             beforeSend: function () {
-                general.startLoading();
+                general.startLoad();
             },
             success: function (response) {
                 console.log("loaddetailbook", response);
                 var data = response;
-                
+
                 $('#txtId').val(data.KeyId);
                 $('#txtMerchant').val(data.MerchantFKNavigation.MerchantCompanyName);
                 $('#dtDateCreated').val(moment(data.DateCreated).format("DD/MM/YYYY"));
                 $('#dtDateModified').val(moment(data.DateModified).format("DD/MM/YYYY"));
-                $('#txtMerchantKeyId').val(data.MerchantFKNavigation.KeyId);
-                $('#txtMerchantStatus').val(data.MerchantFKNavigation.Status);
-                $('#txtBooktitle').val(data.BookTitle);
-                $('#txtAuthor').val(data.Author);
-                $('#BookImg').val(data.Img);
-                $('#selBookcategory').val(data.BookCategoryFK);
-                if (data.isPaperback) {
-                    $('#selisPaperback').val(0);
-                }
-                else {
-                    $('#selisPaperback').val(1);
-                }
-                $('#txtLength').val(data.Length);
-                $('#txtWidth').val(data.Width);
-                $('#txtHeight').val(data.Height);
-                $('#txtPageNumber').val(data.PageNumber);
-                $('#txtPrice').val(general.toMoney(data.UnitPrice));
-                $('#txtDescription').val(data.Description);
-                $('#selStatus').val(data.Status);
+
+                $.ajax({
+                    type: "GET",
+                    url: "/BooksOut/GetAllDetailById",
+                    data: { id: that },
+                    dataType: "json",
+                    success: function (response) {
+                        $.each(response, function (i, item) {
+                            render += Mustache.render(template, {
+
+                                BookId: item.BookFK,
+                                BookName: item.BookFKNavigation.BookTitle,
+                                Author: item.BookFKNavigation.Author,
+                                Img: '<img src="' + item.BookFKNavigation.Img + '" width="100">',
+                                Category: item.BookFKNavigation.BookCategoryFKNavigation.BookCategoryName,
+                                Qty: item.BookFKNavigation.Quantity,
+                                QtyOut: item.Qty,
+                        
+                            });
+                        });
+                        $('#tbl-booksoutcontent').html(render);
+                        general.stopLoad();
+
+                    },
+                    error: function (status) {
+                        general.notify('Có lỗi xảy ra khi load chi tiết xuất sách', 'error');
+                        general.stopLoad();
+                    }
+                });
+
+                general.stopLoad();
                 $('#modal-add-edit').modal('show');
-
-                general.stopLoading();
-
             },
             error: function (status) {
                 general.notify('Có lỗi xảy ra', 'error');
-                general.stopLoading();
+                general.stopLoad();
             }
         });
 
@@ -199,7 +223,7 @@ function loadData(isPageChanged) {
         dataType: 'json',
         success: function (response) {
             console.log("data", response);
-            var order = 1;
+      
             $.each(response.Results, function (i, item) {
          
                 
@@ -207,7 +231,7 @@ function loadData(isPageChanged) {
                    
                     
                 });
-                order++;
+           
 
             });
             $('#lblTotalRecords').text(response.RowCount);
@@ -246,7 +270,7 @@ function wrapPaging(recordCount, callBack, changePageSize) {
             }
         });
 }
-function loadAllBookByMerchantId(id) {
+function loadAllBookByMerchantId() {
     $.ajax({
         type: 'GET',
         url: '/BooksOut/GetAllBookByMerchantId',
@@ -254,9 +278,8 @@ function loadAllBookByMerchantId(id) {
         dataType: "json",
 
         success: function (response) {
-            var _id = "#selBook" + id;
             $.each(response, function (i, item) {
-                $('#selBook' + id).append("<option value='" + item.KeyId + "'>" + item.BookTitle + "</option>");
+                $('#selBook').append("<option value='" + item.KeyId + "'>" + item.BookTitle + "</option>");
 
             });
         },
@@ -267,10 +290,12 @@ function loadAllBookByMerchantId(id) {
     });
 
 }
+
+
 function loadAllMerchant() {
     $.ajax({
         type: 'GET',
-        url: '/BooksIn/GetAllMerchantInfo',
+        url: '/BooksOut/GetAllMerchantInfo',
 
         dataType: "json",
 
@@ -287,19 +312,29 @@ function loadAllMerchant() {
     });
 
 }
+function loadBooksOut(that) {
 
-function loadAllMerchant() {
+    var template = $('#tableBooksOut-template').html();
+    var render = "";
     $.ajax({
         type: 'GET',
-        url: '/BooksOut/GetAllMerchantInfo',
+        url: '/BooksOut/GetBookById',
 
         dataType: "json",
-
+        data: { id: that },
         success: function (response) {
+            render += Mustache.render(template, {
 
-            $.each(response, function (i, item) {
-                $('#selMerchant').append("<option value='" + item.KeyId + "'>" + item.MerchantCompanyName + "</option>");
+                BookId: response.KeyId,
+                BookName: response.BookTitle,
+                Author: response.Author,
+                Img: '<img src="' + response.Img + '" width="100">',
+                Category: response.BookCategoryFKNavigation.BookCategoryName,
+                Qty: response.Quantity,
             });
+            $('#tbl-booksoutcontent').append(render);
+
+
         },
         error: function (err) {
             general.notify('Có lỗi trong khi load nhà cung cấp !', 'error');

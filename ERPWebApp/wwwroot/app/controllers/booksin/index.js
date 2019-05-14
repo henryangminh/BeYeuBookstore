@@ -284,22 +284,14 @@ function loadData(isPageChanged) {
         },
         url: '/BooksIn/GetAllPaging',
         dataType: 'json',
+        beforeSend: function () {
+            general.startLoad();
+        },
         success: function (response) {
             console.log("data", response);
-            var order = 1;
             $.each(response.Results, function (i, item) {
-                var _color = '';
-                var _statusName = '';
-                switch (item.Status) {
-                    case general.status.Active:
-                        _color = 'green';
-                        _statusName = 'Kích hoạt';
-                        break;
-                    case general.status.InActive:
-                        _color = 'red'
-                        _statusName = 'Khóa';
-                        break;
-                }
+           
+                
                 var _dateCreated = moment(item.DateCreated).format("DD/MM/YYYY HH:mm:ss");
                 render += Mustache.render(template, {
                     
@@ -315,9 +307,11 @@ function loadData(isPageChanged) {
             wrapPaging(response.RowCount, function () {
                 loadData();
             }, isPageChanged);
+            general.stopLoad();
         },
-        error: function (XMLHttpRequest,textStatus,errorThrown) {
+        error: function (status) {
             console.log(status);
+            general.stopLoad();
             general.notify('Không thể load dữ liệu', 'error');
         }
     });
