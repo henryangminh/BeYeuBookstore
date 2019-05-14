@@ -23,7 +23,8 @@ namespace BeYeuBookstore.Controllers
         IUnitOfWork _unitOfWork;
         IAuthorizationService _authorizationService;
         ICustomerService _customerService;
-        public InvoiceController(IDeliveryService deliveryService,IAuthorizationService authorizationService, IInvoiceDetailService invoiceDetailService, IInvoiceService invoiceService, IUnitOfWork unitOfWork, ICustomerService customerService)
+        IBookService _bookService;
+        public InvoiceController(IDeliveryService deliveryService,IAuthorizationService authorizationService, IInvoiceDetailService invoiceDetailService, IInvoiceService invoiceService, IUnitOfWork unitOfWork, ICustomerService customerService, IBookService bookService)
         {
             _deliveryService = deliveryService;
             _authorizationService = authorizationService;
@@ -31,6 +32,7 @@ namespace BeYeuBookstore.Controllers
             _invoiceDetailService = invoiceDetailService;
             _unitOfWork = unitOfWork;
             _customerService = customerService;
+            _bookService = bookService;
         }
 
         public IActionResult Index()
@@ -77,7 +79,6 @@ namespace BeYeuBookstore.Controllers
                 _invoiceService.Delete(id);
                 _invoiceService.Save();
                 return new OkObjectResult(id);
-
             }
 
         }
@@ -97,6 +98,14 @@ namespace BeYeuBookstore.Controllers
                 var c = _customerService.GetBysId(userid);
                 if (c.KeyId != 0)
                 {
+                    //var book = _bookService.GetById()
+                    foreach (var item in invoiceDetailVms)
+                    {
+                        var book = _bookService.GetById(item.BookFK);
+                        if (item.Qty > book.Quantity)
+                            return new OkObjectResult("quantity");
+                    }
+
                     if (invoiceVm.DeliAddress == "" || invoiceVm.DeliAddress == null)
                     {
                         invoiceVm.DeliAddress = c.UserBy.Address;
@@ -138,8 +147,9 @@ namespace BeYeuBookstore.Controllers
 
                     _invoiceService.Save();
                     HttpContext.Session.Remove("CartSession");
+                    return new OkObjectResult("true");
                 }
-                return new OkObjectResult("true");
+                return new OkObjectResult("customer");
             }
         }
     }

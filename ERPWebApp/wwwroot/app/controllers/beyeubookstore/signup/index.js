@@ -19,7 +19,7 @@ function registerEvents() {
                     PhoneNumber: $('#txtPhoneNumberSignUp').val(),
                 },
                 success: function () {
-                    window.location.href = "/BeyeuBookstore/WaitingCofirmation";
+                    window.location.href = "/BeyeuBookstore/WaitingConfirmation";
                 },
                 error: function () {
                 }
