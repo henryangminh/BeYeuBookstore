@@ -64,6 +64,11 @@
         });
 
         $('body').on('click', '#BooksOutDetailDelete', function () {
+            var bookId = $(this).parent().parent().find('td:eq(0)').text();
+            var bookTitle = $(this).parent().parent().find('td:eq(1)').text();
+            alert(bookId + '|' + bookTitle);
+            $('#selBook').append("<option value='" + bookId + "'>" + bookTitle + "</option>");
+
             $(this).parent().parent().remove();
         });
 
@@ -131,7 +136,7 @@
                     $('#tblBooksOut > tbody > tr').each(function () {
                         var BooksOutDetail = new Object();
                         BooksOutDetail.BookFK = $(this).find('td:eq(0)').text();
-                        BooksOutDetail.Qty = $(this).find('td:eq(7)').find('input').val();
+                        BooksOutDetail.Qty = $(this).find('td:eq(6)').find('input').val();
                         listBooksOutDetail.push(BooksOutDetail);
                     });
                     $.ajax({

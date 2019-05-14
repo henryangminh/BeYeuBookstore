@@ -28,6 +28,11 @@ var booksinController = function () {
         });
 
         $('body').on('click', '#BooksInDetailDelete', function () {
+            var bookId = $(this).parent().parent().find('td:eq(0)').text();
+            var bookTitle = $(this).parent().parent().find('td:eq(1)').text();
+            alert(bookId + '|' + bookTitle);
+            $('#selBook').append("<option value='" + bookId + "'>" + bookTitle + "</option>");
+
             $(this).parent().parent().remove();
         });
 
