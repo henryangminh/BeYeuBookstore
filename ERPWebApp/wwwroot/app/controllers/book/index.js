@@ -47,6 +47,7 @@
                     $('#txtMerchantKeyId').val(response.KeyId);
                     $('#txtMerchantStatus').val(response.Status);
                     $('#txtMerchant').val(response.MerchantCompanyName);
+                    $('#selStatus').html('<span class="badge bg-black" style="font-size:15px;">Đang nhập</span>');
                     $('#modal-add-edit').modal('show');
 
                 },
@@ -80,6 +81,19 @@
 
         
             //document.getElementById("btnSave").style.display = "block";
+        });
+        //UpdateStatus
+        $('body').on('click', '.btn-lock', function (e) {
+            e.preventDefault();
+            var that = $(this).data('id');
+            updateBookStatus(that,0);
+            
+        })
+        $('body').on('click', '.btn-unlock', function (e) {
+            e.preventDefault();
+            var that = $(this).data('id');
+            updateBookStatus(that,1);
+            
         });
 
 
@@ -133,7 +147,7 @@
         //Save
         $('#btnSave').on('click', function (e) {
             if ($('#txtMerchantStatus').val() == 0) {
-                general.notify('Nhà cung cấp đã bị Khóa, vui lòng liên hệ Webmaster để biết thêm chi tiết!', 'error');
+                general.notify('Nhà cung cấp đã bị Khóa hoặc bạn không có quyền thêm mới, vui lòng liên hệ Webmaster để biết thêm chi tiết!', 'error');
                 return false;
             }
 
@@ -159,7 +173,7 @@
                         var bookTitle = $('#txtBooktitle').val();
                         var merchantFK = $('#txtMerchantKeyId').val();
                         var author = $('#txtAuthor').val();
-                        var bookCategoryFK = $('#selBookcategory option:selected').val();
+                        var bookCategoryFK = $('#selBookcategoryDetail option:selected').val();
                         var ispaperback = $('#selisPaperback option:selected').val();
                         if (ispaperback == 0) {
                             ispaperback = true;
@@ -175,8 +189,7 @@
                         var description = $('#txtDescription').val();
                         var quantity = 0;
                         if ($('#txtQty').val() != 0) { quantity = $('#txtQty').val() }
-                        
-                        var status = $('#selStatus option:selected').val();
+                        var status = 0;
                         if ($('#fileBookImg').val() != "")
                         {
                             var filename = $('#fileBookImg').val().split('\\').pop();
@@ -247,8 +260,8 @@
                                             },
                                             error: function (err) {
                                                 general.notify('Có lỗi trong khi ghi !', 'error');
-                                                general.stopLoaading();
-                                                general.stopLoaad();
+                                                general.stopLoading();
+                                                general.stopLoad();
 
                                             },
                                         });
@@ -371,7 +384,19 @@
                 $('#txtPageNumber').val(data.PageNumber);
                 $('#txtPrice').val(general.toMoney(data.UnitPrice));
                 $('#txtDescription').val(data.Description);
-                $('#selStatus').val(data.Status);
+                var _color = '';
+                var _status = '';
+                switch (data.Status) {
+                    case general.status.InActive:
+                        _color = 'red';
+                        _status = 'Khóa';
+                        break;
+                    case general.status.Active:
+                        _color = 'green';
+                        _status = 'Kích hoạt';
+                        break;
+                }
+                $('#selStatus').html('<span class="badge bg-' + _color + '" style="font-size:15px;">' + _status + '</span>');
                 $('#modal-add-edit').modal('show');
                 $('#ShowBookImg').append('<img src="' + data.Img + '" width="100%">')
                 general.stopLoading();
@@ -498,6 +523,33 @@ function loadBookCategory() {
     });
 
 }
+function updateBookStatus(bookthat, statusthat) {
+    $.ajax({
+        type: 'POST',
+        url: '/Book/UpdateBookStatus',
+
+        dataType: "json",
+        data: {
+            id: bookthat,
+            status: statusthat,
+        },
+        beforeSend: function () {
+            general.startLoad();
+        },
+
+        success: function (response) {
+            general.notify('Cập nhật trạng thái sách thành công!', 'success');
+            
+            general.stopLoad();
+            loadData();
+        },
+        error: function (err) {
+            general.notify('Có lỗi trong khi cập nhật trạng thái sách !', 'error');
+            general.stopLoad();
+        },
+    });
+
+}
 function loadAllMerchant() {
     $.ajax({
         type: 'GET',
@@ -518,25 +570,3 @@ function loadAllMerchant() {
     });
 
 }
-
-//function sendMail() {
-//    $.ajax({
-//        type: 'POST',
-//        url: '/Book/UpdateBookRatingById',
-//        data: {
-//            id: 1,
-//        },
-//        dataType: "json",
-
-//        success: function (response) {
-            
-//            general.notify('Gửi mail thành công', 'success');
-            
-//        },
-//        error: function (err) {
-//            console.log(err);
-//            general.notify('Có lỗi trong khi gửi mail', 'error');
-
-//        },
-//    });
-//}

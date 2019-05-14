@@ -149,6 +149,13 @@ namespace BeYeuBookstore.Controllers
             }
             return new BadRequestResult();
         }
+        [HttpPost]
+        public IActionResult UpdateBookStatus(int id, int status)
+        {
+            _bookService.UpdateBookStatus(id, status);
+            _bookService.Save();
+            return new OkObjectResult("true");
+        }
         
         [HttpGet]
         public IActionResult GetAllMerchantInfo()
