@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace BeYeuBookstore.Data.EF.Migrations
 {
-    public partial class a : Migration
+    public partial class beyeubookstore : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

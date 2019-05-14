@@ -182,7 +182,7 @@
                 $('#txtCustomerId').val(data.CustomerFK);
                 $('#dtDateCreated').val(moment(data.DateCreated).format("DD/MM/YYYY"));
                 $('#txtTotalPrice').val(general.toMoney(data.TotalPrice));
-                general.stopLoad():
+                general.startLoad();
                 
                 $.ajax({
                     type: "GET",
@@ -272,7 +272,7 @@ function loadData(isPageChanged) {
             });
             $('#lblTotalRecords').text(response.RowCount);
             $('#tbl-content').html(render);
-            general.stopLoad():
+            general.startLoad();
             wrapPaging(response.RowCount, function () {
                 loadData();
             }, isPageChanged);
@@ -280,7 +280,7 @@ function loadData(isPageChanged) {
         error: function (status) {
             console.log(status);
             general.notify('Không thể load dữ liệu', 'error');
-            general.stopLoad():
+            general.startLoad();
         }
     });
 }
