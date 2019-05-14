@@ -84,7 +84,7 @@ namespace BeYeuBookstore.Application.Implementation
 
                 if (merchantId != 0)
                 {
-                    query = query.Where(x => x.MerchantFK == mId);
+                    query = query.Where(x => x.MerchantFK == merchantId);
                 }
 
 

@@ -94,6 +94,15 @@ namespace BeYeuBookstore.Controllers
             return new OkObjectResult(model);
         }
 
+
+        [HttpGet]
+        public IActionResult GetById(int id)
+        {
+            var model = _booksOutService.GetById(id);
+            return new OkObjectResult(model);
+        }
+
+
         [HttpGet]
         public IActionResult GetAllBookByMerchantId()
         {

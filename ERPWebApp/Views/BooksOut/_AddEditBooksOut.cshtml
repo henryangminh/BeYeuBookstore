@@ -37,7 +37,7 @@
                                 <input type="text" class="form-control" id="dtDateModified" readonly />
                             </div>
                         </div>
-                        <div class="form-group row">
+                        <div class="form-group row" id="formEditBooksOut">
                             <label for="selBook" class="col-sm-2 col-form-label">Chọn sách</label>
                             <div class="col-sm-4">
                                 <select id="selBook" class="form-control" name="selBook">
@@ -50,7 +50,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <table class="table table-striped table-bordered table-fix-header" id="tblBooksIn">
+                            <table class="table table-striped table-bordered table-fix-header" id="tblBooksOut">
                                 <thead>
                                     <tr>
                                         <th width="3%">Mã sách</th>
@@ -75,7 +75,7 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <div id="formSaveBooksIn">
+                <div id="formSaveBooksOut">
                     <button type="button" id="btnSave" class="btn btn-success">Ghi</button>
                     <button type="button" id="btnCancel" data-dismiss="modal" class="btn btn-danger">Hủy</button>
                 </div>
@@ -95,10 +95,10 @@
         <td>{{Qty}}</td>
 
         <td>
-            <input id="booksInQty{{BookId}}" class="form-control" type="number" min="0" max="{{Qty}}" name="booksinQty" />
+            <input id="booksInQty{{BookId}}" class="form-control" type="number" min="0" max="{{Qty}}" name="booksoutQty" />
         </td>
         <td scope="row">
-            <a class="btn btn-xs btn-danger btn-delete {{{Prop}}}" {{{Prop}}} id="BooksInDetailDelete"><i class="fa fa-trash"></i></a>
+            <a class="btn btn-xs btn-danger btn-delete {{{Prop}}}" {{{Prop}}} id="BooksOutDetailDelete"><i class="fa fa-trash"></i></a>
         </td>
     </tr>
 </script>
