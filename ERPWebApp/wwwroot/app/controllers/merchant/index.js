@@ -378,7 +378,7 @@ function loadStatus() {
 
 
             });
-            general.stopLoad():
+            general.stopLoad();
         },
         error: function (err) {
             general.notify('Có lỗi trong khi load trạng thái !', 'error');

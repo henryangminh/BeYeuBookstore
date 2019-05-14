@@ -223,10 +223,10 @@
             },
             success: function (response) {
                 console.log(response);
-                general.stopLoad():
+                general.stopLoad();
             },
             error: function (error) {
-                general.stopLoad():
+                general.stopLoad();
 
             }
         });
