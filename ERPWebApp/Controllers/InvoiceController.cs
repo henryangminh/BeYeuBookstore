@@ -130,6 +130,9 @@ namespace BeYeuBookstore.Controllers
                     {
                         item.InvoiceFK = invoice;
                         _invoiceDetailService.Add(item);
+                        var book = _bookService.GetById(item.BookFK);
+                        book.Quantity = book.Quantity - item.Qty;
+                        _bookService.Update(book);
                     }
 
                     var deli = invoiceDetailVms.GroupBy(x => x.MerchantFK).Select(x => new DeliveryViewModel()
