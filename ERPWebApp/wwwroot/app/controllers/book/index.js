@@ -39,6 +39,9 @@
                 url: '/Book/GetMerchantInfo',
 
                 dataType: "json",
+                beforeSend: function () {
+                    general.startLoad();
+                },
 
                 success: function (response) {
                     console.log("loadInfo", response);
@@ -46,10 +49,12 @@
                     $('#txtMerchantStatus').val(response.Status);
                     $('#txtMerchant').val(response.MerchantCompanyName);
                     $('#modal-add-edit').modal('show');
+                    general.stopLoad();
 
                 },
                 error: function (err) {
                     general.notify('Có lỗi trong khi load thông tin nhà cung cấp!', 'error');
+                    general.stopLoad();
 
                 },
             });
@@ -192,6 +197,9 @@
                                     data: data,
                                     contentType: false,
                                     processData: false,
+                                    beforeSend: function () {
+                                        general.startLoad();
+                                    },
                                     success: function (e) {
                                         console.log(e);
                                         if ($('#fileBookImg').val() != '') {
@@ -250,6 +258,7 @@
                                     error: function (e) {
                                         general.notify('Có lỗi trong khi ghi !', 'error');
                                         console.log(e);
+                                        general.stopLoad();
                                     }
 
                                 });
@@ -279,7 +288,7 @@
                                 },
                                 dataType: "json",
                                 beforeSend: function () {
-                                    general.startLoading();
+                                    general.startLoad();
                                 },
                                 success: function (response) {
 
@@ -287,12 +296,12 @@
                                     general.notify('Ghi thành công!', 'success');
                                     resetForm();
                                     $('#frmMaintainance').trigger('reset');
-                                    general.stopLoading();
+                                    general.stopLoad();
                                     loadData();
                                 },
                                 error: function (err) {
                                     general.notify('Có lỗi trong khi ghi !', 'error');
-                                    general.stopLoading();
+                                    general.stopLoad();
 
                                 },
                             });
@@ -327,7 +336,7 @@
             data: { id: that },
             dataType: "json",
             beforeSend: function () {
-                general.startLoading();
+                general.startLoad();
             },
             success: function (response) {
                 console.log("loaddetailbook", response);
@@ -358,12 +367,12 @@
                 $('#selStatus').val(data.Status);
                 $('#modal-add-edit').modal('show');
 
-                general.stopLoading();
+                general.stopLoad();
 
             },
             error: function (status) {
                 general.notify('Có lỗi xảy ra', 'error');
-                general.stopLoading();
+                general.stopLoad();
             }
         });
 
@@ -388,6 +397,9 @@ function loadData(isPageChanged) {
         },
         url: '/Book/GetAllPaging',
         dataType: 'json',
+        beforeSend: function () {
+            general.startLoad();
+        },
         success: function (response) {
             console.log("data", response);
             var order = 1;
@@ -424,6 +436,7 @@ function loadData(isPageChanged) {
             });
             $('#lblTotalRecords').text(response.RowCount);
             $('#tbl-content').html(render);
+            general.stopLoad();
             wrapPaging(response.RowCount, function () {
                 loadData();
             }, isPageChanged);
@@ -431,6 +444,7 @@ function loadData(isPageChanged) {
         error: function (XMLHttpRequest,textStatus,errorThrown) {
             console.log(status);
             general.notify('Không thể load dữ liệu', 'error');
+            general.stopLoad();
         }
     });
 }
@@ -465,19 +479,23 @@ function loadBookCategory() {
         url: '/Book/GetAllBookCategory',
 
         dataType: "json",
+        beforeSend: function () {
+            general.startLoad();
+        },
 
         success: function (response) {
 
             $.each(response, function (i, item) {
                 $('#selBookCategory').append("<option value='" + item.KeyId + "'>" + item.BookCategoryName + "</option>");
                 $('#selBookcategoryDetail').append("<option value='" + item.KeyId + "'>" + item.BookCategoryName + "</option>");
+                general.stopLoad();
 
 
             });
         },
         error: function (err) {
             general.notify('Có lỗi trong khi load loại sách !', 'error');
-
+            general.stopLoad();;
         },
     });
 
@@ -488,15 +506,20 @@ function loadAllMerchant() {
         url: '/Book/GetAllMerchantInfo',
 
         dataType: "json",
+        beforeSend: function () {
+            general.startLoad();
+        },
 
         success: function (response) {
 
             $.each(response, function (i, item) {
                 $('#selMerchant').append("<option value='" + item.KeyId + "'>" + item.MerchantCompanyName + "</option>");
+                general.stopLoad();
             });
         },
         error: function (err) {
             general.notify('Có lỗi trong khi load nhà cung cấp !', 'error');
+            general.stopLoad();
 
         },
     });

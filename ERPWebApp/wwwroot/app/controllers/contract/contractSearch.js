@@ -93,6 +93,9 @@ function loadData(isPageChanged) {
         },
         url: '/Contract/GetAllPagingContract',
         dataType: 'json',
+        beforeSend: function () {
+            general.startLoad();
+        },
         success: function (response) {
             console.log(response);
             $.each(response.Results, function (i, item) {
@@ -111,6 +114,7 @@ function loadData(isPageChanged) {
             });
             $('#lblTotalRecords').text(response.RowCount);
             $('#tbl-content_search').html(render);
+            general.stopLoad();
             wrapPaging(response.RowCount, function () {
                 loadData();
             }, isPageChanged);
@@ -118,6 +122,7 @@ function loadData(isPageChanged) {
         error: function (status) {
             console.log(status);
             general.notify('Không thể load dữ liệu', 'error');
+            general.stopLoad();
         }
     });
 }

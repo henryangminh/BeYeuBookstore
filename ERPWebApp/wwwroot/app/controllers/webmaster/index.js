@@ -73,18 +73,18 @@
                 data: { id: that },
                 dataType: 'json',
                 beforeSend: function () {
-                    general.startLoading();
+                    general.startLoad();
                 },
                 success: function (response) {
 
                     general.notify('Xóa thành công!', 'success');
                     loadData();
-                    general.stopLoading();
+                    general.stopLoad();
 
                 },
                 error: function (status) {
                     general.notify('Có lỗi trong khi xóa !', 'error');
-                    general.stopLoading();
+                    general.stopLoad();
                 },
             });
 
@@ -136,7 +136,7 @@
                     },
                     dataType: "json",
                     beforeSend: function () {
-                        general.startLoading();
+                        general.startLoad();
                     },
                     success: function (response) {
 
@@ -144,12 +144,12 @@
                         general.notify('Ghi thành công!', 'success');
                         resetForm();
                         $('#frmMaintainance').trigger('reset');
-                        general.stopLoading();
+                        general.stopLoad();
                         loadData();
                     },
                     error: function (err) {
                         general.notify('Có lỗi trong khi ghi !', 'error');
-                        general.stopLoading();
+                        general.stopLoad();
 
                     },
                 });
@@ -189,7 +189,7 @@
             data: { id: that },
             dataType: "json",
             beforeSend: function () {
-                general.startLoading();
+                general.startLoad();
             },
             success: function (response) {
                 console.log("loaddetail", response);
@@ -222,19 +222,19 @@
                     data: { id: data.EmployeeFK, year: Year },
                     dataType: "json",
                     beforeSend: function () {
-                        general.startLoading();
+                        general.startLoad();
                     },
                     success: function (response) {
                         console.log("loadPermitDays", response);
                         var _data = response;
                         $('#txtNODaysRemain').val(_data.NODaysRemain);
                         $('#txtPermitDaysId').val(_data.KeyId);
-                        general.stopLoading();
+                        general.stopLoad();
 
                     },
                     error: function (status) {
                         general.notify('Có lỗi xảy ra', 'error');
-                        general.stopLoading();
+                        general.stopLoad();
                     }
                 });
                 var _statusName = '';
@@ -254,12 +254,12 @@
                 }
                 $('#txtStatus').val(_statusName);
                 $('#modal-add-edit').modal('show');
-                general.stopLoading();
+                general.stopLoad();
 
             },
             error: function (status) {
                 general.notify('Có lỗi xảy ra', 'error');
-                general.stopLoading();
+                general.stopLoad();
             }
         });
 
@@ -284,6 +284,9 @@ function loadData(isPageChanged) {
         },
         url: '/WebMaster/GetAllPaging',
         dataType: 'json',
+        beforeSend: function () {
+            general.startLoad();
+        },
         success: function (response) {
             console.log("dataWM", response);
             var order = 1;
@@ -315,6 +318,7 @@ function loadData(isPageChanged) {
             });
             $('#lblTotalRecords').text(response.RowCount);
             $('#tbl-content').html(render);
+            general.stopLoad();
             wrapPaging(response.RowCount, function () {
                 loadData();
             }, isPageChanged);
@@ -322,6 +326,7 @@ function loadData(isPageChanged) {
         error: function (status) {
             console.log(status);
             general.notify('Không thể load dữ liệu', 'error');
+            general.stopLoad();
         }
     });
 }
@@ -356,15 +361,20 @@ function loadWebmasterPosition() {
         url: '/WebMaster/GetAllWebMasterPosition',
 
         dataType: "json",
+        beforeSend: function () {
+            general.startLoad();
+        },
 
         success: function (response) {
 
             $.each(response, function (i, item) {
                 $('#selWebmasterPosition').append("<option value='" + item.KeyId + "'>" + item.WebMasterTypeName + "</option>");
             });
+            general.stopLoad();
         },
         error: function (err) {
             general.notify('Có lỗi trong khi load loại sách !', 'error');
+            general.stopLoad();
 
         },
     });

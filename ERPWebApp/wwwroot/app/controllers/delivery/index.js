@@ -138,7 +138,7 @@
                     },
                     dataType: "json",
                     beforeSend: function () {
-                        general.startLoading();
+                        general.startLoad();
                     },
                     success: function (response) {
 
@@ -146,12 +146,12 @@
                         general.notify('Ghi thành công!', 'success');
                         resetForm();
                         $('#frmMaintainance').trigger('reset');
-                        general.stopLoading();
+                        general.stopLoad();
                         loadData();
                     },
                     error: function (err) {
                         general.notify('Có lỗi trong khi ghi !', 'error');
-                        general.stopLoading();
+                        general.stopLoad();
 
                     },
                 });
@@ -187,7 +187,7 @@
             data: { id: that },
             dataType: "json",
             beforeSend: function () {
-                general.startLoading();
+                general.startLoad();
             },
             success: function (response) {
                 switch (response.DeliveryStatus) {
@@ -262,7 +262,7 @@
                     data: { invoiceId: response.InvoiceFK },
                     dataType: "json",
                     beforeSend: function () {
-                        general.startLoading();
+                        general.startLoad();
                     },
                     success: function (innerresponse) {
                         $.each(innerresponse, function (i, item) {
@@ -283,21 +283,21 @@
                         $('#Delivery-tbl-content').html(renderDetail);
                         loadTotalPrice();
                         $('#modal-add-edit').modal('show');
-                        general.stopLoading();
+                        general.stopLoad();
 
                     },
                     error: function (status) {
                         general.notify('Có lỗi xảy ra khi load mặt hàng', 'error');
-                        general.stopLoading();
+                        general.stopLoad();
                     }
                 });
 
-                general.stopLoading();
+                general.stopLoad();
 
             },
             error: function (status) {
                 general.notify('Có lỗi xảy ra khi xem phiếu giao hàng này!', 'error');
-                general.stopLoading();
+                general.stopLoad();
             }
         });
 
@@ -334,6 +334,9 @@ function loadData(isPageChanged) {
         },
         url: '/Delivery/GetAllPaging',
         dataType: 'json',
+        beforeSend: function () {
+            general.startLoad();
+        },
         success: function (response) {
             console.log("data", response);
             $.each(response.Results, function (i, item) {
@@ -379,6 +382,7 @@ function loadData(isPageChanged) {
             });
             $('#lblTotalRecords').text(response.RowCount);
             $('#tbl-content').html(render);
+            general.stopLoad():
             wrapPaging(response.RowCount, function () {
                 loadData();
             }, isPageChanged);
@@ -386,6 +390,7 @@ function loadData(isPageChanged) {
         error: function (status) {
             console.log(status);
             general.notify('Không thể load dữ liệu', 'error');
+            general.stopLoad():
         }
     });
 }

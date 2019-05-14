@@ -171,7 +171,7 @@
             data: { id: that },
             dataType: "json",
             beforeSend: function () {
-                general.startLoading();
+                general.startLoad();
             },
             success: function (response) {
                 console.log("loaddetail", response);
@@ -182,6 +182,7 @@
                 $('#txtCustomerId').val(data.CustomerFK);
                 $('#dtDateCreated').val(moment(data.DateCreated).format("DD/MM/YYYY"));
                 $('#txtTotalPrice').val(general.toMoney(data.TotalPrice));
+                general.stopLoad():
                 
                 $.ajax({
                     type: "GET",
@@ -189,7 +190,7 @@
                     data: { id: that },
                     dataType: "json",
                     beforeSend: function () {
-                        general.startLoading();
+                        general.startLoad();
                     },
                     success: function (innerresponse) {
                       
@@ -211,21 +212,21 @@
                         $('#modal-add-edit').modal('show');
                        
                         
-                        general.stopLoading();
+                        general.stopLoad();
 
                     },
                     error: function (status) {
                         general.notify('Có lỗi xảy ra', 'error');
-                        general.stopLoading();
+                        general.stopLoad();
                     }
                 });
                 
-                general.stopLoading();
+                general.stopLoad();
 
             },
             error: function (status) {
                 general.notify('Có lỗi xảy ra', 'error');
-                general.stopLoading();
+                general.stopLoad();
             }
         });
 
@@ -248,6 +249,9 @@ function loadData(isPageChanged) {
         },
         url: '/Invoice/GetAllPaging',
         dataType: 'json',
+        beforeSend: function () {
+            general.startLoad();
+        },
         success: function (response) {
             console.log("data", response);
             var order = 1;
@@ -268,6 +272,7 @@ function loadData(isPageChanged) {
             });
             $('#lblTotalRecords').text(response.RowCount);
             $('#tbl-content').html(render);
+            general.stopLoad():
             wrapPaging(response.RowCount, function () {
                 loadData();
             }, isPageChanged);
@@ -275,6 +280,7 @@ function loadData(isPageChanged) {
         error: function (status) {
             console.log(status);
             general.notify('Không thể load dữ liệu', 'error');
+            general.stopLoad():
         }
     });
 }

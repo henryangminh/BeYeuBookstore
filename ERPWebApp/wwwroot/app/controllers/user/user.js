@@ -59,7 +59,7 @@
                 data: { id: that },
                 dataType: "json",
                 beforeSend: function () {
-                    general.startLoading();
+                    general.startLoad();
                 },
                 success: function (response) {
                     var data = response;
@@ -75,12 +75,12 @@
 
                     disableFieldEdit(true);
                     $('#modal-add-edit').modal('show');
-                    general.stopLoading();
+                    general.stopLoad();
 
                 },
                 error: function () {
                     general.notify('Có lỗi xảy ra', 'error');
-                    general.stopLoading();
+                    general.stopLoad();
                 }
             });
         });
@@ -106,12 +106,17 @@
                     contentType: false,
                     processData: false,
                     data: data,
+                    beforeSend: function () {
+                        general.startLoad();
+                    },
                     success: function (path) {
                         gAvatarImage = path;
                         $('#lblAvatar').text(files[0].name);
+                        general.stopLoad();
                     },
                     error: function () {
                         general.notify('Lỗi khi upload ảnh !', 'error');
+                        general.stopLoad();
                     }
                 });
             }
@@ -148,7 +153,7 @@
                     },
                     dataType: "json",
                     beforeSend: function () {
-                        general.startLoading();
+                        general.startLoad();
                     },
                     success: function (res) {
                         if (res) {
@@ -160,11 +165,11 @@
                         else {
                             general.notify('Ghi lỗi', 'error');
                         }
-                        general.stopLoading();
+                        general.stopLoad();
                     },
                     error: function () {
                         general.notify('Ghi lỗi', 'error');
-                        general.stopLoading();
+                        general.stopLoad();
                     }
                 });
             }
@@ -180,16 +185,16 @@
                     url: "User/Delete",
                     data: { id: that },
                     beforeSend: function () {
-                        general.startLoading();
+                        general.startLoad();
                     },
                     success: function () {
                         general.notify('Delete successful', 'success');
-                        general.stopLoading();
+                        general.stopLoad();
                         loadData();
                     },
                     error: function () {
                         general.notify('Has an error', 'error');
-                        general.stopLoading();
+                        general.stopLoad();
                     }
                 });
             });
@@ -227,6 +232,9 @@
             type: 'GET',
             dataType: 'json',
             async: false,
+            beforeSend: function () {
+                general.startLoad();
+            },
             success: function (response) {
                 var template = $('#role-template').html();
                 var data = response;
@@ -259,7 +267,7 @@
             },
             dataType: "json",
             beforeSend: function () {
-                general.startLoading();
+                general.startLoad();
             },
             success: function (response) {
                 console.log("user", response);
@@ -291,10 +299,11 @@
                 else {
                     $('#tbl-content').html('');
                 }
-                general.stopLoading();
+                general.stopLoad();
             },
             error: function (status) {
                 console.log(status);
+                general.stopLoad();
             }
         });
     };

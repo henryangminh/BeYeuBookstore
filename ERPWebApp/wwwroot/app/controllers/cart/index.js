@@ -22,12 +22,17 @@ function registerEvents() {
                 quantity: qty,
                 update: true,
             },
+            beforeSend: function () {
+                general.startLoad();
+            },
             success: function (respond) {
                 console.log('AddToCart', respond);
                 loadCart();
+                general.stopLoad();
             },
             error: function (e) {
                 console.log(e);
+                general.stopLoad();
             }
         })
     })

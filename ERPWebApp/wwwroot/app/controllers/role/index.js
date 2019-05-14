@@ -56,7 +56,7 @@
                 data: { id: that },
                 dataType: "json",
                 beforeSend: function () {
-                    general.startLoading();
+                    general.startLoad();
                 },
                 success: function (response) {
                     var data = response;
@@ -64,12 +64,12 @@
                     $('#txtName').val(data.Name);
                     $('#txtDescription').val(data.Description);
                     $('#modal-add-edit').modal('show');
-                    general.stopLoading();
+                    general.stopLoad();
 
                 },
                 error: function (status) {
                     general.notify('Có lỗi xảy ra', 'error');
-                    general.stopLoading();
+                    general.stopLoad();
                 }
             });
         });
@@ -91,7 +91,7 @@
                     },
                     dataType: "json",
                     beforeSend: function () {
-                        general.startLoading();
+                        general.startLoad();
                     },
                     success: function (response) {
                         if (response) {
@@ -99,15 +99,16 @@
                             $('#modal-add-edit').modal('hide');
                             resetFormMaintainance();
                             loadData(true);
+                            general.stopLoad();
                         }
                         else {
                             general.notify('Tên nhóm quyền đã tồn tại !', 'error');
                         }
-                        general.stopLoading();
+                        general.stopLoad();
                     },
                     error: function () {
                         general.notify('Ghi lỗi, có thể do kết nối hoặc mô tả quá dài !', 'error');
-                        general.stopLoading();
+                        general.stopLoad();
                     }
                 });
                 return false;
@@ -124,16 +125,16 @@
                     url: "/Role/Delete",
                     data: { id: that },
                     beforeSend: function () {
-                        general.startLoading();
+                        general.startLoad();
                     },
                     success: function (response) {
                         general.notify('Xóa thành công !', 'success');
-                        general.stopLoading();
+                        general.stopLoad();
                         loadData();
                     },
                     error: function (status) {
                         general.notify('Lỗi xóa ! Vui lòng kiểm tra lại !', 'error');
-                        general.stopLoading();
+                        general.stopLoad();
                     }
                 });
             });
@@ -160,16 +161,16 @@
                     roleId:gid
                 },
                 beforeSend: function () {
-                    general.startLoading();
+                    general.startLoad();
                 },
                 success: function (response) {
                     general.notify('Lưu thành công !', 'success');
                     $('#modal-grantpermission').modal('hide');
-                    general.stopLoading();
+                    general.stopLoad();
                 },
                 error: function () {
                     general.notify('Lưu bị lỗi', 'error');
-                    general.stopLoading();
+                    general.stopLoad();
                 }
             });
         });
@@ -182,7 +183,7 @@
             url: strUrl,
             dataType: "json",
             beforeSend: function () {
-                general.startLoading();
+                general.startLoad();
             },
             success: function (response) {
                 var template = $('#result-data-function').html();
@@ -312,6 +313,7 @@
             },
             error: function (status) {
                 console.log(status);
+                general.stopLoad();
             }
         });
     }
@@ -326,7 +328,7 @@
             },
             dataType: "json",
             beforeSend: function () {
-                general.stopLoading();
+                general.stopLoad();
             },
             success: function (response) {
                 if (response.length > 0)
@@ -364,10 +366,11 @@
                     });
                 else
                     resetPermission();
-                general.stopLoading();
+                general.stopLoad();
             },
             error: function (status) {
                 console.log(status);
+                general.stopLoad();
             }
         });
     }
@@ -389,7 +392,7 @@
             },
             dataType: "json",
             beforeSend: function () {
-                general.startLoading();
+                general.startLoad();
             },
             success: function (response) {
                 var template = $('#table-template').html();
@@ -407,6 +410,7 @@
                         $('#tbl-content').html(render);
 
                     }
+                    general.stopLoad();
                     wrapPaging(response.RowCount, function () {
                         loadData();
                     }, isPageChanged);
@@ -420,6 +424,7 @@
             },
             error: function (status) {
                 console.log(status);
+                general.stopLoad();
             }
         });
     };
