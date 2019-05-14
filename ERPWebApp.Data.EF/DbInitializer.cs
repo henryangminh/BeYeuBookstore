@@ -1131,6 +1131,7 @@ namespace BeYeuBookstore.Data.EF
                 {
                     new AdvertiseContract(){AdvertisementContentFK=3, DateStart=DateTime.Parse("2019-05-11"), DateFinish=DateTime.Parse("2019-05-13 23:59:59"), ContractValue=27000000, Status=ContractStatus.AccountingCensored },
                     new AdvertiseContract(){AdvertisementContentFK=1, DateStart=DateTime.Parse("2019-05-01"), DateFinish=DateTime.Parse("2019-05-05 23:59:59"), ContractValue=50000000, Status=ContractStatus.Success },
+                    new AdvertiseContract(){AdvertisementContentFK=2, DateStart=DateTime.Parse("2019-05-01"), DateFinish=DateTime.Parse("2019-05-05 23:59:59"), ContractValue=45000000, Status=ContractStatus.Unqualified },
                     new AdvertiseContract(){AdvertisementContentFK=2, DateStart=DateTime.Parse("2019-05-01"), DateFinish=DateTime.Parse("2019-05-05 23:59:59"), ContractValue=45000000, Status=ContractStatus.Unqualified }
 
                     });
