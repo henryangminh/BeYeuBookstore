@@ -78,7 +78,7 @@
                             <th>Số lượng</th>
                             <th>Trạng thái</th>
 
-                            <th width="8%">#</th>
+                            <th width="10%">#</th>
                         </tr>
                     </thead>
                     <tbody id="tbl-content"></tbody>
@@ -123,7 +123,13 @@
         <td scope="row">
             @if (result_edit.Succeeded)
             {
-                <a class="btn btn-xs btn-default btn-edit {{{Prop}}}" {{{Prop}}} data-id="{{KeyId}}"><i class="fa fa-pencil"></i></a>
+                <a title="Chỉnh sửa" class="btn btn-xs btn-default btn-edit {{{Prop}}}" {{{Prop}}} data-id="{{KeyId}}"><i class="fa fa-pencil"></i></a>
+
+            }
+            @if (result_confirm.Succeeded)
+            {
+                <a title="Khóa" class="btn btn-xs btn-danger btn-lock {{{Prop}}}" {{{Prop}}} data-id="{{KeyId}}"><i class="fas fa-lock"></i></a>
+                <a title="Mở khóa" class="btn btn-xs btn-success btn-unlock {{{Prop}}}" {{{Prop}}} data-id="{{KeyId}}"><i class="fas fa-lock-open"></i></a>
             }
         </td>
     </tr>

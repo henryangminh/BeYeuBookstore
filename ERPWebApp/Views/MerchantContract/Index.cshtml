@@ -4,11 +4,11 @@
 @inject IAuthorizationService AuthorizationService
 @{
     //kiểm tra quyền tạo đối với nut create cho hiểu thị nut
-    var result_edit = await AuthorizationService.AuthorizeAsync(User, Const_FunctionId.MerchantContract, Operations.Create);
+    var result_create = await AuthorizationService.AuthorizeAsync(User, Const_FunctionId.MerchantContract, Operations.Create);
     //kiểm tra quyền tạo đối với nut delete cho hiểu thị nut
     var result_delete = await AuthorizationService.AuthorizeAsync(User, Const_FunctionId.MerchantContract, Operations.Delete);
     //kiểm tra quyền tạo đối với nut update cho hiểu thị nut
-    var result_create = await AuthorizationService.AuthorizeAsync(User, Const_FunctionId.MerchantContract, Operations.Update);
+    var result_edit = await AuthorizationService.AuthorizeAsync(User, Const_FunctionId.MerchantContract, Operations.Update);
     //kiểm tra quyền tạo đối với nut delete cho hiểu thị nut
     var result_confirm = await AuthorizationService.AuthorizeAsync(User, Const_FunctionId.MerchantContract, Operations.Confirm);
     var result_read = await AuthorizationService.AuthorizeAsync(User, Const_FunctionId.MerchantContract, Operations.Read);

@@ -2,6 +2,7 @@
 using BeYeuBookstore.Application.Interfaces;
 using BeYeuBookstore.Application.ViewModels;
 using BeYeuBookstore.Data.Entities;
+using BeYeuBookstore.Data.Enums;
 using BeYeuBookstore.Infrastructure.Interfaces;
 using BeYeuBookstore.Utilities.DTOs;
 using System;
@@ -77,7 +78,7 @@ namespace BeYeuBookstore.Application.Implementation
         public PagedResult<BookViewModel> GetAllPaging(int mId,int? merchantId, string fromdate, string todate, string keyword, int bookcategoryid, int page, int pageSize)
         {
             var query = _bookRepository.FindAll(x=>x.BookCategoryFKNavigation, x=>x.MerchantFKNavigation);
-            query = query.OrderBy(x => x.KeyId);
+            query = query.OrderByDescending(x => x.KeyId);
             if (!string.IsNullOrEmpty(keyword))
             {
                 var keysearch = keyword.Trim().ToUpper();
@@ -204,8 +205,6 @@ namespace BeYeuBookstore.Application.Implementation
                 temp.PageNumber = BookViewModel.PageNumber;
                 temp.isPaperback = BookViewModel.isPaperback;
                 temp.UnitPrice = BookViewModel.UnitPrice;
-               
-                temp.Status = BookViewModel.Status;
                 temp.Img = BookViewModel.Img;
 
             }
@@ -217,6 +216,15 @@ namespace BeYeuBookstore.Application.Implementation
             if (temp != null)
             {
                 temp.Rating = rating;
+            }
+        }
+
+        public void UpdateBookStatus(int bookId, int status)
+        {
+            var temp = _bookRepository.FindById(bookId);
+            if (temp != null)
+            {
+                temp.Status = (Status)status;
             }
         }
 

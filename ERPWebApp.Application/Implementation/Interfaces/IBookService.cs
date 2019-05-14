@@ -26,7 +26,7 @@ namespace BeYeuBookstore.Application.Interfaces
         void UpdateBookRating(double rating, int id);
 
         void UpdateBookQtyByBooksIn(int bookid, int qty);
-
+        void UpdateBookStatus(int bookId, int status);
         void UpdateBookQtyByBooksOut(int bookid, int qty);
         bool Save();
     }

@@ -56,36 +56,6 @@
         });
 
 
-        //Delete
-        $('body').on('click', '.btn-delete', function (e) {
-            if (confirm("Bạn chắc chắn muốn xóa?")) {
-                var that = $(this).data('id');
-                $.ajax({
-                    type: 'POST',
-                    url: '/Advertiser/Delete',
-                    data: { id: that },
-                    dataType: 'json',
-                    beforeSend: function () {
-                        general.startLoading();
-                    },
-                    success: function (response) {
-
-                        general.notify('Xóa thành công!', 'success');
-                        loadData();
-                        general.stopLoading();
-
-                    },
-                    error: function (status) {
-                        general.notify('Có lỗi trong khi xóa !', 'error');
-                        general.stopLoading();
-                    },
-                });
-            }
-            else {
-                alert("Bạn vừa bấm hủy");
-            }
-
-        });
         //Validate
         $('#frmMaintainance').validate({
             errorClass: 'red',
@@ -256,10 +226,11 @@ function loadData(isPageChanged) {
             });
             $('#lblTotalRecords').text(response.RowCount);
             $('#tbl-content').html(render);
-            general.stopload();
+            general.stopLoad();
             wrapPaging(response.RowCount, function () {
                 loadData();
             }, isPageChanged);
+            general.stopLoad();
         },
         error: function (status) {
             console.log(status);
