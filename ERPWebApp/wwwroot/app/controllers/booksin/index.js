@@ -28,6 +28,11 @@ var booksinController = function () {
         });
 
         $('body').on('click', '#BooksInDetailDelete', function () {
+            var bookId = $(this).parent().parent().find('td:eq(0)').text();
+            var bookTitle = $(this).parent().parent().find('td:eq(1)').text();
+            alert(bookId + '|' + bookTitle);
+            $('#selBook').append("<option value='" + bookId + "'>" + bookTitle + "</option>");
+
             $(this).parent().parent().remove();
         });
 
@@ -43,7 +48,7 @@ var booksinController = function () {
             resetForm();
             $('#formWacth').addClass('hidden');
             $('#formAdd').removeClass('hidden');
-            $('#btnMore').removeClass('hidden');
+            $('#formAddBooksIn').removeClass('hidden');
             loadAllBookByMerchantId();
             $('#formSaveBooksIn').removeClass('hidden');
             $.ajax({
@@ -94,7 +99,7 @@ var booksinController = function () {
             e.preventDefault();
             $('#formWacth').removeClass('hidden');
             $('#formAdd').addClass('hidden');
-            $('#btnMore').addClass('hidden');
+            $('#formAddBooksIn').addClass('hidden');
             $('#formSaveBooksIn').addClass('hidden');
             var that = $(this).data('id');
             loadDetail(that);
@@ -117,7 +122,13 @@ var booksinController = function () {
 
                     required: true,
                     number: true,
+                    integer: true,
+                }
 
+            },
+            message: {
+                booksinQty: {
+                    integer: "Bạn phải nhập số nguyên!"
                 }
             }
         });
@@ -284,22 +295,14 @@ function loadData(isPageChanged) {
         },
         url: '/BooksIn/GetAllPaging',
         dataType: 'json',
+        beforeSend: function () {
+            general.startLoad();
+        },
         success: function (response) {
             console.log("data", response);
-            var order = 1;
             $.each(response.Results, function (i, item) {
-                var _color = '';
-                var _statusName = '';
-                switch (item.Status) {
-                    case general.status.Active:
-                        _color = 'green';
-                        _statusName = 'Kích hoạt';
-                        break;
-                    case general.status.InActive:
-                        _color = 'red'
-                        _statusName = 'Khóa';
-                        break;
-                }
+           
+                
                 var _dateCreated = moment(item.DateCreated).format("DD/MM/YYYY HH:mm:ss");
                 render += Mustache.render(template, {
                     
@@ -307,7 +310,7 @@ function loadData(isPageChanged) {
                     Merchant: item.MerchantFKNavigation.MerchantCompanyName,
                     DateCreated: _dateCreated,
                 });
-                order++;
+            
 
             });
             $('#lblTotalRecords').text(response.RowCount);
@@ -315,9 +318,11 @@ function loadData(isPageChanged) {
             wrapPaging(response.RowCount, function () {
                 loadData();
             }, isPageChanged);
+            general.stopLoad();
         },
-        error: function (XMLHttpRequest,textStatus,errorThrown) {
+        error: function (status) {
             console.log(status);
+            general.stopLoad();
             general.notify('Không thể load dữ liệu', 'error');
         }
     });
@@ -412,7 +417,7 @@ function loadBooksIn(that) {
 function loadAllMerchant() {
     $.ajax({
         type: 'GET',
-        url: '/Book/GetAllMerchantInfo',
+        url: '/BooksIn/GetAllMerchantInfo',
 
         dataType: "json",
 

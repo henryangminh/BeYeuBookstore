@@ -4,11 +4,11 @@
 @inject IAuthorizationService AuthorizationService
 @{
     //kiểm tra quyền tạo đối với nut create cho hiểu thị nut
-    var result_edit = await AuthorizationService.AuthorizeAsync(User, Const_FunctionId.BooksIssue, Operations.Create);
+    var result_create = await AuthorizationService.AuthorizeAsync(User, Const_FunctionId.BooksIssue, Operations.Create);
     //kiểm tra quyền tạo đối với nut delete cho hiểu thị nut
     var result_delete = await AuthorizationService.AuthorizeAsync(User, Const_FunctionId.BooksIssue, Operations.Delete);
     //kiểm tra quyền tạo đối với nut update cho hiểu thị nut
-    var result_create = await AuthorizationService.AuthorizeAsync(User, Const_FunctionId.BooksIssue, Operations.Update);
+    var result_edit = await AuthorizationService.AuthorizeAsync(User, Const_FunctionId.BooksIssue, Operations.Update);
     //kiểm tra quyền tạo đối với nut delete cho hiểu thị nut
     var result_confirm = await AuthorizationService.AuthorizeAsync(User, Const_FunctionId.BooksIssue, Operations.Confirm);
 }
@@ -23,11 +23,11 @@
 
     <script src="~/lib/bootstrap-datepicker/dist/js/bootstrap-datepicker.js" asp-append-version="true"></script>
     <script src="~/lib/bootstrap-datepicker/dist/locales/bootstrap-datepicker.vi.min.js" asp-append-version="true"></script>
-    <script src="~/app/controllers/booksin/index.js" asp-append-version="true"></script>
+    <script src="~/app/controllers/booksout/index.js" asp-append-version="true"></script>
 
     <script>
-        var booksin = new booksinController();
-        booksin.initialize();</script>
+        var booksout = new booksoutController();
+        booksout.initialize();</script>
 }
 <div class="title_left">
     <h3>Xuất Sách</h3>

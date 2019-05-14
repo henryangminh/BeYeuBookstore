@@ -257,7 +257,7 @@ namespace BeYeuBookstore.Controllers
             {
                 string MailContent = content;
 
-                new MailHelper().SendMail(toEmailAddress, "Xác nhận email tải khoản Bé Yêu Bookstore", MailContent);
+                new MailHelper().SendMail(toEmailAddress, "Xác nhận email tài khoản Bé Yêu Bookstore", MailContent);
             }
             catch (Exception ex)
             {
