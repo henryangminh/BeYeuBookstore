@@ -9,6 +9,7 @@ namespace BeYeuBookstore.Application.ViewModels
 {
     public class RatingDetailViewModel : DomainEntity<int>, IDateTracking
     {
+        /*
         public RatingDetailViewModel() { }
         public RatingDetailViewModel(int bookFK, int customerFK,double rating ,string comment, DateTime? dateCreated, DateTime? dateModified)
         {
@@ -19,7 +20,7 @@ namespace BeYeuBookstore.Application.ViewModels
             DateCreated = dateCreated;
             DateModified = dateModified;
         }
-
+        */
         public int BookFK { get; set; }
         public int CustomerFK { get; set; }
         public double Rating { get; set; }

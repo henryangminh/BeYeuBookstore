@@ -7,6 +7,15 @@
     Layout = "~/Views/Shared/Frontend/_Layout.cshtml";
 }
 
+@section Scripts{
+    <script src="~/app/controllers/beyeubookstore/rating/index.js"></script>
+    <script>
+        var ratingController = new ratingController();
+        ratingController.initialize();
+    </script>
+
+}
+
 @if (Model == null)
 {
     <div class="product-main-area mb-70" style="margin-top:15px;">
@@ -119,6 +128,10 @@ else
                                             }
                                         </li>
                                         <li><i class="fa fa-circle"></i>Công ty phát hành: @Model.Item1.MerchantFKNavigation.MerchantCompanyName</li>
+                                        <li>Địa chỉ: @Model.Item1.MerchantFKNavigation.ContactAddress</li>
+                                        <li>Hotline: @Model.Item1.MerchantFKNavigation.Hotline</li>
+                                        <li>Mã số thuế: @Model.Item1.MerchantFKNavigation.TaxId</li>
+                                        <li>Website: @Model.Item1.MerchantFKNavigation.Website</li>
                                     </ul>
                                 </div>
                             </div>
@@ -183,11 +196,11 @@ else
                                             <div class="control">
                                                 <div class="single-control">
                                                     <div class="review-control-vote">
-                                                        <a href="#"><i class="fa fa-star"></i></a>
-                                                        <a href="#"><i class="fa fa-star"></i></a>
-                                                        <a href="#"><i class="fa fa-star"></i></a>
-                                                        <a href="#"><i class="fa fa-star"></i></a>
-                                                        <a href="#"><i class="fa fa-star"></i></a>
+                                                        <a id="star1"><i class="fa fa-star"></i></a>
+                                                        <a id="star2"><i class="fa fa-star"></i></a>
+                                                        <a id="star3"><i class="fa fa-star"></i></a>
+                                                        <a id="star4"><i class="fa fa-star"></i></a>
+                                                        <a id="star5"><i class="fa fa-star"></i></a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -195,13 +208,13 @@ else
                                         <div class="review-form">
                                             <div class="single-form">
                                                 <label>Nhận xét</label>
-                                                <form action="#">
-                                                    <textarea name="massage" cols="10" rows="4"></textarea>
+                                                <form onsubmit="return false">
+                                                    <textarea id="txtReview" name="massage" cols="10" rows="4"></textarea>
                                                 </form>
                                             </div>
                                         </div>
                                         <div class="review-form-button">
-                                            <a href="#">Nhận xét</a>
+                                            <a id="btnReview">Nhận xét</a>
                                         </div>
                                     }
                                 </div>

@@ -74,7 +74,7 @@ namespace BeYeuBookstore.Application.Implementation
 
         public bool Save()
         {
-            throw new NotImplementedException();
+            return _unitOfWork.Commit();
         }
 
 
@@ -91,8 +91,13 @@ namespace BeYeuBookstore.Application.Implementation
         public double CalculateBookRatingByBookId(int id)
         {
             var query = _ratingDetailRepository.FindAll(x => x.BookFK == id);
-            double rating = query.Select(x => x.Rating).Average();
-            return Math.Round(rating, 1);
+            var count = query.Count();
+            double rating = 0;
+            foreach (var item in query)
+            {
+                rating += item.Rating;
+            }
+            return Math.Round(rating / count, 1);
         }
     }
 }

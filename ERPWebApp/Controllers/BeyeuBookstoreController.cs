@@ -307,6 +307,26 @@ namespace BeYeuBookstore.Controllers
 
             return new OkObjectResult(query);
         }
+
+        [HttpPost]
+        public IActionResult SaveRating(RatingDetailViewModel ratingDetailViewModel)
+        {
+            var userid = _generalFunctionController.Instance.getClaimType(User, CommonConstants.UserClaims.Key);
+            var c = _customerService.GetBysId(userid);
+            if (c.KeyId != 0)
+            {
+                ratingDetailViewModel.CustomerFK = c.KeyId;
+                _ratingDetailService.Add(ratingDetailViewModel);
+                _ratingDetailService.Save();
+                var book = _bookService.GetById(ratingDetailViewModel.KeyId);
+                book.RatingNumber++;
+                book.Rating = _ratingDetailService.CalculateBookRatingByBookId(ratingDetailViewModel.KeyId);
+                _bookService.Save();
+                return new RedirectResult("/BeyeuBookstore/BookDetail?id=" + ratingDetailViewModel.KeyId);
+            }
+            return new OkObjectResult("fail");
+                
+        }
         #endregion
     }
 }

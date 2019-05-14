@@ -6330,3 +6330,7 @@ p.lost-password a:hover {
 .quickview-active:hover .owl-nav button {
     opacity: 1;
 }
+
+.rating-selection {
+    color: #00ABDF;
+}
