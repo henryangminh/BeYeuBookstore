@@ -207,7 +207,8 @@ namespace BeYeuBookstore.Application.Implementation
                
                 temp.Status = BookViewModel.Status;
                 temp.Img = BookViewModel.Img;
-
+                temp.Rating = BookViewModel.Rating;
+                temp.RatingNumber = BookViewModel.RatingNumber;
             }
         }
 
