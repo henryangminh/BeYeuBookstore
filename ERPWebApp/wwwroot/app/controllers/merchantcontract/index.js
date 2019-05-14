@@ -276,7 +276,7 @@ function loadData(isPageChanged) {
         error: function (status) {
             console.log(status);
             general.notify('Không thể load dữ liệu', 'error');
-            general.stopLoad();
+            general.startLoad();
         }
     });
 }

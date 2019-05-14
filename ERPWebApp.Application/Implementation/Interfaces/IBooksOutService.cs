@@ -17,7 +17,7 @@ namespace BeYeuBookstore.Application.Interfaces
         PagedResult<BooksOutViewModel> GetAllPaging(int mId, int? merchantId, string fromdate, string todate, string keyword, int page, int pageSize);
 
         BooksOutViewModel GetById(int id);
-
+        int GetLastest();
         bool Save();
     }
 }

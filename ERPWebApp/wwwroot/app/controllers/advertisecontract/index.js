@@ -517,7 +517,7 @@ function loadData(isPageChanged) {
         error: function (XMLHttpRequest, textStatus, errorThrown) {
             console.log(status);
             general.notify('Không thể load dữ liệu', 'error');
-            general.stopLoad();
+            general.startLoad();
         }
     });
     
@@ -613,7 +613,7 @@ function loadAllFutureSuccessContract(that) {
                 todayHighlight: true,
                 beforeShowDay: DisableSpecificDates
             });
-            general.stopLoad();
+            general.startLoad();
           
             
         },
