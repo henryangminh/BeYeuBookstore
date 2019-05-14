@@ -7,6 +7,7 @@ using BeYeuBookstore.Application.Interfaces;
 using BeYeuBookstore.Application.Interfaces.Acc;
 using BeYeuBookstore.Application.ViewModels;
 using BeYeuBookstore.Application.ViewModels.System;
+using BeYeuBookstore.Data.EF;
 using BeYeuBookstore.Data.Entities;
 using BeYeuBookstore.Extensions;
 using BeYeuBookstore.Models.AccountViewModels;
@@ -28,11 +29,13 @@ namespace BeYeuBookstore.Controllers
         ICustomerService _customerService;
         IInvoiceDetailService _invoiceDetailService;
         IRatingDetailService _ratingDetailService;
+        IAdvertiseContractService _advertiseContractService;
         private readonly UserManager<User> _userManager;
         private readonly SignInManager<User> _signInManager;
+        private readonly ERPDbContext _context;
         private readonly IUserService _userService;
         private readonly IEmailSender _emailSender;
-        public BeyeuBookstoreController(IBookService bookService, SignInManager<User> signInManager, IUserService userService, IInvoiceService invoiceService, ICustomerService customerService, IInvoiceDetailService invoiceDetailService, IRatingDetailService ratingDetailService, UserManager<User> userManager, IEmailSender emailSender)
+        public BeyeuBookstoreController(IBookService bookService, SignInManager<User> signInManager, IUserService userService, IInvoiceService invoiceService, ICustomerService customerService, IInvoiceDetailService invoiceDetailService, IRatingDetailService ratingDetailService, UserManager<User> userManager, IEmailSender emailSender, IAdvertiseContractService advertiseContractService, ERPDbContext context)
         {
             _bookService = bookService;
             _signInManager = signInManager;
@@ -43,6 +46,8 @@ namespace BeYeuBookstore.Controllers
             _ratingDetailService = ratingDetailService;
             _userManager = userManager;
             _emailSender = emailSender;
+            _advertiseContractService = advertiseContractService;
+            _context = context;
         }
 
         public IActionResult Index()
@@ -162,13 +167,17 @@ namespace BeYeuBookstore.Controllers
                 if (result.Succeeded)
                 {
                     var user = await _userService.GetByEmailAsync(model.Email);
-                    if (user.UserTypeFK == 3)
+                    if (user.EmailConfirmed)
                     {
-                        HttpContext.Session.Set("IsLogin", true);
-                        HttpContext.Session.Set("User", user);
-                        return new OkObjectResult(urlSuccess);
+                        if (user.UserTypeFK == 3)
+                        {
+                            HttpContext.Session.Set("IsLogin", true);
+                            HttpContext.Session.Set("User", user);
+                            return new OkObjectResult(urlSuccess);
+                        }
+                        return new OkObjectResult("permission");
                     }
-                    return new OkObjectResult("permission");
+                    return new OkObjectResult("emailconfirm");
                 }
                 if (result.IsLockedOut)
                 {
@@ -270,9 +279,30 @@ namespace BeYeuBookstore.Controllers
                 return new RedirectResult(Url.Action("ConfirmationError", "BeyeuBookstore"));
             }
             var result = await _userManager.ConfirmEmailAsync(user, code);
-            if (result.Succeeded) user.Status = Data.Enums.Status.Active;
-            await _userService.UpdateAsync(Mapper.Map<User, UserViewModel>(user));
+            if (result.Succeeded)
+            {
+                user.Status = Data.Enums.Status.Active;
+                await _userService.UpdateAsync(Mapper.Map<User, UserViewModel>(user));
+                await _userManager.AddToRoleAsync(user, "Customer"); // add vao role
+                var customer = new Customer();
+                customer.UserFK = user.Id;
+                _context.Customers.Add(customer);
+                _context.SaveChanges();
+            }
             return new RedirectResult(Url.Action("Index", "BeyeuBookstore"));
+        }
+
+        [HttpGet]
+        public IActionResult GetAdvertisement(string url)
+        {
+            var query = _advertiseContractService.GetAll();
+            var date = DateTime.Now.Date;
+            query = query.Where(x => x.DateStart <= date && x.DateFinish >= date).ToList();
+            query = query.Where(x => x.Status == Data.Enums.ContractStatus.AccountingCensored).ToList();
+            url = (url == Url.Action("Index", "BeyeuBookstore")) ? "/beyeubookstore" : url;
+            query = query.Where(x => x.AdvertisementContentFKNavigation.AdvertisementPositionFKNavigation.PageUrl == url).ToList();
+
+            return new OkObjectResult(query);
         }
         #endregion
     }

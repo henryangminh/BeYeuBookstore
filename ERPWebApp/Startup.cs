@@ -158,6 +158,10 @@ namespace BeYeuBookstore
             services.AddTransient<IWebMasterRepository, WebMasterRepository>();
             services.AddTransient<IWebMasterTypeRepository, WebMasterTypeRepository>();
             services.AddTransient<IRatingDetailRepository, RatingDetailRepository>();
+            services.AddTransient<IBooksInRepository, BooksInRepository>();
+            services.AddTransient<IBooksOutRepository, BooksOutRepository>();
+            services.AddTransient<IBooksOutDetailRepository, BooksOutDetailRepository>();
+            services.AddTransient<IBooksInDetailRepository, BooksInDetailRepository>();
 
             services.AddTransient<IUserRolesRepository, UserRolesRepository>();
             services.AddMvc();
@@ -184,6 +188,10 @@ namespace BeYeuBookstore
             services.AddTransient<IUserService,UserService>();
             services.AddTransient<IRoleService, RoleService>();
             services.AddTransient<IRatingDetailService, RatingDetailService>();
+            services.AddTransient<IBooksInService, BooksInService>();
+            services.AddTransient<IBooksOutService, BooksOutService>();
+            services.AddTransient<IBooksInDetailService, BooksInDetailService>();
+            services.AddTransient<IBooksOutDetailService, BooksOutDetailService>();
 
 
             services.AddTransient<ISO_NotificationGeneralService, SO_NotificationGeneralService>();

@@ -160,7 +160,11 @@ namespace BeYeuBookstore.Data.EF
                     new AdvertisementPosition(){PageUrl="/beyeubookstore", IdOfPosition="AdPosition3", Title="Giữa trang chủ",AdvertisePrice=9000000,Height=183,Width=385,Status=Status.Active},
                     new AdvertisementPosition(){PageUrl="/beyeubookstore", IdOfPosition="AdPosition4", Title="Giữa trang chủ trái",AdvertisePrice=80000000,Height=396,Width=263,Status=Status.Active},
                     new AdvertisementPosition(){PageUrl="/beyeubookstore", IdOfPosition="AdPosition5", Title="Cuối trang chủ",AdvertisePrice=50000000,Height=138,Width=1140,Status=Status.Active},
-                  
+                    //
+                    new AdvertisementPosition(){PageUrl="/BeyeuBookstore/Shopping", IdOfPosition="AdPosition6", Title="Đầu trang mua hàng",AdvertisePrice=10000000,Height=138,Width=1140,Status=Status.Active},
+                    new AdvertisementPosition(){PageUrl="/BeyeuBookstore/Shopping", IdOfPosition="AdPosition7", Title="Giữa trang mua hàng trái",AdvertisePrice=5000000,Height=138,Width=1140,Status=Status.Active},
+                    new AdvertisementPosition(){PageUrl="/BeyeuBookstore/BookDetail", IdOfPosition="AdPosition8", Title="Trên góc phải trang chi tiết sách",AdvertisePrice=500000,Height=138,Width=1140,Status=Status.Active},
+                
 
                 });
 
@@ -395,9 +399,9 @@ namespace BeYeuBookstore.Data.EF
                 //tạo user customer
                 result = _userManager.CreateAsync(new User()
                 {
-                    UserName = "utbi@gmail.com",
+                    UserName = "utbibebong@gmail.com",
                     FullName = "Út Bi",
-                    Email = "utbi@gmail.com",
+                    Email = "utbibebong@gmail.com",
                     DateCreated = DateTime.Now,
                     DateModified = DateTime.Now,
                     UserTypeFK = Const_UserType.Customer,
@@ -409,7 +413,7 @@ namespace BeYeuBookstore.Data.EF
                 }, CommonConstants.DefaultPW).Result;
                 if (result.Succeeded)
                 {
-                    var user = await _userManager.FindByNameAsync("utbi@gmail.com"); // tim user 
+                    var user = await _userManager.FindByNameAsync("utbibebong@gmail.com"); // tim user 
                     await _userManager.AddToRoleAsync(user, "Customer"); // add vao role 
                     _context.Customers.Add(new Customer() { UserFK = user.Id });
                 }
@@ -441,9 +445,9 @@ namespace BeYeuBookstore.Data.EF
                 ////tạo user customer
                 result = _userManager.CreateAsync(new User()
                 {
-                    UserName = "marvel@gmail.com",
+                    UserName = "captainmarvel@gmail.com",
                     FullName = "Captain Marvel",
-                    Email = "marvel@gmail.com",
+                    Email = "captainmarvel@gmail.com",
                     DateCreated = DateTime.Now,
                     DateModified = DateTime.Now,
                     UserTypeFK = Const_UserType.Customer,
@@ -455,7 +459,7 @@ namespace BeYeuBookstore.Data.EF
                 }, CommonConstants.DefaultPW).Result;
                 if (result.Succeeded)
                 {
-                    var user = await _userManager.FindByNameAsync("marvel@gmail.com"); // tim user 
+                    var user = await _userManager.FindByNameAsync("captainmarvel@gmail.com"); // tim user 
                     await _userManager.AddToRoleAsync(user, "Customer"); // add vao role 
                     _context.Customers.Add(new Customer() { UserFK = user.Id });
                 }
@@ -487,9 +491,9 @@ namespace BeYeuBookstore.Data.EF
                 ////tạo user customer
                 result = _userManager.CreateAsync(new User()
                 {
-                    UserName = "huyen@gmail.com",
+                    UserName = "huyenngoc@gmail.com",
                     FullName = "Ngọc Huyền",
-                    Email = "huyen@gmail.com",
+                    Email = "huyenngoc@gmail.com",
                     DateCreated = DateTime.Now,
                     DateModified = DateTime.Now,
                     UserTypeFK = Const_UserType.Customer,
@@ -501,7 +505,7 @@ namespace BeYeuBookstore.Data.EF
                 }, CommonConstants.DefaultPW).Result;
                 if (result.Succeeded)
                 {
-                    var user = await _userManager.FindByNameAsync("huyen@gmail.com"); // tim user 
+                    var user = await _userManager.FindByNameAsync("huyenngoc@gmail.com"); // tim user 
                     await _userManager.AddToRoleAsync(user, "Customer"); // add vao role 
                     _context.Customers.Add(new Customer() { UserFK = user.Id });
                 }
@@ -510,9 +514,9 @@ namespace BeYeuBookstore.Data.EF
                 ////tạo user customer
                 result = _userManager.CreateAsync(new User()
                 {
-                    UserName = "hachi@gmail.com",
+                    UserName = "hachibich@gmail.com",
                     FullName = "Chi Hà",
-                    Email = "chi@gmail.com",
+                    Email = "hachibich@gmail.com",
                     DateCreated = DateTime.Now,
                     DateModified = DateTime.Now,
                     UserTypeFK = Const_UserType.Customer,
@@ -524,7 +528,7 @@ namespace BeYeuBookstore.Data.EF
                 }, CommonConstants.DefaultPW).Result;
                 if (result.Succeeded)
                 {
-                    var user = await _userManager.FindByNameAsync("hachi@gmail.com"); // tim user 
+                    var user = await _userManager.FindByNameAsync("hachibich@gmail.com"); // tim user 
                     await _userManager.AddToRoleAsync(user, "Customer"); // add vao role 
                     _context.Customers.Add(new Customer() { UserFK = user.Id });
                 }
@@ -556,9 +560,9 @@ namespace BeYeuBookstore.Data.EF
                 ////tạo user customer
                 result = _userManager.CreateAsync(new User()
                 {
-                    UserName = "vanlam@gmail.com",
+                    UserName = "vanlamle@gmail.com",
                     FullName = "Lê Văn Lâm",
-                    Email = "vanlam@gmail.com",
+                    Email = "vanlamle@gmail.com",
                     DateCreated = DateTime.Now,
                     DateModified = DateTime.Now,
                     UserTypeFK = Const_UserType.Customer,
@@ -570,7 +574,7 @@ namespace BeYeuBookstore.Data.EF
                 }, CommonConstants.DefaultPW).Result;
                 if (result.Succeeded)
                 {
-                    var user = await _userManager.FindByNameAsync("vanlam@gmail.com"); // tim user 
+                    var user = await _userManager.FindByNameAsync("vanlamle@gmail.com"); // tim user 
                     await _userManager.AddToRoleAsync(user, "Customer"); // add vao role 
                     _context.Customers.Add(new Customer() { UserFK = user.Id });
                 }
@@ -1099,9 +1103,15 @@ namespace BeYeuBookstore.Data.EF
                 {
                     _context.AdvertisementContents.AddRange(new List<AdvertisementContent>()
                 {
-                    new AdvertisementContent(){AdvertisementPositionFK=1, AdvertiserFK=1, Title="Bút Thiên Long", Description="Bút TL mua 3 tặng chục", UrlToAdvertisement="thienloi.vn", Deposite=2000000, CensorStatus=CensorStatus.AccountingCensored, ImageLink="/images/advertiser/Bút Kim Long/content/butthienlong.jpg", },
-                    new AdvertisementContent(){AdvertisementPositionFK=3,AdvertiserFK=3, Title="Laptop Phong Vũ", Description="Laptop khuyến mãi mùa học lại mua 10 tặng 1", UrlToAdvertisement="phongvu.vn", Deposite=2000000, CensorStatus=CensorStatus.AccountingCensored, ImageLink="/images/advertiser/Phong Vũ/content/phongvu.jpg",},
-                    new AdvertisementContent(){AdvertisementPositionFK=2, AdvertiserFK=4, Title="Tiki", Description="Săn sách giá rẻ",UrlToAdvertisement="tiki.vn",Deposite=2000000, CensorStatus=CensorStatus.AccountingCensored,ImageLink="/images/advertiser/Tiki/content/tiki.jpg", },
+                    new AdvertisementContent(){AdvertisementPositionFK=1, AdvertiserFK=1, Title="Bút Thiên Long", Description="Bút TL mua 3 tặng chục", UrlToAdvertisement="http://thienlonggroup.com", Deposite=2000000, CensorStatus=CensorStatus.AccountingCensored, ImageLink="/images/advertiser/Bút Kim Long/content/butthienlong.jpg", },
+                    new AdvertisementContent(){AdvertisementPositionFK=3,AdvertiserFK=3, Title="Laptop Phong Vũ", Description="Laptop khuyến mãi mùa học lại mua 10 tặng 1", UrlToAdvertisement="https://phongvu.vn", Deposite=2000000, CensorStatus=CensorStatus.AccountingCensored, ImageLink="/images/advertiser/Phong Vũ/content/phongvu.jpg",},
+                    new AdvertisementContent(){AdvertisementPositionFK=2, AdvertiserFK=4, Title="Tiki", Description="Săn sách giá rẻ",UrlToAdvertisement="https://tiki.vn",Deposite=2000000, CensorStatus=CensorStatus.AccountingCensored,ImageLink="/images/advertiser/Tiki/content/tiki.jpg", },
+                    new AdvertisementContent(){AdvertisementPositionFK=4, AdvertiserFK=4, Title="Tiki Number4", Description="Săn hàng giá rẻ",UrlToAdvertisement="https://tiki.vn",Deposite=80000000, CensorStatus=CensorStatus.AccountingCensored,ImageLink="/images/advertiser/Tiki/content/1.jpg", },
+                    new AdvertisementContent(){AdvertisementPositionFK=5, AdvertiserFK=3, Title="PVNo5", Description="Săn hàng mùa deadline",UrlToAdvertisement="https://phongvu.vn",Deposite=50000000, CensorStatus=CensorStatus.AccountingCensored,ImageLink="/images/advertiser/Phong Vũ/content/2.jpg", },
+                    new AdvertisementContent(){AdvertisementPositionFK=6, AdvertiserFK=3, Title="PhongVu", Description="Săn laptop giá rẻ",UrlToAdvertisement="https://phongvu.vn",Deposite=10000000, CensorStatus=CensorStatus.Uncensored,ImageLink="/images/advertiser/Phong Vũ/content/3.jpg", },
+                    new AdvertisementContent(){AdvertisementPositionFK=7, AdvertiserFK=1, Title="Bút", Description="Săn BÚT giá CỰC rẻ",UrlToAdvertisement="http://thienlonggroup.com",Deposite=5000000, CensorStatus=CensorStatus.AccountingCensored,ImageLink="/images/advertiser/Bút Kim Long/content/4.jpg", },
+                    new AdvertisementContent(){AdvertisementPositionFK=7, AdvertiserFK=1, Title="Bút TL", Description="Bút mới 2 bi",UrlToAdvertisement="http://thienlonggroup.com",Deposite=5000000, CensorStatus=CensorStatus.Unqualified,ImageLink="/images/advertiser/Bút Kim Long/content/5.jpg", },
+
                    
                     });
 
@@ -1141,7 +1151,16 @@ namespace BeYeuBookstore.Data.EF
                     _context.MerchantContracts.AddRange(new List<MerchantContract>()
                 {
                         new MerchantContract(){ ContractLink="", MerchantFK = 1, DateStart = DateTime.Parse("2019-01-01"), DateEnd = DateTime.Parse("2020-01-01")},
-                        new MerchantContract(){ ContractLink="", MerchantFK = 2, DateStart = DateTime.Parse("2019-01-01"), DateEnd = DateTime.Parse("2020-01-01")}
+                        new MerchantContract(){ ContractLink="", MerchantFK = 2, DateStart = DateTime.Parse("2019-01-01"), DateEnd = DateTime.Parse("2021-01-01")},
+                        new MerchantContract(){ ContractLink="", MerchantFK = 3, DateStart = DateTime.Parse("2019-01-01"), DateEnd = DateTime.Parse("2022-01-01")},
+                        new MerchantContract(){ ContractLink="", MerchantFK = 4, DateStart = DateTime.Parse("2018-01-01"), DateEnd = DateTime.Parse("2025-01-01")},
+                        new MerchantContract(){ ContractLink="", MerchantFK = 5, DateStart = DateTime.Parse("2017-01-01"), DateEnd = DateTime.Parse("2024-01-01")},
+                        new MerchantContract(){ ContractLink="", MerchantFK = 6, DateStart = DateTime.Parse("2016-01-01"), DateEnd = DateTime.Parse("2024-01-01")},
+                        new MerchantContract(){ ContractLink="", MerchantFK = 7, DateStart = DateTime.Parse("2016-01-01"), DateEnd = DateTime.Parse("2026-01-01")},
+                        new MerchantContract(){ ContractLink="", MerchantFK = 8, DateStart = DateTime.Parse("2016-01-01"), DateEnd = DateTime.Parse("2022-01-01")},
+                        new MerchantContract(){ ContractLink="", MerchantFK = 8, DateStart = DateTime.Parse("2015-01-01"), DateEnd = DateTime.Parse("2021-01-01")},
+                        new MerchantContract(){ ContractLink="", MerchantFK = 9, DateStart = DateTime.Parse("2016-01-01"), DateEnd = DateTime.Parse("2022-01-01")},
+                        new MerchantContract(){ ContractLink="", MerchantFK = 10, DateStart = DateTime.Parse("2029-01-01"), DateEnd = DateTime.Parse("2023-01-01")}
                     });
                 }
                 try
@@ -1157,9 +1176,21 @@ namespace BeYeuBookstore.Data.EF
                 {
                         _context.Invoices.AddRange(new List<Invoice>()
                     {
-                            new Invoice(){ CustomerFK=1,TotalPrice=182000,DeliAddress="Lầu 19 Landmark 81 Q.Bình Thạnh", DeliContactName="Mỡ's Má", DeliContactHotline="0908468188"},
-                            new Invoice(){ CustomerFK=1,TotalPrice=355000,DeliAddress="Lầu 19 Landmark 81 Q.Bình Thạnh", DeliContactName="Mỡ's Ba", DeliContactHotline="0908466048"}
-                    });
+                            new Invoice(){ CustomerFK=1,TotalPrice=620000,DeliAddress="Lầu 19 Landmark 81 Q.Bình Thạnh", DeliContactName="Mỡ's Má", DeliContactHotline="0908468188"},
+                            new Invoice(){ CustomerFK=1,TotalPrice=160000,DeliAddress="Lầu 19 Landmark 81 Q.Bình Thạnh", DeliContactName="Mỡ's Ba", DeliContactHotline="0908466048"},
+                            new Invoice(){ CustomerFK=2,TotalPrice=96000,DeliAddress="26 Nguyễn Trãi Q.3", DeliContactName="Con Cá", DeliContactHotline="0908468183"},
+                            new Invoice(){ CustomerFK=3,TotalPrice=120000,DeliAddress="07 Pasteur Q3", DeliContactName="UTS Bi", DeliContactHotline="0908468182"},
+                            new Invoice(){ CustomerFK=4,TotalPrice=238000,DeliAddress="12 Trần Hưng Đạo Q.5", DeliContactName="Bánh Mì", DeliContactHotline="0908468908"},
+                            new Invoice(){ CustomerFK=4,TotalPrice=240000,DeliAddress="12 Trần Hưng Đạo Q.5", DeliContactName="Bánh Mì", DeliContactHotline="0908468908"},
+                            new Invoice(){ CustomerFK=5,TotalPrice=85000,DeliAddress="02 Phạm Hùng Q.8", DeliContactName="Phát Tài", DeliContactHotline="0908221882"},
+                            new Invoice(){ CustomerFK=6,TotalPrice=130000,DeliAddress="45 Nguyễn Hữu Cảnh Q.Bình Thạnh", DeliContactName="Thành công", DeliContactHotline="0938368188"},
+                            new Invoice(){ CustomerFK=7,TotalPrice=91000,DeliAddress="17 Chung cư Trần Quang Khải Q.1", DeliContactName="Minh Khánh", DeliContactHotline="0908338188"},
+                            new Invoice(){ CustomerFK=7,TotalPrice=88000,DeliAddress="17 Chung cư Trần Quang Khải Q.1", DeliContactName="Minh Anh", DeliContactHotline="0908463388"},
+                            new Invoice(){ CustomerFK=8,TotalPrice=1230000,DeliAddress="03 Trương Định Q.3", DeliContactName="Hùng Em", DeliContactHotline="0908468133"},
+                            new Invoice(){ CustomerFK=9,TotalPrice=90000,DeliAddress="19 Nam Kỳ Khởi Nghĩa", DeliContactName="Linh Linh", DeliContactHotline="0908338188"},
+                            new Invoice(){ CustomerFK=10,TotalPrice=40000,DeliAddress="20 Đinh Công Tráng Q.1", DeliContactName="Hồng Thu", DeliContactHotline="0908468228"},
+                            new Invoice(){ CustomerFK=10,TotalPrice=470000,DeliAddress="20 Đinh Công Tráng Q.1", DeliContactName="Hồng Thịnh", DeliContactHotline="0908462288"},
+                     });
              
                 }
                 try
@@ -1175,10 +1206,27 @@ namespace BeYeuBookstore.Data.EF
                 {
                     _context.InvoiceDetails.AddRange(new List<InvoiceDetail>()
                     {
-                            new InvoiceDetail(){ InvoiceFK=1,BookFK=1,Qty=2,UnitPrice=45000,SubTotal=90000},
-                            new InvoiceDetail(){ InvoiceFK=1,BookFK=2,Qty=2,UnitPrice=46000,SubTotal=92000},
-                            new InvoiceDetail(){ InvoiceFK=2,BookFK=5,Qty=3,UnitPrice=65000,SubTotal=195000},
-                            new InvoiceDetail(){ InvoiceFK=2,BookFK=7,Qty=4,UnitPrice=40000,SubTotal=160000},
+                            new InvoiceDetail(){ InvoiceFK=1,BookFK=1,Qty=2,SubTotal=240000},
+                            new InvoiceDetail(){ InvoiceFK=1,BookFK=2,Qty=2,SubTotal=380000},
+                            new InvoiceDetail(){ InvoiceFK=2,BookFK=3,Qty=1,SubTotal=160000},
+                            new InvoiceDetail(){ InvoiceFK=3,BookFK=4,Qty=1,SubTotal=78000},
+                            new InvoiceDetail(){ InvoiceFK=3,BookFK=5,Qty=1,SubTotal=18000},
+                            new InvoiceDetail(){ InvoiceFK=4,BookFK=6,Qty=2,SubTotal=120000},
+                            new InvoiceDetail(){ InvoiceFK=5,BookFK=3,Qty=1,SubTotal=160000 },
+                            new InvoiceDetail(){ InvoiceFK=5,BookFK=4,Qty=1,SubTotal=78000},
+                            new InvoiceDetail(){ InvoiceFK=6,BookFK=7,Qty=2,SubTotal=240000},
+                            new InvoiceDetail(){ InvoiceFK=7,BookFK=11,Qty=1,SubTotal=40000},
+                            new InvoiceDetail(){ InvoiceFK=7,BookFK=17,Qty=1,SubTotal=45000},
+                            new InvoiceDetail(){ InvoiceFK=8,BookFK=13,Qty=2,SubTotal=130000},
+                            new InvoiceDetail(){ InvoiceFK=9,BookFK=12,Qty=1,SubTotal=45000},
+                            new InvoiceDetail(){ InvoiceFK=9,BookFK=16,Qty=1,SubTotal=46000},
+                            new InvoiceDetail(){ InvoiceFK=10,BookFK=15,Qty=2,SubTotal=88000},
+                            new InvoiceDetail(){ InvoiceFK=11,BookFK=19,Qty=3,SubTotal=690000},
+                            new InvoiceDetail(){ InvoiceFK=11,BookFK=18,Qty=3,SubTotal=540000},
+                            new InvoiceDetail(){ InvoiceFK=12,BookFK=12,Qty=2,SubTotal=90000},
+                            new InvoiceDetail(){ InvoiceFK=13,BookFK=11,Qty=1,SubTotal=40000},
+                            new InvoiceDetail(){ InvoiceFK=14,BookFK=18,Qty=2,SubTotal=240000},
+                            new InvoiceDetail(){ InvoiceFK=14,BookFK=19,Qty=1,SubTotal=230000},
                     });
 
                 }
@@ -1195,10 +1243,27 @@ namespace BeYeuBookstore.Data.EF
                 {
                     _context.Deliveries.AddRange(new List<Delivery>()
                     {
-                            new Delivery(){ InvoiceFK=1,MerchantFK=1,DeliveryStatus=1, OrderPrice=0},
-                            new Delivery(){ InvoiceFK=1,MerchantFK=2,DeliveryStatus=1, OrderPrice=0},
-                            new Delivery(){ InvoiceFK=2,MerchantFK=1,DeliveryStatus=1, OrderPrice=0},
-                            new Delivery(){ InvoiceFK=2,MerchantFK=2,DeliveryStatus=1, OrderPrice=0},
+                            new Delivery(){ InvoiceFK=1,MerchantFK=1,DeliveryStatus=Const_DeliStatus.Confirmed, OrderPrice=240000,ShipPrice=15000,},
+                            new Delivery(){ InvoiceFK=1,MerchantFK=2,DeliveryStatus=Const_DeliStatus.OnDelivery, OrderPrice=380000, ShipPrice=15000},
+                            new Delivery(){ InvoiceFK=2,MerchantFK=3,DeliveryStatus=Const_DeliStatus.Packaged, OrderPrice=160000, ShipPrice=15000},
+                            new Delivery(){ InvoiceFK=3,MerchantFK=4,DeliveryStatus=Const_DeliStatus.Success, OrderPrice=78000,ShipPrice=20000},
+                            new Delivery(){ InvoiceFK=3,MerchantFK=5,DeliveryStatus=Const_DeliStatus.UnConfirmed, OrderPrice=18000},
+                            new Delivery(){ InvoiceFK=4,MerchantFK=6,DeliveryStatus=Const_DeliStatus.OnDelivery, OrderPrice=120000,ShipPrice=15},
+                            new Delivery(){ InvoiceFK=5,MerchantFK=3,DeliveryStatus=Const_DeliStatus.Fail, OrderPrice=160000, ShipPrice=15000},
+                            new Delivery(){ InvoiceFK=5,MerchantFK=4,DeliveryStatus=Const_DeliStatus.UnConfirmed, OrderPrice=78000},
+                            new Delivery(){ InvoiceFK=6,MerchantFK=7,DeliveryStatus=Const_DeliStatus.Confirmed, OrderPrice=240000, ShipPrice=10000},
+                            new Delivery(){ InvoiceFK=7,MerchantFK=2,DeliveryStatus=Const_DeliStatus.UnConfirmed, OrderPrice=40000},
+                            new Delivery(){ InvoiceFK=7,MerchantFK=1,DeliveryStatus=Const_DeliStatus.Packaged, OrderPrice=45000, ShipPrice=15000},
+                            new Delivery(){ InvoiceFK=8,MerchantFK=2,DeliveryStatus=Const_DeliStatus.Success, OrderPrice=130000, ShipPrice=20000},
+                            new Delivery(){ InvoiceFK=9,MerchantFK=2,DeliveryStatus=Const_DeliStatus.Confirmed, OrderPrice=45000, ShipPrice=10000},
+                            new Delivery(){ InvoiceFK=9,MerchantFK=3,DeliveryStatus=Const_DeliStatus.Fail, OrderPrice=46000, ShipPrice=10000},
+                            new Delivery(){ InvoiceFK=10,MerchantFK=1,DeliveryStatus=Const_DeliStatus.OnDelivery, OrderPrice=88000,ShipPrice=20000},
+                            new Delivery(){ InvoiceFK=11,MerchantFK=9,DeliveryStatus=Const_DeliStatus.Packaged, OrderPrice=690000,ShipPrice=15000},
+                            new Delivery(){ InvoiceFK=11,MerchantFK=2,DeliveryStatus=Const_DeliStatus.Success, OrderPrice=540000,ShipPrice=20000},
+                            new Delivery(){ InvoiceFK=12,MerchantFK=2,DeliveryStatus=Const_DeliStatus.Confirmed, OrderPrice=90000,ShipPrice=25000},
+                            new Delivery(){ InvoiceFK=13,MerchantFK=2,DeliveryStatus=Const_DeliStatus.OnDelivery, OrderPrice=40000,ShipPrice=30000},
+                            new Delivery(){ InvoiceFK=14,MerchantFK=9,DeliveryStatus=Const_DeliStatus.UnConfirmed, OrderPrice=240000},
+                            new Delivery(){ InvoiceFK=14,MerchantFK=2,DeliveryStatus=Const_DeliStatus.UnConfirmed, OrderPrice=230000 }
                     });
 
                 }
@@ -1217,6 +1282,43 @@ namespace BeYeuBookstore.Data.EF
                     {
                             new RatingDetail(){ BookFK = 1, CustomerFK = 1, Rating = 5,Comment = "good"},
                             new RatingDetail(){ BookFK = 2, CustomerFK = 1, Rating = 4,Comment = "blabla"},
+                    });
+
+                }
+                try
+                {
+                    _context.SaveChanges();
+                }
+                catch (Exception ex)
+                {
+                    string a = ex.ToString();
+                };
+
+                if (_context.BooksIns.Count() == 0)
+                {
+                    _context.BooksIns.AddRange(new List<BooksIn>()
+                    {
+                            new BooksIn(){MerchantFK=1, DateCreated=DateTime.Now, DateModified=DateTime.Now  },
+                            
+                    });
+
+                }
+                try
+                {
+                    _context.SaveChanges();
+                }
+                catch (Exception ex)
+                {
+                    string a = ex.ToString();
+                };
+
+                if (_context.BooksInDetails.Count() == 0)
+                {
+                    _context.BooksInDetails.AddRange(new List<BooksInDetail>()
+                    {
+                            new BooksInDetail(){BooksInFK=1, BookFK=1, Qty=10, Price=10000  },
+                            new BooksInDetail(){BooksInFK=1, BookFK=3, Qty=21, Price=100000  },
+
                     });
 
                 }

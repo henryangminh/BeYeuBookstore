@@ -17,7 +17,6 @@
 
   <ItemGroup>
     <Folder Include="Implementation\Boq\" />
-    <Folder Include="Interfaces\Boq\" />
     <Folder Include="ViewModels\Boq\" />
   </ItemGroup>
 

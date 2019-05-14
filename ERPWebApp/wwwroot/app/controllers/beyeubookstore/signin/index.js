@@ -29,6 +29,8 @@ function registerEvents() {
                         break;
                     case "permission": message += "Bạn không có quyền đăng nhập trên trang này";
                         break;
+                    case "emailconfirm": message += "Bạn chưa xác nhận email";
+                        break;
                     default: window.location.href = response;
                 }
 

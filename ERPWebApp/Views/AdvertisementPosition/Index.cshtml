@@ -1,4 +1,17 @@
-﻿
+﻿@using BeYeuBookstore.Utilities.Constants
+@using Microsoft.AspNetCore.Authorization
+@using BeYeuBookstore.Authorization
+@inject IAuthorizationService AuthorizationService
+@{
+    //kiểm tra quyền tạo đối với nut create cho hiểu thị nut
+    var result_create = await AuthorizationService.AuthorizeAsync(User, Const_FunctionId.AdvertisementPosition, Operations.Create);
+    //kiểm tra quyền tạo đối với nut delete cho hiểu thị nut
+    var result_delete = await AuthorizationService.AuthorizeAsync(User, Const_FunctionId.AdvertisementPosition, Operations.Delete);
+    //kiểm tra quyền tạo đối với nut update cho hiểu thị nut
+    var result_edit = await AuthorizationService.AuthorizeAsync(User, Const_FunctionId.AdvertisementPosition, Operations.Update);
+    //kiểm tra quyền tạo đối với nut delete cho hiểu thị nut
+    var result_confirm = await AuthorizationService.AuthorizeAsync(User, Const_FunctionId.AdvertisementPosition, Operations.Confirm);
+}
 @{
     ViewData["Title"] = "Index";
 }
@@ -31,12 +44,15 @@
         </select>
     </div>
     <div class="col-sm-4 form-group">
-        
+
     </div>
-    <div class="col-sm-1 form-group">
-        <button id="btnCreate" class="btn btn-success"><i class="fa fa-plus"></i> Thêm mới</button>
+    @if (result_create.Succeeded)
+    {
+        <div class="col-sm-1 form-group">
+            <button id="btnCreate" class="btn btn-success"><i class="fa fa-plus"></i> Thêm mới</button>
+        </div>
+                }
     </div>
-</div>
 
 <div class="row">
     <div class="col-md-12 col-sm-12 col-xs-12">
@@ -90,7 +106,10 @@
         <td>{{Price}}</td>
         <td>{{{Status}}}</td>
         <td scope="row">
-            <a class="btn btn-xs btn-default btn-edit {{{Prop}}}" {{{Prop}}} data-id="{{KeyId}}"><i class="fa fa-pencil"></i></a>
+            @if (result_edit.Succeeded)
+            {
+                <a class="btn btn-xs btn-default btn-edit {{{Prop}}}" {{{Prop}}} data-id="{{KeyId}}"><i class="fa fa-pencil"></i></a>
+            }
         </td>
     </tr>
 </script>

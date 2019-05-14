@@ -145,7 +145,7 @@ function loadData(isPageChanged) {
                     //BookRating: 5.0, //item.BookRating, //Rating //Để tạm thời thôi
                     BookTitle: item.BookTitle,
                     BookPrice: general.toMoney(item.UnitPrice),
-                    LinkBook: '#',
+                    LinkBook: '?id=' + item.KeyId,
                 });
                 if ((i + 1) % 4 == 0) render += '</div>';
                 //order++;

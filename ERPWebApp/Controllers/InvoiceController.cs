@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using BeYeuBookstore.Application.Interfaces;
+using BeYeuBookstore.Application.ViewModels;
 using BeYeuBookstore.Authorization;
 using BeYeuBookstore.Infrastructure.Interfaces;
 using BeYeuBookstore.Utilities.Constants;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 
 namespace BeYeuBookstore.Controllers
 {
@@ -16,15 +18,21 @@ namespace BeYeuBookstore.Controllers
     {
 
         IInvoiceService _invoiceService;
+        IDeliveryService _deliveryService;
         IInvoiceDetailService _invoiceDetailService;
         IUnitOfWork _unitOfWork;
         IAuthorizationService _authorizationService;
-        public InvoiceController(IAuthorizationService authorizationService, IInvoiceDetailService invoiceDetailService, IInvoiceService invoiceService, IUnitOfWork unitOfWork)
+        ICustomerService _customerService;
+        IBookService _bookService;
+        public InvoiceController(IDeliveryService deliveryService,IAuthorizationService authorizationService, IInvoiceDetailService invoiceDetailService, IInvoiceService invoiceService, IUnitOfWork unitOfWork, ICustomerService customerService, IBookService bookService)
         {
+            _deliveryService = deliveryService;
             _authorizationService = authorizationService;
             _invoiceService = invoiceService;
             _invoiceDetailService = invoiceDetailService;
             _unitOfWork = unitOfWork;
+            _customerService = customerService;
+            _bookService = bookService;
         }
 
         public IActionResult Index()
@@ -71,11 +79,78 @@ namespace BeYeuBookstore.Controllers
                 _invoiceService.Delete(id);
                 _invoiceService.Save();
                 return new OkObjectResult(id);
-
             }
-
 
         }
 
+        [HttpPost]
+        public IActionResult SaveEntity(InvoiceViewModel invoiceVm, List<InvoiceDetailViewModel> invoiceDetailVms)
+        {
+
+            if (!ModelState.IsValid)
+            {
+                IEnumerable<ModelError> allErrors = ModelState.Values.SelectMany(v => v.Errors);
+                return new BadRequestObjectResult(allErrors);
+            }
+            else
+            {
+                var userid = _generalFunctionController.Instance.getClaimType(User, CommonConstants.UserClaims.Key);
+                var c = _customerService.GetBysId(userid);
+                if (c.KeyId != 0)
+                {
+                    //var book = _bookService.GetById()
+                    foreach (var item in invoiceDetailVms)
+                    {
+                        var book = _bookService.GetById(item.BookFK);
+                        if (item.Qty > book.Quantity)
+                            return new OkObjectResult("quantity");
+                    }
+
+                    if (invoiceVm.DeliAddress == "" || invoiceVm.DeliAddress == null)
+                    {
+                        invoiceVm.DeliAddress = c.UserBy.Address;
+                    }
+
+                    if (invoiceVm.DeliContactName == "" || invoiceVm.DeliContactName == null)
+                    {
+                        invoiceVm.DeliContactName = c.UserBy.FullName;
+                    }
+
+                    if (invoiceVm.DeliContactHotline == "" || invoiceVm.DeliContactHotline == null)
+                    {
+                        invoiceVm.DeliContactHotline = c.UserBy.PhoneNumber;
+                    }
+
+                    invoiceVm.CustomerFK = c.KeyId;
+
+                    _invoiceService.Add(invoiceVm);
+                    _invoiceService.Save();
+                    var invoice = _invoiceService.GetLastest();
+                    foreach (var item in invoiceDetailVms)
+                    {
+                        item.InvoiceFK = invoice;
+                        _invoiceDetailService.Add(item);
+                    }
+
+                    var deli = invoiceDetailVms.GroupBy(x => x.MerchantFK).Select(x => new DeliveryViewModel()
+                    {
+                        InvoiceFK = invoice,
+                        DeliveryStatus = Const_DeliStatus.UnConfirmed,
+                        OrderPrice = x.Sum(y => y.SubTotal),
+                        ShipPrice = 0,
+                    }).ToList();
+
+                    foreach (var item in deli)
+                    {
+                        _deliveryService.Add(item);
+                    }
+
+                    _invoiceService.Save();
+                    HttpContext.Session.Remove("CartSession");
+                    return new OkObjectResult("true");
+                }
+                return new OkObjectResult("customer");
+            }
+        }
     }
 }

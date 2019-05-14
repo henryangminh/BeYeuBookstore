@@ -19,14 +19,17 @@ namespace BeYeuBookstore.Controllers
         IRatingDetailService _ratingDetailService;
         IBookService _bookService;
         IBooksInService _booksInService;
+        IBooksInDetailService _booksInDetailService;
         IBookCategoryService _bookCategoryService;
         IAuthorizationService _authorizationService;
         private readonly IEmailService _emailService;
         IMerchantService _merchantService;
         private readonly IHostingEnvironment _hostingEnvironment;
         IUnitOfWork _unitOfWork;
-        public BooksInController(IRatingDetailService ratingDetailService, IEmailService emailService, IAuthorizationService authorizationService, IHostingEnvironment hostingEnvironment, IMerchantService merchantService, IBookCategoryService bookCategoryService, IBookService bookService, IUnitOfWork unitOfWork)
+        public BooksInController(IBooksInDetailService booksInDetailService,IBooksInService booksInService,IRatingDetailService ratingDetailService, IEmailService emailService, IAuthorizationService authorizationService, IHostingEnvironment hostingEnvironment, IMerchantService merchantService, IBookCategoryService bookCategoryService, IBookService bookService, IUnitOfWork unitOfWork)
         {
+            _booksInDetailService = booksInDetailService;
+            _booksInService = booksInService;
             _ratingDetailService = ratingDetailService;
             _emailService = emailService;
             _authorizationService = authorizationService;
@@ -92,7 +95,27 @@ namespace BeYeuBookstore.Controllers
             }
             return new BadRequestResult();
         }
-        
+
+
+        [HttpGet]
+        public IActionResult GetAllDetailById(int id)
+        {
+            
+                var model = _booksInDetailService.GetAllByBooksInId(id);
+                return new OkObjectResult(model);
+        }
+
+
+        [HttpGet]
+        public IActionResult GetAllPaging(int mId, string fromdate, string todate, string keyword,  int page, int pageSize)
+        {
+            var userid = _generalFunctionController.Instance.getClaimType(User, CommonConstants.UserClaims.Key);
+            var M = _merchantService.GetBysId(userid);
+            var model = _booksInService.GetAllPaging(mId, M.KeyId, fromdate, todate, keyword, page, pageSize);
+            return new OkObjectResult(model);
+        }
+
+
         [HttpGet]
         public IActionResult GetAllBookByMerchantId()
         {
@@ -106,6 +129,22 @@ namespace BeYeuBookstore.Controllers
                 return new OkObjectResult(model);
             }
             return new BadRequestResult();
+        }
+
+        [HttpGet]
+        public IActionResult GetAllMerchantInfo()
+        {
+            var userid = _generalFunctionController.Instance.getClaimType(User, CommonConstants.UserClaims.Key);
+            var M = _merchantService.GetBysId(userid);
+            var model = _merchantService.GetAllByBook(M.KeyId);
+            return new OkObjectResult(model);
+        }
+
+        [HttpGet]
+        public IActionResult GetById(int id)
+        {
+            var model = _booksInService.GetById(id); 
+            return new OkObjectResult(model);
         }
 
     }

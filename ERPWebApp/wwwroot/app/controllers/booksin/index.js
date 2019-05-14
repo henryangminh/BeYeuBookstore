@@ -1,11 +1,14 @@
-﻿var booksinController = function () {
+﻿
+var gMoreBook = 0;
+var booksinController = function () {
     this.initialize = function () {
         loadData();
        // sendMail();
+        loadAllMerchant();
         registerEvents();
     }
     function registerEvents() {
-        loadBookCategory();
+  
         $('#ddlShowPage').on('change', function () {
             general.configs.pageSize = $(this).val();
             general.configs.pageIndex = 1;
@@ -34,6 +37,10 @@
 
         $('#btnCreate').on('click', function () {
             resetForm();
+            $('#formWacth').addClass('hidden');
+            $('#formAdd').removeClass('hidden');
+            $('#btnMore').removeClass('hidden');
+            $('#formSaveBooksIn').removeClass('hidden');
             $.ajax({
                 type: 'GET',
                 url: '/BooksIn/GetMerchantInfo',
@@ -45,6 +52,7 @@
                     $('#txtMerchantKeyId').val(response.KeyId);
                     $('#txtMerchantStatus').val(response.Status);
                     $('#txtMerchant').val(response.MerchantCompanyName);
+                    $('#dtDateCreated').val(moment().format("DD/MM/YYYY"));
                     $('#modal-add-edit').modal('show');
 
                 },
@@ -67,17 +75,16 @@
 
             $('#frmMaintainance').trigger('reset');
         });
-
         $('#btnMore').on('click', function () {
 
             var template = $('#tableBooksIn-template').html();
             var render = "";
             render += Mustache.render(template, {
-
-     
+                Id: gMoreBook,
             });
             $('#tbl-booksincontent').append(render);
-            loadAllBookByMerchantId();
+            loadAllBookByMerchantId(gMoreBook);
+            gMoreBook++;
         });
         //Reset Form
 
@@ -85,9 +92,12 @@
 
         $('body').on('click', '.btn-edit', function (e) {
             e.preventDefault();
+            $('#formWacth').removeClass('hidden');
+            $('#formAdd').addClass('hidden');
+            $('#btnMore').addClass('hidden');
+            $('#formSaveBooksIn').addClass('hidden');
             var that = $(this).data('id');
             loadDetail(that);
-
         });
 
 
@@ -98,43 +108,7 @@
             ignore: [],
             lang: 'vi',
             rules: {
-                txtBooktitle:
-                {
-                    required: true
-                },
-                txtAuthor:
-                {
-                    required: true
-                },
-                txtLength:
-                {
-                    required: true,
-                    number: true,
-                },
-                txtWidth:
-                {
-                    required: true,
-                    number: true,
-                },
-                txtHeight:
-                {
-                    number: true,
-                },
-                selBookcategory: {
-                    required: true
-                },
-                selisPaperback: {
-                    required: true
-                },
-                txtPageNumber: {
-                    required: true,
-                    number: true,
-                },
-                txtPrice: {
-                    required: true,
-                     number: true
 
-                },
             }
         });
 
@@ -327,17 +301,20 @@
         $('#txtPageNumber').val('');
         $('#txtPrice').val('');
         $('#txtDescription').val('');
+        $('#tbl-booksincontent').empty();
     }
 
     function loadDetail(that) {
-
+        resetForm();
+        var template = $('#tableBooksInDetail-template').html();
+        var render = "";
         $.ajax({
             type: "GET",
-            url: "/Book/GetById",
+            url: "/BooksIn/GetById",
             data: { id: that },
             dataType: "json",
             beforeSend: function () {
-                general.startLoading();
+                general.startLoad();
             },
             success: function (response) {
                 console.log("loaddetailbook", response);
@@ -347,33 +324,43 @@
                 $('#txtMerchant').val(data.MerchantFKNavigation.MerchantCompanyName);
                 $('#dtDateCreated').val(moment(data.DateCreated).format("DD/MM/YYYY"));
                 $('#dtDateModified').val(moment(data.DateModified).format("DD/MM/YYYY"));
-                $('#txtMerchantKeyId').val(data.MerchantFKNavigation.KeyId);
-                $('#txtMerchantStatus').val(data.MerchantFKNavigation.Status);
-                $('#txtBooktitle').val(data.BookTitle);
-                $('#txtAuthor').val(data.Author);
-                $('#BookImg').val(data.Img);
-                $('#selBookcategory').val(data.BookCategoryFK);
-                if (data.isPaperback) {
-                    $('#selisPaperback').val(0);
-                }
-                else {
-                    $('#selisPaperback').val(1);
-                }
-                $('#txtLength').val(data.Length);
-                $('#txtWidth').val(data.Width);
-                $('#txtHeight').val(data.Height);
-                $('#txtPageNumber').val(data.PageNumber);
-                $('#txtPrice').val(general.toMoney(data.UnitPrice));
-                $('#txtDescription').val(data.Description);
-                $('#selStatus').val(data.Status);
+
+                $.ajax({
+                    type: "GET",
+                    url: "/BooksIn/GetAllDetailById",
+                    data: { id: that },
+                    dataType: "json",
+                    success: function (response) {
+                        $.each(response, function (i, item) {
+                            var _priceIn = general.toMoney(item.Price);
+                            render += Mustache.render(template, {
+
+                                BookId: item.BookFK,
+                                BookName: item.BookFKNavigation.BookTitle,
+                                Author: item.BookFKNavigation.Author,
+                                Img: '<img src="' + item.BookFKNavigation.Img + '" width="100">',
+                                Category: item.BookFKNavigation.BookCategoryFKNavigation.BookCategoryName,
+                                QtyIn: item.Qty,
+                                PriceIn: _priceIn,
+
+                            });
+                        });
+                        $('#tbl-booksincontent').html(render);
+                        general.stopLoad();
+
+                    },
+                    error: function (status) {
+                        general.notify('Có lỗi xảy ra', 'error');
+                        general.stopLoad();
+                    }
+                });
+
+                general.stopLoad();
                 $('#modal-add-edit').modal('show');
-
-                general.stopLoading();
-
             },
             error: function (status) {
                 general.notify('Có lỗi xảy ra', 'error');
-                general.stopLoading();
+                general.stopLoad();
             }
         });
 
@@ -414,20 +401,12 @@ function loadData(isPageChanged) {
                         _statusName = 'Khóa';
                         break;
                 }
-                var _price = general.toMoney(item.UnitPrice);
+                var _dateCreated = moment(item.DateCreated).format("DD/MM/YYYY HH:mm:ss");
                 render += Mustache.render(template, {
                     
                     KeyId: item.KeyId,
                     Merchant: item.MerchantFKNavigation.MerchantCompanyName,
-                    BookTitle: item.BookTitle,
-                    Author: item.Author,
-                    Img: '<img src="'+item.Img+'" width="100">',
-                    BookType: item.BookCategoryFKNavigation.BookCategoryName,
-                    UnitPrice: _price,
-                    Qty: item.Quantity,
-                    Status: '<span class="badge bg-' + _color + '">' + _statusName + '</span>',
-
-                    
+                    DateCreated: _dateCreated,
                 });
                 order++;
 
@@ -469,7 +448,7 @@ function wrapPaging(recordCount, callBack, changePageSize) {
         });
 }
 
-function loadAllBookByMerchantId() {
+function loadAllBookByMerchantId(id) {
     $.ajax({
         type: 'GET',
         url: '/BooksIn/GetAllBookByMerchantId',
@@ -477,9 +456,9 @@ function loadAllBookByMerchantId() {
         dataType: "json",
 
         success: function (response) {
-
+            var _id = "#selBook" + id;
             $.each(response, function (i, item) {
-                $('#selBook').append("<option value='" + item.KeyId + "'>" + item.BookTitle + "</option>");
+                $('#selBook'+id).append("<option value='" + item.KeyId + "'>" + item.BookTitle + "</option>");
              
             });
         },
@@ -491,24 +470,23 @@ function loadAllBookByMerchantId() {
 
 }
 
-function loadBookCategory() {
+
+
+function loadAllMerchant() {
     $.ajax({
         type: 'GET',
-        url: '/Book/GetAllBookCategory',
+        url: '/Book/GetAllMerchantInfo',
 
         dataType: "json",
 
         success: function (response) {
 
             $.each(response, function (i, item) {
-                $('#selBookCategory').append("<option value='" + item.KeyId + "'>" + item.BookCategoryName + "</option>");
-                $('#selBookcategory').append("<option value='" + item.KeyId + "'>" + item.BookCategoryName + "</option>");
-
-
+                $('#selMerchant').append("<option value='" + item.KeyId + "'>" + item.MerchantCompanyName + "</option>");
             });
         },
         error: function (err) {
-            general.notify('Có lỗi trong khi load loại sách !', 'error');
+            general.notify('Có lỗi trong khi load nhà cung cấp !', 'error');
 
         },
     });
