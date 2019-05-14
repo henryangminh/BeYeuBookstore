@@ -62,10 +62,10 @@ else
                                     </div>
                                     <div class="product-info-price">
                                         <div class="price-final">
-                                            <span class="money">
+                                            <span>
                                                 @{
                                                     var unitPrice = Convert.ToInt32(Model.Item1.UnitPrice);
-                                                    Write(unitPrice);
+                                                    Write(unitPrice.ToString("###,###,###,###,###"));
                                                 }
                                             </span>
                                         </div>
