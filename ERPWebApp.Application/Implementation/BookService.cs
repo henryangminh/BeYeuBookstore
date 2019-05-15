@@ -206,7 +206,8 @@ namespace BeYeuBookstore.Application.Implementation
                 temp.isPaperback = BookViewModel.isPaperback;
                 temp.UnitPrice = BookViewModel.UnitPrice;
                 temp.Img = BookViewModel.Img;
-
+                temp.Rating = BookViewModel.Rating;
+                temp.RatingNumber = BookViewModel.RatingNumber;
             }
         }
 

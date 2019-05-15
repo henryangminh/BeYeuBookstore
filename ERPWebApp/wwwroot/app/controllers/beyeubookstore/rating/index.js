@@ -58,23 +58,32 @@ function registerEvents() {
     })
 
     $('body').on('click', '#btnReview', function () {
-        $.ajax({
-            type: 'POST',
-            url: "/BeyeuBookstore/SaveRating",
-            data: {
-                BookFK: $.urlParam("id"),
-                CustomerFK: 0,
-                Rating: select,
-                Comment: $('#txtReview').val(),
-            },
-            beforeSend: function () {
-                general.startLoading();
-            },
-            success: function (respond) {
-                if (respond == "fail") {
-                    general.notify("Không thể rating, vui lòng đăng nhập lại");
+        if (select == 0) {
+            general.notify("Bạn chưa chọn số điểm", error);
+        }
+        else {
+            $.ajax({
+                type: 'POST',
+                url: "/BeyeuBookstore/SaveRating",
+                data: {
+                    BookFK: $.urlParam("id"),
+                    CustomerFK: 0,
+                    Rating: select,
+                    Comment: $('#txtReview').val(),
+                },
+                beforeSend: function () {
+                    general.startLoading();
+                },
+                success: function (respond) {
+                    if (respond == "fail") {
+                        general.notify("Không thể rating, vui lòng đăng nhập lại");
+                        general.stopLoad();
+                    }
+                    else {
+                        window.location.href = respond;
+                    }
                 }
-            }
-        })
+            })
+        }
     })
 }

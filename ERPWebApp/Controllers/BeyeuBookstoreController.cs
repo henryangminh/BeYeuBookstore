@@ -318,11 +318,12 @@ namespace BeYeuBookstore.Controllers
                 ratingDetailViewModel.CustomerFK = c.KeyId;
                 _ratingDetailService.Add(ratingDetailViewModel);
                 _ratingDetailService.Save();
-                var book = _bookService.GetById(ratingDetailViewModel.KeyId);
+                var book = _bookService.GetById(ratingDetailViewModel.BookFK);
                 book.RatingNumber++;
-                book.Rating = _ratingDetailService.CalculateBookRatingByBookId(ratingDetailViewModel.KeyId);
+                book.Rating = _ratingDetailService.CalculateBookRatingByBookId(ratingDetailViewModel.BookFK);
+                _bookService.Update(book);
                 _bookService.Save();
-                return new RedirectResult("/BeyeuBookstore/BookDetail?id=" + ratingDetailViewModel.KeyId);
+                return new OkObjectResult("/BeyeuBookstore/BookDetail?id=" + ratingDetailViewModel.BookFK);
             }
             return new OkObjectResult("fail");
                 
