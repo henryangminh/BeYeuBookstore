@@ -188,7 +188,7 @@
                         var price = general.toFloat($('#txtPrice').val());
                         var description = $('#txtDescription').val();
                         var quantity = 0;
-                        if ($('#txtQty').val() != 0) { quantity = $('#txtQty').val() }
+                        if ($('#txtQty').val() != 0) { quantity = parseInt($('#txtQty').val()) }
                         var status = 0;
                         if ($('#fileBookImg').val() != "")
                         {
@@ -344,6 +344,7 @@
         $('#txtPrice').val('');
         $('#ShowBookImg').empty();
         $('#txtDescription').val('');
+        $('#txtQty').val('');
     }
 
     function loadDetail(that) {

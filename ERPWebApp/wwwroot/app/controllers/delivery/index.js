@@ -179,8 +179,8 @@
 
     function loadDetail(that) {
         resetForm();
-        var template = $('#InvoiceDetail-table-template').html();
-        var renderDetail = "";
+        var template = $('#InvoiceDetail').html();
+        var render = "";
         $.ajax({
             type: "GET",
             url: "/Delivery/GetById",
@@ -267,7 +267,7 @@
                     success: function (innerresponse) {
                         $.each(innerresponse, function (i, item) {
 
-                            renderDetail += Mustache.render(template, {
+                            render += Mustache.render(template, {
 
                                 BookId: item.BookFK,
                                 BookName: item.BookFKNavigation.BookTitle,
@@ -280,7 +280,7 @@
                         });
                   
                         
-                        $('#Delivery-tbl-content').html(renderDetail);
+                        $('#Delivery-tbl-content').html(render);
                         loadTotalPrice();
                         $('#modal-add-edit').modal('show');
                         general.stopLoad();
