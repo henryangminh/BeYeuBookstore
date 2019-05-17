@@ -66,6 +66,7 @@ function registerEvents() {
                 type: 'POST',
                 url: "/BeyeuBookstore/SaveRating",
                 data: {
+                    KeyId: $('#txtRatingID').val(),
                     BookFK: $.urlParam("id"),
                     CustomerFK: 0,
                     Rating: select,
@@ -85,5 +86,23 @@ function registerEvents() {
                 }
             })
         }
+    })
+
+    $('body').on('click', '#Review', function () {
+        $.ajax({
+            url: '/BeyeuBookstore/CheckBought',
+            data: {
+                BookId: $.urlParam("id"),
+            },
+            success: function (respond) {
+                if (respond) {
+                    template = $('#AllowRating').html();
+                }
+                else {
+                    template = $('#UnallowRating').html();
+                }
+                $('#checkRating').html(template);
+            }
+        })
     })
 }

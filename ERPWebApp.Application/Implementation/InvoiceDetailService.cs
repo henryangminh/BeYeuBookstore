@@ -63,6 +63,19 @@ namespace BeYeuBookstore.Application.Implementation
             return data;
         }
 
+        public List<InvoiceDetailViewModel> GetAllByInvoiceId(int invoiceId)
+        {
+            var query = _invoiceDetailRepository.FindAll(x => x.BookFKNavigation);
+            query = query.Where(x => x.InvoiceFK == invoiceId);
+            var data = new List<InvoiceDetailViewModel>();
+            foreach (var item in query)
+            {
+                var _data = Mapper.Map<InvoiceDetail, InvoiceDetailViewModel>(item);
+                data.Add(_data);
+            }
+            return data;
+        }
+
         public List<InvoiceDetailViewModel> GetAll(int id)
         {
             var query = _invoiceDetailRepository.FindAll(p => p.InvoiceFK == id, p=>p.BookFKNavigation, p=>p.InvoiceFKNavigation);

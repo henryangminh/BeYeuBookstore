@@ -25,5 +25,7 @@ namespace BeYeuBookstore.Application.Interfaces
         DeliveryViewModel GetById(int id);
 
         bool Save();
+
+        DeliveryViewModel GetByDeliveryByInvoiceAndMerchant(int InvoiceId, int MerchantId);
     }
 }

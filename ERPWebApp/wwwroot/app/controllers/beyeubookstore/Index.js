@@ -59,16 +59,6 @@
             })
         })
 
-        $('body').on('click', '#LogOut', function () {
-            $.ajax({
-                type: 'POST',
-                url: '/BeyeuBookstore/LogOutAsync',
-                success: function (respond) {
-                    window.location.href = respond;
-                }
-            })
-        })
-
         //$('#modal-add-edit').on('hide', function () {
         //    resetForm();
         //});

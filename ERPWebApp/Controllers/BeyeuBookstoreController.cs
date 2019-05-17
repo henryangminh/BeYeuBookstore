@@ -9,6 +9,7 @@ using BeYeuBookstore.Application.ViewModels;
 using BeYeuBookstore.Application.ViewModels.System;
 using BeYeuBookstore.Data.EF;
 using BeYeuBookstore.Data.Entities;
+using BeYeuBookstore.Data.Enums;
 using BeYeuBookstore.Extensions;
 using BeYeuBookstore.Models.AccountViewModels;
 using BeYeuBookstore.Services;
@@ -30,12 +31,13 @@ namespace BeYeuBookstore.Controllers
         IInvoiceDetailService _invoiceDetailService;
         IRatingDetailService _ratingDetailService;
         IAdvertiseContractService _advertiseContractService;
+        IDeliveryService _deliveryService;
         private readonly UserManager<User> _userManager;
         private readonly SignInManager<User> _signInManager;
         private readonly ERPDbContext _context;
         private readonly IUserService _userService;
         private readonly IEmailSender _emailSender;
-        public BeyeuBookstoreController(IBookService bookService, SignInManager<User> signInManager, IUserService userService, IInvoiceService invoiceService, ICustomerService customerService, IInvoiceDetailService invoiceDetailService, IRatingDetailService ratingDetailService, UserManager<User> userManager, IEmailSender emailSender, IAdvertiseContractService advertiseContractService, ERPDbContext context)
+        public BeyeuBookstoreController(IBookService bookService, SignInManager<User> signInManager, IUserService userService, IInvoiceService invoiceService, ICustomerService customerService, IInvoiceDetailService invoiceDetailService, IRatingDetailService ratingDetailService, UserManager<User> userManager, IEmailSender emailSender, IAdvertiseContractService advertiseContractService, ERPDbContext context, IDeliveryService deliveryService)
         {
             _bookService = bookService;
             _signInManager = signInManager;
@@ -48,6 +50,7 @@ namespace BeYeuBookstore.Controllers
             _emailSender = emailSender;
             _advertiseContractService = advertiseContractService;
             _context = context;
+            _deliveryService = deliveryService;
         }
 
         public IActionResult Index()
@@ -174,6 +177,8 @@ namespace BeYeuBookstore.Controllers
                     {
                         if (user.UserTypeFK == 3)
                         {
+                            CustomerViewModel customerViewModel = _customerService.GetBysId(user.Id.ToString());
+                            user.CustomerFKNavigation = Mapper.Map<CustomerViewModel, Customer>(customerViewModel);
                             HttpContext.Session.Set("IsLogin", true);
                             HttpContext.Session.Set("User", user);
                             return new OkObjectResult(urlSuccess);
@@ -316,17 +321,52 @@ namespace BeYeuBookstore.Controllers
             if (c.KeyId != 0)
             {
                 ratingDetailViewModel.CustomerFK = c.KeyId;
-                _ratingDetailService.Add(ratingDetailViewModel);
-                _ratingDetailService.Save();
                 var book = _bookService.GetById(ratingDetailViewModel.BookFK);
-                book.RatingNumber++;
+                if (ratingDetailViewModel.KeyId == 0)
+                {
+                    _ratingDetailService.Add(ratingDetailViewModel);
+                    book.RatingNumber++;
+                }
+                else
+                {
+                    _ratingDetailService.Update(ratingDetailViewModel);
+                }
                 book.Rating = _ratingDetailService.CalculateBookRatingByBookId(ratingDetailViewModel.BookFK);
                 _bookService.Update(book);
                 _bookService.Save();
                 return new OkObjectResult("/BeyeuBookstore/BookDetail?id=" + ratingDetailViewModel.BookFK);
             }
             return new OkObjectResult("fail");
-                
+        }
+
+        public IActionResult CheckBought(int BookId)
+        {
+            var userid = _generalFunctionController.Instance.getClaimType(User, CommonConstants.UserClaims.Key);
+            var c = _customerService.GetBysId(userid);
+            if (c != null)
+            {
+                var book = _bookService.GetById(BookId);
+                var invoices = _invoiceService.GetAll();
+                invoices = invoices.Where(x => x.CustomerFK == c.KeyId).ToList();
+                var invoice = new List<InvoiceViewModel>();
+                foreach (var item in invoices)
+                {
+                    var invoiceDetails = _invoiceDetailService.GetAllByInvoiceId(item.KeyId);
+                    foreach (var invoiceDetail in invoiceDetails)
+                    {
+                        if (invoiceDetail.BookFK == BookId)
+                            invoice.Add(item);
+                    }
+                }
+                foreach (var item in invoice)
+                {
+                    var delivery = _deliveryService.GetByDeliveryByInvoiceAndMerchant(item.KeyId, book.MerchantFK);
+                    if (delivery.DeliveryStatus == Convert.ToInt32(DeliveryStatus.Success))
+                        return new OkObjectResult(true);
+                }
+                return new OkObjectResult(false);
+            }
+            return new RedirectResult(Url.Action("BookDetail", "BeyeuBookstore", new { id = BookId }));
         }
         #endregion
     }

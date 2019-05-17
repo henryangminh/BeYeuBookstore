@@ -107,7 +107,7 @@ else
                         <!-- Nav tabs -->
                         <ul class="nav nav-tabs" role="tablist">
                             <li class="active"><a href="#Details" data-toggle="tab">Chi tiết</a></li>
-                            <li><a href="#Reviews" data-toggle="tab">Nhận xét</a></li>
+                            <li><a id="Review" href="#Reviews" data-toggle="tab">Nhận xét</a></li>
                         </ul>
                         <div class="tab-content">
                             <div class="tab-pane active" id="Details">
@@ -168,7 +168,7 @@ else
                                                         </div>
                                                     </div>
                                                     <div class="review-content col-lg-12">
-                                                        <h4>@item.Comment</h4>
+                                                        <span style="white-space:pre;">@item.Comment</span>
                                                     </div>
                                                 </li>
                                             </ul>
@@ -188,34 +188,54 @@ else
                                     }
                                     else
                                     {
-                                        <div class="review-add">
-                                            <h3>Thêm nhận xét của bạn:</h3>
-                                        </div>
-                                        <div class="review-field-ratings">
-                                            <span>Điểm của bạn <sup>*</sup></span>
-                                            <div class="control">
-                                                <div class="single-control">
-                                                    <div class="review-control-vote">
-                                                        <a id="star1"><i class="fa fa-star"></i></a>
-                                                        <a id="star2"><i class="fa fa-star"></i></a>
-                                                        <a id="star3"><i class="fa fa-star"></i></a>
-                                                        <a id="star4"><i class="fa fa-star"></i></a>
-                                                        <a id="star5"><i class="fa fa-star"></i></a>
+                                        var user = HttpContextAccessor.HttpContext.Session.Get<User>("User");
+                                        var rating = Model.Item2.Find(x => x.CustomerFK == user.CustomerFKNavigation.KeyId);
+                                        if (rating != null)
+                                        {
+                                            <div class="review-add">
+                                                <h3>Nhận xét của bạn:</h3>
+                                                <input id="txtRatingID" type="hidden" value="@rating.KeyId" />
+                                            </div>
+                                            <div class="review-field-ratings">
+                                                <span>Điểm của bạn <sup>*</sup></span>
+                                                <div class="control">
+                                                    <div class="single-control">
+                                                        <div class="review-control-vote">
+                                                            @for (int i = 1; i <= 5; i++)
+                                                            {
+                                                                var id = "star" + i;
+
+                                                                if (i <= rating.Rating)
+                                                                {
+                                                                    <a id="@id" style="color: #00ABDF"><i class="fa fa-star"></i></a>
+                                                                }
+                                                                else
+                                                                {
+                                                                    <a id="@id"><i class="fa fa-star"></i></a>
+                                                                }
+                                                            }
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="review-form">
-                                            <div class="single-form">
-                                                <label>Nhận xét</label>
-                                                <form onsubmit="return false">
-                                                    <textarea id="txtReview" name="massage" cols="10" rows="4"></textarea>
-                                                </form>
+                                            <div class="review-form">
+                                                <div class="single-form">
+                                                    <label>Nhận xét</label>
+                                                    <form onsubmit="return false">
+                                                        <textarea id="txtReview" name="massage" cols="10" rows="4">@rating.Comment</textarea>
+                                                    </form>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="review-form-button">
-                                            <a id="btnReview">Nhận xét</a>
-                                        </div>
+                                            <div class="review-form-button">
+                                                <a id="btnReview">Nhận xét</a>
+                                            </div>
+                                        }
+                                        else
+                                        {
+                                            <div id="checkRating">
+
+                                            </div>
+                                        }
                                     }
                                 </div>
                             </div>
@@ -239,3 +259,41 @@ else
     </div>
     <!-- product-main-area-end -->
 }
+
+<script id="AllowRating" type="x-tmpl-mustache">
+    <div class="review-add">
+        <h3>Thêm nhận xét của bạn:</h3>
+        <input id="txtRatingID" type="hidden" value="0" />
+    </div>
+    <div class="review-field-ratings">
+        <span>Điểm của bạn <sup>*</sup></span>
+        <div class="control">
+            <div class="single-control">
+                <div class="review-control-vote">
+                    <a id="star1"><i class="fa fa-star"></i></a>
+                    <a id="star2"><i class="fa fa-star"></i></a>
+                    <a id="star3"><i class="fa fa-star"></i></a>
+                    <a id="star4"><i class="fa fa-star"></i></a>
+                    <a id="star5"><i class="fa fa-star"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="review-form">
+        <div class="single-form">
+            <label>Nhận xét</label>
+            <form onsubmit="return false">
+                <textarea id="txtReview" name="massage" cols="10" rows="4"></textarea>
+            </form>
+        </div>
+    </div>
+    <div class="review-form-button">
+        <a id="btnReview">Nhận xét</a>
+    </div>
+</script>
+
+<script id="UnallowRating" type="x-tmpl-mustache">
+    <div class="review-add">
+        <h3>Bạn chưa mua món hàng này. Hãy mua hàng để thêm nhận xét nhé</h3>
+    </div>
+</script>
