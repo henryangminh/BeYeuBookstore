@@ -116,15 +116,18 @@
                 {
                     required: true,
                     number: true,
+                    integer: true,
                 },
                 txtWidth:
                 {
                     required: true,
                     number: true,
+                    integer: true,
                 },
                 txtHeight:
                 {
                     number: true,
+                    integer: true,
                 },
                 selBookcategory: {
                     required: true
@@ -135,6 +138,7 @@
                 txtPageNumber: {
                     required: true,
                     number: true,
+                    integer: true,
                 },
                 txtPrice: {
                     required: true,
@@ -371,7 +375,7 @@
                 $('#txtBooktitle').val(data.BookTitle);
                 $('#txtAuthor').val(data.Author);
                 $('#BookImg').val(data.Img);
-                $('#selBookcategory').val(data.BookCategoryFK);
+                $('#selBookcategoryDetail').val(data.BookCategoryFK);
                 if (data.isPaperback) {
                     $('#selisPaperback').val(0);
                 }

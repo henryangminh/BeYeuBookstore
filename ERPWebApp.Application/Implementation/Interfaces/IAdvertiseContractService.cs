@@ -27,7 +27,7 @@ namespace BeYeuBookstore.Application.Interfaces
         PagedResult<AdStatisticViewModel> GetAllStatisticPaging(string fromdate, string todate, int advertiserId, int page, int pageSize);
 
         List<AdvertiseContractViewModel> GetAllFutureContractByPositionId(int id);
-
+        List<AdvertiseContractViewModel> GetAllContractByPositionId(int id);
         AdvertiseContractViewModel GetById(int id);
 
         bool Save();

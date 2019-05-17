@@ -9,7 +9,7 @@ namespace BeYeuBookstore.Application.ViewModels
     public class AdvertiseContractViewModel
     {
         public int KeyId { get; set; }
-        public int AdvertisementContentFK { get; set; }
+        public int? AdvertisementContentFK { get; set; }
         public DateTime DateStart { get; set; }
         public DateTime DateFinish { get; set; }
         public decimal ContractValue { get; set; }

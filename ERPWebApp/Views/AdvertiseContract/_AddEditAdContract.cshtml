@@ -49,18 +49,72 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="selAdContent" class="col-sm-2 col-form-label">Nội dung quảng cáo<span class="star">*</span></label>
+                            <h3>Nội dung quảng cáo</h3>
+                            <input type="hidden" id="txtAdContentKeyId" name="txtAdContentKeyId" readonly />
+                        </div>
+               
+
+                        <div class="form-group row">
+                            <label for="txtTitle" class="col-sm-2 col-form-label">Tiêu đề<span class="star">*</span></label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" id="txtTitle" name="txtTitle" />
+                            </div>
+                            <label for="txtLink" class="col-sm-2 col-form-label">Đường dẫn<span class="star">*</span></label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" id="txtLink" name="txtLink" />
+                            </div>
+                        </div>
+
+
+
+                        <div class="form-group row">
+                            <label for="txtDescription" class="col-sm-2 col-form-label">Mô tả</label>
                             <div class="col-sm-10">
-                                <select id="selAdContent" class="form-control" name="selAdContent">
-                                    <option value="">Chọn nội dung quảng cáo</option>
-                                </select>
+                                <input type="text" class="form-control" id="txtDescription" name="txtDescription" />
+                            </div>
+
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="txtAdContentNote" class="col-sm-2 col-form-label">Ghi chú nội dung</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="txtAdContentNote" name="txtAdContentNote" />
+                            </div>
+
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="txtFileImg" class="col-sm-2 col-form-label">Hình ảnh<span class="star">*</span></label>
+                            <div class="col-sm-10" id="UploadFile">
+                                <div>
+                                    <input type="file" id="fileAdImg" name="fileAdImg">
+                                </div>
+                            </div>
+                            <div class="col-sm-10 hidden" id="AdImg">
+
                             </div>
                         </div>
 
                         <div class="form-group row">
-                            <label for="txtAdPosition" class="col-sm-2 col-form-label">Vị trí</label>
+                            <label for="txtAdContentStatus" class="col-sm-2 col-form-label">Trạng thái nội dung</label>
+                            <div class="col-sm-10" id="txtAdContentStatus">
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="form-group row">
+                          <h3>Hợp đồng Quảng cáo</h3>
+                        </div>
+
+
+                        <div class="form-group row">
+                            <label for="selAdPosition" class="col-sm-2 col-form-label">Vị trí<span class="star">*</span></label>
                             <div class="col-sm-4">
-                                <input type="text" class="form-control" id="txtAdPosition" name="txtAdPosition" readonly />
+                                <select id="selAdPosition" class="form-control" name="selAdPosition">
+                                    <option value="">Chọn vị trí</option>
+                                </select>
                             </div>
                             <label for="txtAdPositionPrice" class="col-sm-2 col-form-label">Giá (VNĐ/ngày)</label>
                             <div class="col-sm-4">
@@ -68,13 +122,6 @@
                             </div>
                         </div>
 
-                        <div class="form-group row">
-                            <label for="ImgAdPosition" class="col-sm-2 col-form-label">Ảnh</label>
-                            <div class="col-sm-10" id="ImgAdPosition">
-
-                            </div>
-
-                        </div>
 
                         <div class="form-group row">
                             <label for="txtFromdate" class="col-sm-2 col-form-label">Ngày bắt đầu<span class="star">*</span></label>
@@ -99,14 +146,14 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="txtMustPay" class="col-sm-2 col-form-label">Phải trả (VNĐ)</label>
+                            <label for="txtMustPay" class="col-sm-2 col-form-label">Tiền cọc (VNĐ)<br>(50% Tổng tiền)</label>
                             <div class="col-sm-4">
                                 <input type="text" class="form-control" id="txtMustPay" name="txtMustPay" readonly />
                             </div>
                         </div>
 
                         <div class="form-group row">
-                            <label for="txtNote" class="col-sm-2 col-form-label">Ghi chú</label>
+                            <label for="txtNote" class="col-sm-2 col-form-label">Ghi chú hợp đồng</label>
                             <div class="col-sm-10">
                                 <input type="text" class="form-control" id="txtNote" name="txtNote" />
                             </div>

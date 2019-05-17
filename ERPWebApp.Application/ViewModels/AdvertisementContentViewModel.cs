@@ -9,7 +9,7 @@ namespace BeYeuBookstore.Application.ViewModels
     {
         public int KeyId { get; set; }
         // Khóa ngoại đến bảng vị trí Post Quảng cáo
-        public int AdvertisementPositionFK { get; set; }
+        public int? AdvertisementPositionFK { get; set; }
         // Khóa ngoại đến người Quảng cáo
         public int AdvertiserFK { get; set; }
         //Link hình ảnh

@@ -17,13 +17,15 @@ namespace BeYeuBookstore.Controllers
     public class AdvertiseContractController : Controller
     {
         IAdvertiserService _advertiserService;
+        IAdvertisementPositionService _advertisementPositionService;
         IWebMasterService _webMasterService;
         IAdvertisementContentService _advertisementContentService;
         IAdvertiseContractService _advertiseContractService;
         IAuthorizationService _authorizationService;
         IUnitOfWork _unitOfWork;
-        public AdvertiseContractController(IAuthorizationService authorizationService ,IAdvertisementContentService advertisementContentService, IWebMasterService webMasterService,IAdvertiserService advertiserService,IAdvertiseContractService advertiseContractService, IUnitOfWork unitOfWork)
+        public AdvertiseContractController(IAdvertisementPositionService advertisementPositionService, IAuthorizationService authorizationService ,IAdvertisementContentService advertisementContentService, IWebMasterService webMasterService,IAdvertiserService advertiserService,IAdvertiseContractService advertiseContractService, IUnitOfWork unitOfWork)
         {
+            _advertisementPositionService = advertisementPositionService;
             _authorizationService = authorizationService;
             _advertisementContentService = advertisementContentService;
             _advertiserService = advertiserService;
@@ -52,6 +54,14 @@ namespace BeYeuBookstore.Controllers
                 return new RedirectResult("/Home/Index");
             return View();
           
+        }
+
+
+        [HttpGet]
+        public IActionResult GetAllAdPosition()
+        {
+            var model = _advertisementPositionService.GetAll();
+            return new OkObjectResult(model);
         }
 
         [HttpGet]
@@ -153,6 +163,14 @@ namespace BeYeuBookstore.Controllers
         public IActionResult GetAdContentById(int id)
         {
             var model = _advertisementContentService.GetById(id);
+            return new OkObjectResult(model);
+        }
+
+
+        [HttpGet]
+        public IActionResult GetAdPositionById(int id)
+        {
+            var model = _advertisementPositionService.GetById(id);
             return new OkObjectResult(model);
         }
 

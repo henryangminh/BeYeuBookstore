@@ -47,14 +47,14 @@ function registerEvents() {
                         success: function (respond) {
                             switch (respond) {
                                 case "true":
-                                    general.notify("Đặt hàng thành công", success);
+                                    general.notify("Đặt hàng thành công", 'success');
                                     window.location.href = "/";
                                     break;
                                 case "customer":
-                                    general.notify("Đặt hàng thất bại, vui lòng đăng nhập", error);
+                                    general.notify("Đặt hàng thất bại, vui lòng đăng nhập", 'error');
                                     break;
                                 case "quantity":
-                                    general.notify("Đặt hàng thất bại, vì có vật phẩm quá với số lượng tồn", error);
+                                    general.notify("Đặt hàng thất bại, vì có vật phẩm quá với số lượng tồn", 'error');
                                     break;
                             }
                             general.stopLoad();

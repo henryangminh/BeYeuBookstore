@@ -286,7 +286,7 @@ namespace BeYeuBookstore.Controllers
             {
                 user.Status = Data.Enums.Status.Active;
                 await _userService.UpdateAsync(Mapper.Map<User, UserViewModel>(user));
-                await _userManager.AddToRoleAsync(user, "Customer"); // add vao role
+                await _userManager.AddToRoleAsync(user, "Khách hàng"); // add vao role
                 var customer = new Customer();
                 customer.UserFK = user.Id;
                 _context.Customers.Add(customer);

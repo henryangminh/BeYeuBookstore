@@ -22,12 +22,12 @@ namespace BeYeuBookstore.Application.Implementation
             _unitOfWork = unitOfWork;
 
         }
-        public AdvertisementContentViewModel Add(AdvertisementContentViewModel AdvertisementContentViewModel)
+        public AdvertisementContentViewModel Add(AdvertisementContentViewModel advertisementContentViewModel)
         {
-            var advertisementContent = Mapper.Map<AdvertisementContentViewModel, AdvertisementContent>(AdvertisementContentViewModel);
-            _advertisementContentRepository.Add(advertisementContent);
-            _unitOfWork.Commit();
-            return AdvertisementContentViewModel;
+            var advertisementContent = Mapper.Map<AdvertisementContentViewModel, AdvertisementContent>(advertisementContentViewModel);
+            var a = _advertisementContentRepository.AddReturn(advertisementContent);
+            advertisementContentViewModel.KeyId = a.KeyId;
+            return advertisementContentViewModel;
         }
 
         public void Delete(int id)

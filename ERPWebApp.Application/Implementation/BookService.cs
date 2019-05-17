@@ -83,12 +83,12 @@ namespace BeYeuBookstore.Application.Implementation
             {
                 var keysearch = keyword.Trim().ToUpper();
 
-                query = query.OrderBy(x => x.KeyId).Where(x => (x.BookTitle.ToUpper().Contains(keysearch)) || (x.MerchantFKNavigation.MerchantCompanyName.ToUpper().Contains(keysearch)));
+                query = query.OrderByDescending(x => x.KeyId).Where(x => (x.BookTitle.ToUpper().Contains(keysearch)) || (x.MerchantFKNavigation.MerchantCompanyName.ToUpper().Contains(keysearch)));
 
             }
             if(merchantId!=0)
             {
-                query = query.OrderBy(x => x.KeyId).Where(x => x.MerchantFK==merchantId);
+                query = query.OrderByDescending(x => x.KeyId).Where(x => x.MerchantFK==merchantId);
  
             }
             if (!string.IsNullOrEmpty(fromdate))

@@ -18,9 +18,11 @@ namespace BeYeuBookstore.Controllers
     {
         IAdvertisementPositionService _advertisementPositionService;
         IAuthorizationService _authorizationService;
+        IAdvertiseContractService _advertiseContractService;
         IUnitOfWork _unitOfWork;
-        public AdvertisementPositionController(IAuthorizationService authorizationService, IAdvertisementPositionService advertisementPositionService, IUnitOfWork unitOfWork)
+        public AdvertisementPositionController(IAdvertiseContractService advertiseContractService ,IAuthorizationService authorizationService, IAdvertisementPositionService advertisementPositionService, IUnitOfWork unitOfWork)
         {
+            _advertiseContractService = advertiseContractService;
             _authorizationService = authorizationService;
             _advertisementPositionService = advertisementPositionService;
             _unitOfWork = unitOfWork;
@@ -74,6 +76,13 @@ namespace BeYeuBookstore.Controllers
             return new OkObjectResult(model);
         }
 
+
+        [HttpGet]
+        public IActionResult GetAllFutureContract(int id)
+        {
+            var model = _advertiseContractService.GetAllContractByPositionId(id);
+            return new OkObjectResult(model);
+        }
 
         [HttpGet]
         public IActionResult GetById(int id)

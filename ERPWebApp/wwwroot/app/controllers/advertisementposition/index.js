@@ -1,10 +1,27 @@
-﻿var advertisementPositionController = function () {
+﻿var gDisabledDates = [];
+function DisableSpecificDates(date) {
+
+
+    var currentdate = moment(date).format("DD/MM/YYYY");
+
+    // We will now check if the date belongs to disableddates array 
+    for (var i = 0; i < gDisabledDates.length; i++) {
+
+        // Now check if the current date is in disabled dates array. 
+        if ($.inArray(currentdate, gDisabledDates) != -1) {
+            return false;
+        }
+    }
+    general.stopLoad();
+}
+
+var advertisementPositionController = function () {
     this.initialize = function () {
         loadData();
         registerEvents();
     }
     function registerEvents() {
-        loadBookCategory();
+
         $('#ddlShowPage').on('change', function () {
             general.configs.pageSize = $(this).val();
             general.configs.pageIndex = 1;
@@ -42,6 +59,7 @@
         $('#btnCancel').on('click', function () {
 
             $('#frmMaintainance').trigger('reset');
+            resetForm();
         });
         //Reset Form
 
@@ -176,14 +194,15 @@
         $('#txtPageNumber').val('');
         $('#txtPrice').val('');
         $('#txtDescription').val('');
-
+        $('#txtWatchdate').val('');
+        gDisabledDates.length = 0;
 
 
 
     }
 
     function loadDetail(that) {
-
+        resetForm();
         $.ajax({
             type: "GET",
             url: "/AdvertisementPosition/GetById",
@@ -197,6 +216,8 @@
                 var data = response;
 
                 $('#txtId').val(data.KeyId);
+
+                loadAllFutureSuccessContract(data.KeyId);
                 $('#txtAdId').val(data.IdOfPosition);
                 $('#dtDateCreated').val(moment(data.DateCreated).format("DD/MM/YYYY"));
                 $('#dtDateModified').val(moment(data.DateModified).format("DD/MM/YYYY"));
@@ -307,30 +328,46 @@ function wrapPaging(recordCount, callBack, changePageSize) {
         });
 }
 
-function loadBookCategory() {
+
+
+function loadAllFutureSuccessContract(that) {
     $.ajax({
         type: 'GET',
-        url: '/Book/GetAllBookCategory',
-
+        url: '/AdvertisementPosition/GetAllFutureContract',
         dataType: "json",
+        data: { id: that },
         beforeSend: function () {
             general.startLoad();
         },
 
         success: function (response) {
-
+            console.log("Contract", response);
             $.each(response, function (i, item) {
-                $('#selBookCategory').append("<option value='" + item.KeyId + "'>" + item.BookCategoryName + "</option>");
-                $('#selBookcategoryDetail').append("<option value='" + item.KeyId + "'>" + item.BookCategoryName + "</option>");
-                general.stopLoad();
-
+                var _fromdate = moment(item.DateFinish);
+                var temp = moment(item.DateStart);
+                while (temp <= _fromdate) {
+                    gDisabledDates.push(temp.format("DD/MM/YYYY"));
+                    temp = temp.add(1, 'days');
+                }
             });
+            $('#txtWatchdate').datepicker("destroy");
+          
+            $('#txtWatchdate').datepicker({
+                format: "dd/mm/yyyy",
+                language: "vi",
+                clearBtn: true,
+                todayHighlight: false,
+                beforeShowDay: DisableSpecificDates
+            });
+          
+            general.stopLoad();
+
+
         },
         error: function (err) {
-            general.notify('Có lỗi trong khi load loại sách !', 'error');
+            general.notify('Có lỗi trong khi load nội dung quảng cáo !', 'error');
             general.stopLoad();
         },
     });
 
 }
-

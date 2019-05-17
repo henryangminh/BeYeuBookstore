@@ -12,7 +12,7 @@ namespace BeYeuBookstore.Data.Entities
     {
         public AdvertiseContract() { }
 
-        public AdvertiseContract(int keyId, int advertisementContentFK, DateTime dateStart, DateTime dateFinish, decimal contractValue, string note,ContractStatus status, DateTime? dateCreated, DateTime? dateModified)
+        public AdvertiseContract(int keyId, int? advertisementContentFK, DateTime dateStart, DateTime dateFinish, decimal contractValue, string note,ContractStatus status, DateTime? dateCreated, DateTime? dateModified)
         {
             keyId = KeyId;
             AdvertisementContentFK = advertisementContentFK;
@@ -25,7 +25,7 @@ namespace BeYeuBookstore.Data.Entities
             DateModified = dateModified;
         }
 
-        public int AdvertisementContentFK { get; set; }
+        public int? AdvertisementContentFK { get; set; }
         public DateTime DateStart { get; set; }
         public DateTime DateFinish { get; set; }
         public decimal ContractValue { get; set; }

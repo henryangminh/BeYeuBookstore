@@ -20,5 +20,13 @@ namespace BeYeuBookstore.Controllers
         {
             return View();
         }
+        public IActionResult Address()
+        {
+            return View();
+        }
+        public IActionResult BankingInfo()
+        {
+            return View();
+        }
     }
 }

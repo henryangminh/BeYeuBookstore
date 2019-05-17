@@ -20,11 +20,13 @@ var advertiseContractController = function () {
     this.initialize = function () {
         
         loadData();
+
+        loadAdPosition();
         registerEvents();
         autoUpdateContractStatus();
     }
     function registerEvents() {
-        
+
         $('#txtFromdate').on('keydown', function (e) {
             e.preventDefault();
             if (e.keyCode >= 37 && e.keyCode <= 40 || e.keyCode == 13) {
@@ -51,6 +53,29 @@ var advertiseContractController = function () {
         $('#selStatus').on('change', function () {
             loadData();
         });
+        $('#selAdPosition').on('change', function () {
+           
+        });
+
+        $('#selAdPosition').on('change', function () {
+            $.ajax({
+                type: 'GET',
+                url: '/AdvertiseContract/GetAdPositionById',
+                data: {
+                    id: $('#selAdPosition option:selected').val(),
+                },
+                dataType: "json",
+
+                success: function (response) {
+                    $('#txtAdPositionPrice').val(general.toMoney(response.AdvertisePrice));
+                    loadAllFutureSuccessContract($('#selAdPosition option:selected').val());
+                },
+                error: function (err) {
+                    general.notify('Có lỗi trong khi load giá vị trí quảng cáo !', 'error');
+
+                },
+            });
+        });
 
         $('#selAdContent').on('change', function () {
             if ($('#selAdContent option:selected').val() != "") {
@@ -74,13 +99,13 @@ var advertiseContractController = function () {
         $('#txtFromdate').on('change', function () {
             $('#txtNodate').val(countDate(moment($('#txtFromdate').val(),"DD/MM/YYYY"), moment($('#txtTodate').val(),"DD/MM/YYYY")));
             $('#txtTotalPrice').val(general.toMoney(general.toInt($('#txtAdPositionPrice').val()) * parseInt($('#txtNodate').val())));
-            $('#txtMustPay').val(general.toMoney(general.toInt($('#txtTotalPrice').val()) - general.toInt($('#txtAdPositionPrice').val())));
+            $('#txtMustPay').val(general.toMoney(general.toInt($('#txtTotalPrice').val())*50/100));
         });
         
         $('#txtTodate').on('change', function () {
             $('#txtNodate').val(countDate(moment($('#txtFromdate').val(),"DD/MM/YYYY"), moment($('#txtTodate').val(),"DD/MM/YYYY")));
             $('#txtTotalPrice').val(general.toMoney(general.toInt($('#txtAdPositionPrice').val()) * parseInt($('#txtNodate').val())));
-            $('#txtMustPay').val(general.toMoney(general.toInt($('#txtTotalPrice').val()) - general.toInt($('#txtAdPositionPrice').val())));
+            $('#txtMustPay').val(general.toMoney(general.toInt($('#txtTotalPrice').val()) * 50 / 100));
         });
 
         $('#btnCreate').on('click', function () {
@@ -104,7 +129,6 @@ var advertiseContractController = function () {
                     $('#txtAdvertiser').val(response.BrandName);
                     $('#txtAdvertiserId').val(response.KeyId);
                     $('#txtAdvertiserStatus').val(response.Status);
-                    loadAllAdContent();
                     $('#modal-add-edit').modal('show');
                     
                     general.stopLoad();
@@ -253,10 +277,7 @@ var advertiseContractController = function () {
             lang: 'vi',
             rules: {
 
-                selAdContent:
-                {
-                    required: true
-                },
+               
                 txtFromdate:
                 {
                     required: true
@@ -273,7 +294,7 @@ var advertiseContractController = function () {
 
         $('#btnSave').on('click', function (e) {
             if ($('#txtAdvertiserStatus').val() == general.status.InActive) {
-                general.notify('Bạn đã bị Khóa, vui lòng liên hệ Webmaster để biết thêm chi tiết!', 'error');
+                general.notify('Bạn đã bị Khóa hoặc bạn không có quyền thêm mới, vui lòng liên hệ Webmaster để biết thêm chi tiết!', 'error');
                 return false;
             }
             else {
@@ -287,8 +308,8 @@ var advertiseContractController = function () {
                         keyId = parseInt($('#txtId').val());
                     }
                     var adContentId = $('#selAdContent option:selected').val();
-                    var dateStart = moment($('#txtFromdate').val(),"DD/MM/YYYY").format("YYYY-MM-DD");
-                    var dateFinish = moment($('#txtTodate').val()+'23:59:59', "DD/MM/YYYY HH:mm:ss").format("YYYY-MM-DD HH:mm:ss");
+                    var dateStart = moment($('#txtFromdate').val(), "DD/MM/YYYY").format("YYYY-MM-DD");
+                    var dateFinish = moment($('#txtTodate').val() + '23:59:59', "DD/MM/YYYY HH:mm:ss").format("YYYY-MM-DD HH:mm:ss");
                     var noDate = $('#txtNodate').val();
                     var contractValue = general.toFloat($('#txtTotalPrice').val());
                     var note = $('#txtNote').val();
@@ -299,25 +320,47 @@ var advertiseContractController = function () {
                         return false;
                     }
 
-                    if (parseInt(noDate)<1) {
+                    if (parseInt(noDate) < 1) {
                         general.notify('Ngày kết thúc phải lớn hơn hoặc bằng ngày bắt đầu !', 'error');
                         return false;
                     }
                     var flag;
                     var _curday = moment(dateStart, "YYYY-MM-DD").format("DD/MM/YYYY");
-                    for (var i = 0; i < parseInt(noDate); i++)
-                    {
+                    for (var i = 0; i < parseInt(noDate); i++) {
                         if ($.inArray(_curday, gDisabledDates) != -1) {
                             flag = false;
                         }
-                        _curday = (moment(_curday,"DD/MM/YYYY").add(1, 'days')).format("DD/MM/YYYY");
+                        _curday = (moment(_curday, "DD/MM/YYYY").add(1, 'days')).format("DD/MM/YYYY");
                     }
 
-                    if (flag==false) {
+                    if (flag == false) {
                         general.notify('Chuỗi ngày bạn chọn có những ngày không còn trống !', 'error');
                         return false;
                     }
 
+                    var adContent = new Object();
+                    if ($('#txtAdContentKeyId').val() == "")
+                    {
+                        adContent.KeyId = $('#txtAdContentKeyId').val();
+                    }
+                    else
+                    {
+                        parseInt(adContent.KeyId = $('#txtAdContentKeyId').val());
+                    }
+                    adContent.AdvertisementPositionFK = $('#selAdPosition option:selected').val();
+                    adContent.AdvertiserFK = $('#txtAdvertiserId').val();
+                    adContent.UrlToAdvertisement = $('#txtTitle').val();
+                    adContent.Deposite = general.toFloat($('#txtMustPay').val());
+                    adContent.CensorStatus = general.censorStatus.Uncensored;
+                 
+                    var _link = $('#txtLink').val().split("/");
+                    if (_link[0].toUpperCase == 'HTTP:' || _link[0].toUpperCase == 'HTTPS:') {
+                        adContent.txtLink = $('#txtLink').val();
+                    }
+                    else {
+                        adContent.txtLink = 'http://' + $('#txtLink').val();
+                    }
+                    adContent.Description = $('#txtDescription').val();
                     $.ajax({
                         type: 'POST',
                         url: '/AdvertiseContract/SaveEntity',
@@ -613,7 +656,7 @@ function loadAllFutureSuccessContract(that) {
                 todayHighlight: true,
                 beforeShowDay: DisableSpecificDates
             });
-            general.startLoad();
+            general.stopLoad();
           
             
         },
@@ -745,6 +788,13 @@ function resetForm() {
     $('#txtNodate').val('');
     $('#txtMustPay').val('');
     $('#txtNote').val('');
+    $('#txtTitle').val('');
+    $('#txtLink').val('');
+    $('#txtDescription').val('');
+    $('#txtAdContentNote').val('');
+    $('#selAdPosition').val('');
+    $('#txtAdPositionPrice').val('');
+
     gDisabledDates.length = 0;
 
     $('#txtFromdate').datepicker("destroy");
@@ -763,4 +813,31 @@ function resetForm() {
         todayHighlight: true,
         beforeShowDay: DisableSpecificDates
     });
+}
+
+function loadAdPosition() {
+    $.ajax({
+        type: 'GET',
+        url: '/AdvertiseContract/GetAllAdPosition',
+
+        dataType: "json",
+        beforeSend: function () {
+            general.startLoad();
+        },
+
+
+        success: function (response) {
+
+            $.each(response, function (i, item) {
+                $('#selAdPosition').append("<option value='" + item.KeyId + "'>" + item.Title + "</option>");
+                general.stopLoad();
+
+            });
+        },
+        error: function (err) {
+            general.notify('Có lỗi trong khi load vị trí quảng cáo !', 'error');
+            general.stopLoad();
+        },
+    });
+
 }

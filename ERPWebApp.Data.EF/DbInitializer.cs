@@ -73,6 +73,11 @@ namespace BeYeuBookstore.Data.EF
                       new Function() {KeyId = "StatisticsItem",Name = "Thống kê",ParentId = null,SortOrder = 6,Status = Status.Active,URL = "/",IconCss = "fa-chart-line"  },
 
                       new Function() {KeyId = "AdStatisticsItem",Name = "Quảng cáo", ParentId = "StatisticsItem",SortOrder = 1,Status = Status.Active,URL = "/AdvertiseContract/Statistic",IconCss = "fa-chevron-down"  },
+
+                       new Function() {KeyId = "AboutUsItem",Name = "Về chúng tôi",ParentId = null,SortOrder = 8,Status = Status.Active,URL = "/",IconCss = "fa-address-card"  },
+
+                      new Function() {KeyId = "AddressItem",Name = "Địa chỉ", ParentId = "AboutUsItem",SortOrder = 1,Status = Status.Active,URL = "/Process/Address",IconCss = "fa-chevron-down"  },
+                      new Function() {KeyId = "BankingInfoItem",Name = "Cách thức thanh toán", ParentId = "AboutUsItem",SortOrder = 2,Status = Status.Active,URL = "/Process/BankingInfo",IconCss = "fa-chevron-down"  },
                  });
             }
             try

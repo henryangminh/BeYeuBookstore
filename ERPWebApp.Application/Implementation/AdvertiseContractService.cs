@@ -27,8 +27,8 @@ namespace BeYeuBookstore.Application.Implementation
         public AdvertiseContractViewModel Add(AdvertiseContractViewModel advertiseContractViewModel)
         {
             var AdvertiseContract = Mapper.Map<AdvertiseContractViewModel, AdvertiseContract>(advertiseContractViewModel);
-            _advertiseContractRepository.Add(AdvertiseContract);
-            _unitOfWork.Commit();
+            var a = _advertiseContractRepository.AddReturn(AdvertiseContract);
+            advertiseContractViewModel.KeyId = a.KeyId; 
             return advertiseContractViewModel;
         }
 
@@ -68,7 +68,19 @@ namespace BeYeuBookstore.Application.Implementation
 
         public List<AdvertiseContractViewModel> GetAllFutureContractByPositionId(int id)
         {
-            var query = _advertiseContractRepository.FindAll(x=>(x.Status == ContractStatus.Requesting && x.DateFinish >= DateTime.Now && x.AdvertisementContentFKNavigation.AdvertisementPositionFK==id));
+            var query = _advertiseContractRepository.FindAll(x=>(x.Status != ContractStatus.Requesting && x.DateFinish >= DateTime.Now && x.AdvertisementContentFKNavigation.AdvertisementPositionFK==id));
+            var data = new List<AdvertiseContractViewModel>();
+            foreach (var item in query)
+            {
+                var _data = Mapper.Map<AdvertiseContract, AdvertiseContractViewModel>(item);
+                data.Add(_data);
+            }
+            return data;
+        }
+
+        public List<AdvertiseContractViewModel> GetAllContractByPositionId(int id)
+        {
+            var query = _advertiseContractRepository.FindAll(x=>(x.Status != ContractStatus.Unqualified && x.AdvertisementContentFKNavigation.AdvertisementPositionFK==id));
             var data = new List<AdvertiseContractViewModel>();
             foreach (var item in query)
             {
