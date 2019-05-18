@@ -697,6 +697,7 @@ function loadData(isPageChanged) {
                 var _todate = moment(item.DateFinish).format("DD/MM/YYYY HH:mm:ss");
                 var _contract = general.toMoney(item.ContractValue);
                 var _dateCreated = moment(item.DateCreated).format("DD/MM/YYYY");
+                var _prop = '';
                 $.ajax({
                     type: "GET",
                     url: "/AdvertiseContract/GetAdContentById",
@@ -706,24 +707,39 @@ function loadData(isPageChanged) {
                         general.startLoad();
                     },
 
-                    success: function (_response) { },
-                    error: function (_response) { },
-                });
-                render += Mustache.render(template, {
+                    success: function (_response) {
+                        if (_response.CensorStatus == general.censorStatus.Unqualified && item.Status == general.contractStatus.DepositePaid) {
 
-                    KeyId: item.KeyId,
-                    BrandName: item.AdvertisementContentFKNavigation.AdvertiserFKNavigation.BrandName,
-                    AdTitle: item.AdvertisementContentFKNavigation.Title,
-                    Fromdate: _fromdate,
-                    Todate: _todate,
-                    ContractValue: _contract,
-                    Status: '<span class="badge bg-' + _color + '">' + _statusName   + '</span>',
-                    DateCreated: _dateCreated,
+                        }
+                        else {
+                            _prop = 'disabled';
+                        }
+
+                        render += Mustache.render(template, {
+
+                            KeyId: item.KeyId,
+                            BrandName: item.AdvertisementContentFKNavigation.AdvertiserFKNavigation.BrandName,
+                            AdTitle: item.AdvertisementContentFKNavigation.Title,
+                            Fromdate: _fromdate,
+                            Todate: _todate,
+                            ContractValue: _contract,
+                            Status: '<span class="badge bg-' + _color + '">' + _statusName + '</span>',
+                            DateCreated: _dateCreated,
+                            Prop: _prop,
+                        });
+
+                        $('#lblTotalRecords').text(response.RowCount);
+                        $('#tbl-content').html(render);
+                        general.stopLoad();
+                    },
+                    error: function (_response) {
+                        general.stopLoad();
+
+                        general.notify('Không thể load dữ liệu', 'error');
+                    },
                 });
 
             });
-            $('#lblTotalRecords').text(response.RowCount);
-            $('#tbl-content').html(render);
             general.stopLoad();
             wrapPaging(response.RowCount, function () {
                 loadData();
