@@ -47,7 +47,8 @@
         <select class="form-control" id="selStatus">
             <option value="">Chọn trạng thái</option>
             <option value="0">Đang chờ duyệt</option>
-            <option value="3">Đã thanh toán</option>
+            <option value="4">Đã thanh toán</option>
+            <option value="3">Đã đóng cọc</option>
             <option value="2">Thành công</option>
             <option value="1">Không thành công</option>
         </select>
@@ -116,8 +117,16 @@
         <td>{{{Status}}}</td>
         <td>{{DateCreated}}</td>
         <td scope="row">
-            <a class="btn btn-xs btn-primary btn-edit {{{Prop}}}" {{{Prop}}} data-id="{{KeyId}}"><i class="fa fa-eye"></i></a>
-        </td>
+            @if (result_edit.Succeeded)
+            {
+                <a class="btn btn-xs btn-default btn-editContent {{{Prop}}}" data-id="{{KeyId}}"><i class="fa fa-pencil"></i></a>
+            }
+            @if (result_confirm.Succeeded)
+            {
+                <a class="btn btn-xs btn-primary btn-edit" data-id="{{KeyId}}"><i class="fa fa-eye"></i></a>
+            }
+            </td>
     </tr>
 </script>
 @await Html.PartialAsync("_AddEditAdContract.cshtml")
+@await Html.PartialAsync("_AddSuccessfully.cshtml")

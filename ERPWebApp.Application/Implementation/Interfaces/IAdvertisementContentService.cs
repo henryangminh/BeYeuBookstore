@@ -19,9 +19,7 @@ namespace BeYeuBookstore.Application.Interfaces
 
         List<AdvertisementContentViewModel> GetAll();
 
-        PagedResult<AdvertisementContentViewModel> GetAllPaging(bool? a, bool? isAdCensor,int? advertiserId, int? status, string keyword, int page, int pageSize);
-
-        List<AdvertisementContentViewModel> GetAllCensoredAdContentByAdvertiserId(int id);
+        PagedResult<AdvertisementContentViewModel> GetAllPaging(bool? a, bool? isAdCensor,int? advertiserId, int? status,int? advertiserSort, string keyword, int page, int pageSize);
 
         AdvertisementContentViewModel GetById(int id);
 

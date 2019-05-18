@@ -266,14 +266,15 @@
                     },
                     success: function (innerresponse) {
                         $.each(innerresponse, function (i, item) {
-
+                            var _unitPrice = general.toMoney(item.BookFKNavigation.UnitPrice);
+                            var _price = general.toMoney(item.SubTotal);
                             render += Mustache.render(template, {
 
                                 BookId: item.BookFK,
                                 BookName: item.BookFKNavigation.BookTitle,
                                 Qty: item.Qty,
-                                UnitPrice: item.UnitPrice,
-                                Price: item.SubTotal,
+                                UnitPrice: _unitPrice,
+                                Price: _price,
 
                             });
 

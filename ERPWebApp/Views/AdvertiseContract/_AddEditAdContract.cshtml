@@ -185,17 +185,21 @@
                     <button type="button" id="btnCancel" data-dismiss="modal" class="btn btn-danger">Hủy</button>
                 </div>
                 @if (result_confirm.Succeeded)
-                {
-                    <div class="col-sm-6" id="formAccountingCensor">
-                        <button type="button" id="btnAccountingCensored" class="btn btn-warning">Đã thanh toán</button>
-                    </div>
-                    <div class="col-sm-6" id="formCensor">
-                        <button type="button" id="btnSuccess" class="btn btn-success">Thành công</button>
-                        <button type="button" id="btnFail" class="btn btn-danger">Không thành công</button>
-                    </div>
+                {<div id="formConfirm">
+                        <div class="col-sm-6" id="formAccountingCensorDeposite">
+                            <button type="button" id="btnAccountingCensoredDeposite" class="btn btn-warning">Đã đóng cọc</button>
+                        </div>
+                        <div class="col-sm-6" id="formAccountingCensor">
+                            <button type="button" id="btnAccountingCensored" class="btn btn-warning">Đã thanh toán</button>
+                        </div>
+                        <div class="col-sm-6" id="formCensor">
+                            <button type="button" id="btnSuccess" class="btn btn-success">Thành công</button>
+                            <button type="button" id="btnFail" class="btn btn-danger">Không thành công</button>
+                        </div>
+                 </div>
                 }
             </div>
-        </div>
+</div>
 
     </div>
 </div>

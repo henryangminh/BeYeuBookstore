@@ -52,23 +52,12 @@ namespace BeYeuBookstore.Application.Implementation
             return data;
         }
 
-        public List<AdvertisementContentViewModel> GetAllCensoredAdContentByAdvertiserId(int id)
-        {
 
-            var query = _advertisementContentRepository.FindAll(x=>(x.AdvertiserFK==id && x.CensorStatus == CensorStatus.AccountingCensored && x.AdvertiseContract==null ));
-            var data = new List<AdvertisementContentViewModel>();
-            foreach (var item in query)
-            {
-                var _data = Mapper.Map<AdvertisementContent, AdvertisementContentViewModel>(item);
-                data.Add(_data);
-            }
-            return data;
-        }
-
-        public PagedResult<AdvertisementContentViewModel> GetAllPaging(bool? isAdCensor, bool? isAccountant, int? advertiserId, int? status, string keyword, int page, int pageSize)
+        public PagedResult<AdvertisementContentViewModel> GetAllPaging(bool? isAdCensor, bool? isAccountant, int? advertiserId, int? status,int? advertiserSort ,string keyword, int page, int pageSize)
         {
-            var query = _advertisementContentRepository.FindAll(x=>x.AdvertisementPositionFKNavigation, x=>x.AdvertiserFKNavigation, x=>x.WebMasterCensorFKNavigation.UserBy);
-            query = query.OrderBy(x => x.KeyId);
+            var query = _advertisementContentRepository.FindAll(x=>x.AdvertisementPositionFKNavigation, x=>x.AdvertiserFKNavigation, x=>x.WebMasterCensorFKNavigation.UserBy, x=>x.AdvertiseContract);
+
+            query = query.OrderByDescending(x => x.KeyId);
             if (!string.IsNullOrEmpty(keyword))
             {
                 var keysearch = keyword.Trim().ToUpper();
@@ -80,17 +69,17 @@ namespace BeYeuBookstore.Application.Implementation
             {
                 query = query.Where(x => x.CensorStatus == (CensorStatus)status);
             }
+            if (advertiserSort.HasValue)
+            {
+                query = query.Where(x => x.AdvertiserFK == advertiserSort);
+            }
             if (advertiserId!=0)
             {
                 query = query.Where(x => x.AdvertiserFK == advertiserId);
             }
-            if (isAccountant == true)
-            {
-                query = query.Where(x => (x.CensorStatus == CensorStatus.ContentCensored || x.CensorStatus == CensorStatus.AccountingCensored));
-            }
             if (isAdCensor == true)
             {
-                query = query.Where(x => (x.CensorStatus == CensorStatus.Uncensored|| x.CensorStatus == CensorStatus.Unqualified));
+                query = query.Where(x => x.AdvertiseContract.Status == ContractStatus.DepositePaid );
             }
             int totalRow = query.Count();
 
@@ -133,7 +122,7 @@ namespace BeYeuBookstore.Application.Implementation
                 temp.Title = AdvertisementContentViewModel.Title;
                 temp.ImageLink = AdvertisementContentViewModel.ImageLink;               
                 temp.Description = AdvertisementContentViewModel.Description;
-                temp.Deposite = AdvertisementContentViewModel.Deposite;
+                
                 
             }
         }

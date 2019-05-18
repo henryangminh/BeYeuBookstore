@@ -13,6 +13,7 @@ namespace BeYeuBookstore.Application.ViewModels
         public DateTime DateStart { get; set; }
         public DateTime DateFinish { get; set; }
         public decimal ContractValue { get; set; }
+        public decimal Deposite { get; set; }
         public string Note { get; set; }
         public ContractStatus Status { get; set; }
         public DateTime? DateCreated { get; set; }

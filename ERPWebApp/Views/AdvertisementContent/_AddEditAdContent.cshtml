@@ -48,46 +48,10 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="selAdPosition" class="col-sm-2 col-form-label">Vị trí<span class="star">*</span></label>
-                            <div class="col-sm-4">
-                                <select id="selAdPosition" class="form-control" name="selAdPosition">
-                                    <option value="">Chọn vị trí</option>
-                                </select>
-                            </div>
                             <label for="txtCensorStatus" class="col-sm-2 col-form-label">Trạng thái</label>
                             <div class="col-sm-4" id="txtCensorStatus">
 
                             </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="txtAdPositionPrice" class="col-sm-2 col-form-label">Giá (VNĐ/ngày)</label>
-                            <div class="col-sm-4">
-                                <input type="text" class="form-control" id="txtAdPositionPrice" name="txtAdPositionPrice" readonly />
-                            </div>
-                            <label for="txtDeposits" class="col-sm-2 col-form-label">Tiền cọc (VNĐ)</label>
-                            <div class="col-sm-4">
-                                <input type="text" class="form-control" id="txtDeposits" name="txtDeposits" readonly />
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="txtHeight" class="col-sm-2 col-form-label">Chiều cao (px)</label>
-                            <div class="col-sm-4">
-                                <input type="text" class="form-control money" id="txtHeight" name="txtHeight" readonly />
-                            </div>
-                            <label for="txtWidth" class="col-sm-2 col-form-label">Chiều dài (px)</label>
-                            <div class="col-sm-4">
-                                <input type="text" class="form-control money" id="txtWidth" name="txtWidth" readonly />
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="ImgAdPosition" class="col-sm-2 col-form-label">Ảnh mô tả</label>
-                            <div class="col-sm-10" id="ImgAdPosition">
-
-                            </div>
-
                         </div>
 
                         <div class="form-group row">
@@ -143,9 +107,6 @@
                 </div>
                 @if (result_confirm.Succeeded)
                 {
-                    <div class="col-sm-6" id="formAccountingCensor">
-                        <button type="button" id="btnAccountingCensored" class="btn btn-warning">Đã đóng tiền cọc</button>
-                    </div>
                     <div class="col-sm-6" id="formCensor">
                         <button type="button" id="btnCensored" class="btn btn-success">Đã kiểm duyệt</button>
                         <button type="button" id="btnUnqualified" class="btn btn-danger">Không đủ tiêu chuẩn</button>

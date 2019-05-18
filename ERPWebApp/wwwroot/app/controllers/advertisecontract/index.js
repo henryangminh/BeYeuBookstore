@@ -53,11 +53,10 @@ var advertiseContractController = function () {
         $('#selStatus').on('change', function () {
             loadData();
         });
-        $('#selAdPosition').on('change', function () {
-           
-        });
+
 
         $('#selAdPosition').on('change', function () {
+            gDisabledDates.length = 0;
             $.ajax({
                 type: 'GET',
                 url: '/AdvertiseContract/GetAdPositionById',
@@ -68,6 +67,11 @@ var advertiseContractController = function () {
 
                 success: function (response) {
                     $('#txtAdPositionPrice').val(general.toMoney(response.AdvertisePrice));
+                    $('#txtTodate').val('');
+                    $('#txtFromdate').val('');
+                    $('#txtNodate').val('');
+                    $('#txtTotalPrice').val('');
+                    $('#txtMustPay').val('');
                     loadAllFutureSuccessContract($('#selAdPosition option:selected').val());
                 },
                 error: function (err) {
@@ -110,14 +114,17 @@ var advertiseContractController = function () {
 
         $('#btnCreate').on('click', function () {
             resetForm();
+            $('.star').removeClass('hidden');
             $('#addview').removeClass('hidden');
             $('#formCreate').removeClass('hidden');
             $('#formAccountingCensor').addClass('hidden');
             $('#formCensor').addClass('hidden');
             $('#TermsOfUse').removeClass('hidden');
             $('#btnSave').attr('disabled', 'disabled');
+            $('#UploadFile').removeClass('hidden');
             $('#watchview').addClass('hidden');
             $('#txtCensorStatus').html('<span class="badge bg-black" style="font-size:15px;">Chưa kiểm duyệt</span>');
+            $('#txtAdContentStatus').html('<span class="badge bg-black" style="font-size:15px;">Chưa kiểm duyệt</span>');
             $.ajax({
                 type: 'GET',
                 url: '/AdvertiseContract/GetAdvertiserInfo',
@@ -137,6 +144,36 @@ var advertiseContractController = function () {
                 error: function (err) {
                     general.notify('Có lỗi trong khi ghi !', 'error');
                     general.stopLoad();
+
+                },
+            });
+        });
+
+        $('#btnAccountingCensoredDeposite').on('click', function (e) {
+            e.preventDefault();
+            var keyId = parseInt($('#txtId').val());
+            var noteAdContract = $('#txtNote').val();
+            $.ajax({
+                type: 'POST',
+                url: '/AdvertiseContract/UpdateStatus',
+                data: {
+                    id: keyId,
+                    status: general.contractStatus.DepositePaid,
+                    note: noteAdContract,
+                },
+                dataType: "json",
+                beforeSend: function () {
+                    general.startLoad();
+                },
+
+                success: function (response) {
+                    $('#modal-add-edit').modal('hide');
+                    general.notify('Kiểm duyệt thành công!', 'success');
+                    resetForm();
+                    loadData();
+                },
+                error: function (err) {
+                    general.notify('Có lỗi trong khi ghi !', 'error');
 
                 },
             });
@@ -262,6 +299,23 @@ var advertiseContractController = function () {
             $('#watchview').removeClass('hidden');
             $('#formCreate').addClass('hidden');
             $('#UploadFile').addClass('hidden');
+            $('.star').addClass('hidden');
+            $('#AdImg').removeClass('hidden');
+            var that = $(this).data('id');
+            loadDetail(that);
+
+            //document.getElementById("btnSave").style.display = "block";
+        });
+        
+        $('body').on('click', '.btn-editContent', function (e) {
+            e.preventDefault();
+            $('#addview').addClass('hidden');
+            $('#formConfirm').addClass('hidden');
+            $('#formCreate').removeClass('hidden');
+            $('#watchview').removeClass('hidden');
+            $('#formCreate').addClass('hidden');
+            $('#UploadFile').addClass('hidden');
+            $('.star').removeClass('hidden');
             $('#AdImg').removeClass('hidden');
             var that = $(this).data('id');
             loadDetail(that);
@@ -300,22 +354,22 @@ var advertiseContractController = function () {
             else {
                 if ($('#frmMaintainance').valid()) {
                     e.preventDefault();
-                    var keyId;
+                    var adContract = new Object();
+                    
                     if ($('#txtId').val() == "") {
-                        keyId = 0;
+                        adContract.KeyId = 0;
                     }
                     else {
-                        keyId = parseInt($('#txtId').val());
+                        adContract.KeyId = parseInt($('#txtId').val());
                     }
-                    var adContentId = $('#selAdContent option:selected').val();
-                    var dateStart = moment($('#txtFromdate').val(), "DD/MM/YYYY").format("YYYY-MM-DD");
-                    var dateFinish = moment($('#txtTodate').val() + '23:59:59', "DD/MM/YYYY HH:mm:ss").format("YYYY-MM-DD HH:mm:ss");
+                    adContract.DateStart = moment($('#txtFromdate').val(), "DD/MM/YYYY").format("YYYY-MM-DD");
+                    adContract.DateFinish = moment($('#txtTodate').val() + '23:59:59', "DD/MM/YYYY HH:mm:ss").format("YYYY-MM-DD HH:mm:ss");
                     var noDate = $('#txtNodate').val();
-                    var contractValue = general.toFloat($('#txtTotalPrice').val());
-                    var note = $('#txtNote').val();
-                    var contractStatus = general.contractStatus.Requesting;
+                    adContract.ContractValue = general.toFloat($('#txtTotalPrice').val());
+                    adContract.Note = $('#txtNote').val();
+                    adContract.ContractStatus = general.contractStatus.Requesting;
 
-                    if (moment(dateStart, "YYYY-MM-DD").diff(moment()) < 3) {
+                    if (moment(adContract.DateStart, "YYYY-MM-DD").diff(moment()) < 3) {
                         general.notify('Ngày bắt đầu phải lớn hơn ngày hôm nay ít nhất hai ngày !', 'error');
                         return false;
                     }
@@ -325,7 +379,7 @@ var advertiseContractController = function () {
                         return false;
                     }
                     var flag;
-                    var _curday = moment(dateStart, "YYYY-MM-DD").format("DD/MM/YYYY");
+                    var _curday = moment(adContract.DateStart, "YYYY-MM-DD").format("DD/MM/YYYY");
                     for (var i = 0; i < parseInt(noDate); i++) {
                         if ($.inArray(_curday, gDisabledDates) != -1) {
                             flag = false;
@@ -337,11 +391,25 @@ var advertiseContractController = function () {
                         general.notify('Chuỗi ngày bạn chọn có những ngày không còn trống !', 'error');
                         return false;
                     }
+                    var data = new FormData();
 
+                    fileUpload = $('#fileAdImg').get(0);
+                    files = fileUpload.files;
+                    data.append("files", files[0]);
+                    var filename = $('#fileAdImg').val().split('\\').pop();
+                    var extension = filename.substr((filename.lastIndexOf('.') + 1));
+                    if (extension.toUpperCase() != "JPG" && extension.toUpperCase() != "PNG") {
+                        general.notify('File ảnh phải ở định dạng JPG hoặc PNG !', 'error');
+                        return false;
+                    }
+                    if ($('#fileAdImg')[0].files[0].size > general.maxSizeAllowed.AdContentImg) {
+                        general.notify('Kích thước ảnh phải nhỏ hơn 3Mb !', 'error');
+                        return false;
+                    }
                     var adContent = new Object();
                     if ($('#txtAdContentKeyId').val() == "")
                     {
-                        adContent.KeyId = $('#txtAdContentKeyId').val();
+                        adContent.KeyId = 0;
                     }
                     else
                     {
@@ -349,54 +417,73 @@ var advertiseContractController = function () {
                     }
                     adContent.AdvertisementPositionFK = $('#selAdPosition option:selected').val();
                     adContent.AdvertiserFK = $('#txtAdvertiserId').val();
-                    adContent.UrlToAdvertisement = $('#txtTitle').val();
+                    adContent.Title = $('#txtTitle').val();
                     adContent.Deposite = general.toFloat($('#txtMustPay').val());
                     adContent.CensorStatus = general.censorStatus.Uncensored;
                  
-                    var _link = $('#txtLink').val().split("/");
-                    if (_link[0].toUpperCase == 'HTTP:' || _link[0].toUpperCase == 'HTTPS:') {
-                        adContent.txtLink = $('#txtLink').val();
+                    var _link = $('#txtLink').val().substr(0,4);
+                    if (_link.toUpperCase == 'HTTP:') {
+                        adContent.UrlToAdvertisement = $('#txtLink').val();
                     }
                     else {
-                        adContent.txtLink = 'http://' + $('#txtLink').val();
+                        adContent.UrlToAdvertisement = 'http://' + $('#txtLink').val();
                     }
                     adContent.Description = $('#txtDescription').val();
                     $.ajax({
                         type: 'POST',
-                        url: '/AdvertiseContract/SaveEntity',
-                        
-                        data: {
-                            KeyId: keyId,
-                            AdvertisementContentFK: adContentId,
-                            DateStart: dateStart,
-                            DateFinish: dateFinish,
-                            ContractValue: contractValue,
-                            Status: contractStatus,
-                            Note: note,
-
-                        },
-                        dataType: "json",
+                        url: '/AdvertiseContract/ImportFiles',
+                        data: data,
+                        contentType: false,
+                        processData: false,
                         beforeSend: function () {
                             general.startLoad();
                         },
-                       
-                        success: function (response) {
+                        success: function (e) {
+                            if ($('#fileAdImg').val() != '') {
 
-                            $('#modal-add-edit').modal('hide');
-                            general.notify('Ghi thành công!', 'success');
-                            resetForm();
-                            general.stopLoad();
-                            
-                            loadData();
-                            
-                        },
-                        error: function (err) {
-                            general.notify('Có lỗi trong khi ghi !', 'error');
-                            general.stopLoading();
-                            general.stopLoad();
+                                linkImg = e[0];
 
+                                e.shift();
+
+                            }
+                            adContent.ImageLink = linkImg;
+                            $.ajax({
+                                type: 'POST',
+                                url: '/AdvertiseContract/SaveEntity',
+
+                                data: {
+                                    adContentVm: adContent,
+                                    advertiseContractVm: adContract,
+
+                                },
+                                dataType: "json",
+                                beforeSend: function () {
+                                    general.startLoad();
+                                },
+
+                                success: function (response) {
+
+                                    $('#modal-add-edit').modal('hide');
+                                    general.notify('Ghi thành công!', 'success');
+
+                                    $('#modal-add-success').modal('show');
+                                    resetForm();
+                                    general.stopLoad();
+
+                                    loadData();
+
+                                },
+                                error: function (err) {
+                                    general.notify('Có lỗi trong khi ghi !', 'error');
+                                    general.stopLoading();
+                                    general.stopLoad();
+
+                                },
+                            });
                         },
+                        error: function (e) { },
                     });
+                    
 
                     return false;
                     
@@ -409,6 +496,10 @@ var advertiseContractController = function () {
 
     function loadDetail(that) {
         $('#selAdContent').empty();
+        $('#AdImg').empty();
+       
+
+
         $.ajax({
             type: "GET",
             url: "/AdvertiseContract/GetById",
@@ -441,35 +532,100 @@ var advertiseContractController = function () {
                 $('#txtTotalPrice').val(general.toMoney(data.ContractValue));
                 $('#txtMustPay').val(general.toMoney(data.ContractValue-data.AdvertisementContentFKNavigation.AdvertisementPositionFKNavigation.AdvertisePrice));
                 $('#txtNote').val(data.Note);
-                var _color = '';
-                var _status = '';
-                switch (data.Status) {
-                    case general.contractStatus.Requesting:
-                        _color = 'black';
-                        _status = 'Chưa kiểm duyệt';
-                        $('#formAccountingCensor').removeClass('hidden');
-                        $('#formCensor').addClass('hidden');
-                        break;
-                    case general.contractStatus.Success:
-                        _color = 'green';
-                        _status = 'Thành công';
-                        $('#formCensor').addClass('hidden');
-                        $('#formAccountingCensor').addClass('hidden');
-                        break;
-                    case general.contractStatus.Unqualified:
-                        _color = 'red';
-                        _status = 'Không thành công';
-                        $('#formCensor').addClass('hidden');
-                        $('#formAccountingCensor').addClass('hidden');
-                        break;
-                    case general.contractStatus.AccountingCensored:
-                        _color = 'orange';
-                        _status = 'Kê toán đã kiểm duyệt';
-                        $('#formCensor').removeClass('hidden');
-                        $('#formAccountingCensor').addClass('hidden');
-                        break;
-                }
-                $('#txtCensorStatus').html('<span class="badge bg-' + _color + '" style="font-size:15px;">' + _status + '</span>');
+               
+                
+                $.ajax({
+                    type: "GET",
+                    url: "/AdvertiseContract/GetAdContentById",
+                    data: { id: data.AdvertisementContentFK },
+                    dataType: "json",
+                    beforeSend: function () {
+                        general.startLoad();
+                    },
+
+                    success: function (_response) {
+                        var _data = _response;
+                        $('#txtTitle').val(_data.Title);
+                        $('#txtAdContentKeyId').val(_data.KeyId);
+                        $('#txtLink').val(_data.UrlToAdvertisement);
+                        $('#txtDescription').val(_data.Description);
+                        $('#txtAdContentNote').val(_data.Note);
+                        var __color = "";
+                        var __status = "";
+                        switch (_data.CensorStatus) {
+                            case general.censorStatus.Uncensored:
+                                __color = 'black';
+                                __status = 'Chưa kiểm duyệt';
+                                $('#formAccountingCensor').addClass('hidden');
+                                $('#formAccountingCensorDeposite').addClass('hidden');
+                                break;
+                            case general.censorStatus.ContentCensored:
+                                __color = 'green';
+                                __status = 'Đã kiểm duyệt nội dung';
+                                $('#formAccountingCensor').removeClass('hidden');
+                                $('#formAccountingCensorDeposite').addClass('hidden');
+                                break;
+                            case general.censorStatus.Unqualified:
+                                __color = 'red';
+                                __status = 'Nội dung không phù hợp';
+
+                                $('#formAccountingCensor').addClass('hidden');
+                                $('#formAccountingCensorDeposite').addClass('hidden');
+                                break;
+
+
+                        }
+                        var _color = '';
+                        var _status = '';
+                        switch (data.Status) {
+                            case general.contractStatus.Requesting:
+                                _color = 'black';
+                                _status = 'Chưa kiểm duyệt';
+                                $('#formAccountingCensorDeposite').removeClass('hidden');
+                                $('#formAccountingCensor').addClass('hidden');
+                                $('#formCensor').addClass('hidden');
+                                break;
+                            case general.contractStatus.Success:
+                                _color = 'green';
+                                _status = 'Thành công';
+                                $('#formCensor').addClass('hidden');
+                                $('#formAccountingCensor').addClass('hidden');
+                                $('#formAccountingCensorDeposite').addClass('hidden');
+                                break;
+                            case general.contractStatus.DepositePaid:
+                                _color = 'purple';
+                                _status = 'Đã đóng cọc';
+                                $('#formCensor').addClass('hidden');
+                                $('#formAccountingCensor').addClass('hidden');
+                                $('#formAccountingCensorDeposite').addClass('hidden');
+                                break;
+                            case general.contractStatus.Unqualified:
+                                _color = 'red';
+                                _status = 'Không thành công';
+                                $('#formCensor').addClass('hidden');
+                                $('#formAccountingCensor').addClass('hidden');
+                                $('#formAccountingCensorDeposite').addClass('hidden');
+                                break;
+                            case general.contractStatus.AccountingCensored:
+                                _color = 'orange';
+                                _status = 'Kê toán đã kiểm duyệt';
+                                $('#formCensor').removeClass('hidden');
+                                $('#formAccountingCensor').addClass('hidden');
+                                break;
+                        }
+                        $('#txtAdContentStatus').html('<span class="badge bg-' + __color + '" style="font-size:15px;">' + __status + '</span>');
+                        $('#txtCensorStatus').html('<span class="badge bg-' + _color + '" style="font-size:15px;">' + _status + '</span>');
+                        if (data.Status == general.contractStatus.DepositePaid && _data.CensorStatus == general.censorStatus.ContentCensored) {
+                            $('#formAccountingCensor').removeClass('hidden');
+                        }
+                        $('#AdImg').append('<img src="' + _data.ImageLink + '" style="width:100%">');
+                        general.stopLoad();
+                    },
+                    error: function (status) {
+                        general.notify('Có lỗi xảy ra khi load nội dung quảng cáo', 'error');
+                        general.stopLoad();
+                    }
+                });
                 $('#modal-add-edit').modal('show');
 
                 general.stopLoad();
@@ -522,6 +678,11 @@ function loadData(isPageChanged) {
                         _statusName = 'Thành công';
                         break;
 
+                    case general.contractStatus.DepositePaid:
+                        _color = 'purple';
+                        _statusName = 'Đã đóng cọc';
+                        break;
+
                     case general.contractStatus.Unqualified:
                         _color = 'red';
                         _statusName = 'Không thành công';
@@ -536,6 +697,18 @@ function loadData(isPageChanged) {
                 var _todate = moment(item.DateFinish).format("DD/MM/YYYY HH:mm:ss");
                 var _contract = general.toMoney(item.ContractValue);
                 var _dateCreated = moment(item.DateCreated).format("DD/MM/YYYY");
+                $.ajax({
+                    type: "GET",
+                    url: "/AdvertiseContract/GetAdContentById",
+                    data: { id: item.AdvertisementContentFK },
+                    dataType: "json",
+                    beforeSend: function () {
+                        general.startLoad();
+                    },
+
+                    success: function (_response) { },
+                    error: function (_response) { },
+                });
                 render += Mustache.render(template, {
 
                     KeyId: item.KeyId,
@@ -794,6 +967,10 @@ function resetForm() {
     $('#txtAdContentNote').val('');
     $('#selAdPosition').val('');
     $('#txtAdPositionPrice').val('');
+    $('#txtAdContentStatus').empty();
+    $('#AdImg').empty();
+    $('#txtAdContentKeyId').val('');
+
 
     gDisabledDates.length = 0;
 

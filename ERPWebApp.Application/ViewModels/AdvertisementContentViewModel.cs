@@ -20,8 +20,7 @@ namespace BeYeuBookstore.Application.ViewModels
         public string Description { get; set; }
         //Link 16'
         public string UrlToAdvertisement { get; set; }
-        //Tiền
-        public decimal Deposite { get; set; }
+    
         //Kiểm duyệt chưa?
         public CensorStatus CensorStatus { get; set; }
         /// <summary>
