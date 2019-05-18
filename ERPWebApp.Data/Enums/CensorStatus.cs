@@ -7,7 +7,6 @@ namespace BeYeuBookstore.Data.Enums
     public enum CensorStatus
     {
         Uncensored,
-        AccountingCensored,
         ContentCensored,
         Unqualified,
     }

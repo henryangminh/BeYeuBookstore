@@ -123,16 +123,16 @@
 
     censorStatus: {
         Uncensored: 0,
-        AccountingCensored: 1,
-        ContentCensored: 2,
-        Unqualified: 3,
+        ContentCensored: 1,
+        Unqualified: 2,
     },
     
     contractStatus: {
         Requesting: 0,
         Unqualified: 1,
         Success: 2,
-        AccountingCensored: 3,
+        DepositePaid: 3,
+        AccountingCensored: 4,
     },
 
     merchantScale: {

@@ -68,7 +68,7 @@ namespace BeYeuBookstore.Application.Implementation
 
         public List<AdvertiseContractViewModel> GetAllFutureContractByPositionId(int id)
         {
-            var query = _advertiseContractRepository.FindAll(x=>(x.Status != ContractStatus.Requesting && x.DateFinish >= DateTime.Now && x.AdvertisementContentFKNavigation.AdvertisementPositionFK==id));
+            var query = _advertiseContractRepository.FindAll(x=>(x.Status != ContractStatus.Unqualified && x.DateFinish >= DateTime.Now && x.AdvertisementContentFKNavigation.AdvertisementPositionFK==id));
             var data = new List<AdvertiseContractViewModel>();
             foreach (var item in query)
             {

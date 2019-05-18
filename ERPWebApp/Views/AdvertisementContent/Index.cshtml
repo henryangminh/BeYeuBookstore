@@ -40,20 +40,19 @@
         <select class="form-control" id="selStatus">
             <option value="">Chọn trạng thái</option>
             <option value="0">Chưa kiểm duyệt</option>
-            <option value="1">Kế toán đã kiểm duyệt</option>
-            <option value="2">Đã kiểm duyệt nội dung</option>
-            <option value="3">Không đủ tiêu chuẩn</option>
+            <option value="1">Đã duyệt nội dung</option>
+            <option value="2">Không đủ tiêu chuẩn</option>
+        </select>
+    </div> 
+    <div class="col-lg-3">
+        <select class="form-control" id="selAdvertiser">
+            <option value="">Chọn người quảng cáo</option>
+          
         </select>
     </div>
-    <div class="col-sm-4 form-group">
+    <div class="col-sm-1 form-group">
 
     </div>
-    @if (result_create.Succeeded)
-     {
-        <div class="col-sm-1 form-group">
-            <button id="btnCreate" class="btn btn-success"><i class="fa fa-plus"></i> Thêm mới</button>
-        </div>
-     }
     </div>
 
 <div class="row">

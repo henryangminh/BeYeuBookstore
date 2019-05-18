@@ -39,10 +39,7 @@ var booksinController = function () {
 
         $('#selectBook').on('change', function () {
         });
-
-        //$('#modal-add-edit').on('hide', function () {
-        //    resetForm();
-        //});
+        
 
         $('#btnCreate').on('click', function () {
             resetForm();

@@ -2,6 +2,7 @@
     this.initialize = function () {
         loadData();
         loadAdPosition();
+        loadAllAdvertiser();
         registerEvents();
     }
     function registerEvents() {
@@ -13,6 +14,9 @@
         });
 
         $('#selStatus').on('change', function () {
+            loadData();
+        });
+        $('#selAdvertiser').on('change', function () {
             loadData();
         });
 
@@ -379,25 +383,19 @@
                         _color = 'black';
                         _status = 'Chưa kiểm duyệt';
                         $('#formCensor').removeClass('hidden');
-                        $('#formAccountingCensor').addClass('hidden');
-                        break;
-                    case general.censorStatus.AccountingCensored:
-                        _color = 'orange';
-                        _status = 'Kế toán đã kiểm duyệt';
-                        $('#formAccountingCensor').addClass('hidden');
-                        $('#formCensor').addClass('hidden');
+                       
                         break;
                     case general.censorStatus.ContentCensored:
                         _color = 'green';
                         _status = 'Đã kiểm duyệt nội dung';
                         $('#formCensor').addClass('hidden');
-                        $('#formAccountingCensor').removeClass('hidden');
+                        
                         break;
                     case general.censorStatus.Unqualified:
                         _color = 'red';
                         _status = 'Không đủ tiêu chuẩn';
                         $('#formCensor').addClass('hidden');
-                        $('#formAccountingCensor').addClass('hidden');
+                        
                         break;
                 }
                 $('#txtCensorStatus').html('<span class="badge bg-' + _color + '" style="font-size:15px;">' + _status + '</span>');
@@ -428,6 +426,7 @@ function loadData(isPageChanged) {
 
             keyword: $('#txtKeyword').val(),
             status: $('#selStatus').val(),
+            advertiserSort: $('#selAdvertiser').val(),
             page: general.configs.pageIndex,
             pageSize: general.configs.pageSize,
         },
@@ -516,6 +515,58 @@ function wrapPaging(recordCount, callBack, changePageSize) {
         });
 }
 
+function loadAdPosition() {
+    $.ajax({
+        type: 'GET',
+        url: '/AdvertisementContent/GetAllAdPosition',
+
+        dataType: "json",
+        beforeSend: function () {
+            general.startLoad();
+        },
+        
+
+        success: function (response) {
+
+            $.each(response, function (i, item) {
+                $('#selAdPosition').append("<option value='" + item.KeyId + "'>" + item.Title + "</option>");
+                general.stopLoad();
+
+            });
+        },
+        error: function (err) {
+            general.notify('Có lỗi trong khi load vị trí quảng cáo !', 'error');
+            general.stopLoad();
+        },
+    });
+
+}
+function loadAllAdvertiser() {
+    $.ajax({
+        type: 'GET',
+        url: '/AdvertisementContent/GetAllAdvertiser',
+
+        dataType: "json",
+        beforeSend: function () {
+            general.startLoad();
+        },
+        
+
+        success: function (response) {
+
+            $.each(response, function (i, item) {
+                $('#selAdvertiser').append("<option value='" + item.KeyId + "'>" + item.BrandName + "</option>");
+                general.stopLoad();
+
+            });
+        },
+        error: function (err) {
+            general.notify('Có lỗi trong khi load người quảng cáo !', 'error');
+            general.stopLoad();
+        },
+    });
+
+}
 function loadAdPosition() {
     $.ajax({
         type: 'GET',

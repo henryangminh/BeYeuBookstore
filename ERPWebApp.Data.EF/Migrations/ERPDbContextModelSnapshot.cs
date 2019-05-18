@@ -22,7 +22,7 @@ namespace BeYeuBookstore.Data.EF.Migrations
                     b.Property<int>("KeyId")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int>("AdvertisementContentFK");
+                    b.Property<int?>("AdvertisementContentFK");
 
                     b.Property<decimal>("ContractValue");
 
@@ -33,6 +33,8 @@ namespace BeYeuBookstore.Data.EF.Migrations
                     b.Property<DateTime?>("DateModified");
 
                     b.Property<DateTime>("DateStart");
+
+                    b.Property<decimal>("Deposite");
 
                     b.Property<string>("Note");
 
@@ -51,7 +53,7 @@ namespace BeYeuBookstore.Data.EF.Migrations
                     b.Property<int>("KeyId")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int>("AdvertisementPositionFK");
+                    b.Property<int?>("AdvertisementPositionFK");
 
                     b.Property<int>("AdvertiserFK");
 
@@ -62,8 +64,6 @@ namespace BeYeuBookstore.Data.EF.Migrations
                     b.Property<DateTime?>("DateCreated");
 
                     b.Property<DateTime?>("DateModified");
-
-                    b.Property<decimal>("Deposite");
 
                     b.Property<string>("Description");
 
@@ -850,8 +850,7 @@ namespace BeYeuBookstore.Data.EF.Migrations
                 {
                     b.HasOne("BeYeuBookstore.Data.Entities.AdvertisementContent", "AdvertisementContentFKNavigation")
                         .WithOne("AdvertiseContract")
-                        .HasForeignKey("BeYeuBookstore.Data.Entities.AdvertiseContract", "AdvertisementContentFK")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("BeYeuBookstore.Data.Entities.AdvertiseContract", "AdvertisementContentFK");
                 });
 
             modelBuilder.Entity("BeYeuBookstore.Data.Entities.AdvertisementContent", b =>
@@ -859,8 +858,7 @@ namespace BeYeuBookstore.Data.EF.Migrations
                     b.HasOne("BeYeuBookstore.Data.Entities.AdvertisementPosition", "AdvertisementPositionFKNavigation")
                         .WithMany("AdvertisementContents")
                         .HasForeignKey("AdvertisementPositionFK")
-                        .HasConstraintName("FK_dbo.AdvertisementContent.AdvertisementPosition")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasConstraintName("FK_dbo.AdvertisementContent.AdvertisementPosition");
 
                     b.HasOne("BeYeuBookstore.Data.Entities.Advertiser", "AdvertiserFKNavigation")
                         .WithMany("AdvertisementContents")

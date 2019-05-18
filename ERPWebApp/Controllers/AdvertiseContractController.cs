@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using BeYeuBookstore.Application.Interfaces;
@@ -8,6 +9,8 @@ using BeYeuBookstore.Authorization;
 using BeYeuBookstore.Infrastructure.Interfaces;
 using BeYeuBookstore.Utilities.Constants;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 
@@ -16,6 +19,8 @@ namespace BeYeuBookstore.Controllers
     [Authorize]
     public class AdvertiseContractController : Controller
     {
+        private readonly IHostingEnvironment _hostingEnvironment;
+
         IAdvertiserService _advertiserService;
         IAdvertisementPositionService _advertisementPositionService;
         IWebMasterService _webMasterService;
@@ -23,8 +28,9 @@ namespace BeYeuBookstore.Controllers
         IAdvertiseContractService _advertiseContractService;
         IAuthorizationService _authorizationService;
         IUnitOfWork _unitOfWork;
-        public AdvertiseContractController(IAdvertisementPositionService advertisementPositionService, IAuthorizationService authorizationService ,IAdvertisementContentService advertisementContentService, IWebMasterService webMasterService,IAdvertiserService advertiserService,IAdvertiseContractService advertiseContractService, IUnitOfWork unitOfWork)
+        public AdvertiseContractController(IHostingEnvironment hostingEnvironment,IAdvertisementPositionService advertisementPositionService, IAuthorizationService authorizationService ,IAdvertisementContentService advertisementContentService, IWebMasterService webMasterService,IAdvertiserService advertiserService,IAdvertiseContractService advertiseContractService, IUnitOfWork unitOfWork)
         {
+            _hostingEnvironment = hostingEnvironment;
             _advertisementPositionService = advertisementPositionService;
             _authorizationService = authorizationService;
             _advertisementContentService = advertisementContentService;
@@ -104,7 +110,7 @@ namespace BeYeuBookstore.Controllers
         }
 
         [HttpPost]
-        public IActionResult SaveEntity(AdvertiseContractViewModel advertiseContractVm)
+        public IActionResult SaveEntity(AdvertisementContentViewModel adContentVm, AdvertiseContractViewModel advertiseContractVm)
         {
             if (!ModelState.IsValid)
             {
@@ -115,11 +121,14 @@ namespace BeYeuBookstore.Controllers
             {
                 if (advertiseContractVm.KeyId == 0)
                 {
-
-                    _advertiseContractService.Add(advertiseContractVm);
+                   var _adContent = _advertisementContentService.Add(adContentVm);
+                   advertiseContractVm.AdvertisementContentFK = _adContent.KeyId;
+                   _advertiseContractService.Add(advertiseContractVm);
+                    
                 }
                 else
                 {
+                    _advertisementContentService.Update(adContentVm);
                     _advertiseContractService.Update(advertiseContractVm);
                 }
                 _advertiseContractService.Save();
@@ -133,15 +142,7 @@ namespace BeYeuBookstore.Controllers
             var model = _advertiseContractService.GetAllRequestingNPaidContract();
             return new OkObjectResult(model);
         }
-
-        [HttpGet]
-        public IActionResult GetAllAdContentByAdvertiserId()
-        {
-            var userid = _generalFunctionController.Instance.getClaimType(User, CommonConstants.UserClaims.Key);
-            var A = _advertiserService.GetBysId(userid);
-            var model = _advertisementContentService.GetAllCensoredAdContentByAdvertiserId(A.KeyId);
-            return new OkObjectResult(model);
-        }
+        
         
         [HttpGet]
         public IActionResult GetAdvertiserByStatistic()
@@ -197,6 +198,46 @@ namespace BeYeuBookstore.Controllers
             _advertiseContractService.UpdateStatus(id, status, note);
             _advertiseContractService.Save();
             return new OkObjectResult("true");
+        }
+
+        [Authorize]
+        [HttpPost]
+        public IActionResult ImportFiles(IList<IFormFile> files)
+        {
+            var userid = _generalFunctionController.Instance.getClaimType(User, CommonConstants.UserClaims.Key);
+            var advertiser = new AdvertiserViewModel();
+            if (Guid.TryParse(userid, out var guid))
+            {
+                advertiser = _advertiserService.GetBysId(userid);
+            }
+
+            if (files != null && files.Count > 0)
+            {
+                List<string> fileName = new List<string>();
+                for (int i = 0; i < files.Count; i++)
+                {
+                    var file = files[i];
+                    var extension = Path.GetExtension(file.FileName);
+                    var filename = DateTime.Now.ToString("yyyyMMddHHmmss");
+                    filename = (filename + extension).ToString();
+                    string folder = _hostingEnvironment.WebRootPath + $@"\images\advertiser\" + advertiser.BrandName + "\\content";
+                    if (!Directory.Exists(folder))
+                    {
+                        Directory.CreateDirectory(folder);
+                    }
+                    string filePath = Path.Combine(folder, filename);
+                    fileName.Add(Path.Combine($@"\images\advertiser\" + advertiser.BrandName + "\\content", filename).Replace($@"\", $@"/"));
+
+                    using (FileStream fs = System.IO.File.Create(filePath))
+                    {
+                        file.CopyTo(fs);
+                        fs.Flush();
+                    }
+                }
+                _advertisementContentService.Save();
+                return new OkObjectResult(fileName);
+            }
+            return new NoContentResult();
         }
     }
 }
