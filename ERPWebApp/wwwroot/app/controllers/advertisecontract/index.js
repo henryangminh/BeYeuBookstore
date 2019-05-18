@@ -697,6 +697,18 @@ function loadData(isPageChanged) {
                 var _todate = moment(item.DateFinish).format("DD/MM/YYYY HH:mm:ss");
                 var _contract = general.toMoney(item.ContractValue);
                 var _dateCreated = moment(item.DateCreated).format("DD/MM/YYYY");
+                $.ajax({
+                    type: "GET",
+                    url: "/AdvertiseContract/GetAdContentById",
+                    data: { id: item.AdvertisementContentFK },
+                    dataType: "json",
+                    beforeSend: function () {
+                        general.startLoad();
+                    },
+
+                    success: function (_response) { },
+                    error: function (_response) { },
+                });
                 render += Mustache.render(template, {
 
                     KeyId: item.KeyId,
