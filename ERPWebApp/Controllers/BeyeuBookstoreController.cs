@@ -139,10 +139,9 @@ namespace BeYeuBookstore.Controllers
         }
 
         [HttpGet]
-        public IActionResult GetAllPaging(string txtSearch, int BookCategoryId, int? From, int? To, int page, int pageSize)
+        public IActionResult GetAllPaging(string txtSearch, int BookCategoryId, int? From, int? To, int? MerchantId, int? OrderBy, int? Order ,int page, int pageSize)
         {
-            var model = _bookService.GetAllPaging(txtSearch, BookCategoryId, From, To, page, pageSize);
-            model.Results = model.Results.Where(x => x.Status == Data.Enums.Status.Active && x.Quantity > 0).ToList();
+            var model = _bookService.GetAllPaging(txtSearch, BookCategoryId, From, To, MerchantId, OrderBy, Order, page, pageSize);
             return new OkObjectResult(model);
         }
 

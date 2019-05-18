@@ -54,7 +54,7 @@ else
                                         <span>
                                             @{
                                                 var quantity = Model.Item1.Quantity;
-                                                Write((quantity > 0) ? "Còn hàng" : "Hết hàng");
+                                                Write((quantity > 0) ? "Còn " + quantity + " cuốn" : "Hết hàng");
                                             }
                                         </span>
                                         <div class="product-attribute">
@@ -81,9 +81,10 @@ else
                                     </div>
                                     @if (quantity > 0)
                                     {
+                                        <input type="hidden" value="@Context.Request.Query["id"]" />
                                         <div class="product-add-form">
                                             <form onsubmit="return false">
-                                                <a href="#">Thêm vào giỏ hàng</a>
+                                                <a id="AddToCart">Thêm vào giỏ hàng</a>
                                             </form>
                                         </div>
                                     }

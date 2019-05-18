@@ -78,6 +78,7 @@ else
     {
         var Total = 0;
         var Cart = HttpContextAccessor.HttpContext.Session.Get<List<CartViewModel>>("CartSession");
+        Cart = Cart.Where(x => x.Book.Quantity > 0 && x.Quantity <= x.Book.Quantity).ToList();
         @if (Cart != null && Cart.Count > 0)
         {
             var NumberOfMerchant = Cart.GroupBy(x => x.Book.MerchantFK).ToList().Count();
@@ -151,15 +152,15 @@ else
                                                 <tr class="shipping">
                                                     <th>Phí vận chuyển</th>
                                                     <td>
-                                                        <span class="amount" id="Shipping">@{Write("0 - " + (NumberOfMerchant * 30000).ToString("###,###,###,###,###"));}</span>
+                                                        <span class="amount" id="Shipping">@{Write((NumberOfMerchant * 25000).ToString("###,###,###,###,###"));}</span>
                                                     </td>
                                                 </tr>
                                                 <tr class="order-total">
                                                     <th>Thành tiền</th>
                                                     <td>
                                                         @{ 
-                                                            var TotalWithShip = Total + NumberOfMerchant * 30000;
-                                                            var textTotalMoney = Total.ToString("###,###,###,###") + " - " + TotalWithShip.ToString("###,###,###,###");
+                                                            var TotalWithShip = Total + NumberOfMerchant * 25000;
+                                                            var textTotalMoney = TotalWithShip.ToString("###,###,###,###");
                                                         }
                                                         <strong><span class="amount">@textTotalMoney</span></strong>
                                                     </td>

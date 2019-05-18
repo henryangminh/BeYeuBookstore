@@ -1,5 +1,6 @@
 ﻿var cartController = function () {
     this.initialize = function () {
+        ReloadCart();
         loadCart();
         registerEvents();
     }
@@ -85,7 +86,7 @@ function loadCart() {
             else {
                 $.each(respond, function (i, item) {
                     var subtotal = parseInt(item.Quantity) * parseInt(item.UnitPrice);
-                    total += subtotal;
+                    total += (item.Quantity > item.Book.Quantity || item.Book.Quantity == 0) ? 0 : subtotal;
                     render += Mustache.render(template, {
                         KeyId: item.Book.KeyId,
                         LinkToProduct: '#',
@@ -102,9 +103,12 @@ function loadCart() {
                             LinkToProduct: '#',
                             LinkImage: item.Book.Img, //'/images/img/product/10.jpg', //để tạm thời
                             BookName: item.Book.BookTitle,
-                            Quantity: item.Quantity,
+                            Quantity: (item.Quantity > item.Book.Quantity || item.Book.Quantity == 0) ? 0 : item.Quantity,
+                            MaxQuantity: item.Book.Quantity,
                             UnitPrice: general.toMoney(item.UnitPrice),
-                            SubTotal: general.toMoney(subtotal),
+                            SubTotal: (item.Quantity > item.Book.Quantity || item.Book.Quantity == 0) ? 0 : general.toMoney(subtotal),
+                            disabled: (item.Quantity > item.Book.Quantity || item.Book.Quantity == 0) ? true : false,
+                            Message: (item.Quantity > item.Book.Quantity || item.Book.Quantity == 0) ? "Món hàng mà bạn đặt hiện đã hết hàng" : "",
                         })
                     }
                 })
@@ -115,6 +119,20 @@ function loadCart() {
             $('#txtTotalPriceCart').text(general.toMoney(total));
             $('#txtCartAmount').text(general.toMoney(total));
             $('#txtCartTotal').text(general.toMoney(total));
+        },
+        error: function (e) {
+            console.log(e);
+        }
+    })
+}
+
+function ReloadCart() {
+    $.ajax({
+        type: 'GET',
+        url: '/Cart/ReloadCart',
+        dataType: 'json',
+        success: function (respond) {
+            console.log("CartSession", respond);
         },
         error: function (e) {
             console.log(e);

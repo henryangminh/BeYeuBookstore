@@ -41,7 +41,7 @@ namespace BeYeuBookstore.Application.Implementation
 
         public List<MerchantViewModel> GetAll()
         {
-            var query = _merchantRepository.FindAll();
+            var query = _merchantRepository.FindAll(x => x.UserBy);
             var data = new List<MerchantViewModel>();
             foreach (var item in query)
             {

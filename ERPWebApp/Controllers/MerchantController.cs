@@ -47,6 +47,13 @@ namespace BeYeuBookstore.Controllers
         }
 
         [HttpGet]
+        public IActionResult GetAll()
+        {
+            var model = _merchantService.GetAll();
+            return new OkObjectResult(model);
+        }
+
+        [HttpGet]
         public IActionResult GetById(int id)
         {
             var model = _merchantService.GetById(id);
