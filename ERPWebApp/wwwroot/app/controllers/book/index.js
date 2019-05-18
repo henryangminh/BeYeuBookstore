@@ -47,6 +47,7 @@
                     console.log("loadInfo", response);
                     $('#txtMerchantKeyId').val(response.KeyId);
                     $('#txtMerchantStatus').val(response.Status);
+                    $('#dtDateCreated').val(moment().format("DD/MM/YYYY"));
                     $('#txtMerchant').val(response.MerchantCompanyName);
                     $('#selStatus').html('<span class="badge bg-black" style="font-size:15px;">Đang nhập</span>');
                     $('#modal-add-edit').modal('show');

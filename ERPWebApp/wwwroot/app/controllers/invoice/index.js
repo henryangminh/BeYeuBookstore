@@ -196,11 +196,13 @@
                         console.log("InvoiceDetail", innerresponse);
                         $.each(innerresponse, function (i, item) {
                             var _subTotal = general.toMoney(item.SubTotal);
+                            var _unitPrice = general.toMoney(item.BookFKNavigation.UnitPrice);
                             renderDetail += Mustache.render(template, {
 
                                 InvoiceId: item.InvoiceFK,
                                 BookName: item.BookFKNavigation.BookTitle,
                                 Qty: item.Qty,
+                                UnitPrice: _unitPrice,
                                 Price: _subTotal,
 
                             });

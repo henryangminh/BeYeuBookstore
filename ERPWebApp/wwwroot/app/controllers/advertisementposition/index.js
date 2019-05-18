@@ -46,7 +46,8 @@ var advertisementPositionController = function () {
 
         $('#btnCreate').on('click', function () {
             resetForm();
-           
+            $('#modal-add-edit').modal('show');
+            $('#WatchDate').addClass('hidden');
 
         });
 
@@ -67,6 +68,7 @@ var advertisementPositionController = function () {
 
         $('body').on('click', '.btn-edit', function (e) {
             e.preventDefault();
+            $('#WatchDate').removeClass('hidden');
             var that = $(this).data('id');
             loadDetail(that);
 
@@ -113,6 +115,11 @@ var advertisementPositionController = function () {
                     number: true
 
                 },
+                txtPositionTitle: {
+                    required: true,
+                
+
+                },
             }
         });
         //Save 
@@ -138,6 +145,7 @@ var advertisementPositionController = function () {
                     var price = general.toFloat($('#txtPrice').val());
                     var status = $('#selEditStatus option:selected').val();
                     var pageurl = $('#txtPageUrl').val();
+                    var title = $('#txtPositionTitle').val();
                     $.ajax({
                         type: 'POST',
                         url: '/AdvertisementPosition/SaveEntity',
@@ -149,6 +157,7 @@ var advertisementPositionController = function () {
                             Height: height,
                             AdvertisePrice: price,
                             Status: status,
+                            Title: title,
                         },
                         dataType: "json",
                         beforeSend: function () {
@@ -183,18 +192,18 @@ var advertisementPositionController = function () {
         $('#txtId').val('');
         $('#txtStatus').val('')
         $('#dtDateModified').val('');
-        $('#dtDateModified').val('');
-        $('#txtBooktitle').val('');
-        $('#txtAuthor').val('');
-        $('#selBookcategory').val('');
+        $('#dtDateCreated').val('');
+        $('#txtAdId').val('');
+        $('#selEditStatus').val('');
+        $('#txtPageUrl').val('');
         $('#selisPaperback').val('');
         $('#txtLength').val('');
         $('#txtHeight').val('');
         $('#txtWidth').val('');
         $('#txtPageNumber').val('');
         $('#txtPrice').val('');
-        $('#txtDescription').val('');
         $('#txtWatchdate').val('');
+        $('#txtPositionTitle').val('');
         gDisabledDates.length = 0;
 
 
@@ -226,6 +235,7 @@ var advertisementPositionController = function () {
                 $('#txtPrice').val(general.toMoney(data.AdvertisePrice));
                 $('#selEditStatus').val(data.Status);
                 $('#txtPageUrl').val(data.PageUrl);
+                $('#txtPositionTitle').val(data.Title);
                 $('#modal-add-edit').modal('show');
 
                 general.stopLoad();

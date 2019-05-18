@@ -94,12 +94,12 @@ namespace BeYeuBookstore.Application.Implementation
         {
             
             var query = _advertiseContractRepository.FindAll(x => x.AdvertisementContentFKNavigation, x=>x.AdvertisementContentFKNavigation.AdvertiserFKNavigation);
-            query = query.OrderBy(x => x.KeyId);
+           
             if (!string.IsNullOrEmpty(keyword))
             {
                 var keysearch = keyword.Trim().ToUpper();
 
-                query = query.OrderBy(x => x.KeyId).Where(x => (x.AdvertisementContentFKNavigation.AdvertiserFKNavigation.BrandName.ToUpper().Contains(keysearch) || x.AdvertisementContentFKNavigation.Title.ToUpper().Contains(keysearch)));
+                query = query.OrderByDescending(x => x.KeyId).Where(x => (x.AdvertisementContentFKNavigation.AdvertiserFKNavigation.BrandName.ToUpper().Contains(keysearch) || x.AdvertisementContentFKNavigation.Title.ToUpper().Contains(keysearch)));
 
             }
 
@@ -136,8 +136,9 @@ namespace BeYeuBookstore.Application.Implementation
                 query = query.Where(x => (x.Status == ContractStatus.AccountingCensored || x.Status == ContractStatus.Unqualified || x.Status == ContractStatus.Success));
             }
             int totalRow = query.Count();
-
+            query = query.OrderByDescending(x => x.KeyId);
             query = query.Skip((page - 1) * pageSize).Take(pageSize);
+            
             var data = new List<AdvertiseContractViewModel>();
             foreach (var item in query)
             {
