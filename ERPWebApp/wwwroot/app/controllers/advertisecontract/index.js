@@ -114,6 +114,13 @@ var advertiseContractController = function () {
 
         $('#btnCreate').on('click', function () {
             resetForm();
+
+            $('#btnSaveAdContent').addClass('hidden');
+            $('#btnSave').removeClass('hidden');
+            $('#selAdPosition').removeAttr('disabled', 'disabled');
+            $('#txtFromdate').removeAttr('disabled', 'disabled');
+            $('#txtTodate').removeAttr('disabled', 'disabled');
+            $('#txtNote').removeAttr('readonly', 'readonly');
             $('.star').removeClass('hidden');
             $('#addview').removeClass('hidden');
             $('#formCreate').removeClass('hidden');
@@ -210,6 +217,121 @@ var advertiseContractController = function () {
             });
         });
 
+        $('#btnSaveAdContent').on('click', function (e) {
+            e.preventDefault();
+            if ($('#frmMaintainance').valid()) {
+                var keyId = parseInt($('#txtAdContentKeyId').val());
+                var title = $('#txtTitle').val();
+                var _link = $('#txtLink').val().substr(0, 4);
+                var urlToBrand = "";
+                if (_link.toUpperCase == 'HTTP:') {
+                    urlToBrand = $('#txtLink').val();
+                }
+                else {
+                    urlToBrand = 'http://' + $('#txtLink').val();
+                }
+                var description = $('#txtDescription').val();
+                var noteAdContract = $('#txtNote').val();
+
+                var data = new FormData();
+
+                fileUpload = $('#fileAdImg').get(0);
+                files = fileUpload.files;
+                data.append("files", files[0]);
+                if ($('#fileAdImg').val() != "") {
+                    $.ajax({
+                        type: 'POST',
+                        url: '/AdvertiseContract/ImportFiles',
+                        data: data,
+                        contentType: false,
+                        processData: false,
+                        beforeSend: function () {
+                            general.startLoad();
+                        },
+                        success: function (e) {
+                            if ($('#fileAdImg').val() != '') {
+
+                                linkImg = e[0];
+
+                                e.shift();
+
+                            }
+                            $.ajax({
+                                type: 'POST',
+                                url: '/AdvertiseContract/UpdateUnqualifiedAdContent',
+                                data: {
+                                    KeyId: keyId,
+                                    Title: title,
+                                    ImageLink: linkImg,
+                                    UrlToAdvertisement: urlToBrand,
+                                    Description: description,
+                                    Note: noteAdContract,
+
+                                },
+                                dataType: "json",
+                                beforeSend: function () {
+                                    general.startLoad();
+                                },
+
+                                success: function (response) {
+
+                                    $('#modal-add-edit').modal('hide');
+                                    general.notify('Cập nhật nội dung quảng cáo thành công, bạn vui lòng chờ duyệt nhé!', 'success');
+                                    resetForm();
+                                    loadData();
+                                },
+                                error: function (err) {
+                                    general.notify('Có lỗi trong khi ghi !', 'error');
+                                    general.stopLoad();
+
+                                },
+                            });
+                        },
+
+                        error: function (err) {
+                            general.notify('Có lỗi trong khi ghi !', 'error');
+                            general.stopLoad();
+
+                        },
+                    });
+
+                }
+                else {
+
+                    $.ajax({
+                        type: 'POST',
+                        url: '/AdvertiseContract/UpdateUnqualifiedAdContent',
+                        data: {
+                            KeyId: keyId,
+                            Title: title,
+                            UrlToAdvertisement: urlToBrand,
+                            Description: description,
+                            Note: noteAdContract,
+
+                        },
+                        dataType: "json",
+                        beforeSend: function () {
+                            general.startLoad();
+                        },
+
+                        success: function (response) {
+
+                            $('#modal-add-edit').modal('hide');
+                            general.notify('Cập nhật nội dung quảng cáo thành công, bạn vui lòng chờ duyệt nhé!', 'success');
+                            resetForm();
+                            loadData();
+                        },
+                        error: function (err) {
+                            general.notify('Có lỗi trong khi ghi !', 'error');
+                            general.stopLoad();
+
+                        },
+                    });
+                }
+            }
+        });
+        
+
         $('#btnSuccess').on('click', function (e) {
             e.preventDefault();
             var keyId = parseInt($('#txtId').val());
@@ -301,6 +423,13 @@ var advertiseContractController = function () {
             $('#UploadFile').addClass('hidden');
             $('.star').addClass('hidden');
             $('#AdImg').removeClass('hidden');
+
+            $('#selAdPosition').attr('disabled', 'disabled');
+            $('#txtFromdate').attr('disabled', 'disabled');
+            $('#txtTodate').attr('disabled', 'disabled');
+
+            $('#oldImg').removeClass('hidden');
+            $('#newImg').addClass('hidden');
             var that = $(this).data('id');
             loadDetail(that);
 
@@ -309,12 +438,21 @@ var advertiseContractController = function () {
         
         $('body').on('click', '.btn-editContent', function (e) {
             e.preventDefault();
+            $('#UploadFile').removeClass('hidden');
+            $('#newImg').removeClass('hidden');
+            $('#oldImg').addClass('hidden');
+            $('#selAdPosition').attr('disabled', 'disabled');
+            $('#txtFromdate').attr('disabled', 'disabled');
+            $('#txtTodate').attr('disabled', 'disabled');
+            $('#txtNote').attr('readonly', 'readonly');
             $('#addview').addClass('hidden');
             $('#formConfirm').addClass('hidden');
             $('#formCreate').removeClass('hidden');
             $('#watchview').removeClass('hidden');
-            $('#formCreate').addClass('hidden');
-            $('#UploadFile').addClass('hidden');
+            $('#btnSave').addClass('hidden');
+            $('#btnSaveAdContent').removeClass('hidden');
+        
+           
             $('.star').removeClass('hidden');
             $('#AdImg').removeClass('hidden');
             var that = $(this).data('id');
@@ -329,9 +467,7 @@ var advertiseContractController = function () {
             errorClass: 'red',
             ignore: [],
             lang: 'vi',
-            rules: {
-
-               
+            rules: {              
                 txtFromdate:
                 {
                     required: true
@@ -340,6 +476,19 @@ var advertiseContractController = function () {
                 {
                     required: true
                 },
+                txtTitle:
+                {
+                    required: true
+                },
+                txtLink:
+                {
+                    required: true
+                },
+                selAdPosition:
+                {
+                    required: true
+                },
+              
 
 
             }

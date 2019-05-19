@@ -137,5 +137,22 @@ namespace BeYeuBookstore.Application.Implementation
             }
 
         }
+        public void UpdateUnqualifiedAdContent(AdvertisementContentViewModel adContentVm)
+        {
+            var temp = _advertisementContentRepository.FindById(adContentVm.KeyId);
+            if (temp != null)
+            {
+                temp.CensorStatus = CensorStatus.Uncensored;
+                temp.CensorFK = null;
+                temp.Note = adContentVm.Note;
+                temp.Title = adContentVm.Title;
+                temp.UrlToAdvertisement = adContentVm.UrlToAdvertisement;
+                if(adContentVm.ImageLink!=null)
+                { 
+                    temp.ImageLink = adContentVm.ImageLink;
+                }
+            }
+
+        }
     }
 }

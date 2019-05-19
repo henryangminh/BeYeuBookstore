@@ -24,6 +24,7 @@ namespace BeYeuBookstore.Application.Interfaces
         AdvertisementContentViewModel GetById(int id);
 
         void UpdateStatus(int id, int censorFK, int status, string note);
+        void UpdateUnqualifiedAdContent(AdvertisementContentViewModel adContentVm);
         bool Save();
     }
 }

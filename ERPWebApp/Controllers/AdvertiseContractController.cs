@@ -200,6 +200,15 @@ namespace BeYeuBookstore.Controllers
             return new OkObjectResult("true");
         }
 
+
+        [HttpPost]
+        public IActionResult UpdateUnqualifiedAdContent(AdvertisementContentViewModel adContentVm)
+        {
+            _advertisementContentService.UpdateUnqualifiedAdContent(adContentVm);
+            _advertisementContentService.Save();
+            return new OkObjectResult("true");
+        }
+
         [Authorize]
         [HttpPost]
         public IActionResult ImportFiles(IList<IFormFile> files)
