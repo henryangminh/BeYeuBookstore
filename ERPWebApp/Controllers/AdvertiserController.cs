@@ -88,6 +88,7 @@ namespace BeYeuBookstore.Controllers
                     advertiser.UserFK = user.Id;
                     advertiser.BrandName = advertiserViewModel.BrandName;
                     advertiser.UrlToBrand = advertiserViewModel.UrlToBrand;
+                    await _userManager.AddToRoleAsync(user, "Quảng cáo"); // add vao role
                     _context.Advertisers.Add(advertiser);
                     _context.SaveChanges();
 
@@ -137,8 +138,9 @@ namespace BeYeuBookstore.Controllers
             if (result.Succeeded)
             {
                 user.Status = Data.Enums.Status.Active;
-                await _userManager.AddToRoleAsync(user, "Quảng cáo"); // add vao role
                 await _userService.UpdateAsync(Mapper.Map<User, UserViewModel>(user));
+                await _userManager.AddToRoleAsync(user, "Quảng cáo"); // add vao role
+                _context.SaveChanges();
             }
             return new RedirectResult(Url.Action("Index", "BeyeuBookstore"));
         }

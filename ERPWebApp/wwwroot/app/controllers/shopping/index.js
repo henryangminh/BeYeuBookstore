@@ -14,6 +14,12 @@ $.urlParam = function (name) {
     return null;
 }
 
+function LoadSelected() {
+    document.getElementById('slcMerchant').selectedIndex = ($.urlParam('slcMerchant') != null) ? $.urlParam('slcMerchant') : 0;
+    document.getElementById('slcSortBy').selectedIndex = ($.urlParam('slcSortBy') != null) ? $.urlParam('slcSortBy') : 1;
+    document.getElementById('slcOrder').selectedIndex = ($.urlParam('slcOrder') != null) ? $.urlParam('slcOrder') : 1;
+}
+
 function loadData() {
 
     var template = $('#bookcase').html();
@@ -159,6 +165,7 @@ function LoadMerchant() {
             $.each(respond, function (i, item) {
                 $('#slcMerchant').append(new Option(item.MerchantCompanyName, item.KeyId, checkedId == item.KeyId));
             })
+            LoadSelected();
             general.stopLoad();
         },
         error: function () {
