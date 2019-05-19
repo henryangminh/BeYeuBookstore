@@ -34,6 +34,7 @@
 
         $('#btnCreate').on('click', function () {
             resetForm();
+            $('#DateInfo').addClass('hidden');
             $('#ShowBookImg').addClass('hidden');
             $('#ImportBookImg').removeClass('hidden');
             $.ajax({
@@ -77,6 +78,7 @@
 
         $('body').on('click', '.btn-edit', function (e) {
             e.preventDefault();
+            $('#DateInfo').removeClass('hidden');
             var that = $(this).data('id');
             loadDetail(that);
 

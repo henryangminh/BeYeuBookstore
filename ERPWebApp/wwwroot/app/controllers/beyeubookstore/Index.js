@@ -32,7 +32,7 @@
                 data: { id: BookId },
                 dataType: "json",
                 beforeSend: function () {
-                    general.startLoading();
+                    general.startLoad();
                 },
                 success: function (response) {
                     console.log('BookDetail', response);
@@ -49,22 +49,13 @@
                     $('#txtSize').text("Kích thước: " + size);
                     $('#txtAuthor').text("Tác giả: " + response.Author);
                     if (response.Quantity > 0) {
-                        $('#quantityStatus').html('<i class="fa fa-check"></i>Còn hàng');
+                        $('#quantityStatus').html('<i class="fa fa-check"></i>Số lượng: ' + response.Quantity);
                     }
                     else {
                         $('#quantityStatus').html('<i class="fa fa-times" color="red"></i>Hết hàng');
                         $('#divAddToCart').remove();
                     }
-                }
-            })
-        })
-
-        $('body').on('click', '#LogOut', function () {
-            $.ajax({
-                type: 'POST',
-                url: '/BeyeuBookstore/LogOutAsync',
-                success: function (respond) {
-                    window.location.href = respond;
+                    general.stopLoad();
                 }
             })
         })

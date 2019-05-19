@@ -1,6 +1,7 @@
 ﻿var shopController = function () {
     this.initialize = function () {
         loadData(true);
+        LoadMerchant();
         loadBookCategory();
         registerEvents();
     }
@@ -29,6 +30,9 @@ function loadData() {
             "BookCategoryId": $.urlParam('radBookCategory'),
             "From": ($.urlParam('txtFrom') != null) ? $.urlParam('txtFrom') : null,
             "To": ($.urlParam('txtTo') != null) ? $.urlParam('txtTo') : null,
+            "MerchantId": ($.urlParam('slcMerchant') != null) ? $.urlParam('slcMerchant') : null,
+            "OrderBy": ($.urlParam('slcSortBy') != null) ? $.urlParam('slcSortBy') : null,
+            "Order": ($.urlParam('slcOrder') != null) ? $.urlParam('slcOrder') : null,
             "page": Page,
             "pageSize": 10,
         },
@@ -132,8 +136,34 @@ function registerEvents() {
                     $('#quantityStatus').html('<i class="fa fa-times" color="red"></i>Hết hàng');
                     $('#divAddToCart').remove();
                 }
+                general.stopLoad();
             }
         })
+    })
+}
+
+function LoadMerchant() {
+    var checkedId = 0;
+
+    $.ajax({
+        type: 'GET',
+        url: '/Merchant/GetAll',
+        dataType: 'json',
+        beforeSend: function () {
+            general.startLoad();
+        },
+        success: function (respond) {
+            if ($.urlParam('slcMerchant') != null) {
+                checkedId = $.urlParam('slcMerchant');
+            }
+            $.each(respond, function (i, item) {
+                $('#slcMerchant').append(new Option(item.MerchantCompanyName, item.KeyId, checkedId == item.KeyId));
+            })
+            general.stopLoad();
+        },
+        error: function () {
+
+        }
     })
 }
 

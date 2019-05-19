@@ -11,6 +11,11 @@ function registerEvents() {
             qty = 1;
             $(this).val(qty);
         }
+
+        if (qty > $(this).attr("max")) {
+            qty = $(this).attr("max");
+            $(this).val(qty);
+        }
         
         var Id = $(this).parent().siblings('input').val();
         $.ajax({

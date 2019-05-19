@@ -142,5 +142,12 @@ namespace BeYeuBookstore.Application.Implementation
                 temp.Note = DeliveryViewModel.Note;
             }
         }
+        
+        public DeliveryViewModel GetByDeliveryByInvoiceAndMerchant(int InvoiceId, int MerchantId)
+        {
+            var query = _deliveryRepository.FindAll();
+            var data = query.Where(x => x.InvoiceFK == InvoiceId && x.MerchantFK == MerchantId).FirstOrDefault();
+            return Mapper.Map<Delivery, DeliveryViewModel>(data);
+        }
     }
 }

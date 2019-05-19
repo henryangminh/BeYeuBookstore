@@ -43,10 +43,29 @@ namespace BeYeuBookstore.Controllers
         /// <returns></returns>
         public IActionResult GetCart()
         {
+            ReloadCart();
             var session = HttpContext.Session.Get<List<CartViewModel>>("CartSession");
             if (session == null)
             {
                 session = new List<CartViewModel>();
+            }
+            return new OkObjectResult(session);
+        }
+
+        public IActionResult ReloadCart()
+        {
+            var session = HttpContext.Session.Get<List<CartViewModel>>("CartSession");
+            if (session == null)
+            {
+                session = new List<CartViewModel>();
+            }
+            else
+            {
+                foreach (var item in session)
+                {
+                    item.Book = _bookService.GetById(item.Book.KeyId);
+                }
+                HttpContext.Session.Set("CartSession", session);
             }
             return new OkObjectResult(session);
         }

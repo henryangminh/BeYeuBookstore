@@ -65,7 +65,8 @@ namespace BeYeuBookstore.Application.Implementation
 
         public List<BookViewModel> GetAll(int quantity)
         {
-            var query = _bookRepository.FindAll().OrderByDescending(x => x.KeyId).Take(quantity);
+            var query = _bookRepository.FindAll();
+            query = query.Where(x => x.Status == Status.Active && x.Quantity > 0).OrderByDescending(x => x.KeyId).Take(quantity);
             var data = new List<BookViewModel>();
             foreach (var item in query)
             {
@@ -136,9 +137,10 @@ namespace BeYeuBookstore.Application.Implementation
             return paginationSet;
         }
 
-        public PagedResult<BookViewModel> GetAllPaging(string txtSearch, int BookCategoryId, int? From, int? To, int page, int pageSize)
+        public PagedResult<BookViewModel> GetAllPaging(string txtSearch, int BookCategoryId, int? From, int? To, int? MerchantId, int? OrderBy, int? Order, int page, int pageSize)
         {
             var query = _bookRepository.FindAll(x => x.BookCategoryFKNavigation, x => x.MerchantFKNavigation);
+            query = query.Where(x => x.Status == Data.Enums.Status.Active && x.Quantity > 0);
             query = query.OrderBy(x => x.KeyId);
 
             if (txtSearch != "" && txtSearch != null)
@@ -158,6 +160,40 @@ namespace BeYeuBookstore.Application.Implementation
             if (To != null)
             {
                 query = query.Where(x => x.UnitPrice <= To);
+            }
+
+            if (MerchantId != null)
+            {
+                query = query.Where(x => x.MerchantFK == MerchantId);
+            }
+
+            if (OrderBy != null && Order != null)
+            {
+                switch (OrderBy)
+                {
+                    case 1:
+                        if (Order == 1)
+                        {
+                            query = query.OrderBy(x => x.DateCreated);
+                        }
+                        else
+                        {
+                            query = query.OrderByDescending(x => x.DateCreated);
+                        }
+                        break;
+                    case 2:
+                        if (Order == 1)
+                        {
+                            query = query.OrderBy(x => x.UnitPrice);
+                        }
+                        else
+                        {
+                            query = query.OrderByDescending(x => x.UnitPrice);
+                        }
+                        break;
+                    default:
+                        break;
+                }
             }
 
             int totalRow = query.Count();
@@ -208,6 +244,7 @@ namespace BeYeuBookstore.Application.Implementation
                 temp.Img = BookViewModel.Img;
                 temp.Rating = BookViewModel.Rating;
                 temp.RatingNumber = BookViewModel.RatingNumber;
+                temp.Quantity = BookViewModel.Quantity;
             }
         }
 
