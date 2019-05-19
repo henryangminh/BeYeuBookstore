@@ -13,13 +13,13 @@ $.urlParam = function (name) {
         return results[1] || '';
     return null;
 }
-
-function LoadSelected() {
-    document.getElementById('slcMerchant').selectedIndex = ($.urlParam('slcMerchant') != null) ? $.urlParam('slcMerchant') : 0;
-    document.getElementById('slcSortBy').selectedIndex = ($.urlParam('slcSortBy') != null) ? $.urlParam('slcSortBy') : 1;
-    document.getElementById('slcOrder').selectedIndex = ($.urlParam('slcOrder') != null) ? $.urlParam('slcOrder') : 1;
-}
-
+/*
+$(window).on('load', function (){
+    document.getElementByName('slcMerchant').selectedIndex = ($.urlParam('slcMerchant') != null) ? $.urlParam('slcMerchant') : 0;
+    document.getElementByName('slcSortBy').selectedIndex = ($.urlParam('slcSortBy') != null) ? $.urlParam('slcSortBy') : 1;
+    document.getElementByName('slcOrder').selectedIndex = ($.urlParam('slcOrder') != null) ? $.urlParam('slcOrder') : 1;
+})
+*/
 function loadData() {
 
     var template = $('#bookcase').html();
@@ -73,6 +73,11 @@ function loadData() {
                         active: (Page == i) ? true : false,
                     })
                 }
+
+                document.getElementById('slcMerchant').selectedIndex = ($.urlParam('slcMerchant') != null) ? $.urlParam('slcMerchant') : 0;
+                document.getElementById('slcSortBy').selectedIndex = ($.urlParam('slcSortBy') != null) ? $.urlParam('slcSortBy') - 1 : 0;
+                document.getElementById('slcOrder').selectedIndex = ($.urlParam('slcOrder') != null) ? $.urlParam('slcOrder') - 1 : 0;
+
                 $('#pageNav').html(renderPaging);
             }
             general.stopLoad();
@@ -135,8 +140,9 @@ function registerEvents() {
                 $('#imgDetail').attr('src', response.Img)
                 $('#txtSize').text("Kích thước: " + size);
                 $('#txtAuthor').text("Tác giả: " + response.Author);
+                $('#txtMerchant').text("Nhà phát hành: " + response.MerchantFKNavigation.MerchantCompanyName);
                 if (response.Quantity > 0) {
-                    $('#quantityStatus').html('<i class="fa fa-check"></i>Còn hàng');
+                    $('#quantityStatus').html('<i class="fa fa-check"></i>Số lượng: ' + response.Quantity);
                 }
                 else {
                     $('#quantityStatus').html('<i class="fa fa-times" color="red"></i>Hết hàng');
@@ -149,8 +155,6 @@ function registerEvents() {
 }
 
 function LoadMerchant() {
-    var checkedId = 0;
-
     $.ajax({
         type: 'GET',
         url: '/Merchant/GetAll',
@@ -159,13 +163,10 @@ function LoadMerchant() {
             general.startLoad();
         },
         success: function (respond) {
-            if ($.urlParam('slcMerchant') != null) {
-                checkedId = $.urlParam('slcMerchant');
-            }
             $.each(respond, function (i, item) {
-                $('#slcMerchant').append(new Option(item.MerchantCompanyName, item.KeyId, checkedId == item.KeyId));
+                $('#slcMerchant').append(new Option(item.MerchantCompanyName, item.KeyId));
             })
-            LoadSelected();
+            //LoadSelected();
             general.stopLoad();
         },
         error: function () {

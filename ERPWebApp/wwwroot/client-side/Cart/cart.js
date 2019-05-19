@@ -103,12 +103,13 @@ function loadCart() {
                             LinkToProduct: '#',
                             LinkImage: item.Book.Img, //'/images/img/product/10.jpg', //để tạm thời
                             BookName: item.Book.BookTitle,
-                            Quantity: (item.Quantity > item.Book.Quantity || item.Book.Quantity == 0) ? 0 : item.Quantity,
+                            Quantity: (item.Book.Quantity == 0) ? 0 : (item.Quantity > item.Book.Quantity) ? item.Book.Quantity : item.Quantity,
                             MaxQuantity: item.Book.Quantity,
                             UnitPrice: general.toMoney(item.UnitPrice),
                             SubTotal: (item.Quantity > item.Book.Quantity || item.Book.Quantity == 0) ? 0 : general.toMoney(subtotal),
                             disabled: (item.Quantity > item.Book.Quantity || item.Book.Quantity == 0) ? true : false,
-                            Message: (item.Quantity > item.Book.Quantity || item.Book.Quantity == 0) ? "Món hàng mà bạn đặt hiện đã hết hàng" : "",
+                            Message: (item.Book.Quantity == 0) ? "Món hàng mà bạn đặt hiện đã hết hàng" : "",
+                            BookQuantity: item.Book.Quantity,
                         })
                     }
                 })

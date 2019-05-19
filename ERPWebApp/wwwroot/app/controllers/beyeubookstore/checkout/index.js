@@ -55,6 +55,7 @@ function registerEvents() {
                                     break;
                                 case "quantity":
                                     general.notify("Đặt hàng thất bại, vì có vật phẩm quá với số lượng tồn", 'error');
+                                    window.location.href = "/Cart";
                                     break;
                             }
                             general.stopLoad();
