@@ -78,7 +78,12 @@ else
     {
         var Total = 0;
         var Cart = HttpContextAccessor.HttpContext.Session.Get<List<CartViewModel>>("CartSession");
-        Cart = Cart.Where(x => x.Book.Quantity > 0 && x.Quantity <= x.Book.Quantity).ToList();
+        @*
+        if(Cart != null)
+        {
+            Cart = Cart.Where(x => x.Book.Quantity > 0 && x.Quantity <= x.Book.Quantity).ToList();
+        }
+            *@
         @if (Cart != null && Cart.Count > 0)
         {
             var NumberOfMerchant = Cart.GroupBy(x => x.Book.MerchantFK).ToList().Count();

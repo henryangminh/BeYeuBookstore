@@ -48,6 +48,7 @@
                     $('#imgDetail').attr('src', response.Img)
                     $('#txtSize').text("Kích thước: " + size);
                     $('#txtAuthor').text("Tác giả: " + response.Author);
+                    $('#txtMerchant').text("Nhà phát hành: " + response.MerchantFKNavigation.MerchantCompanyName);
                     if (response.Quantity > 0) {
                         $('#quantityStatus').html('<i class="fa fa-check"></i>Số lượng: ' + response.Quantity);
                     }

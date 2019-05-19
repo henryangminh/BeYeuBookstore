@@ -64,6 +64,10 @@ namespace BeYeuBookstore.Controllers
                 foreach (var item in session)
                 {
                     item.Book = _bookService.GetById(item.Book.KeyId);
+                    if (item.Book.Quantity == 0)
+                        item.Quantity = 0;
+                    if (item.Quantity > item.Book.Quantity)
+                        item.Quantity = item.Book.Quantity;
                 }
                 HttpContext.Session.Set("CartSession", session);
             }
