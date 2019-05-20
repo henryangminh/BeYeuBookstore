@@ -7,7 +7,6 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace BeYeuBookstore.Controllers
 {
-    [Authorize]
     public class BaseController : Controller
     {
     }

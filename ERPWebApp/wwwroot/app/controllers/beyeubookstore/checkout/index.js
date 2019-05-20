@@ -5,7 +5,13 @@
 }
 
 function registerEvents() {
+    $('#btnCheckOutHolder').on('click', function () {
+        if (document.getElementById('btnCheckOut').disabled) {
+            general.notify("Bạn phải chọn phương thức thanh toán!", "error");
+        }
+    });
     $('body').on('click', '#btnCheckOut', function () {
+      
         if (Validated()) {
             var total = 0;
             $.ajax({

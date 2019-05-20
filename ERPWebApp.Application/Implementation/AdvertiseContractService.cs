@@ -209,9 +209,9 @@ namespace BeYeuBookstore.Application.Implementation
                         decimal totalPeriod = 0;
                         foreach (var _i in query)
                         {
-                            if (_i.Status == ContractStatus.Requesting || _i.Status == ContractStatus.Unqualified)
+                            if (_i.Status == ContractStatus.DepositePaid || (_i.Status == ContractStatus.Unqualified && _i.AdvertisementContentFKNavigation.CensorStatus == CensorStatus.ContentCensored))
                             {
-                                totalPeriod = totalPeriod + _i.AdvertisementContentFKNavigation.AdvertisementPositionFKNavigation.AdvertisePrice;
+                                totalPeriod = totalPeriod + _i.Deposite;
                             }
                             if (_i.Status == ContractStatus.AccountingCensored || _i.Status == ContractStatus.Success)
                             {

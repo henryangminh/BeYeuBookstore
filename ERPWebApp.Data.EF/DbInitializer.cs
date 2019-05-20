@@ -1142,21 +1142,21 @@ namespace BeYeuBookstore.Data.EF
             {
                 _context.AdvertiseContracts.AddRange(new List<AdvertiseContract>()
             {
-                new AdvertiseContract(){AdvertisementContentFK=3, DateStart=DateTime.Parse("2019-05-11"), DateFinish=DateTime.Parse("2019-05-13 23:59:59"), ContractValue=27000000, Status=ContractStatus.AccountingCensored },
-                new AdvertiseContract(){AdvertisementContentFK=1, DateStart=DateTime.Parse("2019-05-01"), DateFinish=DateTime.Parse("2019-05-05 23:59:59"), ContractValue=50000000, Status=ContractStatus.Success },
-                new AdvertiseContract(){AdvertisementContentFK=2, DateStart=DateTime.Parse("2019-05-01"), DateFinish=DateTime.Parse("2019-05-05 23:59:59"), ContractValue=45000000, Status=ContractStatus.Unqualified },
-                new AdvertiseContract(){AdvertisementContentFK=8, DateStart=DateTime.Parse("2019-05-12"), DateFinish=DateTime.Parse("2019-05-16 23:59:59"), ContractValue=25000000, Status=ContractStatus.AccountingCensored },
-                new AdvertiseContract(){AdvertisementContentFK=5, DateStart=DateTime.Parse("2019-05-04"), DateFinish=DateTime.Parse("2019-05-08 23:59:59"), ContractValue=250000000, Status=ContractStatus.Success },
-                new AdvertiseContract(){AdvertisementContentFK=7, DateStart=DateTime.Parse("2019-05-08"), DateFinish=DateTime.Parse("2019-05-10 23:59:59"), ContractValue=15000000, Status=ContractStatus.Unqualified },
-                new AdvertiseContract(){AdvertisementContentFK=4, DateStart=DateTime.Parse("2019-05-08"), DateFinish=DateTime.Parse("2019-05-10 23:59:59"), ContractValue=240000000, Status=ContractStatus.Success },
-                new AdvertiseContract(){AdvertisementContentFK=6, DateStart=DateTime.Parse("2019-05-13"), DateFinish=DateTime.Parse("2019-05-17 23:59:59"), ContractValue=240000000, Status=ContractStatus.AccountingCensored },
-                new AdvertiseContract(){AdvertisementContentFK=13, DateStart=DateTime.Parse("2019-05-14"), DateFinish=DateTime.Parse("2019-05-16 23:59:59"), ContractValue=27000000, Status=ContractStatus.AccountingCensored },
-                new AdvertiseContract(){AdvertisementContentFK=9, DateStart=DateTime.Parse("2019-05-05"), DateFinish=DateTime.Parse("2019-05-08 23:59:59"), ContractValue=27000000, Status=ContractStatus.Unqualified },
-                new AdvertiseContract(){AdvertisementContentFK=11, DateStart=DateTime.Parse("2019-05-02"), DateFinish=DateTime.Parse("2019-05-07 23:59:59"), ContractValue=60000000, Status=ContractStatus.AccountingCensored },
-                new AdvertiseContract(){AdvertisementContentFK=10, DateStart=DateTime.Parse("2019-05-12"), DateFinish=DateTime.Parse("2019-05-15 23:59:59"), ContractValue=320000000, Status=ContractStatus.AccountingCensored },
-                new AdvertiseContract(){AdvertisementContentFK=12, DateStart=DateTime.Parse("2019-05-13"), DateFinish=DateTime.Parse("2019-05-16 23:59:59"), ContractValue=40000000, Status=ContractStatus.Unqualified },
-                new AdvertiseContract(){AdvertisementContentFK=15, DateStart=DateTime.Parse("2019-05-07"), DateFinish=DateTime.Parse("2019-05-10 23:59:59"), ContractValue=40000000, Status=ContractStatus.Unqualified },
-                new AdvertiseContract(){AdvertisementContentFK=14, DateStart=DateTime.Parse("2019-05-13"), DateFinish=DateTime.Parse("2019-05-17 23:59:59"), ContractValue=45000000, Status=ContractStatus.AccountingCensored },
+                new AdvertiseContract(){AdvertisementContentFK=3, DateStart=DateTime.Parse("2019-05-11"), DateFinish=DateTime.Parse("2019-05-13 23:59:59"), ContractValue=27000000,  Deposite=13500000, Status=ContractStatus.AccountingCensored },
+                new AdvertiseContract(){AdvertisementContentFK=1, DateStart=DateTime.Parse("2019-05-01"), DateFinish=DateTime.Parse("2019-05-05 23:59:59"), ContractValue=50000000,  Deposite=25000000, Status=ContractStatus.Success },
+                new AdvertiseContract(){AdvertisementContentFK=2, DateStart=DateTime.Parse("2019-05-01"), DateFinish=DateTime.Parse("2019-05-05 23:59:59"), ContractValue=45000000,  Deposite=22500000, Status=ContractStatus.Unqualified },
+                new AdvertiseContract(){AdvertisementContentFK=8, DateStart=DateTime.Parse("2019-05-12"), DateFinish=DateTime.Parse("2019-05-16 23:59:59"), ContractValue=25000000,  Deposite=12500000, Status=ContractStatus.AccountingCensored },
+                new AdvertiseContract(){AdvertisementContentFK=5, DateStart=DateTime.Parse("2019-05-04"), DateFinish=DateTime.Parse("2019-05-08 23:59:59"), ContractValue=250000000, Deposite=125000000,  Status=ContractStatus.Success },
+                new AdvertiseContract(){AdvertisementContentFK=7, DateStart=DateTime.Parse("2019-05-08"), DateFinish=DateTime.Parse("2019-05-10 23:59:59"), ContractValue=15000000,  Deposite=7500000, Status=ContractStatus.Unqualified },
+                new AdvertiseContract(){AdvertisementContentFK=4, DateStart=DateTime.Parse("2019-05-08"), DateFinish=DateTime.Parse("2019-05-10 23:59:59"), ContractValue=240000000, Deposite=120000000, Status=ContractStatus.Success },
+                new AdvertiseContract(){AdvertisementContentFK=6, DateStart=DateTime.Parse("2019-05-13"), DateFinish=DateTime.Parse("2019-05-17 23:59:59"), ContractValue=240000000, Deposite=120000000,  Status=ContractStatus.AccountingCensored },
+                new AdvertiseContract(){AdvertisementContentFK=13, DateStart=DateTime.Parse("2019-05-14"), DateFinish=DateTime.Parse("2019-05-16 23:59:59"), ContractValue=27000000, Deposite=13500000, Status=ContractStatus.AccountingCensored },
+                new AdvertiseContract(){AdvertisementContentFK=9, DateStart=DateTime.Parse("2019-05-05"), DateFinish=DateTime.Parse("2019-05-08 23:59:59"), ContractValue=27000000,  Deposite=13500000, Status=ContractStatus.Unqualified },
+                new AdvertiseContract(){AdvertisementContentFK=11, DateStart=DateTime.Parse("2019-05-02"), DateFinish=DateTime.Parse("2019-05-07 23:59:59"), ContractValue=60000000, Deposite=30000000,  Status=ContractStatus.AccountingCensored },
+                new AdvertiseContract(){AdvertisementContentFK=10, DateStart=DateTime.Parse("2019-05-12"), DateFinish=DateTime.Parse("2019-05-15 23:59:59"), ContractValue=320000000,Deposite=160000000, Status=ContractStatus.AccountingCensored },
+                new AdvertiseContract(){AdvertisementContentFK=12, DateStart=DateTime.Parse("2019-05-13"), DateFinish=DateTime.Parse("2019-05-16 23:59:59"), ContractValue=40000000, Deposite=20000000,Status=ContractStatus.Unqualified },
+                new AdvertiseContract(){AdvertisementContentFK=15, DateStart=DateTime.Parse("2019-05-07"), DateFinish=DateTime.Parse("2019-05-10 23:59:59"), ContractValue=40000000, Deposite=20000000,Status=ContractStatus.Unqualified },
+                new AdvertiseContract(){AdvertisementContentFK=14, DateStart=DateTime.Parse("2019-05-13"), DateFinish=DateTime.Parse("2019-05-17 23:59:59"), ContractValue=45000000, Deposite=22500000,Status=ContractStatus.AccountingCensored },
 
 
 

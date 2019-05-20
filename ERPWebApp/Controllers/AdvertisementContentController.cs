@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using BeYeuBookstore.Application.Interfaces;
 using BeYeuBookstore.Application.ViewModels;
+using BeYeuBookstore.Authorization;
 using BeYeuBookstore.Infrastructure.Interfaces;
 using BeYeuBookstore.Utilities.Constants;
 using Microsoft.AspNetCore.Authorization;
@@ -25,9 +26,11 @@ namespace BeYeuBookstore.Controllers
         IWebMasterService _webMasterService;
         private readonly IHostingEnvironment _hostingEnvironment;
         IUnitOfWork _unitOfWork;
-        public AdvertisementContentController(IWebMasterService webMasterService,IHostingEnvironment hostingEnvironment,IAdvertisementPositionService advertisementPositionService,IAdvertiserService advertiserService,IAdvertisementContentService advertisementContentService, IUnitOfWork unitOfWork)
+        IAuthorizationService _authorizationService;
+        public AdvertisementContentController(IAuthorizationService authorizationService, IWebMasterService webMasterService,IHostingEnvironment hostingEnvironment,IAdvertisementPositionService advertisementPositionService,IAdvertiserService advertiserService,IAdvertisementContentService advertisementContentService, IUnitOfWork unitOfWork)
         {
-            _advertisementContentService = advertisementContentService;
+            _authorizationService = authorizationService;
+               _advertisementContentService = advertisementContentService;
             _advertisementPositionService = advertisementPositionService;
             _advertiserService = advertiserService;
             _hostingEnvironment = hostingEnvironment;
@@ -36,6 +39,11 @@ namespace BeYeuBookstore.Controllers
         }
         public IActionResult Index()
         {
+            var temp = Task.Run(() => _authorizationService.AuthorizeAsync(User, Const_FunctionId.AdvertisementContent, Operations.Read));
+            temp.Wait();
+            //check truy cập
+            if (temp.Result.Succeeded == false)
+                return new RedirectResult("/Home/Index");
             return View();
         }
 

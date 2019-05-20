@@ -140,7 +140,7 @@ namespace BeYeuBookstore.Controllers
                         InvoiceFK = invoice,
                         DeliveryStatus = Const_DeliStatus.UnConfirmed,
                         OrderPrice = x.Sum(y => y.SubTotal),
-                        ShipPrice = 0,
+                        ShipPrice = 25000,
                         MerchantFK = x.Key,
                     }).ToList();
 

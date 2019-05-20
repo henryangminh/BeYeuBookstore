@@ -170,10 +170,17 @@ else
                                                         <strong><span class="amount">@textTotalMoney</span></strong>
                                                     </td>
                                                 </tr>
+                                                <tr>
+                                                    <th>Phương thức thanh toán</th>
+                                                    <td>
+                                                        <input class="pull-left" type="checkbox" checked disabled/> <span class="pull-left">Tiền mặt khi nhận hàng</span> <br>
+                                                        <input class="pull-left" type="checkbox" disabled/> <span class="disabled">Thanh toán bằng thẻ (Chức năng chưa hoàn thiện)</span> <br>
+                                                    </td>
+                                                </tr>
                                             </tfoot>
                                         </table>
                                     </div>
-                                    <div class="order-button-payment">
+                                    <div class="order-button-payment" id="btnCheckOutHolder">
                                         <input id="btnCheckOut" type="submit" value="Đặt hàng">
                                     </div>
                                 </div>
