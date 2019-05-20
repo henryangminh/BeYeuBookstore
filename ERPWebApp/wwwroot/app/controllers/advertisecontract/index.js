@@ -114,7 +114,7 @@ var advertiseContractController = function () {
 
         $('#btnCreate').on('click', function () {
             resetForm();
-
+            $('#newImg').addClass('hidden');
             $('#btnSaveAdContent').addClass('hidden');
             $('#btnSave').removeClass('hidden');
             $('#selAdPosition').removeAttr('disabled', 'disabled');
@@ -518,7 +518,7 @@ var advertiseContractController = function () {
                     adContract.Note = $('#txtNote').val();
                     adContract.ContractStatus = general.contractStatus.Requesting;
 
-                    if (moment(adContract.DateStart, "YYYY-MM-DD").diff(moment()) < 3) {
+                    if (countDate(moment(adContract.DateStart).format("YYYY-MM-DD"), moment().format("YYYY-MM-DD")) > -1) {
                         general.notify('Ngày bắt đầu phải lớn hơn ngày hôm nay ít nhất hai ngày !', 'error');
                         return false;
                     }
@@ -527,6 +527,7 @@ var advertiseContractController = function () {
                         general.notify('Ngày kết thúc phải lớn hơn hoặc bằng ngày bắt đầu !', 'error');
                         return false;
                     }
+                    
                     var flag;
                     var _curday = moment(adContract.DateStart, "YYYY-MM-DD").format("DD/MM/YYYY");
                     for (var i = 0; i < parseInt(noDate); i++) {
@@ -677,7 +678,7 @@ var advertiseContractController = function () {
                 $('#txtFromdate').val(moment(data.DateStart).format("DD/MM/YYYY"));
                 $('#txtTodate').val(moment(data.DateFinish).format("DD/MM/YYYY"));
                 var _dateFinish = data.DateFinish.split("T");
-                $('#txtNodate').val(countDate(data.DateStart, _dateFinish[0]));
+                $('#txtNodate').val(countDate/(data.DateStart, _dateFinish[0]));
                 $('#txtTotalPrice').val(general.toMoney(data.ContractValue));
                 $('#txtMustPay').val(general.toMoney(data.ContractValue-data.AdvertisementContentFKNavigation.AdvertisementPositionFKNavigation.AdvertisePrice));
                 $('#txtNote').val(data.Note);
