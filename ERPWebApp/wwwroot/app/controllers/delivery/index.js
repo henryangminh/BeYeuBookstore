@@ -54,37 +54,6 @@
 
         });
 
-
-        //Delete
-        $('body').on('click', '.btn-delete', function (e) {
-            if (confirm("Bạn chắc chắn muốn xóa?")) {
-                var that = $(this).data('id');
-                $.ajax({
-                    type: 'POST',
-                    url: '/Delivery/Delete',
-                    data: { id: that },
-                    dataType: 'json',
-                    beforeSend: function () {
-                        general.startLoading();
-                    },
-                    success: function (response) {
-
-                        general.notify('Xóa thành công!', 'success');
-                        loadData();
-                        general.stopLoading();
-
-                    },
-                    error: function (status) {
-                        general.notify('Có lỗi trong khi xóa !', 'error');
-                        general.stopLoading();
-                    },
-                });
-            }
-            else {
-                alert("Bạn vừa bấm hủy");
-            }
-
-        });
         //Validate
         $('#frmMaintainance').validate({
             errorClass: 'red',
@@ -123,7 +92,7 @@
                     keyId = parseInt($('#txtId').val());
                 }
                 var status = $('#selDeliStatus option:selected').val();
-                var orderPrice = parseInt($('#txtOrderPrice').val());
+                var orderPrice = general.toFloat($('#txtOrderPrice').val());
                 var shipPrice = $('#txtShip').val();
                 var note = $('#txtNote').val();
                 $.ajax({
