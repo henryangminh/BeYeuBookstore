@@ -56,7 +56,7 @@ namespace BeYeuBookstore.Application.Implementation
 
         public List<AdvertiseContractViewModel> GetAllRequestingNPaidContract()
         {
-            var query = _advertiseContractRepository.FindAll(x=>(x.Status==ContractStatus.Requesting|| x.Status == ContractStatus.AccountingCensored));
+            var query = _advertiseContractRepository.FindAll(x=>(x.Status==ContractStatus.Requesting || x.Status == ContractStatus.AccountingCensored||x.Status == ContractStatus.DepositePaid),x=>x.AdvertisementContentFKNavigation);
             var data = new List<AdvertiseContractViewModel>();
             foreach (var item in query)
             {

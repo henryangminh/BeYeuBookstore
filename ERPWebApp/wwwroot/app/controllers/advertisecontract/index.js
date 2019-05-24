@@ -231,7 +231,7 @@ var advertiseContractController = function () {
                     urlToBrand = 'http://' + $('#txtLink').val();
                 }
                 var description = $('#txtDescription').val();
-                var noteAdContract = $('#txtNote').val();
+                var noteAdContract = $('#txtAdContentNote').val();
 
                 var data = new FormData();
 
@@ -848,54 +848,33 @@ function loadData(isPageChanged) {
                 var _contract = general.toMoney(item.ContractValue);
                 var _dateCreated = moment(item.DateCreated).format("DD/MM/YYYY");
                 var _prop = '';
-                $.ajax({
-                    type: "GET",
-                    url: "/AdvertiseContract/GetAdContentById",
-                    data: { id: item.AdvertisementContentFK },
-                    dataType: "json",
-                    beforeSend: function () {
-                        general.startLoad();
-                    },
+                if (item.AdvertisementContentFKNavigation.CensorStatus == general.censorStatus.Unqualified && item.Status == general.contractStatus.DepositePaid) {
 
-                    success: function (_response) {
-                        if (_response.CensorStatus == general.censorStatus.Unqualified && item.Status == general.contractStatus.DepositePaid) {
+                }
+                else {
+                    _prop = 'disabled';
+                }
+                render += Mustache.render(template, {
 
-                        }
-                        else {
-                            _prop = 'disabled';
-                        }
-
-                        render += Mustache.render(template, {
-
-                            KeyId: item.KeyId,
-                            BrandName: item.AdvertisementContentFKNavigation.AdvertiserFKNavigation.BrandName,
-                            AdTitle: item.AdvertisementContentFKNavigation.Title,
-                            Fromdate: _fromdate,
-                            Todate: _todate,
-                            ContractValue: _contract,
-                            Status: '<span class="badge bg-' + _color + '">' + _statusName + '</span>',
-                            DateCreated: _dateCreated,
-                            Prop: _prop,
-                        });
-
-                        $('#lblTotalRecords').text(response.RowCount);
-                        $('#tbl-content').html(render);
-                        general.stopLoad();
-                    },
-                    error: function (_response) {
-                        general.stopLoad();
-
-                        general.notify('Không thể load dữ liệu', 'error');
-                    },
+                    KeyId: item.KeyId,
+                    BrandName: item.AdvertisementContentFKNavigation.AdvertiserFKNavigation.BrandName,
+                    AdTitle: item.AdvertisementContentFKNavigation.Title,
+                    Fromdate: _fromdate,
+                    Todate: _todate,
+                    ContractValue: _contract,
+                    Status: '<span class="badge bg-' + _color + '">' + _statusName + '</span>',
+                    DateCreated: _dateCreated,
+                    Prop: _prop,
                 });
-
             });
-            general.stopLoad();
-            wrapPaging(response.RowCount, function () {
-                loadData();
-            }, isPageChanged);
-
+                $('#lblTotalRecords').text(response.RowCount);
+                $('#tbl-content').html(render);
+                general.stopLoad();
+                wrapPaging(response.RowCount, function () {
+                    loadData();
+                }, isPageChanged);
         },
+    
         error: function (XMLHttpRequest, textStatus, errorThrown) {
             console.log(status);
             general.notify('Không thể load dữ liệu', 'error');
@@ -1080,7 +1059,37 @@ function autoUpdateContractStatus() {
                         },
                     });
                 }
-                if ((moment(item.DateFinish) < moment()) && (item.Status == general.contractStatus.Requesting)) {
+                if ((moment(item.DateFinish) < moment()) && (item.Status == general.contractStatus.DepositePaid) && (item.AdvertisementContentFKNavigation.CensorStatus == general.censorStatus.Unqualified)) {
+                    $.ajax({
+                        type: 'POST',
+                        url: '/AdvertiseContract/UpdateStatus',
+                        data: {
+                            id: item.KeyId,
+                            status: general.contractStatus.Unqualified,
+                            note: 'Tự cập nhật trạng thái "không thành công" do không chỉnh sửa nội dung cho phù hợp!',
+
+                        },
+                        dataType: "json",
+                        beforeSend: function () {
+                            general.startLoad();
+                        },
+
+                        success: function (response) {
+
+                            $('#modal-add-edit').modal('hide');
+                            general.notify('Tự động cập nhật hợp đồng quảng cáo mã: ' + item.KeyId + 'thành công!', 'success');
+                      
+                            loadData();
+                            general.stopLoad();
+                        },
+                        error: function (err) {
+                            general.notify('Có lỗi trong khi tự động cập nhật trạng thái hợp đồng ' + item.KeyId + '!', 'error');
+                            general.stopLoad();
+
+                        },
+                    });
+                }
+                if ((moment(item.DateFinish) < moment()) && (item.Status == general.contractStatus.DepositePaid) && (item.AdvertisementContentFKNavigation.CensorStatus == general.censorStatus.ContentCensored)) {
                     $.ajax({
                         type: 'POST',
                         url: '/AdvertiseContract/UpdateStatus',
@@ -1088,6 +1097,36 @@ function autoUpdateContractStatus() {
                             id: item.KeyId,
                             status: general.contractStatus.Unqualified,
                             note: 'Hệ thống tự cập nhật trạng thái không thành công do không thanh toán đúng hạn!',
+
+                        },
+                        dataType: "json",
+                        beforeSend: function () {
+                            general.startLoad();
+                        },
+
+                        success: function (response) {
+
+                            $('#modal-add-edit').modal('hide');
+                            general.notify('Tự động cập nhật hợp đồng quảng cáo mã: ' + item.KeyId + 'thành công!', 'success');
+                      
+                            loadData();
+                            general.stopLoad();
+                        },
+                        error: function (err) {
+                            general.notify('Có lỗi trong khi tự động cập nhật trạng thái hợp đồng ' + item.KeyId + '!', 'error');
+                            general.stopLoad();
+
+                        },
+                    });
+                }
+                if ((moment(item.DateFinish) < moment()) && (item.Status == general.contractStatus.Requesting)) {
+                    $.ajax({
+                        type: 'POST',
+                        url: '/AdvertiseContract/UpdateStatus',
+                        data: {
+                            id: item.KeyId,
+                            status: general.contractStatus.Unqualified,
+                            note: 'Hệ thống tự cập nhật trạng thái không thành công do không thanh toán tiền cọc!',
 
                         },
                         dataType: "json",
