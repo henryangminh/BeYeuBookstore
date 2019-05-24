@@ -517,6 +517,7 @@ var advertiseContractController = function () {
                     adContract.ContractValue = general.toFloat($('#txtTotalPrice').val());
                     adContract.Note = $('#txtNote').val();
                     adContract.ContractStatus = general.contractStatus.Requesting;
+                    adContract.Deposite = general.toFloat($('#txtMustPay').val());
 
                     if (countDate(moment(adContract.DateStart).format("YYYY-MM-DD"), moment().format("YYYY-MM-DD")) > -1) {
                         general.notify('Ngày bắt đầu phải lớn hơn ngày hôm nay ít nhất hai ngày !', 'error');
@@ -678,9 +679,9 @@ var advertiseContractController = function () {
                 $('#txtFromdate').val(moment(data.DateStart).format("DD/MM/YYYY"));
                 $('#txtTodate').val(moment(data.DateFinish).format("DD/MM/YYYY"));
                 var _dateFinish = data.DateFinish.split("T");
-                $('#txtNodate').val(countDate/(data.DateStart, _dateFinish[0]));
+                $('#txtNodate').val(countDate(moment(data.DateStart).format("YYYY-MM-DD"), moment(data.DateFinish).format("YYYY-MM-DD")));
                 $('#txtTotalPrice').val(general.toMoney(data.ContractValue));
-                $('#txtMustPay').val(general.toMoney(data.ContractValue-data.AdvertisementContentFKNavigation.AdvertisementPositionFKNavigation.AdvertisePrice));
+                $('#txtMustPay').val(general.toMoney(data.Deposite));
                 $('#txtNote').val(data.Note);
                
                 
